@@ -1,5 +1,5 @@
 # SiberiaDanteLib
-* 1
-* 2
+* SiberiaDante：library
+* SiberiaDanteSample：sample
 * **
 * 
