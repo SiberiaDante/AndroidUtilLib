@@ -49,3 +49,6 @@
             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
         }
     }
+
+集成友盟SDK：compile 'com.umeng.analytics:analytics:latest.integration'
+

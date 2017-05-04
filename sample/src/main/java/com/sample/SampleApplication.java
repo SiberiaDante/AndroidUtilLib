@@ -1,6 +1,7 @@
 package com.sample;
 
-import com.siberiadante.Application;
+import android.app.Application;
+
 import com.siberiadante.util.Toast;
 
 /**
@@ -11,5 +12,9 @@ public class SampleApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        init();
+    }
+    private void init() {
+        Toast.init(this);
     }
 }

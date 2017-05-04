@@ -1,16 +1,10 @@
 package com.siberiadante.util;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.view.Gravity;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import com.siberiadante.Application;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
+ * 初始化：Toast.init(this)
  * 调用：Toast.toast("哈哈哈")
  */
 
