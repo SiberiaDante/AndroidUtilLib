@@ -1,1 +1,1 @@
-include ':app', ':siberiadante', ':siberiadantesample'
+include ':app', ':siberiadante', ':sample'
