@@ -68,7 +68,7 @@ public class NetWorkUtil {
     /**
      * 判断网络类型
      * @param context
-     * @return
+     * @return int型的手机网络数据连接类型
      */
     public static int getNetworkState(Context context) {
         //获取系统的网络服务
