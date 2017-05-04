@@ -21,6 +21,7 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.0'
 ***
 ## util
 * NetWorkUtil:网络连接、类型等
+* TransitionTools:dp、px转换
 ## view
 * TabRadioButton:可设置图片尺寸
 * PicassoCircleTransfer:Picasso加载图片时将图片转换为圆形
