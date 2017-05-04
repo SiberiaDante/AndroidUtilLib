@@ -17,8 +17,6 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.0'
 ## 说明
 * 内置三方框架如下（自己项目中无须再次添加）
 	* picasso：图片加载框架
-
-***
 ## util
 * NetWorkUtil:网络连接、类型等
 * TransitionTools:dp、px转换
@@ -26,4 +24,6 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.0'
 ## view
 * TabRadioButton:可设置图片尺寸
 * PicassoCircleTransfer:Picasso加载图片时将图片转换为圆形
+## note-one
+* 友盟多渠道打包
 
