@@ -17,7 +17,7 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 ## 说明
 * 内置三方框架如下（自己项目中无须再次添加）
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
-	* PhotoView:compile '    com.github.chrisbanes:PhotoView:2.0.0'
+	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
 ## util
 * NetWorkUtil:网络连接、类型等
 * TransitionTools:dp、px转换
