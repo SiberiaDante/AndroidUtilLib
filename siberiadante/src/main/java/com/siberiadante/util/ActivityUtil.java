@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.siberiadante.SiberiaDanteLib;
+import com.siberiadante.exception.SiberiaDanteLibException;
 
 /**
  * Created by SiberiaDante on 2017/5/10.
@@ -12,7 +13,8 @@ import com.siberiadante.SiberiaDanteLib;
 
 public class ActivityUtil {
     public ActivityUtil() {
-        throw new UnsupportedOperationException("unInit SiberiaDanteLib");
+//        throw new UnsupportedOperationException("unInit SiberiaDanteLib");
+        new SiberiaDanteLibException();
     }
 
     /**

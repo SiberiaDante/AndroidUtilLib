@@ -1,5 +1,6 @@
 # SiberiaDanteLib
 ### 旨在打造一款属于自己的强大工具库，Come on！！！
+### 如遇到bug，烦请告知修复，万分感谢
 * Add it in your root build.gradle at the end of repositories:
 
 `allprojects {
@@ -24,7 +25,20 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 * NetWorkUtil:网络连接、类型等
 * TransitionTools:dp、px转换
 * DateUtil：时间、日期转换
-* Toast:单例模式的toast
+* ToastUtil:toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
+    * showSingletonLong(String content)：Toast文本，单例，长时间
+    * showSingletonShort(String content)：Toast文本，单例，短时间
+    * showTextShort(String content)：Toast文本，非单例，短时间
+    * showTextLong(String content)：Toast文本，非单例，长时间
+    * showSingletonImageCenter(int resId, int duration): Toast一张图片，单例，居中
+    * showImageCenter(int resId,int duration)：Toast一张图片，非单例，居中
+    * showSingletonImage(int resId, int duration, int position):Toast一张图片，单例，自定义位置
+    * showImage(int resId, int duration, int position)：Toast一张图片，非单例，自定义位置
+    * showITSingleton(int resId, String content, int duration, int position)：Toast图文，单例，自定义时长，自定义位置
+    * showIT(int resId, String content, int duration, int position)：Toast图文，非单例，自定义时长，自定义位置
+    * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
+    * cancelAll():取消创建的所有的toast
+
 * AppUtil:获取应用、手机、安卓系统等信息
 * FileUtil:获取应用缓存、获取文件大小、清除应用缓存、格式化文件单位等
 * ScreenUtil:获取屏幕的宽高

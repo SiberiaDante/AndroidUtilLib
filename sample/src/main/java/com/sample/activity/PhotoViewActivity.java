@@ -10,14 +10,13 @@ import android.os.Message;
 import android.provider.MediaStore;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.TextView;
 
 import com.sample.R;
 import com.sample.constants.Constants;
 import com.siberiadante.adapter.PhotoViewAdapter;
-import com.siberiadante.util.Toast;
+import com.siberiadante.util.ToastUtil;
 import com.siberiadante.view.PhotoViewPager;
 
 import java.io.File;
@@ -50,7 +49,7 @@ public class PhotoViewActivity extends AppCompatActivity {
 
             switch (msg.what) {
                 case SEND_TOAST:
-                    Toast.toast("保存至相册/Image");
+                    ToastUtil.showSingletonLong("保存至相册/Image");
                     break;
             }
         }

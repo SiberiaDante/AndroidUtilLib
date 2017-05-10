@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">SiberiaDante</string>
     <string name="can_not_find_version_name">无法获取版本信息</string>
+    <string name="not_init_this_lib">unInit SiberiaDanteLib"</string>
+
 </resources>

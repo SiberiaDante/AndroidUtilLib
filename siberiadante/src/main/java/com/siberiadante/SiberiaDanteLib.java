@@ -22,7 +22,8 @@ public class SiberiaDanteLib {
         if (context != null) {
             return context;
         } else {
-            throw new NullPointerException("use this lib,you need init first!");
+            throw new NullPointerException("Use this lib,you need init first! In your Application: SiberiaDanteLib.initLib(appContext);");
+
         }
     }
 }

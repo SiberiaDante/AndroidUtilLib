@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.PhotoViewActivity" />
-        <activity android:name=".activity.Main2Activity"/>
+        <activity android:name=".activity.Main2Activity" />
+        <activity android:name=".activity.ToastActivity"></activity>
     </application>
 
 </manifest>
