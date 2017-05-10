@@ -22,7 +22,7 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
 ## util
-* [NetWorkUtil:](https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java/"NetWorkUtilG")网络连接、类型等
+* [NetWorkUtil:](https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java "NetWorkUtilG")网络连接、类型等
 * TransitionTools:dp、px转换
 * DateUtil：时间、日期转换
 * ToastUtil:toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
