@@ -22,10 +22,10 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
 ## util
-*  [NetWorkUtil:] 网络连接、类型等
-* TransitionTools:dp、px转换
-* DateUtil：时间、日期转换
-* ToastUtil:toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
+* [NetWorkUtil] :网络连接、类型等
+* [TransitionTools] :dp、px转换
+* [DateUtil] ：时间、日期转换
+* [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
     * showSingletonLong(String content)：Toast文本，单例，长时间
     * showSingletonShort(String content)：Toast文本，单例，短时间
     * showTextShort(String content)：Toast文本，非单例，短时间
@@ -39,21 +39,34 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
     * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
     * cancelAll():取消创建的所有的toast
 
-* AppUtil:获取应用、手机、安卓系统等信息
-* FileUtil:获取应用缓存、获取文件大小、清除应用缓存、格式化文件单位等
-* ScreenUtil:获取屏幕的宽高
-* ActivityUtil:页面工具类
+* [AppUtil] :获取应用、手机、安卓系统等信息
+* [FileUtil] :获取应用缓存、获取文件大小、清除应用缓存、格式化文件单位等
+* [ScreenUtil] :获取屏幕的宽高
+* [ActivityUtil] :页面工具类
     * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
     * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
     * isActivityExists(String packageName, String activityName)：判断activity是否存在
 ## view
-* TabRadioButton:可设置图片尺寸
-* PicassoCircleTransfer:Picasso加载图片时将图片转换为圆形
-* PhotoViewPager：可左右滑动照片查看器(sample/activity/PhotoViewActivity)
+* [TabRadioButton] :可设置图片尺寸
+* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
+* [PhotoViewPager] ：可左右滑动照片查看器(案例：sample/activity/PhotoViewActivity)
 ## src/main.note
 * note-one
     * 友盟多渠道打包
 
 #
 
-[NetWorkUtil:]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
+[NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
+[TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
+[DateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/DateUtil.java
+[ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java
+[AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/AppUtil.java
+[FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
+[ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
+[ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
+
+
+[TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java
+[PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
+[PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java
+
