@@ -22,7 +22,7 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
 ## util
-*  [NetWorkUtil:][1]网络连接、类型等
+*  [NetWorkUtil:] [1]网络连接、类型等
 * TransitionTools:dp、px转换
 * DateUtil：时间、日期转换
 * ToastUtil:toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
@@ -53,5 +53,11 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 ## src/main.note
 * note-one
     * 友盟多渠道打包
+
 [1]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
-[google]: http://google.com/        "Google"
+I get 10 times more traffic from [Google] [1] than from
+[Yahoo] [2] or [MSN] [3].
+
+  [1]: http://google.com/        "Google"
+  [2]: http://search.yahoo.com/  "Yahoo Search"
+  [3]: http://search.msn.com/    "MSN Search"
