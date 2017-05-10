@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.sample.activity.Main2Activity;
 import com.siberiadante.util.ActivityUtil;
+import com.siberiadante.util.NetWorkUtil;
 import com.siberiadante.util.ScreenUtil;
 import com.siberiadante.util.ToastUtil;
 
@@ -22,8 +23,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ScreenUtil.init(this);
         ToastUtil.showSingletonLong(String.valueOf(ScreenUtil.ScreenHeight));
+
         initView();
         testOne();
+        testNetworkUtil();
+    }
+
+    private void testNetworkUtil() {
+        Log.d(TAG, "testNetworkUtil:isNetWorkConnected? " + NetWorkUtil.isNetWorkConnected());
+        Log.d(TAG, "testNetworkUtil: isWifiConnected?" + NetWorkUtil.isWifiConnected());
+        Log.d(TAG, "testNetworkUtil:getNetworkState= " + NetWorkUtil.getNetworkState());
+        Button mBtnOpenSetting = (Button) findViewById(R.id.btn_network_open_setting);
+        mBtnOpenSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NetWorkUtil.openNetworkSettings();
+            }
+        });
 
     }
 

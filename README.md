@@ -1,6 +1,6 @@
 # SiberiaDanteLib
 ### 旨在打造一款属于自己的强大工具库，Come on！！！
-### 如遇到bug，烦请告知修复，万分感谢
+### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
 * Add it in your root build.gradle at the end of repositories:
 
 `allprojects {
@@ -21,8 +21,15 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 * 内置三方框架如下（自己项目中无须再次添加）
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
+* 内置已申明权限
+
 ## util
 * [NetWorkUtil] :网络连接、类型等
+    * isNetWorkConnected()：判断网络是否连接
+    * isWifiConnected()：判断是否无线连接
+    * is4GConnected()：判断是否4G连接
+    * getNetworkState()：获取连接网络的状态类型
+    * openNetworkSettings():打开网络设置面板
 * [TransitionTools] :dp、px转换
 * [DateUtil] ：时间、日期转换
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
@@ -52,7 +59,7 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：sample/activity/PhotoViewActivity)
 ## src/main.note
 * note-one
-    * 友盟多渠道打包
+    * [友盟多渠道打包]
 
 #
 
@@ -70,3 +77,5 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java
 
+
+[友盟多渠道打包]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-one

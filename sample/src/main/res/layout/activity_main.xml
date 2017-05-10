@@ -25,6 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Toast一张图片" />
+        <Button
+            android:id="@+id/btn_network_open_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开网络控制面板" />
     </LinearLayout>
 
 </ScrollView>
