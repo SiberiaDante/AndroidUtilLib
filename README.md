@@ -15,6 +15,8 @@
 compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 	}`
 ## 说明
+* 使用之前需要在Application中初始化
+    SiberiaDanteLib.initLib(context);
 * 内置三方框架如下（自己项目中无须再次添加）
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
@@ -26,6 +28,10 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 * AppUtil:获取应用、手机、安卓系统等信息
 * FileUtil:获取应用缓存、获取文件大小、清除应用缓存、格式化文件单位等
 * ScreenUtil:获取屏幕的宽高
+* ActivityUtil:页面工具类
+    * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
+    * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
+    * isActivityExists(String packageName, String activityName)：判断activity是否存在
 ## view
 * TabRadioButton:可设置图片尺寸
 * PicassoCircleTransfer:Picasso加载图片时将图片转换为圆形

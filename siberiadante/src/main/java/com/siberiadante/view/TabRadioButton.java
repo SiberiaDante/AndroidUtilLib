@@ -11,6 +11,7 @@ import com.siberiadante.R;
 
 /**
  * Created by SiberiaDante on 2016/12/4.
+ * 对RadioButton的重写
  * 在xml中设置RadioButton中的图片size
  *  drawableSize
  *  drawableTop
