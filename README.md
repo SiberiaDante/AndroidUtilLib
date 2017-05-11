@@ -32,6 +32,9 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
     * openNetworkSettings():打开网络设置面板
 * [TransitionTools] :dp、px转换
 * [DateUtil] ：时间、日期转换
+    * getSDFTime(String str, String format):支持输出各种格式的日期、时间
+    * date2TimeStamp(String date_str, String format):日期格式字符串转换成时间戳
+    * getTimeStamp():取得当前时间戳（精确到秒）
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
     * showSingletonLong(String content)：Toast文本，单例，长时间
     * showSingletonShort(String content)：Toast文本，单例，短时间
@@ -60,6 +63,8 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 ## src/main.note
 * note-one
     * [友盟多渠道打包]
+* note-two
+    * [Android常用的系统广播]
 
 #
 
@@ -79,3 +84,4 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 
 
 [友盟多渠道打包]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-one
+[Android常用的系统广播]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-two
