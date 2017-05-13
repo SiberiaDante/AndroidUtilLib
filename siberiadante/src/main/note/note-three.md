@@ -1,5 +1,5 @@
 # Android项目源代码汇集
-##完整项目类源码
+## 完整项目类源码
 * [android仿网易云音乐客户端]
 * [android大众类商城项目客户端]
 * [android查询及跟踪快递项目源码]
@@ -22,8 +22,8 @@
 * [android茄子快传项目源码]
 * [android菜鸟新闻项目源码]
 
-##Demo功能类
-
+## Demo功能类
+* [Android仿华为天气绘制刻度盘]
 
 
 
@@ -53,3 +53,6 @@
 [android拉手团购的购物源码]:https://github.com/myxh/CoolShopping
 [android茄子快传项目源码]:https://github.com/mayubao/KuaiChuan
 [android菜鸟新闻项目源码]:https://github.com/yxs666/cniao5-news
+
+---
+[Android仿华为天气绘制刻度盘]:https://github.com/YISHUIH/HuaWeiWeatherView
