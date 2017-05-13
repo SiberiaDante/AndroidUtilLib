@@ -1,11 +1,11 @@
 # Android项目源代码汇集
 ##完整项目类源码
-* [仿网易云音乐客户端]
-* [大众类商城项目客户端]
-* [查询及跟踪快递项目源码]
-* [高仿微信最新版本项目源码]
-* [文件与目录的选择器源码]
-* [简诗笔记项目源码]
+* [android仿网易云音乐客户端]
+* [android大众类商城项目客户端]
+* [android查询及跟踪快递项目源码]
+* [android高仿微信最新版本项目源码]
+* [android文件与目录的选择器源码]
+* [android简诗笔记项目源码]
 * [android应用锁项目源码]
 * [android开源记账项目源码]
 * [android生活类项目源码]
@@ -32,12 +32,12 @@
 
 
 
-[仿网易云音乐客户端]:https://github.com/youlookwhat/CloudReader
-[大众类商城项目客户端]:https://github.com/atguigu01/Shopping
-[查询及跟踪快递项目源码]:https://github.com/wangchenyan/PonyExpress
-[高仿微信最新版本项目源码]:https://github.com/GitLqr/LQRWeChat
-[文件与目录的选择器源码]:https://github.com/codekidX/storage-chooser
-[简诗笔记项目源码]:https://github.com/wingjay/jianshi
+[android仿网易云音乐客户端]:https://github.com/youlookwhat/CloudReader
+[android大众类商城项目客户端]:https://github.com/atguigu01/Shopping
+[android查询及跟踪快递项目源码]:https://github.com/wangchenyan/PonyExpress
+[android高仿微信最新版本项目源码]:https://github.com/GitLqr/LQRWeChat
+[android文件与目录的选择器源码]:https://github.com/codekidX/storage-chooser
+[android简诗笔记项目源码]:https://github.com/wingjay/jianshi
 [android应用锁项目源码]:https://github.com/lizixian18/AppLock
 [android开源记账项目源码]:https://github.com/Nightonke/CoCoin
 [android生活类项目源码]:https://github.com/Allyns/Lives
