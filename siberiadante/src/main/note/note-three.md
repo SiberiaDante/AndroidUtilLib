@@ -1,7 +1,7 @@
 # Android项目源代码汇集
 ## 完整项目类源码
-* [android仿网易云音乐客户端]
-* [android大众类商城项目客户端]
+* [android仿网易云音乐客户端源码]
+* [android大众类商城项目客户端源码]
 * [android查询及跟踪快递项目源码]
 * [android高仿微信最新版本项目源码]
 * [android文件与目录的选择器源码]
@@ -32,8 +32,8 @@
 
 
 
-[android仿网易云音乐客户端]:https://github.com/youlookwhat/CloudReader
-[android大众类商城项目客户端]:https://github.com/atguigu01/Shopping
+[android仿网易云音乐客户端源码]:https://github.com/youlookwhat/CloudReader
+[android大众类商城项目客户端源码]:https://github.com/atguigu01/Shopping
 [android查询及跟踪快递项目源码]:https://github.com/wangchenyan/PonyExpress
 [android高仿微信最新版本项目源码]:https://github.com/GitLqr/LQRWeChat
 [android文件与目录的选择器源码]:https://github.com/codekidX/storage-chooser
