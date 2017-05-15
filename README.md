@@ -73,6 +73,8 @@ dependencies {
     * [友盟多渠道打包]
 * note-two
     * [Android常用的系统广播]
+* note-three
+    * [Android项目源代码汇集]
 
 #
 
@@ -91,5 +93,6 @@ dependencies {
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java
 
 
-[友盟多渠道打包]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-one
-[Android常用的系统广播]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-two
+[友盟多渠道打包]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-one.md
+[Android常用的系统广播]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-two.md
+[Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-three.md
