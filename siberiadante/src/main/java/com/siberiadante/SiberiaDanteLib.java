@@ -1,5 +1,7 @@
 package com.siberiadante;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 
 /**
@@ -8,7 +10,10 @@ import android.content.Context;
  */
 
 public class SiberiaDanteLib {
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
+    @SuppressLint("StaticFieldLeak")
+    private static Activity activity;
 
     public SiberiaDanteLib() {
         throw new UnsupportedOperationException("not init SiberiaDanteLib");
@@ -18,12 +23,24 @@ public class SiberiaDanteLib {
         SiberiaDanteLib.context = context.getApplicationContext();
     }
 
+    public static void initLib(Activity activity) {
+        SiberiaDanteLib.activity = activity;
+    }
+
     public static Context getContext() {
         if (context != null) {
             return context;
         } else {
             throw new NullPointerException("Use this lib,you need init first! In your Application: SiberiaDanteLib.initLib(appContext);");
 
+        }
+    }
+
+    public static Activity getActivity() {
+        if (activity != null) {
+            return activity;
+        } else {
+            throw new NullPointerException("Use this lib,you need init first! In your Application: SiberiaDanteLib.initLib(appActivity);");
         }
     }
 }

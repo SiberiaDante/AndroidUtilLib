@@ -14,6 +14,7 @@ public class ToastActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_toast);
+
     }
     private void testToast(){
         ToastUtil.showTextLong("长时间吐司一段文本内容");
@@ -24,5 +25,7 @@ public class ToastActivity extends AppCompatActivity {
         ToastUtil.showSingletonImageCenter(R.mipmap.ic_launcher,Toast.LENGTH_LONG);//居中显示一张图片,单例模式
         ToastUtil.showImage(R.mipmap.ic_launcher,Toast.LENGTH_LONG, Gravity.BOTTOM|Gravity.LEFT);//自定义显示图片位置
         ToastUtil.showIT(R.mipmap.ic_launcher,"SiberiaDanteLib",Toast.LENGTH_LONG,Gravity.CENTER);//自行显示图文消息
+        ToastUtil.cancel();
+        ToastUtil.cancelAll();
     }
 }

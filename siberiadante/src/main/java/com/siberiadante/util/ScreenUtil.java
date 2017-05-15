@@ -1,28 +1,69 @@
 package com.siberiadante.util;
 
 import android.app.Activity;
+import android.content.Context;
 import android.util.DisplayMetrics;
+import android.view.WindowManager;
+
+import com.siberiadante.SiberiaDanteLib;
+
+import static com.siberiadante.SiberiaDanteLib.getActivity;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
- * 需要在使用页面进行初始化
+ * 屏幕相关工具类
  */
 
 public class ScreenUtil {
-    private static float density = -1;
-
-    public static int ScreenWidth;
-    public static int ScreenHeight;
-
-    public static void init(Activity activity) {
-        initDensity(activity);
+    public static float getDensity(Activity activity) {
+        //屏幕dpi
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.density;
+    }
+    /**
+     *
+     * @param activity
+     * @return 获取屏幕的宽 单位：px
+     */
+    public static int getScreenWidthPx(Activity activity) {
+        WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        return dm.widthPixels;
     }
 
-    private static void initDensity(Activity activity) {
+    /**
+     *
+     * @param activity
+     * @return 获取屏幕的高 单位：px
+     */
+    public static int getScreenHeightPx(Activity activity) {
+        WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
-        density = dm.density;
-        ScreenWidth = dm.widthPixels;
-        ScreenHeight = dm.heightPixels;
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        return dm.heightPixels;
+    }
+    /**
+     *
+     * @param activity
+     * @return 获取屏幕的宽 单位：dp
+     */
+    public static int getScreenWidthDp(Activity activity) {
+        WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        return TransitionTools.px2dip(SiberiaDanteLib.getContext(),dm.widthPixels);
+    }
+    /**
+     *
+     * @param activity
+     * @return 获取屏幕的高 单位：dp
+     */
+    public static int getScreenHeightDp(Activity activity) {
+        WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        windowManager.getDefaultDisplay().getMetrics(dm);
+        return TransitionTools.px2dip(SiberiaDanteLib.getContext(),dm.heightPixels);
     }
 }

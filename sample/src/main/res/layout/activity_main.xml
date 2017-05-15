@@ -8,28 +8,33 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.sample.MainActivity">
+    tools:context="com.sample.activity.MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/MatchWrapParent"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_start_other_activity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="启动另一个Activity" />
+            android:id="@+id/start_activity_activity_util"
+            style="@style/MatchWrapParent"
+            android:text="测试ActivityUtil工具类"
+            android:textAllCaps="false" />
+
         <Button
-            android:id="@+id/btn_toast_image_center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Toast一张图片" />
+            android:id="@+id/start_activity_network_util"
+            style="@style/MatchWrapParent"
+            android:text="测试NetworkUtil工具类" />
+
         <Button
-            android:id="@+id/btn_network_open_setting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="打开网络控制面板" />
+            android:id="@+id/start_activity_screen_util"
+            style="@style/MatchWrapParent"
+            android:text="测试ScreenUtil工具类" />
+
+        <Button
+            android:id="@+id/start_activity_toast_util"
+            style="@style/MatchWrapParent"
+            android:text="测试ToastUtil工具类" />
+
     </LinearLayout>
 
 </ScrollView>

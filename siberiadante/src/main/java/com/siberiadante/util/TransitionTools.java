@@ -1,9 +1,19 @@
 package com.siberiadante.util;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import static com.siberiadante.SiberiaDanteLib.getActivity;
+
 public class TransitionTools {
+    public static float getDensity() {
+        //屏幕dpi
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        return displayMetrics.density;
+    }
+
     /**
      * dip转为 px
      */

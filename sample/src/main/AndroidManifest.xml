@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,11 @@
         </activity>
         <activity android:name=".activity.PhotoViewActivity" />
         <activity android:name=".activity.Main2Activity" />
-        <activity android:name=".activity.ToastActivity"></activity>
+        <activity android:name=".activity.ToastActivity" />
+        <activity android:name=".activity.NetworkActivity" />
+        <activity android:name=".activity.BaseActivity"/>
+        <activity android:name=".activity.ActivityUtilActivity" />
+        <activity android:name=".activity.ScreenActivity"/>
     </application>
 
 </manifest>

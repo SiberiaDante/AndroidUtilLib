@@ -1,29 +1,38 @@
 # SiberiaDanteLib
 ### 旨在打造一款属于自己的强大工具库，Come on！！！
 ### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
+#### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
 * Add it in your root build.gradle at the end of repositories:
 
-`allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}`
-
+```
+allprojects {
+    repositories {
+	 ...
+	 aven { url 'https://jitpack.io' }
+	}
+}
+```
 * Step 2. Add the dependency
 
-`dependencies {
-compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
-	}`
-## 说明
+```
+dependencies {
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
+	}
+```
+### 说明
 * 使用之前需要在Application中初始化
     SiberiaDanteLib.initLib(context);
 * 内置三方框架如下（自己项目中无须再次添加）
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
 * 内置已申明权限
-
+### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample
 ## util
+* [ActivityUtil] :页面工具类
+    * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
+    * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
+    * isActivityExists(String packageName, String activityName)：判断activity是否存在
+* [AppUtil] :获取应用、手机、安卓系统等信息
 * [NetWorkUtil] :网络连接、类型等
     * isNetWorkConnected()：判断网络是否连接
     * isWifiConnected()：判断是否无线连接
@@ -48,14 +57,13 @@ compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
     * showIT(int resId, String content, int duration, int position)：Toast图文，非单例，自定义时长，自定义位置
     * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
     * cancelAll():取消创建的所有的toast
-
-* [AppUtil] :获取应用、手机、安卓系统等信息
 * [FileUtil] :获取应用缓存、获取文件大小、清除应用缓存、格式化文件单位等
-* [ScreenUtil] :获取屏幕的宽高
-* [ActivityUtil] :页面工具类
-    * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
-    * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
-    * isActivityExists(String packageName, String activityName)：判断activity是否存在
+* [ScreenUtil] :屏幕相关工具类
+    * getDensity(Activity activity)：dp/px转换的倍率
+    * getScreenWidthPx(Activity activity)：取屏幕的宽 单位：px
+    * getScreenHeightPx(Activity activity)：获取屏幕的高 单位：px
+    * getScreenWidthDp(Activity activity)：获取屏幕的宽 单位：dp
+    * getScreenHeightDp(Activity activity)：获取屏幕的高 单位：dp
 ## view
 * [TabRadioButton] :可设置图片尺寸
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形

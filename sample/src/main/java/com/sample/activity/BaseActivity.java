@@ -1,24 +1,26 @@
 package com.sample.activity;
 
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.sample.R;
 
-public class Main2Activity extends BaseActivity {
+public  class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_basa);
         initView();
         initData();
     }
 
-    public void initView() {
+    private void initView() {
 
     }
 
-    public void initData() {
-
+    private void initData() {
     }
+
+
 }
