@@ -28,7 +28,6 @@ public class ActivityUtilActivity extends BaseActivity {
                 ActivityUtil.launchActivity("com.sample", Main2Activity.class.getName());
             }
         });
-
     }
 
     public void initData() {

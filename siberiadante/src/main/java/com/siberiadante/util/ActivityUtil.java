@@ -44,10 +44,9 @@ public class ActivityUtil {
     }
 
     /**
-     *
-     * @param packageName   应用包名应用包名应用包名应用包名
-     * @param activityName  activity全路径名
-     * @return  true 存在；false 不存在
+     * @param packageName  应用包名应用包名应用包名应用包名
+     * @param activityName activity全路径名
+     * @return true 存在；false 不存在
      */
     public static boolean isActivityExists(String packageName, String activityName) {
         Intent intent = new Intent();
@@ -76,7 +75,7 @@ public class ActivityUtil {
                 return info.activityInfo.name;
             }
         }
-        return "No APP exits for PackName equals "+packageName;
+        return "No APP exits for PackName equals " + packageName;
     }
 
     private static Intent getComponentIntent(String packageName, String activityName, Bundle bundle) {
