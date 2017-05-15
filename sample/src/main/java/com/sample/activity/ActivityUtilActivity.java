@@ -1,5 +1,6 @@
 package com.sample.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,5 +36,7 @@ public class ActivityUtilActivity extends BaseActivity {
         Log.d(TAG, "testOne: activityExists:" + Main2Activity.class.getName() + "activityExists???" + activityExists);
         String launcherActivity = ActivityUtil.getLauncherActivity("com.sample");
         Log.d(TAG, "initData: launcherActivity=="+launcherActivity);
+        Activity topActivity = ActivityUtil.getTopActivity();
+        Log.d(TAG, "initData: topActivity=="+topActivity);
     }
 }

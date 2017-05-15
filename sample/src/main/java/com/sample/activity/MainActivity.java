@@ -23,11 +23,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Button mBtnScreenUtil = (Button) findViewById(R.id.start_activity_screen_util);
         Button mBtnNetworkUtil = (Button) findViewById(R.id.start_activity_network_util);
         Button mBtnToastUtil = (Button) findViewById(R.id.start_activity_toast_util);
+        Button mBtnAppUtil = (Button) findViewById(R.id.start_activity_app_util);
 
         mBtnActivityUtil.setOnClickListener(this);
         mBtnScreenUtil.setOnClickListener(this);
         mBtnNetworkUtil.setOnClickListener(this);
         mBtnToastUtil.setOnClickListener(this);
+        mBtnAppUtil.setOnClickListener(this);
 
     }
 
@@ -50,6 +52,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.start_activity_toast_util:
                 intent = new Intent(this, ToastActivity.class);
+                break;
+            case R.id.start_activity_app_util:
+                intent = new Intent(this, AppActivity.class);
                 break;
         }
         startActivity(intent);

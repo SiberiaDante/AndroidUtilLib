@@ -1,15 +1,21 @@
 package com.siberiadante.util;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.ArrayMap;
 
 import com.siberiadante.SiberiaDanteLib;
 import com.siberiadante.exception.SiberiaDanteLibException;
 
+import java.lang.reflect.Field;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by SiberiaDante on 2017/5/10.
@@ -77,6 +83,40 @@ public class ActivityUtil {
         }
         return "No APP exits for PackName equals " + packageName;
     }
+    /**
+     * 获取栈顶Activity
+     *
+     * @return 栈顶Activity
+     */
+    public static Activity getTopActivity() {
+        try {
+            Class activityThreadClass = Class.forName("android.app.ActivityThread");
+            @SuppressWarnings("unchecked")
+            Object activityThread = activityThreadClass.getMethod("currentActivityThread").invoke(null);
+            Field activitiesField = activityThreadClass.getDeclaredField("mActivities");
+            activitiesField.setAccessible(true);
+            Map activities = null;
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) {
+                activities = (HashMap) activitiesField.get(activityThread);
+            } else {
+                activities = (ArrayMap) activitiesField.get(activityThread);
+            }
+            for (Object activityRecord : activities.values()) {
+                Class activityRecordClass = activityRecord.getClass();
+                Field pausedField = activityRecordClass.getDeclaredField("paused");
+                pausedField.setAccessible(true);
+                if (!pausedField.getBoolean(activityRecord)) {
+                    Field activityField = activityRecordClass.getDeclaredField("activity");
+                    activityField.setAccessible(true);
+                    return (Activity) activityField.get(activityRecord);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     private static Intent getComponentIntent(String packageName, String activityName, Bundle bundle) {
         Intent intent = new Intent(Intent.ACTION_VIEW);

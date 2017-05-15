@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.sample.activity.AppActivity">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        style="@style/WrapWrapParent" />
+
+
+    <Button
+        android:id="@+id/un_install_app"
+        style="@style/MainButton"
+        android:text="卸载APP" />
+
+    <Button
+        android:id="@+id/install_app"
+        style="@style/MainButton"
+        android:text="安装一个APP" />
+
+    <Button
+        android:id="@+id/setting_app"
+        style="@style/MainButton"
+        android:text="APP的设置" />
+</LinearLayout>

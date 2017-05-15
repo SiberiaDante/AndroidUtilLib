@@ -1,5 +1,6 @@
 # SiberiaDanteLib
-### 旨在打造一款属于自己的强大工具库，Come on！！！
+### 旨在打造一款属于Android开发的强大工具库
+### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 ### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
 #### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
 * Add it in your root build.gradle at the end of repositories:
@@ -26,13 +27,50 @@ dependencies {
 	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
 	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
 * 内置已申明权限
-### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample
 ## util
 * [ActivityUtil] :页面工具类
     * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
     * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
     * isActivityExists(String packageName, String activityName)：判断activity是否存在
-* [AppUtil] :获取应用、手机、安卓系统等信息
+    * getLauncherActivity(String packageName)：获取应用的启动activity
+* [AppUtil] :获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
+    * getAppPackageName() ：获取应用包名
+    * isInstalledApp()：判断该应用是否安装
+    * isInstalledApp(String packageName):判断APP是否安装
+    * getAppVersionName():获取应用的版本名
+    * getAppVersionName(String packageName)：获取应用的版本名
+    * getAppVersionCode()：获取应用的版本号
+    * getAndroidSystemVersion()：获取安卓手机系统版本号
+    * getMobilePhoneTypeInfo():获取手机型号信息
+    * getAndroidSystemVersion():获取安卓系统版本号
+    * getMobilePhoneTypeInfo()：获取手机型号信息
+    * launchApp(String packageName):打开APP
+    * launchApp(Activity activity, String packageName, int requestCode)：打开APP，设置请求code
+    * openAppDetailsSettings()：打开当前应用的设置面板
+    * openAppDetailsSettings(String packageName)：根据包名打开应用的设置面板
+    * getAppName():获取应用名称
+    * getAppName(String packageName) ：根据包名获取应用名称
+    * getAppIcon()：获取应用图标
+    * getAppIcon(String packageName)：根据包名获取应用图标
+    * getAppPath()：获取APP路径
+    * getAppPath(String packageName)：根据包名获取APP路径
+    * isSystemApp():判断应用是否为系统应用
+    * isSystemApp(String packageName)：根据包名判断是否为系统应用
+    * isAppDebug() ：判断应用是否为debug版本
+    * isAppDebug(String packageName)：根据包名判断是否为debug版本
+    * isAppRoot()：判断应用是否具有root权限
+    * unInstallApp(String packageName):卸载APP
+    * unInstallApp(Activity activity, String packageName, int requestCode):卸载APP，设置请求码
+    * uninstallAppSilent(String packageName, boolean isKeepData)：后台卸载APP---------<href>测试失败</href>
+    * getAppSignature():获取应用签名
+    * getAppSignature(String packageName)：根据包名获取应用签名
+    * getAppSignatureSHA1():获取应用签名的SHA1
+    * getAppSignatureSHA1(String packageName):根据包名获取应用签名SHA1
+
+
+
+
+
 * [NetWorkUtil] :网络连接、类型等
     * isNetWorkConnected()：判断网络是否连接
     * isWifiConnected()：判断是否无线连接

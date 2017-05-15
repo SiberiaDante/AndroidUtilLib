@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.widget.RadioButton;
 
 import com.siberiadante.R;
 
@@ -21,7 +22,7 @@ import com.siberiadante.R;
  *
  */
 
-public class TabRadioButton extends android.widget.RadioButton {
+public class TabRadioButton extends RadioButton {
     private int mDrawableSize;// xml文件中设置的大小
 
     public TabRadioButton(Context context) {

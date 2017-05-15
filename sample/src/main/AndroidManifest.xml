@@ -20,9 +20,23 @@
         <activity android:name=".activity.Main2Activity" />
         <activity android:name=".activity.ToastActivity" />
         <activity android:name=".activity.NetworkActivity" />
-        <activity android:name=".activity.BaseActivity"/>
+        <activity android:name=".activity.BaseActivity" />
         <activity android:name=".activity.ActivityUtilActivity" />
-        <activity android:name=".activity.ScreenActivity"/>
+        <activity android:name=".activity.ScreenActivity" />
+        <activity android:name=".activity.AppActivity"></activity>
+
+
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.sample.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>
