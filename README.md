@@ -69,7 +69,7 @@ dependencies {
     * isAppInForeground():判断应用是否处于前台
     * isAppInForeground(String packageName)：根据包名判断应用是否处于前台
     *
-* [ClearUtil]
+* [ClearUtil] :清除缓存、数据等相关应用
     * clearInternalCache():清除应用内部缓存
     * clearInternalFiles():清除应用内部文件
     * clearInternalDbs():清除应用内部数据库
@@ -78,7 +78,7 @@ dependencies {
     * clearExternalCache():清除外部缓存
     * clearCustomCache(String dirPath)：清除自定义路径下的文件
     * clearCustomCache(File dir)：清除自定义路径下的文件
-
+* [FileUtil] :文件处理相关工具类
 
 
 
@@ -135,7 +135,8 @@ dependencies {
 [FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
 [ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
 [ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
-[ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/[ClearUtil].java
+[ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ClearUtil.java
+[FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
 
 
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java

@@ -12,7 +12,8 @@ import com.siberiadante.R;
 
 /**
  * Created by SiberiaDante on 2016/12/4.
- * 对RadioButton的重写
+ * 对RadioButton的重写；
+ * 使用场景：RadioButton需要设置为图片+文字，并且对图片大小进行代码控制
  * 在xml中设置RadioButton中的图片size
  *  drawableSize
  *  drawableTop

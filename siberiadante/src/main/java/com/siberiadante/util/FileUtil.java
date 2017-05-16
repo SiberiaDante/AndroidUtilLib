@@ -32,6 +32,7 @@ import java.util.List;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
+ * 文件处理相关工具类
  */
 
 public class FileUtil {

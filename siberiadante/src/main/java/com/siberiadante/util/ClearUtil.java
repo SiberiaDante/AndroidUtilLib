@@ -7,6 +7,7 @@ import java.io.File;
 
 /**
  * Created by SiberiaDante on 2017/5/15.
+ * 清除缓存、数据等相关应用
  */
 
 public class ClearUtil {
