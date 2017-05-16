@@ -11,15 +11,6 @@ public  class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basa);
-        initView();
-        initData();
-    }
-
-    private void initView() {
-
-    }
-
-    private void initData() {
     }
 
 

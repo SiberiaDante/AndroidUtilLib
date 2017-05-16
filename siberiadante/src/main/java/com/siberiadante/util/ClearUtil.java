@@ -20,7 +20,7 @@ public class ClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanInternalCache() {
+    public static boolean clearInternalCache() {
         return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getCacheDir());
     }
 
@@ -30,7 +30,7 @@ public class ClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanInternalFiles() {
+    public static boolean clearInternalFiles() {
         return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir());
     }
 
@@ -40,7 +40,7 @@ public class ClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanInternalDbs() {
+    public static boolean clearInternalDbs() {
         return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "databases");
     }
 
@@ -51,17 +51,17 @@ public class ClearUtil {
      * @param dbName 数据库名称
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanInternalDbByName(String dbName) {
+    public static boolean clearInternalDbByName(String dbName) {
         return SiberiaDanteLib.getContext().deleteDatabase(dbName);
     }
 
     /**
-     * 清除内部SP
+     * 清除内部ShrendPrefrences
      * <p>/data/data/com.xxx.xxx/shared_prefs</p>
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanInternalSP() {
+    public static boolean clearInternalSP() {
         return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "shared_prefs");
     }
 
@@ -71,7 +71,7 @@ public class ClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanExternalCache() {
+    public static boolean clearExternalCache() {
         return SDCardUtil.isSDCardEnable() && FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getExternalCacheDir());
     }
 
@@ -81,7 +81,7 @@ public class ClearUtil {
      * @param dirPath 目录路径
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanCustomCache(String dirPath) {
+    public static boolean clearCustomCache(String dirPath) {
         return FileUtil.deleteFilesInDir(dirPath);
     }
 
@@ -91,7 +91,7 @@ public class ClearUtil {
      * @param dir 目录
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean cleanCustomCache(File dir) {
+    public static boolean clearCustomCache(File dir) {
         return FileUtil.deleteFilesInDir(dir);
     }
 }

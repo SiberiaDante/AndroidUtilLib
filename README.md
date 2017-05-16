@@ -66,7 +66,18 @@ dependencies {
     * getAppSignature(String packageName)：根据包名获取应用签名
     * getAppSignatureSHA1():获取应用签名的SHA1
     * getAppSignatureSHA1(String packageName):根据包名获取应用签名SHA1
-
+    * isAppInForeground():判断应用是否处于前台
+    * isAppInForeground(String packageName)：根据包名判断应用是否处于前台
+    *
+* [ClearUtil]
+    * clearInternalCache():清除应用内部缓存
+    * clearInternalFiles():清除应用内部文件
+    * clearInternalDbs():清除应用内部数据库
+    * clearInternalDbByName(String dbName):根据数据库名清除数据库
+    * clearInternalSP():清除应用内部SharedPreferences
+    * clearExternalCache():清除外部缓存
+    * clearCustomCache(String dirPath)：清除自定义路径下的文件
+    * clearCustomCache(File dir)：清除自定义路径下的文件
 
 
 
@@ -103,9 +114,9 @@ dependencies {
     * getScreenWidthDp(Activity activity)：获取屏幕的宽 单位：dp
     * getScreenHeightDp(Activity activity)：获取屏幕的高 单位：dp
 ## view
-* [TabRadioButton] :可设置图片尺寸
+* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
-* [PhotoViewPager] ：可左右滑动照片查看器(案例：sample/activity/PhotoViewActivity)
+* [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
 ## src/main.note
 * note-one
     * [友盟多渠道打包]
@@ -124,11 +135,14 @@ dependencies {
 [FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
 [ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
 [ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
+[ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/[ClearUtil].java
 
 
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java
+
+[sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
 
 
 [友盟多渠道打包]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-one.md

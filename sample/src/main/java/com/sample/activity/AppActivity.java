@@ -55,6 +55,8 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "initData: getAppSignature:" + AppUtil.getAppSignature("com.shuinsen.zhiri").toString());
         Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1());
         Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
+        Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground());
+        Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground("com.shuinsen.zhiri"));
         mIvIcon.setImageDrawable(AppUtil.getAppIcon("com.shuinsen.zhiri"));
     }
 

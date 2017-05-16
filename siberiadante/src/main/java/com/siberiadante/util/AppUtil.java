@@ -11,11 +11,8 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.os.Build;
-import android.support.v4.content.FileProvider;
 import android.util.Log;
 
-import com.siberiadante.R;
 import com.siberiadante.SiberiaDanteLib;
 import com.siberiadante.exception.SiberiaDanteLibException;
 import com.siberiadante.model.AppInfo;
@@ -458,9 +455,8 @@ public class AppUtil {
     public static Signature[] getAppSignature(String packageName) {
         if (isSpace(packageName)) return null;
         try {
-            PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
             @SuppressLint("PackageManagerGetSignatures")
-            PackageInfo pi = pm.getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
+            PackageInfo pi = getPackageManager().getPackageInfo(packageName, PackageManager.GET_SIGNATURES);
             return pi == null ? null : pi.signatures;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -480,7 +476,6 @@ public class AppUtil {
 
     /**
      * 获取应用签名的的SHA1值
-     * <p>可据此判断高德，百度地图key是否正确</p>
      *
      * @param packageName 包名
      * @return 应用签名的SHA1字符串, 比如：53:FD:54:DC:19:0F:11:AC:B5:22:9E:F1:1A:68:88:1B:8B:E8:54:42
@@ -497,7 +492,7 @@ public class AppUtil {
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
-    public static boolean isAppForeground() {
+    public static boolean isAppInForeground() {
         ActivityManager manager = (ActivityManager) SiberiaDanteLib.getContext().getSystemService(Context.ACTIVITY_SERVICE);
         List<ActivityManager.RunningAppProcessInfo> infos = manager.getRunningAppProcesses();
         if (infos == null || infos.size() == 0) return false;
@@ -517,7 +512,7 @@ public class AppUtil {
      * @param packageName 包名
      * @return {@code true}: 是<br>{@code false}: 否
      */
-    public static boolean isAppForeground(String packageName) {
+    public static boolean isAppInForeground(String packageName) {
         return !isSpace(packageName) && packageName.equals(ProcessUtil.getForegroundProcessName());
     }
 
@@ -544,13 +539,13 @@ public class AppUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean cleanAppData(File... dirs) {
-        boolean isSuccess = ClearUtil.cleanInternalCache();
-        isSuccess &= ClearUtil.cleanInternalDbs();
-        isSuccess &= ClearUtil.cleanInternalSP();
-        isSuccess &= ClearUtil.cleanInternalFiles();
-        isSuccess &= ClearUtil.cleanExternalCache();
+        boolean isSuccess = ClearUtil.clearInternalCache();
+        isSuccess &= ClearUtil.clearInternalDbs();
+        isSuccess &= ClearUtil.clearInternalSP();
+        isSuccess &= ClearUtil.clearInternalFiles();
+        isSuccess &= ClearUtil.clearExternalCache();
         for (File dir : dirs) {
-            isSuccess &= ClearUtil.cleanCustomCache(dir);
+            isSuccess &= ClearUtil.clearCustomCache(dir);
         }
         return isSuccess;
     }

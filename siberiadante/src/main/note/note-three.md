@@ -21,9 +21,15 @@
 * [android拉手团购的购物源码]
 * [android茄子快传项目源码]
 * [android菜鸟新闻项目源码]
+* [android实现全民直播源码]
+* [android手机卫士源码]
 
 ## Demo功能类
 * [Android仿华为天气绘制刻度盘]
+* [android实现星级评分动画源码]
+* [android实现缩略图到原图]
+* [android各种选择器源码]
+
 
 
 
@@ -53,6 +59,11 @@
 [android拉手团购的购物源码]:https://github.com/myxh/CoolShopping
 [android茄子快传项目源码]:https://github.com/mayubao/KuaiChuan
 [android菜鸟新闻项目源码]:https://github.com/yxs666/cniao5-news
+[android实现全民直播源码]:https://github.com/jenly1314/KingTV
+[android手机卫士源码]:https://github.com/JessYanCoding/MobileSafe
 
 ---
 [Android仿华为天气绘制刻度盘]:https://github.com/YISHUIH/HuaWeiWeatherView
+[android实现星级评分动画源码]:https://github.com/ome450901/SimpleRatingBar
+[android实现缩略图到原图]:https://github.com/Hitomis/transferee
+[android各种选择器源码]:https://github.com/addappcn/android-pickers
