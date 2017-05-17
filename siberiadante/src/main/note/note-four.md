@@ -12,4 +12,4 @@
 
 
 [Android WebView跟JS交互]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note_details_4/webview_js.md
-[Android保存图片到本地相册并显示出来]:
+[Android保存图片到本地相册并显示出来]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note_details_4/save_image_and_show.md

@@ -7,5 +7,5 @@ import android.os.Environment;
  */
 
 public class Constants {
-    public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/image/";
+    public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/sample/";
 }
