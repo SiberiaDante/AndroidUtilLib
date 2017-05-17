@@ -118,13 +118,13 @@ dependencies {
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
 ## src/main.note
-* note-one
+* note-1
     * [友盟多渠道打包]
-* note-two
+* note-2
     * [Android常用的系统广播]
-* note-three
+* note-3
     * [Android项目源代码汇集]
-* note-four
+* note-4four
     * [Android常用知识点记录]
 #
 
