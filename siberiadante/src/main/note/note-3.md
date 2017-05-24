@@ -31,6 +31,7 @@
 * [android各种选择器源码]
 * [Android九宫格展示图片]
 * [Android实现各种分割线]
+* [Android仿360手机助手下载按钮动画]
 
 
 
@@ -71,3 +72,4 @@
 [android各种选择器源码]:https://github.com/addappcn/android-pickers
 [Android九宫格展示图片]:https://github.com/laobie/NineGridImageView
 [Android实现各种分割线]:https://github.com/hxmeie/RecyclerView-FlexibleDivider
+[Android仿360手机助手下载按钮动画]:https://github.com/1002326270xc/360Downloading-master

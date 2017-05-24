@@ -116,13 +116,26 @@ dependencies {
     * showThread(String url)：异步线程下载图片并Toast
     * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
     * cancelAll():取消创建的所有的toast
-* [FileUtil] :获取应用缓存、获取文件大小、清除应用缓存、格式化文件单位等
+* [FileUtil] :文件处理相关工具类等
+    * getFileByPath(String filePath)：根据路径获取文件
+    * isFileExists(String filePath)：根据路径判断文件是否存在
+    * isFileExists(File file)：根据文件判断文件是否存在
+    * rename(String filePath, String newName):重命名文件
+    * rename(File file, String newName)：重命名文件
+    * isDir(String dirPath):根据路径判断是否为目录/文件夹
+    * isDir(File file)：根据文件判断是否为目录/文件夹
+    * isFile(String filePath)：根据路径判断是否为文件
+    * isFile(File file)：根据文件判断是否为文件
 * [ScreenUtil] :屏幕相关工具类
     * getDensity(Activity activity)：dp/px转换的倍率
     * getScreenWidthPx(Activity activity)：取屏幕的宽 单位：px
     * getScreenHeightPx(Activity activity)：获取屏幕的高 单位：px
     * getScreenWidthDp(Activity activity)：获取屏幕的宽 单位：dp
     * getScreenHeightDp(Activity activity)：获取屏幕的高 单位：dp
+    * setStatusTranslucent(Activity activity):设置状态栏透明
+    * setNavigationTranslucent(Activity activity)：设置导航栏透明
+    * setTranslucent(Activity activity)：设置导航栏和状态栏同事透明
+
 ## view
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
