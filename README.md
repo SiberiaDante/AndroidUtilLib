@@ -126,6 +126,15 @@ dependencies {
     * isDir(File file)：根据文件判断是否为目录/文件夹
     * isFile(String filePath)：根据路径判断是否为文件
     * isFile(File file)：根据文件判断是否为文件
+    * createOrIsExistsDir(String dirPath):根据路径判断目录是否存在，存在返回true，不存在则创建目录
+    * createOrIsExistsDir(File file)：根据目录判断目录是否存在，存在返回true，不存在则创建目录
+    * createOrIsExistsFile(String filePath)：根据路径判断文件是否存在，存在返回true，不存在则创建文件
+    * createOrIsExistsFile(File file)：根据文件判断文件是否存在，存在返回true，不存在则创建文件
+    * createFileByDeleteOldFile(String filePath):判断文件是否存在，存在则先删除，再创建
+    * createFileByDeleteOldFile(File file) ：判断文件是否存在，存在则先删除，再创建
+
+
+
 * [ScreenUtil] :屏幕相关工具类
     * getDensity(Activity activity)：dp/px转换的倍率
     * getScreenWidthPx(Activity activity)：取屏幕的宽 单位：px
@@ -134,8 +143,8 @@ dependencies {
     * getScreenHeightDp(Activity activity)：获取屏幕的高 单位：dp
     * setStatusTranslucent(Activity activity):设置状态栏透明
     * setNavigationTranslucent(Activity activity)：设置导航栏透明
-    * setTranslucent(Activity activity)：设置导航栏和状态栏同事透明
-
+    * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
+    * setFullScreen(Activity activity) ：设置页面全屏
 ## view
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形

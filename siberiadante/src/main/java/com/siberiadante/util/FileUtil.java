@@ -1,8 +1,6 @@
 package com.siberiadante.util;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Environment;
 
 import com.siberiadante.constants.MemoryConstants;
 
@@ -22,7 +20,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.math.BigDecimal;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -86,11 +83,11 @@ public class FileUtil {
      */
     public static boolean rename(File file, String newName) {
         // 文件为空返回false
-        if (file == null){
+        if (file == null) {
             return false;
         }
         // 文件不存在返回false
-        if (!file.exists()){
+        if (!file.exists()) {
             return false;
         }
         // 新的文件名为空返回false
@@ -98,7 +95,7 @@ public class FileUtil {
             return false;
         }
         // 如果文件名没有改变返回true
-        if (newName.equals(file.getName())){
+        if (newName.equals(file.getName())) {
             return true;
         }
         File newFile = new File(file.getParent() + File.separator + newName);
@@ -153,8 +150,8 @@ public class FileUtil {
      * @param dirPath 目录路径
      * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
      */
-    public static boolean createOrExistsDir(String dirPath) {
-        return createOrExistsDir(getFileByPath(dirPath));
+    public static boolean createOrIsExistsDir(String dirPath) {
+        return createOrIsExistsDir(getFileByPath(dirPath));
     }
 
     /**
@@ -163,7 +160,7 @@ public class FileUtil {
      * @param file 文件
      * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
      */
-    public static boolean createOrExistsDir(File file) {
+    public static boolean createOrIsExistsDir(File file) {
         // 如果存在，是目录则返回true，是文件则返回false，不存在则返回是否创建成功
         return file != null && (file.exists() ? file.isDirectory() : file.mkdirs());
     }
@@ -174,8 +171,8 @@ public class FileUtil {
      * @param filePath 文件路径
      * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
      */
-    public static boolean createOrExistsFile(String filePath) {
-        return createOrExistsFile(getFileByPath(filePath));
+    public static boolean createOrIsExistsFile(String filePath) {
+        return createOrIsExistsFile(getFileByPath(filePath));
     }
 
     /**
@@ -184,11 +181,17 @@ public class FileUtil {
      * @param file 文件
      * @return {@code true}: 存在或创建成功<br>{@code false}: 不存在或创建失败
      */
-    public static boolean createOrExistsFile(File file) {
-        if (file == null) return false;
+    public static boolean createOrIsExistsFile(File file) {
+        if (file == null) {
+            return false;
+        }
         // 如果存在，是文件则返回true，是目录则返回false
-        if (file.exists()) return file.isFile();
-        if (!createOrExistsDir(file.getParentFile())) return false;
+        if (file.exists()) {
+            return file.isFile();
+        }
+        if (!createOrIsExistsDir(file.getParentFile())) {
+            return false;
+        }
         try {
             return file.createNewFile();
         } catch (IOException e) {
@@ -214,11 +217,17 @@ public class FileUtil {
      * @return {@code true}: 创建成功<br>{@code false}: 创建失败
      */
     public static boolean createFileByDeleteOldFile(File file) {
-        if (file == null) return false;
+        if (file == null) {
+            return false;
+        }
         // 文件存在并且删除失败返回false
-        if (file.exists() && file.isFile() && !file.delete()) return false;
+        if (file.exists() && file.isFile() && !file.delete()) {
+            return false;
+        }
         // 创建目录失败返回false
-        if (!createOrExistsDir(file.getParentFile())) return false;
+        if (!createOrIsExistsDir(file.getParentFile())) {
+            return false;
+        }
         try {
             return file.createNewFile();
         } catch (IOException e) {
@@ -259,7 +268,7 @@ public class FileUtil {
         // 源文件不存在或者不是目录则返回false
         if (!srcDir.exists() || !srcDir.isDirectory()) return false;
         // 目标目录不存在返回false
-        if (!createOrExistsDir(destDir)) return false;
+        if (!createOrIsExistsDir(destDir)) return false;
         File[] files = srcDir.listFiles();
         for (File file : files) {
             File oneDestFile = new File(destPath + file.getName());
@@ -301,7 +310,7 @@ public class FileUtil {
         // 目标文件存在且是文件则返回false
         if (destFile.exists() && destFile.isFile()) return false;
         // 目标目录不存在返回false
-        if (!createOrExistsDir(destFile.getParentFile())) return false;
+        if (!createOrIsExistsDir(destFile.getParentFile())) return false;
         try {
             return writeFileFromIS(destFile, new FileInputStream(srcFile), false)
                     && !(isMove && !deleteFile(srcFile));
@@ -757,7 +766,7 @@ public class FileUtil {
      */
     public static boolean writeFileFromIS(File file, InputStream is, boolean append) {
         if (file == null || is == null) return false;
-        if (!createOrExistsFile(file)) return false;
+        if (!createOrIsExistsFile(file)) return false;
         OutputStream os = null;
         try {
             os = new BufferedOutputStream(new FileOutputStream(file, append));
@@ -797,7 +806,7 @@ public class FileUtil {
      */
     public static boolean writeFileFromString(File file, String content, boolean append) {
         if (file == null || content == null) return false;
-        if (!createOrExistsFile(file)) return false;
+        if (!createOrIsExistsFile(file)) return false;
         BufferedWriter bw = null;
         try {
             bw = new BufferedWriter(new FileWriter(file, append));

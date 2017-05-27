@@ -8,6 +8,7 @@ import android.os.Build;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.siberiadante.SiberiaDanteLib;
@@ -30,8 +31,8 @@ public class ScreenUtil {
         activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         return displayMetrics.density;
     }
+
     /**
-     *
      * @param activity
      * @return 获取屏幕的宽 单位：px
      */
@@ -43,7 +44,6 @@ public class ScreenUtil {
     }
 
     /**
-     *
      * @param activity
      * @return 获取屏幕的高 单位：px
      */
@@ -53,8 +53,8 @@ public class ScreenUtil {
         windowManager.getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
     }
+
     /**
-     *
      * @param activity
      * @return 获取屏幕的宽 单位：dp
      */
@@ -62,10 +62,10 @@ public class ScreenUtil {
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(SiberiaDanteLib.getContext(),dm.widthPixels);
+        return TransitionTools.px2dip(SiberiaDanteLib.getContext(), dm.widthPixels);
     }
+
     /**
-     *
      * @param activity
      * @return 获取屏幕的高 单位：dp
      */
@@ -73,8 +73,14 @@ public class ScreenUtil {
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(SiberiaDanteLib.getContext(),dm.heightPixels);
+        return TransitionTools.px2dip(SiberiaDanteLib.getContext(), dm.heightPixels);
     }
+
+    /**
+     * 透明状态栏
+     *
+     * @param activity
+     */
     public static void setStatusTranslucent(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
@@ -82,6 +88,11 @@ public class ScreenUtil {
         }
     }
 
+    /**
+     * 透明导航栏
+     *
+     * @param activity
+     */
     public static void setNavigationTranslucent(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明导航栏
@@ -89,6 +100,11 @@ public class ScreenUtil {
         }
     }
 
+    /**
+     * 透明状态栏和透明导航栏
+     *
+     * @param activity
+     */
     public static void setTranslucent(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             //透明状态栏
@@ -98,36 +114,55 @@ public class ScreenUtil {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static void compat(Activity activity, int statusColor) {
-
+    /**
+     * 设置全屏
+     * @param activity
+     */
+    public static void setFullScreen(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            if (statusColor != INVALID_VAL) {
-                activity.getWindow().setStatusBarColor(statusColor);
-            }
-            return;
+            Window window = activity.getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                    | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+            window.setNavigationBarColor(Color.TRANSPARENT);
+        }
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-            int color = COLOR_DEFAULT;
-            ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
-            if (statusColor != INVALID_VAL) {
-                color = statusColor;
-            }
-            View statusBarView = contentView.getChildAt(0);
-            //改变颜色时避免重复添加statusBarView
-            if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity)) {
-                statusBarView.setBackgroundColor(color);
+
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        public static void compat (Activity activity,int statusColor){
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                if (statusColor != INVALID_VAL) {
+                    activity.getWindow().setStatusBarColor(statusColor);
+                }
                 return;
             }
-            statusBarView = new View(activity);
-            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                    getStatusBarHeight(activity));
-            statusBarView.setBackgroundColor(color);
-            contentView.addView(statusBarView, lp);
-        }
 
-    }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                int color = COLOR_DEFAULT;
+                ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+                if (statusColor != INVALID_VAL) {
+                    color = statusColor;
+                }
+                View statusBarView = contentView.getChildAt(0);
+                //改变颜色时避免重复添加statusBarView
+                if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity)) {
+                    statusBarView.setBackgroundColor(color);
+                    return;
+                }
+                statusBarView = new View(activity);
+                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        getStatusBarHeight(activity));
+                statusBarView.setBackgroundColor(color);
+                contentView.addView(statusBarView, lp);
+            }
+
+        }
 
     public static void compat(Activity activity) {
         compat(activity, INVALID_VAL);
