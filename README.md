@@ -150,6 +150,7 @@ dependencies {
 ## src/main.note
 * note-1
 * note-2
+    * [日常笔记]
 * note-3
     * [Android项目源代码汇集]
 * note-4
@@ -176,5 +177,6 @@ dependencies {
 [sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
 
 
+[日常笔记]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-2.md
 [Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-3.md
 [Android常用知识点记录]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
