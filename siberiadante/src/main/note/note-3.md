@@ -23,6 +23,7 @@
 * [android菜鸟新闻项目源码]
 * [android实现全民直播源码]
 * [android手机卫士源码]
+* [android理财类源码]
 
 ## Demo功能类
 * [Android仿华为天气绘制刻度盘]
@@ -32,7 +33,8 @@
 * [Android九宫格展示图片]
 * [Android实现各种分割线]
 * [Android仿360手机助手下载按钮动画]
-
+* [android 平台上可多选的自定义日历控件]
+* [android滑动返回源码]
 
 
 
@@ -64,6 +66,7 @@
 [android菜鸟新闻项目源码]:https://github.com/yxs666/cniao5-news
 [android实现全民直播源码]:https://github.com/jenly1314/KingTV
 [android手机卫士源码]:https://github.com/JessYanCoding/MobileSafe
+[android理财类源码]:https://github.com/Dreamer206602/QuickMoney
 
 ---
 [Android仿华为天气绘制刻度盘]:https://github.com/YISHUIH/HuaWeiWeatherView
@@ -73,3 +76,6 @@
 [Android九宫格展示图片]:https://github.com/laobie/NineGridImageView
 [Android实现各种分割线]:https://github.com/hxmeie/RecyclerView-FlexibleDivider
 [Android仿360手机助手下载按钮动画]:https://github.com/1002326270xc/360Downloading-master
+[android 平台上可多选的自定义日历控件]:https://github.com/Airsaid/CalendarView
+[android滑动返回源码]:https://github.com/bingoogolapple/BGASwipeBackLayout-Android
+

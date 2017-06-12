@@ -133,8 +133,6 @@ dependencies {
     * createFileByDeleteOldFile(String filePath):判断文件是否存在，存在则先删除，再创建
     * createFileByDeleteOldFile(File file) ：判断文件是否存在，存在则先删除，再创建
 
-
-
 * [ScreenUtil] :屏幕相关工具类
     * getDensity(Activity activity)：dp/px转换的倍率
     * getScreenWidthPx(Activity activity)：取屏幕的宽 单位：px
@@ -146,7 +144,7 @@ dependencies {
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
 ## view
-* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合
+* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
 ## src/main.note
