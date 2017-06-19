@@ -46,6 +46,7 @@ dependencies {
     * getMobilePhoneTypeInfo():获取手机型号信息
     * getAndroidSystemVersion():获取安卓系统版本号
     * getMobilePhoneTypeInfo()：获取手机型号信息
+    * getDeviceId()：获取手机设备的唯一标识
     * launchApp(String packageName):打开APP
     * launchApp(Activity activity, String packageName, int requestCode)：打开APP，设置请求code
     * openAppDetailsSettings()：打开当前应用的设置面板
@@ -144,9 +145,11 @@ dependencies {
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
 ## view
-* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
+* [AlertEditDialog] :仿IOS弹出可编辑dialog
+* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
+* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 ## src/main.note
 * note-1
 * note-2
@@ -168,7 +171,8 @@ dependencies {
 [ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ClearUtil.java
 [FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
 
-
+[AlertEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/AlertEditDialog.java
+[BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/BottomPopupWindow.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java

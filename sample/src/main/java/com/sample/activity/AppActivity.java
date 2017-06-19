@@ -52,7 +52,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "initData: isAppDebug:" + AppUtil.isAppDebug());
         Log.d(TAG, "initData: isAppRoot:" + AppUtil.isAppRoot());
         Log.d(TAG, "initData: getAppSignature:" + AppUtil.getAppSignature().toString());
-        Log.d(TAG, "initData: getAppSignature:" + AppUtil.getAppSignature("com.shuinsen.zhiri").toString());
+        Log.d(TAG, "initData: getAppSignature:" + String.valueOf(AppUtil.getAppSignature("com.shuinsen.zhiri")));
         Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1());
         Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
         Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground());

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/corners_bg"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_popup_window_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corners_bg"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:textColor="@color/action_sheet_gray"
+            android:textSize="13sp"
+            android:visibility="gone" />
+        <!--根据有无标题让此分隔线出现-->
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/alert_dialog_line"
+            android:visibility="gone" />
+
+        <ScrollView
+            android:id="@+id/scroll_view_layout_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="none">
+
+            <LinearLayout
+                android:id="@+id/layout_popup_window_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_popup_window_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/corners_bg"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/action_sheet_blue"
+        android:textSize="18sp" />
+
+</LinearLayout>

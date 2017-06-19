@@ -17,8 +17,7 @@
         <Button
             android:id="@+id/start_activity_activity_util"
             style="@style/MainButton"
-            android:text="测试ActivityUtil工具类"
-             />
+            android:text="测试ActivityUtil工具类" />
 
         <Button
             android:id="@+id/start_activity_network_util"
@@ -34,14 +33,26 @@
             android:id="@+id/start_activity_toast_util"
             style="@style/MainButton"
             android:text="测试ToastUtil工具类" />
+
         <Button
             android:id="@+id/start_activity_app_util"
             style="@style/MainButton"
             android:text="测试AppUtil工具类" />
+
         <Button
             android:id="@+id/start_activity_clear_util"
             style="@style/MainButton"
             android:text="测试ClearUtil工具类" />
+
+        <Button
+            android:id="@+id/start_activity_popup_window"
+            style="@style/MainButton"
+            android:text="测试仿IOS底部弹窗" />
+
+        <Button
+            android:id="@+id/start_activity_alert_dialog"
+            style="@style/MainButton"
+            android:text="测试仿IOS中间弹窗" />
     </LinearLayout>
 
 </ScrollView>

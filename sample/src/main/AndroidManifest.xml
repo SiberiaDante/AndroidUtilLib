@@ -22,7 +22,9 @@
         <activity android:name=".activity.NetworkActivity" />
         <activity android:name=".activity.BaseActivity" />
         <activity android:name=".activity.ActivityUtilActivity" />
-        <activity android:name=".activity.ScreenActivity" />
+        <activity
+            android:name=".activity.ScreenActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activity.AppActivity" />
 
         <provider
@@ -35,7 +37,9 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".activity.ClearActivity"></activity>
+        <activity android:name=".activity.ClearActivity" />
+        <activity android:name=".activity.BottomPopupWindowActivity" />
+        <activity android:name=".activity.AlertDialogActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="alert_dialog_line">#c6c6c6</color>
+    <color name="action_sheet_blue">#037BFF</color>
+    <color name="action_sheet_red">#FD4A2E</color>
+    <color name="action_sheet_gray">#8F8F8F</color>
+</resources>

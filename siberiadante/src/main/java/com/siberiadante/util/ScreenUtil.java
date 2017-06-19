@@ -78,6 +78,10 @@ public class ScreenUtil {
 
     /**
      * 透明状态栏
+     * 需要设置的xml中增加属性：
+     * android:clipToPadding="true"
+     * android:fitsSystemWindows="true"
+     * 案例：sample/.../activity/ScreenActivity.java
      *
      * @param activity
      */
@@ -116,6 +120,7 @@ public class ScreenUtil {
 
     /**
      * 设置全屏
+     *
      * @param activity
      */
     public static void setFullScreen(Activity activity) {
@@ -130,39 +135,39 @@ public class ScreenUtil {
             window.setStatusBarColor(Color.TRANSPARENT);
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void compat(Activity activity, int statusColor) {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            if (statusColor != INVALID_VAL) {
+                activity.getWindow().setStatusBarColor(statusColor);
+            }
+            return;
         }
 
-
-        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-        public static void compat (Activity activity,int statusColor){
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                if (statusColor != INVALID_VAL) {
-                    activity.getWindow().setStatusBarColor(statusColor);
-                }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            int color = COLOR_DEFAULT;
+            ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
+            if (statusColor != INVALID_VAL) {
+                color = statusColor;
+            }
+            View statusBarView = contentView.getChildAt(0);
+            //改变颜色时避免重复添加statusBarView
+            if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity)) {
+                statusBarView.setBackgroundColor(color);
                 return;
             }
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
-                int color = COLOR_DEFAULT;
-                ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
-                if (statusColor != INVALID_VAL) {
-                    color = statusColor;
-                }
-                View statusBarView = contentView.getChildAt(0);
-                //改变颜色时避免重复添加statusBarView
-                if (statusBarView != null && statusBarView.getMeasuredHeight() == getStatusBarHeight(activity)) {
-                    statusBarView.setBackgroundColor(color);
-                    return;
-                }
-                statusBarView = new View(activity);
-                ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                        getStatusBarHeight(activity));
-                statusBarView.setBackgroundColor(color);
-                contentView.addView(statusBarView, lp);
-            }
-
+            statusBarView = new View(activity);
+            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                    getStatusBarHeight(activity));
+            statusBarView.setBackgroundColor(color);
+            contentView.addView(statusBarView, lp);
         }
+
+    }
 
     public static void compat(Activity activity) {
         compat(activity, INVALID_VAL);
