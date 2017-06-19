@@ -14,7 +14,7 @@ public class CloseUtil {
         new SiberiaDanteLibException();
     }
 
-    /**关闭过个IO
+    /**关闭多个IO流
      * @param closeables io,io,io,...
      */
     public static void closeIO(Closeable... closeables) {

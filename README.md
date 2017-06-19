@@ -81,9 +81,15 @@ dependencies {
     * clearExternalCache():清除外部缓存
     * clearCustomCache(String dirPath)：清除自定义路径下的文件
     * clearCustomCache(File dir)：清除自定义路径下的文件
+* [CloseUtil]
+* [DateUtil] ：时间、日期转换
+    * getSDFTime(String str, String format):支持输出各种格式的日期、时间
+    * date2TimeStamp(String date_str, String format):日期格式字符串转换成时间戳
+    * getTimeStamp():取得当前时间戳（精确到秒）
+* [EncryptUtil]
 * [FileUtil] :文件处理相关工具类
-
-
+* [IntentUtil]
+* [LogUtil]
 
 * [NetWorkUtil] :网络连接、类型等
     * isNetWorkConnected()：判断网络是否连接
@@ -92,10 +98,12 @@ dependencies {
     * getNetworkState()：获取连接网络的状态类型
     * openNetworkSettings():打开网络设置面板
 * [TransitionTools] :dp、px转换
-* [DateUtil] ：时间、日期转换
-    * getSDFTime(String str, String format):支持输出各种格式的日期、时间
-    * date2TimeStamp(String date_str, String format):日期格式字符串转换成时间戳
-    * getTimeStamp():取得当前时间戳（精确到秒）
+    * getDensity():屏幕设备屏幕dip
+    * dip2px(Context context, float dipValue): dp转px
+    * dp2px(Context context, float dpValue): dp转px-API方法转
+    * px2dip(Context context, float pxValue): px转dp
+    * px2sp(Context context, float pxValue)：px转sp
+    * sp2px(Context context, float spValue): sp转px
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
     * showSingletonLong(String content)：Toast文本，单例，长时间
     * showSingletonShort(String content)：Toast文本，单例，短时间
@@ -160,22 +168,27 @@ dependencies {
     * [Android常用知识点记录]
 #
 
-[NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
-[TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
-[DateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/DateUtil.java
-[ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java
-[AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/AppUtil.java
-[FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
-[ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
 [ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
+[AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/AppUtil.java
 [ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ClearUtil.java
+[CloseUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/CloseUtil.java
+[DateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/DateUtil.java
+[EncryptUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/EncryptUtil.java
 [FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
+[IntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/IntentUtil.java
+[LogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/LogUtil.java
+[NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
+[ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
+[TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
+[ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java
+
+
 
 [AlertEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/AlertEditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/BottomPopupWindow.java
-[TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java
+[TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java
 
 
 [sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
