@@ -6,7 +6,7 @@ import android.widget.Button;
 
 import com.sample.R;
 import com.siberiadante.util.ToastUtil;
-import com.siberiadante.view.AlertEditDialog;
+import com.siberiadante.widget.AlertEditDialog;
 
 public class AlertDialogActivity extends BaseActivity {
 

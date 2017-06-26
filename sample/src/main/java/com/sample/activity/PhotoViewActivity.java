@@ -17,7 +17,7 @@ import com.sample.R;
 import com.sample.constants.Constants;
 import com.siberiadante.adapter.PhotoViewAdapter;
 import com.siberiadante.util.ToastUtil;
-import com.siberiadante.view.PhotoViewPager;
+import com.siberiadante.widget.PhotoViewPager;
 
 import java.io.File;
 import java.io.FileNotFoundException;

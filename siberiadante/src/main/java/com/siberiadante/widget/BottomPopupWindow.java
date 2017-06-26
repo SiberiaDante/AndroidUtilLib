@@ -1,4 +1,4 @@
-package com.siberiadante.view;
+package com.siberiadante.widget;
 
 import android.app.Dialog;
 import android.content.Context;

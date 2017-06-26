@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.sample.R;
-import com.siberiadante.view.BottomPopupWindow;
+import com.siberiadante.widget.BottomPopupWindow;
 
 public class BottomPopupWindowActivity extends AppCompatActivity {
 

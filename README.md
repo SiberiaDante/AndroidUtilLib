@@ -153,10 +153,12 @@ dependencies {
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
 ## view
+* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
+## widget
 * [AlertEditDialog] :仿IOS弹出可编辑dialog
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog
-* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
+* [RoundImage]：圆形ImageView控件
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 ## src/main.note
 * note-1
@@ -184,11 +186,14 @@ dependencies {
 
 
 
-[AlertEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/AlertEditDialog.java
-[BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/BottomPopupWindow.java
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
-[PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PhotoViewPager.java
-[TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TabRadioButton.java
+
+
+[AlertEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/AlertEditDialog.java
+[BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/BottomPopupWindow.java
+[PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/PhotoViewPager.java
+[RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/RoundImage.java
+[TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TabRadioButton.java
 
 
 [sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java

@@ -12,7 +12,13 @@
 
     <LinearLayout
         style="@style/MatchWrapParent"
+        android:gravity="center"
         android:orientation="vertical">
+
+        <com.siberiadante.widget.RoundImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/image" />
 
         <Button
             android:id="@+id/start_activity_activity_util"

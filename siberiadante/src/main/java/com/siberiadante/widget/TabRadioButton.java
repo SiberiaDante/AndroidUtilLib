@@ -1,4 +1,4 @@
-package com.siberiadante.view;
+package com.siberiadante.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
