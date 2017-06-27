@@ -141,6 +141,7 @@ dependencies {
     * createOrIsExistsFile(File file)：根据文件判断文件是否存在，存在返回true，不存在则创建文件
     * createFileByDeleteOldFile(String filePath):判断文件是否存在，存在则先删除，再创建
     * createFileByDeleteOldFile(File file) ：判断文件是否存在，存在则先删除，再创建
+* [LogUtil] :日志打印工具类
 
 * [ScreenUtil] :屏幕相关工具类
     * getDensity(Activity activity)：dp/px转换的倍率

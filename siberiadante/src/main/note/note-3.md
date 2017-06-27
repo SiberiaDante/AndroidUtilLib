@@ -26,6 +26,8 @@
 * [android理财类源码]
 
 ## Demo功能类
+* [Android表情开发]
+* [Android多种形式吐司工具]
 * [Android仿华为天气绘制刻度盘]
 * [android实现星级评分动画源码]
 * [android实现缩略图到原图]
@@ -42,6 +44,8 @@
 
 
 
+[Android表情开发]:https://github.com/SiberiaDante/EmotionApp
+[Android多种形式吐司工具]:https://github.com/SiberiaDante/ToastUtils
 
 [android仿网易云音乐客户端源码]:https://github.com/youlookwhat/CloudReader
 [android大众类商城项目客户端源码]:https://github.com/atguigu01/Shopping

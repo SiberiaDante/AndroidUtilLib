@@ -3,8 +3,12 @@ package com.siberiadante.model;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by SiberiaDante on 2017/5/15.
- * 封装App信息的Bean类
+ * Created by SiberiaDante
+ * Describe: 封装App信息的Bean类
+ * Time:  2017/5/15.
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园： http://www.cnblogs.com/shen-hua/
  */
 
 public class AppInfo {

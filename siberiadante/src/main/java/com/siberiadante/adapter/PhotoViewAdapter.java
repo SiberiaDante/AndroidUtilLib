@@ -11,8 +11,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+
 /**
- * Created by SiberiaDante on 2017/5/4.
+ * Created by SiberiaDante
+ * Describe: 图片查看器的适配器
+ * Time: 2017/5/4.
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园： http://www.cnblogs.com/shen-hua/
  */
 
 public class PhotoViewAdapter extends PagerAdapter {

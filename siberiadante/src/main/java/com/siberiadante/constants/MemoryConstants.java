@@ -6,7 +6,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Created by SiberiaDante on 2017/5/15.
+ * Created by SiberiaDante
+ * Describe: 图片查看器的适配器
+ * Time: 2017/5/15.
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园： http://www.cnblogs.com/shen-hua/
  */
 
 public class MemoryConstants {

@@ -4,7 +4,12 @@ import com.siberiadante.R;
 import com.siberiadante.SiberiaDanteLib;
 
 /**
- * Created by SiberiaDante on 2017/5/10.
+ * Created by SiberiaDante
+ * Describe: 异常捕获
+ * Time: 2017/5/10.
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园： http://www.cnblogs.com/shen-hua/
  */
 
 public class SiberiaDanteLibException {

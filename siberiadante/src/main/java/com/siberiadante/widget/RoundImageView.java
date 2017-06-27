@@ -17,7 +17,6 @@ import android.widget.ImageView;
  * Created by SiberiaDante on 2017/6/26.
  * 圆形ImageView，运行之后
  */
-
 public class RoundImageView extends ImageView {
     private int mBorderThickness = 2;
     private int mBorderOutsideColor = 0;

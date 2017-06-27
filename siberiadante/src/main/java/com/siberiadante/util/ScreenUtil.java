@@ -37,6 +37,7 @@ public class ScreenUtil {
      * @return 获取屏幕的宽 单位：px
      */
     public static int getScreenWidthPx(Activity activity) {
+//        WindowManager windowManager = activity.getWindowManager();
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
@@ -48,10 +49,12 @@ public class ScreenUtil {
      * @return 获取屏幕的高 单位：px
      */
     public static int getScreenHeightPx(Activity activity) {
+//      WindowManager windowManager = activity.getWindowManager();
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
         return dm.heightPixels;
+
     }
 
     /**
