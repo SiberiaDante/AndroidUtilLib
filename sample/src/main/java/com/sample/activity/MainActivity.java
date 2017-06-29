@@ -25,8 +25,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         Button mBtnToastUtil = (Button) findViewById(R.id.start_activity_toast_util);
         Button mBtnAppUtil = (Button) findViewById(R.id.start_activity_app_util);
         findViewById(R.id.start_activity_clear_util).setOnClickListener(this);
-        findViewById(R.id.start_activity_popup_window).setOnClickListener(this);
-        findViewById(R.id.start_activity_alert_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
 
         mBtnActivityUtil.setOnClickListener(this);
         mBtnScreenUtil.setOnClickListener(this);
@@ -62,11 +61,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.start_activity_clear_util:
                 intent = new Intent(this, ClearActivity.class);
                 break;
-            case R.id.start_activity_popup_window:
-                intent = new Intent(this, BottomPopupWindowActivity.class);
-                break;
-            case R.id.start_activity_alert_dialog:
-                intent = new Intent(this, AlertDialogActivity.class);
+            case R.id.btn_start_general_dialog_activity:
+                intent = new Intent(this, DialogActivity.class);
                 break;
         }
         startActivity(intent);

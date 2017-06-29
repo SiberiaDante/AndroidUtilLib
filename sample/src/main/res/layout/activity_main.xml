@@ -49,16 +49,10 @@
             android:id="@+id/start_activity_clear_util"
             style="@style/MainButton"
             android:text="测试ClearUtil工具类" />
-
         <Button
-            android:id="@+id/start_activity_popup_window"
-            style="@style/MainButton"
-            android:text="测试仿IOS底部弹窗" />
-
-        <Button
-            android:id="@+id/start_activity_alert_dialog"
-            style="@style/MainButton"
-            android:text="测试仿IOS中间弹窗" />
+            android:id="@+id/btn_start_general_dialog_activity"
+            android:text="各种Dialog"
+            style="@style/MainButton"/>
     </LinearLayout>
 
 </ScrollView>

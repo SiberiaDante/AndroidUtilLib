@@ -158,6 +158,7 @@ dependencies {
 ## widget
 * [AlertEditDialog] :仿IOS弹出可编辑dialog
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog
+* [EnsureDialog] 常规提示确认dialog
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
 * [RoundImage]：圆形ImageView控件
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
@@ -192,6 +193,7 @@ dependencies {
 
 [AlertEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/AlertEditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/BottomPopupWindow.java
+[EnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/EnsureDialog.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/PhotoViewPager.java
 [RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/RoundImage.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TabRadioButton.java

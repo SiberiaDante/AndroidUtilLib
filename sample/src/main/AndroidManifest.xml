@@ -38,8 +38,7 @@
         </provider>
 
         <activity android:name=".activity.ClearActivity" />
-        <activity android:name=".activity.BottomPopupWindowActivity" />
-        <activity android:name=".activity.AlertDialogActivity"></activity>
+        <activity android:name=".activity.DialogActivity"></activity>
     </application>
 
 </manifest>
