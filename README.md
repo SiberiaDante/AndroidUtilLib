@@ -156,14 +156,15 @@ dependencies {
 ## view
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
 ## widget
-* [AlertEditDialog] :仿IOS弹出可编辑dialog
-* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog
-* [EnsureDialog] 常规提示确认dialog
+* [AlertEditDialog] :仿IOS弹出可编辑dialog([使用sample/activity/DialogActivity])
+* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用sample/activity/DialogActivity])
+* [EnsureDialog] 常规提示确认dialog([使用sample/activity/DialogActivity])
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
-* [RoundImage]：圆形ImageView控件
+* [RoundImage]：圆形ImageView控件,直接在布局中使用([sample/res/layout/activity_main.xml])
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 ## src/main.note
 * note-1
+    * [Android开发人员必备]
 * note-2
     * [日常笔记]
 * note-3
@@ -200,8 +201,11 @@ dependencies {
 
 
 [sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
+[使用sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/DialogActivity.java
+[sample/res/layout/activity_main.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_main.xml
 
 
+[Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md
 [日常笔记]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-2.md
 [Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-3.md
 [Android常用知识点记录]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
