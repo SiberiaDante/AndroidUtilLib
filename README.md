@@ -4,7 +4,7 @@
 ### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
 #### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
 关注我的微信公众号：tstongxiao
-！[微信公众号图片](/app/src/main/assets/qrcode.jpg)
+![微信公众号图片](/app/src/main/assets/qrcode.jpg)
 * Add it in your root build.gradle at the end of repositories:
 
 ```
