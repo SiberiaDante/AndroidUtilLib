@@ -1,58 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dante="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.sample.activity.MainActivity">
+    android:orientation="vertical"
+    tools:context=".ui.activity.MainActivity">
 
-    <LinearLayout
-        style="@style/MatchWrapParent"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <com.siberiadante.widget.RoundImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@mipmap/image" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <Button
-            android:id="@+id/start_activity_activity_util"
-            style="@style/MainButton"
-            android:text="测试ActivityUtil工具类" />
+    <RadioGroup
+        android:id="@+id/rg_home"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray_1"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/start_activity_network_util"
-            style="@style/MainButton"
-            android:text="测试NetworkUtil工具类" />
+        <com.siberiadante.widget.TabRadioButton
+            android:id="@+id/rb_home_one"
+            style="@style/HomeRadioButton"
+            android:text="组件类"
+            dante:drawableSize="30dp"
+            dante:drawableTop="@drawable/checked_home_one" />
 
-        <Button
-            android:id="@+id/start_activity_screen_util"
-            style="@style/MainButton"
-            android:text="测试ScreenUtil工具类" />
+        <com.siberiadante.widget.TabRadioButton
+            android:id="@+id/rb_home_two"
+            style="@style/HomeRadioButton"
+            android:text="工具类"
+            dante:drawableSize="30dp"
+            dante:drawableTop="@drawable/checked_home_two" />
 
-        <Button
-            android:id="@+id/start_activity_toast_util"
-            style="@style/MainButton"
-            android:text="测试ToastUtil工具类" />
-
-        <Button
-            android:id="@+id/start_activity_app_util"
-            style="@style/MainButton"
-            android:text="测试AppUtil工具类" />
-
-        <Button
-            android:id="@+id/start_activity_clear_util"
-            style="@style/MainButton"
-            android:text="测试ClearUtil工具类" />
-        <Button
-            android:id="@+id/btn_start_general_dialog_activity"
-            android:text="各种Dialog"
-            style="@style/MainButton"/>
-    </LinearLayout>
-
-</ScrollView>
+    </RadioGroup>
+</LinearLayout>

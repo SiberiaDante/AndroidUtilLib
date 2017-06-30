@@ -14,6 +14,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.siberiadante.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,17 +74,29 @@ public class BottomPopupWindow {
         txt_title.setText(title);
         return this;
     }
+
+    public BottomPopupWindow setTitle(String title, int color, float size) {
+        showTitle = true;
+        txt_title.setVisibility(View.VISIBLE);
+        view_line.setVisibility(View.VISIBLE);
+        txt_title.setText(title);
+        txt_title.setTextColor(color);
+        txt_title.setTextSize(size);
+        return this;
+    }
+
     public BottomPopupWindow setCancelable(boolean cancel) {
         dialog.setCancelable(cancel);
         return this;
     }
-    public BottomPopupWindow setCanceledOnTouchOutside(boolean cancel) {
+
+    public BottomPopupWindow setCanceled(boolean cancel) {
         dialog.setCanceledOnTouchOutside(cancel);
         return this;
     }
 
     public BottomPopupWindow addSheetItem(String strItem, SheetItemColor color,
-                                            OnSheetItemClickListener listener) {
+                                          OnSheetItemClickListener listener) {
         if (sheetItemList == null) {
             sheetItemList = new ArrayList<SheetItem>();
         }
@@ -152,7 +165,7 @@ public class BottomPopupWindow {
                 }
             });
             lLayout_content.addView(textView);
-            if ((i>=1)&&(i<size)){//此if语句是我加的使每一小项之间有分割线
+            if ((i >= 1) && (i < size)) {//此if语句是我加的使每一小项之间有分割线
                 View v = new View(context);
                 v.setBackgroundColor(Color.parseColor("#c6c6c6"));
                 v.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 1));

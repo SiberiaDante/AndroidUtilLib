@@ -9,23 +9,23 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.PhotoViewActivity" />
-        <activity android:name=".activity.Main2Activity" />
-        <activity android:name=".activity.ToastActivity" />
-        <activity android:name=".activity.NetworkActivity" />
-        <activity android:name=".activity.BaseActivity" />
-        <activity android:name=".activity.ActivityUtilActivity" />
+        <activity android:name=".ui.activity.PhotoViewActivity" />
+        <activity android:name=".ui.activity.Main2Activity" />
+        <activity android:name=".ui.activity.ToastActivity" />
+        <activity android:name=".ui.activity.NetworkActivity" />
+        <activity android:name=".ui.activity.BaseActivity" />
+        <activity android:name=".ui.activity.ActivityUtilActivity" />
         <activity
-            android:name=".activity.ScreenActivity"
+            android:name=".ui.activity.ScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.AppActivity" />
+        <activity android:name=".ui.activity.AppActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -37,8 +37,8 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".activity.ClearActivity" />
-        <activity android:name=".activity.DialogActivity"></activity>
+        <activity android:name=".ui.activity.ClearActivity" />
+        <activity android:name=".ui.activity.DialogActivity"/>
     </application>
 
 </manifest>

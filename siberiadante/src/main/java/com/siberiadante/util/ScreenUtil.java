@@ -3,6 +3,7 @@ package com.siberiadante.util;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Build;
 import android.util.DisplayMetrics;
@@ -12,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.siberiadante.SiberiaDanteLib;
+import com.siberiadante.constants.Constants;
 
 import static com.siberiadante.SiberiaDanteLib.getActivity;
 
@@ -140,6 +142,23 @@ public class ScreenUtil {
         }
     }
 
+    /**
+     * 计算状态栏高度
+     *
+     * @return
+     */
+    public static int getStatusBarHeight() {
+        return getInternalDimensionSize(Resources.getSystem(), Constants.STATUS_BAR_HEIGHT_RES_NAME);
+    }
+
+    private static int getInternalDimensionSize(Resources res, String key) {
+        int result = 0;
+        int resourceId = res.getIdentifier(key, "dimen", "android");
+        if (resourceId > 0) {
+            result = res.getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public static void compat(Activity activity, int statusColor) {

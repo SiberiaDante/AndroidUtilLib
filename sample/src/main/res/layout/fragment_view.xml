@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.siberiadante.widget.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/red" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <com.siberiadante.widget.RoundImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@mipmap/image" />
+
+            <Button
+                android:id="@+id/btn_start_general_dialog_activity"
+                style="@style/MainButton"
+                android:text="各种Dialog" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

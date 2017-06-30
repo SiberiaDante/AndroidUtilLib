@@ -1,4 +1,4 @@
-package com.sample.activity;
+package com.sample.ui.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

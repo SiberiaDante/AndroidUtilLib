@@ -105,6 +105,7 @@ dependencies {
     * px2sp(Context context, float pxValue)：px转sp
     * sp2px(Context context, float spValue): sp转px
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
+    * toast(String content):常用的单例Toast
     * showSingletonLong(String content)：Toast文本，单例，长时间
     * showSingletonShort(String content)：Toast文本，单例，短时间
     * showTextShort(String content)：Toast文本，非单例，短时间
@@ -153,15 +154,17 @@ dependencies {
     * setNavigationTranslucent(Activity activity)：设置导航栏透明
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
+    * getStatusBarHeight()：计算手机状态栏的高度
 ## view
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
 ## widget
-* [AlertEditDialog] :仿IOS弹出可编辑dialog([使用sample/activity/DialogActivity])
-* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用sample/activity/DialogActivity])
-* [EnsureDialog] 常规提示确认dialog([使用sample/activity/DialogActivity])
-* [PhotoViewPager] ：可左右滑动照片查看器(案例：[sample/activity/PhotoViewActivity])
-* [RoundImage]：圆形ImageView控件,直接在布局中使用([sample/res/layout/activity_main.xml])
+* [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
+* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
+* [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
+* [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
+* [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
+* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
 ## src/main.note
 * note-1
     * [Android开发人员必备]
@@ -192,17 +195,19 @@ dependencies {
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
 
 
-[AlertEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/AlertEditDialog.java
+[EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/EditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/BottomPopupWindow.java
 [EnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/EnsureDialog.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/PhotoViewPager.java
 [RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/RoundImage.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TabRadioButton.java
+[TitleBar]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TitleBar.java
 
 
-[sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
-[使用sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/DialogActivity.java
-[sample/res/layout/activity_main.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_main.xml
+[使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
+[使用:sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/DialogActivity.java
+[使用:sample/res/layout/fragment_view.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/fragment_view.xml
+[使用:sample/res/layout/activity_dialog.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_dialog.xml
 
 
 [Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md

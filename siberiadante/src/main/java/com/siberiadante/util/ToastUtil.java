@@ -40,6 +40,20 @@ public class ToastUtil {
     }
 
     /**
+     * 单例
+     *
+     * @param content
+     */
+    public static void toast(String content) {
+        if (toast == null) {
+            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
+        }
+        toast.setText(content);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    /**
      * 吐司文本内容
      * 单例模式,吐司时间长
      *
@@ -101,11 +115,11 @@ public class ToastUtil {
      * 吐司文本内容 自定义位置、时间
      * 单例模式
      *
-     * @param content 吐司内容
+     * @param content  吐司内容
      * @param duration 显示的时间
      * @param position 显示的位置
      */
-    public static void showSingletonText(String content,int duration,int position ) {
+    public static void showSingletonText(String content, int duration, int position) {
         if (toast == null) {
             toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
@@ -117,7 +131,8 @@ public class ToastUtil {
 
     /**
      * Toast 无背景透明的文本
-     * @param content 内容
+     *
+     * @param content  内容
      * @param duration 时长
      * @param position 位置
      */
@@ -382,12 +397,14 @@ public class ToastUtil {
         toast.show();
 
     }
+
     /**
      * 异步线程下载图片并Toast
+     *
      * @param url
      */
     public static void showThread(String url) {
-        final String mUrl=url;
+        final String mUrl = url;
         Observable.create(new ObservableOnSubscribe<Bitmap>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<Bitmap> e) throws Exception {
@@ -409,7 +426,6 @@ public class ToastUtil {
                     }
                 });
     }
-
 
 
     public static void cancel() {

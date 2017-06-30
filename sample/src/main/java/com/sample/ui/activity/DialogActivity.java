@@ -1,25 +1,30 @@
-package com.sample.activity;
+package com.sample.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.sample.R;
+import com.siberiadante.util.ScreenUtil;
 import com.siberiadante.util.ToastUtil;
-import com.siberiadante.widget.AlertEditDialog;
+import com.siberiadante.widget.EditDialog;
 import com.siberiadante.widget.BottomPopupWindow;
 import com.siberiadante.widget.EnsureDialog;
+import com.siberiadante.widget.TitleBar;
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = DialogActivity.class.getSimpleName();
     private EnsureDialog ensureDialog;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
+        ScreenUtil.setStatusTranslucent(this);
         initView();
         initData();
     }
@@ -28,6 +33,39 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.btn_general_dialog).setOnClickListener(this);
         findViewById(R.id.btn_bottom_popup_widow).setOnClickListener(this);
         findViewById(R.id.btn_edit_dialog).setOnClickListener(this);
+        TitleBar titleBar = ((TitleBar) findViewById(R.id.titleBar_dialog_activity));
+        initTitle(titleBar);
+    }
+
+    private void initTitle(TitleBar titleBar) {
+        titleBar.setImmersive(true);
+        titleBar.setTitle("各种Dialog组件封装");
+        titleBar.setSubTitle("SiberiaDante");
+        titleBar.setSubTitleColor(getResources().getColor(R.color.gray));
+        titleBar.setLeftImage(R.mipmap.back);
+        titleBar.setLeftText("返回");
+        titleBar.setRightImage(R.mipmap.search);
+        titleBar.setDivideBackground(getResources().getColor(R.color.colorPrimary));
+
+        titleBar.setTitleListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtil.showTextLong("点击了标题");
+            }
+        });
+        titleBar.setLeftListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtil.toast("点击了左侧");
+            }
+        });
+
+        titleBar.setRightListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtil.toast("点击了右侧");
+            }
+        });
     }
 
     private void initData() {
@@ -49,8 +87,11 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    /**
+     * EditDialog
+     */
     private void showEditDialog() {
-        final AlertEditDialog dialog = new AlertEditDialog(this).builder();
+        final EditDialog dialog = new EditDialog(this).builder();
         dialog.setTitle("可编辑Dialog");
         dialog.setCancelable(false);
         dialog.setNegativeButton("取消", new View.OnClickListener() {
@@ -63,14 +104,18 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             public void onClick(View view) {
                 final String msg = dialog.getMsg();
                 ToastUtil.showTextLong("输入内容为：" + msg);
+                dialog.dismiss();
             }
         });
         dialog.show();
     }
 
+    /**
+     * BottomPopupWindow
+     */
     private void showBottomPopupWindow() {
         new BottomPopupWindow(this).builder()
-                .setTitle("选择").setCancelable(false).setCanceledOnTouchOutside(true)
+                .setTitle("选择").setCancelable(false).setCanceled(true)
                 .addSheetItem("相机", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
@@ -85,7 +130,9 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                 }).show();
     }
 
-
+    /**
+     * EnsureDialog
+     */
     private void showEnsureDialog() {
         ensureDialog = new EnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置

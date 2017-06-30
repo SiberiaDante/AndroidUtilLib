@@ -4,7 +4,7 @@
     android:id="@+id/activity_screen_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sample.activity.ScreenActivity">
+    tools:context=".ui.activity.ScreenActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
