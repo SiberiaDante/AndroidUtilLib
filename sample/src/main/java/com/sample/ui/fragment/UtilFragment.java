@@ -60,6 +60,7 @@ public class UtilFragment extends Fragment implements View.OnClickListener {
     private void initTitleBar(TitleBar mTitleBar) {
         mTitleBar.setImmersive(true);
         mTitleBar.setTitle("SiberiaDante");
+        mTitleBar.setRightImage(R.mipmap.search);
     }
 
     @Override

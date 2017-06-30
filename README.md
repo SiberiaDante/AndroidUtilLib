@@ -17,7 +17,7 @@ allprojects {
 
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:1.0.2'
 	}
 ```
 ### 说明
