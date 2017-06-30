@@ -59,6 +59,6 @@ dependencies {
                 });
  ```               
 * TitleBar设置底部分割线，可以是颜色、图片等
-````
+```
         titleBar.setDivideBackground(getResources().getColor(R.color.colorPrimary));
 ```
