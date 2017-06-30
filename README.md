@@ -164,7 +164,7 @@ dependencies {
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
 * [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
-* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
+* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用说明:sample/main/notes/TitleBar.md])
 ## src/main.note
 * note-1
     * [Android开发人员必备]
@@ -207,7 +207,7 @@ dependencies {
 [使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
 [使用:sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/DialogActivity.java
 [使用:sample/res/layout/fragment_view.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/fragment_view.xml
-[使用:sample/res/layout/activity_dialog.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_dialog.xml
+[使用说明:sample/main/notes/TitleBar.md]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/notes/TitleBar.md
 
 
 [Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md
