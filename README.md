@@ -3,7 +3,7 @@
 ### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 ### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
 #### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
-#### 关注我的微信公众号:[tstongxiao]
+#### 关注我的微信公众号: [tstongxiao]
 ![微信公众号图片](/sample/src/main/assets/images/qrcode.jpg)
 * Add it in your root build.gradle at the end of repositories:
 
