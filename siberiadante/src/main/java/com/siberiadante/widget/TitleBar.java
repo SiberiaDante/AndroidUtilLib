@@ -3,6 +3,7 @@ package com.siberiadante.widget;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -80,7 +81,7 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
         final int mIvHeight = (mHeight / 2);
         LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         LayoutParams imageParams = new LayoutParams(mIvHeight, mIvHeight);
-        //左中右三大组件
+        //左中右、分割线
         mLeftLayout = new LinearLayout(context);
         mCenterLayout = new LinearLayout(context);
         mRightLayout = new LinearLayout(context);
@@ -142,6 +143,14 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
      */
     public void setDivideBackground(int color) {
         mDividerView.setBackgroundColor(color);
+    }
+
+    /**
+     * 底部分割线背景图片
+     * @param drawable
+     */
+    public void setDivideBackground(Drawable  drawable) {
+        mDividerView.setBackground(drawable);
     }
 
     /**
@@ -303,7 +312,6 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
         mRightLayout.setOnClickListener(listener);
     }
 
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
@@ -343,6 +351,5 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
                     mScreenWidth - mRightLayout.getMeasuredWidth(), getMeasuredHeight());
         }
         mDividerView.layout(0, getMeasuredHeight() - mDividerView.getMeasuredHeight(), getMeasuredWidth(), getMeasuredHeight());
-
     }
 }

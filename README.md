@@ -1,8 +1,10 @@
 # SiberiaDanteLib
-### 旨在打造一款属于Android开发的强大工具库
+### 旨在打造一款属于Android开发的强大工具库(持续更新维护中……）
 ### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 ### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
 #### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
+#### 关注我的微信公众号:[tstongxiao]
+![微信公众号图片](/sample/src/main/assets/images/qrcode.jpg)
 * Add it in your root build.gradle at the end of repositories:
 
 ```
@@ -17,7 +19,7 @@ allprojects {
 
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:1.0.2'
 	}
 ```
 ### 说明
@@ -219,3 +221,7 @@ dependencies {
 [Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md
 [日常笔记]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-2.md
 [Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-3.md
+
+[Android常用知识点记录]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
+
+[tstongxiao]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/assets/images/qrcode.jpg
