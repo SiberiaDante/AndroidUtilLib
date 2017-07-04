@@ -26,14 +26,18 @@ dependencies {
 * 使用之前需要在Application中初始化
     SiberiaDanteLib.initLib(context);
 * 内置三方框架如下（自己项目中无须再次添加）
-	* picasso图片加载框架:    compile 'com.squareup.picasso:picasso:2.5.2'
-	* PhotoView:             compile 'com.github.chrisbanes:PhotoView:2.0.0'
-	* RxJava2:               compile 'io.reactivex.rxjava2:rxjava:2.1.0'
-    * RxAndroid:             compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+	* compile 'com.squareup.picasso:picasso:2.5.2'（picasso图片加载框架）
+	* compile 'com.github.chrisbanes:PhotoView:2.0.0'（PhotoView）
+	* compile 'io.reactivex.rxjava2:rxjava:2.1.0'（RxJava2）
+    * compile 'io.reactivex.rxjava2:rxandroid:2.0.1'（RxAndroid）
 * 内置已申明权限
+    * <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    * <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    * <uses-permission android:name="android.permission.INTERNET"/>
+    * <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
 
 ## view
-* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
+* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
 ## widget
 * [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
