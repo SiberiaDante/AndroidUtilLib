@@ -31,10 +31,10 @@ dependencies {
 	* compile 'io.reactivex.rxjava2:rxjava:2.1.0'（RxJava2）
     * compile 'io.reactivex.rxjava2:rxandroid:2.0.1'（RxAndroid）
 * 内置已申明权限
-    * <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    * <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    * <uses-permission android:name="android.permission.INTERNET"/>
-    * <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    * uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
+    * uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
+    * uses-permission android:name="android.permission.INTERNET"
+    * uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
 
 ## view
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
