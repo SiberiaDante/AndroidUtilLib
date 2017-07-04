@@ -6,7 +6,7 @@ import android.content.Context;
 
 /**
  * Created by SiberiaDante on 2017/5/10.
- * user this lib,you should init it first
+ * user this lib,you should init it first：context
  */
 
 public class SiberiaDanteLib {
@@ -31,7 +31,7 @@ public class SiberiaDanteLib {
         if (context != null) {
             return context;
         } else {
-            throw new NullPointerException("Use this lib,you need init first! In your Application: SiberiaDanteLib.initLib(appContext);");
+            throw new NullPointerException(context.getString(R.string.NotInitError));
 
         }
     }
@@ -40,7 +40,7 @@ public class SiberiaDanteLib {
         if (activity != null) {
             return activity;
         } else {
-            throw new NullPointerException("Use this lib,you need init first! In your Application: SiberiaDanteLib.initLib(appActivity);");
+            throw new NullPointerException(activity.getString(R.string.NotInitErrorActivity));
         }
     }
 }

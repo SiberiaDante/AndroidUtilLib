@@ -29,6 +29,18 @@ dependencies {
 	* RxJava2:               compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     * RxAndroid:             compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
 * 内置已申明权限
+
+## view
+* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
+## widget
+* [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
+* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
+* [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
+* [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
+* [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
+* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
+* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
+
 ## util
 * [ActivityUtil] :页面工具类
     * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
@@ -155,16 +167,7 @@ dependencies {
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
     * getStatusBarHeight()：计算手机状态栏的高度
-## view
-* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形
-## widget
-* [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
-* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
-* [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
-* [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
-* [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
-* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
-* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
+
 ## src/main.note
 * note-1
     * [Android开发人员必备]
@@ -172,24 +175,6 @@ dependencies {
     * [日常笔记]
 * note-3
     * [Android项目源代码汇集]
-* note-4
-    * [Android常用知识点记录]
-#
-
-[ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
-[AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/AppUtil.java
-[ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ClearUtil.java
-[CloseUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/CloseUtil.java
-[DateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/DateUtil.java
-[EncryptUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/EncryptUtil.java
-[FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
-[IntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/IntentUtil.java
-[LogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/LogUtil.java
-[NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
-[ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
-[TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
-[ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java
-
 
 
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
@@ -210,7 +195,27 @@ dependencies {
 [使用:sample/res/layout/activity_dialog.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_dialog.xml
 
 
+
+
+
+
+[ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
+[AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/AppUtil.java
+[ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ClearUtil.java
+[CloseUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/CloseUtil.java
+[DateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/DateUtil.java
+[EncryptUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/EncryptUtil.java
+[FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/FileUtil.java
+[IntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/IntentUtil.java
+[LogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/LogUtil.java
+[NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
+[ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
+[TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
+[ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java
+
+
+
+
 [Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md
 [日常笔记]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-2.md
 [Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-3.md
-[Android常用知识点记录]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
