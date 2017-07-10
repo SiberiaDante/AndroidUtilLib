@@ -115,6 +115,8 @@ dependencies {
     * is4GConnected()：判断是否4G连接
     * getNetworkState()：获取连接网络的状态类型
     * openNetworkSettings():打开网络设置面板
+* [NumberUtil] :数字工具类
+    * isNumeric(String str):是否全为数字
 * [TransitionTools] :dp、px转换
     * getDensity():屏幕设备屏幕dip
     * dip2px(Context context, float dipValue): dp转px
@@ -215,6 +217,8 @@ dependencies {
 [IntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/IntentUtil.java
 [LogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/LogUtil.java
 [NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NetWorkUtil.java
+[NumberUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NumberUtil.java
+
 [ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
 [TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
 [ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java

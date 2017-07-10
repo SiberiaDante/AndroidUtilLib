@@ -48,6 +48,10 @@
                 android:id="@+id/start_activity_clear_util"
                 style="@style/MainButton"
                 android:text="测试ClearUtil工具类" />
+            <Button
+                android:id="@+id/start_activity_number_util"
+                style="@style/MainButton"
+                android:text="测试NumberUtil工具类" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

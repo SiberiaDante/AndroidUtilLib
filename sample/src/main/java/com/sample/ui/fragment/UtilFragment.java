@@ -15,6 +15,7 @@ import com.sample.ui.activity.AppActivity;
 import com.sample.ui.activity.ClearActivity;
 import com.sample.ui.activity.DialogActivity;
 import com.sample.ui.activity.NetworkActivity;
+import com.sample.ui.activity.NumberActivity;
 import com.sample.ui.activity.ScreenActivity;
 import com.sample.ui.activity.ToastActivity;
 import com.siberiadante.util.ScreenUtil;
@@ -46,6 +47,7 @@ public class UtilFragment extends Fragment implements View.OnClickListener {
         Button mBtnToastUtil = (Button) view.findViewById(R.id.start_activity_toast_util);
         Button mBtnAppUtil = (Button) view.findViewById(R.id.start_activity_app_util);
         view.findViewById(R.id.start_activity_clear_util).setOnClickListener(this);
+        view.findViewById(R.id.start_activity_number_util).setOnClickListener(this);
         final TitleBar mTitleBar = (TitleBar) view.findViewById(R.id.titleBar_fragment_util);
         initTitleBar(mTitleBar);
 
@@ -84,6 +86,9 @@ public class UtilFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.start_activity_clear_util:
                 intent = new Intent(getActivity(), ClearActivity.class);
+                break;
+            case R.id.start_activity_number_util:
+                intent = new Intent(getActivity(), NumberActivity.class);
                 break;
         }
         startActivity(intent);

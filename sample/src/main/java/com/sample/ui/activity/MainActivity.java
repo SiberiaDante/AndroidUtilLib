@@ -58,12 +58,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
         switch (i) {
             case R.id.rb_home_one:
-                mViewPager.setCurrentItem(0);
+                mViewPager.setCurrentItem(0,false);
                 mRBOne.setTextColor(getResources().getColor(R.color.Red));
                 mRBTwo.setTextColor(getResources().getColor(R.color.gray));
                 break;
             case R.id.rb_home_two:
-                mViewPager.setCurrentItem(1);
+                mViewPager.setCurrentItem(1,false);
                 mRBTwo.setTextColor(getResources().getColor(R.color.Red));
                 mRBOne.setTextColor(getResources().getColor(R.color.gray));
                 break;
