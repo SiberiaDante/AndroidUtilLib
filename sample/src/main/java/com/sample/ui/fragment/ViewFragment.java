@@ -11,7 +11,7 @@ import com.sample.R;
 import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.DialogActivity;
 import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.widget.TitleBar;
+import com.siberiadante.view.TitleBar;
 
 /**
  * @Created SiberiaDante

@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ui.activity.DialogActivity">
 
-    <com.siberiadante.widget.TitleBar
+    <com.siberiadante.view.TitleBar
         android:id="@+id/titleBar_dialog_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

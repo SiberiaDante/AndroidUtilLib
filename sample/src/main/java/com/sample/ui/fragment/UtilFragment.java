@@ -13,13 +13,11 @@ import com.sample.R;
 import com.sample.ui.activity.ActivityUtilActivity;
 import com.sample.ui.activity.AppActivity;
 import com.sample.ui.activity.ClearActivity;
-import com.sample.ui.activity.DialogActivity;
 import com.sample.ui.activity.NetworkActivity;
 import com.sample.ui.activity.NumberActivity;
 import com.sample.ui.activity.ScreenActivity;
 import com.sample.ui.activity.ToastActivity;
-import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.widget.TitleBar;
+import com.siberiadante.view.TitleBar;
 
 /**
  * @Created SiberiaDante

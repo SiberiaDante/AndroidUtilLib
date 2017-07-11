@@ -1,6 +1,5 @@
 package com.sample.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,9 +7,8 @@ import android.widget.EditText;
 
 import com.sample.R;
 import com.siberiadante.util.NumberUtil;
-import com.siberiadante.widget.TitleBar;
+import com.siberiadante.view.TitleBar;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class NumberActivity extends BaseActivity implements View.OnClickListener {

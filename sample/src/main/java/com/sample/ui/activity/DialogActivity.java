@@ -2,18 +2,16 @@ package com.sample.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import com.sample.R;
 import com.siberiadante.util.ScreenUtil;
 import com.siberiadante.util.ToastUtil;
-import com.siberiadante.widget.EditDialog;
-import com.siberiadante.widget.BottomPopupWindow;
-import com.siberiadante.widget.EnsureDialog;
-import com.siberiadante.widget.TitleBar;
+import com.siberiadante.view.EditDialog;
+import com.siberiadante.view.BottomPopupWindow;
+import com.siberiadante.view.EnsureDialog;
+import com.siberiadante.view.TitleBar;
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
 

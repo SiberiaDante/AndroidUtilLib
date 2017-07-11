@@ -37,15 +37,16 @@ dependencies {
     * uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
 
 ## view
-* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
-## widget
 * [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
 * [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
+* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
+* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
+## widget
+* [JustifyTextView] 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
 * [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
-* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
 
 ## util
 * [ActivityUtil] :页面工具类
@@ -117,35 +118,7 @@ dependencies {
     * openNetworkSettings():打开网络设置面板
 * [NumberUtil] :数字工具类
     * isNumeric(String str):是否全为数字
-* [TransitionTools] :dp、px转换
-    * getDensity():屏幕设备屏幕dip
-    * dip2px(Context context, float dipValue): dp转px
-    * dp2px(Context context, float dpValue): dp转px-API方法转
-    * px2dip(Context context, float pxValue): px转dp
-    * px2sp(Context context, float pxValue)：px转sp
-    * sp2px(Context context, float spValue): sp转px
-* [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
-    * toast(String content):常用的单例Toast
-    * showSingletonLong(String content)：Toast文本，单例，长时间
-    * showSingletonShort(String content)：Toast文本，单例，短时间
-    * showTextShort(String content)：Toast文本，非单例，短时间
-    * showTextLong(String content)：Toast文本，非单例，长时间
-    * showSingletonText(String content,int duration,int position ):Toast文本，自定义时长、位置
-    * showSNBacText(String content, int duration, int position)：Toast 无背景透明的文本
-    * showSingletonImageCenter(int resId, int duration): Toast一张图片，单例，居中
-    * showImageCenter(int resId,int duration)：Toast一张图片，非单例，居中
-    * showSingletonImage(int resId, int duration, int position):Toast一张图片，单例，自定义位置
-    * showImage(int resId, int duration, int position)：Toast一张图片，非单例，自定义位置
-    * showImage(Bitmap bitmap, int duration, int position):Toast一张图片，非单例，自定义位置
-    * showITSingleton(int resId, String content, int duration, int position)：Toast图文，单例，自定义时长，自定义位置
-    * showIT(int resId, String content, int duration, int position)：Toast图文，非单例，自定义时长，自定义位置
-    * showLines(List<String> contents, int size):Toast 多行文本 非单例
-    * showSingletonLines(List<String> contents, int size):Toast 多行文本 单例
-    * showLayout(View view, int duration, int position):Toast 自定义布局 非单例
-    * howSingletonLayout(View view, int duration, int position):Toast 自定义布局 单例
-    * showThread(String url)：异步线程下载图片并Toast
-    * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
-    * cancelAll():取消创建的所有的toast
+
 * [FileUtil] :文件处理相关工具类等
     * getFileByPath(String filePath)：根据路径获取文件
     * isFileExists(String filePath)：根据路径判断文件是否存在
@@ -175,7 +148,40 @@ dependencies {
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
     * getStatusBarHeight()：计算手机状态栏的高度
+* [StringUtil] :字符处理相关工具类
+    * toSBC(String text):半角转换为全角
+    * removeSpecialString(String str):去除特殊字符或将所有中文标号替换为英文标号
+    * isHaveString(String str1, String str2)：str1 中是否包含str2
 
+* [TransitionTools] :dp、px转换
+    * getDensity():屏幕设备屏幕dip
+    * dip2px(Context context, float dipValue): dp转px
+    * dp2px(Context context, float dpValue): dp转px-API方法转
+    * px2dip(Context context, float pxValue): px转dp
+    * px2sp(Context context, float pxValue)：px转sp
+    * sp2px(Context context, float spValue): sp转px
+* [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
+    * toast(String content):常用的单例Toast
+    * showSingletonLong(String content)：Toast文本，单例，长时间
+    * showSingletonShort(String content)：Toast文本，单例，短时间
+    * showTextShort(String content)：Toast文本，非单例，短时间
+    * showTextLong(String content)：Toast文本，非单例，长时间
+    * showSingletonText(String content,int duration,int position ):Toast文本，自定义时长、位置
+    * showSNBacText(String content, int duration, int position)：Toast 无背景透明的文本
+    * showSingletonImageCenter(int resId, int duration): Toast一张图片，单例，居中
+    * showImageCenter(int resId,int duration)：Toast一张图片，非单例，居中
+    * showSingletonImage(int resId, int duration, int position):Toast一张图片，单例，自定义位置
+    * showImage(int resId, int duration, int position)：Toast一张图片，非单例，自定义位置
+    * showImage(Bitmap bitmap, int duration, int position):Toast一张图片，非单例，自定义位置
+    * showITSingleton(int resId, String content, int duration, int position)：Toast图文，单例，自定义时长，自定义位置
+    * showIT(int resId, String content, int duration, int position)：Toast图文，非单例，自定义时长，自定义位置
+    * showLines(List<String> contents, int size):Toast 多行文本 非单例
+    * showSingletonLines(List<String> contents, int size):Toast 多行文本 单例
+    * showLayout(View view, int duration, int position):Toast 自定义布局 非单例
+    * howSingletonLayout(View view, int duration, int position):Toast 自定义布局 单例
+    * showThread(String url)：异步线程下载图片并Toast
+    * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
+    * cancelAll():取消创建的所有的toast
 ## src/main.note
 * note-1
     * [Android开发人员必备]
@@ -185,16 +191,17 @@ dependencies {
     * [Android项目源代码汇集]
 
 
+[EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/EditDialog.java
+[BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/BottomPopupWindow.java
+[EnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/EnsureDialog.java
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
+[TitleBar]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TitleBar.java
 
 
-[EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/EditDialog.java
-[BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/BottomPopupWindow.java
-[EnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/EnsureDialog.java
+[JustifyTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/JustifyTextView.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/PhotoViewPager.java
 [RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/RoundImage.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TabRadioButton.java
-[TitleBar]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TitleBar.java
 
 
 [使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
@@ -220,6 +227,7 @@ dependencies {
 [NumberUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/NumberUtil.java
 
 [ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ScreenUtil.java
+[StringUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/StringUtil.java
 [TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/TransitionTools.java
 [ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ToastUtil.java
 

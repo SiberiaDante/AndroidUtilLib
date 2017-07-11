@@ -1,4 +1,4 @@
-package com.siberiadante.widget;
+package com.siberiadante.view;
 
 import android.content.Context;
 import android.content.res.Resources;
