@@ -86,6 +86,7 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
         mCenterLayout = new LinearLayout(context);
         mRightLayout = new LinearLayout(context);
         mDividerView = new LinearLayout(context);
+        mDividerView.setBackgroundResource(R.color.black);
         //右边
         mRightImage = new ImageView(context);
         mRightLayout.addView(mRightImage, imageParams);
@@ -146,10 +147,18 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
     }
 
     /**
+     * 隐藏标题栏底部分割线
+     */
+    public void setDivideGone() {
+        mDividerView.setVisibility(GONE);
+    }
+
+    /**
      * 底部分割线背景图片
+     *
      * @param drawable
      */
-    public void setDivideBackground(Drawable  drawable) {
+    public void setDivideBackground(Drawable drawable) {
         mDividerView.setBackground(drawable);
     }
 
