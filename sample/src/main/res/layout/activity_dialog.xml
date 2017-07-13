@@ -14,9 +14,19 @@
         android:background="@color/blue" />
 
     <Button
-        android:id="@+id/btn_general_dialog"
+        android:id="@+id/btn_general_dialog_one"
         style="@style/MainButton"
         android:text="提示确认Dialog" />
+
+    <Button
+        android:id="@+id/btn_general_dialog_two"
+        style="@style/MainButton"
+        android:text="提示确认Dialog-带副标题" />
+
+    <Button
+        android:id="@+id/btn_general_dialog_three"
+        style="@style/MainButton"
+        android:text="提示确认Dialog-带图标" />
 
     <Button
         android:id="@+id/btn_bottom_popup_widow"

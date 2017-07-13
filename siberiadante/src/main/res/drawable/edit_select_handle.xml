@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle" >
+    <size android:width="0dp" />    <!-- 实际不显示，该图片的作用仅是占位，因直接设置android:textSelectHandle="@null"运行时出错，当然根据具体情况，可设置成一张图片png等 -->
+</shape>
