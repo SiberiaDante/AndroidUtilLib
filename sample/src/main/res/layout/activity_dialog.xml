@@ -27,6 +27,10 @@
         android:id="@+id/btn_general_dialog_three"
         style="@style/MainButton"
         android:text="提示确认Dialog-带图标" />
+    <Button
+        android:id="@+id/btn_general_dialog_four"
+        style="@style/MainButton"
+        android:text="提示确认Dialog-一个按钮" />
 
     <Button
         android:id="@+id/btn_bottom_popup_widow"

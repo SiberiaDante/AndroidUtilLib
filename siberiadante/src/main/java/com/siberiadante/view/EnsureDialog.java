@@ -31,9 +31,11 @@ public class EnsureDialog {
     private TextView mTvSubTitle;
     private TextView mTvSure;
     private TextView mTvCancel;
+    private TextView mTvOK;
     private ImageView mIvIcon;
     private Dialog dialog;
     private Window dialogWindow;
+    private LinearLayout mLinearBottom;
 
     public EnsureDialog(Context context) {
         this.context = context;
@@ -52,10 +54,13 @@ public class EnsureDialog {
     public EnsureDialog builder() {
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_ensure_layout, null, false);
         LinearLayout mLinearDialog = ((LinearLayout) view.findViewById(R.id.linear_dialog));
+        mLinearBottom = ((LinearLayout) view.findViewById(R.id.linear_bottom));
+
         mIvIcon = ((ImageView) view.findViewById(R.id.iv_icon));
         mTvTitle = ((TextView) view.findViewById(R.id.tv_title));
         mTvSubTitle = ((TextView) view.findViewById(R.id.tv_sub_title));
         mTvSure = ((TextView) view.findViewById(R.id.tv_sure));
+        mTvOK = ((TextView) view.findViewById(R.id.tv_ok));
         mTvCancel = ((TextView) view.findViewById(R.id.tv_cancel));
         dialog.setContentView(view);
         mLinearDialog.setLayoutParams(new FrameLayout.LayoutParams(((int) (display.getWidth() * 0.80)), LinearLayout.LayoutParams.WRAP_CONTENT));
@@ -233,6 +238,59 @@ public class EnsureDialog {
         }
         mTvCancel.setTextColor(color);
         mTvCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(v);
+                dialog.dismiss();
+            }
+        });
+        return this;
+    }
+
+    /**
+     * setting dialog center button
+     *
+     * @param text
+     * @param listener
+     * @return
+     */
+    public EnsureDialog setCenterButton(String text, final View.OnClickListener listener) {
+        if ("".equals(text)) {
+            mTvOK.setText("确认");
+        } else {
+            mTvOK.setText(text);
+        }
+        mLinearBottom.setVisibility(View.GONE);
+        mTvOK.setVisibility(View.VISIBLE);
+
+        mTvOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onClick(v);
+                dialog.dismiss();
+            }
+        });
+        return this;
+    }
+
+    /**
+     * setting dialog center button
+     *
+     * @param text
+     * @param listener
+     * @return
+     */
+    public EnsureDialog setCenterButton(String text, int color, final View.OnClickListener listener) {
+        if ("".equals(text)) {
+            mTvOK.setText("确认");
+        } else {
+            mTvOK.setText(text);
+        }
+        mTvOK.setTextColor(color);
+        mLinearBottom.setVisibility(View.GONE);
+        mTvOK.setVisibility(View.VISIBLE);
+
+        mTvOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listener.onClick(v);

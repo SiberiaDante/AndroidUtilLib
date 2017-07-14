@@ -31,6 +31,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.btn_general_dialog_one).setOnClickListener(this);
         findViewById(R.id.btn_general_dialog_two).setOnClickListener(this);
         findViewById(R.id.btn_general_dialog_three).setOnClickListener(this);
+        findViewById(R.id.btn_general_dialog_four).setOnClickListener(this);
         findViewById(R.id.btn_bottom_popup_widow).setOnClickListener(this);
         findViewById(R.id.btn_edit_dialog).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) findViewById(R.id.titleBar_dialog_activity));
@@ -84,14 +85,19 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_general_dialog_three:
                 showEnsureDialogThree();
                 break;
+            case R.id.btn_general_dialog_four:
+                showEnsureDialogFour();
+                break;
             case R.id.btn_bottom_popup_widow:
                 showBottomPopupWindow();
                 break;
             case R.id.btn_edit_dialog:
                 showEditDialog();
                 break;
+
         }
     }
+
 
     /**
      * EditDialog
@@ -206,4 +212,20 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         ensureDialog.show();
 
     }
+
+    private void showEnsureDialogFour() {
+        ensureDialog = new EnsureDialog(this).builder()
+                .setGravity(Gravity.CENTER)//默认居中，可以不设置
+                .setTitle("这里是一个标题", R.color.black)//可以不设置标题颜色，默认系统颜色
+                .setCancelable(false)
+                .setCenterButton("取消", new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                })
+        ;
+        ensureDialog.show();
+    }
+
 }
