@@ -26,7 +26,7 @@ public class NumberActivity extends BaseActivity implements View.OnClickListener
 
     private void initView() {
         TitleBar mTitleBar = (TitleBar) findViewById(R.id.title_bar_number);
-        mTitleBar.setBackgroundResource(R.color.Red);
+        mTitleBar.setBackgroundResource(R.color.red);
         mTitleBar.setTitle("NumberUtil测试");
         mTitleBar.setImmersive(true);
         edtInput = (EditText) findViewById(R.id.edt_input);

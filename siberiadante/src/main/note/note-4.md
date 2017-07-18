@@ -1,6 +1,30 @@
-# View
+# 开源框架汇集
+* [Android表情开发]
+* [Android多种形式吐司工具]
 * [高仿QQ、IOS侧滑删除,适用任意ViewGroup]
+* [Android仿华为天气绘制刻度盘]
+* [Android实现星级评分动画源码]
+* [Android实现缩略图到原图]
+* [Android各种选择器源码]
+* [Android九宫格展示图片]
+* [Android实现各种分割线]
+* [Android仿360手机助手下载按钮动画]
+* [Android平台上可多选的自定义日历控件]
+* [Android滑动返回源码]
+* [Android复杂的列表视图新写法 MultiType]
 
 
 
+[Android表情开发]:https://github.com/SiberiaDante/EmotionApp
+[Android多种形式吐司工具]:https://github.com/SiberiaDante/ToastUtils
 [高仿QQ、IOS侧滑删除,适用任意ViewGroup]:https://github.com/mcxtzhang/SwipeDelMenuLayout/tree/master
+[Android仿华为天气绘制刻度盘]:https://github.com/YISHUIH/HuaWeiWeatherView
+[Android实现星级评分动画源码]:https://github.com/ome450901/SimpleRatingBar
+[Android实现缩略图到原图]:https://github.com/Hitomis/transferee
+[Android各种选择器源码]:https://github.com/addappcn/android-pickers
+[Android九宫格展示图片]:https://github.com/laobie/NineGridImageView
+[Android实现各种分割线]:https://github.com/hxmeie/RecyclerView-FlexibleDivider
+[Android仿360手机助手下载按钮动画]:https://github.com/1002326270xc/360Downloading-master
+[Android平台上可多选的自定义日历控件]:https://github.com/Airsaid/CalendarView
+[Android滑动返回源码]:https://github.com/bingoogolapple/BGASwipeBackLayout-Android
+[Android复杂的列表视图新写法 MultiType]:http://gank.io/post/5823bcf6421aa90e799ec2ad

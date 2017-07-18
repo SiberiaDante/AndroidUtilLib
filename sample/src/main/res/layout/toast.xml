@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:textColor="@color/Red"
+        android:textColor="@color/red"
         android:textSize="28sp"
         android:text="我是标题" />
 
@@ -25,7 +25,7 @@
         <TextView
             android:id="@+id/tv_left"
             android:layout_width="0dp"
-            android:textColor="@color/Red"
+            android:textColor="@color/red"
             android:textSize="28sp"
             android:gravity="center"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:layout_width="0dp"
             android:textSize="28sp"
             android:layout_height="wrap_content"
-            android:textColor="@color/Red"
+            android:textColor="@color/red"
             android:gravity="center"
             android:layout_weight="1"
             android:text="我是右边标题" />

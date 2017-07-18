@@ -57,7 +57,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         titleBar.setLeftListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.toast("点击了左侧");
+                DialogActivity.this.finish();
             }
         });
 
@@ -156,7 +156,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
                     }
                 })
-                .setPositiveButton("确认", getResources().getColor(R.color.Red), new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
+                .setPositiveButton("确认", getResources().getColor(R.color.red), new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override
                     public void onClick(View view) {
                         ensureDialog.dismiss();
@@ -179,7 +179,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
                     }
                 })
-                .setPositiveButton("确认", getResources().getColor(R.color.Red), new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
+                .setPositiveButton("确认", getResources().getColor(R.color.red), new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override
                     public void onClick(View view) {
                         ensureDialog.dismiss();
@@ -202,7 +202,7 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
 
                     }
                 })
-                .setPositiveButton("确认", getResources().getColor(R.color.Red), new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
+                .setPositiveButton("确认", getResources().getColor(R.color.red), new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override
                     public void onClick(View view) {
                         ensureDialog.dismiss();

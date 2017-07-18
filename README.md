@@ -19,7 +19,7 @@ allprojects {
 
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:1.0.2'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 	}
 ```
 ### 说明
@@ -30,6 +30,14 @@ dependencies {
 	* compile 'com.github.chrisbanes:PhotoView:2.0.0'（PhotoView）
 	* compile 'io.reactivex.rxjava2:rxjava:2.1.0'（RxJava2）
     * compile 'io.reactivex.rxjava2:rxandroid:2.0.1'（RxAndroid）
+
+    如果不想使用内置框架，可用如下方法移除：
+```
+   compile ('com.github.SibreiaDante:SiberiaDanteLib:v1.0.1' , {
+           exclude group: 'com.squareup.picasso'
+        })
+   compile 'com.squareup.picasso:picasso:*.*.*'
+```
 * 内置已申明权限
     * uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
     * uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
@@ -105,7 +113,9 @@ dependencies {
     * getSDFTime(String str, String format):支持输出各种格式的日期、时间
     * date2TimeStamp(String date_str, String format):日期格式字符串转换成时间戳
     * getTimeStamp():取得当前时间戳（精确到秒）
-* [EncryptUtil]
+* [EncryptUtil] :加密算法相关工具类
+    * encryptMD5StrLow32(String str)：生成MD5 32位小写密文
+    * encryptMD5StrUp32(String str):生成MD5 32位大写
 * [FileUtil] :文件处理相关工具类
 * [IntentUtil]
 * [LogUtil]
@@ -189,6 +199,8 @@ dependencies {
     * [日常笔记]
 * note-3
     * [Android项目源代码汇集]
+* note-4
+    *[Android开发开源框架汇集]
 
 
 [EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/EditDialog.java
@@ -237,7 +249,7 @@ dependencies {
 [Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md
 [日常笔记]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-2.md
 [Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-3.md
+[Android开发开源框架汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
 
-[Android常用知识点记录]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
 
 [tstongxiao]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/assets/images/qrcode.jpg
