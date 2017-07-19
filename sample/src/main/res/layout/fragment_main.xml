@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.siberiadante.view.TitleBar
+        android:id="@+id/title_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_recycler_view_details"
+                style="@style/MainButton"
+                android:gravity="center_vertical"
+                android:text="RecyclerView技术详解" />
+
+            <Button
+                android:id="@+id/btn_custom_view_details"
+                style="@style/MainButton"
+                android:gravity="center_vertical"
+                android:text="Android自定义View" />
+            <Button
+                android:id="@+id/btn_rx_java"
+                style="@style/MainButton"
+                android:gravity="center_vertical"
+                android:text="给初学者的RxJava2.0教程(一)" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

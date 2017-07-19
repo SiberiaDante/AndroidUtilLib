@@ -25,16 +25,27 @@
         <com.siberiadante.widget.TabRadioButton
             android:id="@+id/rb_home_one"
             style="@style/HomeRadioButton"
-            android:text="组件类"
-            dante:drawableSize="30dp"
+            android:text="精选"
+            dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_one" />
 
         <com.siberiadante.widget.TabRadioButton
             android:id="@+id/rb_home_two"
             style="@style/HomeRadioButton"
-            android:text="工具类"
-            dante:drawableSize="30dp"
+            android:text="组件"
+            dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_two" />
-
+        <com.siberiadante.widget.TabRadioButton
+            android:id="@+id/rb_home_three"
+            style="@style/HomeRadioButton"
+            android:text="工具"
+            dante:drawableSize="25dp"
+            dante:drawableTop="@drawable/checked_home_three" />
+        <com.siberiadante.widget.TabRadioButton
+            android:id="@+id/rb_home_four"
+            style="@style/HomeRadioButton"
+            android:text="其他"
+            dante:drawableSize="25dp"
+            dante:drawableTop="@drawable/checked_home_one" />
     </RadioGroup>
 </LinearLayout>

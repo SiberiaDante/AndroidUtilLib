@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.sample.R;
+import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.ActivityUtilActivity;
 import com.sample.ui.activity.AppActivity;
 import com.sample.ui.activity.ClearActivity;
@@ -27,35 +28,43 @@ import com.siberiadante.view.TitleBar;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class UtilFragment extends Fragment implements View.OnClickListener {
+public class UtilFragment extends BaseFragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_util, container, false);
-
-        initView(view);
-        return view;
+        layout = inflater.inflate(R.layout.fragment_util, container, false);
+        return layout;
 
     }
 
-    private void initView(View view) {
-        Button mBtnActivityUtil = (Button) view.findViewById(R.id.start_activity_activity_util);
-        Button mBtnScreenUtil = (Button) view.findViewById(R.id.start_activity_screen_util);
-        Button mBtnNetworkUtil = (Button) view.findViewById(R.id.start_activity_network_util);
-        Button mBtnToastUtil = (Button) view.findViewById(R.id.start_activity_toast_util);
-        Button mBtnAppUtil = (Button) view.findViewById(R.id.start_activity_app_util);
-        view.findViewById(R.id.start_activity_clear_util).setOnClickListener(this);
-        view.findViewById(R.id.start_activity_number_util).setOnClickListener(this);
-        final TitleBar mTitleBar = (TitleBar) view.findViewById(R.id.titleBar_fragment_util);
+    @Override
+    protected void initView() {
+        Button mBtnActivityUtil = (Button) layout.findViewById(R.id.start_activity_activity_util);
+        Button mBtnScreenUtil = (Button) layout.findViewById(R.id.start_activity_screen_util);
+        Button mBtnNetworkUtil = (Button) layout.findViewById(R.id.start_activity_network_util);
+        Button mBtnToastUtil = (Button) layout.findViewById(R.id.start_activity_toast_util);
+        Button mBtnAppUtil = (Button) layout.findViewById(R.id.start_activity_app_util);
+        layout.findViewById(R.id.start_activity_clear_util).setOnClickListener(this);
+        layout.findViewById(R.id.start_activity_number_util).setOnClickListener(this);
+        final TitleBar mTitleBar = (TitleBar) layout.findViewById(R.id.titleBar_fragment_util);
         initTitleBar(mTitleBar);
-
-
         mBtnActivityUtil.setOnClickListener(this);
         mBtnScreenUtil.setOnClickListener(this);
         mBtnNetworkUtil.setOnClickListener(this);
         mBtnToastUtil.setOnClickListener(this);
         mBtnAppUtil.setOnClickListener(this);
     }
+
+    @Override
+    protected void initIntent() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
 
     private void initTitleBar(TitleBar mTitleBar) {
         mTitleBar.setImmersive(true);

@@ -39,7 +39,8 @@
 
         <activity android:name=".ui.activity.ClearActivity" />
         <activity android:name=".ui.activity.DialogActivity" />
-        <activity android:name=".ui.activity.NumberActivity"></activity>
+        <activity android:name=".ui.activity.NumberActivity" />
+        <activity android:name=".ui.activity.WebViewActivity"></activity>
     </application>
 
 </manifest>

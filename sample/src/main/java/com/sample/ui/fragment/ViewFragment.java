@@ -27,24 +27,31 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View layout = inflater.inflate(R.layout.fragment_view, container, false);
+         layout = inflater.inflate(R.layout.fragment_view, container, false);
         ScreenUtil.setStatusTranslucent(getActivity());
-        initView(layout);
         return layout;
     }
 
-    private void initView(View view) {
-
-        view.findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
-        TitleBar titleBar = ((TitleBar) view.findViewById(R.id.titleBar));
+    @Override
+    protected void initView() {
+        layout.findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
+        TitleBar titleBar = ((TitleBar) layout.findViewById(R.id.titleBar));
         initTitleBar(titleBar);
+    }
+
+    @Override
+    protected void initIntent() {
+
+    }
+
+    @Override
+    protected void initData() {
+
     }
 
     private void initTitleBar(TitleBar titleBar) {
         titleBar.setImmersive(true);
         titleBar.setTitle("SiberiaDante");
-
-
     }
 
     @Override
