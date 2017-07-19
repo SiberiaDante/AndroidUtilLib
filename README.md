@@ -5,6 +5,7 @@
 #### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
 #### 关注我的微信公众号: [tstongxiao]
 ![微信公众号图片](/sample/src/main/assets/images/qrcode.jpg)
+## gradle依赖方法
 * Step 1.Add it in your root build.gradle at the end of repositories:
 
 ```
@@ -22,6 +23,26 @@ dependencies {
     compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
 	}
 ```
+## maven依赖方法
+* Step 1.Add the JitPack repository to your build file
+```
+<repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+</repositories>
+```
+* Step 2.Add the dependency
+```
+<dependency>
+    <groupId>com.github.SibreiaDante</groupId>
+    <artifactId>SiberiaDanteLib</artifactId>
+    <version>v1.0.1</version>
+</dependency>
+```
+## module依赖方法
+下载SiberiaDante，以module的方式导入项目，在build.gradle中添加代码：compile project(':siberiadante')
 ### 说明
 * 使用之前需要在Application中初始化
     SiberiaDanteLib.initLib(context);
@@ -30,6 +51,7 @@ dependencies {
 	* compile 'com.github.chrisbanes:PhotoView:2.0.0'（PhotoView）
 	* compile 'io.reactivex.rxjava2:rxjava:2.1.0'（RxJava2）
     * compile 'io.reactivex.rxjava2:rxandroid:2.0.1'（RxAndroid）
+    * compile 'com.android.support:recyclerview-v7:24.0.0'
 
     如果不想使用内置框架，可用如下方法移除：
 ```
