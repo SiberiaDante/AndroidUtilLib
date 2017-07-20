@@ -65,3 +65,5 @@
 
 #Picasso
 -dontwarn com.squareup.okhttp.**
+#QQ
+-keep class * extends android.app.Dialog

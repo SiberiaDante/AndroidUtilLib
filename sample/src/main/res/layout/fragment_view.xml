@@ -16,7 +16,6 @@
         android:layout_weight="1"
         android:background="@color/white">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -33,6 +32,11 @@
                 android:id="@+id/btn_start_general_dialog_activity"
                 style="@style/MainButton"
                 android:text="各种Dialog" />
+
+            <Button
+                android:id="@+id/btn_start_qq_exercise__activity"
+                style="@style/MainButton"
+                android:text="QQ运动计步器View" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

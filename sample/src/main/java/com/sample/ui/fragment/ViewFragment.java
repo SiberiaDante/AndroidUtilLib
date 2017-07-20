@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.sample.R;
 import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.DialogActivity;
+import com.sample.ui.activity.QQExercisePedometerActivity;
 import com.siberiadante.util.ScreenUtil;
 import com.siberiadante.view.TitleBar;
 
@@ -27,7 +28,7 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-         layout = inflater.inflate(R.layout.fragment_view, container, false);
+        layout = inflater.inflate(R.layout.fragment_view, container, false);
         ScreenUtil.setStatusTranslucent(getActivity());
         return layout;
     }
@@ -35,6 +36,7 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView() {
         layout.findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
+        layout.findViewById(R.id.btn_start_qq_exercise__activity).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) layout.findViewById(R.id.titleBar));
         initTitleBar(titleBar);
     }
@@ -60,6 +62,9 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.btn_start_general_dialog_activity:
                 intent = new Intent(getActivity(), DialogActivity.class);
+                break;
+            case R.id.btn_start_qq_exercise__activity:
+                intent = new Intent(getActivity(), QQExercisePedometerActivity.class);
                 break;
         }
         startActivity(intent);

@@ -40,7 +40,8 @@
         <activity android:name=".ui.activity.ClearActivity" />
         <activity android:name=".ui.activity.DialogActivity" />
         <activity android:name=".ui.activity.NumberActivity" />
-        <activity android:name=".ui.activity.WebViewActivity"></activity>
+        <activity android:name=".ui.activity.WebViewActivity" />
+        <activity android:name=".ui.activity.QQExercisePedometerActivity"></activity>
     </application>
 
 </manifest>
