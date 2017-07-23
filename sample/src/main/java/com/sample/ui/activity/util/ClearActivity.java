@@ -1,9 +1,10 @@
-package com.sample.ui.activity;
+package com.sample.ui.activity.util;
 
 import android.os.Bundle;
 import android.util.Log;
 
 import com.sample.R;
+import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.util.ClearUtil;
 
 import java.io.File;

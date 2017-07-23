@@ -7,7 +7,7 @@
     android:background="@color/black"
     android:fitsSystemWindows="true"
     android:clipToPadding="true"
-    tools:context=".ui.activity.PhotoViewActivity">
+    tools:context=".ui.activity.view.PhotoViewActivity">
 
 
     <com.sengoku.japanstory.view.PhotoViewPager

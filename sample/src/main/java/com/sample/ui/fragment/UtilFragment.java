@@ -3,7 +3,6 @@ package com.sample.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +10,13 @@ import android.widget.Button;
 
 import com.sample.R;
 import com.sample.ui.BaseFragment;
-import com.sample.ui.activity.ActivityUtilActivity;
-import com.sample.ui.activity.AppActivity;
-import com.sample.ui.activity.ClearActivity;
-import com.sample.ui.activity.NetworkActivity;
-import com.sample.ui.activity.NumberActivity;
-import com.sample.ui.activity.ScreenActivity;
-import com.sample.ui.activity.ToastActivity;
+import com.sample.ui.activity.util.ActivityUtilActivity;
+import com.sample.ui.activity.util.AppActivity;
+import com.sample.ui.activity.util.ClearActivity;
+import com.sample.ui.activity.util.NetworkActivity;
+import com.sample.ui.activity.util.NumberActivity;
+import com.sample.ui.activity.util.ScreenActivity;
+import com.sample.ui.activity.util.ToastActivity;
 import com.siberiadante.view.TitleBar;
 
 /**

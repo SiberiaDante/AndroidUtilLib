@@ -1,10 +1,11 @@
-package com.sample.ui.activity;
+package com.sample.ui.activity.util;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
 import com.sample.R;
+import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.util.ScreenUtil;
 
 public class ScreenActivity extends BaseActivity {

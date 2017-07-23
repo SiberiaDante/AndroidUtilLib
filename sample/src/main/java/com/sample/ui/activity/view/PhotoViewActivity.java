@@ -1,4 +1,4 @@
-package com.sample.ui.activity;
+package com.sample.ui.activity.view;
 
 import android.content.Intent;
 import android.graphics.Bitmap;

@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sample">
 
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name=".SampleApplication"
         android:allowBackup="true"
@@ -16,16 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.PhotoViewActivity" />
+        <activity android:name=".ui.activity.view.PhotoViewActivity" />
         <activity android:name=".ui.activity.Main2Activity" />
-        <activity android:name=".ui.activity.ToastActivity" />
-        <activity android:name=".ui.activity.NetworkActivity" />
+        <activity android:name=".ui.activity.util.ToastActivity" />
+        <activity android:name=".ui.activity.util.NetworkActivity" />
         <activity android:name=".ui.activity.BaseActivity" />
-        <activity android:name=".ui.activity.ActivityUtilActivity" />
+        <activity android:name=".ui.activity.util.ActivityUtilActivity" />
         <activity
-            android:name=".ui.activity.ScreenActivity"
+            android:name=".ui.activity.util.ScreenActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".ui.activity.AppActivity" />
+        <activity android:name=".ui.activity.util.AppActivity" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -37,11 +38,11 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".ui.activity.ClearActivity" />
-        <activity android:name=".ui.activity.DialogActivity" />
-        <activity android:name=".ui.activity.NumberActivity" />
+        <activity android:name=".ui.activity.util.ClearActivity" />
+        <activity android:name=".ui.activity.view.DialogActivity" />
+        <activity android:name=".ui.activity.util.NumberActivity" />
         <activity android:name=".ui.activity.WebViewActivity" />
-        <activity android:name=".ui.activity.QQExercisePedometerActivity"></activity>
+        <activity android:name=".ui.activity.view.QQExercisePedometerActivity"></activity>
     </application>
 
 </manifest>

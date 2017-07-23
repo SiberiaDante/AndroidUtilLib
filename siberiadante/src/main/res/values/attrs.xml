@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--TabRadioButton-->
     <declare-styleable name="MyRadioButton">
-
         <attr name="drawableSize" format="dimension" />
         <attr name="drawableTop" format="reference" />
         <attr name="drawableLeft" format="reference" />
@@ -51,4 +51,14 @@
         </attr>
         <attr name="shaderEnable" format="boolean"/>
     </declare-styleable>
+
+    <!--QQStepView-->
+    <declare-styleable name="QQStepView">
+        <attr name="outerColor" format="color"/>
+        <attr name="innerColor" format="color"/>
+        <attr name="borderWidth" format="dimension"/>
+        <attr name="stepViewTextSize" format="dimension"/>
+        <attr name="stepViewTextColor" format="color"/>
+    </declare-styleable>
+
 </resources>

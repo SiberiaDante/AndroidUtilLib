@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 
 import com.siberiadante.SiberiaDanteLib;
+import com.siberiadante.util.CrashHandler;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,6 +33,8 @@ public class SampleApplication extends Application {
         super.onCreate();
         appContext = this;
         initSiberiaDanteLib();
+//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        crashHandler.init(getApplicationContext());
     }
 
     // add all of activity to list

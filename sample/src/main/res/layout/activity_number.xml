@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.sample.ui.activity.NumberActivity">
+    tools:context="com.sample.ui.activity.util.NumberActivity">
 
     <com.siberiadante.view.TitleBar
         android:id="@+id/title_bar_number"
