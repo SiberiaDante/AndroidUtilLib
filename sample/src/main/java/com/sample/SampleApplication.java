@@ -2,9 +2,12 @@ package com.sample;
 
 import android.app.Activity;
 import android.app.Application;
+import android.support.multidex.MultiDex;
 
 import com.siberiadante.SiberiaDanteLib;
 import com.siberiadante.util.CrashHandler;
+import com.squareup.leakcanary.LeakCanary;
+//import com.squareup.leakcanary.LeakCanary;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -31,8 +34,13 @@ public class SampleApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        MultiDex.install(this);
         appContext = this;
         initSiberiaDanteLib();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
 //        CrashHandler crashHandler = CrashHandler.getInstance();
 //        crashHandler.init(getApplicationContext());
     }

@@ -11,7 +11,7 @@ import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.view.QQStepView;
 
-public class QQExercisePedometerActivity extends BaseActivity {
+public class QQStepViewActivity extends BaseActivity {
 
     private QQStepView stepView;
     private TextView mTvStart;

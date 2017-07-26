@@ -15,7 +15,7 @@ import com.siberiadante.R;
 /**
  * @Created： SiberiaDante
  * @Date： 2017/7/23
- * @Describe：
+ * @Describe： 参考文章http://www.jianshu.com/p/4e0eb9bb09ab
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */
@@ -23,8 +23,8 @@ import com.siberiadante.R;
 public class QQStepView extends View {
     private int mOuterColor = Color.GRAY;
     private int mInnerColor = Color.RED;
-    private float mBorderWidth = 20;//20代表的20px,应该转成dip
-    private float mStepViewTextSize;
+    private float mBorderWidth = 20.0f;//20代表的20px
+    private float mStepViewTextSize = 12.0f;
     private int mStepViewTextColor = Color.BLACK;
     private Paint mOutPaint;
 
@@ -33,6 +33,9 @@ public class QQStepView extends View {
     private Paint mInnerPaint;
 
     private Paint mTextPaint;
+    private Rect textBounds = new Rect();
+    private RectF rectF = new RectF(mBorderWidth / 2, mBorderWidth / 2, getWidth() - mBorderWidth / 2,
+            getWidth() - mBorderWidth / 2);
 
     public QQStepView(Context context) {
         this(context, null);
@@ -58,7 +61,7 @@ public class QQStepView extends View {
         mStepViewTextColor = array.getColor(R.styleable.QQStepView_stepViewTextColor, mStepViewTextColor);
         mStepViewTextSize = array.getDimension(R.styleable.QQStepView_stepViewTextSize, mStepViewTextSize);
         array.recycle();
-
+        //外层圆弧画笔
         mOutPaint = new Paint();
         mOutPaint.setAntiAlias(true);
         mOutPaint.setStrokeWidth(mBorderWidth);
@@ -66,7 +69,7 @@ public class QQStepView extends View {
         mOutPaint.setStrokeCap(Paint.Cap.ROUND);//两端变圆弧
 //        mOutPaint.setStyle(Paint.Style.FILL);
         mOutPaint.setStyle(Paint.Style.STROKE);
-
+        //内层圆弧画笔
         mInnerPaint = new Paint();
         mInnerPaint.setAntiAlias(true);
         mInnerPaint.setStrokeWidth(mBorderWidth);
@@ -74,7 +77,7 @@ public class QQStepView extends View {
         mInnerPaint.setStrokeCap(Paint.Cap.ROUND);//两端变圆弧
 //        mOutPaint.setStyle(Paint.Style.FILL);
         mInnerPaint.setStyle(Paint.Style.STROKE);
-
+        //文字画笔
         mTextPaint = new Paint();
         mInnerPaint.setAntiAlias(true);
         mInnerPaint.setColor(mStepViewTextColor);
@@ -100,7 +103,6 @@ public class QQStepView extends View {
 //        int radius= (int) (getWidth()/2-mBorderWidth/2);
 //        RectF rectF = new RectF(center-radius, center-radius, center+radius, center+radius);
 //        int radius = (int) (getWidth() / 2 - mBorderWidth / 2);
-        RectF rectF = new RectF(mBorderWidth / 2, mBorderWidth / 2, getWidth() - mBorderWidth / 2, getWidth() - mBorderWidth / 2);
         canvas.drawArc(rectF, 135, 270, false, mOutPaint);
         //画内圆弧：百分比，由用户设置的
         if (mStepMax == 0) {
@@ -111,22 +113,23 @@ public class QQStepView extends View {
 
         //画文字
         String stepText = mCurrentStep + "";
-        Rect textBounds = new Rect();
         mTextPaint.getTextBounds(stepText, 0, stepText.length(), textBounds);
-        int dx = getWidth() / 2 - textBounds.width();//文字的起始位置
+        int dx = getWidth() / 2 - textBounds.width() / 2;//文字的起始位置
         //基线
         Paint.FontMetricsInt fontMetricsInt = mTextPaint.getFontMetricsInt();
         int dy = (fontMetricsInt.bottom = fontMetricsInt.top) - fontMetricsInt.bottom;
         int baseLine = getHeight() / 2 + dy;
         canvas.drawText(stepText, dx, baseLine, mTextPaint);
     }
+
     //其他，动画效果等
-    public synchronized void setStepMax(int stepMax){
-        this.mStepMax=stepMax;
+    public synchronized void setStepMax(int stepMax) {
+        this.mStepMax = stepMax;
     }
-//    synchronized,防止多线程操作出错
-    public synchronized void setCurrentStep(int currentStep){
-        this.mCurrentStep=currentStep;
+
+    //    synchronized,防止多线程操作出错
+    public synchronized void setCurrentStep(int currentStep) {
+        this.mCurrentStep = currentStep;
         //不断绘制
         invalidate();
     }

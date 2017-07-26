@@ -42,7 +42,7 @@
         <activity android:name=".ui.activity.view.DialogActivity" />
         <activity android:name=".ui.activity.util.NumberActivity" />
         <activity android:name=".ui.activity.WebViewActivity" />
-        <activity android:name=".ui.activity.view.QQExercisePedometerActivity"></activity>
+        <activity android:name=".ui.activity.view.QQStepViewActivity"></activity>
     </application>
 
 </manifest>

@@ -20,7 +20,7 @@ import com.siberiadante.R;
 
 /**
  * @Created SiberiaDante
- * @Describe： 原文地址：http://www.jianshu.com/p/1b91e11e441d
+ * @Describe： 原文地址：{@Link http://www.jianshu.com/p/1b91e11e441d}
  * @Time: 2017/7/20
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante

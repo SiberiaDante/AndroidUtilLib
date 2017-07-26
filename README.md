@@ -214,30 +214,22 @@ dependencies {
     * showThread(String url)：异步线程下载图片并Toast
     * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
     * cancelAll():取消创建的所有的toast
-## src/main.note
-* note-1
-    * [Android开发人员必备]
-* note-2
-    * [日常笔记]
-* note-3
-    * [Android项目源代码汇集]
-* note-4
-    *[Android开发开源框架汇集]
 
 
+<!--  View-->
 [EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/EditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/BottomPopupWindow.java
 [EnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/EnsureDialog.java
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/PicassoCircleTransfer.java
 [TitleBar]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/view/TitleBar.java
 
-
+<!--  widget-->
 [JustifyTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/JustifyTextView.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/PhotoViewPager.java
 [RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/RoundImage.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TabRadioButton.java
 
-
+<!--  sample-->
 [使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
 [使用:sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/DialogActivity.java
 [使用:sample/res/layout/fragment_view.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/fragment_view.xml
@@ -247,7 +239,7 @@ dependencies {
 
 
 
-
+<!--  util-->
 [ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ActivityUtil.java
 [AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/AppUtil.java
 [ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/util/ClearUtil.java
@@ -268,10 +260,5 @@ dependencies {
 
 
 
-[Android开发人员必备]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-1.md
-[日常笔记]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-2.md
-[Android项目源代码汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-3.md
-[Android开发开源框架汇集]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/note-4.md
-
-
+<!--  微信公众号图片-->
 [tstongxiao]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/assets/images/qrcode.jpg

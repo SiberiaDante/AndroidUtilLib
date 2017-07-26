@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.sample.R;
 import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.view.DialogActivity;
-import com.sample.ui.activity.view.QQExercisePedometerActivity;
+import com.sample.ui.activity.view.QQStepViewActivity;
 import com.siberiadante.util.ScreenUtil;
 import com.siberiadante.view.TitleBar;
 
@@ -64,7 +64,7 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
                 intent = new Intent(getActivity(), DialogActivity.class);
                 break;
             case R.id.btn_start_qq_exercise__activity:
-                intent = new Intent(getActivity(), QQExercisePedometerActivity.class);
+                intent = new Intent(getActivity(), QQStepViewActivity.class);
                 break;
         }
         startActivity(intent);

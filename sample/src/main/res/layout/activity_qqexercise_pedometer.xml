@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="20dp"
-    tools:context="com.sample.ui.activity.view.QQExercisePedometerActivity">
+    tools:context="com.sample.ui.activity.view.QQStepViewActivity">
 
     <com.siberiadante.view.QQStepView
         android:id="@+id/step_view"
