@@ -51,12 +51,13 @@ dependencies {
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
 * [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
-* [QQStepView] :自定义View实现仿QQ运动步数功能
+* [QQStepView] :自定义View实现仿QQ运动步数功能([使用:sample/activity/QQStepViewActivity])
 * [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
 ## widget
 * [JustifyTextView] 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
 * [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
+* [SuperTextView]：超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 
 ## util
@@ -209,11 +210,13 @@ dependencies {
 [JustifyTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/JustifyTextView.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/PhotoViewPager.java
 [RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/RoundImage.java
+[SuperTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/SuperTextView.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/widget/TabRadioButton.java
 
 <!--  sample-->
-[使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/PhotoViewActivity.java
-[使用:sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/DialogActivity.java
+[使用:sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/view/DialogActivity.java
+[使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/view/PhotoViewActivity.java
+[使用:sample/activity/QQStepViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/activity/view/QQStepViewActivity.java
 [使用:sample/res/layout/fragment_view.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/fragment_view.xml
 [使用:sample/res/layout/activity_dialog.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_dialog.xml
 
