@@ -46,22 +46,22 @@ dependencies {
 ### 说明
 * 使用之前需要在Application中初始化
     SiberiaDanteLib.initLib(context);
-* 内置三方框架如下（自己项目中无须再次添加）
-    * provided 'com.android.support:appcompat-v7:24.2.1'
-    * provided 'junit:junit:4.12'
-    * provided 'com.squareup.picasso:picasso:2.5.2'
-    * provided 'com.github.chrisbanes:PhotoView:2.0.0'
-    * provided 'io.reactivex.rxjava2:rxjava:2.1.0'
-    * provided 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    * provided 'com.android.support:recyclerview-v7:24.0.0'
+<!-- * 内置三方框架如下（自己项目中无须再次添加） -->
+    <!-- * provided 'com.android.support:appcompat-v7:24.2.1' -->
+    <!-- * provided 'junit:junit:4.12' -->
+    <!-- * provided 'com.squareup.picasso:picasso:2.5.2' -->
+    <!-- * provided 'com.github.chrisbanes:PhotoView:2.0.0' -->
+    <!-- * provided 'io.reactivex.rxjava2:rxjava:2.1.0' -->
+    <!-- * provided 'io.reactivex.rxjava2:rxandroid:2.0.1' -->
+    <!-- * provided 'com.android.support:recyclerview-v7:24.0.0' -->
 
-    如果不想使用内置框架，可用如下方法移除：
-```
-   compile ('com.github.SibreiaDante:SiberiaDanteLib:v1.0.1' , {
-           exclude group: 'com.squareup.picasso'
-        })
-   compile 'com.squareup.picasso:picasso:*.*.*'
-```
+    <!-- 如果不想使用内置框架，可用如下方法移除： -->
+<!-- ``` -->
+   <!-- compile ('com.github.SibreiaDante:SiberiaDanteLib:v1.0.1' , { -->
+           <!-- exclude group: 'com.squareup.picasso' -->
+        <!-- }) -->
+   <!-- compile 'com.squareup.picasso:picasso:*.*.*' -->
+<!-- ``` -->
 * 内置已申明权限
     * uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"
     * uses-permission android:name="android.permission.ACCESS_WIFI_STATE"
