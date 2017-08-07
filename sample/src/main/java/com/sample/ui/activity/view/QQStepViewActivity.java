@@ -27,7 +27,7 @@ public class QQStepViewActivity extends BaseActivity {
         mTvStart = (TextView) findViewById(R.id.tv_start);
         stepView = (QQStepView) findViewById(R.id.step_view);
         stepView.setStepMax(10000);
-//        stepView.setCurrentStep(5000);0
+//        stepView.setCurrentStep(5000);
         //属性动画
         final ValueAnimator valueAnimator = ObjectAnimator.ofFloat(0, 9000);
         valueAnimator.setDuration(3000);

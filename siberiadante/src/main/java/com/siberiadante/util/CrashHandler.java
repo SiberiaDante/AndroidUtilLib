@@ -68,7 +68,7 @@ public void uncaughtException(Thread thread, Throwable ex) {
         try {
         Thread.sleep(3000);
         } catch (InterruptedException e) {
-        LogUtil.eFile(e.toString());
+        LogUtilBase.eFile(e.toString());
         }
         //退出程序
         android.os.Process.killProcess(android.os.Process.myPid());
@@ -109,7 +109,7 @@ public void collectDeviceInfo(Context ctx) {
         infos.put("versionCode", versionCode);
         }
         } catch (PackageManager.NameNotFoundException e) {
-        LogUtil.eFile(e.getMessage());
+        LogUtilBase.eFile(e.getMessage());
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
@@ -117,7 +117,7 @@ public void collectDeviceInfo(Context ctx) {
         field.setAccessible(true);
         infos.put(field.getName(), field.get(null).toString());
         } catch (Exception e) {
-        LogUtil.eFile(e.getMessage());
+        LogUtilBase.eFile(e.getMessage());
         }
         }
         }
@@ -150,7 +150,7 @@ private String saveCrashInfo2File(Throwable ex) {
         String result = writer.toString();
         sb.append(result);
         sb.append("--------------------end---------------------------");
-        LogUtil.eFile(sb.toString());
+        LogUtilBase.eFile(sb.toString());
         return null;
         }
 

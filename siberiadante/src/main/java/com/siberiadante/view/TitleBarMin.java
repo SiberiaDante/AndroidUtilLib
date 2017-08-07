@@ -16,7 +16,7 @@ import java.util.LinkedList;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： 该类中的部分代码已移植到TitleBar中，此类最终也将废弃，不予维护
  * @Time: 2017/6/30
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante

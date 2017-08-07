@@ -1,1 +1,1 @@
-include ':siberiadante', ':sample'
+include ':siberiadante', ':sample', ':customapp'
