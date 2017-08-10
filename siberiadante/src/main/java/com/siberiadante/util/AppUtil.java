@@ -28,6 +28,7 @@ import java.util.UUID;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
+ * 获取应用/手机信息、判断应用是否安装，卸载/安装APP，手机网络面板设置等
  */
 
 public class AppUtil {

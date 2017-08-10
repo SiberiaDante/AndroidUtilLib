@@ -2,7 +2,6 @@
 <resources>
     <!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 -->
     <style name="ActionGeneralDialog" parent="@android:style/Theme.Dialog">
-
         <!-- 背景透明 -->
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -24,7 +23,7 @@
         <item name="android:windowEnterAnimation">@anim/actionsheet_dialog_in</item>
         <item name="android:windowExitAnimation">@anim/actionsheet_dialog_out</item>
     </style>
-
+    <!--custom dialog style-->
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
@@ -35,7 +34,23 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
     </style>
+    <!--nice dialog style-->
+    <style name="NiceDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <!--default nice dialog animation-->
+    <style name="DefaultAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/nice_dialog_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/nice_dialog_exit_anim</item>
+    </style>
 
+
+    <!--style of views  -->
     <style name="ViewLineHorizontal">
         <item name="android:layout_height">1dp</item>
         <item name="android:layout_width">match_parent</item>
@@ -47,4 +62,6 @@
         <item name="android:layout_width">1dp</item>
         <item name="android:background">#E5E5E5</item>
     </style>
+
+
 </resources>

@@ -43,4 +43,5 @@ dependencies {
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     //    compile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }

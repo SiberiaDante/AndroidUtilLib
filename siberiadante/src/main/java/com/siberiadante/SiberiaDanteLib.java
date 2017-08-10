@@ -14,8 +14,8 @@ import com.siberiadante.constants.AppInfo;
 public class SiberiaDanteLib {
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    @SuppressLint("StaticFieldLeak")
-    private static Activity activity;
+//    @SuppressLint("StaticFieldLeak")
+//    private static Activity activity;
 
     public SiberiaDanteLib() {
         throw new UnsupportedOperationException("not init SiberiaDanteLib");
@@ -37,12 +37,11 @@ public class SiberiaDanteLib {
      */
     public static void setDebug(boolean isDebug) {
         AppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
-
     }
 
-    public static void initLib(Activity activity) {
-        SiberiaDanteLib.activity = activity;
-    }
+//    public static void initLib(Activity activity) {
+//        SiberiaDanteLib.activity = activity;
+//    }
 
     public static Context getContext() {
         if (context != null) {
@@ -53,11 +52,11 @@ public class SiberiaDanteLib {
         }
     }
 
-    public static Activity getActivity() {
-        if (activity != null) {
-            return activity;
-        } else {
-            throw new NullPointerException(activity.getString(R.string.NotInitErrorActivity));
-        }
-    }
+//    public static Activity getActivity() {
+//        if (activity != null) {
+//            return activity;
+//        } else {
+//            throw new NullPointerException(activity.getString(R.string.NotInitErrorActivity));
+//        }
+//    }
 }

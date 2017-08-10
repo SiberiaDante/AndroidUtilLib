@@ -1,22 +1,39 @@
 package com.sample.ui.activity.view;
 
+import android.content.Context;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 import com.sample.R;
 import com.siberiadante.util.ScreenUtil;
 import com.siberiadante.util.ToastUtil;
 import com.siberiadante.view.EditDialog;
 import com.siberiadante.view.BottomPopupWindow;
 import com.siberiadante.view.EnsureDialog;
+import com.siberiadante.view.NiceDialog;
 import com.siberiadante.view.TitleBar;
+import com.siberiadante.view.nicedialog.BaseNiceDialog;
+import com.siberiadante.view.nicedialog.ViewConvertListener;
+import com.siberiadante.view.nicedialog.ViewHolder;
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = DialogActivity.class.getSimpleName();
     private EnsureDialog ensureDialog;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +42,9 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         ScreenUtil.setStatusTranslucent(this);
         initView();
         initData();
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
     private void initView() {
@@ -34,6 +54,13 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         findViewById(R.id.btn_general_dialog_four).setOnClickListener(this);
         findViewById(R.id.btn_bottom_popup_widow).setOnClickListener(this);
         findViewById(R.id.btn_edit_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_share_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_friend_setting).setOnClickListener(this);
+        findViewById(R.id.btn_comment_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_red_package_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_loading_dialog).setOnClickListener(this);
+//        findViewById(R.id.btn_ensure_dialog_0).setOnClickListener(this);
+//        findViewById(R.id.btn_ensure_dialog_1).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) findViewById(R.id.titleBar_dialog_activity));
         initTitle(titleBar);
     }
@@ -47,7 +74,6 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         titleBar.setLeftText("返回");
         titleBar.setRightImage(R.mipmap.search);
         titleBar.setDivideBackground(getResources().getColor(R.color.colorPrimary));
-
         titleBar.setTitleListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,7 +86,6 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
                 DialogActivity.this.finish();
             }
         });
-
         titleBar.setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,10 +119,30 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.btn_edit_dialog:
                 showEditDialog();
                 break;
+            case R.id.btn_share_dialog:
+                showShareDialog();
+                break;
+            case R.id.btn_friend_setting:
+                showFriendSettingDialog();
+                break;
+            case R.id.btn_comment_dialog:
+                showCommentDialog();
+                break;
+            case R.id.btn_red_package_dialog:
+                showRedPackageDialog();
+                break;
+            case R.id.btn_loading_dialog:
+                showLoadingDialog();
+                break;
+//            case R.id.btn_ensure_dialog_0:
+//                showEnsureNiceDialog0();
+//                break;
+//            case R.id.btn_ensure_dialog_1:
+//                showEnsureNiceDialog1();
+//                break;
 
         }
     }
-
 
     /**
      * EditDialog
@@ -228,4 +273,137 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         ensureDialog.show();
     }
 
+    /**
+     * share dialog
+     */
+    private void showShareDialog() {
+        NiceDialog.init()
+                .setLayoutId(R.layout.share_layout)
+                .setConvertListener(new ViewConvertListener() {
+                    @Override
+                    public void convertView(ViewHolder holder, final BaseNiceDialog dialog) {
+                        holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ToastUtil.toast("分享成功");
+                            }
+                        });
+                    }
+                })
+                .setDimAmount(0.3f)
+                .setShowBottom(true)
+                .show(getSupportFragmentManager());
+    }
+
+    /**
+     * friend setting dialog
+     */
+    private void showFriendSettingDialog() {
+        NiceDialog.init()
+                .setLayoutId(R.layout.friend_set_layout)
+                .setConvertListener(new ViewConvertListener() {
+                    @Override
+                    public void convertView(ViewHolder holder, final BaseNiceDialog dialog) {
+
+                    }
+                })
+                .setShowBottom(true)
+                .setHeight(310)
+                .show(getSupportFragmentManager());
+    }
+
+    /**
+     * comment dialog
+     */
+    private void showCommentDialog() {
+        NiceDialog.init()
+                .setLayoutId(R.layout.comment_layout)
+                .setConvertListener(new ViewConvertListener() {
+                    @Override
+                    public void convertView(ViewHolder holder, final BaseNiceDialog dialog) {
+                        final EditText editText = holder.getView(R.id.edit_input);
+                        editText.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                                imm.showSoftInput(editText, 0);
+                            }
+                        });
+                    }
+                })
+                .setShowBottom(true)
+                .show(getSupportFragmentManager());
+    }
+
+    /**
+     * red package dialog
+     */
+    private void showRedPackageDialog() {
+        NiceDialog.init()
+                .setLayoutId(R.layout.ad_layout)
+                .setConvertListener(new ViewConvertListener() {
+                    @Override
+                    public void convertView(ViewHolder holder, final BaseNiceDialog dialog) {
+                        holder.setOnClickListener(R.id.close, new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+                    }
+                })
+                .setWidth(210)
+                .setOutCancel(false)
+                .setAnimStyle(R.style.EnterExitAnimation)
+                .show(getSupportFragmentManager());
+    }
+
+    /**
+     * loading dialog
+     */
+    private void showLoadingDialog() {
+        NiceDialog.init()
+                .setLayoutId(R.layout.loading_layout)
+                .setWidth(100)
+                .setHeight(100)
+                .setDimAmount(0)
+                .show(getSupportFragmentManager());
+    }
+
+
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("Dialog Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
 }

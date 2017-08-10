@@ -12,10 +12,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.siberiadante.SiberiaDanteLib;
 import com.siberiadante.constants.Constants;
 
-import static com.siberiadante.SiberiaDanteLib.getActivity;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
@@ -47,6 +45,15 @@ public class ScreenUtil {
     }
 
     /**
+     * @param context
+     * @return
+     */
+    public static int getScreenWidth(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return displayMetrics.widthPixels;
+    }
+
+    /**
      * @param activity
      * @return 获取屏幕的高 单位：px
      */
@@ -67,7 +74,7 @@ public class ScreenUtil {
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(SiberiaDanteLib.getContext(), dm.widthPixels);
+        return TransitionTools.px2dip(dm.widthPixels);
     }
 
     /**
@@ -78,7 +85,7 @@ public class ScreenUtil {
         WindowManager windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(SiberiaDanteLib.getContext(), dm.heightPixels);
+        return TransitionTools.px2dip(dm.heightPixels);
     }
 
     /**

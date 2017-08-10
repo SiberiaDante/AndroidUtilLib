@@ -20,7 +20,7 @@ allprojects {
 
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.1'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:1.0.2'
 	}
 ```
 ## maven依赖方法
@@ -38,7 +38,7 @@ dependencies {
 <dependency>
     <groupId>com.github.SibreiaDante</groupId>
     <artifactId>SiberiaDanteLib</artifactId>
-    <version>v1.0.1</version>
+    <version>1.0.2</version>
 </dependency>
 ```
 ## module依赖方法
@@ -121,19 +121,6 @@ dependencies {
     * encryptMD5StrLow32(String str)：生成MD5 32位小写密文
     * encryptMD5StrUp32(String str):生成MD5 32位大写
 * [FileUtil] :文件处理相关工具类
-* [IntentUtil]
-* [LogUtil]
-
-* [NetWorkUtil] :网络连接、类型等
-    * isNetWorkConnected()：判断网络是否连接
-    * isWifiConnected()：判断是否无线连接
-    * is4GConnected()：判断是否4G连接
-    * getNetworkState()：获取连接网络的状态类型
-    * openNetworkSettings():打开网络设置面板
-* [NumberUtil] :数字工具类
-    * isNumeric(String str):是否全为数字
-
-* [FileUtil] :文件处理相关工具类等
     * getFileByPath(String filePath)：根据路径获取文件
     * isFileExists(String filePath)：根据路径判断文件是否存在
     * isFileExists(File file)：根据文件判断文件是否存在
@@ -149,8 +136,17 @@ dependencies {
     * createOrIsExistsFile(File file)：根据文件判断文件是否存在，存在返回true，不存在则创建文件
     * createFileByDeleteOldFile(String filePath):判断文件是否存在，存在则先删除，再创建
     * createFileByDeleteOldFile(File file) ：判断文件是否存在，存在则先删除，再创建
-* [LogUtil] :日志打印工具类
+* [IntentUtil]
+* [LogUtil] ：日志打印控制工具类
 
+* [NetWorkUtil] :网络连接、类型等
+    * isNetWorkConnected()：判断网络是否连接
+    * isWifiConnected()：判断是否无线连接
+    * is4GConnected()：判断是否4G连接
+    * getNetworkState()：获取连接网络的状态类型
+    * openNetworkSettings():打开网络设置面板
+* [NumberUtil] :数字工具类
+    * isNumeric(String str):是否全为数字
 * [ScreenUtil] :屏幕相关工具类
     * getDensity(Activity activity)：dp/px转换的倍率
     * getScreenWidthPx(Activity activity)：取屏幕的宽 单位：px
@@ -169,11 +165,11 @@ dependencies {
 
 * [TransitionTools] :dp、px转换
     * getDensity():屏幕设备屏幕dip
-    * dip2px(Context context, float dipValue): dp转px
-    * dp2px(Context context, float dpValue): dp转px-API方法转
-    * px2dip(Context context, float pxValue): px转dp
-    * px2sp(Context context, float pxValue)：px转sp
-    * sp2px(Context context, float spValue): sp转px
+    * dip2px( float dipValue): dp转px
+    * dp2px( float dpValue): dp转px-API方法转
+    * px2dip( float pxValue): px转dp
+    * px2sp( float pxValue)：px转sp
+    * sp2px( float spValue): sp转px
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
     * toast(String content):常用的单例Toast
     * showSingletonLong(String content)：Toast文本，单例，长时间

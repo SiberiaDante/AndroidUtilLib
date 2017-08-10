@@ -18,8 +18,13 @@ public class LogUtil {
         new SiberiaDanteLibException();
     }
 
-    public static final String TAG = "SiberiaDante";
+    public static String TAG = "SiberiaDante";
     private static boolean isDebug = AppInfo.getInstance().isDebug();
+
+
+    public static void setTag(String tag) {
+        LogUtil.TAG = tag;
+    }
 
     public static void i(String msg) {
         if (isDebug)

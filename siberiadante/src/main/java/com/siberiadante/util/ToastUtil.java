@@ -29,6 +29,15 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
+ * 使用单例ToastUtil时注意一点：比如使用了带位置的方法后，下次再使用不带位置的单例方法时，会显示成上次方法的Toast的位置
+ * 所以建议：全局统一的Toast使用该类中的单例方法，一旦使用了一种以上的方法，需要在不常使用的方法调用后调用resetToast()方法，重置Toast
+ * 举例：
+ * 全局一般使用的Toast是底部弹出一行简单的文字，调用：
+ * ToastUtils.toast("常规的Toast方法)；
+ * 然后我们有特殊需要，要居中显示一个Toast提示用户，调用：
+ * ToastUtil.showSingletonText("居中显示",Toast.LENGTH_SHORT,Gravity.CENTER);
+ * 这个方法调用完，其实相当于是更改了Toast的对象。不再是第一个我们常规使用的方法中所创建的，所以，
+ * 我们需要重置Toast对象，其实就是创建一个新的常规对象
  */
 
 public class ToastUtil {
@@ -138,7 +147,7 @@ public class ToastUtil {
      */
     public static void showSNBacText(String content, int duration, int position) {
         if (toast == null) {
-            toast = new Toast(SiberiaDanteLib.getContext());
+            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         LinearLayout linearLayout = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
         linearLayout.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
@@ -162,7 +171,7 @@ public class ToastUtil {
      */
     public static void showSingletonImageCenter(int resId, int duration) {
         if (toast == null) {
-            toast = new Toast(SiberiaDanteLib.getContext());
+            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         ImageView imageView = new ImageView(SiberiaDanteLib.getContext());
         imageView.setImageResource(resId);
@@ -180,7 +189,7 @@ public class ToastUtil {
      * @param duration Toast.LENGTH_LONG/Toast.LENGTH_LONG
      */
     public static void showImageCenter(int resId, int duration) {
-        toast = new Toast(SiberiaDanteLib.getContext());
+        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         toastList.add(toast);
         ImageView imageView = new ImageView(SiberiaDanteLib.getContext());//创建图片控件
         imageView.setImageResource(resId);//给控件设置图片
@@ -203,7 +212,7 @@ public class ToastUtil {
      */
     public static void showSingletonImage(int resId, int duration, int position) {
         if (toast == null) {
-            toast = new Toast(SiberiaDanteLib.getContext());
+            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         ImageView imageView = new ImageView(SiberiaDanteLib.getContext());//创建图片控件
         imageView.setImageResource(resId);
@@ -222,7 +231,7 @@ public class ToastUtil {
      * @param position Gravity.LEFT,Gravity.BOTTOM | Gravity.RIGHT...多个位置用竖线分割
      */
     public static void showImage(int resId, int duration, int position) {
-        toast = new Toast(SiberiaDanteLib.getContext());
+        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         toastList.add(toast);
         ImageView imageView = new ImageView(SiberiaDanteLib.getContext());//创建图片控件
         imageView.setImageResource(resId);
@@ -261,7 +270,7 @@ public class ToastUtil {
      * @param position toast位置
      */
     public static void showIT(int resId, String content, int duration, int position) {
-        toast = new Toast(SiberiaDanteLib.getContext());
+        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         toastList.add(toast);
         LinearLayout linearLayout = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
         linearLayout.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
@@ -294,7 +303,7 @@ public class ToastUtil {
      */
     public static void showITSingleton(int resId, String content, int duration, int position) {
         if (toast == null) {
-            toast = new Toast(SiberiaDanteLib.getContext());
+            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         LinearLayout linearLayout = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
         linearLayout.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
@@ -427,6 +436,12 @@ public class ToastUtil {
                 });
     }
 
+    /**
+     * 重置Toast对象
+     */
+    public static void resetToast() {
+        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
+    }
 
     public static void cancel() {
         if (toast != null) {

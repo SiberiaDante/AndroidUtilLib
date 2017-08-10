@@ -1,9 +1,11 @@
 package com.siberiadante.view;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -70,10 +72,10 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
         if (mImmersive) {
             mStatusBarHeight = ScreenUtil.getStatusBarHeight();
         }
-        mActionPadding = TransitionTools.dip2px(context, 5);
-        mOutPadding = TransitionTools.dip2px(context, 8);
-        mHeight = TransitionTools.dip2px(context, DEFAULT_TITLE_BAR_HEIGHT);
-        mLRPadding = TransitionTools.dip2px(context, 4);
+        mActionPadding = TransitionTools.dip2px(5);
+        mOutPadding = TransitionTools.dip2px(8);
+        mHeight = TransitionTools.dip2px(DEFAULT_TITLE_BAR_HEIGHT);
+        mLRPadding = TransitionTools.dip2px(4);
         initView(context);
     }
 
@@ -159,7 +161,11 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
      * @param drawable
      */
     public void setDivideBackground(Drawable drawable) {
-        mDividerView.setBackground(drawable);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            mDividerView.setBackground(drawable);
+        } else {
+            throw new UnsupportedOperationException("API require 16 ");
+        }
     }
 
     /**

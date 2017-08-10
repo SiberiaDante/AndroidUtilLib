@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_checked="true" android:drawable="@mipmap/one_true"/>
-    <item android:state_checked="false" android:drawable="@mipmap/one_false"/>
+    <item android:drawable="@mipmap/one_true" android:state_checked="true" />
+    <item android:drawable="@mipmap/one_false" android:state_checked="false" />
 
 </selector>

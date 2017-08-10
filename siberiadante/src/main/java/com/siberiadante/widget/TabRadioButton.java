@@ -15,12 +15,13 @@ import com.siberiadante.R;
  * 对RadioButton的重写；
  * 使用场景：RadioButton需要设置为图片+文字，并且对图片大小进行代码控制
  * 在xml中设置RadioButton中的图片size
- *  drawableSize
- *  drawableTop
- *  drawableLeft
- *  drawableRight
- *  drawableBottom
+ * drawableSize
+ * drawableTop
+ * drawableLeft
+ * drawableRight
+ * drawableBottom
  *
+ * @Tips: 在xml中需要必填属性：android:clickable"="true";
  */
 
 public class TabRadioButton extends RadioButton {
@@ -45,21 +46,21 @@ public class TabRadioButton extends RadioButton {
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
             Log.i("MyRadioButton", "attr:" + attr);
-            if (attr==R.styleable.MyRadioButton_drawableSize) {
+            if (attr == R.styleable.MyRadioButton_drawableSize) {
                 mDrawableSize = a.getDimensionPixelSize(R.styleable.MyRadioButton_drawableSize, 50);
                 Log.i("MyRadioButton", "mDrawableSize:" + mDrawableSize);
             }
-            if (attr==R.styleable.MyRadioButton_drawableTop) {
+            if (attr == R.styleable.MyRadioButton_drawableTop) {
                 drawableTop = a.getDrawable(attr);
             }
-            if (attr==R.styleable.MyRadioButton_drawableBottom) {
-                    drawableRight = a.getDrawable(attr);
+            if (attr == R.styleable.MyRadioButton_drawableBottom) {
+                drawableRight = a.getDrawable(attr);
             }
-            if (attr==R.styleable.MyRadioButton_drawableRight) {
-                    drawableBottom = a.getDrawable(attr);
+            if (attr == R.styleable.MyRadioButton_drawableRight) {
+                drawableBottom = a.getDrawable(attr);
             }
-            if (attr==R.styleable.MyRadioButton_drawableLeft) {
-                    drawableLeft = a.getDrawable(attr);
+            if (attr == R.styleable.MyRadioButton_drawableLeft) {
+                drawableLeft = a.getDrawable(attr);
             }
         }
         a.recycle();

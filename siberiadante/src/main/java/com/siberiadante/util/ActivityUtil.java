@@ -19,6 +19,7 @@ import java.util.Map;
 
 /**
  * Created by SiberiaDante on 2017/5/10.
+ * Activity相关工具类
  */
 
 public class ActivityUtil {

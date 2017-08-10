@@ -7,38 +7,84 @@
     android:orientation="vertical"
     tools:context=".ui.activity.view.DialogActivity">
 
-    <com.siberiadante.view.TitleBar
+
+    <include
         android:id="@+id/titleBar_dialog_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/blue" />
+        layout="@layout/base_title_bar" />
 
-    <Button
-        android:id="@+id/btn_general_dialog_one"
-        style="@style/MainButton"
-        android:text="提示确认Dialog" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btn_general_dialog_two"
-        style="@style/MainButton"
-        android:text="提示确认Dialog-带副标题" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_general_dialog_three"
-        style="@style/MainButton"
-        android:text="提示确认Dialog-带图标" />
-    <Button
-        android:id="@+id/btn_general_dialog_four"
-        style="@style/MainButton"
-        android:text="提示确认Dialog-一个按钮" />
+            <Button
+                android:id="@+id/btn_general_dialog_one"
+                style="@style/MainButton"
+                android:text="提示确认Dialog" />
 
-    <Button
-        android:id="@+id/btn_bottom_popup_widow"
-        style="@style/MainButton"
-        android:text="仿IOS底部弹窗" />
+            <Button
+                android:id="@+id/btn_general_dialog_two"
+                style="@style/MainButton"
+                android:text="提示确认Dialog-带副标题" />
 
-    <Button
-        android:id="@+id/btn_edit_dialog"
-        style="@style/MainButton"
-        android:text="仿IOS中间弹窗可编辑" />
+            <Button
+                android:id="@+id/btn_general_dialog_three"
+                style="@style/MainButton"
+                android:text="提示确认Dialog-带图标" />
+
+            <Button
+                android:id="@+id/btn_general_dialog_four"
+                style="@style/MainButton"
+                android:text="提示确认Dialog-一个按钮" />
+
+            <Button
+                android:id="@+id/btn_bottom_popup_widow"
+                style="@style/MainButton"
+                android:text="仿IOS底部弹窗" />
+
+            <Button
+                android:id="@+id/btn_edit_dialog"
+                style="@style/MainButton"
+                android:text="仿IOS中间弹窗可编辑" />
+
+            <Button
+                android:id="@+id/btn_share_dialog"
+                style="@style/MainButton"
+                android:text="分享" />
+
+            <Button
+                android:id="@+id/btn_friend_setting"
+                style="@style/MainButton"
+                android:text="好友设置" />
+
+            <Button
+                android:id="@+id/btn_comment_dialog"
+                style="@style/MainButton"
+                android:text="评论" />
+
+            <Button
+                android:id="@+id/btn_red_package_dialog"
+                style="@style/MainButton"
+                android:text="红包" />
+
+            <Button
+                android:id="@+id/btn_loading_dialog"
+                style="@style/MainButton"
+                android:text="加载提示" />
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_ensure_dialog_0"-->
+                <!--style="@style/MainButton"-->
+                <!--android:text="确定-0" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/btn_ensure_dialog_1"-->
+                <!--style="@style/MainButton"-->
+                <!--android:text="确定-1" />-->
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

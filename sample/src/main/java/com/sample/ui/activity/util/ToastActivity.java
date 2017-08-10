@@ -66,6 +66,7 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.btn_show_image:
                 ToastUtil.showImage(R.mipmap.image, Toast.LENGTH_LONG, Gravity.CENTER);
+                ToastUtil.resetToast();
 
                 break;
             case R.id.btn_show_image_text:

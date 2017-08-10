@@ -8,5 +8,32 @@ package com.siberiadante.custom.bean.base;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class WrapResult {
+public class WrapResult<T> {
+    private int code;
+    private T data;
+    private String info;
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
 }
