@@ -22,14 +22,14 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_recommend"
             style="@style/Radio_Btn_Style"
             android:text="string"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/main_tab_radio_button" />
 
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_shop"
             style="@style/Radio_Btn_Style"
             android:text="string"
@@ -37,14 +37,14 @@
             dante:drawableTop="@drawable/main_tab_radio_button" />
 
 
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_follow"
             style="@style/Radio_Btn_Style"
             android:text="string"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/main_tab_radio_button" />
 
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_mine"
             style="@style/Radio_Btn_Style"
             android:text="string"

@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.util.ClearUtil;
+import com.siberiadante.lib.util.ClearUtil;
 
 import java.io.File;
 

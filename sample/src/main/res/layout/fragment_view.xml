@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.siberiadante.view.TitleBar
+    <com.siberiadante.lib.view.TitleBar
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
 
-            <com.siberiadante.widget.RoundImageView
+            <com.siberiadante.lib.widget.RoundImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@mipmap/two_people" />
@@ -37,6 +37,11 @@
                 android:id="@+id/btn_start_qq_exercise__activity"
                 style="@style/MainButton"
                 android:text="QQ运动计步器View" />
+
+            <Button
+                android:id="@+id/btn_start_image_span__activity"
+                style="@style/MainButton"
+                android:text="测试文字表情混排对齐" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

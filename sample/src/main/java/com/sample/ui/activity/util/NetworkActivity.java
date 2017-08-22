@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.util.NetWorkUtil;
+import com.siberiadante.lib.util.NetWorkUtil;
 
 public class NetworkActivity extends BaseActivity {
 

@@ -10,9 +10,10 @@ import android.view.ViewGroup;
 import com.sample.R;
 import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.view.DialogActivity;
+import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
-import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.view.TitleBar;
+import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.view.TitleBar;
 
 /**
  * @Created SiberiaDante
@@ -37,6 +38,7 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
     protected void initView() {
         layout.findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
         layout.findViewById(R.id.btn_start_qq_exercise__activity).setOnClickListener(this);
+        layout.findViewById(R.id.btn_start_image_span__activity).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) layout.findViewById(R.id.titleBar));
         initTitleBar(titleBar);
     }
@@ -65,6 +67,9 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
                 break;
             case R.id.btn_start_qq_exercise__activity:
                 intent = new Intent(getActivity(), QQStepViewActivity.class);
+                break;
+            case R.id.btn_start_image_span__activity:
+                intent = new Intent(getActivity(), ImageSpanActivity.class);
                 break;
         }
         startActivity(intent);

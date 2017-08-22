@@ -1,9 +1,7 @@
 package com.sample.ui.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -11,8 +9,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.sample.R;
-import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.view.TitleBar;
+import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.view.TitleBar;
 
 public class WebViewActivity extends BaseActivity {
 

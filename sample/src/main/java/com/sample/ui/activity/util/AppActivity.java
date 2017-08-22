@@ -8,7 +8,7 @@ import android.widget.ImageView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.util.AppUtil;
+import com.siberiadante.lib.util.AppUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

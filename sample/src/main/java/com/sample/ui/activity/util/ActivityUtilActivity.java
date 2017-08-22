@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.sample.ui.activity.Main2Activity;
-import com.siberiadante.util.ActivityUtil;
+import com.siberiadante.lib.util.ActivityUtil;
 
 public class ActivityUtilActivity extends BaseActivity {
 

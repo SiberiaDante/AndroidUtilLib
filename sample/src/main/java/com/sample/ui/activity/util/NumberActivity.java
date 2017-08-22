@@ -7,8 +7,8 @@ import android.widget.EditText;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.util.NumberUtil;
-import com.siberiadante.view.TitleBar;
+import com.siberiadante.lib.util.NumberUtil;
+import com.siberiadante.lib.view.TitleBar;
 
 import butterknife.ButterKnife;
 

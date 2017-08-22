@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.sample.R;
-import com.siberiadante.util.ToastUtil;
+import com.siberiadante.lib.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.siberiadante.custom.R;
-import com.siberiadante.util.TransitionTools;
+import com.siberiadante.lib.util.TransitionTools;
 
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)

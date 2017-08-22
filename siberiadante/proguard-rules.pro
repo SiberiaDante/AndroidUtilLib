@@ -16,4 +16,8 @@
 #   public *;
 #}
 #picasso
--dontwarn com.squareup.okhttp.**
+#-dontwarn com.squareup.okhttp.**
+#my lib
+-keep class com.siberiadante.lib.** { *; }
+-keepclassmembers class com.siberiadante.lib.** { *; }
+-dontwarn com.siberiadante.lib.**

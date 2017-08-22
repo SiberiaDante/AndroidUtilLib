@@ -8,7 +8,7 @@
     android:layout_margin="20dp"
     tools:context="com.sample.ui.activity.view.QQStepViewActivity">
 
-    <com.siberiadante.view.QQStepView
+    <com.siberiadante.lib.view.QQStepView
         android:id="@+id/step_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

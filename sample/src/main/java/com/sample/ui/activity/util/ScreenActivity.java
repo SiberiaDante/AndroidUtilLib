@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.util.ScreenUtil;
+import com.siberiadante.lib.util.ScreenUtil;
 
 public class ScreenActivity extends BaseActivity {
 
@@ -28,10 +28,10 @@ public class ScreenActivity extends BaseActivity {
     }
 
     public void initData() {
-        int screenWidth = ScreenUtil.getScreenWidthPx(this);
-        int screenHeight = ScreenUtil.getScreenHeightPx(this);
-        int screenWidthDp = ScreenUtil.getScreenWidthDp(this);
-        int screenHeightDp = ScreenUtil.getScreenHeightDp(this);
+        int screenWidth = ScreenUtil.getScreenWidthPx();
+        int screenHeight = ScreenUtil.getScreenHeightPx();
+        int screenWidthDp = ScreenUtil.getScreenWidthDp();
+        int screenHeightDp = ScreenUtil.getScreenHeightDp();
         float density = ScreenUtil.getDensity(this);
         Log.d(TAG, "initData: density=" + density);
         Log.d(TAG, "initData:screenWidthPX= " + screenWidth + "px");

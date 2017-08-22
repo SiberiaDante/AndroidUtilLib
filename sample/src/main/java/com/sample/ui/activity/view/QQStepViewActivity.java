@@ -2,14 +2,13 @@ package com.sample.ui.activity.view;
 
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.view.QQStepView;
+import com.siberiadante.lib.view.QQStepView;
 
 public class QQStepViewActivity extends BaseActivity {
 

@@ -17,7 +17,7 @@ import com.sample.ui.activity.util.NetworkActivity;
 import com.sample.ui.activity.util.NumberActivity;
 import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.util.ToastActivity;
-import com.siberiadante.view.TitleBar;
+import com.siberiadante.lib.view.TitleBar;
 
 /**
  * @Created SiberiaDante

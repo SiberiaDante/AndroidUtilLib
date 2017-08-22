@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.siberiadante.view.TitleBar
+    <com.siberiadante.lib.view.TitleBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/action_sheet_blue" />

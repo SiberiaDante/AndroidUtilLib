@@ -12,8 +12,8 @@ import com.sample.R;
 import com.sample.constants.Constants;
 import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.WebViewActivity;
-import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.view.TitleBar;
+import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.view.TitleBar;
 
 /**
  * @Created SiberiaDante

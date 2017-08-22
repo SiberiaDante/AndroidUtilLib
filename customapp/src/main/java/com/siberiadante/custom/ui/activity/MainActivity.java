@@ -1,18 +1,13 @@
 package com.siberiadante.custom.ui.activity;
 
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.siberiadante.custom.R;
@@ -25,24 +20,20 @@ import com.siberiadante.custom.ui.fragment.FourFragment;
 import com.siberiadante.custom.ui.fragment.OneFragment;
 import com.siberiadante.custom.ui.fragment.ThreeFragment;
 import com.siberiadante.custom.ui.fragment.TwoFragment;
-import com.siberiadante.util.LogUtil;
-import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.util.ToastUtil;
-import com.siberiadante.util.TransitionTools;
-import com.siberiadante.widget.TabRadioButton;
+import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.util.TransitionTools;
+import com.siberiadante.lib.widget.TabRadioButton;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.BindViews;
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {

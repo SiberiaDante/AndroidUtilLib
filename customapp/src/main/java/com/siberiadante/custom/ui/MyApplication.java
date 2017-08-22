@@ -2,10 +2,8 @@ package com.siberiadante.custom.ui;
 
 import android.app.Application;
 
-import com.siberiadante.SiberiaDanteLib;
-import com.siberiadante.constants.AppInfo;
+import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.custom.constant.AppConfig;
-import com.siberiadante.util.SPUtil;
 
 /**
  * @Created SiberiaDante

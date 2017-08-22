@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.siberiadante.custom.R;
-import com.siberiadante.util.ToastUtil;
+import com.siberiadante.lib.util.ToastUtil;
 
 /**
  * @Created SiberiaDante

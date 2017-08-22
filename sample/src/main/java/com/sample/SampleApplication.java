@@ -4,8 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.support.multidex.MultiDex;
 
-import com.siberiadante.SiberiaDanteLib;
-import com.siberiadante.util.CrashHandler;
+import com.siberiadante.lib.SiberiaDanteLib;
 import com.squareup.leakcanary.LeakCanary;
 //import com.squareup.leakcanary.LeakCanary;
 

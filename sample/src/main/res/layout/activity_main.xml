@@ -22,26 +22,26 @@
         android:background="@color/gray_1"
         android:orientation="horizontal">
 
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_home_one"
             style="@style/HomeRadioButton"
             android:text="精选"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_one" />
 
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_home_two"
             style="@style/HomeRadioButton"
             android:text="组件"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_two" />
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_home_three"
             style="@style/HomeRadioButton"
             android:text="工具"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_three" />
-        <com.siberiadante.widget.TabRadioButton
+        <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_home_four"
             style="@style/HomeRadioButton"
             android:text="其他"

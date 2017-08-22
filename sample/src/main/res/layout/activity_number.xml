@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.sample.ui.activity.util.NumberActivity">
 
-    <com.siberiadante.view.TitleBar
+    <com.siberiadante.lib.view.TitleBar
         android:id="@+id/title_bar_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

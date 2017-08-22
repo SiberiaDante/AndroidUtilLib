@@ -16,14 +16,12 @@ import com.sample.ui.fragment.MainFragment;
 import com.sample.ui.fragment.OtherFragment;
 import com.sample.ui.fragment.UtilFragment;
 import com.sample.ui.fragment.ViewFragment;
-import com.siberiadante.util.ToastUtil;
+import com.siberiadante.lib.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import javax.xml.datatype.Duration;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, ViewPager.OnPageChangeListener {
     public static final String TAG = MainActivity.class.getSimpleName();

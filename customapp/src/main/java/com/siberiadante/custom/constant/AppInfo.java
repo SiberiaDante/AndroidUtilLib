@@ -1,6 +1,6 @@
 package com.siberiadante.custom.constant;
 
-import com.siberiadante.util.SPUtil;
+import com.siberiadante.lib.util.SPUtil;
 
 /**
  * @Created SiberiaDante

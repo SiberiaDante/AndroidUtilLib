@@ -14,16 +14,16 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.sample.R;
-import com.siberiadante.util.ScreenUtil;
-import com.siberiadante.util.ToastUtil;
-import com.siberiadante.view.EditDialog;
-import com.siberiadante.view.BottomPopupWindow;
-import com.siberiadante.view.EnsureDialog;
-import com.siberiadante.view.NiceDialog;
-import com.siberiadante.view.TitleBar;
-import com.siberiadante.view.nicedialog.BaseNiceDialog;
-import com.siberiadante.view.nicedialog.ViewConvertListener;
-import com.siberiadante.view.nicedialog.ViewHolder;
+import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.view.EditDialog;
+import com.siberiadante.lib.view.BottomPopupWindow;
+import com.siberiadante.lib.view.EnsureDialog;
+import com.siberiadante.lib.view.NiceDialog;
+import com.siberiadante.lib.view.TitleBar;
+import com.siberiadante.lib.view.nicedialog.BaseNiceDialog;
+import com.siberiadante.lib.view.nicedialog.ViewConvertListener;
+import com.siberiadante.lib.view.nicedialog.ViewHolder;
 
 public class DialogActivity extends AppCompatActivity implements View.OnClickListener {
 
