@@ -10,7 +10,8 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.siberiadante.R;
+import com.siberiadante.lib.R;
+
 
 /**
  * @Created： SiberiaDante

@@ -1,6 +1,6 @@
 package com.siberiadante.lib.exception;
 
-import com.siberiadante.R;
+import com.siberiadante.lib.R;
 import com.siberiadante.lib.SiberiaDanteLib;
 
 /**

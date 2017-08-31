@@ -1,5 +1,6 @@
 package com.siberiadante.custom.http;
 
+import com.siberiadante.custom.bean.NewsData;
 import com.siberiadante.custom.bean.QuestionData;
 import com.siberiadante.custom.bean.base.WrapResult;
 
@@ -22,4 +23,12 @@ public interface ApiService {
     @FormUrlEncoded
     @POST("api/question_list")
     Observable<WrapResult<List<QuestionData>>> questionApi(@Field("access_token") String access_token, @Field("method") String method);
+
+    @FormUrlEncoded
+    @POST("api/news")
+    Observable<WrapResult<List<NewsData>>> newsApi(@Field("access_token") String access_token,
+                                                   @Field("method") String method,
+                                                   @Field("page") String page,
+                                                   @Field("count") String count);
+
 }

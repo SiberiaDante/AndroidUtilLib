@@ -47,7 +47,7 @@ public class ScreenUtil {
     /**
      * @return 获取屏幕的宽 单位：px
      */
-    public static int getScreenWidthPx( ) {
+    public static int getScreenWidthPx() {
         WindowManager windowManager = (WindowManager) SiberiaDanteLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
@@ -57,7 +57,7 @@ public class ScreenUtil {
     /**
      * @return 获取屏幕的高 单位：px
      */
-    public static int getScreenHeightPx( ) {
+    public static int getScreenHeightPx() {
         WindowManager windowManager = (WindowManager) SiberiaDanteLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
@@ -66,9 +66,27 @@ public class ScreenUtil {
     }
 
     /**
+     * 获取屏幕的宽度（单位：px）
+     *
+     * @return 屏幕宽
+     */
+    public static int getScreenWidth() {
+        return SiberiaDanteLib.getContext().getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
+     * 获取屏幕的高度（单位：px）
+     *
+     * @return 屏幕高
+     */
+    public static int getScreenHeight() {
+        return SiberiaDanteLib.getContext().getResources().getDisplayMetrics().heightPixels;
+    }
+
+    /**
      * @return 获取屏幕的宽 单位：dp
      */
-    public static int getScreenWidthDp( ) {
+    public static int getScreenWidthDp() {
         WindowManager windowManager = (WindowManager) SiberiaDanteLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
@@ -78,7 +96,7 @@ public class ScreenUtil {
     /**
      * @return 获取屏幕的高 单位：dp
      */
-    public static int getScreenHeightDp( ) {
+    public static int getScreenHeightDp() {
         WindowManager windowManager = (WindowManager) SiberiaDanteLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);

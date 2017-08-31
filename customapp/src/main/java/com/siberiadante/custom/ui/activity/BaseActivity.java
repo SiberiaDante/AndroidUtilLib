@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 /**
  * @Created SiberiaDante
@@ -18,6 +20,7 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
     public static final String TAG = BaseActivity.class.getSimpleName();
+    private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +40,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected abstract void initData();
 
+    protected void addCompositeDisposable(Disposable disposable) {
+        if (null != disposable) {
+            mCompositeDisposable.add(disposable);
+        }
+
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -51,5 +61,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mCompositeDisposable.clear();
     }
 }

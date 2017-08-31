@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.telephony.TelephonyManager;
 
 import com.siberiadante.lib.SiberiaDanteLib;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
+ *
+ * @Describe can use
  */
 
 public class NetWorkUtil {
@@ -46,8 +50,9 @@ public class NetWorkUtil {
     }
 
     /**
-     *判断是否4G连接
+     * 判断是否4G连接
      */
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
     public static boolean is4GConnected() {
         return getNetworkInfo() != null && getNetworkInfo().getType() == TelephonyManager.NETWORK_TYPE_LTE;
     }

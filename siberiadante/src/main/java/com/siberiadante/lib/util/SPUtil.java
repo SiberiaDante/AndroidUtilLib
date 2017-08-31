@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： 使用参考sample/src/constants/AppInfo.java
  * @Time: 2017/8/3
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante

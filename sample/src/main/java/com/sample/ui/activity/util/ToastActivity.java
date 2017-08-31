@@ -88,7 +88,7 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
                 ToastUtil.showLayout(layout, Toast.LENGTH_LONG, Gravity.TOP);
                 break;
             case R.id.btn_show_thread:
-                ToastUtil.showThread(url);
+//                ToastUtil.showThread(url);
                 break;
 
             case R.id.btn_toast_cancel:

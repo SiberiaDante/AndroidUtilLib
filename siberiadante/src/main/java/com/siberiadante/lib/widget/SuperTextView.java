@@ -16,7 +16,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
-import com.siberiadante.R;
+import com.siberiadante.lib.R;
+
 
 /**
  * @Created SiberiaDante

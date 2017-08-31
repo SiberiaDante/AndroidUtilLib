@@ -1,5 +1,7 @@
 //package com.siberiadante.lib.adapter.base;
 //
+//import android.os.Build;
+//import android.support.annotation.RequiresApi;
 //import android.support.v7.widget.GridLayoutManager;
 //import android.support.v7.widget.RecyclerView;
 //import android.util.SparseArray;
@@ -159,6 +161,7 @@
 //    }
 //
 //    // 移除头部
+//    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 //    public void removeHeaderView(View view) {
 //        int index = mHeaderViews.indexOfValue(view);
 //        if (index < 0) return;
@@ -167,6 +170,7 @@
 //    }
 //
 //    // 移除底部
+//    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
 //    public void removeFooterView(View view) {
 //        int index = mFooterViews.indexOfValue(view);
 //        if (index < 0) return;

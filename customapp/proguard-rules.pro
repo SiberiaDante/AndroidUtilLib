@@ -90,3 +90,5 @@
     -dontwarn com.squareup.okhttp.**
     -dontwarn com.squareup.picasso.**
     #-keep com.squareup.picasso.** { ; }
+# My
+    -keepnames class com.siberiadante.custom.bean.*{*;}

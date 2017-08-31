@@ -51,6 +51,30 @@ public class QuestionData {
     private int thumb_count;
     private List<String> thumb;
 
+    @Override
+    public String toString() {
+        return "QuestionData{" +
+                "id='" + id + '\'' +
+                ", uid='" + uid + '\'' +
+                ", category='" + category + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", answer_num='" + answer_num + '\'' +
+                ", best_answer='" + best_answer + '\'' +
+                ", good_question='" + good_question + '\'' +
+                ", status='" + status + '\'' +
+                ", is_recommend='" + is_recommend + '\'' +
+                ", create_time='" + create_time + '\'' +
+                ", update_time='" + update_time + '\'' +
+                ", leixing='" + leixing + '\'' +
+                ", score_num='" + score_num + '\'' +
+                ", attach_ids='" + attach_ids + '\'' +
+                ", user=" + user +
+                ", thumb_count=" + thumb_count +
+                ", thumb=" + thumb +
+                '}';
+    }
+
     public String getId() {
         return id;
     }

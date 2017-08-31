@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.siberiadante.R;
+import com.siberiadante.lib.R;
 import com.siberiadante.lib.util.ScreenUtil;
 import com.siberiadante.lib.util.TransitionTools;
 

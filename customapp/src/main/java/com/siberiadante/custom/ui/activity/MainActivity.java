@@ -30,9 +30,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.BindViews;
+import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -62,7 +64,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void beforeSetContentView() {
-
     }
 
     @Override
@@ -83,37 +84,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     }
 
-    private void getNetData() {
-        RetrofitManager.getInstance().createReq(ApiService.class)
-                .questionApi(Constants.ACCESS_TOKEN, Constants.METHOD_GET)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<WrapResult<List<QuestionData>>>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(@NonNull WrapResult<List<QuestionData>> listWrapResult) {
-                        final List<QuestionData> data = listWrapResult.getData();
-                        final String s = data.get(0).toString();
-//                        mTvHelloWorld.setText(s + s + s + data.get(0).getDescription());
-
-                        LogUtil.d(s + s + data.get(0).getDescription());
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
-    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -133,7 +103,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.rb_shop:
                 if (twoFragment == null) {
-                    twoFragment = new TwoFragment();
+//                    twoFragment = new TwoFragment();
+                    twoFragment = TwoFragment.getInstance();
                     ts.add(R.id.fragment_container, twoFragment);
                 } else {
                     ts.show(twoFragment);
@@ -206,6 +177,42 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         } else {
             System.exit(0);
         }
+    }
+    private void getNetData() {
+        RetrofitManager.getInstance().createReq(ApiService.class)
+                .questionApi(Constants.ACCESS_TOKEN, Constants.METHOD_GET)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<WrapResult<List<QuestionData>>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+                        addCompositeDisposable(d);
+                    }
+
+                    @Override
+                    public void onNext(@NonNull WrapResult<List<QuestionData>> listWrapResult) {
+                        final List<QuestionData> data = listWrapResult.getData();
+                        final String string = data.toString();
+                        Log.d(TAG, "onNext: " + string);
+
+                        LogUtil.d(data.get(0).getDescription());
+
+                        LogUtil.d(data.get(0).getCreate_time());
+
+                        LogUtil.d(data.get(0).getTitle());
+
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
 }

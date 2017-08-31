@@ -1,4 +1,4 @@
-package com.siberiadante.custom.util.net;
+package com.siberiadante.custom.http.interceptor;
 
 import org.json.JSONObject;
 

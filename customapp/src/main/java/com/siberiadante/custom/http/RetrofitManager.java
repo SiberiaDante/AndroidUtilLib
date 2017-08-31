@@ -3,7 +3,6 @@ package com.siberiadante.custom.http;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import com.siberiadante.custom.constant.AppConfig;
 import com.siberiadante.custom.constant.Constants;
-import com.siberiadante.custom.http.interceptor.RsqCheckInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
@@ -38,13 +37,17 @@ public class RetrofitManager {
 
 
     private void initRetrofit() {
-        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        final HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        if (AppConfig.isDebug) {
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        } else {
+            interceptor.setLevel((HttpLoggingInterceptor.Level.NONE));
+        }
         final OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        builder.addInterceptor(new RsqCheckInterceptor());//添加检查拦截器
+//        builder.addInterceptor(new RsqCheckInterceptor());//添加检查拦截器
         if (AppConfig.isDebug) {
             //添加Retrofit打日志
-            builder.addInterceptor(httpLoggingInterceptor);
+            builder.addInterceptor(interceptor);
         }
         builder.connectTimeout(15, TimeUnit.SECONDS);
         builder.readTimeout(20, TimeUnit.SECONDS);

@@ -19,13 +19,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.functions.Consumer;
-import io.reactivex.schedulers.Schedulers;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
@@ -412,29 +405,29 @@ public class ToastUtil {
      *
      * @param url
      */
-    public static void showThread(String url) {
-        final String mUrl = url;
-        Observable.create(new ObservableOnSubscribe<Bitmap>() {
-            @Override
-            public void subscribe(@NonNull ObservableEmitter<Bitmap> e) throws Exception {
-                URL url = new URL(mUrl);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("GET");
-                connection.setConnectTimeout(8000);
-                connection.setReadTimeout(8000);
-                InputStream inputStream = connection.getInputStream();
-                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-                e.onNext(bitmap);
-            }
-        }).subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Bitmap>() {
-                    @Override
-                    public void accept(@NonNull Bitmap bitmap) throws Exception {
-                        ToastUtil.showImage(bitmap, Toast.LENGTH_LONG, Gravity.CENTER);
-                    }
-                });
-    }
+//    public static void showThread(String url) {
+//        final String mUrl = url;
+//        Observable.create(new ObservableOnSubscribe<Bitmap>() {
+//            @Override
+//            public void subscribe(@NonNull ObservableEmitter<Bitmap> e) throws Exception {
+//                URL url = new URL(mUrl);
+//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//                connection.setRequestMethod("GET");
+//                connection.setConnectTimeout(8000);
+//                connection.setReadTimeout(8000);
+//                InputStream inputStream = connection.getInputStream();
+//                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+//                e.onNext(bitmap);
+//            }
+//        }).subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Consumer<Bitmap>() {
+//                    @Override
+//                    public void accept(@NonNull Bitmap bitmap) throws Exception {
+//                        ToastUtil.showImage(bitmap, Toast.LENGTH_LONG, Gravity.CENTER);
+//                    }
+//                });
+//    }
 
     /**
      * 重置Toast对象

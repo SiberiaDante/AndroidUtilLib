@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.custom.constant.AppConfig;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * @Created SiberiaDante
@@ -28,6 +29,10 @@ public class MyApplication extends Application {
         super.onCreate();
         mInstance = this;
         initSiberiaDante();
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 
     private void initSiberiaDante() {

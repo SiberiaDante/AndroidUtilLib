@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.RadioButton;
 
-import com.siberiadante.R;
+import com.siberiadante.lib.R;
 
 
 /**

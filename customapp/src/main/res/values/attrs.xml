@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--TitleLayoutStyle-->
+    <declare-styleable name="TitleLayoutStyle">
+        <attr name="title_name" format="string|reference" />
+        <attr name="title_color" format="color|reference" />
+        <attr name="right_text" format="string|reference" />
+        <attr name="right_text_color" format="color|reference" />
+        <attr name="bottom_line_visible" format="boolean" />
+        <attr name="iv_back_src" format="reference" />
+        <attr name="iv_right_src" format="reference" />
+        <attr name="title_background" format="color|reference" />
+    </declare-styleable>
+
+</resources>

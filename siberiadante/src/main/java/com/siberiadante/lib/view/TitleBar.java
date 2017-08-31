@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.siberiadante.R;
+import com.siberiadante.lib.R;
 import com.siberiadante.lib.util.ScreenUtil;
 import com.siberiadante.lib.util.TransitionTools;
 

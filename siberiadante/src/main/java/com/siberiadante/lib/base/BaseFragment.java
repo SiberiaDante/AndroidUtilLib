@@ -1,11 +1,14 @@
 package com.siberiadante.lib.base;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.lang.reflect.Field;
 
 /**
  * @Created SiberiaDante
@@ -16,65 +19,74 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseFragment extends Fragment {
-    private static final String TAG = BaseFragment.class.getSimpleName();
-    //传递过来的参数Bundle，供子类使用
-    protected Bundle bundle;
+    protected LayoutInflater inflater;
+    private View contentView;
+    private Context context;
+    private ViewGroup container;
 
-    /**
-     * 初始创建Fragment对象时调用
-     *
-     * @param savedInstanceState
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bundle = getArguments();
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        context = getActivity().getApplicationContext();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        initView();
-        initIntent();
-        initData();
+    public final View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.inflater = inflater;
+        this.container = container;
+        onCreateView(savedInstanceState);
+        if (contentView == null)
+            return super.onCreateView(inflater, container, savedInstanceState);
+        return contentView;
     }
 
-    public abstract void initView();
+    protected void onCreateView(Bundle savedInstanceState) {
 
-    protected abstract void initIntent();
+    }
 
-    protected abstract void initData();
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        contentView = null;
+        container = null;
+        inflater = null;
+    }
 
-    /**
-     * 创建fragment的静态方法，方便传递参数
-     *
-     * @param bundle 传递的参数
-     * @return
-     * @tip Fragment mFragment = Fragment.newInstance(Fragment.class, null);
-     * mFragment.bindToContentView(mTvContent);//绑定当前页面控件
-     * FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-     * transaction.replace(R.id.frameLayout, mFragment);
-     * //transaction.addToBackStack(null);//fragment添加至回退栈中
-     * transaction.commit();
-     */
-    public static <T extends Fragment> T newInstance(Class clazz, Bundle bundle) {
-        T mFragment = null;
+    public Context getApplicationContext() {
+        return context;
+    }
+
+    public void setContentView(int layoutResID) {
+        setContentView(inflater.inflate(layoutResID, container, false));
+    }
+
+    public View getContentView() {
+        return contentView;
+    }
+
+    public void setContentView(View view) {
+        contentView = view;
+    }
+
+    public View findViewById(int id) {
+        if (contentView != null)
+            return contentView.findViewById(id);
+        return null;
+    }
+
+    // http://stackoverflow.com/questions/15207305/getting-the-error-java-lang-illegalstateexception-activity-has-been-destroyed
+    @Override
+    public void onDetach() {
+        super.onDetach();
         try {
-            mFragment = (T) clazz.newInstance();
-        } catch (java.lang.InstantiationException e) {
-            e.printStackTrace();
+            Field childFragmentManager = Fragment.class.getDeclaredField("mChildFragmentManager");
+            childFragmentManager.setAccessible(true);
+            childFragmentManager.set(this, null);
+
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
         } catch (IllegalAccessException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
-        mFragment.setArguments(bundle);
-        return mFragment;
     }
-
-
 }

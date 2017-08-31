@@ -1,19 +1,27 @@
 package com.siberiadante.lib;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 
-import com.siberiadante.R;
 import com.siberiadante.lib.constants.AppInfo;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by SiberiaDante on 2017/5/10.
  * user this lib,you should init it first：context
  */
 
-public class SiberiaDanteLib {
+public final class SiberiaDanteLib {
     @SuppressLint("StaticFieldLeak")
     private static Context context;
+    public static List<Activity> sActivityList = new LinkedList<>();
+    @SuppressLint("StaticFieldLeak")
+    public static Activity sTopActivity;
 
     public SiberiaDanteLib() {
         throw new UnsupportedOperationException("not init SiberiaDanteLib");
@@ -46,4 +54,44 @@ public class SiberiaDanteLib {
 
         }
     }
+
+    private static Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new Application.ActivityLifecycleCallbacks() {
+        @Override
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            sActivityList.add(activity);
+
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+            sTopActivity = activity;
+
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+            sActivityList.remove(activity);
+
+        }
+    };
 }

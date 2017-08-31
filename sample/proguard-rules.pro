@@ -64,6 +64,17 @@
 #-dontobfuscate 关闭混淆.默认开启，增大反编译难度，类和类成员会被随机命名，除非用keep保护。
 
 #Picasso
--dontwarn com.squareup.okhttp.**
+    -dontwarn com.squareup.okhttp.**
 #QQ
--keep class * extends android.app.Dialog
+    -keep class * extends android.app.Dialog
+#EventBus
+    -keepattributes *Annotation*
+    -keepclassmembers class ** {
+        @org.greenrobot.eventbus.Subscribe <methods>;
+    }
+    -keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+    # Only required if you use AsyncExecutor
+    -keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+        <init>(java.lang.Throwable);
+    }
