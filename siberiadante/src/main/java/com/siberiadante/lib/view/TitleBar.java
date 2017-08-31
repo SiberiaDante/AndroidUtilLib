@@ -19,7 +19,7 @@ import com.siberiadante.lib.util.TransitionTools;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： Titlebar 封装
  * @Time: 2017/6/30
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante

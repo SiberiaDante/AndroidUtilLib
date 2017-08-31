@@ -17,7 +17,11 @@ import com.siberiadante.lib.R;
 
 
 /**
- * Created by SiberiaDante on 2017/6/19.
+ * @Created SiberiaDante
+ * @Describe： 带EditText的确认or取消弹窗
+ * @Time: 2017/6/19
+ * @Email: 994537867@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
 
 public class EditDialog {
