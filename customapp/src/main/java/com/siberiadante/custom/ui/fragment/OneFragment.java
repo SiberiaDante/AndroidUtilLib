@@ -2,6 +2,10 @@ package com.siberiadante.custom.ui.fragment;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
 
 import com.siberiadante.custom.R;
 import com.siberiadante.lib.util.ToastUtil;
@@ -34,4 +38,5 @@ public class OneFragment extends LazyFragment {
         ToastUtil.toast("第一个页面");
         Log.d(TAG, "onCreateViewLazy: FragmentOne");
     }
+
 }

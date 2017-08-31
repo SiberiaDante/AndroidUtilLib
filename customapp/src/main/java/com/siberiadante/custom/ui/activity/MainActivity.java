@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -84,6 +87,21 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_setting, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -178,6 +196,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             System.exit(0);
         }
     }
+
     private void getNetData() {
         RetrofitManager.getInstance().createReq(ApiService.class)
                 .questionApi(Constants.ACCESS_TOKEN, Constants.METHOD_GET)

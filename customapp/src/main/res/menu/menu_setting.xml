@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:icon="@drawable/setting_right_top_black"
+        android:orderInCategory="100"
+        android:title="设置"
+        android:visible="true" />
+    <item
+        android:icon="@drawable/setting_right_top_black"
+        android:title="设置" />
+    <item
+        android:icon="@drawable/ic_back"
+        app:showAsAction="always"
+        android:title="设置"
+        android:visible="true" />
+</menu>
