@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： ImageSpan 设置文字表情对齐显示
  * @Time: 2017/8/18
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante

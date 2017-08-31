@@ -2,9 +2,13 @@
 ### 旨在打造一款属于Android开发的强大工具库(持续更新维护中……）
 ### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 ### 所有util、view本人都经过亲测，可用，如遇到bug，烦请告知修复，万分感谢
+### 欢迎关注：
 #### [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
+#### [博客园:http://www.cnblogs.com/shen-hua/]
+#### [email:994537867@qq.com] [siberiadante@gmail.com]
 #### 关注我的微信公众号: [tstongxiao]
 ![微信公众号图片](/sample/src/main/assets/images/qrcode.jpg)
+### [Android开发必备经典收藏集（整理中）]
 ## gradle依赖方法
 * Step 1.Add it in your root build.gradle at the end of repositories:
 
@@ -44,15 +48,15 @@ dependencies {
 ## module依赖方法
 下载SiberiaDante，以module的方式导入项目，在build.gradle中添加代码：compile project(':siberiadante')
 ### 说明
-* 使用之前需要在Application中初始化
-    SiberiaDanteLib.initLib(context);
+* 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
+* 开启Debug模式：SiberiaDanteLib.setDebug(true);
 ## view
 * [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
 * [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
 * [QQStepView] :自定义View实现仿QQ运动步数功能([使用:sample/activity/QQStepViewActivity])
-* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:sample/res/layout/activity_dialog.xml])
+* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:TitleBar使用说明])
 ## widget
 * [JustifyTextView] 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
@@ -102,7 +106,6 @@ dependencies {
     * getAppSignatureSHA1(String packageName):根据包名获取应用签名SHA1
     * isAppInForeground():判断应用是否处于前台
     * isAppInForeground(String packageName)：根据包名判断应用是否处于前台
-    *
 * [ClearUtil] :清除缓存、数据等相关应用
     * clearInternalCache():清除应用内部缓存
     * clearInternalFiles():清除应用内部文件
@@ -113,6 +116,7 @@ dependencies {
     * clearCustomCache(String dirPath)：清除自定义路径下的文件
     * clearCustomCache(File dir)：清除自定义路径下的文件
 * [CloseUtil]
+* [CrashHandler]
 * [DateUtil] ：时间、日期转换
     * getSDFTime(String str, String format):支持输出各种格式的日期、时间
     * date2TimeStamp(String date_str, String format):日期格式字符串转换成时间戳
@@ -138,7 +142,6 @@ dependencies {
     * createFileByDeleteOldFile(File file) ：判断文件是否存在，存在则先删除，再创建
 * [IntentUtil]
 * [LogUtil] ：日志打印控制工具类
-
 * [NetWorkUtil] :网络连接、类型等
     * isNetWorkConnected()：判断网络是否连接
     * isWifiConnected()：判断是否无线连接
@@ -147,6 +150,7 @@ dependencies {
     * openNetworkSettings():打开网络设置面板
 * [NumberUtil] :数字工具类
     * isNumeric(String str):是否全为数字
+* [ProcessUtil]
 * [ScreenUtil] :屏幕相关工具类
     * getDensity(Activity activity)：dp/px转换的倍率
     * getScreenWidthPx(Activity activity)：取屏幕的宽 单位：px
@@ -158,18 +162,13 @@ dependencies {
     * setTranslucent(Activity activity)：设置导航栏和状态栏同时透明
     * setFullScreen(Activity activity) ：设置页面全屏
     * getStatusBarHeight()：计算手机状态栏的高度
+* [SDCardUtil]
+* [ShellUtils]
+* [SPUtil] ：SharedPreference的封装，用来储存数据([使用:sample/src/constants/AppInfo.java])
 * [StringUtil] :字符处理相关工具类
     * toSBC(String text):半角转换为全角
     * removeSpecialString(String str):去除特殊字符或将所有中文标号替换为英文标号
     * isHaveString(String str1, String str2)：str1 中是否包含str2
-
-* [TransitionTools] :dp、px转换
-    * getDensity():屏幕设备屏幕dip
-    * dip2px( float dipValue): dp转px
-    * dp2px( float dpValue): dp转px-API方法转
-    * px2dip( float pxValue): px转dp
-    * px2sp( float pxValue)：px转sp
-    * sp2px( float spValue): sp转px
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
     * toast(String content):常用的单例Toast
     * showSingletonLong(String content)：Toast文本，单例，长时间
@@ -192,6 +191,13 @@ dependencies {
     * showThread(String url)：异步线程下载图片并Toast
     * cancel():取消一个Toast，当弹出多个toast时，只会在最后一次toast被创建时取消
     * cancelAll():取消创建的所有的toast
+* [TransitionTools] :dp、px转换
+    * getDensity():屏幕设备屏幕dip
+    * dip2px( float dipValue): dp转px
+    * dp2px( float dpValue): dp转px-API方法转
+    * px2dip( float pxValue): px转dp
+    * px2sp( float pxValue)：px转sp
+    * sp2px( float spValue): sp转px
 
 
 <!--  View-->
@@ -214,7 +220,8 @@ dependencies {
 [使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/ui/activity/view/PhotoViewActivity.java
 [使用:sample/activity/QQStepViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/ui/activity/view/QQStepViewActivity.java
 [使用:sample/res/layout/fragment_view.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/fragment_view.xml
-[使用:sample/res/layout/activity_dialog.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/activity_dialog.xml
+[使用:TitleBar使用说明]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/TitleBar.md
+[使用:sample/src/constants/AppInfo.java]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/constants/AppInfo.java
 
 
 
@@ -241,5 +248,6 @@ dependencies {
 
 
 
-<!--  微信公众号图片-->
+<!--  微信公众号图片&&top&&mine-->
 [tstongxiao]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/assets/images/qrcode.jpg
+[Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a

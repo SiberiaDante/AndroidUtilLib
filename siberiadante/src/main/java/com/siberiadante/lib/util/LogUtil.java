@@ -1,13 +1,23 @@
 package com.siberiadante.lib.util;
 
+import android.os.Environment;
 import android.util.Log;
 
+import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.constants.AppInfo;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * @Created SiberiaDante
- * @Describe： 日志打印工具类
+ * @Describe： 日志打印工具类.应用Log日志对APP的信息泄露极为致命，所以项目上线时需要关闭项目整体的Log日志输出
  * @Time: 2017/8/7
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
@@ -153,4 +163,32 @@ public class LogUtil {
         }
     }
 
+    public static void eFile(String info) {
+        long timestamp = System.currentTimeMillis();
+        String time = DateUtil.getSDFTime(DateUtil.getTimeStamp());
+        String fileName = SiberiaDanteLib.getContext().getPackageName() + "crash-" + time + "-" + timestamp + ".log";
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            String path = "/sdcard/crash/";
+            File dir = new File(path);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            FileOutputStream fos = null;
+            try {
+                fos = new FileOutputStream(path + fileName);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            try {
+                fos.write(info.getBytes());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            try {
+                fos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
