@@ -22,8 +22,10 @@ public class StringUtil {
      */
     public static boolean isHaveString(String str1, String str2) {
         if (str1.contains(str2)) {
+            LogUtil.d(true + "");
             return true;
         } else {
+            LogUtil.d(false + "");
             return false;
         }
     }

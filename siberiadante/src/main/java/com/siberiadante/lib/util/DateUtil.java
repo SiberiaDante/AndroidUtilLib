@@ -33,24 +33,27 @@ import java.util.Locale;
 
 public class DateUtil {
 
+
     /**
-     * 支持输出各种格式的日期、时间
+     * 取得当前时间戳（精确到秒）
      *
-     * @param str    时间戳
-     * @param format (yyyy年MM月dd日HH时mm分ss秒)(yyyy-MM-dd HH:mm:ss yyyy-MM-dd HH:mm:ss)(yyyy-MM-dd)。。。
-     * @return 日期、时间格式
+     * @return 时间戳
      */
-    public static String getSDFTime(String str, String format) {
-        //判断时间戳是否为空
-        if (str == null || str.isEmpty() || str.equals("null")) {
-            return "";
-        }
-        //未指定format格式时默认输出yyyy-MM-dd HH:mm:ss
-        if (format == null || format.isEmpty()) {
-            format = "yyyy-MM-dd HH:mm:ss";
-        }
+    public static String getTimeStamp() {
+        long time = System.currentTimeMillis();
+        return String.valueOf(time / 1000);
+    }
+
+
+    /**
+     * 默认时间格式：yyyy-MM-dd HH:mm:ss
+     *
+     * @return
+     */
+    public static String getSDFTime() {
+        String format = "yyyy-MM-dd HH:mm:ss";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
-        Long strLong = Long.valueOf(str);
+        Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
 
@@ -75,8 +78,8 @@ public class DateUtil {
      * 日期格式字符串转换成时间戳
      *
      * @param date_str
-     * @param format
-     * @return 时间戳
+     * @param format   时间转换格式
+     * @return 时间
      */
     public static String date2TimeStamp(String date_str, String format) {
         try {
@@ -88,14 +91,26 @@ public class DateUtil {
         return "";
     }
 
+
     /**
-     * 取得当前时间戳（精确到秒）
+     * 支持输出各种格式的日期、时间
      *
-     * @return 时间戳
+     * @param str    时间戳
+     * @param format (yyyy年MM月dd日HH时mm分ss秒)(yyyy-MM-dd HH:mm:ss yyyy-MM-dd HH:mm:ss)(yyyy-MM-dd)。。。
+     * @return 日期、时间格式
      */
-    public static String getTimeStamp() {
-        long time = System.currentTimeMillis();
-        return String.valueOf(time / 1000);
+    public static String getSDFTime(String str, String format) {
+        //判断时间戳是否为空
+        if (str == null || str.isEmpty() || str.equals("null")) {
+            return "";
+        }
+        //未指定format格式时默认输出yyyy-MM-dd HH:mm:ss
+        if (format == null || format.isEmpty()) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(str);
+        return sdf.format(new Date(strLong * 1000));
     }
 
 }

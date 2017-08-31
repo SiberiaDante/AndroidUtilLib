@@ -5,8 +5,10 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.siberiadante.lib.constants.AppInfo;
+import com.siberiadante.lib.util.DateUtil;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -17,11 +19,12 @@ import java.util.List;
  */
 
 public final class SiberiaDanteLib {
+    private static final String TAG = "SiberiaDanteLib";
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    public static List<Activity> sActivityList = new LinkedList<>();
+    public static List<Activity> sActivityList = new LinkedList<>();//打开的Activity集合
     @SuppressLint("StaticFieldLeak")
-    public static Activity sTopActivity;
+    public static Activity sTopActivity;//Activity
 
     public SiberiaDanteLib() {
         throw new UnsupportedOperationException("not init SiberiaDanteLib");
@@ -43,6 +46,7 @@ public final class SiberiaDanteLib {
      */
     public static void setDebug(boolean isDebug) {
         AppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
+        Log.e(TAG, "[---" + DateUtil.getSDFTime() + "---] Enable Debug:--- " + isDebug + " ---");
     }
 
 
