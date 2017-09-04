@@ -40,26 +40,26 @@ public class TabRadioButton extends RadioButton {
         // TODO Auto-generated constructor stub
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null;
         TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.MyRadioButton);
+                R.styleable.TabRadioButton);
 
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
             Log.i("MyRadioButton", "attr:" + attr);
-            if (attr == R.styleable.MyRadioButton_drawableSize) {
-                mDrawableSize = a.getDimensionPixelSize(R.styleable.MyRadioButton_drawableSize, 50);
+            if (attr == R.styleable.TabRadioButton_drawableSize) {
+                mDrawableSize = a.getDimensionPixelSize(R.styleable.TabRadioButton_drawableSize, 50);
                 Log.i("MyRadioButton", "mDrawableSize:" + mDrawableSize);
             }
-            if (attr == R.styleable.MyRadioButton_drawableTop) {
+            if (attr == R.styleable.TabRadioButton_drawableTop) {
                 drawableTop = a.getDrawable(attr);
             }
-            if (attr == R.styleable.MyRadioButton_drawableBottom) {
+            if (attr == R.styleable.TabRadioButton_drawableBottom) {
                 drawableRight = a.getDrawable(attr);
             }
-            if (attr == R.styleable.MyRadioButton_drawableRight) {
+            if (attr == R.styleable.TabRadioButton_drawableRight) {
                 drawableBottom = a.getDrawable(attr);
             }
-            if (attr == R.styleable.MyRadioButton_drawableLeft) {
+            if (attr == R.styleable.TabRadioButton_drawableLeft) {
                 drawableLeft = a.getDrawable(attr);
             }
         }

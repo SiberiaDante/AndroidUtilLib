@@ -12,6 +12,7 @@ import com.sample.ui.BaseFragment;
 import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
+import com.sample.util.JumpUtils;
 import com.siberiadante.lib.util.ScreenUtil;
 import com.siberiadante.lib.view.TitleBar;
 
@@ -37,8 +38,9 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
     @Override
     protected void initView() {
         layout.findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
-        layout.findViewById(R.id.btn_start_qq_exercise__activity).setOnClickListener(this);
-        layout.findViewById(R.id.btn_start_image_span__activity).setOnClickListener(this);
+        layout.findViewById(R.id.btn_start_qq_exercise_activity).setOnClickListener(this);
+        layout.findViewById(R.id.btn_start_image_span_activity).setOnClickListener(this);
+        layout.findViewById(R.id.btn_start_shape_view_activity).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) layout.findViewById(R.id.titleBar));
         initTitleBar(titleBar);
     }
@@ -63,15 +65,17 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
         Intent intent = null;
         switch (view.getId()) {
             case R.id.btn_start_general_dialog_activity:
-                intent = new Intent(getActivity(), DialogActivity.class);
+                JumpUtils.goToDialogActivity(getActivity());
                 break;
-            case R.id.btn_start_qq_exercise__activity:
-                intent = new Intent(getActivity(), QQStepViewActivity.class);
+            case R.id.btn_start_qq_exercise_activity:
+                JumpUtils.goToQQStepViewActivity(getActivity());
                 break;
-            case R.id.btn_start_image_span__activity:
-                intent = new Intent(getActivity(), ImageSpanActivity.class);
+            case R.id.btn_start_image_span_activity:
+                JumpUtils.goToImageSpanActivity(getActivity());
+                break;
+            case R.id.btn_start_shape_view_activity:
+                JumpUtils.goToShapeViewActivity(getActivity());
                 break;
         }
-        startActivity(intent);
     }
 }

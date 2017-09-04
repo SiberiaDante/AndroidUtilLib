@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dante="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shape_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.sample.ui.activity.view.ShapeViewActivity">
+
+    <com.siberiadante.lib.widget.RoundTextView
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="RoundTextView"
+        dante:r_backgroundColor="@color/action_sheet_blue"
+        dante:r_cornerRadius="10dp" />
+
+    <com.siberiadante.lib.widget.RoundLinearLayout
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        dante:r_backgroundColor="@color/action_sheet_blue"
+        dante:r_cornerRadius_TL="20dp" />
+
+    <com.siberiadante.lib.widget.RoundRelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        dante:r_backgroundColor="@color/action_sheet_blue"
+        dante:r_cornerRadius_TR="20dp" />
+
+    <com.siberiadante.lib.widget.RoundFrameLayout
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        dante:r_backgroundColor="@color/action_sheet_blue"
+        dante:r_cornerRadius_BL="20dp" />
+</LinearLayout>
+

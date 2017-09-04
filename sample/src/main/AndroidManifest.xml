@@ -53,6 +53,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".ui.activity.view.ImageSpanActivity" />
+        <activity android:name=".ui.activity.view.ShapeViewActivity"></activity>
     </application>
 
 </manifest>

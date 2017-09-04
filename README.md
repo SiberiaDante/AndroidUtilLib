@@ -61,6 +61,10 @@ dependencies {
 * [JustifyTextView] 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
 * [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
 * [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
+* [RoundFrameLayout]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [RoundLinearLayout]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [RoundRelativeLayout]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [RoundTextView]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
 * [SuperTextView]：超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 
@@ -212,6 +216,10 @@ dependencies {
 [JustifyTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/JustifyTextView.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/PhotoViewPager.java
 [RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundImage.java
+[RoundFrameLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundFrameLayout.java
+[RoundLinearLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundLinearLayout.java
+[RoundRelativeLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundRelativeLayout.java
+[RoundTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundTextView.java
 [SuperTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SuperTextView.java
 [TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/TabRadioButton.java
 

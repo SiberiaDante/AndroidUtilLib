@@ -35,12 +35,14 @@
             android:text="组件"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_two" />
+
         <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_home_three"
             style="@style/HomeRadioButton"
             android:text="工具"
             dante:drawableSize="25dp"
             dante:drawableTop="@drawable/checked_home_three" />
+
         <com.siberiadante.lib.widget.TabRadioButton
             android:id="@+id/rb_home_four"
             style="@style/HomeRadioButton"

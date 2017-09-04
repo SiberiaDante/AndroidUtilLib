@@ -1,5 +1,6 @@
 package com.siberiadante.lib.util;
 
+import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
@@ -12,6 +13,8 @@ import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 import java.io.File;
+
+import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 
 /**
  * Created by SiberiaDante on 2017/5/15.

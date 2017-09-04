@@ -1,64 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--TabRadioButton-->
-    <declare-styleable name="MyRadioButton">
-        <attr name="drawableSize" format="dimension" />
-        <attr name="drawableTop" format="reference" />
-        <attr name="drawableLeft" format="reference" />
-        <attr name="drawableRight" format="reference" />
-        <attr name="drawableBottom" format="reference" />
+    <declare-styleable name="TabRadioButton">
+        <attr name="drawableSize" />
+        <attr name="drawableTop" />
+        <attr name="drawableLeft" />
+        <attr name="drawableRight" />
+        <attr name="drawableBottom" />
     </declare-styleable>
+    <attr name="drawableSize" format="dimension" />
+    <attr name="drawableTop" format="reference" />
+    <attr name="drawableLeft" format="reference" />
+    <attr name="drawableRight" format="reference" />
+    <attr name="drawableBottom" format="reference" />
+
     <!--SuperTextView-->
     <declare-styleable name="SuperTextView">
-        <attr name="corner" format="dimension"/>
-        <attr name="left_top_corner" format="boolean"/>
-        <attr name="right_top_corner" format="boolean"/>
-        <attr name="left_bottom_corner" format="boolean"/>
-        <attr name="right_bottom_corner" format="boolean"/>
-        <attr name="solid" format="reference|color"/>
-        <attr name="stroke_width" format="dimension"/>
-        <attr name="stroke_color" format="reference|color"/>
-        <attr name="state_drawable" format="reference"/>
-        <attr name="state_drawable_width" format="dimension"/>
-        <attr name="state_drawable_height" format="dimension"/>
-        <attr name="state_drawable_padding_left" format="dimension"/>
-        <attr name="state_drawable_padding_top" format="dimension"/>
-        <attr name="isShowState" format="boolean"/>
-        <attr name="text_stroke" format="boolean"/>
-        <attr name="text_stroke_color" format="reference|color"/>
-        <attr name="text_stroke_width" format="dimension"/>
-        <attr name="text_fill_color" format="reference|color"/>
-        <attr name="autoAdjust" format="boolean"/>
+        <attr name="corner" format="dimension" />
+        <attr name="left_top_corner" format="boolean" />
+        <attr name="right_top_corner" format="boolean" />
+        <attr name="left_bottom_corner" format="boolean" />
+        <attr name="right_bottom_corner" format="boolean" />
+        <attr name="solid" format="reference|color" />
+        <attr name="stroke_width" format="dimension" />
+        <attr name="stroke_color" format="reference|color" />
+        <attr name="state_drawable" format="reference" />
+        <attr name="state_drawable_width" format="dimension" />
+        <attr name="state_drawable_height" format="dimension" />
+        <attr name="state_drawable_padding_left" format="dimension" />
+        <attr name="state_drawable_padding_top" format="dimension" />
+        <attr name="isShowState" format="boolean" />
+        <attr name="text_stroke" format="boolean" />
+        <attr name="text_stroke_color" format="reference|color" />
+        <attr name="text_stroke_width" format="dimension" />
+        <attr name="text_fill_color" format="reference|color" />
+        <attr name="autoAdjust" format="boolean" />
         <attr name="state_drawable_mode" format="enum">
-            <enum name="left" value="0"/>
-            <enum name="top" value="1"/>
-            <enum name="right" value="2"/>
-            <enum name="bottom" value="3"/>
-            <enum name="center" value="4"/>
-            <enum name="fill" value="5"/>
-            <enum name="leftTop" value="6"/>
-            <enum name="rightTop" value="7"/>
-            <enum name="leftBottom" value="8"/>
-            <enum name="rightBottom" value="9"/>
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+            <enum name="center" value="4" />
+            <enum name="fill" value="5" />
+            <enum name="leftTop" value="6" />
+            <enum name="rightTop" value="7" />
+            <enum name="leftBottom" value="8" />
+            <enum name="rightBottom" value="9" />
         </attr>
-        <attr name="shaderStartColor" format="reference|color"/>
-        <attr name="shaderEndColor" format="reference|color"/>
+        <attr name="shaderStartColor" format="reference|color" />
+        <attr name="shaderEndColor" format="reference|color" />
         <attr name="shaderMode" format="enum">
-            <enum name="topToBottom" value="0"/>
-            <enum name="bottomToTop" value="1"/>
-            <enum name="leftTopRight" value="2"/>
-            <enum name="rightToLeft" value="3"/>
+            <enum name="topToBottom" value="0" />
+            <enum name="bottomToTop" value="1" />
+            <enum name="leftTopRight" value="2" />
+            <enum name="rightToLeft" value="3" />
         </attr>
-        <attr name="shaderEnable" format="boolean"/>
+        <attr name="shaderEnable" format="boolean" />
     </declare-styleable>
 
     <!--QQStepView-->
     <declare-styleable name="QQStepView">
-        <attr name="outerColor" format="color"/>
-        <attr name="innerColor" format="color"/>
-        <attr name="borderWidth" format="dimension"/>
-        <attr name="stepViewTextSize" format="dimension"/>
-        <attr name="stepViewTextColor" format="color"/>
+        <attr name="outerColor" />
+        <attr name="innerColor" />
+        <attr name="borderWidth" />
+        <attr name="stepViewTextSize" />
+        <attr name="stepViewTextColor" />
     </declare-styleable>
+    <attr name="outerColor" format="color" />
+    <attr name="innerColor" format="color" />
+    <attr name="borderWidth" format="dimension" />
+    <attr name="stepViewTextSize" format="dimension" />
+    <attr name="stepViewTextColor" format="color" />
+    <!--@Time：2017-09-04——Start-->
+    <declare-styleable name="RoundView">
+        <attr name="r_backgroundColor" />
+        <attr name="r_backgroundPressColor" />
+        <attr name="r_cornerRadius" />
+        <attr name="r_strokeWidth" />
+        <attr name="r_strokeColor" />
+        <attr name="r_strokePressColor" />
+        <attr name="r_textPressColor" />
+        <attr name="r_isRadiusHalfHeight" />
+        <attr name="r_isWidthHeightEqual" />
+        <attr name="r_cornerRadius_TL" />
+        <attr name="r_cornerRadius_TR" />
+        <attr name="r_cornerRadius_BL" />
+        <attr name="r_cornerRadius_BR" />
+        <attr name="r_isRippleEnable" />
+    </declare-styleable>
+    <!-- 圆角矩形背景色 -->
+    <attr name="r_backgroundColor" format="color" />
+    <!-- 圆角矩形背景色press -->
+    <attr name="r_backgroundPressColor" format="color" />
+    <!-- 圆角弧度,单位dp-->
+    <attr name="r_cornerRadius" format="dimension" />
+    <!-- 圆角弧度,单位dp-->
+    <attr name="r_strokeWidth" format="dimension" />
+    <!-- 圆角边框颜色-->
+    <attr name="r_strokeColor" format="color" />
+    <!-- 圆角边框颜色press -->
+    <attr name="r_strokePressColor" format="color" />
+    <!-- 文字颜色press-->
+    <attr name="r_textPressColor" format="color" />
+    <!-- 圆角弧度是高度一半-->
+    <attr name="r_isRadiusHalfHeight" format="boolean" />
+    <!-- 圆角矩形宽高相等,取较宽高中大值-->
+    <attr name="r_isWidthHeightEqual" format="boolean" />
+    <!-- 圆角弧度,单位dp,TopLeft-->
+    <attr name="r_cornerRadius_TL" format="dimension" />
+    <!-- 圆角弧度,单位dp,TopRight-->
+    <attr name="r_cornerRadius_TR" format="dimension" />
+    <!-- 圆角弧度,单位dp,BottomLeft-->
+    <attr name="r_cornerRadius_BL" format="dimension" />
+    <!-- 圆角弧度,单位dp,BottomRight-->
+    <attr name="r_cornerRadius_BR" format="dimension" />
+    <!-- 是否有Ripple效果,api21+有效-->
+    <attr name="r_isRippleEnable" format="boolean" />
+    <!--@Time：2017-09-04——End-->
 
 </resources>
