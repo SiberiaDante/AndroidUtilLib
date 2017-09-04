@@ -3,7 +3,9 @@
     package="com.sample">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:name=".SampleApplication"
         android:allowBackup="true"
@@ -53,7 +55,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".ui.activity.view.ImageSpanActivity" />
-        <activity android:name=".ui.activity.view.ShapeViewActivity"></activity>
+        <activity android:name=".ui.activity.view.ShapeViewActivity" />
+        <activity android:name=".ui.activity.util.PermissionManagerActivity"></activity>
     </application>
 
 </manifest>

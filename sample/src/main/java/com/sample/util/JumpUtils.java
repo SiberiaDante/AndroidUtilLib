@@ -2,7 +2,10 @@ package com.sample.util;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 
+import com.sample.ui.activity.util.PermissionManagerActivity;
+import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
@@ -38,5 +41,16 @@ public class JumpUtils {
     public static void goToShapeViewActivity(Activity activity) {
         intent = new Intent(activity, ShapeViewActivity.class);
         activity.startActivity(intent);
+    }
+
+    public static void goToPermissionManagerActivity(Activity activity) {
+        intent = new Intent(activity, PermissionManagerActivity.class);
+        activity.startActivity(intent);
+    }
+
+    public static void goToScreenUtilActivity(Activity activity) {
+        intent = new Intent(activity, ScreenActivity.class);
+        activity.startActivity(intent);
+
     }
 }

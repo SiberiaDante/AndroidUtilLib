@@ -17,6 +17,7 @@ import com.sample.ui.activity.util.NetworkActivity;
 import com.sample.ui.activity.util.NumberActivity;
 import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.util.ToastActivity;
+import com.sample.util.JumpUtils;
 import com.siberiadante.lib.view.TitleBar;
 
 /**
@@ -45,6 +46,7 @@ public class UtilFragment extends BaseFragment implements View.OnClickListener {
         Button mBtnAppUtil = (Button) layout.findViewById(R.id.start_activity_app_util);
         layout.findViewById(R.id.start_activity_clear_util).setOnClickListener(this);
         layout.findViewById(R.id.start_activity_number_util).setOnClickListener(this);
+        layout.findViewById(R.id.start_activity_permission_util).setOnClickListener(this);
         final TitleBar mTitleBar = (TitleBar) layout.findViewById(R.id.titleBar_fragment_util);
         initTitleBar(mTitleBar);
         mBtnActivityUtil.setOnClickListener(this);
@@ -76,27 +78,40 @@ public class UtilFragment extends BaseFragment implements View.OnClickListener {
         Intent intent = null;
         switch (view.getId()) {
             case R.id.start_activity_screen_util:
-                intent = new Intent(getActivity(), ScreenActivity.class);
+                JumpUtils.goToScreenUtilActivity(getActivity());
                 break;
             case R.id.start_activity_activity_util:
                 intent = new Intent(getActivity(), ActivityUtilActivity.class);
+                startActivity(intent);
                 break;
             case R.id.start_activity_network_util:
                 intent = new Intent(getActivity(), NetworkActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.start_activity_toast_util:
                 intent = new Intent(getActivity(), ToastActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.start_activity_app_util:
                 intent = new Intent(getActivity(), AppActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.start_activity_clear_util:
                 intent = new Intent(getActivity(), ClearActivity.class);
+                startActivity(intent);
+
                 break;
             case R.id.start_activity_number_util:
                 intent = new Intent(getActivity(), NumberActivity.class);
+                startActivity(intent);
+
+                break;
+            case R.id.start_activity_permission_util:
+                JumpUtils.goToPermissionManagerActivity(getActivity());
                 break;
         }
-        startActivity(intent);
     }
 }

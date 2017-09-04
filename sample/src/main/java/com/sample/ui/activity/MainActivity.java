@@ -1,5 +1,6 @@
 package com.sample.ui.activity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -16,6 +17,7 @@ import com.sample.ui.fragment.MainFragment;
 import com.sample.ui.fragment.OtherFragment;
 import com.sample.ui.fragment.UtilFragment;
 import com.sample.ui.fragment.ViewFragment;
+import com.siberiadante.lib.manager.PermissionManager;
 import com.siberiadante.lib.util.ToastUtil;
 
 import java.util.ArrayList;
@@ -58,6 +60,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mViewPager.addOnPageChangeListener(this);
         mRBOne.setChecked(true);
         mRBOne.setTextColor(getResources().getColor(R.color.green));
+        testPermission();
+    }
+
+    private void testPermission() {
+        //同时申请多个权限
+//        PermissionManager.getInstance(getApplicationContext()).execute(this, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        //请求单个，显示对话框的方式
+        PermissionManager.getInstance(getApplicationContext()).executeDialog(this, Manifest.permission.RECORD_AUDIO,
+                PermissionManager.getInstance(getApplicationContext()).new Builder(this)
+                        .setMessage("应用需要获取您的录音权限，是否授权？")
+                        .setTitle(getString(R.string.app_name))
+                        .setIcon(R.mipmap.ic_launcher)
+                        .setOk("OK")
+                        .setCancel("CANCEL"));
     }
 
     @Override
@@ -147,7 +164,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         Timer tExit = null;
         if (!isExit) {
             isExit = true; // 准备退出
-            ToastUtil.showSingletonText( "再按一次退出程序", Toast.LENGTH_LONG, Gravity.CENTER);
+            ToastUtil.showSingletonText("再按一次退出程序", Toast.LENGTH_LONG, Gravity.CENTER);
             tExit = new Timer();
             tExit.schedule(new TimerTask() {
                 @Override
