@@ -58,13 +58,15 @@ dependencies {
 * [QQStepView] :自定义View实现仿QQ运动步数功能([使用:sample/activity/QQStepViewActivity])
 * [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:TitleBar使用说明])
 ## widget
-* [JustifyTextView] 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
-* [PhotoViewPager] ：可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
-* [RoundImage]：圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
-* [RoundFrameLayout]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [RoundLinearLayout]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [RoundRelativeLayout]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [RoundTextView]: 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [CenterAlignImageSpan] :
+* [HexagonView] :正六边形
+* [JustifyTextView] :适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
+* [PhotoViewPager] :可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
+* [RoundImage] :圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
+* [RoundFrameLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [RoundLinearLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [RoundRelativeLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [RoundTextView] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
 * [SuperTextView]：超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 

@@ -37,5 +37,31 @@
         android:layout_marginTop="20dp"
         dante:r_backgroundColor="@color/action_sheet_blue"
         dante:r_cornerRadius_BL="20dp" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.siberiadante.lib.widget.HexagonView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            dante:h_innerColor="@color/colorPrimary"
+            dante:h_isHasStroke="true"
+            dante:h_outerColor="@color/red"
+
+            dante:h_outerWidth="1dp"
+            dante:h_radius="50dp" />
+
+
+        <TextView
+            android:id="@+id/text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="六边形"
+            android:textColor="#f5c421"
+            android:textSize="17sp" />
+    </FrameLayout>
+
 </LinearLayout>
 

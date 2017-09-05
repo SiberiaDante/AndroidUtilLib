@@ -117,5 +117,20 @@
     <!-- 是否有Ripple效果,api21+有效-->
     <attr name="r_isRippleEnable" format="boolean" />
     <!--@Time：2017-09-04——End-->
+    <!--@Time：2017-09-05——Start-->
+    <declare-styleable name="HexagonView">
+        <attr name="h_radius" />
+        <attr name="h_outerWidth" />
+        <attr name="h_outerColor" />
+        <attr name="h_innerColor" />
+        <attr name="h_isHasStroke" />
+    </declare-styleable>
+    <attr name="h_radius" format="dimension|reference" />
+    <attr name="h_outerWidth" format="dimension|reference" />
+    <attr name="h_outerColor" format="color|reference" />
+    <attr name="h_innerColor" format="color|reference" />
+    <attr name="h_isHasStroke" format="boolean|reference" />
+    <!--@Time：2017-09-05——End-->
+
 
 </resources>
