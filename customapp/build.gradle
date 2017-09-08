@@ -10,6 +10,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true;
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -23,7 +24,7 @@ android {
         }
         debug {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro', 'proguard-fresco.pro'
         }
     }
 }
@@ -33,27 +34,32 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
     compile project(':siberiadante')
     //RXJava
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
     //RxJava2 Adapter
-    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
     //okhttp
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
     //网络请求
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
     //butterKnife
-    compile 'com.jakewharton:butterknife:8.7.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
     //EventBus
-    compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
 
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     //    compile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+
+//    compile
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.jakewharton:butterknife:8.7.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.facebook.fresco:fresco:1.5.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
 }

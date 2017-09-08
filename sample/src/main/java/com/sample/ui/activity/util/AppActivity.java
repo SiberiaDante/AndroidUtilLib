@@ -28,6 +28,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initView() {
+
         mIvIcon = (ImageView) findViewById(R.id.iv_icon);
         Button mBtnUnInstallApp = (Button) findViewById(R.id.un_install_app);
         Button mBtnInstallApp = (Button) findViewById(R.id.install_app);
@@ -35,6 +36,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         mBtnUnInstallApp.setOnClickListener(this);
         mBtnInstallApp.setOnClickListener(this);
         mBtnAppSetting.setOnClickListener(this);
+        mIvIcon.setOnClickListener(this);
     }
 
     private void initData() {
@@ -67,7 +69,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
 //                AppUtil.unInstallApp("com.sample");
 //                AppUtil.unInstallApp(this, "com.sample", 0);
                 boolean b = AppUtil.uninstallAppSilent("com.shuinsen.zhiri", false);
-                Log.d(TAG, "onClick: uninstallAppSilent:"+b);
+                Log.d(TAG, "onClick: uninstallAppSilent:" + b);
                 break;
             case R.id.install_app:
                 InputStream abpath = getClass().getResourceAsStream("/assets/japanStory");
@@ -80,6 +82,10 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.setting_app:
                 AppUtil.openAppDetailsSettings();
+                break;
+            case R.id.iv_icon:
+                setResult(10);
+                this.finish();
                 break;
         }
     }

@@ -9,22 +9,18 @@ import android.widget.LinearLayout;
 
 import com.siberiadante.custom.R;
 import com.siberiadante.custom.bean.NewsData;
-import com.siberiadante.custom.bean.QuestionData;
 import com.siberiadante.custom.bean.base.WrapResult;
 import com.siberiadante.custom.constant.Constants;
 import com.siberiadante.custom.http.ApiService;
+import com.siberiadante.custom.http.Request;
 import com.siberiadante.custom.http.RetrofitManager;
 import com.siberiadante.custom.ui.adapter.NewsAdapter;
-import com.siberiadante.custom.util.LoadAnimationUtil;
 import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.ToastUtil;
 import com.siberiadante.lib.view.TitleBar;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -86,37 +82,65 @@ public class TwoFragment extends LazyFragment {
     }
 
     private void getNewsData(int mPage) {
-        RetrofitManager.getInstance().createReq(ApiService.class)
-                .newsApi(Constants.ACCESS_TOKEN, Constants.METHOD_GET, String.valueOf(mPage), "100")
+
+        Request.getInstance().getNewsData(1, 20)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<WrapResult<List<NewsData>>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        LogUtil.d(TAG, "onSubscribe");
+
                     }
 
                     @Override
                     public void onNext(@NonNull WrapResult<List<NewsData>> listWrapResult) {
-                        LogUtil.d(TAG, "onNext: ");
-                        adapter.addRes(listWrapResult.getData());
-//                        adapter = new NewsAdapter(getActivity(), listWrapResult.getData());
-//                        recyclerView.setAdapter(adapter);
+                        LogUtil.d(TAG, listWrapResult.getInfo());
 
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        LogUtil.d(TAG, "onError");
+                        LogUtil.d(TAG, e.getMessage());
 
                     }
 
                     @Override
                     public void onComplete() {
-                        LogUtil.d(TAG, "onComplete");
-                        mLLProgress.setVisibility(View.GONE);
+
                     }
                 });
+
+//        RetrofitManager.getInstance().createReq(ApiService.class)
+//                .newsApi(Constants.ACCESS_TOKEN, Constants.METHOD_GET, String.valueOf(mPage), "100")
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Observer<WrapResult<List<NewsData>>>() {
+//                    @Override
+//                    public void onSubscribe(@NonNull Disposable d) {
+//                        LogUtil.d(TAG, "onSubscribe");
+//                    }
+//
+//                    @Override
+//                    public void onNext(@NonNull WrapResult<List<NewsData>> listWrapResult) {
+//                        LogUtil.d(TAG, "onNext: ");
+//                        adapter.addRes(listWrapResult.getData());
+////                        adapter = new NewsAdapter(getActivity(), listWrapResult.getData());
+////                        recyclerView.setAdapter(adapter);
+//
+//                    }
+//
+//                    @Override
+//                    public void onError(@NonNull Throwable e) {
+//                        LogUtil.d(TAG, "onError");
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        LogUtil.d(TAG, "onComplete");
+//                        mLLProgress.setVisibility(View.GONE);
+//                    }
+//                });
     }
 
     private void initData() {

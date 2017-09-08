@@ -64,4 +64,9 @@ public class StringUtil {
         Matcher m = p.matcher(str);
         return m.replaceAll("").trim();
     }
+
+    public static boolean isEmpty(String str) {
+
+        return (str == null || str.trim().length() == 0);
+    }
 }

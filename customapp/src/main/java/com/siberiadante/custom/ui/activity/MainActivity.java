@@ -43,16 +43,6 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
-    //    @BindView(R.id.tv_hello_world)
-//    TextView mTvHelloWorld;
-//    @BindView(R.id.rb_recommend)
-//    TabRadioButton rbRecommend;
-//    @BindView(R.id.rb_shop)
-//    TabRadioButton rbShop;
-//    @BindView(R.id.rb_follow)
-//    TabRadioButton rbFollow;
-//    @BindView(R.id.rb_mine)
-//    TabRadioButton rbMine;
     @BindView(R.id.radio_group)
     RadioGroup radioGroup;
     OneFragment oneFragment;

@@ -9,11 +9,16 @@ import android.view.ViewGroup;
 
 import java.lang.reflect.Field;
 
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableCompletableObserver;
+
 public class BaseFragment extends Fragment {
     protected LayoutInflater inflater;
     private View contentView;
     private Context context;
     private ViewGroup container;
+    private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +70,13 @@ public class BaseFragment extends Fragment {
         return null;
     }
 
+    protected void addCompositeDisposable(Disposable disposable) {
+        if (null != disposable) {
+            mCompositeDisposable.add(disposable);
+        }
+
+    }
+
     // http://stackoverflow.com/questions/15207305/getting-the-error-java-lang-illegalstateexception-activity-has-been-destroyed
     @Override
     public void onDetach() {
@@ -81,4 +93,9 @@ public class BaseFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mCompositeDisposable.clear();
+    }
 }

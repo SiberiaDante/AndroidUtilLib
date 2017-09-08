@@ -2,6 +2,7 @@ package com.siberiadante.custom.ui;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.custom.constant.AppConfig;
 import com.squareup.leakcanary.LeakCanary;
@@ -29,6 +30,7 @@ public class MyApplication extends Application {
         super.onCreate();
         mInstance = this;
         initSiberiaDante();
+        Fresco.initialize(this);
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }

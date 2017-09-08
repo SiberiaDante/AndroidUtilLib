@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--font sizes-->
+    <dimen name="font_smaller">12sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_larger">20sp</dimen>
+    <!--typical spacing between two views ,:margin/padding-->
+    <dimen name="spacing_tab">20dp</dimen>
+
+    <!--typical sizes of views-->
+    <dimen name="button_login_height">40dp</dimen>
+
+</resources>

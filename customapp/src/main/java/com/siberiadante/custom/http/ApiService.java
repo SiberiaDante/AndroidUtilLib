@@ -7,6 +7,8 @@ import com.siberiadante.custom.bean.base.WrapResult;
 import java.util.List;
 
 import io.reactivex.Observable;
+import okhttp3.RequestBody;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -31,4 +33,6 @@ public interface ApiService {
                                                    @Field("page") String page,
                                                    @Field("count") String count);
 
+    @POST("api/news")
+    Observable<WrapResult<List<NewsData>>> newsApiT(@Body RequestBody body);
 }

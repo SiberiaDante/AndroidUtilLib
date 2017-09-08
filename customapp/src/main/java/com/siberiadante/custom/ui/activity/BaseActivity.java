@@ -5,6 +5,8 @@ import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.siberiadante.lib.util.LogUtil;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.disposables.CompositeDisposable;
@@ -62,5 +64,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mCompositeDisposable.clear();
+        LogUtil.d("onDestroy");
     }
 }

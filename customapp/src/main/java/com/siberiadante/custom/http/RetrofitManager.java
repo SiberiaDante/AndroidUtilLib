@@ -1,11 +1,23 @@
 package com.siberiadante.custom.http;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import com.siberiadante.custom.bean.base.WrapResult;
 import com.siberiadante.custom.constant.AppConfig;
 import com.siberiadante.custom.constant.Constants;
+import com.siberiadante.custom.http.manager.NetException;
+import com.siberiadante.lib.util.StringUtil;
+import com.siberiadante.lib.util.ToastUtil;
 
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.ObservableTransformer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
@@ -67,4 +79,48 @@ public class RetrofitManager {
         return mRetrofit.create(req);
     }
 
+
+    /**
+     * 线程切换,错误反馈
+     *
+     * @param <T>
+     * @return
+     */
+    public <T> ObservableTransformer<T, T> BaseTransformer() {
+        return new ObservableTransformer<T, T>() {
+            @Override
+            public ObservableSource<T> apply(@NonNull Observable<T> upstream) {
+                return upstream.subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .filter(new Predicate<T>() {
+                            @Override
+                            public boolean test(@NonNull T t) throws Exception {
+                                if (((WrapResult) t).getCode() != 200) {
+                                    final String errorMsg = ((WrapResult) t).getInfo();
+                                    if (StringUtil.isEmpty(errorMsg)) {
+                                        ToastUtil.toast("服务器内部错误");
+                                    } else {
+                                        ToastUtil.toast(errorMsg);
+                                    }
+                                }
+                                return ((WrapResult) t).getCode() == 200;
+                            }
+                        }).onErrorResumeNext(new HttpResponseFunc<T>())
+                        ;
+            }
+        };
+    }
+
+    /**
+     * 将Throwable转化为ResponseThrowable
+     *
+     * @param <T>
+     */
+    private class HttpResponseFunc<T> implements Function<Throwable, Observable<T>> {
+        @Override
+        public Observable<T> apply(@NonNull Throwable throwable) throws Exception {
+
+            return Observable.error(NetException.throwable(throwable));
+        }
+    }
 }

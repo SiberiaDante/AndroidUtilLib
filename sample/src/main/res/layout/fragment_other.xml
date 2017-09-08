@@ -9,4 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/red" />
+
+    <Button
+        android:id="@+id/btn_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test" />
 </LinearLayout>
