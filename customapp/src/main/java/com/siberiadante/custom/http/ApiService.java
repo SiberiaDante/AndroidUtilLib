@@ -5,11 +5,13 @@ import com.siberiadante.custom.bean.QuestionData;
 import com.siberiadante.custom.bean.base.WrapResult;
 
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
 import retrofit2.http.Field;
+import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
@@ -32,6 +34,12 @@ public interface ApiService {
                                                    @Field("method") String method,
                                                    @Field("page") String page,
                                                    @Field("count") String count);
+
+
+    @FormUrlEncoded
+    @POST("api/news")
+    Observable<WrapResult<List<NewsData>>> newsApiA(@FieldMap Map<String, String> map);
+
 
     @POST("api/news")
     Observable<WrapResult<List<NewsData>>> newsApiT(@Body RequestBody body);

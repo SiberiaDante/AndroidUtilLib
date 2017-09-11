@@ -1,5 +1,9 @@
 package com.siberiadante.lib.util;
 
+import android.os.Build;
+import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -33,7 +37,6 @@ import java.util.Locale;
 
 public class DateUtil {
 
-
     /**
      * 取得当前时间戳（精确到秒）
      *
@@ -46,12 +49,81 @@ public class DateUtil {
 
 
     /**
-     * 默认时间格式：yyyy-MM-dd HH:mm:ss
-     *
-     * @return
+     * @return HH:mm    15:44
      */
-    public static String getSDFTime() {
+    public static String getSDFTimeHm() {
+        String format = "HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @return h:mm a    3:44 下午
+     */
+    public static String getSDFTimeHmA() {
+        String format = "h:mm a";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @return 时间格式：HH:mm:ss    15:44:40
+     */
+    public static String getSDFTimeHms() {
+        String format = "HH:mm:ss";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @return yyyy-MM-dd    2016-08-12
+     */
+    public static String getSDFTimeYMd() {
+        String format = "yyyy-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @return yyyy-MM-dd HH:mm    2016-08-12 15:44
+     */
+    public static String getSDFTimeYMdHm() {
+        String format = "yyyy-MM-dd HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @return yyyy-MM-dd HH:mm:ss    2016-08-12 15:44:40
+     */
+    public static String getSDFTimeYMdHms() {
         String format = "yyyy-MM-dd HH:mm:ss";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @return yyyy-MM-dd HH:mm:ss    2016-08-12 15:44:40
+     */
+    public static String getSDFTimeYMDHSM() {
+        String format = "yyyy-MM-dd HH:mm:ss";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+
+    /**
+     * @return yyyy.MM.dd G 'at' HH:mm:ss z    2016.08.12 公元 at 15:44:40 CST
+     */
+    public static String getSDFTimeCST() {
+        String format = "yyyy.MM.dd G 'at' HH:mm:ss z";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
@@ -60,10 +132,10 @@ public class DateUtil {
     /**
      * 默认时间格式：yyyy-MM-dd HH:mm:ss
      *
-     * @param str
+     * @param str 时间戳
      * @return
      */
-    public static String getSDFTime(String str) {
+    public static String getStrToTime(String str) {
         //判断时间戳是否为空
         if (str == null || str.isEmpty() || str.equals("null")) {
             return "";
@@ -75,31 +147,96 @@ public class DateUtil {
     }
 
     /**
+     * @param str 时间戳
+     * @return HH:mm    15:44
+     */
+    public static String getStrToTimeHm(String str) {
+        //判断时间戳是否为空
+        if (str == null || str.isEmpty() || str.equals("null")) {
+            return "";
+        }
+        String format = "HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(str);
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * 默认时间格式：yyyy-MM-dd HH:mm:ss
+     *
+     * @param str 时间戳
+     * @return HH:mm:ss    15:44:40
+     */
+    public static String getStrToTimeHms(String str) {
+        //判断时间戳是否为空
+        if (str == null || str.isEmpty() || str.equals("null")) {
+            return "";
+        }
+        String format = "HH:mm:ss";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(str);
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
+     * @param str 时间戳
+     * @return yyyy-MM-dd HH:mm    2016-08-12 15:44
+     */
+    public static String getStrToTimeYMdHm(String str) {
+        //判断时间戳是否为空
+        if (str == null || str.isEmpty() || str.equals("null")) {
+            return "";
+        }
+        String format = "yyyy-MM-dd HH:mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(str);
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
      * 日期格式字符串转换成时间戳
      *
-     * @param date_str
-     * @param format   时间转换格式
+     * @param str    时间戳
+     * @param format 时间转换格式 (参考前面）
      * @return 时间
      */
-    public static String date2TimeStamp(String date_str, String format) {
+    public static String getDateToTimeStamp(String str, String format) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
-            return String.valueOf(sdf.parse(date_str).getTime() / 1000);
+            return String.valueOf(sdf.parse(str).getTime() / 1000);
         } catch (Exception e) {
             e.printStackTrace();
         }
         return "";
     }
 
+    /**
+     * 支持输出各种格式的日期、时间
+     *
+     * @param format
+     * @return 日期、时间格式
+     */
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
+    public static String getSDFTime(String format) {
+
+        //未指定format格式时默认输出yyyy-MM-dd HH:mm:ss
+        if (format == null || format.isEmpty()) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
 
     /**
      * 支持输出各种格式的日期、时间
      *
      * @param str    时间戳
-     * @param format (yyyy年MM月dd日HH时mm分ss秒)(yyyy-MM-dd HH:mm:ss yyyy-MM-dd HH:mm:ss)(yyyy-MM-dd)。。。
+     * @param format
      * @return 日期、时间格式
      */
-    public static String getSDFTime(String str, String format) {
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
+    public static String getStrToSDFTime(String str, String format) {
         //判断时间戳是否为空
         if (str == null || str.isEmpty() || str.equals("null")) {
             return "";

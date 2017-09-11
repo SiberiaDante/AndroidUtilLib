@@ -12,6 +12,15 @@ import java.util.regex.Pattern;
  */
 
 public class StringUtil {
+    /**
+     * 判断字符串是否为空
+     *
+     * @param str
+     * @return
+     */
+    public static boolean isEmpty(String str) {
+        return (str == null || str.trim().length() == 0);
+    }
 
     /**
      * str1 中是否包含str2
@@ -65,8 +74,5 @@ public class StringUtil {
         return m.replaceAll("").trim();
     }
 
-    public static boolean isEmpty(String str) {
 
-        return (str == null || str.trim().length() == 0);
-    }
 }

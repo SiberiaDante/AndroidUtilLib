@@ -19,7 +19,9 @@ import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.ToastUtil;
 import com.siberiadante.lib.view.TitleBar;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -89,6 +91,7 @@ public class TwoFragment extends LazyFragment {
                 .subscribe(new Observer<WrapResult<List<NewsData>>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
+                        LogUtil.d(TAG, "-----onSubscribe-----");
 
                     }
 
@@ -100,7 +103,7 @@ public class TwoFragment extends LazyFragment {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        LogUtil.d(TAG, e.getMessage());
+                        LogUtil.d(TAG, "-----error-----" + e.getMessage());
 
                     }
 
@@ -110,8 +113,13 @@ public class TwoFragment extends LazyFragment {
                     }
                 });
 
+//         HashMap<String, String> hashMap = new HashMap<>();
+//        hashMap.put("access_token", Constants.ACCESS_TOKEN);
+//        hashMap.put("method", Constants.METHOD_GET);
+//        hashMap.put("page", String.valueOf(mPage));
+//        hashMap.put("count", String.valueOf(20));
 //        RetrofitManager.getInstance().createReq(ApiService.class)
-//                .newsApi(Constants.ACCESS_TOKEN, Constants.METHOD_GET, String.valueOf(mPage), "100")
+//                .newsApiA(hashMap)
 //                .subscribeOn(Schedulers.io())
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(new Observer<WrapResult<List<NewsData>>>() {
