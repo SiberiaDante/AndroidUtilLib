@@ -2,6 +2,7 @@ package com.sample.ui.activity.view;
 
 import android.content.Context;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -69,11 +70,11 @@ public class DialogActivity extends AppCompatActivity implements View.OnClickLis
         titleBar.setImmersive(true);
         titleBar.setTitle("各种Dialog组件封装");
         titleBar.setSubTitle("SiberiaDante");
-        titleBar.setSubTitleColor(getResources().getColor(R.color.gray));
+        titleBar.setSubTitleColor(ContextCompat.getColor(this, R.color.gray));
         titleBar.setLeftImage(R.mipmap.back);
         titleBar.setLeftText("返回");
         titleBar.setRightImage(R.mipmap.search);
-        titleBar.setDivideBackground(getResources().getColor(R.color.colorPrimary));
+        titleBar.setDivideBackground(ContextCompat.getColor(this, R.color.colorPrimary));
         titleBar.setTitleListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

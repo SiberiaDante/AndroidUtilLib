@@ -45,6 +45,7 @@ public final class SiberiaDanteLib {
      * @param isDebug
      */
     public static void setDebug(boolean isDebug) {
+        Log.e("eeeeeeeeeeeee","");
         AppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
         Log.e(TAG, "[---" + DateUtil.getSDFTimeYMDHSM() + "---] Enable Debug:--- " + isDebug + " ---");
     }

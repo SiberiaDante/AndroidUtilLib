@@ -93,7 +93,6 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
         mRightLayout.setPadding(mOutPadding, 0, mOutPadding, 0);
         mRightLayout.setGravity(Gravity.CENTER);
         mRightLayout.setOrientation(LinearLayout.VERTICAL);
-
         //左边
         mLeftImage = new ImageView(context);
         mLeftText = new TextView(context);
@@ -329,6 +328,7 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int heightMode = MeasureSpec.getMode(heightMeasureSpec);
         int height;
+
         if (heightMode != MeasureSpec.EXACTLY) {
             height = mHeight + mStatusBarHeight;
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(mHeight, MeasureSpec.EXACTLY);
@@ -353,9 +353,12 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
 
     @Override
     protected void onLayout(boolean b, int i, int i1, int i2, int i3) {
-        mLeftLayout.layout(0, mStatusBarHeight, mLeftLayout.getMeasuredWidth(), mLeftLayout.getMeasuredHeight() + mStatusBarHeight);
+        mLeftLayout.layout(0, mStatusBarHeight, mLeftLayout.getMeasuredWidth(),
+                mLeftLayout.getMeasuredHeight() + mStatusBarHeight);
+
         mRightLayout.layout(mScreenWidth - mRightLayout.getMeasuredWidth(), mStatusBarHeight,
                 mScreenWidth, mRightLayout.getMeasuredHeight() + mStatusBarHeight);
+
         if (mLeftLayout.getMeasuredWidth() > mRightLayout.getMeasuredWidth()) {
             mCenterLayout.layout(mLeftLayout.getMeasuredWidth(), mStatusBarHeight,
                     mScreenWidth - mLeftLayout.getMeasuredWidth(), getMeasuredHeight());

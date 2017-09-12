@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.siberiadante.custom.R;
+import com.siberiadante.lib.util.LogUtil;
 
 
 /**

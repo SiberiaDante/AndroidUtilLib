@@ -73,6 +73,8 @@ public class SampleApplication extends Application {
 
     private void initSiberiaDanteLib() {
         SiberiaDanteLib.initLib(appContext);
+        SiberiaDanteLib.setDebug(true);
+
     }
 
 
