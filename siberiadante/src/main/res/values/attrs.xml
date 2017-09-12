@@ -159,8 +159,10 @@
         <attr name="d_right_image_size" />
         <attr name="d_right_image_padding_end" />
 
-        <attr name="d_line_height"  />
-        <attr name="d_line_background"  />
+        <attr name="d_line_height" />
+        <attr name="d_line_background" />
+
+        <attr name="d_is_back_view" />
     </declare-styleable>
     <attr name="d_left_image" format="reference" />
     <attr name="d_left_image_size" format="dimension|reference" />
@@ -191,6 +193,7 @@
 
     <attr name="d_line_height" format="dimension|reference" />
     <attr name="d_line_background" format="color|reference" />
+    <attr name="d_is_back_view" format="boolean" />
     <!--@Time: 2017-09-11——Start-->
 
 </resources>

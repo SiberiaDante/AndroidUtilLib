@@ -1,5 +1,6 @@
 package com.siberiadante.lib.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -60,7 +61,9 @@ public class TitleBarLayout extends FrameLayout {
     private int mRightTextColor = Color.BLACK;
     private float mRightTextPaddingEndt = TransitionTools.dip2px(10);
 
+
     private float mLineHeight = 0.5f;
+    private boolean mIsBackView = true;
     private int mLineBackgound = Color.BLACK;
     private View inflate;
     private ImageView mIvLeft;
@@ -76,6 +79,8 @@ public class TitleBarLayout extends FrameLayout {
     private int mLeftTotalWidth;
     private int mRightTotalWidth;
 
+    private Context mContext;
+
 
     public TitleBarLayout(@NonNull Context context) {
         this(context, null);
@@ -88,6 +93,7 @@ public class TitleBarLayout extends FrameLayout {
     public TitleBarLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
+        mContext = context;
         inflate = LayoutInflater.from(context).inflate(R.layout.title_bar_layout, null);
         addView(inflate);
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitleBarLayout);
@@ -134,9 +140,14 @@ public class TitleBarLayout extends FrameLayout {
          */
         mLineBackgound = attributes.getColor(R.styleable.TitleBarLayout_d_line_background, mLineBackgound);
         mLineHeight = attributes.getDimension(R.styleable.TitleBarLayout_d_line_height, mLineHeight);
+        mIsBackView = attributes.getBoolean(R.styleable.TitleBarLayout_d_is_back_view, mIsBackView);
 
         attributes.recycle();
+        initView(inflate);
+        initData();
+    }
 
+    private void initView(View inflate) {
         mRlTitle = ((RelativeLayout) inflate.findViewById(R.id.rl_title_bar_height));
         mRlLeft = ((RelativeLayout) inflate.findViewById(R.id.rl_left));
         mRlRight = ((RelativeLayout) inflate.findViewById(R.id.rl_right));
@@ -146,13 +157,15 @@ public class TitleBarLayout extends FrameLayout {
         mIvRight = ((ImageView) inflate.findViewById(R.id.iv_right));
         mTvRight = ((TextView) inflate.findViewById(R.id.tv_right));
         mViewLine = inflate.findViewById(R.id.view_line);
+    }
+
+    private void initData() {
 
         //横线
         mViewLine.setBackgroundColor(mLineBackgound);
         //横线高度
-        /*
-        左边图标
-         */
+
+        //左边图标
         if (mLeftImage != 0) {
             mIvLeft.setVisibility(VISIBLE);
             mIvLeft.setImageResource(mLeftImage);
@@ -161,9 +174,8 @@ public class TitleBarLayout extends FrameLayout {
         } else {
             mIvLeft.setVisibility(GONE);
         }
-        /*
-         左边文字
-         */
+
+        //左边文字
         if (StringUtil.isEmpty(mLeftText)) {
             mTvLeft.setVisibility(GONE);
         } else {
@@ -173,10 +185,8 @@ public class TitleBarLayout extends FrameLayout {
             mTvLeft.setTextColor(mLeftTextColor);
             mTvLeft.setPadding(TransitionTools.px2dip(mLeftTextPaddingStart), 0, 0, 0);
         }
-        LogUtil.d("mTitleSize===" + mTitleSize);
-        /*
-        标题
-         */
+
+        //标题
         if (StringUtil.isEmpty(mTitle)) {
             mTvTitle.setVisibility(INVISIBLE);
         } else {
@@ -186,9 +196,7 @@ public class TitleBarLayout extends FrameLayout {
             mTvTitle.setTextColor(mTitleColor);
         }
 
-        /*
-        右边图标
-         */
+        //右边图标
         if (mRightImage != 0) {
             mIvRight.setVisibility(VISIBLE);
             mIvRight.setImageResource(mRightImage);
@@ -197,9 +205,8 @@ public class TitleBarLayout extends FrameLayout {
         } else {
             mIvRight.setVisibility(GONE);
         }
-        /*
-         右边文字
-         */
+
+        //右边文字
         if (StringUtil.isEmpty(mRightText)) {
             mTvRight.setVisibility(GONE);
         } else {
@@ -210,6 +217,34 @@ public class TitleBarLayout extends FrameLayout {
             mTvRight.setPadding(TransitionTools.px2dip(mRightImagePaddingEnd), 0, 0, 0);
         }
 
+        /**
+         * 如果是返回View，则点击实现页面返回
+         */
+        if (mIsBackView) {
+            mTvLeft.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Activity) mContext).finish();
+                }
+            });
+            mTvLeft.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Activity) mContext).finish();
+                }
+            });
+        }
+    }
+
+    /**
+     * 设置title
+     *
+     * @param title
+     */
+    public void setTitle(CharSequence title) {
+        if (!StringUtil.isEmpty(title.toString())) {
+            mTvTitle.setText(title);
+        }
     }
 
     /**

@@ -22,11 +22,11 @@ public class ShapeViewActivity extends AppCompatActivity {
                 LogUtil.d("title 倍点击了");
             }
         });
-        titleBarLayout.setLeftClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                LogUtil.d("左侧被点击了");
-            }
-        });
+//        titleBarLayout.setLeftClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                LogUtil.d("左侧被点击了");
+//            }
+//        });
     }
 }

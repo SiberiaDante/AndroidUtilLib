@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/action_sheet_blue"
+        dante:d_is_back_view="true"
         dante:d_left_image="@mipmap/back"
         dante:d_left_image_padding_start="10dp"
         dante:d_left_image_size="12dp"
