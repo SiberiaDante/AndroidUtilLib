@@ -35,6 +35,6 @@ public class NetworkActivity extends BaseActivity {
     public void initData() {
         Log.d(TAG, "testNetworkUtil:isNetWorkConnected? " + NetWorkUtil.isNetWorkConnected());
         Log.d(TAG, "testNetworkUtil: isWifiConnected?" + NetWorkUtil.isWifiConnected());
-        Log.d(TAG, "testNetworkUtil:getNetworkState= " + NetWorkUtil.getNetworkState());
+        Log.d(TAG, "testNetworkUtil:getNetworkState= " + NetWorkUtil.getNetWorkType());
     }
 }

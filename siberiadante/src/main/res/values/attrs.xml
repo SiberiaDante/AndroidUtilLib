@@ -132,5 +132,7 @@
     <attr name="h_isHasStroke" format="boolean|reference" />
     <!--@Time：2017-09-05——End-->
 
-
+    <!--@Time: 2017-09-11——Start-->
+    <declare-styleable name="TitleBarLayout"></declare-styleable>
+    <!--@Time: 2017-09-11——Start-->
 </resources>
