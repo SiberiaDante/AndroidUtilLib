@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by SiberiaDante on 2017/5/4.
  * 使用单例ToastUtil时注意一点：比如使用了带位置的方法后，下次再使用不带位置的单例方法时，会显示成上次方法的Toast的位置
- * 所以建议：全局统一的Toast使用该类中的单例方法，一旦使用了一种以上的方法，需要在不常使用的方法调用后调用resetToast()方法，重置Toast
+ * 所以强烈建议：全局统一的Toast使用该类中的单例方法，一旦使用了一种以上的方法，需要在不常使用的方法调用后调用resetToast()方法，重置Toast位置等（不适重置Toast对象）
  * 举例：
  * 全局一般使用的Toast是底部弹出一行简单的文字，调用：
  * ToastUtils.toast("常规的Toast方法)；
@@ -43,6 +43,7 @@ public class ToastUtil {
 
     /**
      * 单例
+     * 2017-09-13通用Toast，位于底部
      *
      * @param content
      */
@@ -51,6 +52,7 @@ public class ToastUtil {
             toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         toast.setText(content);
+        toast.setGravity(Gravity.BOTTOM, 0, 0);
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.show();
     }
