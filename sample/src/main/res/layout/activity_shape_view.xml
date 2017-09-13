@@ -12,20 +12,28 @@
     <com.siberiadante.lib.view.TitleBarLayout
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/action_sheet_blue"
+        android:layout_height="wrap_content"
         dante:d_is_back_view="true"
-        dante:d_left_image="@mipmap/back"
+        dante:d_left_image="@mipmap/icon_collection"
         dante:d_left_image_padding_start="10dp"
-        dante:d_left_image_size="12dp"
+        dante:d_left_image_width="30dp"
         dante:d_left_text="测试"
         dante:d_left_text_color="@color/black"
         dante:d_left_text_padding_start="10dp"
         dante:d_left_text_size="14sp"
-        dante:d_right_image="@mipmap/search_gray"
+        dante:d_line_height="1px"
+        dante:d_right_text="举报"
+        dante:d_right_text_color="@color/white"
+        dante:d_right_text_size="14sp"
         dante:d_title_color="@color/black"
+        dante:d_title_layout_background="@color/red"
+        dante:d_title_layout_height="45dp"
+        dante:d_title_size="18sp"
         dante:d_title_text="这里是标题" />
 
+    <!--dante:d_right_image="@mipmap/icon_collection"-->
+    <!--dante:d_right_image_padding_end="10dp"-->
+    <!--dante:d_right_image_width="40dp"-->
     <com.siberiadante.lib.widget.RoundTextView
         android:layout_width="200dp"
         android:layout_height="50dp"

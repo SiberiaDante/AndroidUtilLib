@@ -135,7 +135,7 @@
     <!--@Time: 2017-09-11——Start-->
     <declare-styleable name="TitleBarLayout">
         <attr name="d_left_image" />
-        <attr name="d_left_image_size" />
+        <attr name="d_left_image_width" />
         <attr name="d_left_image_padding_start" />
 
         <attr name="d_left_text" />
@@ -156,16 +156,20 @@
         <attr name="d_right_text_padding_end" />
 
         <attr name="d_right_image" />
-        <attr name="d_right_image_size" />
+        <attr name="d_right_image_width" />
         <attr name="d_right_image_padding_end" />
 
         <attr name="d_line_height" />
         <attr name="d_line_background" />
 
+        <attr name="d_title_layout_height" />
+        <attr name="d_title_layout_background" />
+
         <attr name="d_is_back_view" />
+        <attr name="d_is_immersive_state_bar" />
     </declare-styleable>
     <attr name="d_left_image" format="reference" />
-    <attr name="d_left_image_size" format="dimension|reference" />
+    <attr name="d_left_image_width" format="dimension|reference" />
     <attr name="d_left_image_padding_start" format="dimension|reference" />
 
     <attr name="d_left_text" format="reference|string" />
@@ -188,12 +192,17 @@
     <attr name="d_right_text_padding_end" format="dimension|reference" />
 
     <attr name="d_right_image" format="reference" />
-    <attr name="d_right_image_size" format="dimension|reference" />
+    <attr name="d_right_image_width" format="dimension|reference" />
     <attr name="d_right_image_padding_end" format="dimension|reference" />
 
     <attr name="d_line_height" format="dimension|reference" />
     <attr name="d_line_background" format="color|reference" />
+
+    <attr name="d_title_layout_height" format="dimension|reference" />
+    <attr name="d_title_layout_background" format="color|reference" />
+
     <attr name="d_is_back_view" format="boolean" />
-    <!--@Time: 2017-09-11——Start-->
+    <attr name="d_is_immersive_state_bar" format="boolean" />
+    <!--@Time: 2017-09-13——End-->
 
 </resources>

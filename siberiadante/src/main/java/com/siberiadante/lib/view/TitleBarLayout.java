@@ -7,24 +7,23 @@ import android.graphics.Color;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.siberiadante.lib.R;
 import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.ScreenUtil;
 import com.siberiadante.lib.util.StringUtil;
 import com.siberiadante.lib.util.TransitionTools;
 
 /**
  * @Created SiberiaDante
- * @Describe： 可在布局中设置各种资源
+ * @Describe： 使用说明<br/><a href="https://github.com/SiberiaDante/TitleLayout">GitHub</a>
  * 完善中：
  * 1、测量左右View的宽度，依次来衡量标题位置
  * 2、可设置View大小
@@ -36,15 +35,15 @@ import com.siberiadante.lib.util.TransitionTools;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class TitleBarLayout extends FrameLayout {
-    private int mTitleBarHeight = 50;
+public class TitleBarLayout extends RelativeLayout {
+    private int mLayoutBarHeight = TransitionTools.dip2px(50);
 
     private int mLeftImage;
-    private float mLeftImageSize = 30;
-    private float mLeftImagePaddingStart = TransitionTools.dip2px(10);
+    private int mLeftImageWidth = TransitionTools.dip2px(30);
+    private int mLeftImagePaddingStart = TransitionTools.dip2px(10);
 
     private String mLeftText = "";
-    private float mLeftTextSize = TransitionTools.dip2px(16);
+    private int mLeftTextSize = TransitionTools.dip2px(16);
     private int mLeftTextColor = Color.BLACK;
     private int mLeftTextPaddingStart = TransitionTools.dip2px(10);
 
@@ -53,18 +52,23 @@ public class TitleBarLayout extends FrameLayout {
     private int mTitleColor = Color.BLACK;
 
     private int mRightImage;
-    private float mRightImageSize = 30;
-    private float mRightImagePaddingEnd = TransitionTools.dip2px(10);
+    private int mRightImageWidth = TransitionTools.dip2px(30);
+    private int mRightImagePaddingEnd = TransitionTools.dip2px(10);
 
     private String mRightText = "";
     private float mRightTextSize = TransitionTools.dip2px(16);
     private int mRightTextColor = Color.BLACK;
-    private float mRightTextPaddingEndt = TransitionTools.dip2px(10);
+    private int mRightTextPaddingEnd = TransitionTools.dip2px(10);
 
+    private int mLineHeight = 1;
 
-    private float mLineHeight = 0.5f;
     private boolean mIsBackView = true;
-    private int mLineBackgound = Color.BLACK;
+
+    private boolean mIsImmersiveStateBar = false;
+
+    private int mLineBackground = Color.BLACK;
+    private int mLayoutBackground = Color.BLACK;
+
     private View inflate;
     private ImageView mIvLeft;
     private TextView mTvLeft;
@@ -72,15 +76,15 @@ public class TitleBarLayout extends FrameLayout {
     private ImageView mIvRight;
     private TextView mTvRight;
     private View mViewLine;
-    private RelativeLayout mRlTitle, mRlLeft, mRlRight;
+    private RelativeLayout mRlLayout, mRlLeft, mRlRight;
 
-    private int mStatusBarHeight;
+    private int mStatusBarHeight = 20;
 
     private int mLeftTotalWidth;
     private int mRightTotalWidth;
 
     private Context mContext;
-
+    private int mScreenWidth;
 
     public TitleBarLayout(@NonNull Context context) {
         this(context, null);
@@ -94,23 +98,28 @@ public class TitleBarLayout extends FrameLayout {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
+        mStatusBarHeight = ScreenUtil.getStatusBarHeight();
         inflate = LayoutInflater.from(context).inflate(R.layout.title_bar_layout, null);
         addView(inflate);
+
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitleBarLayout);
+
+        mLayoutBarHeight = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_title_layout_height, mLayoutBarHeight);
+        mLayoutBackground = attributes.getColor(R.styleable.TitleBarLayout_d_title_layout_background, mLayoutBackground);
 
         /*
         左侧图片、图片大小、图片左边距
          */
         mLeftImage = attributes.getResourceId(R.styleable.TitleBarLayout_d_left_image, 0);
-        mLeftImageSize = attributes.getDimension(R.styleable.TitleBarLayout_d_left_image_size, mLeftImageSize);
-        mLeftImagePaddingStart = attributes.getDimension(R.styleable.TitleBarLayout_d_left_image_padding_start, mLeftImagePaddingStart);
+        mLeftImageWidth = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_image_width, mLeftImageWidth);
+        mLeftImagePaddingStart = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_image_padding_start, mLeftImagePaddingStart);
 
         /*
         左侧文字、字体大小、字体颜色、字体左边距
          */
         mLeftText = attributes.getString(R.styleable.TitleBarLayout_d_left_text);
-        mLeftTextSize = attributes.getDimension(R.styleable.TitleBarLayout_d_left_text_size, mLeftTextSize);
-        mLeftTextPaddingStart = attributes.getLayoutDimension(R.styleable.TitleBarLayout_d_left_text_padding_start, mLeftTextPaddingStart);
+        mLeftTextSize = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_text_size, mLeftTextSize);
+        mLeftTextPaddingStart = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_text_padding_start, mLeftTextPaddingStart);
         mLeftTextColor = attributes.getColor(R.styleable.TitleBarLayout_d_left_text_color, mLeftTextColor);
 
         /*
@@ -124,31 +133,39 @@ public class TitleBarLayout extends FrameLayout {
         右侧图片、图片大小、图片左边距
          */
         mRightImage = attributes.getResourceId(R.styleable.TitleBarLayout_d_right_image, 0);
-        mRightImageSize = attributes.getDimension(R.styleable.TitleBarLayout_d_right_image_size, mRightImageSize);
-        mRightImagePaddingEnd = attributes.getDimension(R.styleable.TitleBarLayout_d_right_image_padding_end, mRightImagePaddingEnd);
+        mRightImageWidth = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_image_width, mRightImageWidth);
+        mRightImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_image_padding_end, mRightImagePaddingEnd);
 
         /*
         右侧文字、字体大小、字体颜色、字体左边距
          */
         mRightText = attributes.getString(R.styleable.TitleBarLayout_d_right_text);
         mRightTextSize = attributes.getDimension(R.styleable.TitleBarLayout_d_right_text_size, mRightTextSize);
-        mRightTextPaddingEndt = attributes.getDimension(R.styleable.TitleBarLayout_d_right_text_padding_end, mRightTextPaddingEndt);
+        mRightTextPaddingEnd = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_text_padding_end, mRightTextPaddingEnd);
         mRightTextColor = attributes.getColor(R.styleable.TitleBarLayout_d_right_text_color, mRightTextColor);
 
         /*
         底部横线背景、高度
          */
-        mLineBackgound = attributes.getColor(R.styleable.TitleBarLayout_d_line_background, mLineBackgound);
-        mLineHeight = attributes.getDimension(R.styleable.TitleBarLayout_d_line_height, mLineHeight);
+        mLineBackground = attributes.getColor(R.styleable.TitleBarLayout_d_line_background, mLineBackground);
+        mLineHeight = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_line_height, mLineHeight);
+        /*
+        左侧图标和文字是否为返回键
+         */
         mIsBackView = attributes.getBoolean(R.styleable.TitleBarLayout_d_is_back_view, mIsBackView);
+        /*
+        是否沉浸式状态栏
+         */
+        mIsImmersiveStateBar = attributes.getBoolean(R.styleable.TitleBarLayout_d_is_immersive_state_bar, mIsImmersiveStateBar);
 
         attributes.recycle();
         initView(inflate);
         initData();
+
     }
 
     private void initView(View inflate) {
-        mRlTitle = ((RelativeLayout) inflate.findViewById(R.id.rl_title_bar_height));
+        mRlLayout = ((RelativeLayout) inflate.findViewById(R.id.rl_title_bar_height));
         mRlLeft = ((RelativeLayout) inflate.findViewById(R.id.rl_left));
         mRlRight = ((RelativeLayout) inflate.findViewById(R.id.rl_right));
         mIvLeft = ((ImageView) inflate.findViewById(R.id.iv_left));
@@ -160,20 +177,27 @@ public class TitleBarLayout extends FrameLayout {
     }
 
     private void initData() {
-
-        //横线
-        mViewLine.setBackgroundColor(mLineBackgound);
-        //横线高度
+        initLayoutHeight();
+        mRlLayout.setBackgroundColor(mLayoutBackground);
 
         //左边图标
         if (mLeftImage != 0) {
             mIvLeft.setVisibility(VISIBLE);
             mIvLeft.setImageResource(mLeftImage);
             //image size
+            ViewGroup.LayoutParams mIvLeftLayoutParams = mIvLeft.getLayoutParams();
+            mIvLeftLayoutParams.width = mLeftImageWidth;
+            mIvLeft.setLayoutParams(mIvLeftLayoutParams);
+            mIvLeft.setPadding(mLeftImagePaddingStart, 0, 0, 0);
+            mLeftTotalWidth += mLeftImageWidth;
+            LogUtil.d("---------" + mLeftTotalWidth + "------------");
+            mLeftTotalWidth += mLeftImagePaddingStart;
+            LogUtil.d("---------" + mLeftTotalWidth + "------------");
 
         } else {
             mIvLeft.setVisibility(GONE);
         }
+
 
         //左边文字
         if (StringUtil.isEmpty(mLeftText)) {
@@ -183,7 +207,9 @@ public class TitleBarLayout extends FrameLayout {
             mTvLeft.setText(mLeftText);
             mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
             mTvLeft.setTextColor(mLeftTextColor);
-            mTvLeft.setPadding(TransitionTools.px2dip(mLeftTextPaddingStart), 0, 0, 0);
+            mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
+
+            mLeftTotalWidth += mLeftTextPaddingStart;
         }
 
         //标题
@@ -199,9 +225,12 @@ public class TitleBarLayout extends FrameLayout {
         //右边图标
         if (mRightImage != 0) {
             mIvRight.setVisibility(VISIBLE);
+            mTvRight.setVisibility(GONE);
             mIvRight.setImageResource(mRightImage);
-            //image size
-
+            ViewGroup.LayoutParams mIvRightLayoutParams = mIvRight.getLayoutParams();
+            mIvRightLayoutParams.width = mRightImageWidth;
+            mIvRight.setLayoutParams(mIvRightLayoutParams);
+            mIvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
         } else {
             mIvRight.setVisibility(GONE);
         }
@@ -211,14 +240,15 @@ public class TitleBarLayout extends FrameLayout {
             mTvRight.setVisibility(GONE);
         } else {
             mTvRight.setVisibility(VISIBLE);
+            mIvRight.setVisibility(GONE);
             mTvRight.setText(mRightText);
             mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
             mTvRight.setTextColor(mRightTextColor);
-            mTvRight.setPadding(TransitionTools.px2dip(mRightImagePaddingEnd), 0, 0, 0);
+            mTvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
         }
 
         /**
-         * 如果是返回View，则点击实现页面返回
+         * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}
          */
         if (mIsBackView) {
             mTvLeft.setOnClickListener(new OnClickListener() {
@@ -234,6 +264,29 @@ public class TitleBarLayout extends FrameLayout {
                 }
             });
         }
+
+        //横线
+        mViewLine.setBackgroundColor(mLineBackground);
+        //横线高度
+        if (mLineHeight != 0) {
+            ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
+            mViewLineLayoutParams.height = mLineHeight;
+            mViewLine.setLayoutParams(mViewLineLayoutParams);
+        }
+    }
+
+    private void initLayoutHeight() {
+        if (mIsImmersiveStateBar) {
+            int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
+            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
+            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+            mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
+        } else {
+            RelativeLayout.LayoutParams mRlLayoutLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
+            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+        }
     }
 
     /**
@@ -244,6 +297,127 @@ public class TitleBarLayout extends FrameLayout {
     public void setTitle(CharSequence title) {
         if (!StringUtil.isEmpty(title.toString())) {
             mTvTitle.setText(title);
+        }
+    }
+
+    /**
+     * 设置标题大小
+     *
+     * @param titleSize
+     */
+    public void setTitleSize(int titleSize) {
+        if (titleSize != 0) {
+            mTvTitle.setTextSize(titleSize);
+        }
+    }
+
+    /**
+     * 设置标题颜色
+     *
+     * @param titleColor
+     */
+    public void setTitleColor(int titleColor) {
+        if (titleColor != 0) {
+            mTvTitle.setTextColor(titleColor);
+        }
+    }
+
+    /**
+     * 一键设置标题样式、资源等
+     *
+     * @param title
+     * @param titleSize
+     * @param titleColor
+     */
+    public void setTitleStyle(String title, int titleSize, int titleColor) {
+        if (!StringUtil.isEmpty(title)) {
+            mTvTitle.setText(title);
+        }
+        if (titleSize != 0) {
+            mTvTitle.setTextSize(titleSize);
+        }
+        if (titleColor != 0) {
+            mTvTitle.setTextColor(titleColor);
+        }
+    }
+
+    public void setLeftText(String leftText) {
+        if (!StringUtil.isEmpty(leftText)) {
+            mTvLeft.setText(leftText);
+        }
+    }
+
+    /**
+     * 设置左边文字大小
+     *
+     * @param leftTextSize
+     */
+    public void setLeftTextSize(int leftTextSize) {
+        if (leftTextSize != 0) {
+            mTvLeft.setTextSize(leftTextSize);
+        }
+    }
+
+    /**
+     * 设置左边文字颜色
+     *
+     * @param leftTextColor
+     */
+    public void setLeftTextColor(int leftTextColor) {
+        if (leftTextColor != 0) {
+            mTvLeft.setTextColor(leftTextColor);
+        }
+    }
+
+    /**
+     * 一键设置左侧文字样式、资源等
+     *
+     * @param leftText
+     * @param leftTextSize
+     * @param leftTextColor
+     */
+    public void setLeftStyle(String leftText, int leftTextSize, int leftTextColor) {
+        if (!StringUtil.isEmpty(leftText)) {
+            mTvTitle.setText(leftText);
+        }
+        if (leftTextSize != 0) {
+            mTvTitle.setTextSize(leftTextSize);
+        }
+        if (leftTextColor != 0) {
+            mTvTitle.setTextColor(leftTextColor);
+        }
+    }
+
+    /**
+     * 设置右侧文字
+     *
+     * @param rightText
+     */
+    public void setRightText(String rightText) {
+        if (!StringUtil.isEmpty(rightText)) {
+            mTvRight.setText(rightText);
+        }
+    }
+
+    /**
+     * 设置右侧文字大小
+     *
+     * @param rightTextSize
+     */
+    public void setRightTextSize(int rightTextSize) {
+        if (rightTextSize != 0) {
+            mTvRight.setTextSize(rightTextSize);
+        }
+    }
+
+    /**
+     * 设置右侧文字颜色
+     *
+     * @param rightTextColor
+     */
+    public void setRightTextColor(int rightTextColor) {
+        if (rightTextColor != 0) {
+            mTvRight.setTextColor(rightTextColor);
         }
     }
 
@@ -284,9 +458,33 @@ public class TitleBarLayout extends FrameLayout {
         mIvRight.setOnClickListener(listener);
     }
 
+    /**
+     * 设置左侧文字和按钮是否为返回按钮
+     *
+     * @param isLeftBackView
+     */
+    public void setIsLeftBackView(boolean isLeftBackView) {
+        mIsBackView = isLeftBackView;
+    }
+
+    /**
+     * @param isImmersiveStateBar
+     */
+    public void setIsImmersiveStateBar(boolean isImmersiveStateBar) {
+        mIsImmersiveStateBar = isImmersiveStateBar;
+        initLayoutHeight();
+    }
+
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
+        int mRlLeftMeasuredWidth = mRlLeft.getMeasuredWidth();
+        int mRlRightMeasuredWidth = mRlRight.getMeasuredWidth();
+        if (mRlLeftMeasuredWidth > mRlRightMeasuredWidth) {
+            mTvTitle.setPadding(mRlLeftMeasuredWidth, 0, mRlLeftMeasuredWidth, 0);
+        } else {
+            mTvTitle.setPadding(mRlRightMeasuredWidth, 0, mRlRightMeasuredWidth, 0);
+        }
     }
 }

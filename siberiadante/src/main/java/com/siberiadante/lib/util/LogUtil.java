@@ -1,6 +1,7 @@
 package com.siberiadante.lib.util;
 
 import android.os.Environment;
+import android.util.Config;
 import android.util.Log;
 
 import com.siberiadante.lib.SiberiaDanteLib;
