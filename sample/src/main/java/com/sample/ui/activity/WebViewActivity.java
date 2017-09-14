@@ -1,9 +1,11 @@
 package com.sample.ui.activity;
 
 import android.content.Intent;
+import android.net.http.SslError;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -32,6 +34,7 @@ public class WebViewActivity extends BaseActivity {
         final Intent intent = getIntent();
         url = intent.getStringExtra("url");
         title = intent.getStringExtra("title");
+        url="http://www.chinichi.cn/activity/index/app_detail.html?id=5";
     }
 
     private void initView() {
@@ -47,6 +50,12 @@ public class WebViewActivity extends BaseActivity {
         settings.setJavaScriptEnabled(true);
         mWebView.loadUrl(url);
         mWebView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                super.onReceivedSslError(view, handler, error);
+                handler.proceed();
+            }
+
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 mWebView.loadUrl(url);

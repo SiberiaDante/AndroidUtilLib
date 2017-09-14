@@ -62,7 +62,8 @@
         <activity
             android:name=".ui.activity.view.KeyBoardActivity"
             android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".ui.activity.util.SDCardUtilActivity"></activity>
+        <activity android:name=".ui.activity.util.SDCardUtilActivity" />
+        <activity android:name=".ui.activity.WebActivity"></activity>
     </application>
 
 </manifest>

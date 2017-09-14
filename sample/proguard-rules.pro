@@ -78,3 +78,8 @@
     -keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
         <init>(java.lang.Throwable);
     }
+#agentWeb
+    -keep class com.just.library.** {
+        *;
+    }
+    -dontwarn com.just.library.**
