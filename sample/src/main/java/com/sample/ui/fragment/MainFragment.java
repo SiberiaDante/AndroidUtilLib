@@ -24,7 +24,7 @@ import com.siberiadante.lib.view.TitleBar;
  */
 
 public class MainFragment extends BaseFragment implements View.OnClickListener {
-    private Button mBtnRecyclerView, mBtnCustomView, mBtnRXJava;
+    private Button mBtnLib, mBtnTitleLayout, mBtnRXJava;
 
     @Nullable
     @Override
@@ -39,12 +39,12 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         final TitleBar mTitleBar = (TitleBar) layout.findViewById(R.id.title_bar_main);
         mTitleBar.setImmersive(true);
         mTitleBar.setTitle("SiberiaDante");
-        mBtnRecyclerView = (Button) layout.findViewById(R.id.btn_recycler_view_details);
-        mBtnCustomView = (Button) layout.findViewById(R.id.btn_custom_view_details);
+        mBtnLib = (Button) layout.findViewById(R.id.btn_siberia_dante_lib);
+        mBtnTitleLayout = (Button) layout.findViewById(R.id.btn_custom_title_layout);
         mBtnRXJava = (Button) layout.findViewById(R.id.btn_rx_java);
 
-        mBtnRecyclerView.setOnClickListener(this);
-        mBtnCustomView.setOnClickListener(this);
+        mBtnLib.setOnClickListener(this);
+        mBtnTitleLayout.setOnClickListener(this);
         mBtnRXJava.setOnClickListener(this);
 
     }
@@ -64,18 +64,18 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
         Intent intent;
         intent = new Intent(getActivity(), WebViewActivity.class);
         switch (view.getId()) {
-            case R.id.btn_recycler_view_details:
-                intent.putExtra("url", Constants.URL_RECYCLER_VIEW);
-                intent.putExtra("title", mBtnRecyclerView.getText().toString());
+            case R.id.btn_siberia_dante_lib:
+                intent.putExtra("url", Constants.URL_SIBERIADANTE_LIB);
+                intent.putExtra("title", mBtnLib.getText().toString());
                 break;
-            case R.id.btn_custom_view_details:
-                intent.putExtra("url", Constants.URL_CUSTOM_VIEW);
-                intent.putExtra("title", mBtnCustomView.getText().toString());
+            case R.id.btn_custom_title_layout:
+                intent.putExtra("url", Constants.URL_TITLE_LAYOUT);
+                intent.putExtra("title", mBtnTitleLayout.getText().toString());
                 break;
-            case R.id.btn_rx_java:
-                intent.putExtra("url", Constants.URL_RX_JAVA);
-                intent.putExtra("title", mBtnRXJava.getText().toString());
-                break;
+//            case R.id.btn_rx_java:
+//                intent.putExtra("url", Constants.URL_RX_JAVA);
+//                intent.putExtra("title", mBtnRXJava.getText().toString());
+//                break;
         }
         startActivity(intent);
 

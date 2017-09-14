@@ -46,6 +46,10 @@
                 android:id="@+id/btn_start_shape_view_activity"
                 style="@style/MainButton"
                 android:text="Shape封装的View测试" />
+            <Button
+                android:id="@+id/btn_start_keyboard_activity"
+                style="@style/MainButton"
+                android:text="点击View切换软件盘测试" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

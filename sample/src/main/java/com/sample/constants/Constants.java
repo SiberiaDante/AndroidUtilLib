@@ -8,8 +8,8 @@ import android.os.Environment;
 
 public class Constants {
     public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/sample/";
-    public static final String URL_RECYCLER_VIEW = "http://www.jianshu.com/p/cc3e2af38a62";
-    public static final String URL_CUSTOM_VIEW = "http://www.jianshu.com/p/b272528165a2";
+    public static final String URL_SIBERIADANTE_LIB = "https://github.com/SiberiaDante/SiberiaDanteLib";
+    public static final String URL_TITLE_LAYOUT = "https://github.com/SiberiaDante/TitleLayout";
     public static final String URL_RX_JAVA = "http://www.jianshu.com/p/464fa025229e";
 
 

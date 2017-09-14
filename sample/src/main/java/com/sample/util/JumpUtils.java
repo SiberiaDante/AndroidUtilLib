@@ -8,6 +8,7 @@ import com.sample.ui.activity.util.PermissionManagerActivity;
 import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
+import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
 import com.sample.ui.activity.view.ShapeViewActivity;
 
@@ -50,6 +51,11 @@ public class JumpUtils {
 
     public static void goToScreenUtilActivity(Activity activity) {
         intent = new Intent(activity, ScreenActivity.class);
+        activity.startActivity(intent);
+
+    }
+    public static void goToKeyBoardActivity(Activity activity) {
+        intent = new Intent(activity, KeyBoardActivity.class);
         activity.startActivity(intent);
 
     }

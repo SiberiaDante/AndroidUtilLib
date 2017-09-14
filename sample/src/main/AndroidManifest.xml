@@ -3,10 +3,11 @@
     package="com.sample">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".SampleApplication"
         android:allowBackup="true"
@@ -57,7 +58,10 @@
 
         <activity android:name=".ui.activity.view.ImageSpanActivity" />
         <activity android:name=".ui.activity.view.ShapeViewActivity" />
-        <activity android:name=".ui.activity.util.PermissionManagerActivity"></activity>
+        <activity android:name=".ui.activity.util.PermissionManagerActivity" />
+        <activity
+            android:name=".ui.activity.view.KeyBoardActivity"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

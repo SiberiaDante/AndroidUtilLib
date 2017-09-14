@@ -19,7 +19,7 @@ import android.util.Log;
 
 import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
-import com.siberiadante.lib.model.AppInfo;
+import com.siberiadante.lib.bean.AppInfo;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -20,16 +20,17 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/btn_recycler_view_details"
+                android:id="@+id/btn_siberia_dante_lib"
                 style="@style/MainButton"
                 android:gravity="center_vertical"
-                android:text="RecyclerView技术详解" />
+                android:text="Android开发常备工具库" />
 
             <Button
-                android:id="@+id/btn_custom_view_details"
+                android:id="@+id/btn_custom_title_layout"
                 style="@style/MainButton"
                 android:gravity="center_vertical"
-                android:text="Android自定义View" />
+                android:text="Android万能通用标题栏封装" />
+
             <Button
                 android:id="@+id/btn_rx_java"
                 style="@style/MainButton"

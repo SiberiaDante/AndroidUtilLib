@@ -205,7 +205,7 @@ dependencies {
     * px2sp( float pxValue)：px转sp
     * sp2px( float spValue): sp转px
 
-
+* 参考资料：https://github.com/Blankj/AndroidUtilCode
 <!--  View-->
 [EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/EditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/BottomPopupWindow.java

@@ -1,4 +1,4 @@
-package com.siberiadante.lib.model;
+package com.siberiadante.lib.bean;
 
 import android.graphics.drawable.Drawable;
 
