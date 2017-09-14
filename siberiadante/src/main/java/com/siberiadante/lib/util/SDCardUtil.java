@@ -9,6 +9,7 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.support.annotation.RequiresApi;
 
+import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 import java.io.BufferedInputStream;
@@ -31,6 +32,9 @@ public class SDCardUtil {
         new SiberiaDanteLibException(getClass().getSimpleName());
     }
 
+    /**
+     * @return
+     */
     public static String getExternalStorageState() {
         return Environment.getExternalStorageState();
     }
@@ -42,11 +46,11 @@ public class SDCardUtil {
      */
     public static boolean isSDCardMounted() {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
-
     }
 
     /**
      * 获取SD卡的根目录
+     *
      * @return
      */
     public static String getSDCardBaseDir() {
@@ -56,7 +60,152 @@ public class SDCardUtil {
         return null;
     }
 
+    /**
+     * 获取SD卡的完整空间大小，返回MB
+     * 需要最小API18
+     *
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardSizeMB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getBlockCountLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
 
+    /**
+     * 获取SD卡的完整空间大小，返回KB
+     * 需要最小API18
+     *
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardSizeKB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getBlockCountLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的完整空间大小，返回B
+     * 需要最小API18
+     *
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardSizeB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getBlockCountLong();
+            long size = fs.getBlockSizeLong();
+            return count * size;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的剩余空间大小
+     *
+     * @return MB
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardFreeSizeMB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getFreeBlocksLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的剩余空间大小
+     *
+     * @return KB
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardFreeSizeKB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getFreeBlocksLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的剩余空间大小
+     *
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardFreeSizeB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getFreeBlocksLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的可用空间大小
+     *
+     * @return MB
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardAvailableSizeMB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getAvailableBlocksLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的可用空间大小
+     *
+     * @return KB
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardAvailableSizeKB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getAvailableBlocksLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
+
+    /**
+     * 获取SD卡的可用空间大小
+     *
+     * @return B
+     */
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
+    public static long getSDCardAvailableSizeB() {
+        if (isSDCardMounted()) {
+            StatFs fs = new StatFs(getSDCardBaseDir());
+            long count = fs.getAvailableBlocksLong();
+            long size = fs.getBlockSizeLong();
+            return count * size / 1024 / 1024;
+        }
+        return 0;
+    }
 
     /**
      * 获取SD卡路径
@@ -101,21 +250,6 @@ public class SDCardUtil {
         if (!isSDCardMounted()) return null;
         return Environment.getExternalStorageDirectory().getPath() + File.separator + "data" + File.separator;
     }
-//
-//    /**
-//     * 获取SD卡剩余空间
-//     *
-//     * @return SD卡剩余空间
-//     */
-//    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-//    public static String getFreeSpace() {
-//        if (!isSDCardEnable()) return null;
-//        StatFs stat = new StatFs(getSDCardPath());
-//        long blockSize, availableBlocks;
-//        availableBlocks = stat.getAvailableBlocksLong();
-//        blockSize = stat.getBlockSizeLong();
-//        return ConvertUtils.byte2FitMemorySize(availableBlocks * blockSize);
-//    }
 
     /**
      * 获取SD卡信息
@@ -161,66 +295,7 @@ public class SDCardUtil {
         }
     }
 
-
     //---start---2017-09-14
-
-
-    // 获取SD卡的完整空间大小，返回MB
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static long getSDCardSizeMB() {
-        if (isSDCardMounted()) {
-            StatFs fs = new StatFs(getSDCardBaseDir());
-            long count = fs.getBlockCountLong();
-            long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
-        }
-        return 0;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static long getSDCardSizeKB() {
-        if (isSDCardMounted()) {
-            StatFs fs = new StatFs(getSDCardBaseDir());
-            long count = fs.getBlockCountLong();
-            long size = fs.getBlockSizeLong();
-            return count * size / 1024;
-        }
-        return 0;
-    }
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static long getSDCardSizeB() {
-        if (isSDCardMounted()) {
-            StatFs fs = new StatFs(getSDCardBaseDir());
-            long count = fs.getBlockCountLong();
-            long size = fs.getBlockSizeLong();
-            return count * size ;
-        }
-        return 0;
-    }
-    // 获取SD卡的剩余空间大小
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static long getSDCardFreeSize() {
-        if (isSDCardMounted()) {
-            StatFs fs = new StatFs(getSDCardBaseDir());
-            long count = fs.getFreeBlocksLong();
-            long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
-        }
-        return 0;
-    }
-
-    // 获取SD卡的可用空间大小
-    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
-    public static long getSDCardAvailableSize() {
-        if (isSDCardMounted()) {
-            StatFs fs = new StatFs(getSDCardBaseDir());
-            long count = fs.getAvailableBlocksLong();
-            long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
-        }
-        return 0;
-    }
-
     // 往SD卡的公有目录下保存文件
     public static boolean saveFileToSDCardPublicDir(byte[] data, String type,
                                                     String fileName) {
@@ -410,15 +485,19 @@ public class SDCardUtil {
     }
 
     // 获取SD卡私有Cache目录的路径
-    public static String getSDCardPrivateCacheDir(Context context) {
-        return context.getExternalCacheDir().getAbsolutePath();
+    public static String getSDCardPrivateCacheDir() {
+        return SiberiaDanteLib.getContext().getExternalCacheDir().getAbsolutePath();
     }
 
     // 获取SD卡私有Files目录的路径
-    public static String getSDCardPrivateFilesDir(Context context, String type) {
-        return context.getExternalFilesDir(type).getAbsolutePath();
+    public static String getSDCardPrivateFilesDir(String type) {
+        return SiberiaDanteLib.getContext().getExternalFilesDir(type).getAbsolutePath();
     }
 
+    /**
+     * @param filePath
+     * @return
+     */
     public static boolean isFileExist(String filePath) {
         File file = new File(filePath);
         return file.isFile();

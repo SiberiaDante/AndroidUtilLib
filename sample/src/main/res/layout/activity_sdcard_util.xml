@@ -12,13 +12,17 @@
         android:layout_height="wrap_content"
         app:d_is_immersive_state_bar="true"
         app:d_title_layout_background="@color/blue"
-        app:d_title_text="常备工具测试类" />
+        app:d_title_text="SDCardUtil" />
 
-    <TextView
-        android:id="@+id/tv_sdscrd_content"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:lineSpacingExtra="8dp"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tv_sdscrd_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="8dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp" />
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>
