@@ -5,9 +5,9 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 
-public final class ShellUtils {
+public final class ShellUtil {
 
-    private ShellUtils() {
+    private ShellUtil() {
         throw new UnsupportedOperationException("u can't instantiate me...");
     }
 

@@ -14,7 +14,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MainTheme">
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +62,7 @@
         <activity
             android:name=".ui.activity.view.KeyBoardActivity"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ui.activity.util.SDCardUtilActivity"></activity>
     </application>
 
 </manifest>

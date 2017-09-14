@@ -47,6 +47,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    compile 'com.jude:easyrecyclerview:4.4.2'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.jude:swipebackhelper:3.1.2'
+    compile 'com.github.clans:fab:1.6.0'
     testCompile 'junit:junit:4.12'
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
 }

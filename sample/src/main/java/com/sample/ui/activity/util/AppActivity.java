@@ -9,10 +9,12 @@ import android.widget.ImageView;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.AppUtil;
+import com.siberiadante.lib.util.LogUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class AppActivity extends BaseActivity implements View.OnClickListener {
 
@@ -28,7 +30,8 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initView() {
-
+        LogUtil.d(TAG, "---" + getClass().getSimpleName()
+                + "----------");
         mIvIcon = (ImageView) findViewById(R.id.iv_icon);
         Button mBtnUnInstallApp = (Button) findViewById(R.id.un_install_app);
         Button mBtnInstallApp = (Button) findViewById(R.id.install_app);
@@ -59,7 +62,22 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
         Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground());
         Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground("com.shuinsen.zhiri"));
+        LogUtil.d(TAG, "getApkNameAll=" + getApkAll());
         mIvIcon.setImageDrawable(AppUtil.getAppIcon("com.shuinsen.zhiri"));
+    }
+
+    private String getApkAll() {
+        final ArrayList<String> apkNameAll = AppUtil.getApkNameAll();
+        for (int i = 0; i < apkNameAll.size(); i++) {
+            final String s = apkNameAll.get(i);
+            LogUtil.d(TAG, "name---" + s);
+            return s;
+        }
+        return null;
+//        for (String a : apkNameAll) {
+//            return a;
+//        }
+//        return null;
     }
 
     @Override

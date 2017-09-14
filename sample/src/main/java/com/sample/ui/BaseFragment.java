@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.siberiadante.lib.util.ScreenUtil;
+
 /**
  * Created by SiberiaDante on 2017/6/13.
  */
@@ -24,6 +26,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        ScreenUtil.setStatusTranslucent(getActivity());
         initView();
         initIntent();
         initData();
@@ -31,8 +34,8 @@ public abstract class BaseFragment extends Fragment {
 
     protected abstract void initView();
 
-    protected  abstract void initIntent();
+    protected abstract void initIntent();
 
-    protected  abstract void initData();
+    protected abstract void initData();
 
 }

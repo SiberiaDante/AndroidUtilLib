@@ -35,7 +35,11 @@ public class AppUtil {
     public static final String TAG = AppUtil.class.getSimpleName();
 
     public AppUtil() {
-        new SiberiaDanteLibException();
+        new SiberiaDanteLibException(getClass().getSimpleName());
+    }
+
+    private static PackageManager getPackageManager() {
+        return SiberiaDanteLib.getContext().getPackageManager();
     }
 
     /**
@@ -47,9 +51,6 @@ public class AppUtil {
         return SiberiaDanteLib.getContext().getPackageName();
     }
 
-    private static PackageManager getPackageManager() {
-        return SiberiaDanteLib.getContext().getPackageManager();
-    }
 
     /**
      * 获取App包名
@@ -164,7 +165,7 @@ public class AppUtil {
         return android.os.Build.MODEL; // 手机型号
     }
 
-    // Android Id
+    // Android Id设备Id
     public static String getDeviceId(Context context) {
         String deviceId = null;
         if (deviceId != null && !"".equals(deviceId)) {
@@ -198,7 +199,7 @@ public class AppUtil {
     /**
      * 获取手机和应用信息
      *
-     * @return
+     * @return 手机型号 +  Android系统版本+ App版本号
      */
     public static String getMobileAndAPPInfo() {
         String versionName = "";
@@ -312,7 +313,7 @@ public class AppUtil {
     }
 
     /**
-     * 获取App路径
+     * 获取当前App的路径
      *
      * @return App路径
      */
@@ -338,6 +339,44 @@ public class AppUtil {
         }
     }
 
+    ///TODO--sss待测试解决
+    public static ArrayList<String> getApkNameAll() {
+        return getApkName(SDCardUtil.getSDCardPath());
+    }
+
+    //用到了递归
+    //这个参数我使用的时候传递的是Environment.getExternalStorageDirectory().getAbsolutePath()
+    public static ArrayList<String> getApkName(String path) {
+        LogUtil.d("---path---" + path);
+        ArrayList<String> list = new ArrayList<>();
+        File file = new File(path);
+        if (file.isDirectory()) {
+            File[] dirFile = file.listFiles();
+            for (File f : dirFile) {
+                if (f.isDirectory())
+                    getApkName(f.getAbsolutePath());
+                else {
+                    if (f.getName().endsWith(".apk"))
+                        list.add(f.getAbsolutePath());
+                }
+            }
+        }
+        return list;
+    }
+
+    public String getPackageName(String apkPath) {
+        PackageManager pm = getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES);
+        if (info != null) {
+            //既然获取了ApplicationInfo,那么和应用相关的一些信息就都可以获取了,具体可以获取什么大家可以看看ApplicationInfo这个类
+            ApplicationInfo appInfo = info.applicationInfo;
+            return appInfo.packageName;
+        }
+        return "";
+    }
+
+
+    ///TODO--eeee
 
     /**
      * 判断App是否是系统应用
@@ -399,7 +438,7 @@ public class AppUtil {
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isAppRoot() {
-        ShellUtils.CommandResult result = ShellUtils.execCmd("echo root", true);
+        ShellUtil.CommandResult result = ShellUtil.execCmd("echo root", true);
         if (result.result == 0) {
             return true;
         }
@@ -453,7 +492,7 @@ public class AppUtil {
     public static boolean uninstallAppSilent(String packageName, boolean isKeepData) {
         if (isSpace(packageName)) return false;
         String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (isKeepData ? "-k " : "") + packageName;
-        ShellUtils.CommandResult commandResult = ShellUtils.execCmd(command, !isSystemApp(), true);
+        ShellUtil.CommandResult commandResult = ShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 
@@ -654,7 +693,7 @@ public class AppUtil {
         File file = FileUtil.getFileByPath(filePath);
         if (!FileUtil.isFileExists(file)) return false;
         String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm install " + filePath;
-        ShellUtils.CommandResult commandResult = ShellUtils.execCmd(command, !isSystemApp(), true);
+        ShellUtil.CommandResult commandResult = ShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 //TODO 以上-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

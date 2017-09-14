@@ -1,55 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.siberiadante.lib.view.TitleBar
-        android:id="@+id/titleBar"
+    <com.siberiadante.lib.view.TitleBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red" />
+        app:d_is_immersive_state_bar="true"
+        app:d_title_layout_background="@color/blue"
+        app:d_title_text="封装组件测试" />
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/white">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <com.jude.easyrecyclerview.EasyRecyclerView
+            android:id="@+id/erv_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="vertical">
+            app:recyclerClipToPadding="true"
+            app:recyclerPadding="8dp"
+            app:recyclerPaddingBottom="8dp"
+            app:recyclerPaddingLeft="8dp"
+            app:recyclerPaddingRight="8dp"
+            app:recyclerPaddingTop="8dp"
+            app:scrollbarStyle="insideOverlay"
+            app:scrollbars="none" />
 
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab_view_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_top"
+            app:fab_colorNormal="?colorAccent"
+            app:fab_colorPressed="?colorAccent"
+            app:fab_size="normal" />
+    </FrameLayout>
 
-            <com.siberiadante.lib.widget.RoundImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@mipmap/two_people" />
-
-            <Button
-                android:id="@+id/btn_start_general_dialog_activity"
-                style="@style/MainButton"
-                android:text="各种Dialog" />
-
-            <Button
-                android:id="@+id/btn_start_qq_exercise_activity"
-                style="@style/MainButton"
-                android:text="QQ运动计步器View" />
-
-            <Button
-                android:id="@+id/btn_start_image_span_activity"
-                style="@style/MainButton"
-                android:text="测试文字表情混排对齐" />
-            <Button
-                android:id="@+id/btn_start_shape_view_activity"
-                style="@style/MainButton"
-                android:text="Shape封装的View测试" />
-            <Button
-                android:id="@+id/btn_start_keyboard_activity"
-                style="@style/MainButton"
-                android:text="点击View切换软件盘测试" />
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

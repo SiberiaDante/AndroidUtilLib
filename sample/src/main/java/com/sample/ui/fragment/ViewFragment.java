@@ -1,20 +1,39 @@
 package com.sample.ui.fragment;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.jude.easyrecyclerview.EasyRecyclerView;
+import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
+import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.sample.R;
+import com.sample.adapter.CustomAdapter;
+import com.sample.bean.UtilData;
 import com.sample.ui.BaseFragment;
+import com.sample.ui.activity.util.ActivityUtilActivity;
+import com.sample.ui.activity.util.AppActivity;
+import com.sample.ui.activity.util.ClearActivity;
+import com.sample.ui.activity.util.NetworkActivity;
+import com.sample.ui.activity.util.NumberActivity;
+import com.sample.ui.activity.util.PermissionManagerActivity;
+import com.sample.ui.activity.util.ScreenActivity;
+import com.sample.ui.activity.util.ToastActivity;
 import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
+import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
-import com.sample.util.JumpUtils;
-import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.view.TitleBar;
+import com.sample.ui.activity.view.ShapeViewActivity;
+import com.siberiadante.lib.util.ActivityUtil;
+import com.siberiadante.lib.util.TransitionTools;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Created SiberiaDante
@@ -24,26 +43,39 @@ import com.siberiadante.lib.view.TitleBar;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class ViewFragment extends BaseFragment implements View.OnClickListener {
+public class ViewFragment extends BaseFragment implements RecyclerArrayAdapter.OnItemClickListener {
     public static final String TAG = ViewFragment.class.getSimpleName();
+    private EasyRecyclerView mRecyclerView;
+    private List<UtilData> datas;
+    private CustomAdapter adapter;
+    private FloatingActionButton mTop;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         layout = inflater.inflate(R.layout.fragment_view, container, false);
-        ScreenUtil.setStatusTranslucent(getActivity());
         return layout;
     }
 
     @Override
     protected void initView() {
-        layout.findViewById(R.id.btn_start_general_dialog_activity).setOnClickListener(this);
-        layout.findViewById(R.id.btn_start_qq_exercise_activity).setOnClickListener(this);
-        layout.findViewById(R.id.btn_start_image_span_activity).setOnClickListener(this);
-        layout.findViewById(R.id.btn_start_shape_view_activity).setOnClickListener(this);
-        layout.findViewById(R.id.btn_start_keyboard_activity).setOnClickListener(this);
-        TitleBar titleBar = ((TitleBar) layout.findViewById(R.id.titleBar));
-        initTitleBar(titleBar);
+        mTop = ((FloatingActionButton) layout.findViewById(R.id.fab_view_top));
+
+        mRecyclerView = ((EasyRecyclerView) layout.findViewById(R.id.erv_view));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        DividerDecoration itemDecoration = new DividerDecoration(Color.GRAY, TransitionTools.dip2px(1f), 0, 0);
+        itemDecoration.setDrawHeaderFooter(false);
+        mRecyclerView.addItemDecoration(itemDecoration);
+        adapter = new CustomAdapter(getActivity());
+        mRecyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(this);
+
+        mTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mRecyclerView.scrollToPosition(0);
+            }
+        });
     }
 
     @Override
@@ -53,33 +85,17 @@ public class ViewFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     protected void initData() {
-
-    }
-
-    private void initTitleBar(TitleBar titleBar) {
-        titleBar.setImmersive(true);
-        titleBar.setTitle("SiberiaDante");
+        datas = new ArrayList<>();
+        datas.add(new UtilData("各种Dialog", DialogActivity.class.getName()));
+        datas.add(new UtilData("测试文字表情混排对齐", ImageSpanActivity.class.getName()));
+        datas.add(new UtilData("Shape封装的View测试", ShapeViewActivity.class.getName()));
+        datas.add(new UtilData("点击View切换软件盘测试", KeyBoardActivity.class.getName()));
+        datas.add(new UtilData("QQ运动计步器View", QQStepViewActivity.class.getName()));
+        adapter.addAll(datas);
     }
 
     @Override
-    public void onClick(View view) {
-        Intent intent = null;
-        switch (view.getId()) {
-            case R.id.btn_start_general_dialog_activity:
-                JumpUtils.goToDialogActivity(getActivity());
-                break;
-            case R.id.btn_start_qq_exercise_activity:
-                JumpUtils.goToQQStepViewActivity(getActivity());
-                break;
-            case R.id.btn_start_image_span_activity:
-                JumpUtils.goToImageSpanActivity(getActivity());
-                break;
-            case R.id.btn_start_shape_view_activity:
-                JumpUtils.goToShapeViewActivity(getActivity());
-                break;
-            case R.id.btn_start_keyboard_activity:
-                JumpUtils.goToKeyBoardActivity(getActivity());
-                break;
-        }
+    public void onItemClick(int position) {
+        ActivityUtil.launchActivity("com.sample", datas.get(position).getCls());
     }
 }

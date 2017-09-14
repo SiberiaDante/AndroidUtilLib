@@ -73,7 +73,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearExternalCache() {
-        return SDCardUtil.isSDCardEnable() && FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getExternalCacheDir());
+        return SDCardUtil.isSDCardMounted() && FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getExternalCacheDir());
     }
 
     /**
