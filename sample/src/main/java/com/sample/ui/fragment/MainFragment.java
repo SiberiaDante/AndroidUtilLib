@@ -10,11 +10,10 @@ import android.widget.Button;
 
 import com.sample.R;
 import com.sample.constants.Constants;
-import com.sample.ui.BaseFragment;
-import com.sample.ui.activity.WebActivity;
+import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.WebViewActivity;
 import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.view.TitleBar;
+import com.squareup.haha.perflib.Main;
 
 /**
  * @Created SiberiaDante
@@ -24,25 +23,31 @@ import com.siberiadante.lib.view.TitleBar;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class MainFragment extends BaseFragment implements View.OnClickListener {
+public class MainFragment extends LazyFragment implements View.OnClickListener {
     private Button mBtnLib, mBtnTitleLayout, mBtnRXJava;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        layout = inflater.inflate(R.layout.fragment_main, container, false);
-        ScreenUtil.setStatusTranslucent(getActivity());
-        return layout;
+    public static MainFragment getInstance() {
+        return new MainFragment();
     }
 
     @Override
+    protected void onCreateViewLazy(Bundle savedInstanceState) {
+        super.onCreateViewLazy(savedInstanceState);
+        setContentView(R.layout.fragment_main);
+        initView();
+    }
+    //    @Nullable
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+//        layout = inflater.inflate(R.layout.fragment_main, container, false);
+//        ScreenUtil.setStatusTranslucent(getActivity());
+//        return layout;
+//    }
+
     protected void initView() {
-        final TitleBar mTitleBar = (TitleBar) layout.findViewById(R.id.title_bar_main);
-        mTitleBar.setImmersive(true);
-        mTitleBar.setTitle("SiberiaDante");
-        mBtnLib = (Button) layout.findViewById(R.id.btn_siberia_dante_lib);
-        mBtnTitleLayout = (Button) layout.findViewById(R.id.btn_custom_title_layout);
-        mBtnRXJava = (Button) layout.findViewById(R.id.btn_rx_java);
+        mBtnLib = (Button) findViewById(R.id.btn_siberia_dante_lib);
+        mBtnTitleLayout = (Button) findViewById(R.id.btn_custom_title_layout);
+        mBtnRXJava = (Button) findViewById(R.id.btn_rx_java);
 
         mBtnLib.setOnClickListener(this);
         mBtnTitleLayout.setOnClickListener(this);
@@ -50,15 +55,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener {
 
     }
 
-    @Override
-    protected void initIntent() {
-
-    }
-
-    @Override
-    protected void initData() {
-
-    }
 
     @Override
     public void onClick(View view) {

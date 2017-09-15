@@ -14,4 +14,6 @@ public class Constants {
 
 
     public static final String APP_INFO = "app_info_sp";
+    public static final String GIT_HUB ="https://github.com/SiberiaDante" ;
+    public static final String B_LOG = "http://www.cnblogs.com/shen-hua/";
 }

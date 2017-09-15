@@ -11,8 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.sample.R;
-import com.sample.ui.BaseFragment;
+import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.util.AppActivity;
+import com.siberiadante.lib.util.LogUtil;
 
 /**
  * @Created SiberiaDante
@@ -22,30 +23,31 @@ import com.sample.ui.activity.util.AppActivity;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class OtherFragment extends BaseFragment {
+public class OtherFragment extends LazyFragment {
 
     private static final String TAG = OtherFragment.class.getSimpleName();
     private Bundle savedInstanceState;
 
+    public static OtherFragment getInstance() {
+        return new OtherFragment();
+    }
+
     @Override
+    protected void onCreateViewLazy(Bundle savedInstanceState) {
+        super.onCreateViewLazy(savedInstanceState);
+        setContentView(R.layout.fragment_other);
+        LogUtil.d("-------------OtherFragment----------------");
+        initView();
+    }
+
     protected void initView() {
-        layout.findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_test).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AppActivity.class);
                 startActivityForResult(intent, 100);
             }
         });
-    }
-
-    @Override
-    protected void initIntent() {
-
-    }
-
-    @Override
-    protected void initData() {
-
     }
 
     @Override
@@ -74,54 +76,11 @@ public class OtherFragment extends BaseFragment {
         Log.d(TAG, "onCreate: ");
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        layout = inflater.inflate(R.layout.fragment_other, container, false);
-        return layout;
-    }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         Log.d(TAG, "onViewCreated: ");
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart: ");
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume: ");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause: ");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop: ");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy: ");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d(TAG, "onDetach: ");
-    }
-
 
 }

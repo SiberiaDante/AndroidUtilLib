@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.siberiadante.lib.view.TitleBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:d_is_immersive_state_bar="true"
-        app:d_title_layout_background="@color/blue"
-        app:d_title_text="常备工具测试类" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

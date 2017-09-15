@@ -4,24 +4,17 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import com.siberiadante.custom.R;
 import com.siberiadante.custom.bean.NewsData;
 import com.siberiadante.custom.bean.base.WrapResult;
-import com.siberiadante.custom.constant.Constants;
-import com.siberiadante.custom.http.ApiService;
 import com.siberiadante.custom.http.Request;
-import com.siberiadante.custom.http.RetrofitManager;
-import com.siberiadante.custom.ui.adapter.NewsAdapter;
 import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.ToastUtil;
 import com.siberiadante.lib.view.TitleBar;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -42,7 +35,6 @@ public class TwoFragment extends LazyFragment {
     private int mPage = 1;
     TitleBar mTitleBar;
     private LinearLayout mLLProgress;
-    private NewsAdapter adapter;
     private RecyclerView recyclerView;
 
     public static TwoFragment getInstance() {
@@ -72,11 +64,8 @@ public class TwoFragment extends LazyFragment {
         mLLProgress = ((LinearLayout) findViewById(R.id.ll_progress_bar));
         mTitleBar.setTitle("SiberiaDante-ZCL");
         mTitleBar.setRightImage(R.mipmap.ic_recommend_default);
-
         recyclerView = (RecyclerView) findViewById(R.id.rv_fragment_two);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        adapter = new NewsAdapter(getActivity(), null);
-        recyclerView.setAdapter(adapter);
     }
 
     private void initIntent() {

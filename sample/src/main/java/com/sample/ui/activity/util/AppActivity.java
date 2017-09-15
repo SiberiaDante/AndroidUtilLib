@@ -30,8 +30,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initView() {
-        LogUtil.d(TAG, "---" + getClass().getSimpleName()
-                + "----------");
+        LogUtil.d(TAG, "---" + getClass().getSimpleName() + "----------");
         mIvIcon = (ImageView) findViewById(R.id.iv_icon);
         Button mBtnUnInstallApp = (Button) findViewById(R.id.un_install_app);
         Button mBtnInstallApp = (Button) findViewById(R.id.install_app);
@@ -62,7 +61,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
         Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground());
         Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground("com.shuinsen.zhiri"));
-        LogUtil.d(TAG, "getApkNameAll=" + getApkAll());
+//        LogUtil.d(TAG, "getApkNameAll=" + getApkAll());
         mIvIcon.setImageDrawable(AppUtil.getAppIcon("com.shuinsen.zhiri"));
     }
 

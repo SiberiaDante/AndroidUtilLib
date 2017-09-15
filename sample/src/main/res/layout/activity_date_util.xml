@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sample.ui.activity.util.DateUtilActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="25dp">
+
+    <com.siberiadante.lib.view.TitleBarLayout
+        android:id="@+id/title_layout_data"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        app:d_is_immersive_state_bar="true"
+        app:d_title_layout_background="@color/red"
+        app:d_title_layout_height="48dp"
+        app:d_title_text="DateUtilActivity" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/title_layout_data">
+
+        <TextView
+            android:id="@+id/tv_date_util"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:lineSpacingExtra="10dp"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

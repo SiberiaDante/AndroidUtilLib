@@ -15,22 +15,15 @@ import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.sample.R;
 import com.sample.adapter.CustomAdapter;
 import com.sample.bean.UtilData;
-import com.sample.ui.BaseFragment;
+import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.WebVideoActivity;
-import com.sample.ui.activity.util.ActivityUtilActivity;
-import com.sample.ui.activity.util.AppActivity;
-import com.sample.ui.activity.util.ClearActivity;
-import com.sample.ui.activity.util.NetworkActivity;
-import com.sample.ui.activity.util.NumberActivity;
-import com.sample.ui.activity.util.PermissionManagerActivity;
-import com.sample.ui.activity.util.ScreenActivity;
-import com.sample.ui.activity.util.ToastActivity;
 import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
 import com.sample.ui.activity.view.ShapeViewActivity;
 import com.siberiadante.lib.util.ActivityUtil;
+import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.TransitionTools;
 
 import java.util.ArrayList;
@@ -44,25 +37,30 @@ import java.util.List;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class ViewFragment extends BaseFragment implements RecyclerArrayAdapter.OnItemClickListener {
+public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.OnItemClickListener {
     public static final String TAG = ViewFragment.class.getSimpleName();
     private EasyRecyclerView mRecyclerView;
     private List<UtilData> datas;
     private CustomAdapter adapter;
     private FloatingActionButton mTop;
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        layout = inflater.inflate(R.layout.fragment_view, container, false);
-        return layout;
+    public static ViewFragment getInstance() {
+        return new ViewFragment();
     }
 
     @Override
-    protected void initView() {
-        mTop = ((FloatingActionButton) layout.findViewById(R.id.fab_view_top));
+    protected void onCreateViewLazy(Bundle savedInstanceState) {
+        super.onCreateViewLazy(savedInstanceState);
+        setContentView(R.layout.fragment_view);
+        LogUtil.d("-------------ViewFragment----------------");
 
-        mRecyclerView = ((EasyRecyclerView) layout.findViewById(R.id.erv_view));
+        initView();
+        initData();
+    }
+
+    protected void initView() {
+        mTop = ((FloatingActionButton) findViewById(R.id.fab_view_top));
+        mRecyclerView = ((EasyRecyclerView) findViewById(R.id.erv_view));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         DividerDecoration itemDecoration = new DividerDecoration(Color.GRAY, TransitionTools.dip2px(1f), 0, 0);
         itemDecoration.setDrawHeaderFooter(false);
@@ -79,12 +77,7 @@ public class ViewFragment extends BaseFragment implements RecyclerArrayAdapter.O
         });
     }
 
-    @Override
-    protected void initIntent() {
 
-    }
-
-    @Override
     protected void initData() {
         datas = new ArrayList<>();
         datas.add(new UtilData("各种Dialog", DialogActivity.class.getName()));

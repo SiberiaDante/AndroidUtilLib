@@ -4,16 +4,17 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.sample.ui.activity.Main2Activity;
+import com.sample.ui.activity.SecondActivity;
 import com.siberiadante.lib.util.ActivityUtil;
 
 public class ActivityUtilActivity extends BaseActivity {
 
     private static final String TAG = ActivityUtilActivity.class.getSimpleName();
+    private TextView mTvContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,21 +25,24 @@ public class ActivityUtilActivity extends BaseActivity {
     }
 
     public void initView() {
-        Button mBtnStartActivity = (Button) findViewById(R.id.btn_start_other_activity);
-        mBtnStartActivity.setOnClickListener(new View.OnClickListener() {
+        mTvContent = (TextView) findViewById(R.id.tv_activity_test);
+        findViewById(R.id.btn_start_other_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityUtil.launchActivity("com.sample", Main2Activity.class.getName());
+                ActivityUtil.launchActivity("com.sample", SecondActivity.class.getName());
             }
         });
     }
 
     public void initData() {
-        boolean activityExists = ActivityUtil.isActivityExists("com.sample", Main2Activity.class.getName());
-        Log.d(TAG, "testOne: activityExists:" + Main2Activity.class.getName() + "activityExists???" + activityExists);
+        final StringBuilder builder = new StringBuilder();
+        builder.append("1.包名'com.sample'的SecondActivity是否存在---");
+        builder.append(ActivityUtil.isActivityExists("com.sample", SecondActivity.class.getName()) + "\n");
+
+        mTvContent.setText(builder);
         String launcherActivity = ActivityUtil.getLauncherActivity("com.sample");
-        Log.d(TAG, "initData: launcherActivity=="+launcherActivity);
+        Log.d(TAG, "initData: launcherActivity==" + launcherActivity);
         Activity topActivity = ActivityUtil.getTopActivity();
-        Log.d(TAG, "initData: topActivity=="+topActivity);
+        Log.d(TAG, "initData: topActivity==" + topActivity);
     }
 }

@@ -147,6 +147,17 @@ public class DateUtil {
     }
 
     /**
+     *
+     * @return
+     */
+    public static String getStrToTime() {
+        String format = "yyyy年MM月dd日 HH时mm分ss秒";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
      * @param str 时间戳
      * @return HH:mm    15:44
      */

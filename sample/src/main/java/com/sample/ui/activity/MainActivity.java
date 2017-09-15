@@ -1,24 +1,34 @@
 package com.sample.ui.activity;
 
 import android.Manifest;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.sample.R;
 import com.sample.adapter.MainActivityAdapter;
+import com.sample.ui.fragment.LeftDrawFragment;
 import com.sample.ui.fragment.MainFragment;
 import com.sample.ui.fragment.UtilFragment;
 import com.sample.ui.fragment.OtherFragment;
 import com.sample.ui.fragment.ViewFragment;
 import com.siberiadante.lib.manager.PermissionManager;
+import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.view.TitleBarLayout;
+
+import org.greenrobot.eventbus.util.ErrorDialogManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,37 +39,76 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     public static final String TAG = MainActivity.class.getSimpleName();
     private ViewPager mViewPager;
     private RadioButton mRBOne, mRBTwo, mRBThree, mRBFour;
+    private FrameLayout mFLDraw;
+    private ActionBarDrawerToggle mToggle;
+    private DrawerLayout drawerLayout;
+    public TitleBarLayout mMianTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SwipeBackHelper.getCurrentPage(this)
+                .setSwipeBackEnable(false);
+        SwipeBackHelper.getCurrentPage(this)
+                .setSwipeRelateEnable(true)
+                .setDisallowInterceptTouchEvent(true);
+
         initView();
         initData();
     }
 
     public void initView() {
+        mMianTitle = (TitleBarLayout) findViewById(R.id.title_layout_main);
         final RadioGroup mRGHome = (RadioGroup) findViewById(R.id.rg_home);
         mRBOne = (RadioButton) findViewById(R.id.rb_home_one);
         mRBTwo = (RadioButton) findViewById(R.id.rb_home_two);
         mRBThree = (RadioButton) findViewById(R.id.rb_home_three);
         mRBFour = (RadioButton) findViewById(R.id.rb_home_four);
         mViewPager = (ViewPager) findViewById(R.id.vp_home);
-
         mRGHome.setOnCheckedChangeListener(this);
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        mFLDraw = (FrameLayout) findViewById(R.id.left_drawer);
+
+        mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.about_me, R.string.app_name) {
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                LogUtil.d("--------close---------------");
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                LogUtil.d("--------open---------------");
+                final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.add(R.id.left_drawer, new LeftDrawFragment());
+                transaction.commit();
+            }
+        }
+        ;
+        drawerLayout.addDrawerListener(mToggle);
+
+        mMianTitle.setTitleClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
     }
 
     public void initData() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new MainFragment());
-        fragments.add(new ViewFragment());
-        fragments.add(new UtilFragment());
-        fragments.add(new OtherFragment());
+        fragments.add(MainFragment.getInstance());
+        fragments.add(ViewFragment.getInstance());
+        fragments.add(UtilFragment.getInstance());
+        fragments.add(OtherFragment.getInstance());
         mViewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager(), fragments));
         mViewPager.setCurrentItem(0);
+        mViewPager.setOffscreenPageLimit(4);
         mViewPager.addOnPageChangeListener(this);
         mRBOne.setChecked(true);
-        mRBOne.setTextColor(getResources().getColor(R.color.green));
         testPermission();
     }
 
@@ -85,31 +134,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         switch (i) {
             case R.id.rb_home_one:
                 mViewPager.setCurrentItem(0, false);
-                mRBOne.setTextColor(getResources().getColor(R.color.green));
-                mRBTwo.setTextColor(getResources().getColor(R.color.gray));
-                mRBThree.setTextColor(getResources().getColor(R.color.gray));
-                mRBFour.setTextColor(getResources().getColor(R.color.gray));
+                mMianTitle.setTitle("SiberiaDante");
                 break;
             case R.id.rb_home_two:
                 mViewPager.setCurrentItem(1, false);
-                mRBOne.setTextColor(getResources().getColor(R.color.gray));
-                mRBTwo.setTextColor(getResources().getColor(R.color.red));
-                mRBThree.setTextColor(getResources().getColor(R.color.gray));
-                mRBFour.setTextColor(getResources().getColor(R.color.gray));
+                mMianTitle.setTitle("封装组件等相关测试");
                 break;
             case R.id.rb_home_three:
                 mViewPager.setCurrentItem(2, false);
-                mRBOne.setTextColor(getResources().getColor(R.color.gray));
-                mRBTwo.setTextColor(getResources().getColor(R.color.gray));
-                mRBThree.setTextColor(getResources().getColor(R.color.red));
-                mRBFour.setTextColor(getResources().getColor(R.color.gray));
+                mMianTitle.setTitle("封装工具类等相关测试");
                 break;
             case R.id.rb_home_four:
                 mViewPager.setCurrentItem(3, false);
-                mRBOne.setTextColor(getResources().getColor(R.color.gray));
-                mRBTwo.setTextColor(getResources().getColor(R.color.gray));
-                mRBThree.setTextColor(getResources().getColor(R.color.gray));
-                mRBFour.setTextColor(getResources().getColor(R.color.green));
                 break;
         }
     }

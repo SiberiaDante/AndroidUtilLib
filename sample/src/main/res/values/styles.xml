@@ -11,6 +11,9 @@
     <style name="MainTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
     </style>
+    <style name="ForbidBackTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
     <style name="MainButton" parent="MatchWrapParent">
         <item name="android:textAllCaps">false</item>
     </style>
