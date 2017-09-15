@@ -49,6 +49,15 @@ public class SDCardUtil {
     }
 
     /**
+     * 判断SDCard是否可拆卸
+     *
+     * @return
+     */
+    public static boolean isSDCarfRemovable() {
+        return Environment.isExternalStorageRemovable();
+    }
+
+    /**
      * 获取SD卡的根目录
      *
      * @return
@@ -252,6 +261,72 @@ public class SDCardUtil {
     }
 
     /**
+     * 获取下载文件存储路径
+     *
+     * @return
+     */
+    public static String getDownloadCachePath() {
+        return Environment.getDownloadCacheDirectory().toString();
+    }
+
+    /**
+     * 获取当前程序路径 应用在内存上的目录 :/data/data/com.sample/files
+     *
+     * @return
+     */
+    public static String getCurrentAppStoragePath() {
+        return SiberiaDanteLib.getContext().getFilesDir().toString();
+    }
+
+    /**
+     * 应用的在内存上的缓存目录 :/data/data/com.sample/cache
+     *
+     * @return
+     */
+    public static String getCurrentAppCachePath() {
+        return SiberiaDanteLib.getContext().getCacheDir().toString();
+    }
+
+    /**
+     * 应用在外部存储上的目录 :/storage/emulated/0/Android/data/com.sample/files/Movies
+     *
+     * @return
+     */
+    public static String getCurrentAppExternalStoragePath() {
+        return SiberiaDanteLib.getContext().getExternalFilesDir(Environment.DIRECTORY_MOVIES).toString();
+    }
+
+    /**
+     * 应用的在外部存储上的缓存目录 :/storage/emulated/0/Android/data/com.sample/cache
+     *
+     * @return
+     */
+    public static String getCurrentAppExternalCachePath() {
+        return SiberiaDanteLib.getContext().getExternalCacheDir().toString();
+    }
+
+
+    /**
+     * 获取该程序的安装包路径 :/data/app/com.sample-1.apk
+     *
+     * @return
+     */
+
+    public static String getCurrentAppPackageResourcePath() {
+        return SiberiaDanteLib.getContext().getPackageResourcePath();
+    }
+
+    /**
+     * 获取程序默认数据库路径 :/data/data/com.sample/databases/
+     *
+     * @param dataName
+     * @return
+     */
+    public static String getCurrentAppDatabasePath(String dataName) {
+        return SiberiaDanteLib.getContext().getDatabasePath(dataName).toString();
+    }
+
+    /**
      * 获取SD卡信息
      *
      * @return SDCardInfo
@@ -272,30 +347,10 @@ public class SDCardUtil {
         return sd.toString();
     }
 
-    public static class SDCardInfo {
-        boolean isExist;
-        long totalBlocks;
-        long freeBlocks;
-        long availableBlocks;
-        long blockByteSize;
-        long totalBytes;
-        long freeBytes;
-        long availableBytes;
-
-        @Override
-        public String toString() {
-            return "isExist=" + isExist +
-                    "\ntotalBlocks=" + totalBlocks +
-                    "\nfreeBlocks=" + freeBlocks +
-                    "\navailableBlocks=" + availableBlocks +
-                    "\nblockByteSize=" + blockByteSize +
-                    "\ntotalBytes=" + totalBytes +
-                    "\nfreeBytes=" + freeBytes +
-                    "\navailableBytes=" + availableBytes;
-        }
-    }
 
     //---start---2017-09-14
+
+
     // 往SD卡的公有目录下保存文件
     public static boolean saveFileToSDCardPublicDir(byte[] data, String type,
                                                     String fileName) {
@@ -479,29 +534,6 @@ public class SDCardUtil {
         return null;
     }
 
-    // 获取SD卡公有目录的路径
-    public static String getSDCardPublicDir(String type) {
-        return Environment.getExternalStoragePublicDirectory(type).toString();
-    }
-
-    // 获取SD卡私有Cache目录的路径
-    public static String getSDCardPrivateCacheDir() {
-        return SiberiaDanteLib.getContext().getExternalCacheDir().getAbsolutePath();
-    }
-
-    // 获取SD卡私有Files目录的路径
-    public static String getSDCardPrivateFilesDir(String type) {
-        return SiberiaDanteLib.getContext().getExternalFilesDir(type).getAbsolutePath();
-    }
-
-    /**
-     * @param filePath
-     * @return
-     */
-    public static boolean isFileExist(String filePath) {
-        File file = new File(filePath);
-        return file.isFile();
-    }
 
     // 从sdcard中删除文件
     public static boolean removeFileFromSDCard(String filePath) {
@@ -518,4 +550,52 @@ public class SDCardUtil {
         }
     }
 
+    // 获取SD卡公有目录的路径
+    public static String getSDCardPublicDir(String type) {
+        return Environment.getExternalStoragePublicDirectory(type).toString();
+    }
+
+    // 获取SD卡私有Cache目录的路径
+    public static String getSDCardPrivateCacheDir() {
+        return SiberiaDanteLib.getContext().getExternalCacheDir().getAbsolutePath();
+    }
+
+    // 获取SD卡私有Files目录的路径
+    public static String getSDCardPrivateFilesDir(String type) {
+        return SiberiaDanteLib.getContext().getExternalFilesDir(type).getAbsolutePath();
+    }
+
+    /**
+     * 判断路径文件是否存在
+     *
+     * @param filePath
+     * @return
+     */
+    public static boolean isFileExist(String filePath) {
+        File file = new File(filePath);
+        return file.isFile();
+    }
+
+    public static class SDCardInfo {
+        boolean isExist;
+        long totalBlocks;
+        long freeBlocks;
+        long availableBlocks;
+        long blockByteSize;
+        long totalBytes;
+        long freeBytes;
+        long availableBytes;
+
+        @Override
+        public String toString() {
+            return "isExist=" + isExist +
+                    "\ntotalBlocks=" + totalBlocks +
+                    "\nfreeBlocks=" + freeBlocks +
+                    "\navailableBlocks=" + availableBlocks +
+                    "\nblockByteSize=" + blockByteSize +
+                    "\ntotalBytes=" + totalBytes +
+                    "\nfreeBytes=" + freeBytes +
+                    "\navailableBytes=" + availableBytes;
+        }
+    }
 }

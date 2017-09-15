@@ -16,6 +16,7 @@ import com.sample.R;
 import com.sample.adapter.CustomAdapter;
 import com.sample.bean.UtilData;
 import com.sample.ui.BaseFragment;
+import com.sample.ui.activity.WebVideoActivity;
 import com.sample.ui.activity.util.ActivityUtilActivity;
 import com.sample.ui.activity.util.AppActivity;
 import com.sample.ui.activity.util.ClearActivity;
@@ -91,6 +92,7 @@ public class ViewFragment extends BaseFragment implements RecyclerArrayAdapter.O
         datas.add(new UtilData("Shape封装的View测试", ShapeViewActivity.class.getName()));
         datas.add(new UtilData("点击View切换软件盘测试", KeyBoardActivity.class.getName()));
         datas.add(new UtilData("QQ运动计步器View", QQStepViewActivity.class.getName()));
+        datas.add(new UtilData("WebVideoActivity", WebVideoActivity.class.getName()));
         adapter.addAll(datas);
     }
 
