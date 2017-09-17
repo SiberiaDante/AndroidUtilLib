@@ -67,7 +67,8 @@
         <activity android:name=".ui.activity.util.SDCardUtilActivity" />
         <activity android:name=".ui.activity.WebVideoActivity" />
         <activity android:name=".ui.activity.util.DateUtilActivity" />
-        <activity android:name=".ui.activity.util.LogUtilActivity"></activity>
+        <activity android:name=".ui.activity.util.LogUtilActivity" />
+        <activity android:name=".ui.activity.view.TitleLayoutActivity"></activity>
     </application>
 
 </manifest>

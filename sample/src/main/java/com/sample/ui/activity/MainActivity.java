@@ -72,6 +72,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mFLDraw = (FrameLayout) findViewById(R.id.left_drawer);
 
+        final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.left_drawer, new LeftDrawFragment());
+        transaction.commit();
+
         mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.about_me, R.string.app_name) {
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -83,9 +87,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 LogUtil.d("--------open---------------");
-                final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                transaction.add(R.id.left_drawer, new LeftDrawFragment());
-                transaction.commit();
+//                final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//                transaction.add(R.id.left_drawer, new LeftDrawFragment());
+//                transaction.commit();
             }
         }
         ;

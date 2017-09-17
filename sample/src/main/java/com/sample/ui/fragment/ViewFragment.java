@@ -22,6 +22,7 @@ import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
 import com.sample.ui.activity.view.ShapeViewActivity;
+import com.sample.ui.activity.view.TitleLayoutActivity;
 import com.siberiadante.lib.util.ActivityUtil;
 import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.TransitionTools;
@@ -83,9 +84,10 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
         datas.add(new UtilData("各种Dialog", DialogActivity.class.getName()));
         datas.add(new UtilData("测试文字表情混排对齐", ImageSpanActivity.class.getName()));
         datas.add(new UtilData("Shape封装的View测试", ShapeViewActivity.class.getName()));
-        datas.add(new UtilData("点击View切换软件盘测试", KeyBoardActivity.class.getName()));
-        datas.add(new UtilData("QQ运动计步器View", QQStepViewActivity.class.getName()));
+        datas.add(new UtilData("测试点击View切换软件盘测试", KeyBoardActivity.class.getName()));
+        datas.add(new UtilData("测试QQ运动计步器View", QQStepViewActivity.class.getName()));
         datas.add(new UtilData("WebVideoActivity", WebVideoActivity.class.getName()));
+        datas.add(new UtilData("测试TitleLayout标题栏", TitleLayoutActivity.class.getName()));
         adapter.addAll(datas);
     }
 

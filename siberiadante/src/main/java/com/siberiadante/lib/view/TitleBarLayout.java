@@ -250,7 +250,7 @@ public class TitleBarLayout extends RelativeLayout {
         } else {
             mTvSubTitle.setVisibility(VISIBLE);
             mTvSubTitle.setText(mSubTitle);
-            mTvSubTitle.setTextSize(mSubTitleSize);
+            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
             mTvSubTitle.setTextColor(mSubTitleColor);
             mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
             mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
