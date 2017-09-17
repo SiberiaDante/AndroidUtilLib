@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -32,7 +33,10 @@ public class LogUtil {
 
     public static String TAG = "SiberiaDante";
     private static boolean isDebug = AppInfo.getInstance().isDebug();
-
+    private static String TOP_BORDER = "╔══════════════════════════════════════════════════════════════════════════════════════════════════════════";
+    private static String LEFT_BORDER = "║ ";
+    private static String BOTTOM_BORDER = "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════";
+    private static int CHUNK_SIZE = 106; //设置字节数
 
     public static void setTag(String tag) {
         LogUtil.TAG = tag;
@@ -140,6 +144,30 @@ public class LogUtil {
     }
 
     /**
+     * 以带边框的形式打印log
+     *
+     * @param tag
+     * @param msg
+     */
+    public static void showSquareLogI(String tag, String msg) {
+        if (isDebug) {
+            i(tag, msgFormat(targetStackTraceMSg(), msg));
+        }
+    }
+
+    /**
+     * 以带边框的形式打印log
+     *
+     * @param tag
+     * @param msg
+     */
+    public static void showSquareLogE(String tag, String msg) {
+        if (isDebug) {
+            e(tag, msgFormat(targetStackTraceMSg(), msg));
+        }
+    }
+
+    /**
      * 分段打印出较长log文本
      *
      * @param logContent 打印文本
@@ -164,6 +192,12 @@ public class LogUtil {
         }
     }
 
+
+    /**
+     * 文件形式存储到SD卡
+     *
+     * @param info
+     */
     public static void eFile(String info) {
         long timestamp = System.currentTimeMillis();
         String time = DateUtil.getSDFTime(DateUtil.getTimeStamp());
@@ -191,5 +225,58 @@ public class LogUtil {
                 e.printStackTrace();
             }
         }
+    }
+
+
+    private static String targetStackTraceMSg() {
+        StackTraceElement targetStackTraceElement = getTargetStackTraceElement();
+        if (targetStackTraceElement != null) {
+            return "at " + targetStackTraceElement.getClassName() + "." + targetStackTraceElement.getMethodName() +
+                    "(" + targetStackTraceElement.getFileName() + ":" + targetStackTraceElement.getLineNumber() + ")";
+
+        } else {
+            return "";
+        }
+    }
+
+    private static StackTraceElement getTargetStackTraceElement() {
+        StackTraceElement targetStackTrace = null;
+        boolean shouldTrace = false;
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+
+        for (StackTraceElement stackTraceElement : stackTrace) {
+            boolean isLogMethod = stackTraceElement.getClassName().equals(LogUtil.class.getName());
+            if (shouldTrace && !isLogMethod) {
+                targetStackTrace = stackTraceElement;
+                break;
+            }
+            shouldTrace = isLogMethod;
+        }
+        return targetStackTrace;
+    }
+
+    private static String msgFormat(String stackstr, String msg) {
+        byte[] bytes = new byte[0];
+        try {
+            bytes = msg.getBytes("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        int length = bytes.length;
+        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + DateUtil.getSDFTimeYMDHSM() + "\n" + LEFT_BORDER + "\t" + stackstr;
+        if (length > CHUNK_SIZE) {
+            int i = 0;
+            while (i < length) {
+                int count = Math.min(length - i, CHUNK_SIZE);
+                String tempStr = new String(bytes, i, count);
+                newMsg += "\n" + LEFT_BORDER + "\t" + tempStr;
+                i += CHUNK_SIZE;
+            }
+        } else {
+            newMsg += "\n" + LEFT_BORDER + "\t" + msg;
+        }
+        newMsg += "\n" + BOTTOM_BORDER;
+        return newMsg;
+
     }
 }

@@ -20,6 +20,7 @@ import com.sample.ui.activity.util.ActivityUtilActivity;
 import com.sample.ui.activity.util.AppActivity;
 import com.sample.ui.activity.util.ClearActivity;
 import com.sample.ui.activity.util.DateUtilActivity;
+import com.sample.ui.activity.util.LogUtilActivity;
 import com.sample.ui.activity.util.NetworkActivity;
 import com.sample.ui.activity.util.NumberActivity;
 import com.sample.ui.activity.util.PermissionManagerActivity;
@@ -88,6 +89,7 @@ public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.O
         datas.add(new UtilData("测试AppUtil类", AppActivity.class.getName()));
         datas.add(new UtilData("测试ClearUtil类", ClearActivity.class.getName()));
         datas.add(new UtilData("测试DataUtil类", DateUtilActivity.class.getName()));
+        datas.add(new UtilData("测试LogUtil类", LogUtilActivity.class.getName()));
         datas.add(new UtilData("测试NetworkUtil类", NetworkActivity.class.getName()));
         datas.add(new UtilData("测试NumberUtil类", NumberActivity.class.getName()));
         datas.add(new UtilData("测试PermissionManagerUtil类", PermissionManagerActivity.class.getName()));
