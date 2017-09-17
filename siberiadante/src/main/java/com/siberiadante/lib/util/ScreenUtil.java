@@ -106,7 +106,7 @@ public class ScreenUtil {
 
     /**
      * 透明状态栏
-     * 需要设置的xml中增加属性：
+     * 视情况需要设置的xml中增加属性：
      * android:clipToPadding="true"
      * android:fitsSystemWindows="true"
      * 案例：sample/.../activity/ScreenActivity.java

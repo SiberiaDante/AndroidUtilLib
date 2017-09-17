@@ -27,6 +27,7 @@ import com.sample.ui.activity.util.PermissionManagerActivity;
 import com.sample.ui.activity.util.SDCardUtilActivity;
 import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.util.ToastActivity;
+import com.sample.util.JumpUtils;
 import com.siberiadante.lib.util.ActivityUtil;
 import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.TransitionTools;
@@ -105,8 +106,7 @@ public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.O
     }
 
     private void startUtilActivity(int position) {
-        ActivityUtil.launchActivity("com.sample", datas.get(position).getCls());
-
+        JumpUtils.startJumpActivity(datas.get(position).getCls());
     }
 
 }

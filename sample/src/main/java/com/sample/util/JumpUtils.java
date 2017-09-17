@@ -11,6 +11,7 @@ import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
 import com.sample.ui.activity.view.ShapeViewActivity;
+import com.siberiadante.lib.util.ActivityUtil;
 
 /**
  * @Created SiberiaDante
@@ -21,6 +22,15 @@ import com.sample.ui.activity.view.ShapeViewActivity;
  */
 
 public class JumpUtils {
+
+    /**
+     * 启动一个Activity
+     *
+     * @param activityName
+     */
+    public static void startJumpActivity(String activityName) {
+        ActivityUtil.launchActivity("com.sample", activityName);
+    }
 
     private static Intent intent;
 
@@ -54,6 +64,7 @@ public class JumpUtils {
         activity.startActivity(intent);
 
     }
+
     public static void goToKeyBoardActivity(Activity activity) {
         intent = new Intent(activity, KeyBoardActivity.class);
         activity.startActivity(intent);

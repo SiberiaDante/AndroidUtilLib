@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.SplashActivity" />
-        <activity android:name=".ui.activity.Main2Activity"></activity>
+        <activity android:name=".ui.activity.Main2Activity" />
+        <activity android:name=".ui.activity.DownloadActivity" />
+        <activity android:name=".ui.activity.user.RegisterActivity" />
+        <activity android:name=".ui.activity.user.LoginActivity"></activity>
     </application>
 
 </manifest>

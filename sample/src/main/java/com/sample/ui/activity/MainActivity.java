@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -89,11 +90,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         }
         ;
         drawerLayout.addDrawerListener(mToggle);
-
         mMianTitle.setTitleClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 drawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
+        mMianTitle.setLeftClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ToastUtil.toast("back");
             }
         });
     }
@@ -134,7 +140,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         switch (i) {
             case R.id.rb_home_one:
                 mViewPager.setCurrentItem(0, false);
-                mMianTitle.setTitle("SiberiaDante");
+                mMianTitle.setTitle("SiberiaDanteSiberiaDanteSiberiaDanteSiberiaDante——点我");
                 break;
             case R.id.rb_home_two:
                 mViewPager.setCurrentItem(1, false);

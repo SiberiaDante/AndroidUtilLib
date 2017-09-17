@@ -149,6 +149,11 @@
         <attr name="d_title_color" />
         <attr name="d_title_style" />
 
+        <attr name="d_subtitle_text" />
+        <attr name="d_subtitle_size" />
+        <attr name="d_subtitle_color" />
+        <attr name="d_subtitle_style" />
+
         <attr name="d_right_text" />
         <attr name="d_right_text_color" />
         <attr name="d_right_text_size" />
@@ -184,6 +189,11 @@
     <attr name="d_title_padding_start" format="dimension|reference" />
     <attr name="d_title_padding_end" format="dimension|reference" />
     <attr name="d_title_style" format="reference" />
+
+    <attr name="d_subtitle_text" format="reference|string" />
+    <attr name="d_subtitle_size" format="dimension|reference" />
+    <attr name="d_subtitle_color" format="dimension|reference" />
+    <attr name="d_subtitle_style" format="reference" />
 
     <attr name="d_right_text" format="reference|string" />
     <attr name="d_right_text_color" format="color|reference" />

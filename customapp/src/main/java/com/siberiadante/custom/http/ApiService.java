@@ -1,5 +1,6 @@
 package com.siberiadante.custom.http;
 
+import com.siberiadante.custom.bean.LoginResponse;
 import com.siberiadante.custom.bean.NewsData;
 import com.siberiadante.custom.bean.QuestionData;
 import com.siberiadante.custom.bean.base.WrapResult;
@@ -43,4 +44,7 @@ public interface ApiService {
 
     @POST("api/news")
     Observable<WrapResult<List<NewsData>>> newsApiT(@Body RequestBody body);
+
+    @POST("api/login")
+    Observable<WrapResult<LoginResponse>> getLoginApi(@FieldMap Map<String, String> map);
 }
