@@ -56,7 +56,6 @@ public final class SiberiaDanteLib {
             return context;
         } else {
             throw new NullPointerException(context.getString(R.string.NotInitError));
-
         }
     }
 

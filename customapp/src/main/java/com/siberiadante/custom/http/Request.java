@@ -1,5 +1,6 @@
 package com.siberiadante.custom.http;
 
+import com.siberiadante.custom.bean.LoginResponse;
 import com.siberiadante.custom.bean.NewsData;
 import com.siberiadante.custom.bean.base.WrapResult;
 
@@ -22,11 +23,16 @@ public class Request {
     private ObservableTransformer transformer = RetrofitManager.getInstance().BaseTransformer();
 
     public static Request getInstance() {
-        return new Request();
+        return RequestHolder.request;
     }
 
-    public Observable<WrapResult<List<NewsData>>> getNewsData(int page, int count) {
-        RequestBody requestBody = Params.getNews(page, count);
-        return apiService.newsApiT(requestBody).compose(transformer);
+    private static class RequestHolder {
+        private static final Request request = new Request();
     }
+
+    public Observable<WrapResult<LoginResponse>> getLoginParams(String username, String psd) {
+        RequestBody requestBody = Params.getLoginParams(username, psd);
+        return apiService.getLoginApiB(requestBody).compose(transformer);
+    }
+
 }

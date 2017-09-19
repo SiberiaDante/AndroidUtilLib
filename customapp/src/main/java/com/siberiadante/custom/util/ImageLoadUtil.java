@@ -16,7 +16,7 @@ import com.siberiadante.lib.util.StringUtil;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： Fresco图片加载框架
  * @Time: 2017/9/5
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
@@ -25,6 +25,12 @@ import com.siberiadante.lib.util.StringUtil;
 public class ImageLoadUtil {
 
 
+    /**
+     * 设置图片url
+     *
+     * @param url
+     * @param imageView
+     */
     public static void frescoImage(String url, SimpleDraweeView imageView) {
         GenericDraweeHierarchyBuilder builder = new GenericDraweeHierarchyBuilder(MyApplication.getInstance().getResources());
         GenericDraweeHierarchy hierarchy = builder
@@ -37,6 +43,12 @@ public class ImageLoadUtil {
         imageView.setImageURI(url);
     }
 
+    /**
+     * 设置图片URL，默认圆角10
+     *
+     * @param url
+     * @param imageView
+     */
     public static void frescoImageRadius(String url, SimpleDraweeView imageView) {
         GenericDraweeHierarchyBuilder builder = new GenericDraweeHierarchyBuilder(MyApplication.getInstance().getResources());
         GenericDraweeHierarchy hierarchy = builder
@@ -47,7 +59,25 @@ public class ImageLoadUtil {
                 .build();
         imageView.setHierarchy(hierarchy);
         imageView.setImageURI(url);
+    }
 
+    /**
+     * 设置圆角图片URL
+     *
+     * @param url
+     * @param imageView
+     * @param radius
+     */
+    public static void frescoImageRadius(String url, SimpleDraweeView imageView, int radius) {
+        GenericDraweeHierarchyBuilder builder = new GenericDraweeHierarchyBuilder(MyApplication.getInstance().getResources());
+        GenericDraweeHierarchy hierarchy = builder
+                .setFadeDuration(300)
+                .setPlaceholderImage(R.mipmap.ic_launcher)
+                .setRoundingParams(new RoundingParams().setCornersRadius(radius))
+                .setFailureImage(R.mipmap.ic_launcher)
+                .build();
+        imageView.setHierarchy(hierarchy);
+        imageView.setImageURI(url);
     }
 
     public static void frescoImageLoad(String uri, SimpleDraweeView simpleDraweeView) {

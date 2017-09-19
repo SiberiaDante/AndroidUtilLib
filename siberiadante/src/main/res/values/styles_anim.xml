@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- dialog底部弹出菜单动画 -->
+    <style name="bottom_animation" parent="android:Animation">
+        <item name="@android:windowEnterAnimation">@anim/bottom_enter</item>
+        <item name="@android:windowExitAnimation">@anim/bottom_exit</item>
+    </style>
+</resources>

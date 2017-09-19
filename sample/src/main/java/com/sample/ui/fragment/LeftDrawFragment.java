@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.sample.R;
 import com.sample.constants.Constants;
 import com.sample.ui.BaseFragmentN;
+import com.sample.util.JumpUtils;
 
 /**
  * @Created SiberiaDante
@@ -37,17 +38,16 @@ public class LeftDrawFragment extends LazyFragment implements View.OnClickListen
     protected void initView() {
         findViewById(R.id.ll_github).setOnClickListener(this);
         findViewById(R.id.ll_blog).setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_github:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.GIT_HUB)));
+                JumpUtils.startJumpBrowser(Constants.GIT_HUB);
                 break;
             case R.id.ll_blog:
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.B_LOG)));
+                JumpUtils.startJumpBrowser(Constants.B_LOG);
                 break;
         }
     }

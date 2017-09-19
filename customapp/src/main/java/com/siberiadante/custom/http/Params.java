@@ -2,6 +2,7 @@ package com.siberiadante.custom.http;
 
 import com.siberiadante.custom.constant.Constants;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -18,18 +19,19 @@ import okhttp3.RequestBody;
  * @GitHub: https://github.com/SiberiaDante
  */
 
- class Params {
+class Params {
 
-    static RequestBody getNews(int page, int count) {
-        Map<String, String> map = new TreeMap<>();
+    static RequestBody getLoginParams(String username, String psd) {
+        HashMap<String, String> map = new HashMap<>();
         map.put("access_token", Constants.ACCESS_TOKEN);
-        map.put("method", Constants.METHOD_GET);
-        map.put("page", String.valueOf(page));
-        map.put("method", String.valueOf(count));
+        map.put("method", Constants.METHOD_POST);
+        map.put("username", username);
+        map.put("password", psd);
+        map.put("type", "mobile");
         return paramsData(map);
     }
 
-    static RequestBody paramsData(Map<String, String> map) {
+    static RequestBody paramsData(HashMap<String, String> map) {
         return RequestBody.create(MediaType.parse("application/x-www-form-urlencoded"), map.toString());
     }
 

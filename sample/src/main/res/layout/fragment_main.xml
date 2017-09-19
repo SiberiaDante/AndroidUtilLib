@@ -28,10 +28,10 @@
                 android:text="Android万能通用标题栏封装" />
 
             <Button
-                android:id="@+id/btn_rx_java"
+                android:id="@+id/btn_custom_dialog"
                 style="@style/MainButton"
                 android:gravity="center_vertical"
-                android:text="给初学者的RxJava2.0教程(一)" />
+                android:text="CustomDialog——一个多功能、通用、可自定义的Dialog" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

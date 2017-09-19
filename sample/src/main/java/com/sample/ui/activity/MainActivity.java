@@ -144,7 +144,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         switch (i) {
             case R.id.rb_home_one:
                 mViewPager.setCurrentItem(0, false);
-                mMianTitle.setTitle("SiberiaDanteSiberiaDanteSiberiaDanteSiberiaDante——点我");
+                mMianTitle.setTitle("SiberiaDante——点我");
                 break;
             case R.id.rb_home_two:
                 mViewPager.setCurrentItem(1, false);

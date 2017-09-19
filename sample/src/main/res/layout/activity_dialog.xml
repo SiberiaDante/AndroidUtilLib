@@ -77,14 +77,14 @@
                 android:text="加载提示" />
 
             <!--<Button-->
-                <!--android:id="@+id/btn_ensure_dialog_0"-->
-                <!--style="@style/MainButton"-->
-                <!--android:text="确定-0" />-->
+            <!--android:id="@+id/btn_ensure_dialog_0"-->
+            <!--style="@style/MainButton"-->
+            <!--android:text="确定-0" />-->
 
-            <!--<Button-->
-                <!--android:id="@+id/btn_ensure_dialog_1"-->
-                <!--style="@style/MainButton"-->
-                <!--android:text="确定-1" />-->
+            <Button
+                android:id="@+id/btn_custom_dialog"
+                style="@style/MainButton"
+                android:text="自定义布局的Dialog" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

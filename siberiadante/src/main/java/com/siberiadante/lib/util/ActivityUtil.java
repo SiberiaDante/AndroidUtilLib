@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.AnimRes;
@@ -30,6 +31,16 @@ public class ActivityUtil {
     public ActivityUtil() {
 //        throw new UnsupportedOperationException("unInit SiberiaDanteLib");
         new SiberiaDanteLibException();
+    }
+
+
+    /**
+     * 通过浏览器打开一个链接
+     *
+     * @param url
+     */
+    public static void startBrowser(String url) {
+        SiberiaDanteLib.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 
     /**

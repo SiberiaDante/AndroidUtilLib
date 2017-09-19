@@ -14,6 +14,7 @@ import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.ScreenUtil;
 import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.view.CustomDialog;
 import com.siberiadante.lib.view.EditDialog;
 import com.siberiadante.lib.view.BottomPopupWindow;
 import com.siberiadante.lib.view.EnsureDialog;
@@ -27,6 +28,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
 
     private static final String TAG = DialogActivity.class.getSimpleName();
     private EnsureDialog ensureDialog;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -55,7 +57,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.btn_comment_dialog).setOnClickListener(this);
         findViewById(R.id.btn_red_package_dialog).setOnClickListener(this);
         findViewById(R.id.btn_loading_dialog).setOnClickListener(this);
-//        findViewById(R.id.btn_ensure_dialog_0).setOnClickListener(this);
+        findViewById(R.id.btn_custom_dialog).setOnClickListener(this);
 //        findViewById(R.id.btn_ensure_dialog_1).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) findViewById(R.id.titleBar_dialog_activity));
         initTitle(titleBar);
@@ -130,9 +132,9 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn_loading_dialog:
                 showLoadingDialog();
                 break;
-//            case R.id.btn_ensure_dialog_0:
-//                showEnsureNiceDialog0();
-//                break;
+            case R.id.btn_custom_dialog:
+                showCustomDialog();
+                break;
 //            case R.id.btn_ensure_dialog_1:
 //                showEnsureNiceDialog1();
 //                break;
@@ -364,6 +366,18 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                 .setHeight(100)
                 .setDimAmount(0)
                 .show(getSupportFragmentManager());
+    }
+
+    private void showCustomDialog() {
+        final CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, 0, true, Gravity.CENTER);
+        customDialog.setOnCenterItemClickListener(new CustomDialog.OnCenterItemClickListener() {
+            @Override
+            public void OnCenterItemClick(CustomDialog dialog, View view) {
+//                customDialog.dismiss();
+                ToastUtil.toast("确定按钮被点击了");
+            }
+        });
+        customDialog.show();
     }
 
 }

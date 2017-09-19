@@ -2,23 +2,16 @@ package com.siberiadante.lib.util;
 
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
-
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
 
 /**
  * Created by SiberiaDante on 2017/5/4.

@@ -8,45 +8,16 @@
 * [email:994537867@qq.com] [siberiadante@gmail.com]
 * 关注我的微信公众号: [tstongxiao]
 ![微信公众号图片](/sample/src/main/assets/images/qrcode.jpg)
+## 推荐
 ### [Android开发必备经典收藏集（整理中）]
+### [TitleLayout——通用万能标题栏]
+### [CustomDialog——通用万能Dialog]
 ## gradle依赖方法
-* Step 1.Add it in your root build.gradle at the end of repositories:
-
-```
-allprojects {
-    repositories {
-	 ...
-	 maven { url 'https://jitpack.io' }
-	}
-}
-```
-* Step 2. Add the dependency
-
 ```
 dependencies {
     compile 'com.github.SibreiaDante:SiberiaDanteLib:1.0.2'
 	}
 ```
-## maven依赖方法
-* Step 1.Add the JitPack repository to your build file
-```
-<repositories>
-	<repository>
-	    <id>jitpack.io</id>
-	    <url>https://jitpack.io</url>
-	</repository>
-</repositories>
-```
-* Step 2.Add the dependency
-```
-<dependency>
-    <groupId>com.github.SibreiaDante</groupId>
-    <artifactId>SiberiaDanteLib</artifactId>
-    <version>1.0.2</version>
-</dependency>
-```
-## module依赖方法
-下载SiberiaDante，以module的方式导入项目，在build.gradle中添加代码：compile project(':siberiadante')
 ### 说明
 * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
 * 开启Debug模式：SiberiaDanteLib.setDebug(true);

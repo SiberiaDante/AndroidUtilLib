@@ -1,6 +1,7 @@
 package com.sample.ui.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import com.sample.R;
 import com.sample.constants.Constants;
 import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.WebViewActivity;
+import com.sample.util.JumpUtils;
 import com.siberiadante.lib.util.ScreenUtil;
 import com.squareup.haha.perflib.Main;
 
@@ -47,7 +49,7 @@ public class MainFragment extends LazyFragment implements View.OnClickListener {
     protected void initView() {
         mBtnLib = (Button) findViewById(R.id.btn_siberia_dante_lib);
         mBtnTitleLayout = (Button) findViewById(R.id.btn_custom_title_layout);
-        mBtnRXJava = (Button) findViewById(R.id.btn_rx_java);
+        mBtnRXJava = (Button) findViewById(R.id.btn_custom_dialog);
 
         mBtnLib.setOnClickListener(this);
         mBtnTitleLayout.setOnClickListener(this);
@@ -58,23 +60,20 @@ public class MainFragment extends LazyFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent intent;
-        intent = new Intent(getActivity(), WebViewActivity.class);
         switch (view.getId()) {
             case R.id.btn_siberia_dante_lib:
-                intent.putExtra("url", Constants.URL_SIBERIADANTE_LIB);
-                intent.putExtra("title", mBtnLib.getText().toString());
+                startBrowser(Constants.URL_SIBERIADANTE_LIB);
                 break;
             case R.id.btn_custom_title_layout:
-                intent.putExtra("url", Constants.URL_TITLE_LAYOUT);
-                intent.putExtra("title", mBtnTitleLayout.getText().toString());
+                startBrowser(Constants.URL_TITLE_LAYOUT);
                 break;
-//            case R.id.btn_rx_java:
-//                intent.putExtra("url", Constants.URL_RX_JAVA);
-//                intent.putExtra("title", mBtnRXJava.getText().toString());
-//                break;
+            case R.id.btn_custom_dialog:
+                startBrowser(Constants.URL_CUSTOM_DIALOG);
+                break;
         }
-        startActivity(intent);
+    }
 
+    public void startBrowser(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 }

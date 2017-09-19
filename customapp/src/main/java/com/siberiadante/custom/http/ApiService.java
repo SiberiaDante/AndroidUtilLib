@@ -36,15 +36,10 @@ public interface ApiService {
                                                    @Field("page") String page,
                                                    @Field("count") String count);
 
-
     @FormUrlEncoded
-    @POST("api/news")
-    Observable<WrapResult<List<NewsData>>> newsApiA(@FieldMap Map<String, String> map);
-
-
-    @POST("api/news")
-    Observable<WrapResult<List<NewsData>>> newsApiT(@Body RequestBody body);
-
-    @POST("api/login")
+    @POST("api/authorization")
     Observable<WrapResult<LoginResponse>> getLoginApi(@FieldMap Map<String, String> map);
+
+    @POST("api/authorization")
+    Observable<WrapResult<LoginResponse>> getLoginApiB(@Body RequestBody body);
 }
