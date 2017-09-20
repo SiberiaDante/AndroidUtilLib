@@ -81,7 +81,6 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
                 stringList.add("宝塔镇河妖");
                 stringList.add("糗百一入深似海");
                 stringList.add("从此纯洁是路人");
-
                 ToastUtil.showLines(stringList, 20);
                 break;
             case R.id.btn_show_layout:

@@ -13,59 +13,79 @@
         android:layout_height="wrap_content"
         android:background="@color/red" />
 
-    <Button
-        android:id="@+id/btn_show_singleton_text"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toast文本、单例模式"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_show_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toast一张图片"
-        android:textAllCaps="false" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_show_image_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toast图文混排"
-        android:textAllCaps="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp"
+                android:text="@string/toast_util_tips" />
 
-    <Button
-        android:id="@+id/btn_show_lines"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toast多行文字可设置文字大小"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_show_singleton_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast文本、单例模式"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_show_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toast显示自定义布局"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_show_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast一张图片"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_show_thread"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Toast异步下载图片"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_show_image_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast图文混排"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_toast_cancel"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="取消所有显示的Toast"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_show_lines"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast多行文字可设置文字大小"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_toast_reset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="重置Toast对象"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_show_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast显示自定义布局"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_show_thread"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast异步下载图片"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="取消所有显示的Toast"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_reset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="重置Toast对象"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
