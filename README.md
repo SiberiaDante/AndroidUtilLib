@@ -6,8 +6,8 @@
 
 ## 推荐
 > * [Android开发必备经典收藏集（整理中）]
-  * [TitleLayout——通用万能标题栏]
-  * [CustomDialog——通用万能Dialog]
+* [TitleLayout——通用万能标题栏]
+* [CustomDialog——通用万能Dialog]
 
 ## gradle依赖方法
 ```
