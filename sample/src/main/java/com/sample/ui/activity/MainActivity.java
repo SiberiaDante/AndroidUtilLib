@@ -16,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.github.clans.fab.FloatingActionButton;
 import com.jude.swipbackhelper.SwipeBackHelper;
 import com.sample.R;
 import com.sample.adapter.MainActivityAdapter;
@@ -44,6 +45,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private ActionBarDrawerToggle mToggle;
     private DrawerLayout drawerLayout;
     public TitleBarLayout mMianTitle;
+    private FloatingActionButton mFloatBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +73,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mRGHome.setOnCheckedChangeListener(this);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mFLDraw = (FrameLayout) findViewById(R.id.left_drawer);
+        mFloatBar = (FloatingActionButton) findViewById(R.id.top_main);
 
         final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.left_drawer, new LeftDrawFragment());
+        transaction.add(R.id.left_drawer, LeftDrawFragment.getInstance());
         transaction.commit();
 
         mToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.about_me, R.string.app_name) {
@@ -87,9 +90,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 LogUtil.d("--------open---------------");
-//                final android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.add(R.id.left_drawer, new LeftDrawFragment());
-//                transaction.commit();
             }
         }
         ;
@@ -110,10 +110,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     public void initData() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(MainFragment.getInstance());
-        fragments.add(ViewFragment.getInstance());
-        fragments.add(UtilFragment.getInstance());
-        fragments.add(OtherFragment.getInstance());
+        fragments.add(MainFragment.getInstance(mFloatBar));
+        fragments.add(ViewFragment.getInstance(mFloatBar));
+        fragments.add(UtilFragment.getInstance(mFloatBar));
+        fragments.add(OtherFragment.getInstance(mFloatBar));
         mViewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager(), fragments));
         mViewPager.setCurrentItem(0);
         mViewPager.setOffscreenPageLimit(4);
@@ -156,6 +156,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
                 break;
             case R.id.rb_home_four:
                 mViewPager.setCurrentItem(3, false);
+                mMianTitle.setTitle("其他");
                 break;
         }
     }

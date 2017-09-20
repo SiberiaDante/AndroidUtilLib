@@ -29,7 +29,10 @@ public class PermissionManagerActivity extends BaseActivity {
 
     private void initPermission() {
         //同时申请多个权限
-//        PermissionManager.getInstance(getApplicationContext()).execute(this, Manifest.permission.RECORD_AUDIO, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        PermissionManager.getInstance(getApplicationContext()).execute(this,
+                Manifest.permission.RECORD_AUDIO,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE);
 
         //请求单个，显示对话框的方式
         PermissionManager.getInstance(getApplicationContext()).executeDialog(this, Manifest.permission.RECORD_AUDIO,

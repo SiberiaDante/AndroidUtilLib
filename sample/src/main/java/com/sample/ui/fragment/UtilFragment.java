@@ -50,9 +50,10 @@ public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.O
     private EasyRecyclerView mRecyclerView;
     private List<UtilData> datas;
     private CustomAdapter adapter;
-    private FloatingActionButton mTop;
+    private static FloatingActionButton mTop;
 
-    public static UtilFragment getInstance() {
+    public static UtilFragment getInstance(View view) {
+        mTop = (FloatingActionButton) view;
         return new UtilFragment();
     }
 
@@ -61,14 +62,12 @@ public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.O
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.fragment_util);
         LogUtil.d("-------------UtilFragment----------------");
-
         initView();
         initData();
     }
 
     protected void initView() {
-        mTop = ((FloatingActionButton) findViewById(R.id.top));
-        mRecyclerView = ((EasyRecyclerView) findViewById(R.id.recyclerView));
+        mRecyclerView = ((EasyRecyclerView) findViewById(R.id.recyclerView_util));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         DividerDecoration itemDecoration = new DividerDecoration(Color.GRAY, TransitionTools.dip2px(1f), 0, 0);
         itemDecoration.setDrawHeaderFooter(false);

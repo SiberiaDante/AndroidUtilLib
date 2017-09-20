@@ -1,36 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <FrameLayout
+
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/erv_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:recyclerClipToPadding="true"
+        app:recyclerPadding="8dp"
+        app:recyclerPaddingBottom="8dp"
+        app:recyclerPaddingLeft="8dp"
+        app:recyclerPaddingRight="8dp"
+        app:recyclerPaddingTop="8dp"
+        app:scrollbarStyle="insideOverlay"
+        app:scrollbars="none" />
 
-        <com.jude.easyrecyclerview.EasyRecyclerView
-            android:id="@+id/erv_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:recyclerClipToPadding="true"
-            app:recyclerPadding="8dp"
-            app:recyclerPaddingBottom="8dp"
-            app:recyclerPaddingLeft="8dp"
-            app:recyclerPaddingRight="8dp"
-            app:recyclerPaddingTop="8dp"
-            app:scrollbarStyle="insideOverlay"
-            app:scrollbars="none" />
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/fab_view_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:layout_margin="16dp"
-            android:src="@drawable/ic_top"
-            app:fab_colorNormal="?colorAccent"
-            app:fab_colorPressed="?colorAccent"
-            app:fab_size="normal" />
-    </FrameLayout>
-
-</LinearLayout>
+</FrameLayout>

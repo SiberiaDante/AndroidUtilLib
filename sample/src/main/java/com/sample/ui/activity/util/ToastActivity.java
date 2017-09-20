@@ -33,6 +33,7 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
         Button mBtnShowLayout = (Button) findViewById(R.id.btn_show_layout);
         Button mBtnShowCancel = (Button) findViewById(R.id.btn_toast_cancel);
         Button mBtnShowThread = (Button) findViewById(R.id.btn_show_thread);
+        Button mBtnResetToast = (Button) findViewById(R.id.btn_toast_reset);
 
         mBtnShowTextS.setOnClickListener(this);
         mBtnShowLines.setOnClickListener(this);
@@ -41,6 +42,7 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
         mBtnShowLayout.setOnClickListener(this);
         mBtnShowCancel.setOnClickListener(this);
         mBtnShowThread.setOnClickListener(this);
+        mBtnResetToast.setOnClickListener(this);
     }
 
     private void testToast() {
@@ -93,7 +95,9 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.btn_toast_cancel:
                 ToastUtil.cancelAll();
-
+                break;
+            case R.id.btn_toast_reset:
+                ToastUtil.resetToast();
                 break;
         }
     }

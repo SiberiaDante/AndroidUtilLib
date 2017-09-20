@@ -1,37 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-
-
-    <ScrollView
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recyclerView_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:recyclerClipToPadding="true"
+        app:recyclerPaddingLeft="8dp"
+        app:recyclerPaddingRight="8dp"
+        app:scrollbarStyle="insideOverlay"
+        app:scrollbars="none" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <Button
-                android:id="@+id/btn_siberia_dante_lib"
-                style="@style/MainButton"
-                android:gravity="center_vertical"
-                android:text="Android开发常备工具库" />
-
-            <Button
-                android:id="@+id/btn_custom_title_layout"
-                style="@style/MainButton"
-                android:gravity="center_vertical"
-                android:text="Android万能通用标题栏封装" />
-
-            <Button
-                android:id="@+id/btn_custom_dialog"
-                style="@style/MainButton"
-                android:gravity="center_vertical"
-                android:text="CustomDialog——一个多功能、通用、可自定义的Dialog" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+</FrameLayout>

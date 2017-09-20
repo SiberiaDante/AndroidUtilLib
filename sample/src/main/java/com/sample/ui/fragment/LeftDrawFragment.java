@@ -44,11 +44,15 @@ public class LeftDrawFragment extends LazyFragment implements View.OnClickListen
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_github:
-                JumpUtils.startJumpBrowser(Constants.GIT_HUB);
+                startBrowser(Constants.GIT_HUB);
                 break;
             case R.id.ll_blog:
-                JumpUtils.startJumpBrowser(Constants.B_LOG);
+                startBrowser(Constants.B_LOG);
                 break;
         }
+    }
+
+    public void startBrowser(String url) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 }

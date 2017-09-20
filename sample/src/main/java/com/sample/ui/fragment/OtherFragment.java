@@ -28,7 +28,7 @@ public class OtherFragment extends LazyFragment {
     private static final String TAG = OtherFragment.class.getSimpleName();
     private Bundle savedInstanceState;
 
-    public static OtherFragment getInstance() {
+    public static OtherFragment getInstance(View view) {
         return new OtherFragment();
     }
 
