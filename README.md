@@ -13,9 +13,13 @@ dependencies {
     compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.3'
 	}
 ```
-### 说明
-* 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
-* 开启Debug模式：SiberiaDanteLib.setDebug(true);
+> 使用说明
+
+ * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
+ * 开启Debug模式：SiberiaDanteLib.setDebug(true);
+
+> [版本更新说明]：
+
 ## view
 * [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
 * [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
@@ -58,8 +62,9 @@ dependencies {
 * [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
 * [TransitionTools] :dp、px转换
 
-* 参考资料：https://github.com/Blankj/AndroidUtilCode
-*
+
+
+ 参考资料：https://github.com/Blankj/AndroidUtilCode
 <!--  View-->
 [EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/EditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/BottomPopupWindow.java
