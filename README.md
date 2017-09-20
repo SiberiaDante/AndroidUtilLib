@@ -1,12 +1,7 @@
 # SiberiaDanteLib
-#### 旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d7af8c2c6ec7ccfd9ddce8044efeea717ecb2944/ABOUTME.md)删除。持续更新维护中……）
+#### 旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/6501f32b327dfe511978d7aacef69b145e5a7a0f/ABOUTME.md)删除。持续更新维护中……）
 #### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 #### 所有util、view本人都经过亲测，可用，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢
-#### 欢迎关注：
-* [Github 地址：https://github.com/SibreiaDante/SiberiaDanteLib]
-* [博客园:http://www.cnblogs.com/shen-hua/]
-* [email:994537867@qq.com] [siberiadante@gmail.com]
-* 关注我的微信公众号: [tstongxiao]
 ## 推荐
 ### [Android开发必备经典收藏集（整理中）]
 ### [TitleLayout——通用万能标题栏]
@@ -40,7 +35,7 @@ dependencies {
 * [SuperTextView]：超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
 
-## util(工具类详细说明文档看[这里])
+## util(工具类详细说明文档看[Document_Util])
 * [ActivityUtil] :页面工具类
 * [AppUtil] :获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
 * [ClearUtil] :清除缓存、数据等相关应用
@@ -63,6 +58,7 @@ dependencies {
 * [TransitionTools] :dp、px转换
 
 * 参考资料：https://github.com/Blankj/AndroidUtilCode
+*
 <!--  View-->
 [EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/EditDialog.java
 [BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/BottomPopupWindow.java
@@ -111,11 +107,9 @@ dependencies {
 [TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/TransitionTools.java
 [ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/ToastUtil.java
 
-[这里]:https://github.com/SiberiaDante/SiberiaDanteLib
+[Document_Util]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/6501f32b327dfe511978d7aacef69b145e5a7a0f/DOCUMENT_UTIL.md
 
 
-<!--  微信公众号图片&&top&&mine-->
-[tstongxiao]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/assets/images/qrcode.jpg
 
 <!--  推荐-->
 [Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a
