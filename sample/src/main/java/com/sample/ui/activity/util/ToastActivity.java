@@ -26,54 +26,34 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void initView() {
-        Button mBtnShowTextS = (Button) findViewById(R.id.btn_show_singleton_text);
-        Button mBtnShowLines = (Button) findViewById(R.id.btn_show_lines);
-        Button mBtnShowImage = (Button) findViewById(R.id.btn_show_image);
-        Button mBtnShowIT = (Button) findViewById(R.id.btn_show_image_text);
-        Button mBtnShowLayout = (Button) findViewById(R.id.btn_show_layout);
-        Button mBtnShowCancel = (Button) findViewById(R.id.btn_toast_cancel);
-        Button mBtnShowThread = (Button) findViewById(R.id.btn_show_thread);
-        Button mBtnResetToast = (Button) findViewById(R.id.btn_toast_reset);
 
-        mBtnShowTextS.setOnClickListener(this);
-        mBtnShowLines.setOnClickListener(this);
-        mBtnShowImage.setOnClickListener(this);
-        mBtnShowIT.setOnClickListener(this);
-        mBtnShowLayout.setOnClickListener(this);
-        mBtnShowCancel.setOnClickListener(this);
-        mBtnShowThread.setOnClickListener(this);
-        mBtnResetToast.setOnClickListener(this);
-    }
+        findViewById(R.id.btn_show_text).setOnClickListener(this);
+        findViewById(R.id.btn_show_text_translucent).setOnClickListener(this);
 
-    private void testToast() {
-        ToastUtil.showTextLong("长时间吐司一段文本内容");
-        ToastUtil.showTextShort("短时间吐司一段文本内容");
-        ToastUtil.showSingletonLong("长时间吐司一段文本内容,单例模式哦");
-        ToastUtil.showSingletonShort("短时间吐司一段文本内容,单例模式哦");
-        ToastUtil.showImageCenter(R.mipmap.ic_launcher, Toast.LENGTH_SHORT);//居中显示一张图片,非单例模式
-        ToastUtil.showSingletonImageCenter(R.mipmap.ic_launcher, Toast.LENGTH_LONG);//居中显示一张图片,单例模式
-        ToastUtil.showImage(R.mipmap.ic_launcher, Toast.LENGTH_LONG, Gravity.BOTTOM | Gravity.LEFT);//自定义显示图片位置
-        ToastUtil.showIT(R.mipmap.ic_launcher, "SiberiaDanteLib", Toast.LENGTH_LONG, Gravity.CENTER);//自行显示图文消息
-        ToastUtil.cancel();
-        ToastUtil.cancelAll();
+
+        findViewById(R.id.btn_show_lines).setOnClickListener(this);
+        findViewById(R.id.btn_toast_cancel).setOnClickListener(this);
+        findViewById(R.id.btn_toast_reset).setOnClickListener(this);
+
+
+
+        findViewById(R.id.btn_toast_normal).setOnClickListener(this);
+        findViewById(R.id.btn_toast_error).setOnClickListener(this);
+        findViewById(R.id.btn_toast_error_pic).setOnClickListener(this);
+        findViewById(R.id.btn_toast_success).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_show_singleton_text:
-                ToastUtil.showSingletonLong("长时间吐司一段文本内容,单例模式哦");
-
+            case R.id.btn_show_text:
+                ToastUtil.toast("长时间吐司一段文本内容,单例模式哦");
                 break;
-
-            case R.id.btn_show_image:
-                ToastUtil.showImage(R.mipmap.image, Toast.LENGTH_LONG, Gravity.CENTER);
-                ToastUtil.resetToast();
-
+            case R.id.btn_show_text_translucent:
+                ToastUtil.toastTranslucent("背景透明啊有没有");
                 break;
             case R.id.btn_show_image_text:
                 ToastUtil.showIT(R.mipmap.image, "这是一个美女哦", Toast.LENGTH_LONG, Gravity.CENTER);
-
                 break;
             case R.id.btn_show_lines:
                 List<String> stringList = new ArrayList<>();
@@ -83,14 +63,14 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
                 stringList.add("从此纯洁是路人");
                 ToastUtil.showLines(stringList, 20);
                 break;
-            case R.id.btn_show_layout:
-                LayoutInflater inflater = getLayoutInflater();
-                View layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.llToast));
-                ToastUtil.showLayout(layout, Toast.LENGTH_LONG, Gravity.TOP);
-                break;
-            case R.id.btn_show_thread:
-//                ToastUtil.showThread(url);
-                break;
+//            case R.id.btn_show_layout:
+//                LayoutInflater inflater = getLayoutInflater();
+//                View layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.llToast));
+//                ToastUtil.showLayout(layout, Toast.LENGTH_LONG, Gravity.TOP);
+//                break;
+//            case R.id.btn_show_thread:
+////                ToastUtil.showThread(url);
+//                break;
 
             case R.id.btn_toast_cancel:
                 ToastUtil.cancelAll();
@@ -98,6 +78,16 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
             case R.id.btn_toast_reset:
                 ToastUtil.resetToast();
                 break;
+            case R.id.btn_toast_normal:
+                ToastUtil.normal("这是一个正常的Toast");
+                break;
+            case R.id.btn_toast_error:
+                ToastUtil.error("这是一个错误提示信息");
+                break;
+            case R.id.btn_toast_success:
+                ToastUtil.success("这是一个成功提示信息");
+                break;
+
         }
     }
 }

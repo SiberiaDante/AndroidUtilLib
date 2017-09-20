@@ -75,7 +75,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         titleBar.setTitleListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.showTextLong("点击了标题");
+                ToastUtil.toast("点击了标题");
             }
         });
         titleBar.setLeftListener(new View.OnClickListener() {
@@ -158,7 +158,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 final String msg = dialog.getMsg();
-                ToastUtil.showTextLong("输入内容为：" + msg);
+                ToastUtil.toast("输入内容为：" + msg);
                 dialog.dismiss();
             }
         });

@@ -4,6 +4,7 @@
 >#### sample已内置Fragment懒加载、侧滑返回等许多主流技术
 >#### 所有util、view本人都经过亲测，可用，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢
 
+[体验sample-apk]()
 ## 推荐
 >* [Android开发必备经典收藏集（整理中）]
 >* [TitleLayout——通用万能标题栏]
@@ -20,7 +21,7 @@ dependencies {
  * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
  * 开启Debug模式：SiberiaDanteLib.setDebug(true);
 
-> [版本更新说明]：
+> [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/5a8051c462060e62fc78b47eb05c9b35cb8adc99/VERSION_UPDATE.md)
 
 ## view
 * [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])

@@ -31,17 +31,17 @@
                 android:text="@string/toast_util_tips" />
 
             <Button
-                android:id="@+id/btn_show_singleton_text"
+                android:id="@+id/btn_show_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Toast文本、单例模式"
                 android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/btn_show_image"
+                android:id="@+id/btn_show_text_translucent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Toast一张图片"
+                android:text="Toast文本、单例模式、背景透明"
                 android:textAllCaps="false" />
 
             <Button
@@ -58,19 +58,19 @@
                 android:text="Toast多行文字可设置文字大小"
                 android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/btn_show_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Toast显示自定义布局"
-                android:textAllCaps="false" />
+            <!--<Button-->
+                <!--android:id="@+id/btn_show_layout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Toast显示自定义布局"-->
+                <!--android:textAllCaps="false" />-->
 
-            <Button
-                android:id="@+id/btn_show_thread"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Toast异步下载图片"
-                android:textAllCaps="false" />
+            <!--<Button-->
+                <!--android:id="@+id/btn_show_thread"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Toast异步下载图片"-->
+                <!--android:textAllCaps="false" />-->
 
             <Button
                 android:id="@+id/btn_toast_cancel"
@@ -84,6 +84,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="重置Toast对象"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个正常的Toast"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个错误的Toast"
+                android:textAllCaps="false" />
+
+
+            <Button
+                android:id="@+id/btn_toast_error_pic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个错误的Toast"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个成功的Toast"
                 android:textAllCaps="false" />
 
         </LinearLayout>
