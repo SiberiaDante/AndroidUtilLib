@@ -1,5 +1,5 @@
 # SiberiaDanteLib
-#### 旨在打造一款属于Android开发的强大工具库(持续更新维护中……）
+#### 旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d7af8c2c6ec7ccfd9ddce8044efeea717ecb2944/ABOUTME.md)删除。持续更新维护中……）
 #### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 #### 所有util、view本人都经过亲测，可用，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢
 #### 欢迎关注：
