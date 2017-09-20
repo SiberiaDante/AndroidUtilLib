@@ -29,12 +29,15 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
 
         findViewById(R.id.btn_show_text).setOnClickListener(this);
         findViewById(R.id.btn_show_text_translucent).setOnClickListener(this);
+        findViewById(R.id.btn_show_bottom).setOnClickListener(this);
+        findViewById(R.id.btn_show_top).setOnClickListener(this);
+        findViewById(R.id.btn_show_center).setOnClickListener(this);
+        findViewById(R.id.btn_show_layout).setOnClickListener(this);
 
 
         findViewById(R.id.btn_show_lines).setOnClickListener(this);
         findViewById(R.id.btn_toast_cancel).setOnClickListener(this);
         findViewById(R.id.btn_toast_reset).setOnClickListener(this);
-
 
 
         findViewById(R.id.btn_toast_normal).setOnClickListener(this);
@@ -47,13 +50,19 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_show_text:
-                ToastUtil.toast("长时间吐司一段文本内容,单例模式哦");
+                ToastUtil.toast("常规通用Toast");
                 break;
             case R.id.btn_show_text_translucent:
                 ToastUtil.toastTranslucent("背景透明啊有没有");
                 break;
-            case R.id.btn_show_image_text:
-                ToastUtil.showIT(R.mipmap.image, "这是一个美女哦", Toast.LENGTH_LONG, Gravity.CENTER);
+            case R.id.btn_show_bottom:
+                ToastUtil.toastBottomLong("底部较长时间Toast");
+                break;
+            case R.id.btn_show_top:
+                ToastUtil.toastTopLong("顶部较长时间Toast");
+                break;
+            case R.id.btn_show_center:
+                ToastUtil.toastCenterLong("中间较长时间Toast");
                 break;
             case R.id.btn_show_lines:
                 List<String> stringList = new ArrayList<>();
@@ -63,15 +72,9 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
                 stringList.add("从此纯洁是路人");
                 ToastUtil.showLines(stringList, 20);
                 break;
-//            case R.id.btn_show_layout:
-//                LayoutInflater inflater = getLayoutInflater();
-//                View layout = inflater.inflate(R.layout.toast, (ViewGroup) findViewById(R.id.llToast));
-//                ToastUtil.showLayout(layout, Toast.LENGTH_LONG, Gravity.TOP);
-//                break;
-//            case R.id.btn_show_thread:
-////                ToastUtil.showThread(url);
-//                break;
-
+            case R.id.btn_show_layout:
+                ToastUtil.showView(R.layout.dialog_ensure_layout);
+                break;
             case R.id.btn_toast_cancel:
                 ToastUtil.cancelAll();
                 break;
@@ -82,6 +85,9 @@ public class ToastActivity extends AppCompatActivity implements View.OnClickList
                 ToastUtil.normal("这是一个正常的Toast");
                 break;
             case R.id.btn_toast_error:
+                ToastUtil.error("这是一个错误提示信息",Toast.LENGTH_LONG,false);
+                break;
+            case R.id.btn_toast_error_pic:
                 ToastUtil.error("这是一个错误提示信息");
                 break;
             case R.id.btn_toast_success:

@@ -34,7 +34,7 @@
                 android:id="@+id/btn_show_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Toast文本、单例模式"
+                android:text="常规通用Toast"
                 android:textAllCaps="false" />
 
             <Button
@@ -45,10 +45,23 @@
                 android:textAllCaps="false" />
 
             <Button
-                android:id="@+id/btn_show_image_text"
+                android:id="@+id/btn_show_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Toast图文混排"
+                android:text="常规通用Toast底部"
+                android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_show_center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="常规通用Toast中间"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_show_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="常规通用Toast顶部"
                 android:textAllCaps="false" />
 
             <Button
@@ -58,12 +71,12 @@
                 android:text="Toast多行文字可设置文字大小"
                 android:textAllCaps="false" />
 
-            <!--<Button-->
-                <!--android:id="@+id/btn_show_layout"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Toast显示自定义布局"-->
-                <!--android:textAllCaps="false" />-->
+            <Button
+                android:id="@+id/btn_show_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Toast显示自定义布局"
+                android:textAllCaps="false" />
 
             <!--<Button-->
                 <!--android:id="@+id/btn_show_thread"-->
@@ -97,7 +110,7 @@
                 android:id="@+id/btn_toast_error"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="显示一个错误的Toast"
+                android:text="显示一个错误的无log-Toast"
                 android:textAllCaps="false" />
 
 

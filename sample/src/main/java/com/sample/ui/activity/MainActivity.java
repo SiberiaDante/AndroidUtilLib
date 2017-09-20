@@ -208,7 +208,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         Timer tExit = null;
         if (!isExit) {
             isExit = true; // 准备退出
-            ToastUtil.toast("再按一次退出程序", Toast.LENGTH_LONG, Gravity.CENTER);
+            ToastUtil.toastCenterShort("再按一次退出程序");
             tExit = new Timer();
             tExit.schedule(new TimerTask() {
                 @Override
