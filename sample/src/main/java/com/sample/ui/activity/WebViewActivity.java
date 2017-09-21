@@ -12,13 +12,13 @@ import android.webkit.WebViewClient;
 
 import com.sample.R;
 import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.view.TitleBar;
+import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 public class WebViewActivity extends BaseActivity {
 
     private String url;
     private WebView mWebView;
-    private TitleBar mTitleBar;
+    private SDTitleBar mSDTitleBar;
     private String title;
 
     @Override
@@ -38,8 +38,8 @@ public class WebViewActivity extends BaseActivity {
     }
 
     private void initView() {
-        mTitleBar = (TitleBar) findViewById(R.id.title_bar_web_view);
-        setTitleBar(mTitleBar);
+        mSDTitleBar = (SDTitleBar) findViewById(R.id.title_bar_web_view);
+        setTitleBar(mSDTitleBar);
         mWebView = (WebView) findViewById(R.id.wv_web_view);
         setWebView();
 
@@ -64,11 +64,11 @@ public class WebViewActivity extends BaseActivity {
         });
     }
 
-    private void setTitleBar(TitleBar mTitleBar) {
-        mTitleBar.setImmersive(true);
-        mTitleBar.setTitle(title);
-        mTitleBar.setLeftText("返回");
-        mTitleBar.setLeftListener(new View.OnClickListener() {
+    private void setTitleBar(SDTitleBar mSDTitleBar) {
+        mSDTitleBar.setImmersive(true);
+        mSDTitleBar.setTitle(title);
+        mSDTitleBar.setLeftText("返回");
+        mSDTitleBar.setLeftListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 WebViewActivity.this.finish();

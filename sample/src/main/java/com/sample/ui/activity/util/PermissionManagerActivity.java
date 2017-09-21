@@ -2,17 +2,14 @@ package com.sample.ui.activity.util;
 
 import android.Manifest;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.sample.ui.activity.MainActivity;
 import com.siberiadante.lib.manager.PermissionManager;
-import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.util.SDToast;
 
 public class PermissionManagerActivity extends BaseActivity {
     private Button record;
@@ -54,9 +51,9 @@ public class PermissionManagerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (PermissionManager.getInstance(getApplicationContext()).getGrantedInfo(Manifest.permission.RECORD_AUDIO)) {
-                    ToastUtil.toast("录音权限已经获取");
+                    SDToast.toast("录音权限已经获取");
                 } else {
-                    ToastUtil.toast("你还没有获取录音权限");
+                    SDToast.toast("你还没有获取录音权限");
                 }
             }
         });
@@ -64,9 +61,9 @@ public class PermissionManagerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (PermissionManager.getInstance(getApplicationContext()).getGrantedInfo(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    ToastUtil.toast("SD权限已经获取");
+                    SDToast.toast("SD权限已经获取");
                 } else {
-                    ToastUtil.toast("你还没有获取SD权限");
+                    SDToast.toast("你还没有获取SD权限");
                 }
             }
         });

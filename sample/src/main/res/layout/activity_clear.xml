@@ -10,7 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ui.activity.util.ClearActivity">
-    <com.siberiadante.lib.view.TitleBar
+    <com.siberiadante.lib.view.titlebar.SDTitleBar
         android:id="@+id/titleBar_activity_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

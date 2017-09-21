@@ -8,7 +8,7 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="25dp">
 
-    <com.siberiadante.lib.view.SDTitleLayout
+    <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:id="@+id/title_layout_data"
         android:layout_width="368dp"
         android:layout_height="wrap_content"

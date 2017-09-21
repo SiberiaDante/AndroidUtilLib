@@ -1,4 +1,4 @@
-package com.siberiadante.lib.view;
+package com.siberiadante.lib.view.titlebar;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -25,7 +25,7 @@ import com.siberiadante.lib.util.TransitionTools;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class TitleBar extends ViewGroup implements View.OnClickListener {
+public class SDTitleBar extends ViewGroup implements View.OnClickListener {
     private static final int DEFAULT_MAIN_TEXT_SIZE = 18;
     private static final int DEFAULT_TEXT_SIZE = 16;
     private static final int DEFAULT_SUB_TEXT_SIZE = 12;
@@ -51,17 +51,17 @@ public class TitleBar extends ViewGroup implements View.OnClickListener {
     private ImageView mLeftImage;
     private ImageView mRightImage;
 
-    public TitleBar(Context context) {
+    public SDTitleBar(Context context) {
         super(context);
         init(context);
     }
 
-    public TitleBar(Context context, AttributeSet attrs) {
+    public SDTitleBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public TitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SDTitleBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }

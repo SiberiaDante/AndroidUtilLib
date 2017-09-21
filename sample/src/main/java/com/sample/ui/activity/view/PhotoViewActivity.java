@@ -16,7 +16,7 @@
 //import com.sample.R;
 //import com.sample.constants.Constants;
 //import com.siberiadante.lib.adapter.PhotoViewAdapter;
-//import com.siberiadante.lib.util.ToastUtil;
+//import com.siberiadante.lib.util.SDToast;
 //import com.siberiadante.lib.widget.PhotoViewPager;
 //
 //import java.io.File;
@@ -49,7 +49,7 @@
 //
 //            switch (msg.what) {
 //                case SEND_TOAST:
-//                    ToastUtil.showSingletonLong("保存至相册/Image");
+//                    SDToast.showSingletonLong("保存至相册/Image");
 //                    break;
 //            }
 //        }

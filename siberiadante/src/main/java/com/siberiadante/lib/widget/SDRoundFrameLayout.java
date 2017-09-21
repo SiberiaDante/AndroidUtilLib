@@ -3,7 +3,6 @@ package com.siberiadante.lib.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-import android.widget.RelativeLayout;
 
 /**
  * @Created SiberiaDante
@@ -13,21 +12,21 @@ import android.widget.RelativeLayout;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class RoundFrameLayout extends FrameLayout {
+public class SDRoundFrameLayout extends FrameLayout {
 
-    private RoundViewAttr roundViewAttr;
+    private SDRoundViewAttr roundViewAttr;
 
-    public RoundFrameLayout(Context context) {
+    public SDRoundFrameLayout(Context context) {
         this(context, null);
     }
 
-    public RoundFrameLayout(Context context, AttributeSet attrs) {
+    public SDRoundFrameLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        roundViewAttr = new RoundViewAttr(this, context, attrs);
+        roundViewAttr = new SDRoundViewAttr(this, context, attrs);
 
     }
 
-    public RoundViewAttr getRoundViewAttr() {
+    public SDRoundViewAttr getRoundViewAttr() {
         return roundViewAttr;
     }
 

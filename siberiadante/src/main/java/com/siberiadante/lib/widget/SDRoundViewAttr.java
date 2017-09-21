@@ -23,7 +23,7 @@ import com.siberiadante.lib.R;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class RoundViewAttr {
+public class SDRoundViewAttr {
     private View view;
     private Context context;
     private GradientDrawable gd_background = new GradientDrawable();
@@ -44,7 +44,7 @@ public class RoundViewAttr {
     private boolean isRippleEnable;
     private float[] radiusArr = new float[8];
 
-    public RoundViewAttr(View view, Context context, AttributeSet attrs) {
+    public SDRoundViewAttr(View view, Context context, AttributeSet attrs) {
         this.view = view;
         this.context = context;
         obtainAttributes(context, attrs);

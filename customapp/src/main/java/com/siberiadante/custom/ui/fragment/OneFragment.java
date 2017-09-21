@@ -10,7 +10,7 @@ import com.siberiadante.custom.R;
 import com.siberiadante.custom.ui.activity.Main2Activity;
 import com.siberiadante.custom.util.ImageLoadUtil;
 import com.siberiadante.lib.util.LogUtil;
-import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.util.SDToast;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +43,7 @@ public class OneFragment extends LazyFragment {
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.fragment_one);
-        ToastUtil.toast("第一个页面");
+        SDToast.toast("第一个页面");
         Log.d(TAG, "onCreateViewLazy: FragmentOne");
         initView();
     }

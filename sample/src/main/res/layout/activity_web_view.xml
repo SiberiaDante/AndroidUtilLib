@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context="com.sample.ui.activity.WebViewActivity">
 
-    <com.siberiadante.lib.view.TitleBar
+    <com.siberiadante.lib.view.titlebar.SDTitleBar
         android:id="@+id/title_bar_web_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

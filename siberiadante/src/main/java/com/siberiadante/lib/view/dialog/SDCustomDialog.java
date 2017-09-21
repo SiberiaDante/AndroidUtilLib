@@ -1,4 +1,4 @@
-package com.siberiadante.lib.view;
+package com.siberiadante.lib.view.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;

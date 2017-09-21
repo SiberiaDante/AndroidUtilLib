@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.siberiadante.custom.R;
-import com.siberiadante.lib.util.ToastUtil;
+import com.siberiadante.lib.util.SDToast;
 
 /**
  * @Created SiberiaDante
@@ -31,7 +31,7 @@ public class FourFragment extends LazyFragment {
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.fragment_four);
-        ToastUtil.toast("第四个页面");
+        SDToast.toast("第四个页面");
 
         Log.d(TAG, "onCreateViewLazy: FragmentFour");
     }

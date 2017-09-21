@@ -7,7 +7,7 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <com.siberiadante.lib.view.SDTitleLayout
+    <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:d_is_immersive_state_bar="true"
@@ -20,7 +20,7 @@
         android:layout_height="180dp"
         android:background="@drawable/background_top">
 
-        <com.siberiadante.lib.widget.RoundImageView
+        <com.siberiadante.lib.widget.SDRoundImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_centerInParent="true"

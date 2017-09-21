@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.activity.util.AppActivity">
-    <com.siberiadante.lib.view.SDTitleLayout
+    <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:id="@+id/title_layout_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

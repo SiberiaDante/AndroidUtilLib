@@ -14,24 +14,24 @@ import android.widget.TextView;
  */
 
 @SuppressLint("AppCompatCustomView")
-public class RoundTextView extends TextView {
+public class SDRoundTextView extends TextView {
 
-    private RoundViewAttr roundViewAttr;
+    private SDRoundViewAttr roundViewAttr;
 
-    public RoundTextView(Context context) {
+    public SDRoundTextView(Context context) {
         this(context, null);
     }
 
-    public RoundTextView(Context context, AttributeSet attrs) {
+    public SDRoundTextView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RoundTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SDRoundTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        roundViewAttr = new RoundViewAttr(this, context, attrs);
+        roundViewAttr = new SDRoundViewAttr(this, context, attrs);
     }
 
-    public RoundViewAttr getRoundViewAttr() {
+    public SDRoundViewAttr getRoundViewAttr() {
         return roundViewAttr;
     }
 

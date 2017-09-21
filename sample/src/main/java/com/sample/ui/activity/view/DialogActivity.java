@@ -11,17 +11,17 @@ import android.widget.EditText;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.util.ToastUtil;
-import com.siberiadante.lib.view.SDCustomDialog;
-import com.siberiadante.lib.view.SDEditDialog;
+import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.view.dialog.SDCustomDialog;
+import com.siberiadante.lib.view.dialog.SDEditDialog;
 import com.siberiadante.lib.view.BottomPopupWindow;
-import com.siberiadante.lib.view.SDEnsureDialog;
-import com.siberiadante.lib.view.NiceDialog;
-import com.siberiadante.lib.view.SDEnsureSubDialog;
-import com.siberiadante.lib.view.TitleBar;
-import com.siberiadante.lib.view.nicedialog.BaseNiceDialog;
-import com.siberiadante.lib.view.nicedialog.ViewConvertListener;
-import com.siberiadante.lib.view.nicedialog.ViewHolder;
+import com.siberiadante.lib.view.dialog.SDEnsureDialog;
+import com.siberiadante.lib.view.dialog.NiceDialog;
+import com.siberiadante.lib.view.dialog.SDEnsureSubDialog;
+import com.siberiadante.lib.view.titlebar.SDTitleBar;
+import com.siberiadante.lib.view.base.nicedialog.BaseNiceDialog;
+import com.siberiadante.lib.view.base.nicedialog.ViewConvertListener;
+import com.siberiadante.lib.view.base.nicedialog.ViewHolder;
 
 public class DialogActivity extends BaseActivity implements View.OnClickListener {
 
@@ -59,35 +59,35 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.btn_custom_dialog).setOnClickListener(this);
         findViewById(R.id.btn_notice_dialog).setOnClickListener(this);
 //        findViewById(R.id.btn_ensure_dialog_1).setOnClickListener(this);
-        TitleBar titleBar = ((TitleBar) findViewById(R.id.titleBar_dialog_activity));
-        initTitle(titleBar);
+        SDTitleBar SDTitleBar = ((SDTitleBar) findViewById(R.id.titleBar_dialog_activity));
+        initTitle(SDTitleBar);
     }
 
-    private void initTitle(TitleBar titleBar) {
-        titleBar.setImmersive(true);
-        titleBar.setTitle("各种Dialog组件封装");
-        titleBar.setSubTitle("SiberiaDante");
-        titleBar.setSubTitleColor(ContextCompat.getColor(this, R.color.gray));
-        titleBar.setLeftImage(R.mipmap.back);
-        titleBar.setLeftText("返回");
-        titleBar.setRightImage(R.mipmap.search);
-        titleBar.setDivideBackground(ContextCompat.getColor(this, R.color.colorPrimary));
-        titleBar.setTitleListener(new View.OnClickListener() {
+    private void initTitle(SDTitleBar SDTitleBar) {
+        SDTitleBar.setImmersive(true);
+        SDTitleBar.setTitle("各种Dialog组件封装");
+        SDTitleBar.setSubTitle("SiberiaDante");
+        SDTitleBar.setSubTitleColor(ContextCompat.getColor(this, R.color.gray));
+        SDTitleBar.setLeftImage(R.mipmap.back);
+        SDTitleBar.setLeftText("返回");
+        SDTitleBar.setRightImage(R.mipmap.search);
+        SDTitleBar.setDivideBackground(ContextCompat.getColor(this, R.color.colorPrimary));
+        SDTitleBar.setTitleListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.toast("点击了标题");
+                SDToast.toast("点击了标题");
             }
         });
-        titleBar.setLeftListener(new View.OnClickListener() {
+        SDTitleBar.setLeftListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DialogActivity.this.finish();
             }
         });
-        titleBar.setRightListener(new View.OnClickListener() {
+        SDTitleBar.setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastUtil.toast("点击了右侧");
+                SDToast.toast("点击了右侧");
             }
         });
     }
@@ -172,7 +172,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 final String msg = dialog.getMsg();
-                ToastUtil.toast("输入内容为：" + msg);
+                SDToast.toast("输入内容为：" + msg);
                 dialog.dismiss();
             }
         });
@@ -297,7 +297,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                         holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                ToastUtil.toast("分享成功");
+                                SDToast.toast("分享成功");
                             }
                         });
                     }
@@ -388,7 +388,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void OnCenterItemClick(SDCustomDialog dialog, View view) {
 //                customDialog.dismiss();
-                ToastUtil.toast("确定按钮被点击了");
+                SDToast.toast("确定按钮被点击了");
             }
         });
         customDialog.show();

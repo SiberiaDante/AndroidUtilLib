@@ -17,21 +17,21 @@ import android.widget.ImageView;
  * Created by SiberiaDante on 2017/6/26.
  * 圆形ImageView，运行之后
  */
-public class RoundImageView extends ImageView {
+public class SDRoundImageView extends ImageView {
     private int mBorderThickness = 2;
     private int mBorderOutsideColor = 0;
     private int mBorderInsideColor = -1;
     private Bitmap currentBitmap;
 
-    public RoundImageView(Context context) {
+    public SDRoundImageView(Context context) {
         super(context);
     }
 
-    public RoundImageView(Context context, AttributeSet attrs) {
+    public SDRoundImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public RoundImageView(Context context, AttributeSet attrs, int defStyle) {
+    public SDRoundImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 

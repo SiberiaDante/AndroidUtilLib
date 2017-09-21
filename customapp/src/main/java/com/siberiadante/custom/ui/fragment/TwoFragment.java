@@ -9,18 +9,16 @@ import android.widget.LinearLayout;
 
 import com.siberiadante.custom.R;
 import com.siberiadante.custom.bean.LoginResponse;
-import com.siberiadante.custom.bean.NewsData;
 import com.siberiadante.custom.bean.base.WrapResult;
 import com.siberiadante.custom.constant.Constants;
 import com.siberiadante.custom.http.ApiService;
 import com.siberiadante.custom.http.Request;
 import com.siberiadante.custom.http.RetrofitManager;
 import com.siberiadante.lib.util.LogUtil;
-import com.siberiadante.lib.util.ToastUtil;
-import com.siberiadante.lib.view.TitleBar;
+import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 import java.util.HashMap;
-import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -39,7 +37,7 @@ import io.reactivex.schedulers.Schedulers;
 public class TwoFragment extends LazyFragment {
     public static final String TAG = TwoFragment.class.getSimpleName();
     private int mPage = 1;
-    TitleBar mTitleBar;
+    SDTitleBar mSDTitleBar;
     private LinearLayout mLLProgress;
     private RecyclerView recyclerView;
 
@@ -58,7 +56,7 @@ public class TwoFragment extends LazyFragment {
         super.onCreateViewLazy(savedInstanceState);
         Log.d(TAG, "onCreateViewLazy: 2");
         setContentView(R.layout.fragment_two);
-        ToastUtil.toast("第二个页面");
+        SDToast.toast("第二个页面");
         Log.d(TAG, "onCreateViewLazy: FragmentTwo");
         initView();
         initIntent();
@@ -66,10 +64,10 @@ public class TwoFragment extends LazyFragment {
     }
 
     private void initView() {
-        mTitleBar = (TitleBar) findViewById(R.id.title_bar);
+        mSDTitleBar = (SDTitleBar) findViewById(R.id.title_bar);
         mLLProgress = ((LinearLayout) findViewById(R.id.ll_progress_bar));
-        mTitleBar.setTitle("SiberiaDante-ZCL");
-        mTitleBar.setRightImage(R.mipmap.ic_recommend_default);
+        mSDTitleBar.setTitle("SiberiaDante-ZCL");
+        mSDTitleBar.setRightImage(R.mipmap.ic_recommend_default);
         recyclerView = (RecyclerView) findViewById(R.id.rv_fragment_two);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
     }

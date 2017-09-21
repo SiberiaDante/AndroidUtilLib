@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.activity.util.ActivityUtilActivity">
 
-    <com.siberiadante.lib.view.SDTitleLayout
+    <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:d_left_image="@mipmap/back"

@@ -8,7 +8,7 @@ import android.widget.EditText;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.NumberUtil;
-import com.siberiadante.lib.view.TitleBar;
+import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 import butterknife.ButterKnife;
 
@@ -26,10 +26,10 @@ public class NumberActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void initView() {
-        TitleBar mTitleBar = (TitleBar) findViewById(R.id.title_bar_number);
-        mTitleBar.setBackgroundResource(R.color.red);
-        mTitleBar.setTitle("NumberUtil测试");
-        mTitleBar.setImmersive(true);
+        SDTitleBar mSDTitleBar = (SDTitleBar) findViewById(R.id.title_bar_number);
+        mSDTitleBar.setBackgroundResource(R.color.red);
+        mSDTitleBar.setTitle("NumberUtil测试");
+        mSDTitleBar.setImmersive(true);
         edtInput = (EditText) findViewById(R.id.edt_input);
         mBtnOne = ((Button) findViewById(R.id.btn_number_test_one));
 

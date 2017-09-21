@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".ui.activity.util.NetworkActivity">
 
-    <com.siberiadante.lib.view.TitleBar
+    <com.siberiadante.lib.view.titlebar.SDTitleBar
         android:id="@+id/titleBar_activity_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

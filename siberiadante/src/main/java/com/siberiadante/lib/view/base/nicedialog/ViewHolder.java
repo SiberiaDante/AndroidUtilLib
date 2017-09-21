@@ -1,4 +1,4 @@
-package com.siberiadante.lib.view.nicedialog;
+package com.siberiadante.lib.view.base.nicedialog;
 
 import android.util.SparseArray;
 import android.view.View;

@@ -5,13 +5,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.siberiadante.custom.R;
 import com.siberiadante.custom.bean.QuestionData;
@@ -24,20 +21,16 @@ import com.siberiadante.custom.ui.fragment.OneFragment;
 import com.siberiadante.custom.ui.fragment.ThreeFragment;
 import com.siberiadante.custom.ui.fragment.TwoFragment;
 import com.siberiadante.lib.util.LogUtil;
-import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.util.ToastUtil;
-import com.siberiadante.lib.util.TransitionTools;
+import com.siberiadante.lib.util.SDToast;
 import com.siberiadante.lib.widget.TabRadioButton;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.BindViews;
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
-import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
@@ -179,8 +172,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         long currentTime = System.currentTimeMillis();
         Log.d(TAG, "onBackPressed: " + currentTime);
         if (currentTime - tempTime > 2000) {
-            ToastUtil.toast("再按一次退出应用");
-            ToastUtil.resetToast();
+            SDToast.toast("再按一次退出应用");
+            SDToast.resetToast();
             tempTime = currentTime;
         } else {
             System.exit(0);

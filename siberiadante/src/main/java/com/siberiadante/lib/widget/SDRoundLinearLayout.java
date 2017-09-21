@@ -3,31 +3,30 @@ package com.siberiadante.lib.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 /**
  * @Created SiberiaDante
- * @Describe： 简化RelativeLayout shape 画背景
+ * @Describe： 简化LinearLayout shape 画背景
  * @Time: 2017/9/4
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class RoundRelativeLayout extends RelativeLayout {
+public class SDRoundLinearLayout extends LinearLayout {
 
-    private RoundViewAttr roundViewAttr;
+    private SDRoundViewAttr roundViewAttr;
 
-    public RoundRelativeLayout(Context context) {
+    public SDRoundLinearLayout(Context context) {
         this(context, null);
     }
 
-    public RoundRelativeLayout(Context context, AttributeSet attrs) {
+    public SDRoundLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
-        roundViewAttr = new RoundViewAttr(this, context, attrs);
+        roundViewAttr = new SDRoundViewAttr(this, context, attrs);
 
     }
 
-    public RoundViewAttr getRoundViewAttr() {
+    public SDRoundViewAttr getRoundViewAttr() {
         return roundViewAttr;
     }
 

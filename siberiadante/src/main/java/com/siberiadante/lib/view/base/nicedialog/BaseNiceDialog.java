@@ -1,4 +1,4 @@
-package com.siberiadante.lib.view.nicedialog;
+package com.siberiadante.lib.view.base.nicedialog;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;

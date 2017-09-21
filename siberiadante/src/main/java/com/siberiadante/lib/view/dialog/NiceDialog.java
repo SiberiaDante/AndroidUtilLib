@@ -1,12 +1,12 @@
-package com.siberiadante.lib.view;
+package com.siberiadante.lib.view.dialog;
 
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 
-import com.siberiadante.lib.view.nicedialog.BaseNiceDialog;
-import com.siberiadante.lib.view.nicedialog.ViewConvertListener;
-import com.siberiadante.lib.view.nicedialog.ViewHolder;
+import com.siberiadante.lib.view.base.nicedialog.BaseNiceDialog;
+import com.siberiadante.lib.view.base.nicedialog.ViewConvertListener;
+import com.siberiadante.lib.view.base.nicedialog.ViewHolder;
 
 /**
  * @Created SiberiaDante

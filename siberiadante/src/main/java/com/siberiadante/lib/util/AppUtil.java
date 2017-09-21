@@ -443,7 +443,7 @@ public class AppUtil {
             return true;
         }
         if (result.errorMsg != null) {
-            ToastUtil.toast("isAppRoot?---" + result.errorMsg);
+            SDToast.toast("isAppRoot?---" + result.errorMsg);
         }
         return false;
     }
