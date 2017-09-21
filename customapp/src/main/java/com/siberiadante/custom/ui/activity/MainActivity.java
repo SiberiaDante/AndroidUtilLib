@@ -179,7 +179,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         long currentTime = System.currentTimeMillis();
         Log.d(TAG, "onBackPressed: " + currentTime);
         if (currentTime - tempTime > 2000) {
-            ToastUtil.showSingletonText("再按一次退出应用", Toast.LENGTH_SHORT, Gravity.CENTER);
+            ToastUtil.toast("再按一次退出应用");
             ToastUtil.resetToast();
             tempTime = currentTime;
         } else {

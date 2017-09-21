@@ -17,6 +17,7 @@ import com.sample.adapter.CustomAdapter;
 import com.sample.bean.UtilData;
 import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.WebVideoActivity;
+import com.sample.ui.activity.animation.SDSpreadLikeViewActivity;
 import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.KeyBoardActivity;
@@ -86,6 +87,7 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
         datas.add(new UtilData("测试QQ运动计步器View", QQStepViewActivity.class.getName()));
         datas.add(new UtilData("WebVideoActivity", WebVideoActivity.class.getName()));
         datas.add(new UtilData("测试TitleLayout标题栏", TitleLayoutActivity.class.getName()));
+        datas.add(new UtilData("点赞特效相关测试", SDSpreadLikeViewActivity.class.getName()));
         adapter.addAll(datas);
     }
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dante="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    tools:context="com.sample.ui.activity.animation.SDSpreadLikeViewActivity">
+
+    <com.siberiadante.lib.view.likeview.SDSpreadLikeView
+        android:id="@+id/like_view_one"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        dante:d_spread_like_view_allow_random_color="false"
+        dante:d_spread_like_view_animation_duration="1500"
+        dante:d_spread_like_view_big_color="@color/red"
+        dante:d_spread_like_view_click_animation_duration="200"
+        dante:d_spread_like_view_color="@color/gray"
+        dante:d_spread_like_view_count="3"
+        dante:d_spread_like_view_distance_multiple="1.5"
+        dante:d_spread_like_view_enable_flashing="true"
+        dante:d_spread_like_view_fill_color="@color/green"
+        dante:d_spread_like_view_small_color="@color/blue"
+        dante:d_spread_like_view_small_offset_angle="20"
+        dante:d_spread_like_view_turn_angle="10"
+        dante:siShape="@drawable/like" />
+
+</LinearLayout>

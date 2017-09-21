@@ -1,5 +1,6 @@
 package com.siberiadante.lib.widget;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import android.widget.TextView;
  * @GitHub: https://github.com/SiberiaDante
  */
 
+@SuppressLint("AppCompatCustomView")
 public class RoundTextView extends TextView {
 
     private RoundViewAttr roundViewAttr;

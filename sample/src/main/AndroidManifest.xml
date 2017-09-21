@@ -68,7 +68,8 @@
         <activity android:name=".ui.activity.WebVideoActivity" />
         <activity android:name=".ui.activity.util.DateUtilActivity" />
         <activity android:name=".ui.activity.util.LogUtilActivity" />
-        <activity android:name=".ui.activity.view.TitleLayoutActivity"></activity>
+        <activity android:name=".ui.activity.view.TitleLayoutActivity" />
+        <activity android:name=".ui.activity.animation.SDSpreadLikeViewActivity"></activity>
     </application>
 
 </manifest>

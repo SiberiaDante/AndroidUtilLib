@@ -214,5 +214,46 @@
     <attr name="d_is_back_view" format="boolean" />
     <attr name="d_is_immersive_state_bar" format="boolean" />
     <!--@Time: 2017-09-13——End-->
+    <!--@Time: 2017-09-21——Start-->
+    <declare-styleable name="SDSpreadLikeView">
+        <attr name="d_spread_like_view_color" />
+        <!--选中填充特效-->
+        <attr name="d_spread_like_view_fill_color" />
+        <!--圆点数量-->
+        <attr name="d_spread_like_view_count" />
+        <attr name="d_spread_like_view_turn_angle" />
+        <attr name="d_spread_like_view_small_offset_angle" />
+        <attr name="d_spread_like_view_enable_flashing" />
+        <attr name="d_spread_like_view_allow_random_color" />
+        <!--小圆点颜色-->
+        <attr name="d_spread_like_view_small_color" />
+        <!--大圆点颜色-->
+        <attr name="d_spread_like_view_big_color" />
+        <attr name="d_spread_like_view_animation_duration" />
+        <!--动画时间-->
+        <attr name="d_spread_like_view_click_animation_duration" />
+        <!--圆点最小距离-->
+        <attr name="d_spread_like_view_distance_multiple" />
+        <!--控件大小-->
+        <attr name="d_spread_like_view_size" />
+    </declare-styleable>
+    <attr name="d_spread_like_view_color" format="color" />
+    <attr name="d_spread_like_view_fill_color" format="color" />
+    <attr name="d_spread_like_view_count" format="integer" />
+    <attr name="d_spread_like_view_turn_angle" format="float" />
+    <attr name="d_spread_like_view_small_offset_angle" format="float" />
+    <attr name="d_spread_like_view_enable_flashing" format="boolean" />
+    <attr name="d_spread_like_view_allow_random_color" format="boolean" />
+    <attr name="d_spread_like_view_small_color" format="color" />
+    <attr name="d_spread_like_view_big_color" format="color" />
+    <attr name="d_spread_like_view_animation_duration" format="integer" />
+    <attr name="d_spread_like_view_click_animation_duration" format="integer" />
+    <attr name="d_spread_like_view_distance_multiple" format="float" />
+    <attr name="d_spread_like_view_size" format="dimension" />
+
+    <declare-styleable name="RxPorterImageView">
+        <attr name="siShape" format="integer|reference" />
+    </declare-styleable>
+    <!--@Time: 2017-09-21——End-->
 
 </resources>
