@@ -43,12 +43,12 @@ public class SDTitleLayout extends RelativeLayout {
 
     private int mLeftImage;
     private int mLeftImageWidth = SDTransitionUtil.dip2px(30);
-    private int mLeftImagePaddingStart = SDTransitionUtil.dip2px(5);
+    private int mLeftImagePaddingStart = SDTransitionUtil.dip2px(10);
 
     private String mLeftText = "";
     private int mLeftTextSize = SDTransitionUtil.dip2px(16);
     private int mLeftTextColor = Color.BLACK;
-    private int mLeftTextPaddingStart = SDTransitionUtil.dip2px(5);
+    private int mLeftTextPaddingStart = SDTransitionUtil.dip2px(10);
 
     private String mTitle = "";
     private float mTitleSize = SDTransitionUtil.dip2px(18);
@@ -61,7 +61,7 @@ public class SDTitleLayout extends RelativeLayout {
 
     private int mRightImage;
     private int mRightImageWidth = SDTransitionUtil.dip2px(30);
-    private int mRightImagePaddingEnd = SDTransitionUtil.dip2px(5);
+    private int mRightImagePaddingEnd = SDTransitionUtil.dip2px(10);
 
     private String mRightText = "";
     private float mRightTextSize = SDTransitionUtil.dip2px(16);
