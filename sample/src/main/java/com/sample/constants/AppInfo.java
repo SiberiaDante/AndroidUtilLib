@@ -1,6 +1,6 @@
 package com.sample.constants;
 
-import com.siberiadante.lib.util.SPUtil;
+import com.siberiadante.lib.util.SDSPUtil;
 
 /**
  * @Created SiberiaDante
@@ -11,21 +11,21 @@ import com.siberiadante.lib.util.SPUtil;
  */
 
 public class AppInfo {
-    private SPUtil spUtil;
+    private SDSPUtil SDSPUtil;
 
     /**
      * 初始化SPUtil
      */
     private AppInfo() {
-        spUtil = new SPUtil(Constants.APP_INFO);
+        SDSPUtil = new SDSPUtil(Constants.APP_INFO);
     }
 
     public static AppInfo getInstance() {
         return new AppInfo();
     }
 
-    private SPUtil getSpUtil() {
-        return spUtil;
+    private SDSPUtil getSDSPUtil() {
+        return SDSPUtil;
     }
 
     /**
@@ -34,7 +34,7 @@ public class AppInfo {
      * @return
      */
     public boolean isLogin() {
-        return spUtil.getBoolean("is_login");
+        return SDSPUtil.getBoolean("is_login");
     }
 
     /**
@@ -43,27 +43,27 @@ public class AppInfo {
      * @param isLogin
      */
     public void setLogin(boolean isLogin) {
-        spUtil.put("is_login", isLogin);
-        final SPUtil spUtil = AppInfo.getInstance().getSpUtil();
-        spUtil.put("is_login", true);
+        this.SDSPUtil.put("is_login", isLogin);
+        final SDSPUtil SDSPUtil = AppInfo.getInstance().getSDSPUtil();
+        SDSPUtil.put("is_login", true);
     }
 
     /**
      * 是否第一次使用app,默认true
      */
     public boolean isFirstInstall() {
-        return spUtil.getBoolean("is_first_install", true);
+        return SDSPUtil.getBoolean("is_first_install", true);
     }
 
     public void setIsFirstInstall(boolean bool) {
-        spUtil.put("is_first_install", bool);
+        SDSPUtil.put("is_first_install", bool);
     }
 
     /**
      * 退出登录
      */
     public void loginOut() {
-        spUtil.clear();
-        spUtil.put("is_first_install", false);
+        SDSPUtil.clear();
+        SDSPUtil.put("is_first_install", false);
     }
 }

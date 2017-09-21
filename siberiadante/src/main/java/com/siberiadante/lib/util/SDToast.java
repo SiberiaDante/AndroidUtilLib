@@ -368,7 +368,7 @@ public class SDToast {
         }
         toastList.add(mToastLines);
         LinearLayout linearLayoutTop = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
-        linearLayoutTop.setPadding(TransitionTools.dip2px(paddingStart), TransitionTools.dip2px(paddingTop), TransitionTools.dip2px(paddingRight), TransitionTools.dip2px(paddingLeft));
+        linearLayoutTop.setPadding(SDTransitionUtil.dip2px(paddingStart), SDTransitionUtil.dip2px(paddingTop), SDTransitionUtil.dip2px(paddingRight), SDTransitionUtil.dip2px(paddingLeft));
 
         if (BACKGROUND_COLOR_NULL == backgroundColor) {
             linearLayoutTop.setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
@@ -842,7 +842,7 @@ public class SDToast {
         if (currentToast == null) {
             currentToast = new Toast(context);
         }
-        final View toastLayout = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.toast_layout, null);
+        final View toastLayout = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.sd_toast_layout, null);
         final ImageView toastIcon = (ImageView) toastLayout.findViewById(R.id.toast_icon);
         final TextView toastTextView = (TextView) toastLayout.findViewById(R.id.toast_text);
         Drawable drawableFrame;

@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.NumberUtil;
+import com.siberiadante.lib.util.SDNumberUtil;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 import butterknife.ButterKnife;
@@ -47,7 +47,7 @@ public class NumberActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void testIsNumber() {
-        if (NumberUtil.isNumeric(edtInput.getText().toString())) {
+        if (SDNumberUtil.isNumeric(edtInput.getText().toString())) {
             mBtnOne.setText("true");
         } else {
             mBtnOne.setText("false");

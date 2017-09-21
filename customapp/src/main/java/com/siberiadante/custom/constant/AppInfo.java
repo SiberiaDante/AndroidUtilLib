@@ -1,6 +1,6 @@
 package com.siberiadante.custom.constant;
 
-import com.siberiadante.lib.util.SPUtil;
+import com.siberiadante.lib.util.SDSPUtil;
 
 /**
  * @Created SiberiaDante
@@ -11,18 +11,18 @@ import com.siberiadante.lib.util.SPUtil;
  */
 
 public class AppInfo {
-    private SPUtil spUtil;
+    private SDSPUtil SDSPUtil;
 
     private AppInfo() {
-        spUtil = new SPUtil(Constants.INFO);
+        SDSPUtil = new SDSPUtil(Constants.INFO);
     }
 
     public static AppInfo getInstance() {
         return AppInfoHolder.appInfo;
     }
 
-    public SPUtil getSpUtil() {
-        return spUtil;
+    public SDSPUtil getSDSPUtil() {
+        return SDSPUtil;
     }
 
     private static class AppInfoHolder {
@@ -30,6 +30,6 @@ public class AppInfo {
     }
 
     public boolean isDebug() {
-        return spUtil.getBoolean("is_debug");
+        return SDSPUtil.getBoolean("is_debug");
     }
 }

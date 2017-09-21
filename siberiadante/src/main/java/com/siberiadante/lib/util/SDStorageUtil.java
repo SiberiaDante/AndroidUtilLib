@@ -26,9 +26,9 @@ import java.io.InputStreamReader;
  * Created by SiberiaDante on 2017/5/15.
  */
 
-public class SDCardUtil {
+public class SDStorageUtil {
 
-    public SDCardUtil() {
+    public SDStorageUtil() {
         new SiberiaDanteLibException(getClass().getSimpleName());
     }
 
@@ -245,7 +245,7 @@ public class SDCardUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            CloseUtil.closeIO(bufferedReader);
+            SDCloseUtil.closeIO(bufferedReader);
         }
         return Environment.getExternalStorageDirectory().getPath() + File.separator;
     }

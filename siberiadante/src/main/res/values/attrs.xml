@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--TabRadioButton-->
-    <declare-styleable name="TabRadioButton">
+    <declare-styleable name="SDRadioButton">
         <attr name="drawableSize" />
         <attr name="drawableTop" />
         <attr name="drawableLeft" />
@@ -118,7 +118,7 @@
     <attr name="r_isRippleEnable" format="boolean" />
     <!--@Time：2017-09-04——End-->
     <!--@Time：2017-09-05——Start-->
-    <declare-styleable name="HexagonView">
+    <declare-styleable name="SDHexagonView">
         <attr name="h_radius" />
         <attr name="h_outerWidth" />
         <attr name="h_outerColor" />

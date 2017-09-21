@@ -11,13 +11,13 @@ import java.util.Set;
 
 /**
  * @Created SiberiaDante
- * @Describe： 使用参考sample/src/constants/AppInfo.java
+ * @Describe： 使用参考sample/src/constants/SDAppInfo.java
  * @Time: 2017/8/3
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public final class SPUtil {
+public final class SDSPUtil {
 
     private SharedPreferences sp;
     private SharedPreferences.Editor editor;
@@ -28,7 +28,7 @@ public final class SPUtil {
      *
      * @param spName spName
      */
-    public SPUtil(String spName) {
+    public SDSPUtil(String spName) {
         sp = SiberiaDanteLib.getContext().getSharedPreferences(spName, Context.MODE_PRIVATE);
         editor = sp.edit();
         editor.apply();

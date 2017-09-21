@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.siberiadante.custom.R;
-import com.siberiadante.lib.util.TransitionTools;
+import com.siberiadante.lib.util.SDTransitionUtil;
 
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -43,15 +43,15 @@ public class GuideSlideImagePointView extends LinearLayout {
 			if (currentIndex == i) {
 				iv.setImageResource(R.mipmap.guide_icon_true);
 				layoutParams = new LayoutParams(
-						TransitionTools.dp2px(12), TransitionTools.dp2px(12));
+						SDTransitionUtil.dp2px(12), SDTransitionUtil.dp2px(12));
 			} else {
 				iv.setImageResource(R.mipmap.guide_icon_false);
 				layoutParams = new LayoutParams(
-						TransitionTools.dp2px(9), TransitionTools.dp2px(9));
+						SDTransitionUtil.dp2px(9), SDTransitionUtil.dp2px(9));
 			}
 
-			layoutParams.leftMargin = TransitionTools.dp2px(5);
-			layoutParams.rightMargin = TransitionTools.dp2px(5);
+			layoutParams.leftMargin = SDTransitionUtil.dp2px(5);
+			layoutParams.rightMargin = SDTransitionUtil.dp2px(5);
 			iv.setLayoutParams(layoutParams);
 			this.addView(iv);
 		}

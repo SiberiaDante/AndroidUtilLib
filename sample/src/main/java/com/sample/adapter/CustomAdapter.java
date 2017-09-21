@@ -2,14 +2,12 @@ package com.sample.adapter;
 
 import android.content.Context;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.sample.R;
 import com.sample.bean.UtilData;
-import com.siberiadante.lib.util.LogUtil;
 
 /**
  * @Created SiberiaDante

@@ -29,13 +29,13 @@ import com.siberiadante.lib.exception.SiberiaDanteLibException;
  * 屏幕相关工具类
  */
 
-public class ScreenUtil {
+public class SDScreenUtil {
 
     private static final int INVALID_VAL = -1;
     private static final int COLOR_DEFAULT = Color.parseColor("#20000000");
 
-    private ScreenUtil() {
-        new SiberiaDanteLibException(ScreenUtil.class.getName());
+    private SDScreenUtil() {
+        new SiberiaDanteLibException(SDScreenUtil.class.getName());
     }
 
     public static float getDensity(Activity activity) {
@@ -91,7 +91,7 @@ public class ScreenUtil {
         WindowManager windowManager = (WindowManager) SiberiaDanteLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(dm.widthPixels);
+        return SDTransitionUtil.px2dip(dm.widthPixels);
     }
 
     /**
@@ -101,7 +101,7 @@ public class ScreenUtil {
         WindowManager windowManager = (WindowManager) SiberiaDanteLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(dm);
-        return TransitionTools.px2dip(dm.heightPixels);
+        return SDTransitionUtil.px2dip(dm.heightPixels);
     }
 
     /**

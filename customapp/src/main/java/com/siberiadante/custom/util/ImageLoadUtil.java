@@ -1,7 +1,5 @@
 package com.siberiadante.custom.util;
 
-import android.content.Context;
-
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.drawee.drawable.ScalingUtils;
@@ -12,7 +10,6 @@ import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.siberiadante.custom.R;
 import com.siberiadante.custom.ui.MyApplication;
-import com.siberiadante.lib.util.StringUtil;
 
 /**
  * @Created SiberiaDante

@@ -8,8 +8,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.sample.R;
-import com.siberiadante.lib.util.LogUtil;
-import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.SDLogUtil;
+import com.siberiadante.lib.util.SDScreenUtil;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        ScreenUtil.setStatusTranslucent(this);
+        SDScreenUtil.setStatusTranslucent(this);
         initView();
         initData();
     }
@@ -35,13 +35,13 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                LogUtil.d("--------close---------------");
+                SDLogUtil.d("--------close---------------");
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                LogUtil.d("--------open---------------");
+                SDLogUtil.d("--------open---------------");
             }
         }
         ;

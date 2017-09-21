@@ -1,6 +1,6 @@
 package com.siberiadante.custom.http.manager;
 
-import com.siberiadante.lib.util.NetWorkUtil;
+import com.siberiadante.lib.util.SDNetWorkUtil;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class CacheInterceptor implements Interceptor {
         int maxAge = 60 * 60; // 有网络时 设置缓存超时时间1小时
         int maxStale = 60 * 60 * 24 * 28; // 无网络时，设置超时为4周
         Request request = chain.request();
-        if (NetWorkUtil.isNetWorkConnected()) {
+        if (SDNetWorkUtil.isNetWorkConnected()) {
             request = request.newBuilder()
                     .addHeader("HXM", "are_you_ok")
                     .cacheControl(CacheControl.FORCE_NETWORK)
@@ -36,7 +36,7 @@ public class CacheInterceptor implements Interceptor {
         }
 
         Response response = chain.proceed(request);
-        if (NetWorkUtil.isNetWorkConnected()) {
+        if (SDNetWorkUtil.isNetWorkConnected()) {
             response = response.newBuilder()
                     .removeHeader("Pragma")
                     .header("Cache-Control", "public, max-age=" + maxAge)

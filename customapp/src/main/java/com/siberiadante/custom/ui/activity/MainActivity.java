@@ -20,9 +20,9 @@ import com.siberiadante.custom.ui.fragment.FourFragment;
 import com.siberiadante.custom.ui.fragment.OneFragment;
 import com.siberiadante.custom.ui.fragment.ThreeFragment;
 import com.siberiadante.custom.ui.fragment.TwoFragment;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToast;
-import com.siberiadante.lib.widget.TabRadioButton;
+import com.siberiadante.lib.widget.SDRadioButton;
 
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private long tempTime = 0;
     private int checkId;
     @BindViews({R.id.rb_recommend, R.id.rb_shop, R.id.rb_follow, R.id.rb_mine})
-    public List<TabRadioButton> radioButtons;
+    public List<SDRadioButton> radioButtons;
 
     @Override
     protected void beforeSetContentView() {
@@ -197,11 +197,11 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                         final String string = data.toString();
                         Log.d(TAG, "onNext: " + string);
 
-                        LogUtil.d(data.get(0).getDescription());
+                        SDLogUtil.d(data.get(0).getDescription());
 
-                        LogUtil.d(data.get(0).getCreate_time());
+                        SDLogUtil.d(data.get(0).getCreate_time());
 
-                        LogUtil.d(data.get(0).getTitle());
+                        SDLogUtil.d(data.get(0).getTitle());
 
                     }
 

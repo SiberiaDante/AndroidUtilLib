@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.SDScreenUtil;
 
 /**
  * Created by SiberiaDante on 2017/6/13.
@@ -72,7 +72,7 @@ public abstract class BaseFragmentN extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        ScreenUtil.setStatusTranslucent(getActivity());
+        SDScreenUtil.setStatusTranslucent(getActivity());
         initView();
         initIntent();
         initData();

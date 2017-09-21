@@ -24,99 +24,103 @@ dependencies {
 > [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/5a8051c462060e62fc78b47eb05c9b35cb8adc99/VERSION_UPDATE.md)
 
 ## view
-* [EditDialog] :仿IOS弹出可编辑dialog([使用:sample/activity/DialogActivity])
-* [BottomPopupWindow] :仿IOS底部弹出可拓展dialog([使用:sample/activity/DialogActivity])
-* [EnsureDialog] 常规提示确认dialog([使用:sample/activity/DialogActivity])
+### Dialog相关
+* [SDBottomDialog] :仿IOS底部弹出可拓展dialog
+* [SDCustomDialog] :通用可自定义的dialog
+* [SDEditDialog] :仿IOS弹出可编辑dialog
+* [SDEnsureDialog] 常规提示确认dialog
+* [SDEnsureSubDialog] 常规提示确认dialog,带标题，可设置log
+* [NiceDialog] 
+
 * [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
-* [QQStepView] :自定义View实现仿QQ运动步数功能([使用:sample/activity/QQStepViewActivity])
-* [TitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:TitleBar使用说明])
+* [QQStepView] :自定义View实现仿QQ运动步数功能
+### 标题栏相关
+* [SDTitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:SDTitleBar使用说明])
+* [SDTitleLayout] :常规的能够满足开发需求的标题栏的封装，一般的titleBar均可([使用:SDTitleLayout使用说明])
 ## widget
-* [CenterAlignImageSpan] :图文混排对齐
-* [HexagonView] :正六边形
-* [JustifyTextView] :适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
-* [PhotoViewPager] :可左右滑动照片查看器(案例：[使用:sample/activity/PhotoViewActivity])
-* [RoundImage] :圆形ImageView控件,直接在布局中使用([使用:sample/res/layout/fragment_view.xml])
-* [RoundFrameLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [RoundLinearLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [RoundRelativeLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [RoundTextView] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDCenterAlignImageSpan] :图文混排对齐
+* [SDHexagonView] :正六边形TextView
+* [SDLetterSpaceTextView] :可设置文字间距的TextView
+* [SDRoundFrameLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRoundImage] :圆形ImageView控件,直接在布局中使用
+* [SDRoundLinearLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRoundRelativeLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRoundTextView] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRadioButtom] :可设置图片大小的RadioButton
 * [SuperTextView]：超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
 * [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
+* [JustifyTextView] :适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
+* [PhotoViewPager] :可左右滑动照片查看器
 
 ## util(工具类详细说明文档看[Document_Util])
-* [ActivityUtil] :页面工具类
-* [AppUtil] :获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
-* [ClearUtil] :清除缓存、数据等相关应用
-* [CloseUtil] :关闭相关工具类
+* [SDActivityUtil] :页面工具类
+* [SDAppUtil] :获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
+* [SDClearUtil] :清除缓存、数据等相关应用
+* [SDCloseUtil] :关闭相关工具类
 * [CrashHandler]
-* [DateUtil] ：时间、日期转换
+* [SDDateUtil] ：时间、日期转换
 * [EncryptUtil] :加密算法相关工具类
-* [FileUtil] :文件处理相关工具类
-* [IntentUtil] ：Intent相关工具类
-* [LogUtil] ：日志打印控制工具类
-* [NetWorkUtil] :网络连接、类型等
-* [NumberUtil] :数字工具类
+* [SDFileUtil] :文件处理相关工具类
+* [SDIntentUtil] ：Intent相关工具类
+* [SDLogUtil] ：日志打印控制工具类
+* [SDNetWorkUtil] :网络连接、类型等
+* [SDNumberUtil] :数字工具类
 * [ProcessUtil]
-* [ScreenUtil] :屏幕相关工具类
-* [SDCardUtil] ：SD卡以及存储相关工具类
+* [SDScreenUtil] :屏幕相关工具类
+* [SDStorageUtil] ：SD卡以及存储相关工具类
 * [ShellUtils]
-* [SPUtil] ：SharedPreference的封装，用来储存数据([使用:sample/src/constants/AppInfo.java])
-* [StringUtil] :字符处理相关工具类
-* [ToastUtil] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
-* [TransitionTools] :dp、px转换
+* [SDSPUtil] ：SharedPreference的封装，用来储存数据([使用:sample/src/constants/AppInfo.java])
+* [SDStringUtil] :字符处理相关工具类
+* [SDToast] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
+* [SDTransitionUtil] :dp、px转换
 
 
 
  参考资料：https://github.com/Blankj/AndroidUtilCode
 <!--  View-->
-[EditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/EditDialog.java
-[BottomPopupWindow]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/BottomPopupWindow.java
-[EnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/EnsureDialog.java
+<!--Dialog相关-->
+[NiceDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java
+[SDBottomDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDBottomDialog.java
+[SDCustomDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDCustomDialog.java
+[SDEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEditDialog.java
+[SDEnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureDialog.java
+[SDEnsureSubDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureSubDialog.java
+
+
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/PicassoCircleTransfer.java
 [QQStepView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/QQStepView.java
-[TitleBar]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/TitleBar.java
 
 <!--  widget-->
 [JustifyTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/JustifyTextView.java
 [PhotoViewPager]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/PhotoViewPager.java
-[RoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundImage.java
-[RoundFrameLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundFrameLayout.java
-[RoundLinearLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundLinearLayout.java
-[RoundRelativeLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundRelativeLayout.java
-[RoundTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/RoundTextView.java
 [SuperTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SuperTextView.java
-[TabRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/TabRadioButton.java
 
-<!--  sample-->
-[使用:sample/activity/DialogActivity]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/ui/activity/view/DialogActivity.java
-[使用:sample/activity/PhotoViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/ui/activity/view/PhotoViewActivity.java
-[使用:sample/activity/QQStepViewActivity]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/ui/activity/view/QQStepViewActivity.java
-[使用:sample/res/layout/fragment_view.xml]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/res/layout/fragment_view.xml
-[使用:TitleBar使用说明]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/note/TitleBar.md
-[使用:sample/src/constants/AppInfo.java]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/master/sample/src/main/java/com/sample/constants/AppInfo.java
-
-
-
-
+[SDCenterAlignImageSpan]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDCenterAlignImageSpan.java
+[SDHexagonView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDHexagonView.java
+[SDLetterSpaceTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDLetterSpaceTextView.java
+[SDRadioButton]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDRadioButton.java
+[SDRoundFrameLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDRoundFrameLayout.java
+[SDRoundImage]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDRoundImage.java
+[SDRoundLinearLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDRoundLinearLayout.java
+[SDRoundRelativeLayout]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDRoundRelativeLayout.java
+[SDRoundTextView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/widget/SDRoundTextView.java
 
 <!--  util-->
-[ActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/ActivityUtil.java
-[AppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/AppUtil.java
-[ClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/ClearUtil.java
-[CloseUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/CloseUtil.java
-[DateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/DateUtil.java
+[SDActivityUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDActivityUtil.java
+[SDAppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDAppUtil.java
+[SDClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDClearUtil.java
+[SDCloseUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDCloseUtil.java
+[SDDateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDDateUtil.java
 [EncryptUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/EncryptUtil.java
-[FileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/FileUtil.java
-[IntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/IntentUtil.java
-[LogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/LogUtil.java
-[NetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/NetWorkUtil.java
-[NumberUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/lib/util/NumberUtil.java
-[ScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/ScreenUtil.java
-[StringUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/StringUtil.java
-[TransitionTools]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/TransitionTools.java
-[ToastUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/ToastUtil.java
-
-[Document_Util]:https://github.com/SiberiaDante/SiberiaDanteLib/blob/6501f32b327dfe511978d7aacef69b145e5a7a0f/DOCUMENT_UTIL.md
+[SDFileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDFileUtil.java
+[SDIntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDIntentUtil.java
+[SDLogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDLogUtil.java
+[SDNetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDNetWorkUtil.java
+[SDNumberUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/lib/util/SDNumberUtil.java
+[SDScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDScreenUtil.java
+[SDStringUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDStringUtil.java
+[SDTransitionUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDTransitionUtil.java
+[SDToast]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDToast.java
 
 
 

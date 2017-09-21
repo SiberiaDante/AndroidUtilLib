@@ -68,7 +68,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
-                LogUtil.e(e.getMessage());
+                SDLogUtil.e(e.getMessage());
             }
             //退出程序
             android.os.Process.killProcess(android.os.Process.myPid());
@@ -109,7 +109,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 infos.put("versionCode", versionCode);
             }
         } catch (PackageManager.NameNotFoundException e) {
-            LogUtil.e(e.getMessage());
+            SDLogUtil.e(e.getMessage());
         }
         Field[] fields = Build.class.getDeclaredFields();
         for (Field field : fields) {
@@ -117,7 +117,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
                 field.setAccessible(true);
                 infos.put(field.getName(), field.get(null).toString());
             } catch (Exception e) {
-                LogUtil.e(e.getMessage());
+                SDLogUtil.e(e.getMessage());
 
             }
         }
@@ -151,7 +151,7 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         String result = writer.toString();
         sb.append(result);
         sb.append("--------------------end---------------------------");
-        LogUtil.e(sb.toString());
+        SDLogUtil.e(sb.toString());
 
         return null;
     }

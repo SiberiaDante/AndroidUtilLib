@@ -9,7 +9,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.siberiadante.custom.R;
 import com.siberiadante.custom.ui.activity.Main2Activity;
 import com.siberiadante.custom.util.ImageLoadUtil;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToast;
 
 import java.util.concurrent.TimeUnit;
@@ -63,7 +63,7 @@ public class OneFragment extends LazyFragment {
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(@NonNull Long aLong) throws Exception {
-                        LogUtil.d("----timer----");
+                        SDLogUtil.d("----timer----");
                     }
                 });
 

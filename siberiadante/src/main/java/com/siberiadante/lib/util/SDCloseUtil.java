@@ -6,15 +6,20 @@ import java.io.Closeable;
 import java.io.IOException;
 
 /**
- * Created by SiberiaDante on 2017/5/15.
+ * @Created SiberiaDante
+ * @Describe： 关闭相关工具类
+ * @Time: 2017/5/15
+ * @Email: 994537867@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
-
-public class CloseUtil {
-    public CloseUtil() {
+public class SDCloseUtil {
+    public SDCloseUtil() {
         new SiberiaDanteLibException();
     }
 
-    /**关闭多个IO流
+    /**
+     * 关闭多个IO流
+     *
      * @param closeables io,io,io,...
      */
     public static void closeIO(Closeable... closeables) {

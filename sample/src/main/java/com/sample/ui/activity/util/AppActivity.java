@@ -8,8 +8,8 @@ import android.widget.ImageView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.AppUtil;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDAppUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initView() {
-        LogUtil.d(TAG, "---" + getClass().getSimpleName() + "----------");
+        SDLogUtil.d(TAG, "---" + getClass().getSimpleName() + "----------");
         mIvIcon = (ImageView) findViewById(R.id.iv_icon);
         Button mBtnUnInstallApp = (Button) findViewById(R.id.un_install_app);
         Button mBtnInstallApp = (Button) findViewById(R.id.install_app);
@@ -42,34 +42,34 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initData() {
-        Log.d(TAG, "initData: " + AppUtil.getAppVersionCode());
-        Log.d(TAG, "initData: " + AppUtil.getAppVersionName());
-        Log.d(TAG, "initData: " + AppUtil.getAndroidSystemVersion());
-        Log.d(TAG, "initData: " + AppUtil.getMobilePhoneTypeInfo());
-        Log.d(TAG, "initData: " + AppUtil.getMobileAndAPPInfo());
-        Log.d(TAG, "initData: getAppPackageName:" + AppUtil.getAppPackageName());
-        Log.d(TAG, "initData: isInstalledApp:" + AppUtil.isInstalledApp());
-        Log.d(TAG, "initData: AppName:" + AppUtil.getAppName());
-        Log.d(TAG, "initData: getAppPath:" + AppUtil.getAppPath());
-        Log.d(TAG, "initData: getAppPath:" + AppUtil.getAppPath("com.sample"));
-        Log.d(TAG, "initData: isSystemApp:" + AppUtil.isSystemApp());
-        Log.d(TAG, "initData: isAppDebug:" + AppUtil.isAppDebug());
-        Log.d(TAG, "initData: isAppRoot:" + AppUtil.isAppRoot());
-        Log.d(TAG, "initData: getAppSignature:" + AppUtil.getAppSignature().toString());
-        Log.d(TAG, "initData: getAppSignature:" + String.valueOf(AppUtil.getAppSignature("com.shuinsen.zhiri")));
-        Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1());
-        Log.d(TAG, "initData: getAppSignatureSHA1:" + AppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
-        Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground());
-        Log.d(TAG, "initData: isAppForeground:" + AppUtil.isAppInForeground("com.shuinsen.zhiri"));
-//        LogUtil.d(TAG, "getApkNameAll=" + getApkAll());
-        mIvIcon.setImageDrawable(AppUtil.getAppIcon("com.shuinsen.zhiri"));
+        Log.d(TAG, "initData: " + SDAppUtil.getAppVersionCode());
+        Log.d(TAG, "initData: " + SDAppUtil.getAppVersionName());
+        Log.d(TAG, "initData: " + SDAppUtil.getAndroidSystemVersion());
+        Log.d(TAG, "initData: " + SDAppUtil.getMobilePhoneTypeInfo());
+        Log.d(TAG, "initData: " + SDAppUtil.getMobileAndAPPInfo());
+        Log.d(TAG, "initData: getAppPackageName:" + SDAppUtil.getAppPackageName());
+        Log.d(TAG, "initData: isInstalledApp:" + SDAppUtil.isInstalledApp());
+        Log.d(TAG, "initData: AppName:" + SDAppUtil.getAppName());
+        Log.d(TAG, "initData: getAppPath:" + SDAppUtil.getAppPath());
+        Log.d(TAG, "initData: getAppPath:" + SDAppUtil.getAppPath("com.sample"));
+        Log.d(TAG, "initData: isSystemApp:" + SDAppUtil.isSystemApp());
+        Log.d(TAG, "initData: isAppDebug:" + SDAppUtil.isAppDebug());
+        Log.d(TAG, "initData: isAppRoot:" + SDAppUtil.isAppRoot());
+        Log.d(TAG, "initData: getAppSignature:" + SDAppUtil.getAppSignature().toString());
+        Log.d(TAG, "initData: getAppSignature:" + String.valueOf(SDAppUtil.getAppSignature("com.shuinsen.zhiri")));
+        Log.d(TAG, "initData: getAppSignatureSHA1:" + SDAppUtil.getAppSignatureSHA1());
+        Log.d(TAG, "initData: getAppSignatureSHA1:" + SDAppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
+        Log.d(TAG, "initData: isAppForeground:" + SDAppUtil.isAppInForeground());
+        Log.d(TAG, "initData: isAppForeground:" + SDAppUtil.isAppInForeground("com.shuinsen.zhiri"));
+//        SDLogUtil.d(TAG, "getApkNameAll=" + getApkAll());
+        mIvIcon.setImageDrawable(SDAppUtil.getAppIcon("com.shuinsen.zhiri"));
     }
 
     private String getApkAll() {
-        final ArrayList<String> apkNameAll = AppUtil.getApkNameAll();
+        final ArrayList<String> apkNameAll = SDAppUtil.getApkNameAll();
         for (int i = 0; i < apkNameAll.size(); i++) {
             final String s = apkNameAll.get(i);
-            LogUtil.d(TAG, "name---" + s);
+            SDLogUtil.d(TAG, "name---" + s);
             return s;
         }
         return null;
@@ -83,22 +83,22 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.un_install_app:
-//                AppUtil.unInstallApp("com.sample");
-//                AppUtil.unInstallApp(this, "com.sample", 0);
-                boolean b = AppUtil.uninstallAppSilent("com.shuinsen.zhiri", false);
+//                SDAppUtil.unInstallApp("com.sample");
+//                SDAppUtil.unInstallApp(this, "com.sample", 0);
+                boolean b = SDAppUtil.uninstallAppSilent("com.shuinsen.zhiri", false);
                 Log.d(TAG, "onClick: uninstallAppSilent:" + b);
                 break;
             case R.id.install_app:
                 InputStream abpath = getClass().getResourceAsStream("/assets/japanStory");
                 try {
                     String path = new String(InputStreamToByte(abpath));
-                    AppUtil.installApp(path, "com.sample.provider");
+                    SDAppUtil.installApp(path, "com.sample.provider");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 break;
             case R.id.setting_app:
-                AppUtil.openAppDetailsSettings();
+                SDAppUtil.openAppDetailsSettings();
                 break;
             case R.id.iv_icon:
                 setResult(10);

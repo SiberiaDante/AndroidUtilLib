@@ -7,7 +7,7 @@ import android.widget.Toast;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToast;
 
 import java.util.ArrayList;
@@ -68,10 +68,10 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
                 stringList.add("糗百一入深似海");
                 stringList.add("从此纯洁是路人");
                 SDToast.showLinesText(stringList, ContextCompat.getColor(this, R.color.white), 18, ContextCompat.getColor(this, R.color.black));
-                LogUtil.d("-------------333-----------：" + ContextCompat.getColor(this, R.color.white));
+                SDLogUtil.d("-------------333-----------：" + ContextCompat.getColor(this, R.color.white));
                 break;
             case R.id.btn_show_layout:
-                SDToast.showView(R.layout.dialog_ensure_layout);
+                SDToast.showView(R.layout.sd_dialog_ensure_layout);
                 break;
             case R.id.btn_toast_normal:
                 SDToast.normal("这是一个正常的Toast");

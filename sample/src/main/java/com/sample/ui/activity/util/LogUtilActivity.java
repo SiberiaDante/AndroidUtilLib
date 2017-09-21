@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 
 public class LogUtilActivity extends BaseActivity {
 
@@ -14,6 +14,6 @@ public class LogUtilActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_util);
-        LogUtil.showSquareLogE(TAG, "saskflasffffffffffffafpokfkjksdssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+        SDLogUtil.showSquareLogE(TAG, "saskflasffffffffffffafpokfkjksdssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
     }
 }

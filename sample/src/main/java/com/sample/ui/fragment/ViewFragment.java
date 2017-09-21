@@ -2,11 +2,8 @@ package com.sample.ui.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.jude.easyrecyclerview.EasyRecyclerView;
@@ -15,7 +12,6 @@ import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.sample.R;
 import com.sample.adapter.CustomAdapter;
 import com.sample.bean.UtilData;
-import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.WebVideoActivity;
 import com.sample.ui.activity.animation.SDSpreadLikeViewActivity;
 import com.sample.ui.activity.view.DialogActivity;
@@ -24,9 +20,9 @@ import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
 import com.sample.ui.activity.view.ShapeViewActivity;
 import com.sample.ui.activity.view.TitleLayoutActivity;
-import com.siberiadante.lib.util.ActivityUtil;
-import com.siberiadante.lib.util.LogUtil;
-import com.siberiadante.lib.util.TransitionTools;
+import com.siberiadante.lib.util.SDActivityUtil;
+import com.siberiadante.lib.util.SDLogUtil;
+import com.siberiadante.lib.util.SDTransitionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +51,7 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.fragment_view);
-        LogUtil.d("-------------ViewFragment----------------");
+        SDLogUtil.d("-------------ViewFragment----------------");
         initView();
         initData();
     }
@@ -63,7 +59,7 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
     protected void initView() {
         mRecyclerView = ((EasyRecyclerView) findViewById(R.id.erv_view));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        DividerDecoration itemDecoration = new DividerDecoration(Color.GRAY, TransitionTools.dip2px(1f), 0, 0);
+        DividerDecoration itemDecoration = new DividerDecoration(Color.GRAY, SDTransitionUtil.dip2px(1f), 0, 0);
         itemDecoration.setDrawHeaderFooter(false);
         mRecyclerView.addItemDecoration(itemDecoration);
         adapter = new CustomAdapter(getActivity());
@@ -93,6 +89,6 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
 
     @Override
     public void onItemClick(int position) {
-        ActivityUtil.launchActivity("com.sample", datas.get(position).getCls());
+        SDActivityUtil.launchActivity("com.sample", datas.get(position).getCls());
     }
 }

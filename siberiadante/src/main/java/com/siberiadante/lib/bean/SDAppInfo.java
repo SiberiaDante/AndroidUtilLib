@@ -11,7 +11,7 @@ import android.graphics.drawable.Drawable;
  * 博客园： http://www.cnblogs.com/shen-hua/
  */
 
-public class AppInfo {
+public class SDAppInfo {
     private String name;
     private Drawable icon;
     private String packageName;
@@ -85,8 +85,8 @@ public class AppInfo {
      * @param versionCode 版本码
      * @param isSystem    是否系统应用
      */
-    public AppInfo(String packageName, String name, Drawable icon, String packagePath,
-                   String versionName, int versionCode, boolean isSystem) {
+    public SDAppInfo(String packageName, String name, Drawable icon, String packagePath,
+                     String versionName, int versionCode, boolean isSystem) {
         this.setName(name);
         this.setIcon(icon);
         this.setPackageName(packageName);

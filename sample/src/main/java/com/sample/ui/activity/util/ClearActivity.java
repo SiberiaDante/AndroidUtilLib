@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.ClearUtil;
+import com.siberiadante.lib.util.SDClearUtil;
 
 import java.io.File;
 
@@ -26,13 +26,13 @@ public class ClearActivity extends BaseActivity {
 
     private void initData() {
         File file = new File("");
-        Log.d(TAG, "initData: clearInternalCache=" + ClearUtil.clearInternalCache());
-        Log.d(TAG, "initData: clearInternalFiles=" + ClearUtil.clearInternalFiles());
-        Log.d(TAG, "initData: clearInternalDbs=" + ClearUtil.clearInternalDbs());
-        Log.d(TAG, "initData: clearInternalDbByName(String dbName)=" + ClearUtil.clearInternalDbByName("www"));
-        Log.d(TAG, "initData: clearInternalSP=" + ClearUtil.clearInternalSP());
-        Log.d(TAG, "initData: " + ClearUtil.clearCustomCache(""));
-        Log.d(TAG, "initData: " + ClearUtil.clearCustomCache(file));
+        Log.d(TAG, "initData: clearInternalCache=" + SDClearUtil.clearInternalCache());
+        Log.d(TAG, "initData: clearInternalFiles=" + SDClearUtil.clearInternalFiles());
+        Log.d(TAG, "initData: clearInternalDbs=" + SDClearUtil.clearInternalDbs());
+        Log.d(TAG, "initData: clearInternalDbByName(String dbName)=" + SDClearUtil.clearInternalDbByName("www"));
+        Log.d(TAG, "initData: clearInternalSP=" + SDClearUtil.clearInternalSP());
+        Log.d(TAG, "initData: " + SDClearUtil.clearCustomCache(""));
+        Log.d(TAG, "initData: " + SDClearUtil.clearCustomCache(file));
 
 
     }

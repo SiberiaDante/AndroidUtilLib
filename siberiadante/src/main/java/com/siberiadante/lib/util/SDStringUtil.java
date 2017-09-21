@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @博客园： http://www.cnblogs.com/shen-hua/
  */
 
-public class StringUtil {
+public class SDStringUtil {
     /**
      * 判断字符串是否为空
      *
@@ -31,10 +31,10 @@ public class StringUtil {
      */
     public static boolean isHaveString(String str1, String str2) {
         if (str1.contains(str2)) {
-            LogUtil.d(true + "");
+            SDLogUtil.d(true + "");
             return true;
         } else {
-            LogUtil.d(false + "");
+            SDLogUtil.d(false + "");
             return false;
         }
     }

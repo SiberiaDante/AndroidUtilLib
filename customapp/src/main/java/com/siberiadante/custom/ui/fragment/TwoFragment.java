@@ -14,7 +14,7 @@ import com.siberiadante.custom.constant.Constants;
 import com.siberiadante.custom.http.ApiService;
 import com.siberiadante.custom.http.Request;
 import com.siberiadante.custom.http.RetrofitManager;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToast;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
@@ -85,12 +85,12 @@ public class TwoFragment extends LazyFragment {
                 .subscribe(new Observer<WrapResult<LoginResponse>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        LogUtil.d(TAG, "---------------------onSubscribe-----------------------");
+                        SDLogUtil.d(TAG, "---------------------onSubscribe-----------------------");
                     }
 
                     @Override
                     public void onNext(@NonNull WrapResult<LoginResponse> listWrapResult) {
-                        LogUtil.d(TAG, "onNext:2222222222222222222----------------------- " + listWrapResult.getInfo());
+                        SDLogUtil.d(TAG, "onNext:2222222222222222222----------------------- " + listWrapResult.getInfo());
 //                        adapter = new NewsAdapter(getActivity(), listWrapResult.getData());
 //                        recyclerView.setAdapter(adapter);
                         mLLProgress.setVisibility(View.GONE);
@@ -98,12 +98,12 @@ public class TwoFragment extends LazyFragment {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        LogUtil.d(TAG, "onError");
+                        SDLogUtil.d(TAG, "onError");
                     }
 
                     @Override
                     public void onComplete() {
-                        LogUtil.d(TAG, "onComplete");
+                        SDLogUtil.d(TAG, "onComplete");
                         mLLProgress.setVisibility(View.GONE);
                     }
                 });
@@ -123,12 +123,12 @@ public class TwoFragment extends LazyFragment {
                 .subscribe(new Observer<WrapResult<LoginResponse>>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
-                        LogUtil.d(TAG, "---------------------onSubscribe-----------------------");
+                        SDLogUtil.d(TAG, "---------------------onSubscribe-----------------------");
                     }
 
                     @Override
                     public void onNext(@NonNull WrapResult<LoginResponse> listWrapResult) {
-                        LogUtil.d(TAG, "onNext:11111111111111111----------------------- " + listWrapResult.getInfo());
+                        SDLogUtil.d(TAG, "onNext:11111111111111111----------------------- " + listWrapResult.getInfo());
 //                        adapter = new NewsAdapter(getActivity(), listWrapResult.getData());
 //                        recyclerView.setAdapter(adapter);
                         mLLProgress.setVisibility(View.GONE);
@@ -136,13 +136,13 @@ public class TwoFragment extends LazyFragment {
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        LogUtil.d(TAG, "onError");
+                        SDLogUtil.d(TAG, "onError");
 
                     }
 
                     @Override
                     public void onComplete() {
-                        LogUtil.d(TAG, "onComplete");
+                        SDLogUtil.d(TAG, "onComplete");
                         mLLProgress.setVisibility(View.GONE);
                     }
                 });

@@ -9,7 +9,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 
-import com.siberiadante.lib.util.KeyBoardUtil;
+import com.siberiadante.lib.util.SDKeyBoardUtil;
 
 /**
  * @Created SiberiaDante
@@ -144,7 +144,7 @@ public class BaseActivity extends Activity {
                 if (isTouchView(hideSoftByEditViewIds(), ev))
                     return super.dispatchTouchEvent(ev);
                 //隐藏键盘
-                KeyBoardUtil.hideInputForce(this);
+                SDKeyBoardUtil.hideInputForce(this);
                 clearViewFocus(v, hideSoftByEditViewIds());
 
             }

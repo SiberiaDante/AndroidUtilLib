@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.NetWorkUtil;
+import com.siberiadante.lib.util.SDNetWorkUtil;
 
 public class NetworkActivity extends BaseActivity {
 
@@ -27,14 +27,14 @@ public class NetworkActivity extends BaseActivity {
         mBtnOpenSetting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NetWorkUtil.openNetworkSettings();
+                SDNetWorkUtil.openNetworkSettings();
             }
         });
     }
 
     public void initData() {
-        Log.d(TAG, "testNetworkUtil:isNetWorkConnected? " + NetWorkUtil.isNetWorkConnected());
-        Log.d(TAG, "testNetworkUtil: isWifiConnected?" + NetWorkUtil.isWifiConnected());
-        Log.d(TAG, "testNetworkUtil:getNetworkState= " + NetWorkUtil.getNetWorkType());
+        Log.d(TAG, "testNetworkUtil:isNetWorkConnected? " + SDNetWorkUtil.isNetWorkConnected());
+        Log.d(TAG, "testNetworkUtil: isWifiConnected?" + SDNetWorkUtil.isWifiConnected());
+        Log.d(TAG, "testNetworkUtil:getNetworkState= " + SDNetWorkUtil.getNetWorkType());
     }
 }

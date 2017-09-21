@@ -42,7 +42,7 @@ public class SDEditDialog {
     }
 
     public SDEditDialog builder() {
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_alert_edit, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.sd_dialog_alert_edit, null);
         mLinear_layout = (LinearLayout) view.findViewById(R.id.linear_alert_dialog_bg);
         mTvTitle = (TextView) view.findViewById(R.id.tv_alert_dialog_title);
         mEdtContent = (EditText) view.findViewById(R.id.edt_alert_dialog_content);

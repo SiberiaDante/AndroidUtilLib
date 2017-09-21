@@ -1,7 +1,6 @@
 package com.siberiadante.lib.util;
 
 import android.os.Environment;
-import android.util.Config;
 import android.util.Log;
 
 import com.siberiadante.lib.SiberiaDanteLib;
@@ -13,9 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
  * @Created SiberiaDante
@@ -26,8 +22,8 @@ import java.util.Date;
  * can use
  */
 
-public class LogUtil {
-    public LogUtil() {
+public class SDLogUtil {
+    public SDLogUtil() {
         new SiberiaDanteLibException();
     }
 
@@ -39,7 +35,7 @@ public class LogUtil {
     private static int CHUNK_SIZE = 106; //设置字节数
 
     public static void setTag(String tag) {
-        LogUtil.TAG = tag;
+        SDLogUtil.TAG = tag;
     }
 
     public static void i(String msg) {
@@ -100,7 +96,7 @@ public class LogUtil {
      * @param msg
      */
     public static void printTimeLogI(String tag, String msg) {
-        d(tag + "[" + DateUtil.getSDFTime(DateUtil.getTimeStamp()) + "]:" + msg);
+        d(tag + "[" + SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp()) + "]:" + msg);
     }
 
     /**
@@ -110,7 +106,7 @@ public class LogUtil {
      * @param msg
      */
     public static void printTimeLogD(String tag, String msg) {
-        d(tag + "[" + DateUtil.getSDFTime(DateUtil.getTimeStamp()) + "]:" + msg);
+        d(tag + "[" + SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp()) + "]:" + msg);
     }
 
     /**
@@ -120,7 +116,7 @@ public class LogUtil {
      * @param msg
      */
     public static void printTimeLogE(String tag, String msg) {
-        d(tag + "[" + DateUtil.getSDFTime(DateUtil.getTimeStamp()) + "]:" + msg);
+        d(tag + "[" + SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp()) + "]:" + msg);
     }
 
     /**
@@ -130,7 +126,7 @@ public class LogUtil {
      * @param msg
      */
     public static void printTimeLogV(String tag, String msg) {
-        d(tag + "[" + DateUtil.getSDFTime(DateUtil.getTimeStamp()) + "]:" + msg);
+        d(tag + "[" + SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp()) + "]:" + msg);
     }
 
     /**
@@ -140,7 +136,7 @@ public class LogUtil {
      * @param msg
      */
     public static void printTimeLogW(String tag, String msg) {
-        d(tag + "[" + DateUtil.getSDFTime(DateUtil.getTimeStamp()) + "]:" + msg);
+        d(tag + "[" + SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp()) + "]:" + msg);
     }
 
     /**
@@ -200,7 +196,7 @@ public class LogUtil {
      */
     public static void eFile(String info) {
         long timestamp = System.currentTimeMillis();
-        String time = DateUtil.getSDFTime(DateUtil.getTimeStamp());
+        String time = SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp());
         String fileName = SiberiaDanteLib.getContext().getPackageName() + "crash-" + time + "-" + timestamp + ".log";
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             String path = "/sdcard/crash/";
@@ -245,7 +241,7 @@ public class LogUtil {
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 
         for (StackTraceElement stackTraceElement : stackTrace) {
-            boolean isLogMethod = stackTraceElement.getClassName().equals(LogUtil.class.getName());
+            boolean isLogMethod = stackTraceElement.getClassName().equals(SDLogUtil.class.getName());
             if (shouldTrace && !isLogMethod) {
                 targetStackTrace = stackTraceElement;
                 break;
@@ -263,7 +259,7 @@ public class LogUtil {
             e.printStackTrace();
         }
         int length = bytes.length;
-        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + DateUtil.getSDFTimeYMDHSM() + "\n" + LEFT_BORDER + "\t" + stackstr;
+        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + SDDateUtil.getSDFTimeYMDHSM() + "\n" + LEFT_BORDER + "\t" + stackstr;
         if (length > CHUNK_SIZE) {
             int i = 0;
             while (i < length) {

@@ -10,11 +10,11 @@ import android.widget.EditText;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.SDScreenUtil;
 import com.siberiadante.lib.util.SDToast;
 import com.siberiadante.lib.view.dialog.SDCustomDialog;
 import com.siberiadante.lib.view.dialog.SDEditDialog;
-import com.siberiadante.lib.view.BottomPopupWindow;
+import com.siberiadante.lib.view.dialog.SDBottomDialog;
 import com.siberiadante.lib.view.dialog.SDEnsureDialog;
 import com.siberiadante.lib.view.dialog.NiceDialog;
 import com.siberiadante.lib.view.dialog.SDEnsureSubDialog;
@@ -37,7 +37,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dialog);
-        ScreenUtil.setStatusTranslucent(this);
+        SDScreenUtil.setStatusTranslucent(this);
         initView();
         initData();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -180,18 +180,18 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     /**
-     * BottomPopupWindow
+     * SDBottomDialog
      */
     private void showBottomPopupWindow() {
-        new BottomPopupWindow(this).builder()
+        new SDBottomDialog(this).builder()
                 .setTitle("选择").setCancelable(false).setCanceled(true)
-                .addSheetItem("相机", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
+                .addSheetItem("相机", SDBottomDialog.SheetItemColor.Blue, new SDBottomDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //需要对相机进行运行时权限的申请
                     }
                 })
-                .addSheetItem("相册", BottomPopupWindow.SheetItemColor.Blue, new BottomPopupWindow.OnSheetItemClickListener() {
+                .addSheetItem("相册", SDBottomDialog.SheetItemColor.Blue, new SDBottomDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //调用手机相册的方法,该方法在下面有具体实现

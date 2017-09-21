@@ -8,7 +8,7 @@ package com.siberiadante.lib.util;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class MathUtil {
+public class SDMathUtil {
     /**
      * sin计算
      *

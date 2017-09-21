@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  * @博客园： http://www.cnblogs.com/shen-hua/
  */
 
-public class NumberUtil {
+public class SDNumberUtil {
 
     /**
      * 判断str是否全是数字

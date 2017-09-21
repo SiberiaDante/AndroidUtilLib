@@ -1,30 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_screen_test"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.activity.util.ScreenActivity">
 
-    <LinearLayout
+    <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:background="@color/action_sheet_blue"
-        android:clipToPadding="true"
-        android:fitsSystemWindows="true">
+        android:layout_height="wrap_content"
+        app:d_title_layout_background="@color/blue"
+        app:d_title_layout_height="40dp"
+        app:d_is_immersive_state_bar="true"
+        app:d_title_text="沉浸式状态栏"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="沉浸式状态栏" />
-    </LinearLayout>
     <TextView
-        android:layout_margin="10dp"
-        android:textSize="16sp"
-        android:layout_width="match_parent"
         android:id="@+id/tv_screen_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="16sp" />
 
 </LinearLayout>

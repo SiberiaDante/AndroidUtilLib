@@ -23,7 +23,7 @@ import com.sample.ui.fragment.UtilFragment;
 import com.sample.ui.fragment.OtherFragment;
 import com.sample.ui.fragment.ViewFragment;
 import com.siberiadante.lib.manager.PermissionManager;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToast;
 import com.siberiadante.lib.view.titlebar.SDTitleLayout;
 
@@ -78,13 +78,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-                LogUtil.d("--------close---------------");
+                SDLogUtil.d("--------close---------------");
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-                LogUtil.d("--------open---------------");
+                SDLogUtil.d("--------open---------------");
             }
         }
         ;

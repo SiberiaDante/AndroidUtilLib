@@ -14,8 +14,8 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.siberiadante.lib.R;
-import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.util.TransitionTools;
+import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDTransitionUtil;
 
 /**
  * @Created SiberiaDante
@@ -117,15 +117,15 @@ public abstract class BaseNiceDialog extends DialogFragment {
 
             //设置dialog宽度
             if (width == 0) {
-                lp.width = ScreenUtil.getScreenWidthPx() - 2 * TransitionTools.dp2px( margin);
+                lp.width = SDScreenUtil.getScreenWidthPx() - 2 * SDTransitionUtil.dp2px( margin);
             } else {
-                lp.width = TransitionTools.dp2px(width);
+                lp.width = SDTransitionUtil.dp2px(width);
             }
             //设置dialog高度
             if (height == 0) {
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
             } else {
-                lp.height = TransitionTools.dp2px(height);
+                lp.height = SDTransitionUtil.dp2px(height);
             }
 
             //设置dialog进入、退出的动画

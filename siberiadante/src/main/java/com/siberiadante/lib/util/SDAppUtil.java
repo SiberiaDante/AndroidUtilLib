@@ -18,8 +18,8 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.siberiadante.lib.SiberiaDanteLib;
+import com.siberiadante.lib.bean.SDAppInfo;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
-import com.siberiadante.lib.bean.AppInfo;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -31,10 +31,10 @@ import java.util.UUID;
  * 获取应用/手机信息、判断应用是否安装，卸载/安装APP，手机网络面板设置等
  */
 
-public class AppUtil {
-    public static final String TAG = AppUtil.class.getSimpleName();
+public class SDAppUtil {
+    public static final String TAG = SDAppUtil.class.getSimpleName();
 
-    public AppUtil() {
+    public SDAppUtil() {
         new SiberiaDanteLibException(getClass().getSimpleName());
     }
 
@@ -225,7 +225,7 @@ public class AppUtil {
      */
     public static void launchApp(String packageName) {
         if (isSpace(packageName)) return;
-        SiberiaDanteLib.getContext().startActivity(IntentUtil.getLaunchAppIntent(packageName));
+        SiberiaDanteLib.getContext().startActivity(SDIntentUtil.getLaunchAppIntent(packageName));
     }
 
     /**
@@ -237,7 +237,7 @@ public class AppUtil {
      */
     public static void launchApp(Activity activity, String packageName, int requestCode) {
         if (isSpace(packageName)) return;
-        activity.startActivityForResult(IntentUtil.getLaunchAppIntent(packageName), requestCode);
+        activity.startActivityForResult(SDIntentUtil.getLaunchAppIntent(packageName), requestCode);
     }
 
 
@@ -255,7 +255,7 @@ public class AppUtil {
      */
     public static void openAppDetailsSettings(String packageName) {
         if (isSpace(packageName)) return;
-        SiberiaDanteLib.getContext().startActivity(IntentUtil.getAppDetailsSettingsIntent(packageName));
+        SiberiaDanteLib.getContext().startActivity(SDIntentUtil.getAppDetailsSettingsIntent(packageName));
     }
 
     /**
@@ -341,13 +341,13 @@ public class AppUtil {
 
     ///TODO--sss待测试解决
     public static ArrayList<String> getApkNameAll() {
-        return getApkName(SDCardUtil.getSDCardPath());
+        return getApkName(SDStorageUtil.getSDCardPath());
     }
 
     //用到了递归
     //这个参数我使用的时候传递的是Environment.getExternalStorageDirectory().getAbsolutePath()
     public static ArrayList<String> getApkName(String path) {
-        LogUtil.d("---path---" + path);
+        SDLogUtil.d("---path---" + path);
         ArrayList<String> list = new ArrayList<>();
         File file = new File(path);
         if (file.isDirectory()) {
@@ -617,13 +617,13 @@ public class AppUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean cleanAppData(File... dirs) {
-        boolean isSuccess = ClearUtil.clearInternalCache();
-        isSuccess &= ClearUtil.clearInternalDbs();
-        isSuccess &= ClearUtil.clearInternalSP();
-        isSuccess &= ClearUtil.clearInternalFiles();
-        isSuccess &= ClearUtil.clearExternalCache();
+        boolean isSuccess = SDClearUtil.clearInternalCache();
+        isSuccess &= SDClearUtil.clearInternalDbs();
+        isSuccess &= SDClearUtil.clearInternalSP();
+        isSuccess &= SDClearUtil.clearInternalFiles();
+        isSuccess &= SDClearUtil.clearExternalCache();
         for (File dir : dirs) {
-            isSuccess &= ClearUtil.clearCustomCache(dir);
+            isSuccess &= SDClearUtil.clearCustomCache(dir);
         }
         return isSuccess;
     }
@@ -638,7 +638,7 @@ public class AppUtil {
      *                  <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
      */
     public static void installApp(String filePath, String authority) {
-        installApp(FileUtil.getFileByPath(filePath), authority);
+        installApp(SDFileUtil.getFileByPath(filePath), authority);
     }
 
     /**
@@ -649,10 +649,10 @@ public class AppUtil {
      *                  <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
      */
     public static void installApp(File file, String authority) {
-        if (!FileUtil.isFileExists(file)) {
+        if (!SDFileUtil.isFileExists(file)) {
             return;
         }
-        SiberiaDanteLib.getContext().startActivity(IntentUtil.getInstallAppIntent(file, authority));
+        SiberiaDanteLib.getContext().startActivity(SDIntentUtil.getInstallAppIntent(file, authority));
     }
 
     /**
@@ -665,7 +665,7 @@ public class AppUtil {
      * @param requestCode 请求值
      */
     public static void installApp(Activity activity, String filePath, String authority, int requestCode) {
-        installApp(activity, FileUtil.getFileByPath(filePath), authority, requestCode);
+        installApp(activity, SDFileUtil.getFileByPath(filePath), authority, requestCode);
     }
 
     /**
@@ -678,8 +678,8 @@ public class AppUtil {
      * @param requestCode 请求值
      */
     public static void installApp(Activity activity, File file, String authority, int requestCode) {
-        if (!FileUtil.isFileExists(file)) return;
-        activity.startActivityForResult(IntentUtil.getInstallAppIntent(file, authority), requestCode);
+        if (!SDFileUtil.isFileExists(file)) return;
+        activity.startActivityForResult(SDIntentUtil.getInstallAppIntent(file, authority), requestCode);
     }
 
     /**
@@ -690,8 +690,8 @@ public class AppUtil {
      * @return {@code true}: 安装成功<br>{@code false}: 安装失败
      */
     public static boolean installAppSilent(String filePath) {
-        File file = FileUtil.getFileByPath(filePath);
-        if (!FileUtil.isFileExists(file)) return false;
+        File file = SDFileUtil.getFileByPath(filePath);
+        if (!SDFileUtil.isFileExists(file)) return false;
         String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm install " + filePath;
         ShellUtil.CommandResult commandResult = ShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
@@ -701,22 +701,22 @@ public class AppUtil {
 
     /**
      * 获取App信息
-     * <p>AppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
+     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
      *
      * @return 当前应用的AppInfo
      */
-    public static AppInfo getAppInfo() {
+    public static SDAppInfo getAppInfo() {
         return getAppInfo(SiberiaDanteLib.getContext().getPackageName());
     }
 
     /**
      * 获取App信息
-     * <p>AppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
+     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
      *
      * @param packageName 包名
      * @return 当前应用的AppInfo
      */
-    public static AppInfo getAppInfo(String packageName) {
+    public static SDAppInfo getAppInfo(String packageName) {
         try {
             PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
             PackageInfo pi = pm.getPackageInfo(packageName, 0);
@@ -734,7 +734,7 @@ public class AppUtil {
      * @param pi 包的信息
      * @return AppInfo类
      */
-    private static AppInfo getBean(PackageManager pm, PackageInfo pi) {
+    private static SDAppInfo getBean(PackageManager pm, PackageInfo pi) {
         if (pm == null || pi == null) {
             return null;
         }
@@ -746,7 +746,7 @@ public class AppUtil {
         String versionName = pi.versionName;
         int versionCode = pi.versionCode;
         boolean isSystem = (ApplicationInfo.FLAG_SYSTEM & ai.flags) != 0;
-        return new AppInfo(packageName, name, icon, packagePath, versionName, versionCode, isSystem);
+        return new SDAppInfo(packageName, name, icon, packagePath, versionName, versionCode, isSystem);
     }
 
     /**
@@ -756,13 +756,13 @@ public class AppUtil {
      *
      * @return 所有已安装的AppInfo列表
      */
-    public static List<AppInfo> getAppsInfo() {
-        List<AppInfo> list = new ArrayList<>();
+    public static List<SDAppInfo> getAppsInfo() {
+        List<SDAppInfo> list = new ArrayList<>();
         PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
         // 获取系统中安装的所有软件信息
         List<PackageInfo> installedPackages = pm.getInstalledPackages(0);
         for (PackageInfo pi : installedPackages) {
-            AppInfo ai = getBean(pm, pi);
+            SDAppInfo ai = getBean(pm, pi);
             if (ai == null) continue;
             list.add(ai);
         }

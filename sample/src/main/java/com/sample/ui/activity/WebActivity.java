@@ -2,7 +2,6 @@ package com.sample.ui.activity;
 
 import android.content.Intent;
 import android.net.http.SslError;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
@@ -15,7 +14,7 @@ import android.widget.RelativeLayout;
 
 import com.just.library.AgentWeb;
 import com.sample.R;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 
 public class WebActivity extends BaseActivity {
 
@@ -27,7 +26,7 @@ public class WebActivity extends BaseActivity {
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
             super.onReceivedSslError(view, handler, error);
-            LogUtil.e("----error----" + error);
+            SDLogUtil.e("----error----" + error);
             handler.proceed();
         }
 
@@ -39,7 +38,7 @@ public class WebActivity extends BaseActivity {
         @Override
         public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
             super.onReceivedError(view, request, error);
-            LogUtil.e("----error----" + error);
+            SDLogUtil.e("----error----" + error);
         }
     };
 

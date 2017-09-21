@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,10 +19,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.siberiadante.lib.R;
-import com.siberiadante.lib.util.LogUtil;
-import com.siberiadante.lib.util.ScreenUtil;
-import com.siberiadante.lib.util.StringUtil;
-import com.siberiadante.lib.util.TransitionTools;
+import com.siberiadante.lib.util.SDLogUtil;
+import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStringUtil;
+import com.siberiadante.lib.util.SDTransitionUtil;
 
 /**
  * @Created SiberiaDante
@@ -38,34 +39,34 @@ import com.siberiadante.lib.util.TransitionTools;
  */
 
 public class SDTitleLayout extends RelativeLayout {
-    private int mLayoutBarHeight = TransitionTools.dip2px(50);
+    private int mLayoutBarHeight = SDTransitionUtil.dip2px(40);
 
     private int mLeftImage;
-    private int mLeftImageWidth = TransitionTools.dip2px(30);
-    private int mLeftImagePaddingStart = TransitionTools.dip2px(10);
+    private int mLeftImageWidth = SDTransitionUtil.dip2px(30);
+    private int mLeftImagePaddingStart = SDTransitionUtil.dip2px(5);
 
     private String mLeftText = "";
-    private int mLeftTextSize = TransitionTools.dip2px(16);
+    private int mLeftTextSize = SDTransitionUtil.dip2px(16);
     private int mLeftTextColor = Color.BLACK;
-    private int mLeftTextPaddingStart = TransitionTools.dip2px(10);
+    private int mLeftTextPaddingStart = SDTransitionUtil.dip2px(5);
 
     private String mTitle = "";
-    private float mTitleSize = TransitionTools.dip2px(18);
+    private float mTitleSize = SDTransitionUtil.dip2px(18);
     private int mTitleColor = Color.BLACK;
 
     private String mSubTitle = "";
-    private float mSubTitleSize = TransitionTools.dip2px(12);
+    private float mSubTitleSize = SDTransitionUtil.dip2px(12);
     private int mSubTitleColor = Color.GRAY;
 
 
     private int mRightImage;
-    private int mRightImageWidth = TransitionTools.dip2px(30);
-    private int mRightImagePaddingEnd = TransitionTools.dip2px(10);
+    private int mRightImageWidth = SDTransitionUtil.dip2px(30);
+    private int mRightImagePaddingEnd = SDTransitionUtil.dip2px(5);
 
     private String mRightText = "";
-    private float mRightTextSize = TransitionTools.dip2px(16);
+    private float mRightTextSize = SDTransitionUtil.dip2px(16);
     private int mRightTextColor = Color.BLACK;
-    private int mRightTextPaddingEnd = TransitionTools.dip2px(10);
+    private int mRightTextPaddingEnd = SDTransitionUtil.dip2px(10);
 
     private int mLineHeight = 1;
 
@@ -107,8 +108,8 @@ public class SDTitleLayout extends RelativeLayout {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
-        mStatusBarHeight = ScreenUtil.getStatusBarHeight();
-        inflate = LayoutInflater.from(context).inflate(R.layout.title_layout, null);
+        mStatusBarHeight = SDScreenUtil.getStatusBarHeight();
+        inflate = LayoutInflater.from(context).inflate(R.layout.sd_title_layout, null);
         addView(inflate);
 
         TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDTitleLayout);
@@ -209,48 +210,48 @@ public class SDTitleLayout extends RelativeLayout {
             mIvLeft.setLayoutParams(mIvLeftLayoutParams);
             mIvLeft.setPadding(mLeftImagePaddingStart, 0, 0, 0);
             mLeftTotalWidth += mLeftImageWidth;
-            LogUtil.d("---------" + mLeftTotalWidth + "------------");
+            SDLogUtil.d("---------" + mLeftTotalWidth + "------------");
             mLeftTotalWidth += mLeftImagePaddingStart;
-            LogUtil.d("---------" + mLeftTotalWidth + "------------");
+            SDLogUtil.d("---------" + mLeftTotalWidth + "------------");
 
         } else {
             mIvLeft.setVisibility(GONE);
         }
 
-        if (StringUtil.isEmpty(mLeftText)) {
-            LogUtil.d("-----------------null----------------");
+        if (SDStringUtil.isEmpty(mLeftText)) {
+            SDLogUtil.d("-----------------null----------------");
             mTvLeft.setPadding(0, 0, 100, 0);
         }
 
         //左边文字
-        if (StringUtil.isEmpty(mLeftText)) {
+        if (SDStringUtil.isEmpty(mLeftText)) {
             mTvLeft.setVisibility(GONE);
         } else {
             mTvLeft.setVisibility(VISIBLE);
             mTvLeft.setText(mLeftText);
-            mTvLeft.setTextSize(TransitionTools.px2sp(mLeftTextSize));
+            mTvLeft.setTextSize(SDTransitionUtil.px2sp(mLeftTextSize));
             mTvLeft.setTextColor(mLeftTextColor);
             mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
             mLeftTotalWidth += mLeftTextPaddingStart;
         }
 
         //标题
-        if (StringUtil.isEmpty(mTitle)) {
+        if (SDStringUtil.isEmpty(mTitle)) {
             mTvTitle.setVisibility(INVISIBLE);
         } else {
             mTvTitle.setVisibility(VISIBLE);
             mTvTitle.setText(mTitle);
-            mTvTitle.setTextSize(TransitionTools.px2sp(mTitleSize));
+            mTvTitle.setTextSize(SDTransitionUtil.px2sp(mTitleSize));
             mTvTitle.setTextColor(mTitleColor);
         }
 
         //副标题
-        if (StringUtil.isEmpty(mSubTitle)) {
+        if (SDStringUtil.isEmpty(mSubTitle)) {
             mTvSubTitle.setVisibility(GONE);
         } else {
             mTvSubTitle.setVisibility(VISIBLE);
             mTvSubTitle.setText(mSubTitle);
-            mTvSubTitle.setTextSize(TransitionTools.px2sp(mSubTitleSize));
+            mTvSubTitle.setTextSize(SDTransitionUtil.px2sp(mSubTitleSize));
             mTvSubTitle.setTextColor(mSubTitleColor);
             mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
             mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
@@ -270,13 +271,13 @@ public class SDTitleLayout extends RelativeLayout {
         }
 
         //右边文字
-        if (StringUtil.isEmpty(mRightText)) {
+        if (SDStringUtil.isEmpty(mRightText)) {
             mTvRight.setVisibility(GONE);
         } else {
             mTvRight.setVisibility(VISIBLE);
             mIvRight.setVisibility(GONE);
             mTvRight.setText(mRightText);
-            mTvRight.setTextSize(TransitionTools.px2sp(mRightTextSize));
+            mTvRight.setTextSize(SDTransitionUtil.px2sp(mRightTextSize));
             mTvRight.setTextColor(mRightTextColor);
             mTvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
         }
@@ -329,7 +330,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param title
      */
     public void setTitle(CharSequence title) {
-        if (!StringUtil.isEmpty(title.toString())) {
+        if (!SDStringUtil.isEmpty(title.toString())) {
             mTvTitle.setText(title);
         }
     }
@@ -364,7 +365,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param titleColor
      */
     public void setTitleStyle(String title, int titleSize, int titleColor) {
-        if (!StringUtil.isEmpty(title)) {
+        if (!SDStringUtil.isEmpty(title)) {
             mTvTitle.setText(title);
         }
         if (titleSize != 0) {
@@ -381,7 +382,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param title
      */
     public void setSubTitle(CharSequence title) {
-        if (!StringUtil.isEmpty(title.toString())) {
+        if (!SDStringUtil.isEmpty(title.toString())) {
             mTvSubTitle.setVisibility(VISIBLE);
             mTvSubTitle.setText(title);
             mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
@@ -425,7 +426,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param titleColor
      */
     public void setSubTitleStyle(String title, int titleSize, int titleColor) {
-        if (!StringUtil.isEmpty(title)) {
+        if (!SDStringUtil.isEmpty(title)) {
             mTvSubTitle.setVisibility(VISIBLE);
             mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
             mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
@@ -445,7 +446,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param leftText
      */
     public void setLeftText(String leftText) {
-        if (!StringUtil.isEmpty(leftText)) {
+        if (!SDStringUtil.isEmpty(leftText)) {
             mTvLeft.setText(leftText);
         }
     }
@@ -480,7 +481,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param leftTextColor
      */
     public void setLeftStyle(String leftText, int leftTextSize, int leftTextColor) {
-        if (!StringUtil.isEmpty(leftText)) {
+        if (!SDStringUtil.isEmpty(leftText)) {
             mTvTitle.setText(leftText);
         }
         if (leftTextSize != 0) {
@@ -497,7 +498,7 @@ public class SDTitleLayout extends RelativeLayout {
      * @param rightText
      */
     public void setRightText(String rightText) {
-        if (!StringUtil.isEmpty(rightText)) {
+        if (!SDStringUtil.isEmpty(rightText)) {
             mTvRight.setText(rightText);
         }
     }

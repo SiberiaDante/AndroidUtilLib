@@ -35,7 +35,7 @@ import java.util.Locale;
  * EEEE 'DATE('yyyy-MM-dd')' 'TIME('HH:mm:ss')' zzzz    星期五 DATE(2016-08-12) TIME(15:44:40) 中国标准时间
  */
 
-public class DateUtil {
+public class SDDateUtil {
 
     /**
      * 取得当前时间戳（精确到秒）

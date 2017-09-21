@@ -226,7 +226,7 @@ public class EncryptUtil {
             e.printStackTrace();
             return null;
         } finally {
-            CloseUtil.closeIO(fis);
+            SDCloseUtil.closeIO(fis);
         }
     }
 

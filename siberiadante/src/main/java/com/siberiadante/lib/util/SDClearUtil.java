@@ -6,12 +6,15 @@ import com.siberiadante.lib.exception.SiberiaDanteLibException;
 import java.io.File;
 
 /**
- * Created by SiberiaDante on 2017/5/15.
- * 清除缓存、数据等相关应用
+ * @Created SiberiaDante
+ * @Describe： 清除缓存、数据等相关应用
+ * @Time: 2017/5/15
+ * @Email: 994537867@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
 
-public class ClearUtil {
-    public ClearUtil() {
+public class SDClearUtil {
+    public SDClearUtil() {
         new SiberiaDanteLibException();
     }
 
@@ -22,7 +25,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearInternalCache() {
-        return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getCacheDir());
+        return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getCacheDir());
     }
 
     /**
@@ -32,7 +35,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearInternalFiles() {
-        return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir());
+        return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir());
     }
 
     /**
@@ -42,7 +45,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearInternalDbs() {
-        return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "databases");
+        return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "databases");
     }
 
     /**
@@ -63,7 +66,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearInternalSP() {
-        return FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "shared_prefs");
+        return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "shared_prefs");
     }
 
     /**
@@ -73,7 +76,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearExternalCache() {
-        return SDCardUtil.isSDCardMounted() && FileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getExternalCacheDir());
+        return SDStorageUtil.isSDCardMounted() && SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getExternalCacheDir());
     }
 
     /**
@@ -83,7 +86,7 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearCustomCache(String dirPath) {
-        return FileUtil.deleteFilesInDir(dirPath);
+        return SDFileUtil.deleteFilesInDir(dirPath);
     }
 
     /**
@@ -93,6 +96,6 @@ public class ClearUtil {
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
     public static boolean clearCustomCache(File dir) {
-        return FileUtil.deleteFilesInDir(dir);
+        return SDFileUtil.deleteFilesInDir(dir);
     }
 }

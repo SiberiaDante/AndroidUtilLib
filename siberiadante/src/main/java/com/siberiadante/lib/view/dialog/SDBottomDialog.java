@@ -1,4 +1,4 @@
-package com.siberiadante.lib.view;
+package com.siberiadante.lib.view.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -18,7 +18,6 @@ import com.siberiadante.lib.R;
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * @Created SiberiaDante
  * @Describe： 仿IOS实现底部弹窗，可拓展多个item
@@ -26,7 +25,7 @@ import java.util.List;
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
-public class BottomPopupWindow {
+public class SDBottomDialog {
 
     private Context context;
     private Dialog dialog;
@@ -39,14 +38,14 @@ public class BottomPopupWindow {
     private Display display;
     private View view_line;
 
-    public BottomPopupWindow(Context context) {
+    public SDBottomDialog(Context context) {
         this.context = context;
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
     }
 
-    public BottomPopupWindow builder() {
-        View view = LayoutInflater.from(context).inflate(R.layout.popup_window_bottom_layout, null);
+    public SDBottomDialog builder() {
+        View view = LayoutInflater.from(context).inflate(R.layout.sd_bottom_dialog_layout, null);
         view.setMinimumWidth(display.getWidth());
         sLayout_content = (ScrollView) view.findViewById(R.id.scroll_view_layout_content);
         lLayout_content = (LinearLayout) view
@@ -71,7 +70,7 @@ public class BottomPopupWindow {
         return this;
     }
 
-    public BottomPopupWindow setTitle(String title) {
+    public SDBottomDialog setTitle(String title) {
         showTitle = true;
         txt_title.setVisibility(View.VISIBLE);
         view_line.setVisibility(View.VISIBLE);
@@ -79,7 +78,7 @@ public class BottomPopupWindow {
         return this;
     }
 
-    public BottomPopupWindow setTitle(String title, int color, float size) {
+    public SDBottomDialog setTitle(String title, int color, float size) {
         showTitle = true;
         txt_title.setVisibility(View.VISIBLE);
         view_line.setVisibility(View.VISIBLE);
@@ -89,20 +88,20 @@ public class BottomPopupWindow {
         return this;
     }
 
-    public BottomPopupWindow setCancelable(boolean cancel) {
+    public SDBottomDialog setCancelable(boolean cancel) {
         dialog.setCancelable(cancel);
         return this;
     }
 
-    public BottomPopupWindow setCanceled(boolean cancel) {
+    public SDBottomDialog setCanceled(boolean cancel) {
         dialog.setCanceledOnTouchOutside(cancel);
         return this;
     }
 
-    public BottomPopupWindow addSheetItem(String strItem, SheetItemColor color,
-                                          OnSheetItemClickListener listener) {
+    public SDBottomDialog addSheetItem(String strItem, SheetItemColor color,
+                                       OnSheetItemClickListener listener) {
         if (sheetItemList == null) {
-            sheetItemList = new ArrayList<SheetItem>();
+            sheetItemList = new ArrayList<>();
         }
         sheetItemList.add(new SheetItem(strItem, color, listener));
         return this;
@@ -187,13 +186,13 @@ public class BottomPopupWindow {
         void onClick(int which);
     }
 
-    public class SheetItem {
+    private class SheetItem {
         String name;
         OnSheetItemClickListener itemClickListener;
         SheetItemColor color;
 
-        public SheetItem(String name, SheetItemColor color,
-                         OnSheetItemClickListener itemClickListener) {
+        private SheetItem(String name, SheetItemColor color,
+                          OnSheetItemClickListener itemClickListener) {
             this.name = name;
             this.color = color;
             this.itemClickListener = itemClickListener;

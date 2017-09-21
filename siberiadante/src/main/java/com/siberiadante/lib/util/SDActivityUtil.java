@@ -27,8 +27,8 @@ import java.util.Map;
  * Activity相关工具类
  */
 
-public class ActivityUtil {
-    public ActivityUtil() {
+public class SDActivityUtil {
+    public SDActivityUtil() {
 //        throw new UnsupportedOperationException("unInit SiberiaDanteLib");
         new SiberiaDanteLibException();
     }

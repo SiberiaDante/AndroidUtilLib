@@ -24,42 +24,42 @@ import com.siberiadante.lib.R;
  * @Tips: 在xml中需要必填属性：android:clickable"="true";
  */
 
-public class TabRadioButton extends RadioButton {
+public class SDRadioButton extends RadioButton {
     private int mDrawableSize;// xml文件中设置的大小
 
-    public TabRadioButton(Context context) {
+    public SDRadioButton(Context context) {
         this(context, null, 0);
     }
 
-    public TabRadioButton(Context context, AttributeSet attrs) {
+    public SDRadioButton(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TabRadioButton(Context context, AttributeSet attrs, int defStyle) {
+    public SDRadioButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         // TODO Auto-generated constructor stub
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null;
         TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.TabRadioButton);
+                R.styleable.SDRadioButton);
 
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
             Log.i("MyRadioButton", "attr:" + attr);
-            if (attr == R.styleable.TabRadioButton_drawableSize) {
-                mDrawableSize = a.getDimensionPixelSize(R.styleable.TabRadioButton_drawableSize, 50);
+            if (attr == R.styleable.SDRadioButton_drawableSize) {
+                mDrawableSize = a.getDimensionPixelSize(R.styleable.SDRadioButton_drawableSize, 50);
                 Log.i("MyRadioButton", "mDrawableSize:" + mDrawableSize);
             }
-            if (attr == R.styleable.TabRadioButton_drawableTop) {
+            if (attr == R.styleable.SDRadioButton_drawableTop) {
                 drawableTop = a.getDrawable(attr);
             }
-            if (attr == R.styleable.TabRadioButton_drawableBottom) {
+            if (attr == R.styleable.SDRadioButton_drawableBottom) {
                 drawableRight = a.getDrawable(attr);
             }
-            if (attr == R.styleable.TabRadioButton_drawableRight) {
+            if (attr == R.styleable.SDRadioButton_drawableRight) {
                 drawableBottom = a.getDrawable(attr);
             }
-            if (attr == R.styleable.TabRadioButton_drawableLeft) {
+            if (attr == R.styleable.SDRadioButton_drawableLeft) {
                 drawableLeft = a.getDrawable(attr);
             }
         }

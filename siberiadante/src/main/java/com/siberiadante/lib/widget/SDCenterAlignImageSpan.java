@@ -18,15 +18,15 @@ import java.lang.ref.WeakReference;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class CenterAlignImageSpan  extends ImageSpan {
+public class SDCenterAlignImageSpan extends ImageSpan {
 
     private WeakReference<Drawable> mDrawableRef;
 
-    public CenterAlignImageSpan(Context context, Bitmap bitmap, int verticalAlignment) {
+    public SDCenterAlignImageSpan(Context context, Bitmap bitmap, int verticalAlignment) {
         super(context, bitmap, verticalAlignment);
     }
 
-    public CenterAlignImageSpan(Context context, int resId, int verticalAlignment) {
+    public SDCenterAlignImageSpan(Context context, int resId, int verticalAlignment) {
         super(context, resId, verticalAlignment);
     }
 

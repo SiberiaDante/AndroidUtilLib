@@ -1,7 +1,7 @@
 package com.siberiadante.custom.http.interceptor;
 
 
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 
 import org.json.JSONObject;
 
@@ -32,7 +32,7 @@ public class RsqCheckInterceptor implements Interceptor {
             if (code < 200 || code > 300) {
                 throw new IOException(jsonObject.getString("info"));
             }
-            LogUtil.d(TAG, responseBody.toString());
+            SDLogUtil.d(TAG, responseBody.toString());
         } catch (Exception e) {
             e.printStackTrace();
             throw new IOException("parase data error");

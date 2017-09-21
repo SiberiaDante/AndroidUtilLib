@@ -27,7 +27,7 @@ import java.util.Enumeration;
  * @Describe can use
  */
 
-public class NetWorkUtil {
+public class SDNetWorkUtil {
 //    //没有网络连接
 //    private static final int NETWORK_NONE = 0;
 //    //wifi连接
@@ -172,10 +172,10 @@ public class NetWorkUtil {
      *
      * @return {@code int}手机网络数据连接类型<br/>
      * <ul>
-     * <li>{@link NetWorkUtil.NetworkType#NETWORK_2G}</li>
-     * <li>{@link NetWorkUtil.NetworkType#NETWORK_3G}</li>
-     * <li>{@link NetWorkUtil.NetworkType#NETWORK_4G}</li>
-     * <li>{@link NetWorkUtil.NetworkType#NETWORK_MOBILE}</li>
+     * <li>{@link SDNetWorkUtil.NetworkType#NETWORK_2G}</li>
+     * <li>{@link SDNetWorkUtil.NetworkType#NETWORK_3G}</li>
+     * <li>{@link SDNetWorkUtil.NetworkType#NETWORK_4G}</li>
+     * <li>{@link SDNetWorkUtil.NetworkType#NETWORK_MOBILE}</li>
      * </ul>
      */
     public static NetworkType getNetWorkType() {

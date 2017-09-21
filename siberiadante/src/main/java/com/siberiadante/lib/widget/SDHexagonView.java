@@ -15,7 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.siberiadante.lib.R;
-import com.siberiadante.lib.util.MathUtil;
+import com.siberiadante.lib.util.SDMathUtil;
 
 /**
  * @Created SiberiaDante
@@ -25,7 +25,7 @@ import com.siberiadante.lib.util.MathUtil;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class HexagonView extends View {
+public class SDHexagonView extends View {
 
     //正六边形的边数量
     private static final int POLYGON_COUNT = 6;
@@ -71,22 +71,22 @@ public class HexagonView extends View {
     private int mShadowColor;
 
 
-    public HexagonView(Context context) {
+    public SDHexagonView(Context context) {
         this(context, null);
     }
 
-    public HexagonView(Context context, AttributeSet attrs) {
+    public SDHexagonView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public HexagonView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SDHexagonView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray mTypeArray = context.obtainStyledAttributes(attrs, R.styleable.HexagonView, defStyleAttr, 0);
-        mRadius = mTypeArray.getDimensionPixelSize(R.styleable.HexagonView_h_radius, 0);
-        mInnerColor = mTypeArray.getColor(R.styleable.HexagonView_h_innerColor, Color.WHITE);
-        mOuterColor = mTypeArray.getColor(R.styleable.HexagonView_h_outerColor, DEFAULT_OUTER_COLOR);
-        mOuterWidth = mTypeArray.getDimensionPixelSize(R.styleable.HexagonView_h_outerWidth, DEFAULT_OUTER_WIDTH);
-        isHasStroke = mTypeArray.getBoolean(R.styleable.HexagonView_h_isHasStroke, true);
+        TypedArray mTypeArray = context.obtainStyledAttributes(attrs, R.styleable.SDHexagonView, defStyleAttr, 0);
+        mRadius = mTypeArray.getDimensionPixelSize(R.styleable.SDHexagonView_h_radius, 0);
+        mInnerColor = mTypeArray.getColor(R.styleable.SDHexagonView_h_innerColor, Color.WHITE);
+        mOuterColor = mTypeArray.getColor(R.styleable.SDHexagonView_h_outerColor, DEFAULT_OUTER_COLOR);
+        mOuterWidth = mTypeArray.getDimensionPixelSize(R.styleable.SDHexagonView_h_outerWidth, DEFAULT_OUTER_WIDTH);
+        isHasStroke = mTypeArray.getBoolean(R.styleable.SDHexagonView_h_isHasStroke, true);
         mTypeArray.recycle();
         initData();
     }
@@ -137,9 +137,9 @@ public class HexagonView extends View {
             //当前角度
             int angle = 360 / count * i;
             if (i == 0) {
-                mViewPath.moveTo(mCenterX + mRadius * MathUtil.cos(angle), mCenterY + mRadius * MathUtil.sin(angle));
+                mViewPath.moveTo(mCenterX + mRadius * SDMathUtil.cos(angle), mCenterY + mRadius * SDMathUtil.sin(angle));
             } else {
-                mViewPath.lineTo(mCenterX + mRadius * MathUtil.cos(angle), mCenterY + mRadius * MathUtil.sin(angle));
+                mViewPath.lineTo(mCenterX + mRadius * SDMathUtil.cos(angle), mCenterY + mRadius * SDMathUtil.sin(angle));
             }
         }
         mViewPath.close();

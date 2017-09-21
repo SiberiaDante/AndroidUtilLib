@@ -21,9 +21,9 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class KeyBoardUtil {
+public class SDKeyBoardUtil {
 
-    private KeyBoardUtil() {
+    private SDKeyBoardUtil() {
         new SiberiaDanteLibException(getClass().getSimpleName());
     }
 

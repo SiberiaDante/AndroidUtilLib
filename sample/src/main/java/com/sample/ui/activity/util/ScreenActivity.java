@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.SDScreenUtil;
 
 public class ScreenActivity extends BaseActivity {
 
@@ -17,7 +17,7 @@ public class ScreenActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_test);
-        ScreenUtil.setStatusTranslucent(this);
+        SDScreenUtil.setStatusTranslucent(this);
         initView();
         initData();
     }
@@ -28,11 +28,11 @@ public class ScreenActivity extends BaseActivity {
     }
 
     public void initData() {
-        int screenWidth = ScreenUtil.getScreenWidthPx();
-        int screenHeight = ScreenUtil.getScreenHeightPx();
-        int screenWidthDp = ScreenUtil.getScreenWidthDp();
-        int screenHeightDp = ScreenUtil.getScreenHeightDp();
-        float density = ScreenUtil.getDensity(this);
+        int screenWidth = SDScreenUtil.getScreenWidthPx();
+        int screenHeight = SDScreenUtil.getScreenHeightPx();
+        int screenWidthDp = SDScreenUtil.getScreenWidthDp();
+        int screenHeightDp = SDScreenUtil.getScreenHeightDp();
+        float density = SDScreenUtil.getDensity(this);
         Log.d(TAG, "initData: density=" + density);
         Log.d(TAG, "initData:screenWidthPX= " + screenWidth + "px");
         Log.d(TAG, "initData:screenHeightPX= " + screenHeight + "px");

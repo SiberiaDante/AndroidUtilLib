@@ -32,7 +32,7 @@
         <activity android:name=".ui.activity.util.ActivityUtilActivity" />
         <activity
             android:name=".ui.activity.util.ScreenActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            />
         <activity android:name=".ui.activity.util.AppActivity" />
 
         <provider

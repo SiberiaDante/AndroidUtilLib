@@ -85,7 +85,7 @@
             <Button
                 android:id="@+id/btn_custom_dialog"
                 style="@style/MainButton"
-                android:text="自定义布局的Dialog" />
+                android:text="超级自定义布局的Dialog,只需要传入自定义的布局和要设置点击事件的控件id即可" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -2,6 +2,7 @@ package com.siberiadante.lib.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
@@ -16,10 +17,11 @@ import android.widget.TextView;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class JustifyTextView extends TextView {
+public class JustifyTextView extends AppCompatTextView {
 
     private int mLineY;
     private int mViewWidth;
+
 
     public JustifyTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -46,7 +48,7 @@ public class JustifyTextView extends TextView {
             String line = text.substring(lineStart, lineEnd);
 
             float width = StaticLayout.getDesiredWidth(text, lineStart, lineEnd, getPaint());
-            if (needScale(line) && i < layout.getLineCount() -1) {
+            if (needScale(line) && i < layout.getLineCount() - 1) {
                 drawScaledText(canvas, lineStart, line, width);
             } else {
                 canvas.drawText(line, 0, mLineY, paint);

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.sample.ui.activity.SecondActivity;
-import com.siberiadante.lib.util.ActivityUtil;
+import com.siberiadante.lib.util.SDActivityUtil;
 
 public class ActivityUtilActivity extends BaseActivity {
 
@@ -29,7 +29,7 @@ public class ActivityUtilActivity extends BaseActivity {
         findViewById(R.id.btn_start_other_activity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityUtil.launchActivity("com.sample", SecondActivity.class.getName());
+                SDActivityUtil.launchActivity("com.sample", SecondActivity.class.getName());
             }
         });
     }
@@ -37,12 +37,12 @@ public class ActivityUtilActivity extends BaseActivity {
     public void initData() {
         final StringBuilder builder = new StringBuilder();
         builder.append("1.包名'com.sample'的SecondActivity是否存在---");
-        builder.append(ActivityUtil.isActivityExists("com.sample", SecondActivity.class.getName()) + "\n");
+        builder.append(SDActivityUtil.isActivityExists("com.sample", SecondActivity.class.getName()) + "\n");
 
         mTvContent.setText(builder);
-        String launcherActivity = ActivityUtil.getLauncherActivity("com.sample");
+        String launcherActivity = SDActivityUtil.getLauncherActivity("com.sample");
         Log.d(TAG, "initData: launcherActivity==" + launcherActivity);
-        Activity topActivity = ActivityUtil.getTopActivity();
+        Activity topActivity = SDActivityUtil.getTopActivity();
         Log.d(TAG, "initData: topActivity==" + topActivity);
     }
 }

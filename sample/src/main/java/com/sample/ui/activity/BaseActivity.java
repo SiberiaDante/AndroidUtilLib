@@ -9,8 +9,8 @@ import android.widget.EditText;
 
 import com.jude.swipbackhelper.SwipeBackHelper;
 import com.sample.event.AppExitEven;
-import com.siberiadante.lib.util.KeyBoardUtil;
-import com.siberiadante.lib.util.ScreenUtil;
+import com.siberiadante.lib.util.SDKeyBoardUtil;
+import com.siberiadante.lib.util.SDScreenUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -20,7 +20,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ScreenUtil.setStatusTranslucent(this);
+        SDScreenUtil.setStatusTranslucent(this);
         EventBus.getDefault().register(this);
 
         SwipeBackHelper.onCreate(this);
@@ -36,7 +36,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         SwipeBackHelper.onPostCreate(this);
-
     }
 
     @Override
@@ -58,7 +57,7 @@ public class BaseActivity extends AppCompatActivity {
         finish();
     }
 
-    //region软键盘的处理
+    //软键盘的处理——Start
 
     /**
      * 清除editText的焦点
@@ -75,8 +74,6 @@ public class BaseActivity extends AppCompatActivity {
                 }
             }
         }
-
-
     }
 
     /**
@@ -98,7 +95,9 @@ public class BaseActivity extends AppCompatActivity {
         return false;
     }
 
-    //是否触摸在指定view上面,对某个控件过滤
+    /**
+     * 是否触摸在指定view上面,对某个控件过滤
+     */
     public boolean isTouchView(View[] views, MotionEvent ev) {
         if (views == null || views.length == 0) return false;
         int[] location = new int[2];
@@ -114,7 +113,9 @@ public class BaseActivity extends AppCompatActivity {
         return false;
     }
 
-    //是否触摸在指定view上面,对某个控件过滤
+    /**
+     * 是否触摸在指定view上面,对某个控件过滤
+     */
     public boolean isTouchView(int[] ids, MotionEvent ev) {
         int[] location = new int[2];
         for (int id : ids) {
@@ -130,10 +131,6 @@ public class BaseActivity extends AppCompatActivity {
         }
         return false;
     }
-    //endregion
-
-    //region 右滑返回上级
-
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -146,13 +143,12 @@ public class BaseActivity extends AppCompatActivity {
                 if (isTouchView(hideSoftByEditViewIds(), ev))
                     return super.dispatchTouchEvent(ev);
                 //隐藏键盘
-                KeyBoardUtil.hideInputForce(this);
+                SDKeyBoardUtil.hideInputForce(this);
                 clearViewFocus(v, hideSoftByEditViewIds());
 
             }
         }
         return super.dispatchTouchEvent(ev);
-
     }
 
     /**
@@ -174,4 +170,7 @@ public class BaseActivity extends AppCompatActivity {
     public View[] filterViewByIds() {
         return null;
     }
+
+    //软键盘的处理——End
+
 }

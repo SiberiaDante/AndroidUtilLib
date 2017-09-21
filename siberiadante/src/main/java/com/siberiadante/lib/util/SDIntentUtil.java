@@ -1,6 +1,5 @@
 package com.siberiadante.lib.util;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,15 +13,18 @@ import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 import java.io.File;
 
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-
 /**
- * Created by SiberiaDante on 2017/5/15.
+ * @Created SiberiaDante
+ * @Describe：
+ * @Time: 2017/5/15.
+ * @UpDate:
+ * @Email: 994537867@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
 
-public class IntentUtil {
+public class SDIntentUtil {
 
-    public IntentUtil() {
+    public SDIntentUtil() {
         new SiberiaDanteLibException();
     }
 
@@ -35,7 +37,7 @@ public class IntentUtil {
      * @return intent
      */
     public static Intent getInstallAppIntent(String filePath, String authority) {
-        return getInstallAppIntent(FileUtil.getFileByPath(filePath), authority);
+        return getInstallAppIntent(SDFileUtil.getFileByPath(filePath), authority);
     }
 
     /**
@@ -116,7 +118,7 @@ public class IntentUtil {
      * @return intent
      */
     public static Intent getShareImageIntent(String content, String imagePath) {
-        return getShareImageIntent(content, FileUtil.getFileByPath(imagePath));
+        return getShareImageIntent(content, SDFileUtil.getFileByPath(imagePath));
     }
 
     /**
@@ -127,7 +129,7 @@ public class IntentUtil {
      * @return intent
      */
     public static Intent getShareImageIntent(String content, File image) {
-        if (!FileUtil.isFileExists(image)) return null;
+        if (!SDFileUtil.isFileExists(image)) return null;
         return getShareImageIntent(content, Uri.fromFile(image));
     }
 

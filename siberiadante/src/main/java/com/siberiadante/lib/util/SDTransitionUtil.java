@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import com.siberiadante.lib.SiberiaDanteLib;
-public class TransitionTools {
+public class SDTransitionUtil {
     public static float getDensity(Activity activity) {
         //屏幕dpi
         DisplayMetrics displayMetrics = new DisplayMetrics();

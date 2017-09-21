@@ -115,7 +115,7 @@ public final class ShellUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            CloseUtil.closeIO(os, successResult, errorResult);
+            SDCloseUtil.closeIO(os, successResult, errorResult);
             if (process != null) {
                 process.destroy();
             }

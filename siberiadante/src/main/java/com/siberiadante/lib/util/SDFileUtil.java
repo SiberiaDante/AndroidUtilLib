@@ -28,11 +28,15 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by SiberiaDante on 2017/5/4.
- * 文件处理相关工具类
+ * @Created SiberiaDante
+ * @Describe：文件处理相关工具类
+ * @Time: 2017/5/4.
+ * @UpDate:
+ * @Email: 994537867@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
 
-public class FileUtil {
+public class SDFileUtil {
     /**
      * 根据文件路径获取文件
      *
@@ -780,7 +784,7 @@ public class FileUtil {
             e.printStackTrace();
             return false;
         } finally {
-            CloseUtil.closeIO(is, os);
+            SDCloseUtil.closeIO(is, os);
         }
     }
 
@@ -816,7 +820,7 @@ public class FileUtil {
             e.printStackTrace();
             return false;
         } finally {
-            CloseUtil.closeIO(bw);
+            SDCloseUtil.closeIO(bw);
         }
     }
 
@@ -888,7 +892,7 @@ public class FileUtil {
             e.printStackTrace();
             return null;
         } finally {
-            CloseUtil.closeIO(reader);
+            SDCloseUtil.closeIO(reader);
         }
     }
 
@@ -930,7 +934,7 @@ public class FileUtil {
             e.printStackTrace();
             return null;
         } finally {
-            CloseUtil.closeIO(reader);
+            SDCloseUtil.closeIO(reader);
         }
     }
 
@@ -1006,7 +1010,7 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            CloseUtil.closeIO(is);
+            SDCloseUtil.closeIO(is);
         }
         switch (p) {
             case 0xefbb:
@@ -1051,7 +1055,7 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            CloseUtil.closeIO(is);
+            SDCloseUtil.closeIO(is);
         }
         return count;
     }
@@ -1205,7 +1209,7 @@ public class FileUtil {
         } catch (NoSuchAlgorithmException | IOException e) {
             e.printStackTrace();
         } finally {
-            CloseUtil.closeIO(dis);
+            SDCloseUtil.closeIO(dis);
         }
         return null;
     }
@@ -1346,7 +1350,7 @@ public class FileUtil {
             e.printStackTrace();
             return null;
         } finally {
-            CloseUtil.closeIO(is);
+            SDCloseUtil.closeIO(is);
         }
     }
 

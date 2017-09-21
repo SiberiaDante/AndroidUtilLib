@@ -6,14 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.sample.R;
-import com.sample.ui.BaseFragmentN;
 import com.sample.ui.activity.util.AppActivity;
-import com.siberiadante.lib.util.LogUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 
 /**
  * @Created SiberiaDante
@@ -36,7 +33,7 @@ public class OtherFragment extends LazyFragment {
     protected void onCreateViewLazy(Bundle savedInstanceState) {
         super.onCreateViewLazy(savedInstanceState);
         setContentView(R.layout.fragment_other);
-        LogUtil.d("-------------OtherFragment----------------");
+        SDLogUtil.d("-------------OtherFragment----------------");
         initView();
     }
 

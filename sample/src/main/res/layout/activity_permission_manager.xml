@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:d_is_immersive_state_bar="true"
+        app:d_title_layout_height="40dp"
         app:d_title_layout_background="@color/blue"
         app:d_title_text="测试PermissionManager工具类" />
 
