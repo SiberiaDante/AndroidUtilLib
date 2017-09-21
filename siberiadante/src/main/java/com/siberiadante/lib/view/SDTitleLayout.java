@@ -37,7 +37,7 @@ import com.siberiadante.lib.util.TransitionTools;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class TitleBarLayout extends RelativeLayout {
+public class SDTitleLayout extends RelativeLayout {
     private int mLayoutBarHeight = TransitionTools.dip2px(50);
 
     private int mLeftImage;
@@ -95,85 +95,85 @@ public class TitleBarLayout extends RelativeLayout {
     private Context mContext;
     private int mScreenWidth;
 
-    public TitleBarLayout(@NonNull Context context) {
+    public SDTitleLayout(@NonNull Context context) {
         this(context, null);
     }
 
-    public TitleBarLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SDTitleLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public TitleBarLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public SDTitleLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
         mStatusBarHeight = ScreenUtil.getStatusBarHeight();
-        inflate = LayoutInflater.from(context).inflate(R.layout.title_bar_layout, null);
+        inflate = LayoutInflater.from(context).inflate(R.layout.title_layout, null);
         addView(inflate);
 
-        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.TitleBarLayout);
+        TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDTitleLayout);
 
-        mLayoutBarHeight = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_title_layout_height, mLayoutBarHeight);
-        mLayoutBackground = attributes.getColor(R.styleable.TitleBarLayout_d_title_layout_background, mLayoutBackground);
+        mLayoutBarHeight = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_title_layout_height, mLayoutBarHeight);
+        mLayoutBackground = attributes.getColor(R.styleable.SDTitleLayout_d_title_layout_background, mLayoutBackground);
 
         /*
         左侧图片、图片大小、图片左边距
          */
-        mLeftImage = attributes.getResourceId(R.styleable.TitleBarLayout_d_left_image, 0);
-        mLeftImageWidth = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_image_width, mLeftImageWidth);
-        mLeftImagePaddingStart = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_image_padding_start, mLeftImagePaddingStart);
+        mLeftImage = attributes.getResourceId(R.styleable.SDTitleLayout_d_left_image, 0);
+        mLeftImageWidth = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_image_width, mLeftImageWidth);
+        mLeftImagePaddingStart = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_image_padding_start, mLeftImagePaddingStart);
 
         /*
         左侧文字、字体大小、字体颜色、字体左边距
          */
-        mLeftText = attributes.getString(R.styleable.TitleBarLayout_d_left_text);
-        mLeftTextSize = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_text_size, mLeftTextSize);
-        mLeftTextPaddingStart = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_left_text_padding_start, mLeftTextPaddingStart);
-        mLeftTextColor = attributes.getColor(R.styleable.TitleBarLayout_d_left_text_color, mLeftTextColor);
+        mLeftText = attributes.getString(R.styleable.SDTitleLayout_d_left_text);
+        mLeftTextSize = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_text_size, mLeftTextSize);
+        mLeftTextPaddingStart = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_text_padding_start, mLeftTextPaddingStart);
+        mLeftTextColor = attributes.getColor(R.styleable.SDTitleLayout_d_left_text_color, mLeftTextColor);
 
         /*
         标题文字、字体大小、字体颜色
         需要新增标题左右padding属性
          */
-        mTitle = attributes.getString(R.styleable.TitleBarLayout_d_title_text);
-        mTitleSize = attributes.getDimension(R.styleable.TitleBarLayout_d_title_size, mTitleSize);
-        mTitleColor = attributes.getColor(R.styleable.TitleBarLayout_d_title_color, mTitleColor);
+        mTitle = attributes.getString(R.styleable.SDTitleLayout_d_title_text);
+        mTitleSize = attributes.getDimension(R.styleable.SDTitleLayout_d_title_size, mTitleSize);
+        mTitleColor = attributes.getColor(R.styleable.SDTitleLayout_d_title_color, mTitleColor);
 
         /*
          副标题
          */
-        mSubTitle = attributes.getString(R.styleable.TitleBarLayout_d_subtitle_text);
-        mSubTitleSize = attributes.getDimension(R.styleable.TitleBarLayout_d_subtitle_size, mSubTitleSize);
-        mSubTitleColor = attributes.getColor(R.styleable.TitleBarLayout_d_subtitle_color, mSubTitleColor);
+        mSubTitle = attributes.getString(R.styleable.SDTitleLayout_d_subtitle_text);
+        mSubTitleSize = attributes.getDimension(R.styleable.SDTitleLayout_d_subtitle_size, mSubTitleSize);
+        mSubTitleColor = attributes.getColor(R.styleable.SDTitleLayout_d_subtitle_color, mSubTitleColor);
 
         /*
         右侧图片、图片大小、图片左边距
          */
-        mRightImage = attributes.getResourceId(R.styleable.TitleBarLayout_d_right_image, 0);
-        mRightImageWidth = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_image_width, mRightImageWidth);
-        mRightImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_image_padding_end, mRightImagePaddingEnd);
+        mRightImage = attributes.getResourceId(R.styleable.SDTitleLayout_d_right_image, 0);
+        mRightImageWidth = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_width, mRightImageWidth);
+        mRightImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_padding_end, mRightImagePaddingEnd);
 
         /*
         右侧文字、字体大小、字体颜色、字体左边距
          */
-        mRightText = attributes.getString(R.styleable.TitleBarLayout_d_right_text);
-        mRightTextSize = attributes.getDimension(R.styleable.TitleBarLayout_d_right_text_size, mRightTextSize);
-        mRightTextPaddingEnd = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_right_text_padding_end, mRightTextPaddingEnd);
-        mRightTextColor = attributes.getColor(R.styleable.TitleBarLayout_d_right_text_color, mRightTextColor);
+        mRightText = attributes.getString(R.styleable.SDTitleLayout_d_right_text);
+        mRightTextSize = attributes.getDimension(R.styleable.SDTitleLayout_d_right_text_size, mRightTextSize);
+        mRightTextPaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_text_padding_end, mRightTextPaddingEnd);
+        mRightTextColor = attributes.getColor(R.styleable.SDTitleLayout_d_right_text_color, mRightTextColor);
 
         /*
         底部横线背景、高度
          */
-        mLineBackground = attributes.getColor(R.styleable.TitleBarLayout_d_line_background, mLineBackground);
-        mLineHeight = attributes.getDimensionPixelSize(R.styleable.TitleBarLayout_d_line_height, mLineHeight);
+        mLineBackground = attributes.getColor(R.styleable.SDTitleLayout_d_line_background, mLineBackground);
+        mLineHeight = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_line_height, mLineHeight);
         /*
         左侧图标和文字是否为返回键
          */
-        mIsBackView = attributes.getBoolean(R.styleable.TitleBarLayout_d_is_back_view, mIsBackView);
+        mIsBackView = attributes.getBoolean(R.styleable.SDTitleLayout_d_is_back_view, mIsBackView);
         /*
         是否沉浸式状态栏
          */
-        mIsImmersiveStateBar = attributes.getBoolean(R.styleable.TitleBarLayout_d_is_immersive_state_bar, mIsImmersiveStateBar);
+        mIsImmersiveStateBar = attributes.getBoolean(R.styleable.SDTitleLayout_d_is_immersive_state_bar, mIsImmersiveStateBar);
 
         attributes.recycle();
         initView(inflate);

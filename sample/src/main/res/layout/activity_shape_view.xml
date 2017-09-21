@@ -9,7 +9,7 @@
     android:orientation="vertical"
     tools:context="com.sample.ui.activity.view.ShapeViewActivity">
 
-    <com.siberiadante.lib.view.TitleBarLayout
+    <com.siberiadante.lib.view.SDTitleLayout
         android:id="@+id/title_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -9,4 +9,5 @@
         \nToastUtil.showSingletonText("居中显示",Toast.LENGTH_SHORT,Gravity.CENTER);
         \n这个方法调用完，其实相当于是更改了Toast对象的位置。不再是第一个我们常规使用的方法中的，所以，我们需要调用下重置方法，其实就是创建一个新的Toast对象
     </string>
+    <string name="about_me">旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/6501f32b327dfe511978d7aacef69b145e5a7a0f/ABOUTME.md)删除。持续更新维护中……</string>
 </resources>

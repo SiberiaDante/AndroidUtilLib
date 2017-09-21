@@ -82,7 +82,7 @@ public class MainFragment extends LazyFragment implements RecyclerArrayAdapter.O
         datas = new ArrayList<>();
         datas.add(new MainData("Android开发常备工具库", Constants.URL_SIBERIA_DANTE_LIB));
         datas.add(new MainData("Android万能通用标题栏封装", Constants.URL_TITLE_LAYOUT));
-        datas.add(new MainData("CustomDialog——一个多功能、通用、可自定义的Dialog", Constants.URL_CUSTOM_DIALOG));
+        datas.add(new MainData("SDCustomDialog——一个多功能、通用、可自定义的Dialog", Constants.URL_CUSTOM_DIALOG));
         adapter.addAll(datas);
     }
 

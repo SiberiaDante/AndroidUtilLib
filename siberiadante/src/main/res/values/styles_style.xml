@@ -15,4 +15,54 @@
         <!--是否半透明-->
         <item name="android:windowIsTranslucent">true</item>
     </style>
+
+    <!--custom dialog style,forbid change,if you need change this style,you better copy and paste it for somewhere,then change this-->
+    <style name="CustomDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- 自定义仿IOS的ActionSheet底部Dialog的样式 ，有模糊效果 -->
+    <style name="ActionGeneralDialog" parent="@android:style/Theme.Dialog">
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 浮于Activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- Dialog以外的区域模糊效果 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Dialog进入及退出动画 -->
+        <item name="android:windowAnimationStyle">@style/ActionSheetDialogAnimation</item>
+    </style>
+    <!--&lt;!&ndash; ActionSheet进出动画 &ndash;&gt;-->
+    <!--<style name="ActionSheetDialogAnimation" parent="@android:style/Animation.Dialog">-->
+        <!--<item name="android:windowEnterAnimation">@anim/actionsheet_dialog_in</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/actionsheet_dialog_out</item>-->
+    <!--</style>-->
+
+    <!--nice dialog style-->
+    <style name="NiceDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+    <!--&lt;!&ndash;default nice dialog animation&ndash;&gt;-->
+    <!--<style name="DefaultAnimation" parent="android:Animation">-->
+        <!--<item name="android:windowEnterAnimation">@anim/nice_dialog_enter_anim</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/nice_dialog_exit_anim</item>-->
+    <!--</style>-->
 </resources>

@@ -7,7 +7,7 @@
     android:clickable="true"
     android:orientation="vertical">
 
-    <com.siberiadante.lib.view.TitleBarLayout
+    <com.siberiadante.lib.view.SDTitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:d_is_immersive_state_bar="true"

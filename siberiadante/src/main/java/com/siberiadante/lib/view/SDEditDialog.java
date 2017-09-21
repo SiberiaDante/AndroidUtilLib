@@ -24,7 +24,7 @@ import com.siberiadante.lib.R;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class EditDialog {
+public class SDEditDialog {
     private Context context;
     private Dialog dialog;
     private LinearLayout mLinear_layout;
@@ -35,13 +35,13 @@ public class EditDialog {
     private ImageView img_line;
     private Display display;
 
-    public EditDialog(Context context) {
+    public SDEditDialog(Context context) {
         this.context = context;
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
     }
 
-    public EditDialog builder() {
+    public SDEditDialog builder() {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_alert_edit, null);
         mLinear_layout = (LinearLayout) view.findViewById(R.id.linear_alert_dialog_bg);
         mTvTitle = (TextView) view.findViewById(R.id.tv_alert_dialog_title);
@@ -59,7 +59,7 @@ public class EditDialog {
      * @param title
      * @return
      */
-    public EditDialog setTitle(String title) {
+    public SDEditDialog setTitle(String title) {
         if ("".equals(title)) {
             mTvTitle.setText("标题");
         } else {
@@ -74,7 +74,7 @@ public class EditDialog {
      * @param textSize
      * @return
      */
-    public EditDialog setTitle(String title, int color, float textSize) {
+    public SDEditDialog setTitle(String title, int color, float textSize) {
         if ("".equals(title)) {
             mTvTitle.setText("标题");
         } else {
@@ -96,7 +96,7 @@ public class EditDialog {
      * @param cancelable
      * @return
      */
-    public EditDialog setCancelable(boolean cancelable) {
+    public SDEditDialog setCancelable(boolean cancelable) {
         dialog.setCancelable(cancelable);
         return this;
     }
@@ -106,7 +106,7 @@ public class EditDialog {
      * @param listener
      * @return
      */
-    public EditDialog setPositiveButton(String text, final View.OnClickListener listener) {
+    public SDEditDialog setPositiveButton(String text, final View.OnClickListener listener) {
         if ("".equals(text)) {
             btn_pos.setText("确定");
         } else {
@@ -129,7 +129,7 @@ public class EditDialog {
      * @param listener
      * @return
      */
-    public EditDialog setPositiveButton(String text, int color, float textSize, final View.OnClickListener listener) {
+    public SDEditDialog setPositiveButton(String text, int color, float textSize, final View.OnClickListener listener) {
         if ("".equals(text)) {
             btn_pos.setText("确定");
         } else {
@@ -152,8 +152,8 @@ public class EditDialog {
      * @param listener
      * @return
      */
-    public EditDialog setNegativeButton(String text,
-                                        final View.OnClickListener listener) {
+    public SDEditDialog setNegativeButton(String text,
+                                          final View.OnClickListener listener) {
         if ("".equals(text)) {
             btn_neg.setText("取消");
         } else {
@@ -176,8 +176,8 @@ public class EditDialog {
      * @param listener
      * @return
      */
-    public EditDialog setNegativeButton(String text, int color, float textSize,
-                                        final View.OnClickListener listener) {
+    public SDEditDialog setNegativeButton(String text, int color, float textSize,
+                                          final View.OnClickListener listener) {
         if ("".equals(text)) {
             btn_neg.setText("取消");
         } else {

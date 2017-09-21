@@ -27,7 +27,7 @@ import java.util.List;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class CustomDialog extends Dialog implements View.OnClickListener {
+public class SDCustomDialog extends Dialog implements View.OnClickListener {
     private Context context;      // 上下文
     private int mLayoutResId;      // 布局文件id
     private int[] mListenedItems;  // 要监听的控件id
@@ -47,7 +47,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
      * @param layoutResID   自己定义的布局
      * @param listenedItems 需要设置点击事件的资源id
      */
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
@@ -63,7 +63,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
      * @param listenedItems  需要设置点击事件的资源id
      * @param animationResId dialog style，如果不使用自己的，则传0
      */
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
@@ -77,7 +77,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
      * @param listenedItems 需要设置点击事件的资源id
      * @param isDismiss     按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
      */
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
@@ -92,11 +92,12 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
      * @param isDismiss     按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
      * @param position      dialog 显示位置，默认CENTER,不设置时可以传0
      */
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss, int position) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss, int position) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
         this.mListenedItems = listenedItems;
+        this.mIsDismiss = isDismiss;
         this.mPosition = position;
     }
 
@@ -110,7 +111,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
      * @param isDismiss      按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
      * @param position       dialog 显示位置，默认CENTER,不设置时可以传0
      */
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId, boolean isDismiss, int position) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId, boolean isDismiss, int position) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
@@ -155,7 +156,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
 
 
     public interface OnCenterItemClickListener {
-        void OnCenterItemClick(CustomDialog dialog, View view);
+        void OnCenterItemClick(SDCustomDialog dialog, View view);
     }
 
 

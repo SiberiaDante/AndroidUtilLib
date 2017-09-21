@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.siberiadante.lib.view.TitleBarLayout
+    <com.siberiadante.lib.view.SDTitleLayout
         android:id="@+id/title_layout_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
         dante:d_title_size="18sp"
         dante:d_title_text="这里是标题" />
 
-    <com.siberiadante.lib.view.TitleBarLayout
+    <com.siberiadante.lib.view.SDTitleLayout
         android:id="@+id/title_layout_two"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         dante:d_title_size="18sp"
         dante:d_title_text="这里是标题" />
 
-    <com.siberiadante.lib.view.TitleBarLayout
+    <com.siberiadante.lib.view.SDTitleLayout
         android:id="@+id/title_layout_three"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,7 +65,7 @@
         dante:d_title_size="18sp"
         dante:d_title_text="这里是标题" />
 
-    <com.siberiadante.lib.view.TitleBarLayout
+    <com.siberiadante.lib.view.SDTitleLayout
         android:id="@+id/title_layout_four"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

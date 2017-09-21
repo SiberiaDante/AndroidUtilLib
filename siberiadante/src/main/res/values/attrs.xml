@@ -133,7 +133,7 @@
     <!--@Time：2017-09-05——End-->
 
     <!--@Time: 2017-09-11——Start-->
-    <declare-styleable name="TitleBarLayout">
+    <declare-styleable name="SDTitleLayout">
         <attr name="d_left_image" />
         <attr name="d_left_image_width" />
         <attr name="d_left_image_padding_start" />

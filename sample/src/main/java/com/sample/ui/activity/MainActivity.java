@@ -1,10 +1,8 @@
 package com.sample.ui.activity;
 
 import android.Manifest;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,7 +12,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
 import com.jude.swipbackhelper.SwipeBackHelper;
@@ -28,9 +25,7 @@ import com.sample.ui.fragment.ViewFragment;
 import com.siberiadante.lib.manager.PermissionManager;
 import com.siberiadante.lib.util.LogUtil;
 import com.siberiadante.lib.util.ToastUtil;
-import com.siberiadante.lib.view.TitleBarLayout;
-
-import org.greenrobot.eventbus.util.ErrorDialogManager;
+import com.siberiadante.lib.view.SDTitleLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +39,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private FrameLayout mFLDraw;
     private ActionBarDrawerToggle mToggle;
     private DrawerLayout drawerLayout;
-    public TitleBarLayout mMianTitle;
+    public SDTitleLayout mMianTitle;
     private FloatingActionButton mFloatBar;
 
     @Override
@@ -63,7 +58,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     }
 
     public void initView() {
-        mMianTitle = (TitleBarLayout) findViewById(R.id.title_layout_main);
+        mMianTitle = (SDTitleLayout) findViewById(R.id.title_layout_main);
         final RadioGroup mRGHome = (RadioGroup) findViewById(R.id.rg_home);
         mRBOne = (RadioButton) findViewById(R.id.rb_home_one);
         mRBTwo = (RadioButton) findViewById(R.id.rb_home_two);

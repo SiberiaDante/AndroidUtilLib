@@ -76,12 +76,12 @@ public class ToastUtil {
     private static final int DURATION_NULL = -1;//不设置显示时间，使用默认时间
     private static final int TEXT_SIZE_NULL = -1;//不设置TextView大小，使用默认size
     private static final int TEXT_COLOR_NULL = -1;//不设置TextView颜色，使用默认
-    private static final int DEFAULT_BACKGROUND = -1;//
+    private static final int BACKGROUND_COLOR_NULL = -2;//不设置背景
     @ColorInt
-    private static int DEFAULT_TEXT_COLOR_BLACK = R.color.black;//默认TextView颜色
+    private static int DEFAULT_TEXT_COLOR_BLACK = Color.BLACK;//默认TextView颜色
     @Size
-    private static float DEFAULT_TEXT_SIZE = 16f;//默认TextView大小
-    private static int DEFAULT_BACKGROUN_COLOR = Color.GRAY;
+    private static int DEFAULT_TEXT_SIZE = 16;//默认TextView大小
+    private static int DEFAULT_BACKGROUND_COLOR = Color.GRAY;//设置默认背景颜色
     private static Toast currentToast;
     private static Toast toast;
     private static Toast mToastLines;
@@ -133,6 +133,12 @@ public class ToastUtil {
         return showSingleToastBottom(content, DURATION_NULL);
     }
 
+    /**
+     *
+     * @param content
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @return
+     */
     @CheckResult
     private static Toast showSingleToastBottom(String content, int duration) {
         if (null == mToastBottom) {
@@ -170,6 +176,12 @@ public class ToastUtil {
         return showSingleToastCenter(content, DURATION_NULL);
     }
 
+    /**
+     *
+     * @param content
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @return
+     */
     @CheckResult
     private static Toast showSingleToastCenter(String content, int duration) {
         if (null == mToastCenter) {
@@ -208,6 +220,12 @@ public class ToastUtil {
         return showSingleToastTop(content, DURATION_NULL);
     }
 
+    /**
+     *
+     * @param content
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @return
+     */
     @CheckResult
     private static Toast showSingleToastTop(String content, int duration) {
         if (null == mToastTop) {
@@ -237,7 +255,7 @@ public class ToastUtil {
      * Toast 无背景透明的文本
      *
      * @param content
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     public static void toastTranslucent(String content, int duration) {
         showTranslucentText(content, duration, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR).show();
@@ -245,7 +263,7 @@ public class ToastUtil {
 
     /**
      * @param content
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param textSize
      * @param textColor
      */
@@ -257,7 +275,7 @@ public class ToastUtil {
      * Toast 无背景透明的文本
      *
      * @param content  内容
-     * @param duration 时长
+     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     @CheckResult
     private static Toast showTranslucentText(String content, int duration, float textSize, int textColor) {
@@ -294,11 +312,47 @@ public class ToastUtil {
      * 显示多行文字
      *
      * @param contents
+     */
+    public static void showLinesText(List<String> contents) {
+        showLinesToastText(contents, BACKGROUND_COLOR_NULL, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR, 30, 10, 30, 10).show();
+    }
+
+    /**
+     * 显示多行文字
+     *
+     * @param contents
      * @param textSize
      * @param textColor
      */
     public static void showLinesText(List<String> contents, int textSize, int textColor) {
-        showLinesText(contents, DEFAULT_BACKGROUN_COLOR, textSize, textColor).show();
+        showLinesToastText(contents, BACKGROUND_COLOR_NULL, textSize, textColor, 30, 10, 30, 10).show();
+    }
+
+    /**
+     * 显示多行文字
+     *
+     * @param contents
+     * @param textSize
+     * @param textColor
+     */
+    public static void showLinesText(List<String> contents, int backgroundColor, int textSize, int textColor) {
+        showLinesToastText(contents, backgroundColor, textSize, textColor, 30, 10, 30, 10).show();
+    }
+
+    /**
+     * 显示多行文字
+     *
+     * @param contents
+     * @param backgroundColor
+     * @param textSize
+     * @param textColor
+     * @param paddingStart
+     * @param paddingTop
+     * @param paddingRight
+     * @param paddingLeft
+     */
+    public static void showLinesText(List<String> contents, int backgroundColor, int textSize, int textColor, int paddingStart, int paddingTop, int paddingRight, int paddingLeft) {
+        showLinesToastText(contents, backgroundColor, textSize, textColor, paddingStart, paddingTop, paddingRight, paddingLeft).show();
     }
 
     /**
@@ -309,15 +363,17 @@ public class ToastUtil {
      * @param contents  list 形式的文本内容
      */
     @CheckResult
-    private static Toast showLinesText(List<String> contents, int backgroundColor, int textSize, int textColor) {
+    private static Toast showLinesToastText(List<String> contents, int backgroundColor, int textSize,
+                                            int textColor, int paddingStart, int paddingTop, int paddingRight, int paddingLeft) {
         if (null == mToastLines) {
             mToastLines = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         toastList.add(mToastLines);
         LinearLayout linearLayoutTop = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
-        linearLayoutTop.setPadding(10, 10, 10, 10);
-        if (DEFAULT_BACKGROUND == backgroundColor) {
-            linearLayoutTop.setBackgroundColor(DEFAULT_BACKGROUN_COLOR);
+        linearLayoutTop.setPadding(TransitionTools.dip2px(paddingStart), TransitionTools.dip2px(paddingTop), TransitionTools.dip2px(paddingRight), TransitionTools.dip2px(paddingLeft));
+
+        if (BACKGROUND_COLOR_NULL == backgroundColor) {
+            linearLayoutTop.setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
         } else {
             linearLayoutTop.setBackgroundColor(backgroundColor);
         }
@@ -335,104 +391,57 @@ public class ToastUtil {
     }
 
     /**
-     * @param resId
+     * @param resId 布局id
      */
     public static void showView(@LayoutRes int resId) {
+        showView(resId, POSITION_NULL, 0, 0, DURATION_NULL).show();
+    }
+
+    /**
+     * @param resId    布局id
+     * @param position
+     * @param xOffset
+     * @param yOffset
+     */
+    public static void showView(@LayoutRes int resId, int position, int xOffset, int yOffset) {
+        showView(resId, POSITION_NULL, 0, 0, DURATION_NULL).show();
+    }
+
+
+    /**
+     * @param resId    布局id
+     * @param position 显示位置 {@code Gravity.CENTER} {@code Gravity.BOTTOM} {@code Gravity.TOP} or {@code Gravity.TOP|Gravity.BOTTOM}
+     * @param xOffset  相对x轴的偏移量
+     * @param yOffset  相对y轴的偏移量
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @return
+     */
+    private static Toast showView(@LayoutRes int resId, int position, int xOffset, int yOffset, int duration) {
         if (null == mToastView) {
             mToastView = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
         }
         View view = LayoutInflater.from(SiberiaDanteLib.getContext()).inflate(resId, null);
         toastList.add(mToastView);
         mToastView.setView(view);
-        mToastView.setDuration(Toast.LENGTH_LONG);
-        mToastView.setGravity(Gravity.CENTER, 0, 0);
-        mToastView.show();
+        if (duration == DURATION_NULL) {
+            mToastView.setDuration(Toast.LENGTH_LONG);
+        } else {
+            mToastView.setDuration(duration);
+        }
+        if (position == POSITION_NULL) {
+            mToastView.setGravity(Gravity.CENTER, 0, 0);
+        } else {
+            mToastView.setGravity(position, xOffset, yOffset);
+        }
+        return mToastView;
     }
-
-
-//
-//    /**
-//     * 吐司文本内容
-//     * 非单例模式,吐司时间短
-//     *
-//     * @param content 吐司内容
-//     */
-//    public static void showTextShort(String content) {
-//        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-//        toastList.add(toast);
-//        toast.setText(content);
-//        toast.setDuration(Toast.LENGTH_SHORT);
-//        toast.show();
-//    }
-//
-//    /**
-//     * 吐司文本内容
-//     * 非单例模式,吐司时间短
-//     *
-//     * @param content 吐司内容
-//     */
-//    public static void showTextLong(String content) {
-//        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-//        toastList.add(toast);
-//        toast.setText(content);
-//        toast.setDuration(Toast.LENGTH_LONG);
-//        toast.show();
-//    }
-//
-//    /**
-//     * 单例模式，吐司时间短, 吐司文本内容
-//     *
-//     * @param content 吐司内容
-//     */
-//    public static void showSingletonShort(String content) {
-//        if (toast == null) {
-//            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_SHORT);
-//        }
-//        toast.setText(content);
-//        toast.setDuration(Toast.LENGTH_SHORT);
-//        toast.show();
-//    }
-//
-//    /**
-//     * 吐司文本内容
-//     * 单例模式,吐司时间长
-//     *
-//     * @param content 吐司内容
-//     */
-//    public static void showSingletonLong(String content) {
-//        if (toast == null) {
-//            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-//        }
-//        toast.setText(content);
-//        toast.setDuration(Toast.LENGTH_SHORT);
-//        toast.show();
-//    }
-//
-//    /**
-//     * 吐司文本内容 自定义位置、时间
-//     * 单例模式
-//     *
-//     * @param content  吐司内容
-//     * @param duration 显示的时间
-//     * @param position 显示的位置
-//     */
-//    public static void showSingletonText(String content, int duration, int position) {
-//        if (toast == null) {
-//            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-//        }
-//        toast.setText(content);
-//        toast.setDuration(duration);
-//        toast.setGravity(position, 0, 0);
-//        toast.show();
-//    }
-
 
     /**
      * Toast图片
      * 单例模式，自定义时间
      *
      * @param resId    图片资源ID
-     * @param duration Toast.LENGTH_LONG/Toast.LENGTH_LONG
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     public static void showSingletonImageCenter(int resId, int duration) {
         if (toast == null) {
@@ -451,7 +460,7 @@ public class ToastUtil {
      * 非单例模式，自定义时间
      *
      * @param resId    图片资源ID
-     * @param duration Toast.LENGTH_LONG/Toast.LENGTH_LONG
+     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     public static void showImageCenter(int resId, int duration) {
         toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
@@ -473,7 +482,7 @@ public class ToastUtil {
      *
      * @param resId    图片资源ID
      * @param duration Toast.LENGTH_LONG/Toast.LENGTH_LONG
-     * @param position Gravity.LEFT,Gravity.BOTTOM | Gravity.RIGHT...多个位置用竖线分割
+     * @param position 显示位置 {@code Gravity.CENTER} {@code Gravity.BOTTOM} {@code Gravity.TOP} or {@code Gravity.TOP|Gravity.BOTTOM}
      */
     public static void showSingletonImage(int resId, int duration, int position) {
         if (toast == null) {
@@ -492,8 +501,8 @@ public class ToastUtil {
      * 非单例模式，自定义时间,自定义位置
      *
      * @param resId    图片资源ID
-     * @param duration Toast.LENGTH_LONG/Toast.LENGTH_LONG
-     * @param position Gravity.LEFT,Gravity.BOTTOM | Gravity.RIGHT...多个位置用竖线分割
+     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param position 显示位置 {@code Gravity.CENTER} {@code Gravity.BOTTOM} {@code Gravity.TOP} or {@code Gravity.TOP|Gravity.BOTTOM}
      */
     public static void showImage(int resId, int duration, int position) {
         toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
@@ -511,8 +520,8 @@ public class ToastUtil {
      * 非单例模式，自定义时间,自定义位置
      *
      * @param bitmap   图片资源ID
-     * @param duration Toast.LENGTH_LONG/Toast.LENGTH_LONG
-     * @param position Gravity.LEFT,Gravity.BOTTOM | Gravity.RIGHT...多个位置用竖线分割
+     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param position 显示位置 {@code Gravity.CENTER} {@code Gravity.BOTTOM} {@code Gravity.TOP} or {@code Gravity.TOP|Gravity.BOTTOM}
      */
     public static void showImage(Bitmap bitmap, int duration, int position) {
         toast = Toast.makeText(SiberiaDanteLib.getContext(), "", duration);
@@ -525,126 +534,6 @@ public class ToastUtil {
         toast.show();
     }
 
-    /**
-     * 自定义显示图文结合的Toast
-     *
-     * @param resId    图片id
-     * @param content  文本内容
-     * @param duration toast时长
-     * @param position toast位置
-     */
-    public static void showIT(int resId, String content, int duration, int position) {
-        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-        toastList.add(toast);
-        LinearLayout linearLayout = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
-        linearLayout.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
-        ImageView imageView = new ImageView(SiberiaDanteLib.getContext());//创建图片控件
-        imageView.setImageResource(resId);//给控件设置图片
-        TextView textView = new TextView(SiberiaDanteLib.getContext());//创建文本控件
-        textView.setText(content);//设置文本内容
-        linearLayout.addView(imageView);//添加图片控件到布局中
-        linearLayout.addView(textView);//添加文本控件到布局中。注意添加顺序会影响图片在前还是为本在前
-        toast.setView(linearLayout);//把布局绑定到Toast上
-        toast.setDuration(duration);//Toast显示的时间;
-        /**
-         * position：显示位置
-         * 第二个参数：相对X的偏移量
-         * 第三个参数：相对Y的偏移量
-         * 第二和第三个参数是相对于第一个参数设定的位置偏移的
-         */
-        toast.setGravity(position, 0, 0);
-        toast.show();//显示Toast
-        resetToast();
-    }
-
-    /**
-     * Toast 多行文本
-     *
-     * @param size     字体大小
-     * @param contents list 形式的文本内容
-     */
-    public static void showLines(List<String> contents, int size) {
-        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-        toastList.add(toast);
-        LinearLayout linearLayoutTop = new LinearLayout(SiberiaDanteLib.getContext());//创建线性布局
-        linearLayoutTop.setBackgroundColor(ContextCompat.getColor(SiberiaDanteLib.getContext(), R.color.gray));
-        linearLayoutTop.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
-        for (int i = 0; i < contents.size(); i++) {
-            TextView textView = new TextView(SiberiaDanteLib.getContext());
-            textView.setText(contents.get(i));
-            textView.setTextSize(size);
-            linearLayoutTop.addView(textView);
-        }
-        toast.setView(linearLayoutTop);
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.show();
-        resetToast();
-    }
-
-
-    /**
-     * Toast 自定义布局 非单例
-     *
-     * @param view     布局
-     * @param duration 时长
-     * @param position 位置
-     */
-    public static void showLayout(View view, int duration, int position) {
-        toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-        toast.setDuration(duration);
-        toast.setGravity(position, 0, 0);
-        toast.setView(view);
-        toast.show();
-        resetToast();
-
-    }
-
-    /**
-     * Toast 自定义布局 单例
-     *
-     * @param view     布局
-     * @param duration 时长
-     * @param position 位置
-     */
-    public static void showSingletonLayout(View view, int duration, int position) {
-        if (toast == null) {
-            toast = Toast.makeText(SiberiaDanteLib.getContext(), "", Toast.LENGTH_LONG);
-        }
-        toast.setDuration(duration);
-        toast.setGravity(position, 0, 0);
-        toast.setView(view);
-        toast.show();
-
-    }
-
-    /**
-     * 异步线程下载图片并Toast
-     *
-     * @param url
-     */
-//    public static void showThread(String url) {
-//        final String mUrl = url;
-//        Observable.create(new ObservableOnSubscribe<Bitmap>() {
-//            @Override
-//            public void subscribe(@NonNull ObservableEmitter<Bitmap> e) throws Exception {
-//                URL url = new URL(mUrl);
-//                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-//                connection.setRequestMethod("GET");
-//                connection.setConnectTimeout(8000);
-//                connection.setReadTimeout(8000);
-//                InputStream inputStream = connection.getInputStream();
-//                Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-//                e.onNext(bitmap);
-//            }
-//        }).subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new Consumer<Bitmap>() {
-//                    @Override
-//                    public void accept(@NonNull Bitmap bitmap) throws Exception {
-//                        ToastUtil.showImage(bitmap, Toast.LENGTH_LONG, Gravity.CENTER);
-//                    }
-//                });
-//    }
 
     /**
      * 重置Toast对象
@@ -708,7 +597,7 @@ public class ToastUtil {
 
     /**
      * @param message
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     public static void normal(@NonNull String message, int duration) {
         normal(SiberiaDanteLib.getContext(), message, duration, null, false).show();
@@ -717,7 +606,7 @@ public class ToastUtil {
     /**
      * @param context
      * @param message
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @return
      */
     @CheckResult
@@ -727,7 +616,7 @@ public class ToastUtil {
 
     /**
      * @param message
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param icon
      */
     public static void normal(@NonNull String message, int duration, Drawable icon) {
@@ -737,7 +626,7 @@ public class ToastUtil {
     /**
      * @param context
      * @param message
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param icon
      * @return
      */
@@ -748,7 +637,7 @@ public class ToastUtil {
 
     /**
      * @param message
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param icon
      * @param withIcon
      * @return
@@ -760,7 +649,7 @@ public class ToastUtil {
     /**
      * @param context
      * @param message
-     * @param duration
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param icon
      * @param withIcon
      * @return
@@ -771,46 +660,97 @@ public class ToastUtil {
     }
 
 
+    /**
+     *
+     * @param message
+     */
     public static void warning(@NonNull String message) {
         warning(SiberiaDanteLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
     }
 
+    /**
+     *
+     * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     */
     public static void warning(@NonNull String message, int duration) {
         warning(SiberiaDanteLib.getContext(), message, duration, true).show();
     }
 
+    /**
+     *
+     * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param withIcon
+     * @return
+     */
     public static Toast warning(@NonNull String message, int duration, boolean withIcon) {
         return custom(SiberiaDanteLib.getContext(), message, getDrawable(R.drawable.ic_error_outline_white_48dp), DEFAULT_TEXT_COLOR, WARNING_COLOR, duration, withIcon, true);
     }
 
+    /**
+     *
+     * @param message
+     */
     public static void info(@NonNull String message) {
         info(SiberiaDanteLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
     }
 
+    /**
+     *
+     * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     */
     public static void info(@NonNull String message, int duration) {
         info(SiberiaDanteLib.getContext(), message, duration, true).show();
     }
 
+    /**
+     *
+     * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param withIcon
+     * @return
+     */
     public static Toast info(@NonNull String message, int duration, boolean withIcon) {
         return custom(SiberiaDanteLib.getContext(), message, getDrawable(R.drawable.ic_info_outline_white_48dp), DEFAULT_TEXT_COLOR, INFO_COLOR, duration, withIcon, true);
     }
 
+    /**
+     *
+     * @param message
+     */
     public static void success(@NonNull String message) {
         success(SiberiaDanteLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
     }
 
+    /**
+     *
+     * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     */
     public static void success(@NonNull String message, int duration) {
         success(SiberiaDanteLib.getContext(), message, duration, true).show();
     }
 
+    /**
+     *
+     * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param withIcon
+     * @return
+     */
     public static Toast success(@NonNull String message, int duration, boolean withIcon) {
         return custom(SiberiaDanteLib.getContext(), message, getDrawable(R.drawable.ic_check_white_48dp), DEFAULT_TEXT_COLOR, SUCCESS_COLOR, duration, withIcon, true);
     }
 
+    /**
+     *
+     * @param message
+     */
     public static void error(@NonNull String message) {
         error(SiberiaDanteLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
     }
-    //===========================================使用ApplicationContext 方法=========================
 
     //*******************************************常规方法********************************************
 
@@ -917,11 +857,14 @@ public class ToastUtil {
         setBackground(toastLayout, drawableFrame);
 
         if (withIcon) {
-            if (icon == null)
+            if (icon == null) {
                 throw new IllegalArgumentException("Avoid passing 'icon' as null if 'withIcon' is set to true");
-            setBackground(toastIcon, icon);
-        } else
+            } else {
+                setBackground(toastIcon, icon);
+            }
+        } else {
             toastIcon.setVisibility(View.GONE);
+        }
 
         toastTextView.setTextColor(textColor);
         toastTextView.setText(message);
@@ -932,14 +875,15 @@ public class ToastUtil {
         return currentToast;
     }
 
-    public static final Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
+    private static  Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
         final NinePatchDrawable toastDrawable = (NinePatchDrawable) getDrawable(R.drawable.toast_frame);
         toastDrawable.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
         return toastDrawable;
     }
 
 
-    public static final void setBackground(@NonNull View view, Drawable drawable) {
+
+    private static  void setBackground(@NonNull View view, Drawable drawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackground(drawable);
         } else {
@@ -947,118 +891,10 @@ public class ToastUtil {
         }
     }
 
-    public static final Drawable getDrawable(@DrawableRes int id) {
+    private static  Drawable getDrawable(@DrawableRes int id) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             return SiberiaDanteLib.getContext().getDrawable(id);
         else
             return SiberiaDanteLib.getContext().getResources().getDrawable(id);
     }
-
-//    /**
-//     * 封装了Toast的方法 :需要等待
-//     *
-//     * @param context Context
-//     * @param str     要显示的字符串
-//     * @param isLong  Toast.LENGTH_LONG / Toast.LENGTH_SHORT
-//     */
-//    public static void showToast(Context context, String str, boolean isLong) {
-//        if (isLong) {
-//            Toast.makeText(context, str, Toast.LENGTH_LONG).show();
-//        } else {
-//            Toast.makeText(context, str, Toast.LENGTH_SHORT).show();
-//        }
-//    }
-//
-//    /**
-//     * 封装了Toast的方法 :需要等待
-//     */
-//    public static void showToastShort(String str) {
-//        Toast.makeText(getContext(), str, Toast.LENGTH_SHORT).show();
-//    }
-//
-//    /**
-//     * 封装了Toast的方法 :需要等待
-//     */
-//    public static void showToastShort(int resId) {
-//        Toast.makeText(getContext(), getContext().getString(resId), Toast.LENGTH_SHORT).show();
-//    }
-//
-//    /**
-//     * 封装了Toast的方法 :需要等待
-//     */
-//    public static void showToastLong(String str) {
-//        Toast.makeText(getContext(), str, Toast.LENGTH_LONG).show();
-//    }
-//
-//    /**
-//     * 封装了Toast的方法 :需要等待
-//     */
-//    public static void showToastLong(int resId) {
-//        Toast.makeText(getContext(), getContext().getString(resId), Toast.LENGTH_LONG).show();
-//    }
-//
-//    /**
-//     * Toast 替代方法 ：立即显示无需等待
-//     *
-//     * @param msg 显示内容
-//     */
-//    public static void showToast(String msg) {
-//        if (mToast == null) {
-//            mToast = Toast.makeText(getContext(), msg, Toast.LENGTH_LONG);
-//        } else {
-//            mToast.setText(msg);
-//        }
-//        mToast.show();
-//    }
-//
-//    /**
-//     * Toast 替代方法 ：立即显示无需等待
-//     *
-//     * @param resId String资源ID
-//     */
-//    public static void showToast(int resId) {
-//        if (mToast == null) {
-//            mToast = Toast.makeText(getContext(), getContext().getString(resId), Toast.LENGTH_LONG);
-//        } else {
-//            mToast.setText(getContext().getString(resId));
-//        }
-//        mToast.show();
-//    }
-//
-//    /**
-//     * Toast 替代方法 ：立即显示无需等待
-//     *
-//     * @param context  实体
-//     * @param resId    String资源ID
-//     * @param duration 显示时长
-//     */
-//    public static void showToast(Context context, int resId, int duration) {
-//        showToast(context, context.getString(resId), duration);
-//    }
-//    //===========================================Toast 替代方法======================================
-//
-//    /**
-//     * Toast 替代方法 ：立即显示无需等待
-//     *
-//     * @param context  实体
-//     * @param msg      要显示的字符串
-//     * @param duration 显示时长
-//     */
-//    public static void showToast(Context context, String msg, int duration) {
-//        if (mToast == null) {
-//            mToast = Toast.makeText(context, msg, duration);
-//        } else {
-//            mToast.setText(msg);
-//        }
-//        mToast.show();
-//    }
-
-//    public static boolean doubleClickExit() {
-//        if ((System.currentTimeMillis() - mExitTime) > 2000) {
-//            RxToast.normal("再按一次退出");
-//            mExitTime = System.currentTimeMillis();
-//            return false;
-//        }
-//        return true;
-//    }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_toast"
     android:layout_width="match_parent"
@@ -7,11 +8,15 @@
     android:orientation="vertical"
     tools:context=".ui.activity.util.ToastActivity">
 
-    <com.siberiadante.lib.view.TitleBar
+    <com.siberiadante.lib.view.SDTitleLayout
         android:id="@+id/titleBar_activity_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/red" />
+        app:d_title_layout_height="40dp"
+        app:d_title_layout_background="@color/red"
+        app:d_is_immersive_state_bar="true"
+        android:background="@color/red"
+        app:d_title_text="ToastUtil" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:text="常规通用Toast底部"
                 android:textAllCaps="false" />
+
             <Button
                 android:id="@+id/btn_show_center"
                 android:layout_width="match_parent"
@@ -78,12 +84,26 @@
                 android:text="Toast显示自定义布局"
                 android:textAllCaps="false" />
 
-            <!--<Button-->
-                <!--android:id="@+id/btn_show_thread"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="Toast异步下载图片"-->
-                <!--android:textAllCaps="false" />-->
+            <Button
+                android:id="@+id/btn_toast_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个正常的Toast"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个错误的Toast"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_toast_success"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="显示一个成功的Toast"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_toast_cancel"
@@ -98,36 +118,6 @@
                 android:layout_height="wrap_content"
                 android:text="重置Toast对象"
                 android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btn_toast_normal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="显示一个正常的Toast"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btn_toast_error"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="显示一个错误的无log-Toast"
-                android:textAllCaps="false" />
-
-
-            <Button
-                android:id="@+id/btn_toast_error_pic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="显示一个错误的Toast"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btn_toast_success"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="显示一个成功的Toast"
-                android:textAllCaps="false" />
-
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

@@ -1,9 +1,7 @@
 package com.sample.ui.activity.view;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -14,11 +12,12 @@ import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.ScreenUtil;
 import com.siberiadante.lib.util.ToastUtil;
-import com.siberiadante.lib.view.CustomDialog;
-import com.siberiadante.lib.view.EditDialog;
+import com.siberiadante.lib.view.SDCustomDialog;
+import com.siberiadante.lib.view.SDEditDialog;
 import com.siberiadante.lib.view.BottomPopupWindow;
-import com.siberiadante.lib.view.EnsureDialog;
+import com.siberiadante.lib.view.SDEnsureDialog;
 import com.siberiadante.lib.view.NiceDialog;
+import com.siberiadante.lib.view.SDEnsureSubDialog;
 import com.siberiadante.lib.view.TitleBar;
 import com.siberiadante.lib.view.nicedialog.BaseNiceDialog;
 import com.siberiadante.lib.view.nicedialog.ViewConvertListener;
@@ -27,7 +26,7 @@ import com.siberiadante.lib.view.nicedialog.ViewHolder;
 public class DialogActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = DialogActivity.class.getSimpleName();
-    private EnsureDialog ensureDialog;
+    private SDEnsureDialog ensureDialog;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -58,6 +57,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         findViewById(R.id.btn_red_package_dialog).setOnClickListener(this);
         findViewById(R.id.btn_loading_dialog).setOnClickListener(this);
         findViewById(R.id.btn_custom_dialog).setOnClickListener(this);
+        findViewById(R.id.btn_notice_dialog).setOnClickListener(this);
 //        findViewById(R.id.btn_ensure_dialog_1).setOnClickListener(this);
         TitleBar titleBar = ((TitleBar) findViewById(R.id.titleBar_dialog_activity));
         initTitle(titleBar);
@@ -135,18 +135,32 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             case R.id.btn_custom_dialog:
                 showCustomDialog();
                 break;
-//            case R.id.btn_ensure_dialog_1:
-//                showEnsureNiceDialog1();
-//                break;
+            case R.id.btn_notice_dialog:
+                showNoticeDialog();
+                break;
 
         }
     }
 
+
+    private void showNoticeDialog() {
+        final SDEnsureSubDialog sdEnsureSubDialog = new SDEnsureSubDialog(this);//提示弹窗
+        sdEnsureSubDialog.setTitle("SiberiaDante");
+        sdEnsureSubDialog.setContent(getString(R.string.about_me));
+        sdEnsureSubDialog.getTvSure().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sdEnsureSubDialog.cancel();
+            }
+        });
+        sdEnsureSubDialog.show();
+    }
+
     /**
-     * EditDialog
+     * SDEditDialog
      */
     private void showEditDialog() {
-        final EditDialog dialog = new EditDialog(this).builder();
+        final SDEditDialog dialog = new SDEditDialog(this).builder();
         dialog.setTitle("可编辑Dialog");
         dialog.setCancelable(false);
         dialog.setNegativeButton("取消", new View.OnClickListener() {
@@ -186,10 +200,10 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     /**
-     * EnsureDialog
+     * SDEnsureDialog
      */
     private void showEnsureDialogOne() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.black))//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
@@ -211,7 +225,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showEnsureDialogTwo() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.black))//可以不设置标题颜色，默认系统颜色
                 .setSubTitle("这是一个副标题")
@@ -234,7 +248,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showEnsureDialogThree() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.black))//可以不设置标题颜色，默认系统颜色
                 .setIncon(R.mipmap.tip_icon)//不设置图标，默认没有图标
@@ -257,7 +271,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showEnsureDialogFour() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", R.color.black)//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
@@ -369,10 +383,10 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showCustomDialog() {
-        final CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, 0, true, Gravity.CENTER);
-        customDialog.setOnCenterItemClickListener(new CustomDialog.OnCenterItemClickListener() {
+        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, 0, true, Gravity.CENTER);
+        customDialog.setOnCenterItemClickListener(new SDCustomDialog.OnCenterItemClickListener() {
             @Override
-            public void OnCenterItemClick(CustomDialog dialog, View view) {
+            public void OnCenterItemClick(SDCustomDialog dialog, View view) {
 //                customDialog.dismiss();
                 ToastUtil.toast("确定按钮被点击了");
             }

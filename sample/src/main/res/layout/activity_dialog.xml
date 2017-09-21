@@ -31,6 +31,7 @@
                 style="@style/MainButton"
                 android:text="提示确认Dialog-带副标题" />
 
+
             <Button
                 android:id="@+id/btn_general_dialog_three"
                 style="@style/MainButton"
@@ -40,6 +41,11 @@
                 android:id="@+id/btn_general_dialog_four"
                 style="@style/MainButton"
                 android:text="提示确认Dialog-一个按钮" />
+
+            <Button
+                android:id="@+id/btn_notice_dialog"
+                style="@style/MainButton"
+                android:text="类似公告的Dialog" />
 
             <Button
                 android:id="@+id/btn_bottom_popup_widow"
@@ -75,11 +81,6 @@
                 android:id="@+id/btn_loading_dialog"
                 style="@style/MainButton"
                 android:text="加载提示" />
-
-            <!--<Button-->
-            <!--android:id="@+id/btn_ensure_dialog_0"-->
-            <!--style="@style/MainButton"-->
-            <!--android:text="确定-0" />-->
 
             <Button
                 android:id="@+id/btn_custom_dialog"
