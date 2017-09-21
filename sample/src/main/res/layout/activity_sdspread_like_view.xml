@@ -24,5 +24,4 @@
         dante:d_spread_like_view_small_offset_angle="20"
         dante:d_spread_like_view_turn_angle="10"
         dante:siShape="@drawable/like" />
-
 </LinearLayout>
