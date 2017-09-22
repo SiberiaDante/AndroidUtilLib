@@ -117,7 +117,7 @@ public abstract class BaseNiceDialog extends DialogFragment {
 
             //设置dialog宽度
             if (width == 0) {
-                lp.width = SDScreenUtil.getScreenWidthPx() - 2 * SDTransitionUtil.dp2px( margin);
+                lp.width = SDScreenUtil.getScreenWidthPx() - 2 * SDTransitionUtil.dp2px(margin);
             } else {
                 lp.width = SDTransitionUtil.dp2px(width);
             }
@@ -135,36 +135,78 @@ public abstract class BaseNiceDialog extends DialogFragment {
         setCancelable(outCancel);
     }
 
+    /**
+     * dialog左右两边到屏幕边缘的距离（单位：dp），默认0dp
+     *
+     * @param margin
+     * @return
+     */
     public BaseNiceDialog setMargin(int margin) {
         this.margin = margin;
         return this;
     }
 
+    /**
+     * Dialog宽度（单位：dp），默认为屏幕宽度，-1代表WRAP_CONTENT
+     *
+     * @param width
+     * @return
+     */
     public BaseNiceDialog setWidth(int width) {
         this.width = width;
         return this;
     }
 
+    /**
+     * dialog高度（单位：dp），默认为WRAP_CONTENT
+     *
+     * @param height
+     * @return
+     */
     public BaseNiceDialog setHeight(int height) {
         this.height = height;
         return this;
     }
 
+    /**
+     * 调节灰色背景透明度[0-1]，默认0.5f
+     *
+     * @param dimAmount
+     * @return
+     */
     public BaseNiceDialog setDimAmount(float dimAmount) {
         this.dimAmount = dimAmount;
         return this;
     }
 
+    /**
+     * 是否在底部显示dialog，默认 false
+     *
+     * @param showBottom
+     * @return
+     */
     public BaseNiceDialog setShowBottom(boolean showBottom) {
         this.showBottom = showBottom;
         return this;
     }
 
-    public BaseNiceDialog setOutCancel(boolean outCancel) {
+    /**
+     * 点击dialog外是否可取消，默认true
+     *
+     * @param outCancel
+     * @return
+     */
+    public BaseNiceDialog setTouchOutCancel(boolean outCancel) {
         this.outCancel = outCancel;
         return this;
     }
 
+    /**
+     * 设置dialog进入、退出的动画style(底部显示的dialog有默认动画)
+     *
+     * @param animStyle
+     * @return
+     */
     public BaseNiceDialog setAnimStyle(@StyleRes int animStyle) {
         this.animStyle = animStyle;
         return this;

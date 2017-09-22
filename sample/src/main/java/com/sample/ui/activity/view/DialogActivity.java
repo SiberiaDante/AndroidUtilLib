@@ -16,7 +16,7 @@ import com.siberiadante.lib.view.dialog.SDCustomDialog;
 import com.siberiadante.lib.view.dialog.SDEditDialog;
 import com.siberiadante.lib.view.dialog.SDBottomDialog;
 import com.siberiadante.lib.view.dialog.SDEnsureDialog;
-import com.siberiadante.lib.view.dialog.NiceDialog;
+import com.siberiadante.lib.view.dialog.SDNiceDialog;
 import com.siberiadante.lib.view.dialog.SDEnsureSubDialog;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 import com.siberiadante.lib.view.base.nicedialog.BaseNiceDialog;
@@ -289,7 +289,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * share dialog
      */
     private void showShareDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.share_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -311,7 +311,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * friend setting dialog
      */
     private void showFriendSettingDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.friend_set_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -335,7 +335,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * comment dialog
      */
     private void showCommentDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.comment_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -358,7 +358,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * red package dialog
      */
     private void showRedPackageDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.ad_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -372,7 +372,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                     }
                 })
                 .setWidth(210)
-                .setOutCancel(false)
+                .setTouchOutCancel(false)
                 .setAnimStyle(R.style.EnterExitAnimation)
                 .show(getSupportFragmentManager());
     }
@@ -381,7 +381,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * loading dialog
      */
     private void showLoadingDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.loading_layout)
                 .setWidth(100)
                 .setHeight(100)

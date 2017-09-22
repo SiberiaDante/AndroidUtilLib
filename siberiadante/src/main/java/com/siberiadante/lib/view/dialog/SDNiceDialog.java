@@ -10,17 +10,17 @@ import com.siberiadante.lib.view.base.nicedialog.ViewHolder;
 
 /**
  * @Created SiberiaDante
- * @Describe： 原作者GitHub代码地址：{@link: https://github.com/Othershe/NiceDialog}
+ * @Describe： 原作者GitHub代码地址：{@link: https://github.com/Othershe/SDNiceDialog}
  * @Time: 2017/8/10
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class NiceDialog extends BaseNiceDialog {
+public class SDNiceDialog extends BaseNiceDialog {
     private ViewConvertListener convertListener;
 
-    public static NiceDialog init() {
-        return new NiceDialog();
+    public static SDNiceDialog init() {
+        return new SDNiceDialog();
     }
 
     @Override
@@ -36,12 +36,12 @@ public class NiceDialog extends BaseNiceDialog {
     }
 
 
-    public NiceDialog setLayoutId(@LayoutRes int layoutId) {
+    public SDNiceDialog setLayoutId(@LayoutRes int layoutId) {
         this.layoutId = layoutId;
         return this;
     }
 
-    public NiceDialog setConvertListener(ViewConvertListener convertListener) {
+    public SDNiceDialog setConvertListener(ViewConvertListener convertListener) {
         this.convertListener = convertListener;
         return this;
     }
