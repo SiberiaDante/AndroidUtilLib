@@ -1,10 +1,10 @@
 # SiberiaDanteLib
->#### 旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/6501f32b327dfe511978d7aacef69b145e5a7a0f/ABOUTME.md)删除。持续更新维护中……）
+>#### 旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d30aec89d5a4972db5ee018a0f9127641b18f8a0/doc/ABOUTME.md)删除。持续更新维护中……）
 >#### 项目包含library和sample，每个library中的工具类都在sample中作了测试，使用中也可以参考sample.
 >#### sample已内置Fragment懒加载、侧滑返回等许多主流技术
 >#### 所有util、view本人都经过亲测，可用，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢
 
-[体验sample-apk]()
+[体验sample-apk](https://github.com/SiberiaDante/SiberiaDanteLib/tree/d30aec89d5a4972db5ee018a0f9127641b18f8a0/sample/sample-debug.apk)
 ## 推荐
 >* [Android开发必备经典收藏集（整理中）]
 >* [TitleLayout——通用万能标题栏]
@@ -16,67 +16,72 @@ dependencies {
     compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.3'
 	}
 ```
-> 使用说明
+## 使用说明
 
  * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
  * 开启Debug模式：SiberiaDanteLib.setDebug(true);
 
-> [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/5a8051c462060e62fc78b47eb05c9b35cb8adc99/VERSION_UPDATE.md)
+> [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d30aec89d5a4972db5ee018a0f9127641b18f8a0/doc/VERSION_UPDATE.md)
 
 ## view
 ### Dialog相关
-* [SDBottomDialog] :仿IOS底部弹出可拓展dialog
-* [SDCustomDialog] :通用可自定义的dialog
-* [SDEditDialog] :仿IOS弹出可编辑dialog
-* [SDEnsureDialog] 常规提示确认dialog
-* [SDEnsureSubDialog] 常规提示确认dialog,带标题，可设置log
+* [SDBottomDialog]             仿IOS底部弹出可拓展dialog
+* [SDCustomDialog]             通用可自定义的dialog
+* [SDEditDialog]               仿IOS弹出可编辑dialog
+* [SDEnsureDialog]             常规提示确认dialog
+* [SDEnsureSubDialog]          常规提示确认dialog,带标题，可设置log
 * [NiceDialog] 
 
-* [PicassoCircleTransfer] :Picasso加载图片时将图片转换为圆形工具
-* [QQStepView] :自定义View实现仿QQ运动步数功能
+* [PicassoCircleTransfer]      Picasso加载图片时将图片转换为圆形工具
+* [QQStepView]               自定义View实现仿QQ运动步数功能
 ### 标题栏相关
-* [SDTitleBar] :常规的titleBar的封装，一般的titleBar均可([使用:SDTitleBar使用说明])
-* [SDTitleLayout] :常规的能够满足开发需求的标题栏的封装，一般的titleBar均可([使用:SDTitleLayout使用说明])
+* [SDTitleBar]              常规的titleBar的封装，一般的titleBar均可([使用:SDTitleBar使用说明])
+* [SDTitleLayout]             常规的能够满足开发需求的标题栏的封装，一般的titleBar均可([使用:SDTitleLayout使用说明])
 ## widget
-* [SDCenterAlignImageSpan] :图文混排对齐
-* [SDHexagonView] :正六边形TextView
-* [SDLetterSpaceTextView] :可设置文字间距的TextView
-* [SDRoundFrameLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [SDRoundImage] :圆形ImageView控件,直接在布局中使用
-* [SDRoundLinearLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [SDRoundRelativeLayout] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [SDRoundTextView] :可在布局中直接设置shape相关的属性（背景颜色、角度等）
-* [SDRadioButtom] :可设置图片大小的RadioButton
-* [SuperTextView]：超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
-* [TabRadioButton] :可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
-* [JustifyTextView] :适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
-* [PhotoViewPager] :可左右滑动照片查看器
+* [SDCenterAlignImageSpan]     图文混排对齐
+* [SDHexagonView]             正六边形TextView
+* [SDLetterSpaceTextView] 可设置文字间距的TextView
+* [SDRoundFrameLayout] 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRoundImage] 圆形ImageView控件,直接在布局中使用
+* [SDRoundLinearLayout] 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRoundRelativeLayout] 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRoundTextView] 可在布局中直接设置shape相关的属性（背景颜色、角度等）
+* [SDRadioButtom] 可设置图片大小的RadioButton
+* [SuperTextView]超酷炫的TextView，可以设置出各种特效文字(原文地址：http://www.jianshu.com/p/1b91e11e441d)
+* [TabRadioButton] 可设置图片尺寸的RadioButton，适用于图文结合的RadioButton
+* [JustifyTextView] 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
+* [PhotoViewPager] 可左右滑动照片查看器
 
 ## util(工具类详细说明文档看[Document_Util])
-* [SDActivityUtil] :页面工具类
-* [SDAppUtil] :获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
-* [SDClearUtil] :清除缓存、数据等相关应用
-* [SDCloseUtil] :关闭相关工具类
+* [SDActivityUtil]                  页面工具类
+* [SDAppUtil]                       获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
+* [SDClearUtil]                     清除缓存、数据等相关应用
+* [SDCloseUtil]                     关闭相关工具类
 * [CrashHandler]
-* [SDDateUtil] ：时间、日期转换
-* [EncryptUtil] :加密算法相关工具类
-* [SDFileUtil] :文件处理相关工具类
-* [SDIntentUtil] ：Intent相关工具类
-* [SDLogUtil] ：日志打印控制工具类
-* [SDNetWorkUtil] :网络连接、类型等
-* [SDNumberUtil] :数字工具类
-* [ProcessUtil]
-* [SDScreenUtil] :屏幕相关工具类
-* [SDStorageUtil] ：SD卡以及存储相关工具类
-* [ShellUtils]
-* [SDSPUtil] ：SharedPreference的封装，用来储存数据([使用:sample/src/constants/AppInfo.java])
+* [SDDateUtil]                      时间、日期转换
+* [SDEncryptUtil]                     加密算法相关工具类
+* [SDFileUtil]                      文件处理相关工具类
+* [SDIntentUtil]                    Intent相关工具类
+* [SDKeyBoardUtil]
+* [SDLogUtil]                       日志打印控制工具类
+* [SDMathUtil]
+* [SDNetWorkUtil]                   网络连接、类型等
+* [SDNumberUtil]                    数字工具类
+* [SDProcessUtil]
+* [SDScreenUtil]                    屏幕相关工具类
+* [SDShellUtil]
+* [SDSnackBarUtil]
+* [SDSPUtil]SharedPreference的封装，用来储存数据([使用:sample/src/constants/AppInfo.java])
+* [SDStorageUtil]SD卡以及存储相关工具类
 * [SDStringUtil] :字符处理相关工具类
-* [SDToast] :toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
-* [SDTransitionUtil] :dp、px转换
+* [SDToast] toast吐司工具类(看下代码自己就可以用Toast写出各种各样的界面）
+* [SDTransitionUtil] dp、px转换
+* [SpannableStringUtil]
 
 
 
- 参考资料：https://github.com/Blankj/AndroidUtilCode
+ 参考:https://github.com/Blankj/AndroidUtilCode
+
 <!--  View-->
 <!--Dialog相关-->
 [NiceDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java
@@ -110,17 +115,26 @@ dependencies {
 [SDAppUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDAppUtil.java
 [SDClearUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDClearUtil.java
 [SDCloseUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDCloseUtil.java
+[SDCrashHandler]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDCrashHandler.java
 [SDDateUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDDateUtil.java
-[EncryptUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/EncryptUtil.java
+[SDEncryptUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDEncryptUtil.java
 [SDFileUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDFileUtil.java
 [SDIntentUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDIntentUtil.java
+[SDKeyBoardUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDKeyBoardUtil.java
 [SDLogUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDLogUtil.java
+[SDMathUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDMathUtil.java
 [SDNetWorkUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDNetWorkUtil.java
 [SDNumberUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/lib/util/SDNumberUtil.java
+[SDProgressUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/lib/util/SDProgressUtil.java
 [SDScreenUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDScreenUtil.java
+[SDShellUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDShellUtil.java
+[SDSnackBarUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDSnackBarUtil.java
+[SDSPUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDSPUtil.java
+[SDStorageUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDStorageUtil.java
 [SDStringUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDStringUtil.java
-[SDTransitionUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDTransitionUtil.java
 [SDToast]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDToast.java
+[SDTransitionUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SDTransitionUtil.java
+[SpannableStringUtil]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/util/SpannableStringUtil.java
 
 
 

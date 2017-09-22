@@ -5,8 +5,6 @@ import android.app.Application;
 import android.support.multidex.MultiDex;
 
 import com.siberiadante.lib.SiberiaDanteLib;
-import com.squareup.leakcanary.LeakCanary;
-//import com.squareup.leakcanary.LeakCanary;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -36,11 +34,11 @@ public class SampleApplication extends Application {
         MultiDex.install(this);
         appContext = this;
         initSiberiaDanteLib();
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return;
-        }
-        LeakCanary.install(this);
-//        CrashHandler crashHandler = CrashHandler.getInstance();
+//        if (LeakCanary.isInAnalyzerProcess(this)) {
+//            return;
+//        }
+//        LeakCanary.install(this);
+//        SDCrashHandler crashHandler = SDCrashHandler.getInstance();
 //        crashHandler.init(getApplicationContext());
     }
 

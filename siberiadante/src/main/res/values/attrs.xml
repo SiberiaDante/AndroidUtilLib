@@ -15,7 +15,7 @@
     <attr name="drawableBottom" format="reference" />
 
     <!--SuperTextView-->
-    <declare-styleable name="SuperTextView">
+    <declare-styleable name="SDSuperTextView">
         <attr name="corner" format="dimension" />
         <attr name="left_top_corner" format="boolean" />
         <attr name="right_top_corner" format="boolean" />

@@ -438,7 +438,7 @@ public class SDAppUtil {
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isAppRoot() {
-        ShellUtil.CommandResult result = ShellUtil.execCmd("echo root", true);
+        SDShellUtil.CommandResult result = SDShellUtil.execCmd("echo root", true);
         if (result.result == 0) {
             return true;
         }
@@ -492,7 +492,7 @@ public class SDAppUtil {
     public static boolean uninstallAppSilent(String packageName, boolean isKeepData) {
         if (isSpace(packageName)) return false;
         String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (isKeepData ? "-k " : "") + packageName;
-        ShellUtil.CommandResult commandResult = ShellUtil.execCmd(command, !isSystemApp(), true);
+        SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 
@@ -561,7 +561,7 @@ public class SDAppUtil {
     public static String getAppSignatureSHA1(String packageName) {
         Signature[] signature = getAppSignature(packageName);
         if (signature == null) return null;
-        return EncryptUtil.encryptSHA1ToString(signature[0].toByteArray()).
+        return SDEncryptUtil.encryptSHA1ToString(signature[0].toByteArray()).
                 replaceAll("(?<=[0-9A-F]{2})[0-9A-F]{2}", ":$0");
     }
 
@@ -591,7 +591,7 @@ public class SDAppUtil {
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isAppInForeground(String packageName) {
-        return !isSpace(packageName) && packageName.equals(ProcessUtil.getForegroundProcessName());
+        return !isSpace(packageName) && packageName.equals(SDProcessUtil.getForegroundProcessName());
     }
 
 
@@ -693,7 +693,7 @@ public class SDAppUtil {
         File file = SDFileUtil.getFileByPath(filePath);
         if (!SDFileUtil.isFileExists(file)) return false;
         String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm install " + filePath;
-        ShellUtil.CommandResult commandResult = ShellUtil.execCmd(command, !isSystemApp(), true);
+        SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 //TODO 以上-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -280,7 +280,7 @@ public class SDNetWorkUtil {
         if (ip == null || ip.length() <= 0) {
             ip = "223.5.5.5";// 阿里巴巴公共ip
         }
-        ShellUtil.CommandResult result = ShellUtil.execCmd(String.format("ping -c 1 %s", ip), false);
+        SDShellUtil.CommandResult result = SDShellUtil.execCmd(String.format("ping -c 1 %s", ip), false);
         boolean ret = result.result == 0;
         if (result.errorMsg != null) {
             Log.d("NetworkUtils", "isAvailableByPing() called" + result.errorMsg);
