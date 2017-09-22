@@ -1407,4 +1407,34 @@ public class SDFileUtil {
         }
         return true;
     }
+    /**
+     * 文件转InputStream
+     *
+     * @param absPath
+     * @return
+     */
+    public static InputStream fileToInputStream(String absPath) {
+        File file = new File(absPath);
+        if (!file.exists()) {
+            return null;
+        }
+        InputStream is = null;
+        try {
+            is = new BufferedInputStream(new FileInputStream(file));
+            return is;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (is != null) {
+                    is.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+    }
 }
