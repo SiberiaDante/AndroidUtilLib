@@ -32,11 +32,11 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
     private int mLayoutResId;      // 布局文件id
     private int[] mListenedItems;  // 要监听的控件id
     private int mAnimationResId;//主题style
-    private OnCenterItemClickListener listener;
+    private OnCustomDialogItemClickListener listener;
     private boolean mIsDismiss = false;//是否默认所有按钮点击后取消dialog显示，false是需要在点击事件后手动调用dismiss
     private int mPosition = 0; //Dialog 相对页面显示的位置
 
-    public void setOnCenterItemClickListener(OnCenterItemClickListener listener) {
+    public void setOnCenterItemClickListener(OnCustomDialogItemClickListener listener) {
         this.listener = listener;
     }
 
@@ -155,8 +155,8 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
     }
 
 
-    public interface OnCenterItemClickListener {
-        void OnCenterItemClick(SDCustomDialog dialog, View view);
+    public interface OnCustomDialogItemClickListener {
+        void OnCustomDialogItemClick(SDCustomDialog dialog, View view);
     }
 
 
@@ -166,6 +166,6 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
         if (mIsDismiss) {
             dismiss();
         }
-        listener.OnCenterItemClick(this, view);
+        listener.OnCustomDialogItemClick(this, view);
     }
 }

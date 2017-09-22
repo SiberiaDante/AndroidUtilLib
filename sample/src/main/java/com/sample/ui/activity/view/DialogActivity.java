@@ -316,6 +316,13 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                 .setConvertListener(new ViewConvertListener() {
                     @Override
                     public void convertView(ViewHolder holder, final BaseNiceDialog dialog) {
+                        holder.getView(R.id.tv_friend_label).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                SDToast.toast("设置备注和标签按钮被点击");
+                                dialog.dismiss();
+                            }
+                        });
 
                     }
                 })
@@ -383,12 +390,21 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showCustomDialog() {
-        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, 0, true, Gravity.CENTER);
-        customDialog.setOnCenterItemClickListener(new SDCustomDialog.OnCenterItemClickListener() {
+        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure, R.id.dialog_cancel}, 0, true, Gravity.CENTER);
+        customDialog.setOnCenterItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
             @Override
-            public void OnCenterItemClick(SDCustomDialog dialog, View view) {
-//                customDialog.dismiss();
-                SDToast.toast("确定按钮被点击了");
+            public void OnCustomDialogItemClick(SDCustomDialog dialog, View view) {
+                switch (view.getId()) {
+                    case R.id.dialog_cancel:
+                        customDialog.dismiss();
+                        SDToast.toast("取消按钮被点击了");
+                        break;
+                    case R.id.dialog_sure:
+                        customDialog.dismiss();
+                        SDToast.toast("确定按钮被点击了");
+                        break;
+                }
+
             }
         });
         customDialog.show();

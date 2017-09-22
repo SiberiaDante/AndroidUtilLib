@@ -30,57 +30,69 @@ dependencies {
 
 <table>
     <tr>
-        <th colspan="2">Dialog相关View</th>
+        <th colspan="2" style="color:red">Dialog相关View具体使用请点这里</th>
     </tr>
     <tr>
         <th>Dialog相关封装</th>
         <th>简单说明</th>
     </tr>
     <tr>
-        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDBottomDialog.java">SDBottomDialog</a></td>
+        <td>SDNiceDialog</a></td>
+        <td>只需要传入布局id,可实现子View事件的监听、设置Dialog相关属性等</td>
+    </tr>
+    <tr>
+        <td>SDBottomDialog</td>
         <td>仿IOS底部弹出可拓展多个item的dialog</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDCustomDialog.java">SDCustomDialog</a></td>
+        <td>SDCustomDialog</td>
         <td>通用可自定义的dialog,可以传入任何自定义的布局</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEditDialog.java">SDEditDialog</a></td>
+        <td>SDEditDialog</td>
         <td>仿IOS弹出可编辑dialog</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureSubDialog.java">SDEnsureDialog</a></td>
+        <td>SDEnsureDialog</td>
         <td>常规提示确认dialog</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/SiberiaDante/SiberiaDanteLib/blob/163c16d59264ea154eb49309d99b5cc4b1d786fc/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureSubDialog.java">SDEnsureSubDialog</a></td>
+        <td>SDEnsureSubDialog</td>
         <td>常规提示确认dialog,带标题，可设置log</td>
     </tr>
-    <tr>
-        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java">NiceDialog</a></td>
-        <td>NiceDialog</td>
-    </tr>
-    <tr>
-        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureDialog.java"></a></td>
-        <td></td>
-    </tr>
-
 </table>
 
-* [PicassoCircleTransfer]      Picasso加载图片时将图片转换为圆形工具
-* [QQStepView]               自定义View实现仿QQ运动步数功能
 ### 标题栏相关
 <table border="1">
     <tr>
-        <th colspan="2">标题栏相关</th>
+        <th colspan="2" style="color:red" ><a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-Title">标题栏详细说明请点这里</a></th>
     </tr>
     <tr>
-        <td><a href="https://github.com/SiberiaDante/SiberiaDanteLib/blob/163c16d59264ea154eb49309d99b5cc4b1d786fc/doc/view/SDTitleBar.md">SDTitleBar</a></td>
+        <td>SDTitleBar></td>
         <td>常规的titleBar的封装</td>
     </tr>
     <tr>
-        <td><a href="https://github.com/SiberiaDante/SiberiaDanteLib/blob/163c16d59264ea154eb49309d99b5cc4b1d786fc/doc/view/SDTitleLayout.md">SDTitleLayout</a></td>
+        <td>SDTitleLayout</td>
         <td>常规的能够满足开发需求的标题栏的封装</td>
+    </tr>
+</table>
+
+### 其他View相关
+<table border="1">
+    <tr>
+        <th colspan="2" style="color:red">其他View相关</th>
+    </tr>
+    <tr>
+        <td>PicassoCircleTransfer</td>
+        <td>Picasso加载图片时将图片转换为圆形工具</td>
+    </tr>
+    <tr>
+        <td>QQStepView</td>
+        <td> 自定义View实现仿QQ运动步数功能</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
     </tr>
 </table>
 
@@ -130,14 +142,6 @@ dependencies {
  参考:https://github.com/Blankj/AndroidUtilCode
 
 <!--  View-->
-<!--Dialog相关-->
-[NiceDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java
-[SDBottomDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDBottomDialog.java
-[SDCustomDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDCustomDialog.java
-[SDEditDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEditDialog.java
-[SDEnsureDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureDialog.java
-[SDEnsureSubDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureSubDialog.java
-
 
 [PicassoCircleTransfer]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/PicassoCircleTransfer.java
 [QQStepView]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/QQStepView.java
