@@ -180,7 +180,7 @@ public abstract class BaseNiceDialog extends DialogFragment {
     }
 
     /**
-     * 是否在底部显示dialog，默认 false
+     * 是否在底部显示Dialog，默认 false
      *
      * @param showBottom
      * @return
@@ -191,7 +191,7 @@ public abstract class BaseNiceDialog extends DialogFragment {
     }
 
     /**
-     * 点击dialog外是否可取消，默认true
+     * 点击Dialog外是否可取消，默认true
      *
      * @param outCancel
      * @return
