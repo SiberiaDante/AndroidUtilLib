@@ -25,8 +25,6 @@ dependencies {
 
 ## view
 ### Dialog相关
-[NiceDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java
-
 
 <table>
     <tr>
