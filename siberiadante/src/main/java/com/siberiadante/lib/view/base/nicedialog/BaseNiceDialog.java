@@ -158,7 +158,7 @@ public abstract class BaseNiceDialog extends DialogFragment {
     }
 
     /**
-     * dialog高度（单位：dp），默认为WRAP_CONTENT
+     * Dialog高度（单位：dp），默认为WRAP_CONTENT
      *
      * @param height
      * @return
