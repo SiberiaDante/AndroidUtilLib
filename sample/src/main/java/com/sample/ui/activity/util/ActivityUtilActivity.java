@@ -7,9 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sample.R;
+import com.sample.constants.Constants;
 import com.sample.ui.activity.BaseActivity;
 import com.sample.ui.activity.SecondActivity;
 import com.siberiadante.lib.util.SDActivityUtil;
+import com.siberiadante.lib.util.SDLogUtil;
 
 public class ActivityUtilActivity extends BaseActivity {
 
@@ -25,6 +27,7 @@ public class ActivityUtilActivity extends BaseActivity {
     }
 
     public void initView() {
+        SDLogUtil.d("-------------"+SecondActivity.class.getName());
         mTvContent = (TextView) findViewById(R.id.tv_activity_test);
         findViewById(R.id.btn_start_other_activity).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,16 +35,21 @@ public class ActivityUtilActivity extends BaseActivity {
                 SDActivityUtil.launchActivity("com.sample", SecondActivity.class.getName());
             }
         });
+        findViewById(R.id.start_browser).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SDActivityUtil.startBrowser(Constants.URL_SIBERIA_DANTE_LIB);
+            }
+        });
     }
 
     public void initData() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("1.包名'com.sample'的SecondActivity是否存在---");
-        builder.append(SDActivityUtil.isActivityExists("com.sample", SecondActivity.class.getName()) + "\n");
+        builder.append("1.SecondActivity是否存在---"+SDActivityUtil.isActivityExists("com.sample", SecondActivity.class.getName()) + "\n");
+        builder.append("2.当前APP的启动Activity是---"+SDActivityUtil.getLauncherActivity("com.sample")+ "\n");
+        builder.append("3.包名为com.shuinsen.zhiri的APP的启动Activity是---"+SDActivityUtil.getLauncherActivity("com.shuinsen.zhiri")+ "\n");
 
         mTvContent.setText(builder);
-        String launcherActivity = SDActivityUtil.getLauncherActivity("com.sample");
-        Log.d(TAG, "initData: launcherActivity==" + launcherActivity);
         Activity topActivity = SDActivityUtil.getTopActivity();
         Log.d(TAG, "initData: topActivity==" + topActivity);
     }

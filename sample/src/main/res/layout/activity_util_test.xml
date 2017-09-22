@@ -11,8 +11,8 @@
     <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:d_left_image="@mipmap/back"
         app:d_is_immersive_state_bar="true"
+        app:d_left_image="@mipmap/back"
         app:d_title_layout_background="@color/red"
         app:d_title_layout_height="40dp"
         app:d_title_text="ActivityUtil" />
@@ -22,6 +22,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="启动SecondActivity" />
+
+    <Button
+        android:id="@+id/start_browser"
+        style="@style/MainButton"
+        android:text="使用系统浏览器打开链接" />
 
     <TextView
         android:id="@+id/tv_activity_test"

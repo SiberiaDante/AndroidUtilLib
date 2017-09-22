@@ -20,7 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.siberiadante.lib.SiberiaDanteLib;
-import com.siberiadante.lib.constants.Constants;
+import com.siberiadante.lib.constants.SDConstants;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 
@@ -199,7 +199,7 @@ public class SDScreenUtil {
      * @return 状态栏高度
      */
     public static int getStatusBarHeight() {
-        return getInternalDimensionSize(Resources.getSystem(), Constants.STATUS_BAR_HEIGHT_RES_NAME);
+        return getInternalDimensionSize(Resources.getSystem(), SDConstants.STATUS_BAR_HEIGHT_RES_NAME);
     }
 
     private static void setupStatusBarView(Activity activity, ViewGroup contentLayout, int color) {

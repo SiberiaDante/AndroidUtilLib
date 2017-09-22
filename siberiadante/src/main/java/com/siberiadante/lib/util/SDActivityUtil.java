@@ -28,11 +28,10 @@ import java.util.Map;
  */
 
 public class SDActivityUtil {
+
     public SDActivityUtil() {
-//        throw new UnsupportedOperationException("unInit SiberiaDanteLib");
         new SiberiaDanteLibException();
     }
-
 
     /**
      * 通过浏览器打开一个链接
@@ -40,7 +39,9 @@ public class SDActivityUtil {
      * @param url
      */
     public static void startBrowser(String url) {
-        SiberiaDanteLib.getContext().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        SiberiaDanteLib.getContext().startActivity(intent);
     }
 
     /**

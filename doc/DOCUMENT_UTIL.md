@@ -1,5 +1,47 @@
-## util
-* [ActivityUtil] :页面工具类
+<h1>
+    Util相关说明文档
+</h1>
+
+<h3 name="sdactivityutil" id="sdactivityutil">
+    SDActivityUtil:页面工具类
+</h3>
+
+<table>
+    <tr>
+        <th colspan="2">SDActivityUtil相关方法</th>
+    </tr>
+    <tr>
+        <td>startBrowser(String url)</td>
+        <td>通过浏览器打开一个链接</td>
+    </tr>
+    <tr>
+        <td>launchActivity(String packageName, String activityName)</td>
+        <td>启动一个不需要传值的Activity</td>
+    </tr>
+    <tr>
+        <td>launchActivity(String packageName, String activityName, Bundle bundle)</td>
+        <td>启动一个需要传值的Activity</td>
+    </tr>
+    <tr>
+        <td>isActivityExists(@Nullable String packageName, @Nullable String activityName)</td>
+        <td>判断Activity是否存在</td>
+    </tr>
+    <tr>
+        <td>getLauncherActivity(String packageName)</td>
+        <td>获取包名为packageName的APP的启动Activity</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+
+</table>
+
+* [SDActivityUtil] :页面工具类
     * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
     * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
     * isActivityExists(String packageName, String activityName)：判断activity是否存在
