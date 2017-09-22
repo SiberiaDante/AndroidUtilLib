@@ -13,7 +13,6 @@ android {
         versionName "1.0.1"
         consumerProguardFiles 'siberiadante-proguard-rules.pro'
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -21,18 +20,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
 }
-//allprojects {
-//    repositories {
-//        jcenter()
-//        maven { url "https://jitpack.io" }
-//    }
-//}
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
