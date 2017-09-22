@@ -135,8 +135,6 @@ dependencies {
 * [SDTransitionUtil] dp、px转换
 * [SpannableStringUtil]
 
-
-
  参考:https://github.com/Blankj/AndroidUtilCode
 
 <!--  View-->
