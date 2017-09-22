@@ -25,18 +25,65 @@ dependencies {
 
 ## view
 ### Dialog相关
-* [SDBottomDialog]             仿IOS底部弹出可拓展dialog
-* [SDCustomDialog]             通用可自定义的dialog
-* [SDEditDialog]               仿IOS弹出可编辑dialog
-* [SDEnsureDialog]             常规提示确认dialog
-* [SDEnsureSubDialog]          常规提示确认dialog,带标题，可设置log
-* [NiceDialog] 
+[NiceDialog]:https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java
+
+
+<table>
+    <tr>
+        <th colspan="2">Dialog相关View</th>
+    </tr>
+    <tr>
+        <th>Dialog相关封装</th>
+        <th>简单说明</th>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDBottomDialog.java">SDBottomDialog</a></td>
+        <td>仿IOS底部弹出可拓展多个item的dialog</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDCustomDialog.java">SDCustomDialog</a></td>
+        <td>通用可自定义的dialog,可以传入任何自定义的布局</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEditDialog.java">SDEditDialog</a></td>
+        <td>仿IOS弹出可编辑dialog</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureSubDialog.java">SDEnsureDialog</a></td>
+        <td>常规提示确认dialog</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SiberiaDante/SiberiaDanteLib/blob/163c16d59264ea154eb49309d99b5cc4b1d786fc/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureSubDialog.java">SDEnsureSubDialog</a></td>
+        <td>常规提示确认dialog,带标题，可设置log</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/NiceDialog.java">NiceDialog</a></td>
+        <td>NiceDialog</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SibreiaDante/SiberiaDanteLib/blob/master/siberiadante/src/main/java/com/siberiadante/lib/view/dialog/SDEnsureDialog.java"></a></td>
+        <td></td>
+    </tr>
+
+</table>
 
 * [PicassoCircleTransfer]      Picasso加载图片时将图片转换为圆形工具
 * [QQStepView]               自定义View实现仿QQ运动步数功能
 ### 标题栏相关
-* [SDTitleBar]              常规的titleBar的封装，一般的titleBar均可([使用:SDTitleBar使用说明])
-* [SDTitleLayout]             常规的能够满足开发需求的标题栏的封装，一般的titleBar均可([使用:SDTitleLayout使用说明])
+<table border="1">
+    <tr>
+        <th colspan="2">标题栏相关</th>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SiberiaDante/SiberiaDanteLib/blob/163c16d59264ea154eb49309d99b5cc4b1d786fc/doc/view/SDTitleBar.md">SDTitleBar</a></td>
+        <td>常规的titleBar的封装</td>
+    </tr>
+    <tr>
+        <td><a href="https://github.com/SiberiaDante/SiberiaDanteLib/blob/163c16d59264ea154eb49309d99b5cc4b1d786fc/doc/view/SDTitleLayout.md">SDTitleLayout</a></td>
+        <td>常规的能够满足开发需求的标题栏的封装</td>
+    </tr>
+</table>
+
 ## widget
 * [SDCenterAlignImageSpan]     图文混排对齐
 * [SDHexagonView]             正六边形TextView
