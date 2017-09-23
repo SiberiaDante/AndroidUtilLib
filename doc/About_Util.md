@@ -36,14 +36,6 @@
             <td>getLauncherActivity(String packageName)</td>
             <td>获取包名为packageName的APP的启动Activity</td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
     </table>
 
 <h2 name="sdapputil" id="sdapputil">SDAppUtil</h2>
@@ -231,10 +223,17 @@
             <td>getAndroidId()</td>
             <td> 获取Android Id</td>
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-        </tr>
+    </table>
+
+<h2 name="sdbitmaputil" id="sdbitmaputil">SDBitmapUtil说明文档</h2>
+    <table>
+            <tr>
+                <th colspan="2">ClearUtil</th>
+            </tr>
+            <tr>
+                <td>clearInternalCache()</td>
+                <td>清除应用内部缓存</td>
+            </tr>
     </table>
 
 <h2 name="sdclearutil" id="sdclearutil">SDClearUtil说明文档</h2>
