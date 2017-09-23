@@ -3,6 +3,13 @@
 </h1>
 <h3> <a href="#sdactivityutil">SDActivityUtil</a></h3>
 <h3> <a href="#sdapputil">SDAppUtil</a></h3>
+<h3> <a href="#sdbitmaputil">SDBitmapUtil</a></h3>
+<h3> <a href="#sdclearutil">SDClearUtil</a></h3>
+<h3> <a href="#sdcloseutil">SDCloseUtil</a></h3>
+<h3> <a href="#sdcrashhandlerutil">SDCrashHandlerUtil</a></h3>
+<h3> <a href="#sddateutil">SDDateUtil</a></h3>
+<h3> <a href="#sdencryptutil">SDEncryptUtil</a></h3>
+<h3> <a href="#sdfileutil">SDFileUtil</a></h3>
 
 <h3 name="sdactivityutil" id="sdactivityutil">SDActivityUtil:页面工具类</h3>
 
