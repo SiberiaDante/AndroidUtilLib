@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
@@ -20,6 +21,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = AppActivity.class.getSimpleName();
     private ImageView mIvIcon;
+    private TextView mTvContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
 
     private void initView() {
         SDLogUtil.d(TAG, "---" + getClass().getSimpleName() + "----------");
+        mTvContent = (TextView) findViewById(R.id.tv_app_details);
         mIvIcon = (ImageView) findViewById(R.id.iv_icon);
         Button mBtnUnInstallApp = (Button) findViewById(R.id.un_install_app);
         Button mBtnInstallApp = (Button) findViewById(R.id.install_app);
@@ -42,26 +45,33 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void initData() {
-        Log.d(TAG, "initData: " + SDAppUtil.getAppVersionCode());
-        Log.d(TAG, "initData: " + SDAppUtil.getAppVersionName());
-        Log.d(TAG, "initData: " + SDAppUtil.getAndroidSystemVersion());
-        Log.d(TAG, "initData: " + SDAppUtil.getMobilePhoneTypeInfo());
-        Log.d(TAG, "initData: " + SDAppUtil.getMobileAndAPPInfo());
-        Log.d(TAG, "initData: getAppPackageName:" + SDAppUtil.getAppPackageName());
-        Log.d(TAG, "initData: isInstalledApp:" + SDAppUtil.isInstalledApp());
-        Log.d(TAG, "initData: AppName:" + SDAppUtil.getAppName());
-        Log.d(TAG, "initData: getAppPath:" + SDAppUtil.getAppPath());
-        Log.d(TAG, "initData: getAppPath:" + SDAppUtil.getAppPath("com.sample"));
-        Log.d(TAG, "initData: isSystemApp:" + SDAppUtil.isSystemApp());
-        Log.d(TAG, "initData: isAppDebug:" + SDAppUtil.isAppDebug());
-        Log.d(TAG, "initData: isAppRoot:" + SDAppUtil.isAppRoot());
-        Log.d(TAG, "initData: getAppSignature:" + SDAppUtil.getAppSignature().toString());
-        Log.d(TAG, "initData: getAppSignature:" + String.valueOf(SDAppUtil.getAppSignature("com.shuinsen.zhiri")));
-        Log.d(TAG, "initData: getAppSignatureSHA1:" + SDAppUtil.getAppSignatureSHA1());
-        Log.d(TAG, "initData: getAppSignatureSHA1:" + SDAppUtil.getAppSignatureSHA1("com.shuinsen.zhiri"));
-        Log.d(TAG, "initData: isAppForeground:" + SDAppUtil.isAppInForeground());
-        Log.d(TAG, "initData: isAppForeground:" + SDAppUtil.isAppInForeground("com.shuinsen.zhiri"));
-//        SDLogUtil.d(TAG, "getApkNameAll=" + getApkAll());
+        StringBuilder builder = new StringBuilder();
+        builder.append("getAppVersionCode---"+ SDAppUtil.getAppVersionCode()+"\n");
+        builder.append("getAppVersionName---"+ SDAppUtil.getAppVersionName()+"\n");
+        builder.append("getAndroidSystemVersion---"+ SDAppUtil.getAndroidSystemVersion()+"\n");
+        builder.append("getMobilePhoneTypeInfo---"+ SDAppUtil.getMobilePhoneTypeInfo()+"\n");
+        builder.append("getMobileAndAPPInfo---"+ SDAppUtil.getMobileAndAPPInfo()+"\n");
+        builder.append("getPackageName---"+ SDAppUtil.getPackageName()+"\n");
+        builder.append("isInstalledApp---"+ SDAppUtil.isInstalledApp()+"\n");
+        builder.append("getAppName---"+ SDAppUtil.getAppName()+"\n");
+        builder.append("getAppPath---"+ SDAppUtil.getAppPath()+"\n");
+        builder.append("getAppPath---"+ SDAppUtil.getAppPath("com.sample")+"\n");
+        builder.append("isSystemApp---"+ SDAppUtil.isSystemApp()+"\n");
+        builder.append("isAppDebug---"+ SDAppUtil.isAppDebug()+"\n");
+        builder.append("isAppRoot---"+ SDAppUtil.isAppRoot()+"\n");
+        builder.append("getAppSignature---"+ SDAppUtil.getAppSignature().toString()+"\n");
+        builder.append("getAppSignature---"+ String.valueOf(SDAppUtil.getAppSignature("com.shuinsen.zhiri"))+"\n");
+        builder.append("getAppSignatureSHA1---"+ SDAppUtil.getAppSignatureSHA1()+"\n");
+        builder.append("getAppSignatureSHA1---"+ SDAppUtil.getAppSignatureSHA1()+"\n");
+        builder.append("getAppSignatureSHA1---"+ SDAppUtil.getAppSignatureSHA1("com.shuinsen.zhiri")+"\n");
+        builder.append("isAppInForeground---"+ SDAppUtil.isAppInForeground()+"\n");
+        builder.append("isAppInForeground---"+ SDAppUtil.isAppInForeground("com.shuinsen.zhiri")+"\n");
+        builder.append("getDeviceId---"+ SDAppUtil.getDeviceId()+"\n");
+        builder.append("getLocalMac---"+ SDAppUtil.getLocalMac()+"\n");
+        builder.append("getIMIEStatus---"+ SDAppUtil.getIMIEStatus()+"\n");
+        builder.append("getAndroidId---"+ SDAppUtil.getAndroidId()+"\n");
+
+        mTvContent.setText(builder);
         mIvIcon.setImageDrawable(SDAppUtil.getAppIcon("com.shuinsen.zhiri"));
     }
 
@@ -98,7 +108,7 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.setting_app:
-                SDAppUtil.openAppDetailsSettings();
+                SDAppUtil.openAppSettings();
                 break;
             case R.id.iv_icon:
                 setResult(10);

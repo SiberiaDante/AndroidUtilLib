@@ -51,16 +51,11 @@ public class SDAppUtil {
         return SiberiaDanteLib.getContext().getPackageName();
     }
 
-
     /**
-     * 获取App包名
+     * 判断该应用是否安装
      *
-     * @return App包名
+     * @return
      */
-    public static String getAppPackageName() {
-        return SiberiaDanteLib.getContext().getPackageName();
-    }
-
     public static boolean isInstalledApp() {
         return !isSpace(getPackageName()) && getPackageManager().getLaunchIntentForPackage(getPackageName()) != null;
     }
@@ -76,7 +71,7 @@ public class SDAppUtil {
     }
 
     /**
-     * 获取App版本号名
+     * 获取App版本名
      *
      * @return App版本名
      */
@@ -111,7 +106,7 @@ public class SDAppUtil {
     }
 
     /**
-     * 获取App版本码
+     * 获取App版本号
      *
      * @param packageName 包名
      * @return App版本码
@@ -128,7 +123,7 @@ public class SDAppUtil {
     }
 
     /**
-     * 获取安卓系统版本号
+     * 获取安卓手机系统版本号
      *
      * @return
      */
@@ -165,22 +160,26 @@ public class SDAppUtil {
         return android.os.Build.MODEL; // 手机型号
     }
 
-    // Android Id设备Id
-    public static String getDeviceId(Context context) {
+    /**
+     * Android Id设备Id
+     *
+     * @return
+     */
+    public static String getDeviceId() {
         String deviceId = null;
         if (deviceId != null && !"".equals(deviceId)) {
             return deviceId;
         }
         if (deviceId == null || "".equals(deviceId)) {
             try {
-                deviceId = getLocalMac(context).replace(":", "");
+                deviceId = getLocalMac().replace(":", "");
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         if (deviceId == null || "".equals(deviceId)) {
             try {
-                deviceId = getAndroidId(context);
+                deviceId = getAndroidId();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -194,7 +193,6 @@ public class SDAppUtil {
         }
         return deviceId;
     }
-
 
     /**
      * 获取手机和应用信息
@@ -216,6 +214,56 @@ public class SDAppUtil {
         String mType = android.os.Build.MODEL; // 手机型号
         String androidSysVersion = android.os.Build.VERSION.RELEASE;//获取版本号
         return "手机型号：" + mType + " Android系统版本：" + androidSysVersion + " App版本号：" + versionName;
+    }
+
+    /**
+     * 获取App信息
+     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
+     *
+     * @return 当前应用的AppInfo
+     */
+    public static SDAppInfo getAppInfo() {
+        return getAppInfo(SiberiaDanteLib.getContext().getPackageName());
+    }
+
+    /**
+     * 获取App信息
+     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
+     *
+     * @param packageName 包名
+     * @return 当前应用的AppInfo
+     */
+    public static SDAppInfo getAppInfo(String packageName) {
+        try {
+            PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(packageName, 0);
+            return getBean(pm, pi);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * 得到AppInfo的Bean
+     *
+     * @param pm 包的管理
+     * @param pi 包的信息
+     * @return AppInfo类
+     */
+    private static SDAppInfo getBean(PackageManager pm, PackageInfo pi) {
+        if (pm == null || pi == null) {
+            return null;
+        }
+        ApplicationInfo ai = pi.applicationInfo;
+        String packageName = pi.packageName;
+        String name = ai.loadLabel(pm).toString();
+        Drawable icon = ai.loadIcon(pm);
+        String packagePath = ai.sourceDir;
+        String versionName = pi.versionName;
+        int versionCode = pi.versionCode;
+        boolean isSystem = (ApplicationInfo.FLAG_SYSTEM & ai.flags) != 0;
+        return new SDAppInfo(packageName, name, icon, packagePath, versionName, versionCode, isSystem);
     }
 
     /**
@@ -244,8 +292,8 @@ public class SDAppUtil {
     /**
      * 打开App设置面板
      */
-    public static void openAppDetailsSettings() {
-        openAppDetailsSettings(SiberiaDanteLib.getContext().getPackageName());
+    public static void openAppSettings() {
+        openAppSettings(SiberiaDanteLib.getContext().getPackageName());
     }
 
     /**
@@ -253,7 +301,7 @@ public class SDAppUtil {
      *
      * @param packageName 包名
      */
-    public static void openAppDetailsSettings(String packageName) {
+    public static void openAppSettings(String packageName) {
         if (isSpace(packageName)) return;
         SiberiaDanteLib.getContext().startActivity(SDIntentUtil.getAppDetailsSettingsIntent(packageName));
     }
@@ -338,45 +386,6 @@ public class SDAppUtil {
             return null;
         }
     }
-
-    ///TODO--sss待测试解决
-    public static ArrayList<String> getApkNameAll() {
-        return getApkName(SDStorageUtil.getSDCardPath());
-    }
-
-    //用到了递归
-    //这个参数我使用的时候传递的是Environment.getExternalStorageDirectory().getAbsolutePath()
-    public static ArrayList<String> getApkName(String path) {
-        SDLogUtil.d("---path---" + path);
-        ArrayList<String> list = new ArrayList<>();
-        File file = new File(path);
-        if (file.isDirectory()) {
-            File[] dirFile = file.listFiles();
-            for (File f : dirFile) {
-                if (f.isDirectory())
-                    getApkName(f.getAbsolutePath());
-                else {
-                    if (f.getName().endsWith(".apk"))
-                        list.add(f.getAbsolutePath());
-                }
-            }
-        }
-        return list;
-    }
-
-    public String getPackageName(String apkPath) {
-        PackageManager pm = getPackageManager();
-        PackageInfo info = pm.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES);
-        if (info != null) {
-            //既然获取了ApplicationInfo,那么和应用相关的一些信息就都可以获取了,具体可以获取什么大家可以看看ApplicationInfo这个类
-            ApplicationInfo appInfo = info.applicationInfo;
-            return appInfo.packageName;
-        }
-        return "";
-    }
-
-
-    ///TODO--eeee
 
     /**
      * 判断App是否是系统应用
@@ -480,7 +489,6 @@ public class SDAppUtil {
         activity.startActivityForResult(intent, requestCode);
     }
 
-
     /**
      * 后台卸载App
      * <p>非root需添加权限 {@code <uses-permission android:name="android.permission.DELETE_PACKAGES" />}</p>
@@ -500,7 +508,7 @@ public class SDAppUtil {
      * @param packageName
      * @return
      */
-    public static boolean isSpace(String packageName) {
+    private static boolean isSpace(String packageName) {
         if (packageName == null) {
             return true;
         }
@@ -511,7 +519,6 @@ public class SDAppUtil {
         }
         return true;
     }
-
 
     /**
      * 获取App签名
@@ -594,42 +601,6 @@ public class SDAppUtil {
         return !isSpace(packageName) && packageName.equals(SDProcessUtil.getForegroundProcessName());
     }
 
-
-    /**
-     * 清除App所有数据
-     *
-     * @param dirPaths 目录路径
-     * @return {@code true}: 成功<br>{@code false}: 失败
-     */
-    public static boolean cleanAppData(String... dirPaths) {
-        File[] dirs = new File[dirPaths.length];
-        int i = 0;
-        for (String dirPath : dirPaths) {
-            dirs[i++] = new File(dirPath);
-        }
-        return cleanAppData(dirs);
-    }
-
-    /**
-     * 清除App所有数据
-     *
-     * @param dirs 目录
-     * @return {@code true}: 成功<br>{@code false}: 失败
-     */
-    public static boolean cleanAppData(File... dirs) {
-        boolean isSuccess = SDClearUtil.clearInternalCache();
-        isSuccess &= SDClearUtil.clearInternalDbs();
-        isSuccess &= SDClearUtil.clearInternalSP();
-        isSuccess &= SDClearUtil.clearInternalFiles();
-        isSuccess &= SDClearUtil.clearExternalCache();
-        for (File dir : dirs) {
-            isSuccess &= SDClearUtil.clearCustomCache(dir);
-        }
-        return isSuccess;
-    }
-
-//TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     /**
      * 安装App(支持7.0)
      *
@@ -696,58 +667,114 @@ public class SDAppUtil {
         SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
+
+    /**
+     * 获取IMEI码
+     * 需要权限{@code uses-permission android:name="android.permission.READ_PHONE_STATE"}
+     *
+     * @return
+     */
+    public static String getIMIEStatus() {
+        TelephonyManager tm = (TelephonyManager) SiberiaDanteLib.getContext()
+                .getSystemService(Context.TELEPHONY_SERVICE);
+        String deviceId = tm.getDeviceId();
+        return deviceId;
+    }
+
+    /**
+     * 获取Mac地址
+     * 需要权限 {@code uses-permission android:name="android.permission.ACCESS_WIFI_STATE"}
+     *
+     * @return
+     */
+    public static String getLocalMac() {
+        WifiManager wifi = (WifiManager) SiberiaDanteLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = wifi.getConnectionInfo();
+        return info.getMacAddress();
+    }
+
+    /**
+     * 获取Android Id
+     *
+     * @return
+     */
+    public static String getAndroidId() {
+        String androidId = Settings.Secure.getString(SiberiaDanteLib.getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+        return androidId;
+    }
+
+    //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    public static ArrayList<String> getApkNameAll() {
+        return getApkName(SDStorageUtil.getSDCardPath());
+    }
+
+    //用到了递归
+    //这个参数我使用的时候传递的是Environment.getExternalStorageDirectory().getAbsolutePath()
+    public static ArrayList<String> getApkName(String path) {
+        SDLogUtil.d("---path---" + path);
+        ArrayList<String> list = new ArrayList<>();
+        File file = new File(path);
+        if (file.isDirectory()) {
+            File[] dirFile = file.listFiles();
+            for (File f : dirFile) {
+                if (f.isDirectory())
+                    getApkName(f.getAbsolutePath());
+                else {
+                    if (f.getName().endsWith(".apk"))
+                        list.add(f.getAbsolutePath());
+                }
+            }
+        }
+        return list;
+    }
+
+    public String getPackageName(String apkPath) {
+        PackageManager pm = getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES);
+        if (info != null) {
+            //既然获取了ApplicationInfo,那么和应用相关的一些信息就都可以获取了,具体可以获取什么大家可以看看ApplicationInfo这个类
+            ApplicationInfo appInfo = info.applicationInfo;
+            return appInfo.packageName;
+        }
+        return "";
+    }
+
+    /**
+     * 清除App所有数据
+     *
+     * @param dirPaths 目录路径
+     * @return {@code true}: 成功<br>{@code false}: 失败
+     */
+    public static boolean cleanAppData(String... dirPaths) {
+        File[] dirs = new File[dirPaths.length];
+        int i = 0;
+        for (String dirPath : dirPaths) {
+            dirs[i++] = new File(dirPath);
+        }
+        return cleanAppData(dirs);
+    }
+
+    /**
+     * 清除App所有数据
+     *
+     * @param dirs 目录
+     * @return {@code true}: 成功<br>{@code false}: 失败
+     */
+    public static boolean cleanAppData(File... dirs) {
+        boolean isSuccess = SDClearUtil.clearInternalCache();
+        isSuccess &= SDClearUtil.clearInternalDbs();
+        isSuccess &= SDClearUtil.clearInternalSP();
+        isSuccess &= SDClearUtil.clearInternalFiles();
+        isSuccess &= SDClearUtil.clearExternalCache();
+        for (File dir : dirs) {
+            isSuccess &= SDClearUtil.clearCustomCache(dir);
+        }
+        return isSuccess;
+    }
+
+
 //TODO 以上-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-    /**
-     * 获取App信息
-     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
-     *
-     * @return 当前应用的AppInfo
-     */
-    public static SDAppInfo getAppInfo() {
-        return getAppInfo(SiberiaDanteLib.getContext().getPackageName());
-    }
-
-    /**
-     * 获取App信息
-     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
-     *
-     * @param packageName 包名
-     * @return 当前应用的AppInfo
-     */
-    public static SDAppInfo getAppInfo(String packageName) {
-        try {
-            PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
-            PackageInfo pi = pm.getPackageInfo(packageName, 0);
-            return getBean(pm, pi);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /**
-     * 得到AppInfo的Bean
-     *
-     * @param pm 包的管理
-     * @param pi 包的信息
-     * @return AppInfo类
-     */
-    private static SDAppInfo getBean(PackageManager pm, PackageInfo pi) {
-        if (pm == null || pi == null) {
-            return null;
-        }
-        ApplicationInfo ai = pi.applicationInfo;
-        String packageName = pi.packageName;
-        String name = ai.loadLabel(pm).toString();
-        Drawable icon = ai.loadIcon(pm);
-        String packagePath = ai.sourceDir;
-        String versionName = pi.versionName;
-        int versionCode = pi.versionCode;
-        boolean isSystem = (ApplicationInfo.FLAG_SYSTEM & ai.flags) != 0;
-        return new SDAppInfo(packageName, name, icon, packagePath, versionName, versionCode, isSystem);
-    }
 
     /**
      * 获取所有已安装App信息
@@ -770,25 +797,4 @@ public class SDAppUtil {
     }
 
 
-    // IMEI码
-    private static String getIMIEStatus(Context context) {
-        TelephonyManager tm = (TelephonyManager) context
-                .getSystemService(Context.TELEPHONY_SERVICE);
-        String deviceId = tm.getDeviceId();
-        return deviceId;
-    }
-
-    // Mac地址
-    private static String getLocalMac(Context context) {
-        WifiManager wifi = (WifiManager) context
-                .getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = wifi.getConnectionInfo();
-        return info.getMacAddress();
-    }
-
-    // Android Id
-    private static String getAndroidId(Context context) {
-        String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
-        return androidId;
-    }
 }

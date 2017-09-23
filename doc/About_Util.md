@@ -38,16 +38,215 @@
         <td></td>
         <td></td>
     </tr>
-
 </table>
 
+<table>
+    <tr>
+        <th colspan="2">AppUtil</th>
+    </tr>
+    <tr>
+        <td>getAppPackageName()</td>
+        <td>获取应用包名</td>
+    </tr>
+    <tr>
+        <td>isInstalledApp()</td>
+        <td>判断该应用是否安装</td>
+    </tr>
+    <tr>
+        <td>isInstalledApp(String packageName)</td>
+        <td>判断应用是否安装</td>
+    </tr>
+    <tr>
+        <td>getAppVersionName()</td>
+        <td>获取App版本名</td>
+    </tr>
+    <tr>
+        <td>getAppVersionName(String packageName)</td>
+        <td>获取App版本名</td>
+    </tr>
+    <tr>
+        <td>getAppVersionCode()</td>
+        <td>获取App版本号</td>
+    </tr>
+    <tr>
+        <td>getAppVersionCode(String packageName)</td>
+        <td>获取App版本号</td>
+    </tr>
+    <tr>
+        <td>getAndroidSystemVersion() </td>
+        <td>获取安卓手机系统版本号</td>
+    </tr>
+    <tr>
+        <td>getMobilePhoneTypeInfo()</td>
+        <td>获取手机型号</td>
+    </tr>
+    <tr>
+        <td>getDeviceId()</td>
+        <td>Android Id设备Id</td>
+    </tr>
+    <tr>
+        <td>getMobileAndAPPInfo()</td>
+        <td>获取手机和应用信息(手机型号 +  Android系统版本+ App版本号)</td>
+    </tr>
+    <tr>
+        <td>getAppInfo()</td>
+        <td>获取App信息（名称，图标，包名，版本号，版本Code，是否系统应用）</td>
+    </tr>
+    <tr>
+        <td>getAppInfo(String packageName)</td>
+        <td>获取App信息（名称，图标，包名，版本号，版本Code，是否系统应用）</td>
+    </tr>
+    <tr>
+        <td>launchApp(String packageName)</td>
+        <td>打开App</td>
+    </tr>
+    <tr>
+        <td> launchApp(Activity activity, String packageName, int requestCode)</td>
+        <td>打开App</td>
+    </tr>
+    <tr>
+        <td>openAppSettings()</td>
+        <td>打开App设置面板</td>
+    </tr>
+    <tr>
+        <td>openAppSettings(String packageName)</td>
+        <td>打开App设置面板</td>
+    </tr>
+    <tr>
+        <td>getAppName()</td>
+        <td>获取App名称</td>
+    </tr>
+    <tr>
+        <td>getAppName(String packageName)</td>
+        <td>获取App名称</td>
+    </tr>
+    <tr>
+        <td>getAppIcon()</td>
+        <td>获取App图标</td>
+    </tr>
+    <tr>
+        <td>getAppIcon(String packageName)</td>
+        <td>获取App图标</td>
+    </tr>
+    <tr>
+        <td>getAppPath()</td>
+        <td>获取App的路径</td>
+    </tr>
+    <tr>
+        <td>getAppPath(String packageName)</td>
+        <td>获取App路径</td>
+    </tr>
+    <tr>
+        <td>isSystemApp()</td>
+        <td>判断App是否是系统应用</td>
+    </tr>
+    <tr>
+        <td>isSystemApp(String packageName)</td>
+        <td>判断App是否是系统应用</td>
+    </tr>
+    <tr>
+        <td>isAppDebug()</td>
+        <td>判断App是否是Debug版本</td>
+    </tr>
+    <tr>
+        <td>isAppDebug(String packageName)</td>
+        <td>判断App是否是Debug版本</td>
+    </tr>
+    <tr>
+        <td>isAppRoot()</td>
+        <td>判断App是否有root权限</td>
+    </tr>
+    <tr>
+        <td>unInstallApp(String packageName)</td>
+        <td>卸载APP</td>
+    </tr>
+    <tr>
+        <td>unInstallApp(Activity activity, String packageName, int requestCode)</td>
+        <td>卸载APP</td>
+    </tr>
+    <tr>
+        <td>uninstallAppSilent(String packageName, boolean isKeepData)</td>
+        <td>后台卸载App</td>
+    </tr>
+    <tr>
+        <td>getAppSignature()</td>
+        <td>获取App签名</td>
+    </tr>
+    <tr>
+        <td>getAppSignature(String packageName)</td>
+        <td>获取App签名</td>
+    </tr>
+    <tr>
+        <td>getAppSignatureSHA1()</td>
+        <td>获取应用签名的的SHA1值</td>
+    </tr>
+    <tr>
+        <td>getAppSignatureSHA1(String packageName)</td>
+        <td>获取应用签名的的SHA1值</td>
+    </tr>
+    <tr>
+        <td>isAppInForeground()</td>
+        <td>判断App是否处于前台</td>
+    </tr>
+    <tr>
+        <td>isAppInForeground(String packageName)</td>
+        <td>判断App是否处于前台</td>
+    </tr>
+    <tr>
+        <td>installApp(String filePath, String authority)</td>
+        <td>安装App(支持7.0)</td>
+    </tr>
+    <tr>
+        <td>installApp(File file, String authority)</td>
+        <td>安装App(支持7.0)</td>
+    </tr>
+    <tr>
+        <td>installApp(Activity activity, String filePath, String authority, int requestCode)</td>
+        <td>安装App（支持6.0）</td>
+    </tr>
+    <tr>
+        <td>installApp(Activity activity, File file, String authority, int requestCode)</td>
+        <td>安装App（支持6.0）</td>
+    </tr>
+    <tr>
+        <td>installAppSilent(String filePath)</td>
+        <td>静默安装App</td>
+    </tr>
+    <tr>
+        <td> getIMIEStatus()</td>
+        <td>获取IMEI码（需要权限{@code uses-permission android:name="android.permission.READ_PHONE_STATE"}）</td>
+    </tr>
+    <tr>
+        <td>getLocalMac()</td>
+        <td>获取Mac地址（需要权限 {@code uses-permission android:name="android.permission.ACCESS_WIFI_STATE"}）</td>
+    </tr>
+    <tr>
+        <td>getAndroidId()</td>
+        <td> 获取Android Id</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<h2>
+    ClearUtil说明文档
+</h2>
+<table>
+    <tr>
+        <th colspan="2">ClearUtil</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
 * [SDActivityUtil] :页面工具类
     * launchActivity(String packageName, String activityName)：启动一个activity（不需要传值）
     * launchActivity(String packageName, String activityName, Bundle bundle)：启动一个activity（需要传值）
     * isActivityExists(String packageName, String activityName)：判断activity是否存在
     * getLauncherActivity(String packageName)：获取应用的启动activity
 * [AppUtil] :获取应用、手机、安卓系统等信息,支持7.0的安装异常，需测试
-    * getAppPackageName() ：获取应用包名
     * isInstalledApp()：判断该应用是否安装
     * isInstalledApp(String packageName):判断APP是否安装
     * getAppVersionName():获取应用的版本名
