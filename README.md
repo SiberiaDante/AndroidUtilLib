@@ -11,7 +11,7 @@
 ## gradle依赖方法
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.3'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.4'
 	}
 ```
 ## 使用说明
