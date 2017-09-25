@@ -1,5 +1,5 @@
 ## [版本更新说明]
-* v1.0.3
-    * 增加CustomDialog
-    * 增加LogUtil
-* 1.0.2
+* 1.0.7
+    * 增加SDBitmapUtil
+    * 增加SDCustomDialog
+    * 增加SDLogUtil

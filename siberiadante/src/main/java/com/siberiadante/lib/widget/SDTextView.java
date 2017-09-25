@@ -2,7 +2,7 @@ package com.siberiadante.lib.widget;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： TextView
  * @Time: 2017/9/21
  * @UpDate:
  * @Email: 994537867@qq.com
