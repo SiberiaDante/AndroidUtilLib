@@ -12,18 +12,19 @@ import android.widget.TextView;
 /**
  * @Created SiberiaDante
  * @Describe： 适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview
+ * 原作者版本有更新
  * @Time: 2017/7/11
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class JustifyTextView extends AppCompatTextView {
+public class SDJustifyTextView extends AppCompatTextView {
 
     private int mLineY;
     private int mViewWidth;
 
 
-    public JustifyTextView(Context context, AttributeSet attrs) {
+    public SDJustifyTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

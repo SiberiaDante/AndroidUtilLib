@@ -145,8 +145,9 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
 
     private void showNoticeDialog() {
         final SDEnsureSubDialog sdEnsureSubDialog = new SDEnsureSubDialog(this);//提示弹窗
-        sdEnsureSubDialog.setTitle("SiberiaDante");
-        sdEnsureSubDialog.setContent(getString(R.string.about_me));
+        sdEnsureSubDialog.setLogo(R.drawable.notice);//设置logo
+        sdEnsureSubDialog.setTitle("SiberiaDante");//设置标题
+        sdEnsureSubDialog.setContent(getString(R.string.about_me));//设置内容
         sdEnsureSubDialog.getTvSure().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,7 +206,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     private void showEnsureDialogOne() {
         ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
-                .setTitle("这里是一个标题", getResources().getColor(R.color.black))//可以不设置标题颜色，默认系统颜色
+                .setTitle("这里是一个标题", ContextCompat.getColor(this,R.color.black))//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
                 .setNegativeButton("取消", new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override

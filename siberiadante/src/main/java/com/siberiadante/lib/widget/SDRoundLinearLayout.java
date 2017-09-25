@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 
+import com.siberiadante.lib.widget.base.SDRoundViewAttr;
+
 /**
  * @Created SiberiaDante
  * @Describe： 简化LinearLayout shape 画背景

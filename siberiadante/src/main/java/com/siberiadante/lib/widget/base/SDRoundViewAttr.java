@@ -1,4 +1,4 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.base;
 
 import android.annotation.TargetApi;
 import android.content.Context;
