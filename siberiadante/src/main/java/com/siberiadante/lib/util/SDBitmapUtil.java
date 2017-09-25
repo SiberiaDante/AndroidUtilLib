@@ -62,19 +62,25 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 将Bitmap转换成Base64字符串
+     * bitmap转byteArr
      *
      * @param bitmap 图片
-     * @return base64 编码的图片
+     * @return 字节数组
      */
-    public static String bitmap2StrByBase64(Bitmap bitmap) {
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bos);//参数100表示不压缩
-        byte[] bytes = bos.toByteArray();
-        return Base64.encodeToString(bytes, Base64.DEFAULT);
+    public static byte[] bitmap2Bytes(final Bitmap bitmap) {
+        return bitmap2Bytes(bitmap, Bitmap.CompressFormat.JPEG, 100);
     }
 
-//    // TODO: 2017/9/22 -end
+    /**
+     * bitmap转byteArr
+     *
+     * @param bitmap  图片
+     * @param quality 压缩百分比：100-0，100位不压缩
+     * @return 字节数组
+     */
+    public static byte[] bitmap2Bytes(Bitmap bitmap, int quality) {
+        return bitmap2Bytes(bitmap, Bitmap.CompressFormat.JPEG, quality);
+    }
 
     /**
      * bitmap转byteArr
@@ -83,12 +89,472 @@ public class SDBitmapUtil {
      * @param format 格式
      * @return 字节数组
      */
-    public static byte[] bitmap2Bytes(final Bitmap bitmap, final Bitmap.CompressFormat format) {
+    public static byte[] bitmap2Bytes(Bitmap bitmap, Bitmap.CompressFormat format) {
+        return bitmap2Bytes(bitmap, format, 100);
+    }
+
+    /**
+     * @param bitmap  图片
+     * @param format
+     * @param quality 压缩百分比：100-0，100位不压缩
+     * @return 字节数组
+     */
+    public static byte[] bitmap2Bytes(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
         if (bitmap == null) return null;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(format, 100, baos);
+        bitmap.compress(format, quality, baos);
         return baos.toByteArray();
     }
+
+    /**
+     * 将Bitmap转换成Base64字符串
+     *
+     * @param bitmap 图片
+     * @return base64 编码的图片
+     */
+    public static String bitmap2StrByBase64(Bitmap bitmap) {
+        return bitmap2StrByBase64(bitmap, Bitmap.CompressFormat.JPEG, 100);
+    }
+
+    /**
+     * 将Bitmap转换成Base64字符串
+     *
+     * @param bitmap  图片
+     * @param quality 压缩百分比：100-0，100位不压缩
+     * @return base64 编码的图片
+     */
+    public static String bitmap2StrByBase64(Bitmap bitmap, int quality) {
+        return bitmap2StrByBase64(bitmap, Bitmap.CompressFormat.JPEG, quality);
+    }
+
+    /**
+     * 将Bitmap转换成Base64字符串
+     *
+     * @param bitmap 图片
+     * @param format bitmap格式
+     * @return base64 编码的图片
+     */
+    public static String bitmap2StrByBase64(Bitmap bitmap, Bitmap.CompressFormat format) {
+        return bitmap2StrByBase64(bitmap, format, 100);
+    }
+
+    /**
+     * 将Bitmap转换成Base64字符串
+     *
+     * @param bitmap  图片
+     * @param format  bitmap格式
+     * @param quality 压缩百分比：100-0，100位不压缩
+     * @return base64 编码的图片
+     */
+    public static String bitmap2StrByBase64(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
+        byte[] bytes = bitmap2Bytes(bitmap, format, quality);
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
+    }
+
+    /**
+     * drawable转byteArr
+     *
+     * @param drawable drawable对象
+     * @return drawable对象字节数组
+     */
+    public static byte[] drawable2Bytes(Drawable drawable) {
+        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
+    }
+
+    /**
+     * drawable转byteArr
+     *
+     * @param drawable drawable对象
+     * @param quality
+     * @return drawable对象字节数组
+     */
+    public static byte[] drawable2Bytes(Drawable drawable, int quality) {
+        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
+    }
+
+    /**
+     * drawable转byteArr
+     *
+     * @param drawable drawable对象
+     * @param format   格式
+     * @return drawable对象字节数组
+     */
+    public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format) {
+        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format, 100);
+    }
+
+    /**
+     * drawable转byteArr
+     *
+     * @param drawable drawable对象
+     * @param format
+     * @param quality
+     * @return drawable对象字节数组
+     */
+    public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format, int quality) {
+        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format, quality);
+    }
+
+    /**
+     * drawable转base64
+     *
+     * @param drawable drawable对象
+     * @return drawable对象字节数组
+     */
+    public static String drawable2Base64(Drawable drawable) {
+        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
+    }
+
+    /**
+     * drawable转base64
+     *
+     * @param drawable drawable对象
+     * @param quality
+     * @return drawable对象字节数组
+     */
+    public static String drawable2Base64(Drawable drawable, int quality) {
+        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
+    }
+
+    /**
+     * drawable转base64
+     *
+     * @param drawable drawable对象
+     * @param format   格式
+     * @return drawable对象字节数组
+     */
+    public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format) {
+        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), format, 100);
+    }
+
+    /**
+     * drawable转base64
+     *
+     * @param drawable drawable对象
+     * @param format
+     * @param quality
+     * @return drawable对象字节数组
+     */
+    public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format, int quality) {
+        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), format, quality);
+    }
+
+    /**
+     * byteArr转bitmap
+     *
+     * @param bytes 字节数组
+     * @return bitmap
+     */
+    public static Bitmap bytes2Bitmap(byte[] bytes) {
+        return bytes2Bitmap(bytes, 0);
+    }
+
+    /**
+     * byteArr转bitmap
+     *
+     * @param bytes  字节数组
+     * @param offset decode的位移量，一般为0
+     * @return bitmap
+     */
+    public static Bitmap bytes2Bitmap(byte[] bytes, int offset) {
+        return (bytes == null || bytes.length == 0) ? null : BitmapFactory.decodeByteArray(bytes, offset, bytes.length);
+    }
+
+    /**
+     * byteArr转drawable
+     *
+     * @param bytes 字节数组
+     * @return drawable
+     */
+    public static Drawable bytes2Drawable(byte[] bytes) {
+        return bytes2Drawable(bytes, 0);
+    }
+
+    /**
+     * byteArr转drawable
+     *
+     * @param bytes  字节数组
+     * @param offset decode的位移量，一般为0
+     * @return drawable
+     */
+    public static Drawable bytes2Drawable(byte[] bytes, int offset) {
+        return bitmap2Drawable(bytes2Bitmap(bytes, offset));
+    }
+
+    /**
+     * bitmap转drawable
+     *
+     * @param bitmap bitmap对象
+     * @return drawable
+     */
+    public static Drawable bitmap2Drawable(final Bitmap bitmap) {
+        return bitmap == null ? null : new BitmapDrawable(SiberiaDanteLib.getContext().getResources(), bitmap);
+    }
+
+    /**
+     * drawable转bitmap
+     *
+     * @param drawable drawable对象
+     * @return bitmap
+     */
+    public static Bitmap drawable2Bitmap(final Drawable drawable) {
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            if (bitmapDrawable.getBitmap() != null) {
+                return bitmapDrawable.getBitmap();
+            }
+        }
+        Bitmap bitmap;
+        if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            bitmap = Bitmap.createBitmap(1, 1,
+                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+        } else {
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
+                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
+        }
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
+    }
+
+    /**
+     * view转bitmap
+     *
+     * @param view 视图
+     * @return bitmap
+     */
+    public static Bitmap view2Bitmap(final View view) {
+        return view2Bitmap(view, Bitmap.Config.ARGB_8888);
+    }
+
+    /**
+     * view转bitmap
+     *
+     * @param view 视图
+     * @return bitmap
+     */
+    public static Bitmap view2Bitmap(final View view, Bitmap.Config config) {
+        if (view == null) return null;
+        Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), config);
+        Canvas canvas = new Canvas(ret);
+        Drawable bgDrawable = view.getBackground();
+        if (bgDrawable != null) {
+            bgDrawable.draw(canvas);
+        } else {
+            canvas.drawColor(Color.WHITE);
+        }
+        view.draw(canvas);
+        return ret;
+    }
+
+    /**
+     * Bitmap转为圆形图片
+     *
+     * @param src 源图片
+     * @return 圆形图片
+     */
+    public static Bitmap toRound(final Bitmap src) {
+        return toRound(src, 0, 0);
+    }
+
+    /**
+     * Bitmap转为圆形图片
+     *
+     * @param src         源图片
+     * @param borderSize  边框尺寸
+     * @param borderColor 边框颜色
+     * @return 圆形图片
+     */
+    public static Bitmap toRound(final Bitmap src,
+                                 @IntRange(from = 0) int borderSize,
+                                 @ColorInt int borderColor) {
+        if (isEmptyBitmap(src)) return null;
+        int width = src.getWidth();
+        int height = src.getHeight();
+        int size = Math.min(width, height);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());
+        float center = size / 2f;
+        RectF rectF = new RectF(0, 0, width, height);
+        rectF.inset((width - size) / 2f, (height - size) / 2f);
+        Matrix matrix = new Matrix();
+        matrix.setTranslate(rectF.left, rectF.top);
+        matrix.preScale((float) size / width, (float) size / height);
+        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        shader.setLocalMatrix(matrix);
+        paint.setShader(shader);
+        Canvas canvas = new Canvas(ret);
+        canvas.drawRoundRect(rectF, center, center, paint);
+        if (borderSize > 0) {
+            paint.setShader(null);
+            paint.setColor(borderColor);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(borderSize);
+            float radius = center - borderSize / 2f;
+            canvas.drawCircle(width / 2f, height / 2f, radius, paint);
+        }
+        return ret;
+    }
+
+    /**
+     * 在Android2.3时代，Bitmap的引用是放在堆中的，而Bitmap的数据部分是放在栈中的，需要用户调用recycle方法手动进行内存回收，
+     * 而在Android2.3之后，整个Bitmap，包括数据和引用，都放在了堆中，这样，整个Bitmap的回收就全部交给GC了，这个recycle方法就再也不需要使用了。
+     * 使用toRound(final Bitmap src,@IntRange(from = 0) int borderSize,@ColorInt int borderColor) 方法即可
+     *
+     * @param src
+     * @param borderSize
+     * @param borderColor
+     * @param recycle
+     * @return
+     */
+    @Deprecated
+    public static Bitmap toRound(final Bitmap src,
+                                 @IntRange(from = 0) int borderSize,
+                                 @ColorInt int borderColor,
+                                 final boolean recycle) {
+        if (isEmptyBitmap(src)) return null;
+        int width = src.getWidth();
+        int height = src.getHeight();
+        int size = Math.min(width, height);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());
+        float center = size / 2f;
+        RectF rectF = new RectF(0, 0, width, height);
+        rectF.inset((width - size) / 2f, (height - size) / 2f);
+        Matrix matrix = new Matrix();
+        matrix.setTranslate(rectF.left, rectF.top);
+        matrix.preScale((float) size / width, (float) size / height);
+        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        shader.setLocalMatrix(matrix);
+        paint.setShader(shader);
+        Canvas canvas = new Canvas(ret);
+        canvas.drawRoundRect(rectF, center, center, paint);
+        if (borderSize > 0) {
+            paint.setShader(null);
+            paint.setColor(borderColor);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(borderSize);
+            float radius = center - borderSize / 2f;
+            canvas.drawCircle(width / 2f, height / 2f, radius, paint);
+        }
+        if (recycle && !src.isRecycled()) src.recycle();
+        return ret;
+    }
+
+    /**
+     * Bitmap转为圆角图片
+     *
+     * @param src    源图片
+     * @param radius 圆角的度数
+     * @return 圆角图片
+     */
+    public static Bitmap toRoundCorner(final Bitmap src,
+                                       final float radius) {
+        return toRoundCorner(src, radius, 0, 0);
+    }
+
+
+    /**
+     * Bitmap转为圆角图片
+     *
+     * @param src         源图片
+     * @param radius      圆角的度数
+     * @param borderSize  边框尺寸
+     * @param borderColor 边框颜色
+     * @return 圆角图片
+     */
+    public static Bitmap toRoundCorner(final Bitmap src,
+                                       final float radius,
+                                       @IntRange(from = 0) int borderSize,
+                                       @ColorInt int borderColor) {
+        if (isEmptyBitmap(src)) return null;
+        int width = src.getWidth();
+        int height = src.getHeight();
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());
+        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        paint.setShader(shader);
+        Canvas canvas = new Canvas(ret);
+        RectF rectF = new RectF(0, 0, width, height);
+        float halfBorderSize = borderSize / 2f;
+        rectF.inset(halfBorderSize, halfBorderSize);
+        canvas.drawRoundRect(rectF, radius, radius, paint);
+        if (borderSize > 0) {
+            paint.setShader(null);
+            paint.setColor(borderColor);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(borderSize);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            canvas.drawRoundRect(rectF, radius, radius, paint);
+        }
+        return ret;
+    }
+
+    /**
+     * 转为圆角图片
+     *
+     * @param src         源图片
+     * @param radius      圆角的度数
+     * @param borderSize  边框尺寸
+     * @param borderColor 边框颜色
+     * @param recycle     是否回收
+     * @return 圆角图片
+     */
+    @Deprecated
+    public static Bitmap toRoundCorner(final Bitmap src,
+                                       final float radius,
+                                       @IntRange(from = 0) int borderSize,
+                                       @ColorInt int borderColor,
+                                       final boolean recycle) {
+        if (isEmptyBitmap(src)) return null;
+        int width = src.getWidth();
+        int height = src.getHeight();
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());
+        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+        paint.setShader(shader);
+        Canvas canvas = new Canvas(ret);
+        RectF rectF = new RectF(0, 0, width, height);
+        float halfBorderSize = borderSize / 2f;
+        rectF.inset(halfBorderSize, halfBorderSize);
+        canvas.drawRoundRect(rectF, radius, radius, paint);
+        if (borderSize > 0) {
+            paint.setShader(null);
+            paint.setColor(borderColor);
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(borderSize);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            canvas.drawRoundRect(rectF, radius, radius, paint);
+        }
+        if (recycle && !src.isRecycled()) src.recycle();
+        return ret;
+    }
+
+    /**
+     * 旋转图片
+     *
+     * @param angle
+     * @param bitmap
+     * @return
+     */
+    public static Bitmap rotateBitmap(int angle, Bitmap bitmap) {
+        // 旋转图片 动作
+        // 创建新的图片
+        Bitmap resizedBitmap = null;
+        try {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(angle);
+
+            resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        } catch (Error e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return resizedBitmap;
+    }
+
+    // TODO: 2017/9/25 -end
 
     /**
      * yuv转jpeg
@@ -96,25 +562,13 @@ public class SDBitmapUtil {
      * @param yuvBytes
      * @param width
      * @param height
-     * @return
+     * @return Jpeg
      */
     public static byte[] yuv2Jpeg(byte[] yuvBytes, int width, int height) {
         YuvImage yuvImage = new YuvImage(yuvBytes, ImageFormat.NV21, width, height, null);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         yuvImage.compressToJpeg(new Rect(0, 0, width, height), 100, baos);
         return baos.toByteArray();
-    }
-
-
-    /**
-     * drawable转byteArr
-     *
-     * @param drawable drawable对象
-     * @param format   格式
-     * @return 字节数组
-     */
-    public static byte[] drawable2Bytes(final Drawable drawable, final Bitmap.CompressFormat format) {
-        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format);
     }
 
     /**
@@ -146,106 +600,6 @@ public class SDBitmapUtil {
         return degree;
     }
 
-    /**
-     * 旋转图片
-     *
-     * @param angle
-     * @param bitmap
-     * @return
-     */
-    public static Bitmap rotaingImageView(int angle, Bitmap bitmap) {
-        // 旋转图片 动作
-        // 创建新的图片
-        Bitmap resizedBitmap = null;
-        try {
-            Matrix matrix = new Matrix();
-            matrix.postRotate(angle);
-
-            resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        } catch (Error e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return resizedBitmap;
-    }
-
-
-    /**
-     * byteArr转bitmap
-     *
-     * @param bytes 字节数组
-     * @return bitmap
-     */
-    public static Bitmap bytes2Bitmap(final byte[] bytes) {
-        return (bytes == null || bytes.length == 0) ? null : BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-    }
-
-    /**
-     * drawable转bitmap
-     *
-     * @param drawable drawable对象
-     * @return bitmap
-     */
-    public static Bitmap drawable2Bitmap(final Drawable drawable) {
-        if (drawable instanceof BitmapDrawable) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-            if (bitmapDrawable.getBitmap() != null) {
-                return bitmapDrawable.getBitmap();
-            }
-        }
-        Bitmap bitmap;
-        if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
-            bitmap = Bitmap.createBitmap(1, 1,
-                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
-        } else {
-            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
-                    drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888 : Bitmap.Config.RGB_565);
-        }
-        Canvas canvas = new Canvas(bitmap);
-        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-        drawable.draw(canvas);
-        return bitmap;
-    }
-
-    /**
-     * bitmap转drawable
-     *
-     * @param bitmap bitmap对象
-     * @return drawable
-     */
-    public static Drawable bitmap2Drawable(final Bitmap bitmap) {
-        return bitmap == null ? null : new BitmapDrawable(SiberiaDanteLib.getContext().getResources(), bitmap);
-    }
-
-    /**
-     * byteArr转drawable
-     *
-     * @param bytes 字节数组
-     * @return drawable
-     */
-    public static Drawable bytes2Drawable(final byte[] bytes) {
-        return bitmap2Drawable(bytes2Bitmap(bytes));
-    }
-
-    /**
-     * view转bitmap
-     *
-     * @param view 视图
-     * @return bitmap
-     */
-    public static Bitmap view2Bitmap(final View view) {
-        if (view == null) return null;
-        Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(ret);
-        Drawable bgDrawable = view.getBackground();
-        if (bgDrawable != null) {
-            bgDrawable.draw(canvas);
-        } else {
-            canvas.drawColor(Color.WHITE);
-        }
-        view.draw(canvas);
-        return ret;
-    }
 
     /**
      * 获取bitmap
@@ -541,162 +895,6 @@ public class SDBitmapUtil {
         return degree;
     }
 
-    /**
-     * 转为圆形图片
-     *
-     * @param src 源图片
-     * @return 圆形图片
-     */
-    public static Bitmap toRound(final Bitmap src) {
-        return toRound(src, 0, 0, false);
-    }
-
-    /**
-     * 转为圆形图片
-     *
-     * @param src     源图片
-     * @param recycle 是否回收
-     * @return 圆形图片
-     */
-    public static Bitmap toRound(final Bitmap src, final boolean recycle) {
-        return toRound(src, 0, 0, recycle);
-    }
-
-    /**
-     * 转为圆形图片
-     *
-     * @param src         源图片
-     * @param borderSize  边框尺寸
-     * @param borderColor 边框颜色
-     * @return 圆形图片
-     */
-    public static Bitmap toRound(final Bitmap src,
-                                 @IntRange(from = 0) int borderSize,
-                                 @ColorInt int borderColor) {
-        return toRound(src, borderSize, borderColor, false);
-    }
-
-    /**
-     * 转为圆形图片
-     *
-     * @param src         源图片
-     * @param recycle     是否回收
-     * @param borderSize  边框尺寸
-     * @param borderColor 边框颜色
-     * @return 圆形图片
-     */
-    public static Bitmap toRound(final Bitmap src,
-                                 @IntRange(from = 0) int borderSize,
-                                 @ColorInt int borderColor,
-                                 final boolean recycle) {
-        if (isEmptyBitmap(src)) return null;
-        int width = src.getWidth();
-        int height = src.getHeight();
-        int size = Math.min(width, height);
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());
-        float center = size / 2f;
-        RectF rectF = new RectF(0, 0, width, height);
-        rectF.inset((width - size) / 2f, (height - size) / 2f);
-        Matrix matrix = new Matrix();
-        matrix.setTranslate(rectF.left, rectF.top);
-        matrix.preScale((float) size / width, (float) size / height);
-        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-        shader.setLocalMatrix(matrix);
-        paint.setShader(shader);
-        Canvas canvas = new Canvas(ret);
-        canvas.drawRoundRect(rectF, center, center, paint);
-        if (borderSize > 0) {
-            paint.setShader(null);
-            paint.setColor(borderColor);
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(borderSize);
-            float radius = center - borderSize / 2f;
-            canvas.drawCircle(width / 2f, height / 2f, radius, paint);
-        }
-        if (recycle && !src.isRecycled()) src.recycle();
-        return ret;
-    }
-
-    /**
-     * 转为圆角图片
-     *
-     * @param src    源图片
-     * @param radius 圆角的度数
-     * @return 圆角图片
-     */
-    public static Bitmap toRoundCorner(final Bitmap src, final float radius) {
-        return toRoundCorner(src, radius, 0, 0, false);
-    }
-
-    /**
-     * 转为圆角图片
-     *
-     * @param src     源图片
-     * @param radius  圆角的度数
-     * @param recycle 是否回收
-     * @return 圆角图片
-     */
-    public static Bitmap toRoundCorner(final Bitmap src,
-                                       final float radius,
-                                       final boolean recycle) {
-        return toRoundCorner(src, radius, 0, 0, recycle);
-    }
-
-    /**
-     * 转为圆角图片
-     *
-     * @param src         源图片
-     * @param radius      圆角的度数
-     * @param borderSize  边框尺寸
-     * @param borderColor 边框颜色
-     * @return 圆角图片
-     */
-    public static Bitmap toRoundCorner(final Bitmap src,
-                                       final float radius,
-                                       @IntRange(from = 0) int borderSize,
-                                       @ColorInt int borderColor) {
-        return toRoundCorner(src, radius, borderSize, borderColor, false);
-    }
-
-    /**
-     * 转为圆角图片
-     *
-     * @param src         源图片
-     * @param radius      圆角的度数
-     * @param borderSize  边框尺寸
-     * @param borderColor 边框颜色
-     * @param recycle     是否回收
-     * @return 圆角图片
-     */
-    public static Bitmap toRoundCorner(final Bitmap src,
-                                       final float radius,
-                                       @IntRange(from = 0) int borderSize,
-                                       @ColorInt int borderColor,
-                                       final boolean recycle) {
-        if (isEmptyBitmap(src)) return null;
-        int width = src.getWidth();
-        int height = src.getHeight();
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        Bitmap ret = Bitmap.createBitmap(width, height, src.getConfig());
-        BitmapShader shader = new BitmapShader(src, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-        paint.setShader(shader);
-        Canvas canvas = new Canvas(ret);
-        RectF rectF = new RectF(0, 0, width, height);
-        float halfBorderSize = borderSize / 2f;
-        rectF.inset(halfBorderSize, halfBorderSize);
-        canvas.drawRoundRect(rectF, radius, radius, paint);
-        if (borderSize > 0) {
-            paint.setShader(null);
-            paint.setColor(borderColor);
-            paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeWidth(borderSize);
-            paint.setStrokeCap(Paint.Cap.ROUND);
-            canvas.drawRoundRect(rectF, radius, radius, paint);
-        }
-        if (recycle && !src.isRecycled()) src.recycle();
-        return ret;
-    }
 
     /**
      * 添加圆角边框

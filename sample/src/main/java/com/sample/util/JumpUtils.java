@@ -22,7 +22,7 @@ public class JumpUtils {
      * @param activityName
      */
     public static void startJumpActivity(String activityName) {
-        SDActivityUtil.launchActivity("com.sample", activityName);
+        SDActivityUtil.startActivity("com.sample", activityName);
     }
 
     /**

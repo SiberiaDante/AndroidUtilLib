@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import com.siberiadante.lib.constants.AppInfo;
@@ -25,43 +27,18 @@ public final class SiberiaDanteLib {
     public static List<Activity> sActivityList = new LinkedList<>();//打开的Activity集合
     @SuppressLint("StaticFieldLeak")
     public static Activity sTopActivity;//Activity
+    @SuppressLint("StaticFieldLeak")
+    private static Application mSDApplication;
 
     public SiberiaDanteLib() {
         throw new UnsupportedOperationException("not init SiberiaDanteLib");
-    }
-
-    /**
-     * 初始化
-     *
-     * @param context
-     */
-    public static void initLib(Context context) {
-        SiberiaDanteLib.context = context.getApplicationContext();
-    }
-
-    /**
-     * 日志输出控制
-     *
-     * @param isDebug
-     */
-    public static void setDebug(boolean isDebug) {
-        AppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
-        Log.e(TAG, "[---" + SDDateUtil.getSDFTimeYMDHSM() + "---] Enable Debug:--- " + isDebug + " ---");
-    }
-
-
-    public static Context getContext() {
-        if (context != null) {
-            return context;
-        } else {
-            throw new NullPointerException(context.getString(R.string.NotInitError));
-        }
     }
 
     private static Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new Application.ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(Activity activity, Bundle bundle) {
             sActivityList.add(activity);
+
 
         }
 
@@ -72,7 +49,6 @@ public final class SiberiaDanteLib {
 
         @Override
         public void onActivityResumed(Activity activity) {
-            sTopActivity = activity;
 
         }
 
@@ -97,4 +73,48 @@ public final class SiberiaDanteLib {
 
         }
     };
+    /**
+     * 初始化
+     *
+     * @param context
+     */
+    public static void initLib(Context context) {
+        SiberiaDanteLib.context = context.getApplicationContext();
+    }
+
+//    /**
+//     * 初始化
+//     *
+//     * @param context
+//     */
+//    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+//    public static void initLib(Application context) {
+//        SiberiaDanteLib.context = context.getApplicationContext();
+//        SiberiaDanteLib.mSDApplication = context;
+//        context.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
+//    }
+
+    /**
+     * 日志输出控制
+     *
+     * @param isDebug
+     */
+    public static void setDebug(boolean isDebug) {
+        AppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
+        Log.e(TAG, "[---" + SDDateUtil.getSDFTimeYMDHSM() + "---] Enable Debug:--- " + isDebug + " ---");
+    }
+
+
+    /**
+     *
+     * @return Application Context
+     */
+    public static Context getContext() {
+        if (context != null) {
+            return context;
+        } else {
+            throw new NullPointerException(context.getString(R.string.NotInitError));
+        }
+    }
+
 }

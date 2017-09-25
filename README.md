@@ -26,7 +26,7 @@ dependencies {
 ## SD-view
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Dialog">SD-Dialog</a>
 
-<table>
+<table align="left">
     <tr style="color:red">
         <th>Dialog相关封装</th>
         <th>简单说明</th>
@@ -58,7 +58,7 @@ dependencies {
 </table>
 
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-TitleBar">SD-TitleBar</a>
-<table >
+<table  align="left">
     <tr>
         <th colspan="2" style="color:red">标题栏</th>
     </tr>
@@ -73,7 +73,7 @@ dependencies {
 </table>
 
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-View">其他SD-View相关</a>
-<table >
+<table  align="left">
     <tr>
         <th colspan="2" style="color:red">其他View相关</th>
     </tr>
@@ -93,7 +93,7 @@ dependencies {
 
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Widget">SD-Widget</a>
 
-<table>
+<table align="left">
     <tr style="color:red">
         <th>SD-Widget相关类</th>
         <th>SD-Widget相关类简要说明</th>
@@ -146,7 +146,7 @@ dependencies {
 
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
 
-<table>
+<table align="left">
     <tr style="color:red">
         <th>SD-Util相关类</th>
         <th>SD-Util相关类简要说明</th>
