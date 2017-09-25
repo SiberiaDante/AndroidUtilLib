@@ -66,7 +66,7 @@ dependencies {
         <th colspan="2" style="color:red" ><a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-Title">标题栏详细说明请点这里</a></th>
     </tr>
     <tr>
-        <td>SDTitleBar></td>
+        <td>SDTitleBar</td>
         <td>常规的titleBar的封装</td>
     </tr>
     <tr>
