@@ -11,13 +11,14 @@
 ## gradle依赖方法
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.2'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.3'
 	}
 ```
 ## 使用说明
 
  * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
  * 开启Debug模式：SiberiaDanteLib.setDebug(true);
+## [详细文档说明请看Wiki](https://github.com/SiberiaDante/SiberiaDanteLib/wiki)
 
 > [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d30aec89d5a4972db5ee018a0f9127641b18f8a0/doc/VERSION_UPDATE.md)
 
@@ -56,7 +57,7 @@ dependencies {
 </table>
 
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-TitleBar">SD-TitleBar</a>
-<table border="1">
+<table >
     <tr>
         <th colspan="2" style="color:red">标题栏</th>
     </tr>
@@ -71,7 +72,7 @@ dependencies {
 </table>
 
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-View">其他SD-View相关</a>
-<table border="1">
+<table >
     <tr>
         <th colspan="2" style="color:red">其他View相关</th>
     </tr>
