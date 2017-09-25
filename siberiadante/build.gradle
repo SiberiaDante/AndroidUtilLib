@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
-//apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'com.github.SibreiaDante'
+group='com.github.SiberiaDante'
 android {
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
@@ -13,7 +13,6 @@ android {
         versionName "1.0.1"
         consumerProguardFiles 'siberiadante-proguard-rules.pro'
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -21,14 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled true
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-}
-repositories {
-    maven { url "https://jitpack.io" }
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -37,6 +33,7 @@ dependencies {
     })
     provided 'com.android.support:appcompat-v7:24.2.1'
     provided 'junit:junit:4.12'
+//    compile 'com.github.jitpack:gradle-simple:1.0'
 //    provided 'com.squareup.picasso:picasso:2.5.2'
 //    provided 'com.github.chrisbanes:PhotoView:2.0.0'
 //    provided 'io.reactivex.rxjava2:rxjava:2.1.0'

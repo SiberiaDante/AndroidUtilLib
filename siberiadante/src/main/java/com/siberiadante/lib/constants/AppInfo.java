@@ -14,7 +14,7 @@ public class AppInfo {
     private SDSPUtil info;
 
     private AppInfo() {
-        info = new SDSPUtil(Constants.INFO);
+        info = new SDSPUtil(SDConstants.INFO);
     }
 
     public static AppInfo getInstance() {

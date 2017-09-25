@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.activity.util.AppActivity">
+
     <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:id="@+id/title_layout_data"
         android:layout_width="match_parent"
@@ -16,23 +17,44 @@
         app:d_title_layout_height="40dp"
         app:d_title_text="AppActivity" />
 
-    <ImageView
-        android:id="@+id/iv_icon"
-        style="@style/WrapWrapParent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/un_install_app"
-        style="@style/MainButton"
-        android:text="卸载APP" />
+            <ImageView
+                android:id="@+id/iv_icon"
+                style="@style/WrapWrapParent" />
 
-    <Button
-        android:id="@+id/install_app"
-        style="@style/MainButton"
-        android:text="安装一个APP" />
 
-    <Button
-        android:id="@+id/setting_app"
-        style="@style/MainButton"
-        android:text="APP的设置" />
+            <Button
+                android:id="@+id/un_install_app"
+                style="@style/MainButton"
+                android:text="卸载APP" />
+
+            <Button
+                android:id="@+id/install_app"
+                style="@style/MainButton"
+                android:text="安装一个APP" />
+
+            <Button
+                android:id="@+id/setting_app"
+                style="@style/MainButton"
+                android:text="打开APP的设置面板" />
+
+            <TextView
+                android:id="@+id/tv_app_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="10dp"
+                android:lineSpacingExtra="4dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

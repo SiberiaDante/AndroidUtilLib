@@ -8,7 +8,7 @@ package com.siberiadante.lib.constants;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class Constants {
+public class SDConstants {
     public static final String STATUS_BAR_HEIGHT_RES_NAME = "status_bar_height";
     public static final String INFO = "common_info";
 }

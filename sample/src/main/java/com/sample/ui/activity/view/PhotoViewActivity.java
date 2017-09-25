@@ -14,7 +14,7 @@
 //import android.widget.TextView;
 //
 //import com.sample.R;
-//import com.sample.constants.Constants;
+//import com.sample.constants.SDConstants;
 //import com.siberiadante.lib.adapter.PhotoViewAdapter;
 //import com.siberiadante.lib.util.SDToast;
 //import com.siberiadante.lib.widget.PhotoViewPager;
@@ -100,9 +100,9 @@
 //    }
 //
 //    public void saveFile(Bitmap bmp, long currentTimeMillis) {
-//        String mFilePath = Constants.ALBUM_PATH + String.valueOf(currentTimeMillis) + ".jpg";
+//        String mFilePath = SDConstants.ALBUM_PATH + String.valueOf(currentTimeMillis) + ".jpg";
 //
-//        File tmp = new File(Constants.ALBUM_PATH);
+//        File tmp = new File(SDConstants.ALBUM_PATH);
 //        if (!tmp.exists()) {
 //            tmp.mkdir();
 //        }
