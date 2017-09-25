@@ -8,10 +8,12 @@
 >* [TitleLayout——通用万能标题栏]
 >* [CustomDialog——通用万能Dialog]
 
+[![](https://jitpack.io/v/SibreiaDante/SiberiaDanteLib.svg)](https://jitpack.io/#SibreiaDante/SiberiaDanteLib)
+
 ## gradle依赖方法
 ```
 dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.4'
+    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.2'
 	}
 ```
 ## 使用说明
