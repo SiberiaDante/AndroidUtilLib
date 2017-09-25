@@ -7,3 +7,4 @@ build
 .externalNativeBuild
 local.properties
 
+src/main/java/com/siberiadante/lib/adapter/base/recycleradapter/
