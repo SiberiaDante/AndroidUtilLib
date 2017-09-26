@@ -11,15 +11,14 @@ import android.util.AttributeSet;
  * @Created SiberiaDante
  * @Describe： 可设置字体间距的TextView
  * @Time: 2017/9/7
+ * @UpDate:
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
 public class SDLetterSpaceTextView extends AppCompatTextView {
-
     private float spacing = Spacing.NORMAL;
     private CharSequence originalText = "";
-
 
     public SDLetterSpaceTextView(Context context) {
         super(context);
