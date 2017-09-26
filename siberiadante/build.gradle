@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-
 group='com.github.SiberiaDante'
+
 android {
     compileSdkVersion 24
     buildToolsVersion '25.0.0'
@@ -9,18 +9,14 @@ android {
     defaultConfig {
         minSdkVersion 10
         targetSdkVersion 10
-        versionCode 1
-        versionName "1.0.1"
+        versionCode 7
+        versionName "1.0.7"
         consumerProguardFiles 'siberiadante-proguard-rules.pro'
 //        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

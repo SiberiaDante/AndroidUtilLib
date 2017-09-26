@@ -11,11 +11,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.util.Log;
 
 import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.bean.SDAppInfo;
@@ -24,7 +19,6 @@ import com.siberiadante.lib.exception.SiberiaDanteLibException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
@@ -122,99 +116,6 @@ public class SDAppUtil {
         }
     }
 
-    /**
-     * 获取安卓手机系统版本号
-     *
-     * @return
-     */
-    public static String getAndroidSystemVersion() {
-        String versionName = "";
-        try {
-            PackageInfo pi = getPackageManager().getPackageInfo(SiberiaDanteLib.getContext().getPackageName(), 0);
-            versionName = pi.versionName;
-            if (versionName == null || versionName.length() <= 0) {
-                return "";
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "getAndroidSystemVersion: " + e);
-        }
-        return android.os.Build.VERSION.RELEASE;//获取安卓系统版本号
-    }
-
-    /**
-     * 获取手机型号
-     *
-     * @return
-     */
-    public static String getMobilePhoneTypeInfo() {
-        String versionName = "";
-        try {
-            PackageInfo pi = getPackageManager().getPackageInfo(SiberiaDanteLib.getContext().getPackageName(), 0);
-            versionName = pi.versionName;
-            if (versionName == null || versionName.length() <= 0) {
-                return "";
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "getMobilePhoneTypeInfo: " + e);
-        }
-        return android.os.Build.MODEL; // 手机型号
-    }
-
-    /**
-     * Android Id设备Id
-     *
-     * @return
-     */
-    public static String getDeviceId() {
-        String deviceId = null;
-        if (deviceId != null && !"".equals(deviceId)) {
-            return deviceId;
-        }
-        if (deviceId == null || "".equals(deviceId)) {
-            try {
-                deviceId = getLocalMac().replace(":", "");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (deviceId == null || "".equals(deviceId)) {
-            try {
-                deviceId = getAndroidId();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (deviceId == null || "".equals(deviceId)) {
-
-            if (deviceId == null || "".equals(deviceId)) {
-                UUID uuid = UUID.randomUUID();
-                deviceId = uuid.toString().replace("-", "");
-            }
-        }
-        return deviceId;
-    }
-
-    /**
-     * 获取手机和应用信息
-     *
-     * @return 手机型号 +  Android系统版本+ App版本号
-     */
-    public static String getMobileAndAPPInfo() {
-        String versionName = "";
-        try {
-            PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
-            PackageInfo pi = pm.getPackageInfo(SiberiaDanteLib.getContext().getPackageName(), 0);
-            versionName = pi.versionName;
-            if (versionName == null || versionName.length() <= 0) {
-                return "";
-            }
-        } catch (Exception e) {
-            Log.e(TAG, "getMobileAndAPPInfo: " + e);
-        }
-        String mType = android.os.Build.MODEL; // 手机型号
-        String androidSysVersion = android.os.Build.VERSION.RELEASE;//获取版本号
-        return "手机型号：" + mType + " Android系统版本：" + androidSysVersion + " App版本号：" + versionName;
-    }
 
     /**
      * 获取App信息
@@ -452,7 +353,7 @@ public class SDAppUtil {
             return true;
         }
         if (result.errorMsg != null) {
-            SDToast.toast("isAppRoot?---" + result.errorMsg);
+            SDToastUtil.toast("isAppRoot?---" + result.errorMsg);
         }
         return false;
     }
@@ -668,40 +569,7 @@ public class SDAppUtil {
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 
-    /**
-     * 获取IMEI码
-     * 需要权限{@code uses-permission android:name="android.permission.READ_PHONE_STATE"}
-     *
-     * @return
-     */
-    public static String getIMIEStatus() {
-        TelephonyManager tm = (TelephonyManager) SiberiaDanteLib.getContext()
-                .getSystemService(Context.TELEPHONY_SERVICE);
-        String deviceId = tm.getDeviceId();
-        return deviceId;
-    }
 
-    /**
-     * 获取Mac地址
-     * 需要权限 {@code uses-permission android:name="android.permission.ACCESS_WIFI_STATE"}
-     *
-     * @return
-     */
-    public static String getLocalMac() {
-        WifiManager wifi = (WifiManager) SiberiaDanteLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = wifi.getConnectionInfo();
-        return info.getMacAddress();
-    }
-
-    /**
-     * 获取Android Id
-     *
-     * @return
-     */
-    public static String getAndroidId() {
-        String androidId = Settings.Secure.getString(SiberiaDanteLib.getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-        return androidId;
-    }
 
     //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     public static ArrayList<String> getApkNameAll() {
@@ -761,13 +629,13 @@ public class SDAppUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean cleanAppData(File... dirs) {
-        boolean isSuccess = SDClearUtil.clearInternalCache();
-        isSuccess &= SDClearUtil.clearInternalDbs();
-        isSuccess &= SDClearUtil.clearInternalSP();
-        isSuccess &= SDClearUtil.clearInternalFiles();
-        isSuccess &= SDClearUtil.clearExternalCache();
+        boolean isSuccess = SDCleanUtil.clearInternalCache();
+        isSuccess &= SDCleanUtil.clearInternalDbs();
+        isSuccess &= SDCleanUtil.clearInternalSP();
+        isSuccess &= SDCleanUtil.clearInternalFiles();
+        isSuccess &= SDCleanUtil.clearExternalCache();
         for (File dir : dirs) {
-            isSuccess &= SDClearUtil.clearCustomCache(dir);
+            isSuccess &= SDCleanUtil.clearCustomCache(dir);
         }
         return isSuccess;
     }

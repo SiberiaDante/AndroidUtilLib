@@ -19,7 +19,6 @@ import android.widget.TextView;
 
 import com.siberiadante.lib.R;
 
-
 /**
  * @Created SiberiaDante
  * @Describe： 原文地址：@{Link http://www.jianshu.com/p/1b91e11e441d}

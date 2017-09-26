@@ -21,7 +21,7 @@ import com.siberiadante.custom.ui.fragment.OneFragment;
 import com.siberiadante.custom.ui.fragment.ThreeFragment;
 import com.siberiadante.custom.ui.fragment.TwoFragment;
 import com.siberiadante.lib.util.SDLogUtil;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 import com.siberiadante.lib.widget.SDRadioButton;
 
 import java.util.List;
@@ -172,8 +172,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         long currentTime = System.currentTimeMillis();
         Log.d(TAG, "onBackPressed: " + currentTime);
         if (currentTime - tempTime > 2000) {
-            SDToast.toast("再按一次退出应用");
-            SDToast.resetToast();
+            SDToastUtil.toast("再按一次退出应用");
+            SDToastUtil.resetToast();
             tempTime = currentTime;
         } else {
             System.exit(0);

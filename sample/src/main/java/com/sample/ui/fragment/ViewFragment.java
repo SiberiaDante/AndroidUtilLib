@@ -89,6 +89,6 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
 
     @Override
     public void onItemClick(int position) {
-        SDActivityUtil.launchActivity("com.sample", datas.get(position).getCls());
+        SDActivityUtil.startActivity("com.sample", datas.get(position).getCls());
     }
 }

@@ -3,6 +3,7 @@ package com.siberiadante.lib.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.RadioButton;
@@ -24,7 +25,7 @@ import com.siberiadante.lib.R;
  * @Tips: 在xml中需要必填属性：android:clickable"="true";
  */
 
-public class SDRadioButton extends RadioButton {
+public class SDRadioButton extends AppCompatRadioButton {
     private int mDrawableSize;// xml文件中设置的大小
 
     public SDRadioButton(Context context) {

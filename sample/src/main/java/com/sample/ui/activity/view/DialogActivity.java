@@ -11,12 +11,12 @@ import android.widget.EditText;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.SDScreenUtil;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 import com.siberiadante.lib.view.dialog.SDCustomDialog;
 import com.siberiadante.lib.view.dialog.SDEditDialog;
 import com.siberiadante.lib.view.dialog.SDBottomDialog;
 import com.siberiadante.lib.view.dialog.SDEnsureDialog;
-import com.siberiadante.lib.view.dialog.NiceDialog;
+import com.siberiadante.lib.view.dialog.SDNiceDialog;
 import com.siberiadante.lib.view.dialog.SDEnsureSubDialog;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 import com.siberiadante.lib.view.base.nicedialog.BaseNiceDialog;
@@ -75,7 +75,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         SDTitleBar.setTitleListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SDToast.toast("点击了标题");
+                SDToastUtil.toast("点击了标题");
             }
         });
         SDTitleBar.setLeftListener(new View.OnClickListener() {
@@ -87,7 +87,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         SDTitleBar.setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SDToast.toast("点击了右侧");
+                SDToastUtil.toast("点击了右侧");
             }
         });
     }
@@ -145,8 +145,9 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
 
     private void showNoticeDialog() {
         final SDEnsureSubDialog sdEnsureSubDialog = new SDEnsureSubDialog(this);//提示弹窗
-        sdEnsureSubDialog.setTitle("SiberiaDante");
-        sdEnsureSubDialog.setContent(getString(R.string.about_me));
+        sdEnsureSubDialog.setLogo(R.drawable.notice);//设置logo
+        sdEnsureSubDialog.setTitle("SiberiaDante");//设置标题
+        sdEnsureSubDialog.setContent(getString(R.string.about_me));//设置内容
         sdEnsureSubDialog.getTvSure().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,7 +173,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 final String msg = dialog.getMsg();
-                SDToast.toast("输入内容为：" + msg);
+                SDToastUtil.toast("输入内容为：" + msg);
                 dialog.dismiss();
             }
         });
@@ -205,7 +206,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     private void showEnsureDialogOne() {
         ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
-                .setTitle("这里是一个标题", getResources().getColor(R.color.black))//可以不设置标题颜色，默认系统颜色
+                .setTitle("这里是一个标题", ContextCompat.getColor(this,R.color.black))//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
                 .setNegativeButton("取消", new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override
@@ -289,7 +290,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * share dialog
      */
     private void showShareDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.share_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -297,7 +298,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                         holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                SDToast.toast("分享成功");
+                                SDToastUtil.toast("分享成功");
                             }
                         });
                     }
@@ -311,11 +312,18 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * friend setting dialog
      */
     private void showFriendSettingDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.friend_set_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
                     public void convertView(ViewHolder holder, final BaseNiceDialog dialog) {
+                        holder.getView(R.id.tv_friend_label).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                SDToastUtil.toast("设置备注和标签按钮被点击");
+                                dialog.dismiss();
+                            }
+                        });
 
                     }
                 })
@@ -328,7 +336,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * comment dialog
      */
     private void showCommentDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.comment_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -351,7 +359,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * red package dialog
      */
     private void showRedPackageDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.ad_layout)
                 .setConvertListener(new ViewConvertListener() {
                     @Override
@@ -365,7 +373,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                     }
                 })
                 .setWidth(210)
-                .setOutCancel(false)
+                .setTouchOutCancel(false)
                 .setAnimStyle(R.style.EnterExitAnimation)
                 .show(getSupportFragmentManager());
     }
@@ -374,7 +382,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * loading dialog
      */
     private void showLoadingDialog() {
-        NiceDialog.init()
+        SDNiceDialog.init()
                 .setLayoutId(R.layout.loading_layout)
                 .setWidth(100)
                 .setHeight(100)
@@ -383,12 +391,21 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showCustomDialog() {
-        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure}, 0, true, Gravity.CENTER);
-        customDialog.setOnCenterItemClickListener(new SDCustomDialog.OnCenterItemClickListener() {
+        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure, R.id.dialog_cancel}, 0, true, Gravity.CENTER);
+        customDialog.setOnCenterItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
             @Override
-            public void OnCenterItemClick(SDCustomDialog dialog, View view) {
-//                customDialog.dismiss();
-                SDToast.toast("确定按钮被点击了");
+            public void OnCustomDialogItemClick(SDCustomDialog dialog, View view) {
+                switch (view.getId()) {
+                    case R.id.dialog_cancel:
+                        customDialog.dismiss();
+                        SDToastUtil.toast("取消按钮被点击了");
+                        break;
+                    case R.id.dialog_sure:
+                        customDialog.dismiss();
+                        SDToastUtil.toast("确定按钮被点击了");
+                        break;
+                }
+
             }
         });
         customDialog.show();

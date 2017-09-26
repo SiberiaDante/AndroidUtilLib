@@ -49,6 +49,8 @@ public class SDDateUtil {
 
 
     /**
+     * 获取当前时间（格式：HH:mm）
+     *
      * @return HH:mm    15:44
      */
     public static String getSDFTimeHm() {
@@ -147,7 +149,6 @@ public class SDDateUtil {
     }
 
     /**
-     *
      * @return
      */
     public static String getStrToTime() {

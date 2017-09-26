@@ -2,9 +2,11 @@ package com.sample;
 
 import android.app.Activity;
 import android.app.Application;
+import android.os.Bundle;
 import android.support.multidex.MultiDex;
 
 import com.siberiadante.lib.SiberiaDanteLib;
+import com.squareup.leakcanary.LeakCanary;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,8 +16,7 @@ import java.util.List;
  */
 
 public class SampleApplication extends Application {
-    public static SampleApplication appContext;
-    private List<Activity> mList = new LinkedList<Activity>();
+
     private static SampleApplication instance;
 
     public SampleApplication() {
@@ -32,36 +33,50 @@ public class SampleApplication extends Application {
     public void onCreate() {
         super.onCreate();
         MultiDex.install(this);
-        appContext = this;
+        instance = this;
         initSiberiaDanteLib();
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-//            return;
-//        }
-//        LeakCanary.install(this);
-//        SDCrashHandler crashHandler = SDCrashHandler.getInstance();
-//        crashHandler.init(getApplicationContext());
-    }
-
-    // add all of activity to list
-    public void addActivity(Activity activity) {
-        mList.add(activity);
-    }
-
-    /**
-     * exit app
-     */
-    public void exitApp() {
-        try {
-            for (Activity activity : mList) {
-                if (activity != null) {
-                    activity.finish();
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.exit(0);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
         }
+        LeakCanary.install(this);
+//        this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
+//            @Override
+//            public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+//                mList.add(activity);
+//                mTopActivity = activity;
+//
+//            }
+//
+//            @Override
+//            public void onActivityStarted(Activity activity) {
+//
+//            }
+//
+//            @Override
+//            public void onActivityResumed(Activity activity) {
+//
+//            }
+//
+//            @Override
+//            public void onActivityPaused(Activity activity) {
+//
+//            }
+//
+//            @Override
+//            public void onActivityStopped(Activity activity) {
+//
+//            }
+//
+//            @Override
+//            public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+//
+//            }
+//
+//            @Override
+//            public void onActivityDestroyed(Activity activity) {
+//
+//            }
+//        });
     }
 
     public void onLowMemory() {
@@ -70,7 +85,7 @@ public class SampleApplication extends Application {
     }
 
     private void initSiberiaDanteLib() {
-        SiberiaDanteLib.initLib(appContext);
+        SiberiaDanteLib.initLib(instance);
         SiberiaDanteLib.setDebug(true);
 
     }

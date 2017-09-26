@@ -24,7 +24,7 @@ import com.sample.ui.fragment.OtherFragment;
 import com.sample.ui.fragment.ViewFragment;
 import com.siberiadante.lib.manager.PermissionManager;
 import com.siberiadante.lib.util.SDLogUtil;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 import com.siberiadante.lib.view.titlebar.SDTitleLayout;
 
 import java.util.ArrayList;
@@ -98,7 +98,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mMianTitle.setLeftClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SDToast.toast("back");
+                SDToastUtil.toast("back");
             }
         });
     }
@@ -203,7 +203,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         Timer tExit = null;
         if (!isExit) {
             isExit = true; // 准备退出
-            SDToast.toastCenterShort("再按一次退出程序");
+            SDToastUtil.toastCenterShort("再按一次退出程序");
             tExit = new Timer();
             tExit.schedule(new TimerTask() {
                 @Override

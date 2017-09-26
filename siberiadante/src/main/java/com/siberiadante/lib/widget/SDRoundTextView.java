@@ -5,6 +5,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.siberiadante.lib.widget.base.SDRoundViewAttr;
+
 /**
  * @Created SiberiaDante
  * @Describe： 简化TextView shape 画背景

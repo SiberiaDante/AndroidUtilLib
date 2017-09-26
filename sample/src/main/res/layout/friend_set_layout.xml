@@ -13,12 +13,14 @@
         android:paddingLeft="20dp">
 
         <TextView
+            android:id="@+id/tv_friend_label"
             style="@style/TextStyle"
             android:paddingBottom="12dp"
             android:paddingTop="12dp"
             android:text="设置备注及标签" />
 
         <TextView
+            android:id="@+id/tv_friend_start"
             style="@style/TextStyle"
             android:paddingBottom="12dp"
             android:paddingTop="12dp"

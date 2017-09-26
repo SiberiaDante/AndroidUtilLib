@@ -15,7 +15,7 @@ import com.siberiadante.custom.http.ApiService;
 import com.siberiadante.custom.http.Request;
 import com.siberiadante.custom.http.RetrofitManager;
 import com.siberiadante.lib.util.SDLogUtil;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 import java.util.HashMap;
@@ -56,7 +56,7 @@ public class TwoFragment extends LazyFragment {
         super.onCreateViewLazy(savedInstanceState);
         Log.d(TAG, "onCreateViewLazy: 2");
         setContentView(R.layout.fragment_two);
-        SDToast.toast("第二个页面");
+        SDToastUtil.toast("第二个页面");
         Log.d(TAG, "onCreateViewLazy: FragmentTwo");
         initView();
         initIntent();
