@@ -6,7 +6,7 @@ import com.siberiadante.custom.constant.AppConfig;
 import com.siberiadante.custom.constant.Constants;
 import com.siberiadante.custom.http.manager.NetException;
 import com.siberiadante.lib.util.SDStringUtil;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 
 import java.util.concurrent.TimeUnit;
 
@@ -98,9 +98,9 @@ public class RetrofitManager {
                                 if (((WrapResult) t).getCode() != 200) {
                                     final String errorMsg = ((WrapResult) t).getInfo();
                                     if (SDStringUtil.isEmpty(errorMsg)) {
-                                        SDToast.toast("服务器内部错误");
+                                        SDToastUtil.toast("服务器内部错误");
                                     } else {
-                                        SDToast.toast(errorMsg);
+                                        SDToastUtil.toast(errorMsg);
                                     }
                                 }
                                 return ((WrapResult) t).getCode() == 200;

@@ -57,7 +57,7 @@ public class SDProcessUtil {
                         SiberiaDanteLib.getContext().startActivity(intent);
                     }
                     if (aom.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, info.uid, info.packageName) != AppOpsManager.MODE_ALLOWED) {
-                        SDToast.toast("getForegroundApp---没有打开\"有权查看使用权限的应用\"选项");
+                        SDToastUtil.toast("getForegroundApp---没有打开\"有权查看使用权限的应用\"选项");
                         return null;
                     }
                     UsageStatsManager usageStatsManager = (UsageStatsManager) SiberiaDanteLib.getContext().getSystemService(Context.USAGE_STATS_SERVICE);
@@ -76,7 +76,7 @@ public class SDProcessUtil {
                     e.printStackTrace();
                 }
             } else {
-                SDToast.toast("getForegroundApp----无\"有权查看使用权限的应用\"选项");
+                SDToastUtil.toast("getForegroundApp----无\"有权查看使用权限的应用\"选项");
             }
         }
         return null;

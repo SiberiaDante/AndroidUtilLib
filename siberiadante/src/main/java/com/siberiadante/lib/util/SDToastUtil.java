@@ -46,12 +46,12 @@ import java.util.List;
  * 全局一般使用的Toast是底部弹出一行简单的文字，调用：
  * ToastUtils.toast("常规的Toast方法)；
  * 然后我们有特殊需要，要居中显示一个Toast提示用户，调用：
- * SDToast.showSingletonText("居中显示",Toast.LENGTH_SHORT,Gravity.CENTER);
+ * SDToastUtil.showSingletonText("居中显示",Toast.LENGTH_SHORT,Gravity.CENTER);
  * 这个方法调用完，其实相当于是更改了Toast的对象。不再是第一个我们常规使用的方法中所创建的，所以，
  * 我们需要重置Toast对象，其实就是创建一个新的常规对象
  */
 
-public class SDToast {
+public class SDToastUtil {
     @ColorInt
     private static final int DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF");
 
@@ -92,8 +92,8 @@ public class SDToast {
 
     private static boolean isNeedReset = false;//加入自动判断，是否需要重置Toast对象的各种设置——后期开发
 
-    public SDToast() {
-        new SiberiaDanteLibException(SDToast.class.getName());
+    public SDToastUtil() {
+        new SiberiaDanteLibException(SDToastUtil.class.getName());
     }
 
     /**

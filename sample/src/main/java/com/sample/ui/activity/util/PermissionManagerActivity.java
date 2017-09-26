@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.manager.PermissionManager;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 
 public class PermissionManagerActivity extends BaseActivity {
     private Button record;
@@ -51,9 +51,9 @@ public class PermissionManagerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (PermissionManager.getInstance(getApplicationContext()).getGrantedInfo(Manifest.permission.RECORD_AUDIO)) {
-                    SDToast.toast("录音权限已经获取");
+                    SDToastUtil.toast("录音权限已经获取");
                 } else {
-                    SDToast.toast("你还没有获取录音权限");
+                    SDToastUtil.toast("你还没有获取录音权限");
                 }
             }
         });
@@ -61,9 +61,9 @@ public class PermissionManagerActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 if (PermissionManager.getInstance(getApplicationContext()).getGrantedInfo(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-                    SDToast.toast("SD权限已经获取");
+                    SDToastUtil.toast("SD权限已经获取");
                 } else {
-                    SDToast.toast("你还没有获取SD权限");
+                    SDToastUtil.toast("你还没有获取SD权限");
                 }
             }
         });

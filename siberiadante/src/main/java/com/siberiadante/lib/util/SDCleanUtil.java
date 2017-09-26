@@ -13,8 +13,8 @@ import java.io.File;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class SDClearUtil {
-    public SDClearUtil() {
+public class SDCleanUtil {
+    public SDCleanUtil() {
         new SiberiaDanteLibException();
     }
 
@@ -24,7 +24,7 @@ public class SDClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearInternalCache() {
+    public static boolean cleanInternalCache() {
         return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getCacheDir());
     }
 
@@ -34,7 +34,7 @@ public class SDClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearInternalFiles() {
+    public static boolean cleanInternalFiles() {
         return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir());
     }
 
@@ -44,7 +44,7 @@ public class SDClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearInternalDbs() {
+    public static boolean cleanInternalDbs() {
         return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "databases");
     }
 
@@ -55,7 +55,7 @@ public class SDClearUtil {
      * @param dbName 数据库名称
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearInternalDbByName(String dbName) {
+    public static boolean cleanInternalDbByName(String dbName) {
         return SiberiaDanteLib.getContext().deleteDatabase(dbName);
     }
 
@@ -65,7 +65,7 @@ public class SDClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearInternalSP() {
+    public static boolean cleanInternalSP() {
         return SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getFilesDir().getParent() + File.separator + "shared_prefs");
     }
 
@@ -75,7 +75,7 @@ public class SDClearUtil {
      *
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearExternalCache() {
+    public static boolean cleanExternalCache() {
         return SDStorageUtil.isSDCardMounted() && SDFileUtil.deleteFilesInDir(SiberiaDanteLib.getContext().getExternalCacheDir());
     }
 
@@ -85,7 +85,7 @@ public class SDClearUtil {
      * @param dirPath 目录路径
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearCustomCache(String dirPath) {
+    public static boolean cleanCustomCache(String dirPath) {
         return SDFileUtil.deleteFilesInDir(dirPath);
     }
 
@@ -95,7 +95,7 @@ public class SDClearUtil {
      * @param dir 目录
      * @return {@code true}: 清除成功<br>{@code false}: 清除失败
      */
-    public static boolean clearCustomCache(File dir) {
+    public static boolean cleanCustomCache(File dir) {
         return SDFileUtil.deleteFilesInDir(dir);
     }
 }

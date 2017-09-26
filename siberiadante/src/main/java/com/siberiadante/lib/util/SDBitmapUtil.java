@@ -536,154 +536,60 @@ public class SDBitmapUtil {
      *
      * @param angle
      * @param bitmap
-     * @return
+     * @return Bitmap对象
      */
     public static Bitmap rotateBitmap(int angle, Bitmap bitmap) {
+        return rotateBitmap(bitmap, angle, 0, 0, false);
         // 旋转图片 动作
         // 创建新的图片
-        Bitmap resizedBitmap = null;
-        try {
-            Matrix matrix = new Matrix();
-            matrix.postRotate(angle);
-
-            resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        } catch (Error e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return resizedBitmap;
+//        Bitmap resizedBitmap = null;
+//        try {
+//            Matrix matrix = new Matrix();
+//            matrix.postRotate(angle);
+//
+//            resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+//        } catch (Error e) {
+//            // TODO Auto-generated catch block
+//            e.printStackTrace();
+//        }
+//        return resizedBitmap;
     }
 
-    // TODO: 2017/9/25 -end
-
     /**
-     * yuv转jpeg
+     * 旋转图片
      *
-     * @param yuvBytes
-     * @param width
-     * @param height
-     * @return Jpeg
+     * @param bitmap  源图片
+     * @param degrees 旋转角度
+     * @param px      旋转点横坐标
+     * @param py      旋转点纵坐标
+     * @return 旋转后的图片
      */
-    public static byte[] yuv2Jpeg(byte[] yuvBytes, int width, int height) {
-        YuvImage yuvImage = new YuvImage(yuvBytes, ImageFormat.NV21, width, height, null);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        yuvImage.compressToJpeg(new Rect(0, 0, width, height), 100, baos);
-        return baos.toByteArray();
+    public static Bitmap rotateBitmap(final Bitmap bitmap, final int degrees, final float px, final float py) {
+        return rotateBitmap(bitmap, degrees, px, py, false);
     }
 
     /**
-     * 读取图片属性：旋转的角度
+     * 旋转图片
      *
-     * @param path 图片绝对路径
-     * @return degree旋转的角度
+     * @param bitmap  源图片
+     * @param degrees 旋转角度
+     * @param px      旋转点横坐标
+     * @param py      旋转点纵坐标
+     * @param recycle 是否回收
+     * @return 旋转后的图片
      */
-    public static int readPictureDegree(String path) {
-        int degree = 0;
-        try {
-            ExifInterface exifInterface = new ExifInterface(path);
-            int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION,
-                    ExifInterface.ORIENTATION_NORMAL);
-            switch (orientation) {
-                case ExifInterface.ORIENTATION_ROTATE_90:
-                    degree = 90;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_180:
-                    degree = 180;
-                    break;
-                case ExifInterface.ORIENTATION_ROTATE_270:
-                    degree = 270;
-                    break;
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return degree;
-    }
-
-
-    /**
-     * 获取bitmap
-     *
-     * @param file 文件
-     * @return bitmap
-     */
-    public static Bitmap getBitmap(final File file) {
-        if (file == null) return null;
-        InputStream is = null;
-        InputStream fileinp = SDFileUtil.fileToInputStream(file.getAbsolutePath());
-        if (fileinp != null) {
-            is = new BufferedInputStream(fileinp);
-            return BitmapFactory.decodeStream(is);
-        } else {
-            return null;
-        }
-
-
+    public static Bitmap rotateBitmap(final Bitmap bitmap, final int degrees, final float px, final float py, final boolean recycle) {
+        if (isEmptyBitmap(bitmap)) return null;
+        if (degrees == 0) return bitmap;
+        Matrix matrix = new Matrix();
+        matrix.setRotate(degrees, px, py);
+        Bitmap ret = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        if (recycle && !bitmap.isRecycled()) bitmap.recycle();
+        return ret;
     }
 
     /**
-     * 获取bitmap
-     *
-     * @param filePath 文件路径
-     * @return bitmap
-     */
-    public static Bitmap getBitmap(final String filePath) {
-        if (isSpace(filePath)) return null;
-        return BitmapFactory.decodeFile(filePath);
-    }
-
-    /**
-     * 获取bitmap
-     *
-     * @param is 输入流
-     * @return bitmap
-     */
-    public static Bitmap getBitmap(final InputStream is) {
-        if (is == null) return null;
-        return BitmapFactory.decodeStream(is);
-    }
-
-    /**
-     * 获取bitmap
-     *
-     * @param data   数据
-     * @param offset 偏移量
-     * @return bitmap
-     */
-    public static Bitmap getBitmap(final byte[] data, final int offset) {
-        if (data.length == 0) return null;
-        return BitmapFactory.decodeByteArray(data, offset, data.length);
-    }
-
-    /**
-     * 获取bitmap
-     *
-     * @param resId 资源id
-     * @return bitmap
-     */
-    public static Bitmap getBitmap(@DrawableRes final int resId) {
-        Drawable drawable = ContextCompat.getDrawable(SiberiaDanteLib.getContext(), resId);
-        Canvas canvas = new Canvas();
-        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-        canvas.setBitmap(bitmap);
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-        drawable.draw(canvas);
-        return bitmap;
-    }
-
-    /**
-     * 获取bitmap
-     *
-     * @param fd 文件描述
-     * @return bitmap
-     */
-    public static Bitmap getBitmap(final FileDescriptor fd) {
-        if (fd == null) return null;
-        return BitmapFactory.decodeFileDescriptor(fd);
-    }
-
-    /**
-     * 缩放图片
+     * 缩放图片到指定宽高
      *
      * @param src       源图片
      * @param newWidth  新宽度
@@ -695,7 +601,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 缩放图片
+     * 缩放图片到指定宽高
      *
      * @param src       源图片
      * @param newWidth  新宽度
@@ -711,7 +617,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 缩放图片
+     * 缩放图片到指定倍数
      *
      * @param src         源图片
      * @param scaleWidth  缩放宽度倍数
@@ -723,7 +629,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 缩放图片
+     * 缩放图片到指定倍数
      *
      * @param src         源图片
      * @param scaleWidth  缩放宽度倍数
@@ -832,53 +738,99 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 旋转图片
+     * 获取bitmap
      *
-     * @param src     源图片
-     * @param degrees 旋转角度
-     * @param px      旋转点横坐标
-     * @param py      旋转点纵坐标
-     * @return 旋转后的图片
+     * @param file 文件
+     * @return bitmap
      */
-    public static Bitmap rotate(final Bitmap src, final int degrees, final float px, final float py) {
-        return rotate(src, degrees, px, py, false);
+    public static Bitmap getBitmap(final File file) {
+        if (file == null) return null;
+        InputStream is = null;
+        InputStream fileinp = SDFileUtil.fileToInputStream(file.getAbsolutePath());
+        if (fileinp != null) {
+            is = new BufferedInputStream(fileinp);
+            return BitmapFactory.decodeStream(is);
+        } else {
+            return null;
+        }
+
+
     }
 
     /**
-     * 旋转图片
-     *
-     * @param src     源图片
-     * @param degrees 旋转角度
-     * @param px      旋转点横坐标
-     * @param py      旋转点纵坐标
-     * @param recycle 是否回收
-     * @return 旋转后的图片
-     */
-    public static Bitmap rotate(final Bitmap src, final int degrees, final float px, final float py, final boolean recycle) {
-        if (isEmptyBitmap(src)) return null;
-        if (degrees == 0) return src;
-        Matrix matrix = new Matrix();
-        matrix.setRotate(degrees, px, py);
-        Bitmap ret = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
-        if (recycle && !src.isRecycled()) src.recycle();
-        return ret;
-    }
-
-    /**
-     * 获取图片旋转角度
+     * 获取bitmap
      *
      * @param filePath 文件路径
-     * @return 旋转角度
+     * @return bitmap
      */
-    public static int getRotateDegree(final String filePath) {
+    public static Bitmap getBitmap(final String filePath) {
+        if (SDFileUtil.isSpace(filePath)) return null;
+        return BitmapFactory.decodeFile(filePath);
+    }
+
+    /**
+     * 获取bitmap
+     *
+     * @param is 输入流
+     * @return bitmap
+     */
+    public static Bitmap getBitmap(final InputStream is) {
+        if (is == null) return null;
+        return BitmapFactory.decodeStream(is);
+    }
+
+    /**
+     * 获取bitmap
+     *
+     * @param data   数据
+     * @param offset 偏移量
+     * @return bitmap
+     */
+    public static Bitmap getBitmap(final byte[] data, final int offset) {
+        if (data.length == 0) return null;
+        return BitmapFactory.decodeByteArray(data, offset, data.length);
+    }
+
+    /**
+     * 获取bitmap
+     *
+     * @param resId 资源id
+     * @return bitmap
+     */
+    public static Bitmap getBitmap(@DrawableRes final int resId) {
+        Drawable drawable = ContextCompat.getDrawable(SiberiaDanteLib.getContext(), resId);
+        Canvas canvas = new Canvas();
+        Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+        canvas.setBitmap(bitmap);
+        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+        drawable.draw(canvas);
+        return bitmap;
+    }
+
+    /**
+     * 获取bitmap
+     *
+     * @param fd 文件描述
+     * @return bitmap
+     */
+    public static Bitmap getBitmap(final FileDescriptor fd) {
+        if (fd == null) return null;
+        return BitmapFactory.decodeFileDescriptor(fd);
+    }
+
+    /**
+     * 读取图片属性：旋转的角度
+     *
+     * @param path 图片绝对路径
+     * @return degree旋转的角度
+     */
+    public static int readPictureDegree(String path) {
         int degree = 0;
         try {
-            ExifInterface exifInterface = new ExifInterface(filePath);
-            int orientation = exifInterface.getAttributeInt(
-                    ExifInterface.TAG_ORIENTATION,
+            ExifInterface exifInterface = new ExifInterface(path);
+            int orientation = exifInterface.getAttributeInt(ExifInterface.TAG_ORIENTATION,
                     ExifInterface.ORIENTATION_NORMAL);
             switch (orientation) {
-                default:
                 case ExifInterface.ORIENTATION_ROTATE_90:
                     degree = 90;
                     break;
@@ -894,7 +846,6 @@ public class SDBitmapUtil {
         }
         return degree;
     }
-
 
     /**
      * 添加圆角边框
@@ -1521,7 +1472,6 @@ public class SDBitmapUtil {
         return ret;
     }
 
-
     /**
      * 图片锐化（拉普拉斯变换）
      *
@@ -1621,11 +1571,22 @@ public class SDBitmapUtil {
      *
      * @param src      源图片
      * @param filePath 要保存到的文件路径
+     * @return {@code true}: 成功<br>{@code false}: 失败
+     */
+    public static boolean save(final Bitmap src, final String filePath) {
+        return save(src, SDFileUtil.getFileByPath(filePath), Bitmap.CompressFormat.JPEG, false);
+    }
+
+    /**
+     * 保存图片
+     *
+     * @param src      源图片
+     * @param filePath 要保存到的文件路径
      * @param format   格式
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean save(final Bitmap src, final String filePath, final Bitmap.CompressFormat format) {
-        return save(src, getFileByPath(filePath), format, false);
+        return save(src, SDFileUtil.getFileByPath(filePath), format, false);
     }
 
     /**
@@ -1650,7 +1611,7 @@ public class SDBitmapUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean save(final Bitmap src, final String filePath, final Bitmap.CompressFormat format, final boolean recycle) {
-        return save(src, getFileByPath(filePath), format, recycle);
+        return save(src, SDFileUtil.getFileByPath(filePath), format, recycle);
     }
 
     /**
@@ -1663,7 +1624,7 @@ public class SDBitmapUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean save(final Bitmap src, final File file, final Bitmap.CompressFormat format, final boolean recycle) {
-        if (isEmptyBitmap(src) || !createFileByDeleteOldFile(file)) return false;
+        if (isEmptyBitmap(src) || !SDFileUtil.createFileByDeleteOldFile(file)) return false;
         OutputStream os = null;
         boolean ret = false;
         try {
@@ -1708,7 +1669,7 @@ public class SDBitmapUtil {
      * @return 图片类型
      */
     public static String getImageType(final String filePath) {
-        return getImageType(getFileByPath(filePath));
+        return getImageType(SDFileUtil.getFileByPath(filePath));
     }
 
     /**
@@ -1764,19 +1725,37 @@ public class SDBitmapUtil {
         return null;
     }
 
-    private static boolean isJPEG(final byte[] b) {
+    /**
+     * 判断图片类型是否为JPEG
+     *
+     * @param b
+     * @return
+     */
+    public static boolean isJPEG(final byte[] b) {
         return b.length >= 2
                 && (b[0] == (byte) 0xFF) && (b[1] == (byte) 0xD8);
     }
 
-    private static boolean isGIF(final byte[] b) {
+    /**
+     * 判断图片类型是否为GIF
+     *
+     * @param b
+     * @return
+     */
+    public static boolean isGIF(final byte[] b) {
         return b.length >= 6
                 && b[0] == 'G' && b[1] == 'I'
                 && b[2] == 'F' && b[3] == '8'
                 && (b[4] == '7' || b[4] == '9') && b[5] == 'a';
     }
 
-    private static boolean isPNG(final byte[] b) {
+    /**
+     * 判断图片类型是否为PNG
+     *
+     * @param b
+     * @return
+     */
+    public static boolean isPNG(final byte[] b) {
         return b.length >= 8
                 && (b[0] == (byte) 137 && b[1] == (byte) 80
                 && b[2] == (byte) 78 && b[3] == (byte) 71
@@ -1784,7 +1763,13 @@ public class SDBitmapUtil {
                 && b[6] == (byte) 26 && b[7] == (byte) 10);
     }
 
-    private static boolean isBMP(final byte[] b) {
+    /**
+     * 判断图片类型是否为BMP
+     *
+     * @param b
+     * @return
+     */
+    public static boolean isBMP(final byte[] b) {
         return b.length >= 2
                 && (b[0] == 0x42) && (b[1] == 0x4d);
     }
@@ -1795,16 +1780,12 @@ public class SDBitmapUtil {
      * @param src 源图片
      * @return {@code true}: 是<br>{@code false}: 否
      */
-    private static boolean isEmptyBitmap(final Bitmap src) {
+    public static boolean isEmptyBitmap(final Bitmap src) {
         return src == null || src.getWidth() == 0 || src.getHeight() == 0;
     }
 
-    ///////////////////////////////////////////////////////////////////////////
-    // 下方和压缩有关
-    ///////////////////////////////////////////////////////////////////////////
-
     /**
-     * 按缩放压缩
+     * 按缩放压缩图片
      *
      * @param src       源图片
      * @param newWidth  新宽度
@@ -1816,7 +1797,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按缩放压缩
+     * 按缩放压缩图片
      *
      * @param src       源图片
      * @param newWidth  新宽度
@@ -1829,7 +1810,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按缩放压缩
+     * 按缩放压缩图片
      *
      * @param src         源图片
      * @param scaleWidth  缩放宽度倍数
@@ -1841,7 +1822,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按缩放压缩
+     * 按缩放压缩图片
      *
      * @param src         源图片
      * @param scaleWidth  缩放宽度倍数
@@ -1854,7 +1835,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按质量压缩
+     * 按质量压缩图片
      *
      * @param src     源图片
      * @param quality 质量
@@ -1865,7 +1846,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按质量压缩
+     * 按质量压缩图片
      *
      * @param src     源图片
      * @param quality 质量
@@ -1882,7 +1863,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按质量压缩
+     * 按质量压缩图片
      *
      * @param src         源图片
      * @param maxByteSize 允许最大值字节数
@@ -1893,7 +1874,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按质量压缩
+     * 按质量压缩图片
      *
      * @param src         源图片
      * @param maxByteSize 允许最大值字节数
@@ -1954,7 +1935,7 @@ public class SDBitmapUtil {
     }
 
     /**
-     * 按采样大小压缩
+     * 按采样大小压缩图片
      *
      * @param src        源图片
      * @param sampleSize 采样率大小
@@ -1970,37 +1951,6 @@ public class SDBitmapUtil {
         byte[] bytes = baos.toByteArray();
         if (recycle && !src.isRecycled()) src.recycle();
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length, options);
-    }
-
-    private static File getFileByPath(final String filePath) {
-        return isSpace(filePath) ? null : new File(filePath);
-    }
-
-    private static boolean createFileByDeleteOldFile(final File file) {
-        if (file == null) return false;
-        if (file.exists() && !file.delete()) return false;
-        if (!createOrExistsDir(file.getParentFile())) return false;
-        try {
-            return file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    private static boolean createOrExistsDir(final File file) {
-        // 如果存在，是目录则返回true，是文件则返回false，不存在则返回是否创建成功
-        return file != null && (file.exists() ? file.isDirectory() : file.mkdirs());
-    }
-
-    private static boolean isSpace(final String s) {
-        if (s == null) return true;
-        for (int i = 0, len = s.length(); i < len; ++i) {
-            if (!Character.isWhitespace(s.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
     }
 
     /**
@@ -2021,4 +1971,27 @@ public class SDBitmapUtil {
         }
         return inSampleSize;
     }
+    // TODO: 2017/9/25 -end
+
+    /**
+     * yuv转jpeg
+     *
+     * @param yuvBytes
+     * @param width
+     * @param height
+     * @return Jpeg
+     */
+    public static byte[] yuv2Jpeg(byte[] yuvBytes, int width, int height) {
+        YuvImage yuvImage = new YuvImage(yuvBytes, ImageFormat.NV21, width, height, null);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        yuvImage.compressToJpeg(new Rect(0, 0, width, height), 100, baos);
+        return baos.toByteArray();
+    }
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    // 下方和压缩有关
+    ///////////////////////////////////////////////////////////////////////////
+
+
 }

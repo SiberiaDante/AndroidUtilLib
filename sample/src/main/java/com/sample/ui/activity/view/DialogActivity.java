@@ -11,7 +11,7 @@ import android.widget.EditText;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.SDScreenUtil;
-import com.siberiadante.lib.util.SDToast;
+import com.siberiadante.lib.util.SDToastUtil;
 import com.siberiadante.lib.view.dialog.SDCustomDialog;
 import com.siberiadante.lib.view.dialog.SDEditDialog;
 import com.siberiadante.lib.view.dialog.SDBottomDialog;
@@ -75,7 +75,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         SDTitleBar.setTitleListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SDToast.toast("点击了标题");
+                SDToastUtil.toast("点击了标题");
             }
         });
         SDTitleBar.setLeftListener(new View.OnClickListener() {
@@ -87,7 +87,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         SDTitleBar.setRightListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SDToast.toast("点击了右侧");
+                SDToastUtil.toast("点击了右侧");
             }
         });
     }
@@ -173,7 +173,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onClick(View view) {
                 final String msg = dialog.getMsg();
-                SDToast.toast("输入内容为：" + msg);
+                SDToastUtil.toast("输入内容为：" + msg);
                 dialog.dismiss();
             }
         });
@@ -298,7 +298,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                         holder.setOnClickListener(R.id.wechat, new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                SDToast.toast("分享成功");
+                                SDToastUtil.toast("分享成功");
                             }
                         });
                     }
@@ -320,7 +320,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                         holder.getView(R.id.tv_friend_label).setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                SDToast.toast("设置备注和标签按钮被点击");
+                                SDToastUtil.toast("设置备注和标签按钮被点击");
                                 dialog.dismiss();
                             }
                         });
@@ -398,11 +398,11 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
                 switch (view.getId()) {
                     case R.id.dialog_cancel:
                         customDialog.dismiss();
-                        SDToast.toast("取消按钮被点击了");
+                        SDToastUtil.toast("取消按钮被点击了");
                         break;
                     case R.id.dialog_sure:
                         customDialog.dismiss();
-                        SDToast.toast("确定按钮被点击了");
+                        SDToastUtil.toast("确定按钮被点击了");
                         break;
                 }
 
