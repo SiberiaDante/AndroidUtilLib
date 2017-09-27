@@ -9,7 +9,7 @@ package com.siberiadante.lib.constants;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class RegexConstants {
+public class SDRegexConstants {
     /**
      * 正则：手机号（简单）
      */

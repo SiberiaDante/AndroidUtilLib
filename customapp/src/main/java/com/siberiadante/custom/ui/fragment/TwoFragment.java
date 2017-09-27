@@ -12,7 +12,6 @@ import com.siberiadante.custom.bean.LoginResponse;
 import com.siberiadante.custom.bean.base.WrapResult;
 import com.siberiadante.custom.constant.Constants;
 import com.siberiadante.custom.http.ApiService;
-import com.siberiadante.custom.http.Request;
 import com.siberiadante.custom.http.RetrofitManager;
 import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToastUtil;
@@ -74,40 +73,8 @@ public class TwoFragment extends LazyFragment {
 
     private void initIntent() {
         getLoginTest();
-        getLoginTest2();
     }
 
-    private void getLoginTest2() {
-
-        Request.getInstance().getLoginParams("15122835113", "123456")
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<WrapResult<LoginResponse>>() {
-                    @Override
-                    public void onSubscribe(@NonNull Disposable d) {
-                        SDLogUtil.d(TAG, "---------------------onSubscribe-----------------------");
-                    }
-
-                    @Override
-                    public void onNext(@NonNull WrapResult<LoginResponse> listWrapResult) {
-                        SDLogUtil.d(TAG, "onNext:2222222222222222222----------------------- " + listWrapResult.getInfo());
-//                        adapter = new NewsAdapter(getActivity(), listWrapResult.getData());
-//                        recyclerView.setAdapter(adapter);
-                        mLLProgress.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        SDLogUtil.d(TAG, "onError");
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        SDLogUtil.d(TAG, "onComplete");
-                        mLLProgress.setVisibility(View.GONE);
-                    }
-                });
-    }
     private void getLoginTest() {
 
         HashMap<String, String> hashMap = new HashMap<>();
@@ -129,8 +96,6 @@ public class TwoFragment extends LazyFragment {
                     @Override
                     public void onNext(@NonNull WrapResult<LoginResponse> listWrapResult) {
                         SDLogUtil.d(TAG, "onNext:11111111111111111----------------------- " + listWrapResult.getInfo());
-//                        adapter = new NewsAdapter(getActivity(), listWrapResult.getData());
-//                        recyclerView.setAdapter(adapter);
                         mLLProgress.setVisibility(View.GONE);
                     }
 

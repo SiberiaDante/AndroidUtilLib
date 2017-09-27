@@ -19,21 +19,12 @@ import okhttp3.RequestBody;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-class Params {
+public class Params {
 
-    static RequestBody getLoginParams(String username, String psd) {
+    public static HashMap<String, String> getLoginParams(String username, String psd) {
         HashMap<String, String> map = new HashMap<>();
-        map.put("access_token", Constants.ACCESS_TOKEN);
-        map.put("method", Constants.METHOD_POST);
         map.put("username", username);
         map.put("password", psd);
-        map.put("type", "mobile");
-        return paramsData(map);
+        return map;
     }
-
-    static RequestBody paramsData(HashMap<String, String> map) {
-        return RequestBody.create(MediaType.parse("application/x-www-form-urlencoded"), map.toString());
-    }
-
-
 }
