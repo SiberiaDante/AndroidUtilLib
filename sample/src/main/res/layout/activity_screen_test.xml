@@ -11,10 +11,20 @@
     <com.siberiadante.lib.view.titlebar.SDTitleLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:d_title_layout_background="@color/blue"
-        app:d_title_layout_height="40dp"
         app:d_is_immersive_state_bar="true"
-        app:d_title_text="沉浸式状态栏"/>
+        app:d_title_layout_background="@color/red"
+        app:d_title_layout_height="40dp"
+        app:d_title_text="沉浸式状态栏" />
+
+    <Button
+        android:id="@+id/btn_screen_set_bar_color"
+        style="@style/MainButton"
+        android:text="设置状态栏颜色为蓝色" />
+
+    <Button
+        android:id="@+id/btn_screen_set_bar_text"
+        style="@style/MainButton"
+        android:text="设置状态栏字体图标颜色（4.4+）" />
 
     <TextView
         android:id="@+id/tv_screen_content"

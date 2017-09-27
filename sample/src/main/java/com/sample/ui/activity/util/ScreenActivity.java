@@ -1,7 +1,9 @@
 package com.sample.ui.activity.util;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.sample.R;
@@ -25,6 +27,19 @@ public class ScreenActivity extends BaseActivity {
     public void initView() {
         mTvScreen = (TextView) findViewById(R.id.tv_screen_content);
 
+        findViewById(R.id.btn_screen_set_bar_color).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SDScreenUtil.setStatusBarColor(ScreenActivity.this, ContextCompat.getColor(ScreenActivity.this, R.color.blue));
+            }
+        });
+        findViewById(R.id.btn_screen_set_bar_text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SDScreenUtil.setStatusBarLightMode(ScreenActivity.this);
+            }
+        });
+
     }
 
     public void initData() {
@@ -39,6 +54,7 @@ public class ScreenActivity extends BaseActivity {
         Log.d(TAG, "initData:screenWidthDp= " + screenWidthDp + "dp");
         Log.d(TAG, "initData:screenHeightDp= " + screenHeightDp + "dp");
         final StringBuilder builder = new StringBuilder();
+        builder.append("屏幕宽高：\n");
         builder.append("screenWidthPX=");
         builder.append(screenWidth);
         builder.append("\n");
@@ -52,7 +68,6 @@ public class ScreenActivity extends BaseActivity {
 
         builder.append("screenHeightDp=");
         builder.append(screenHeightDp);
-
         mTvScreen.setText(builder.toString());
     }
 }

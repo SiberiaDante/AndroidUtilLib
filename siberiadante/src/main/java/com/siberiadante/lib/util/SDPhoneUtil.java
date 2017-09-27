@@ -35,7 +35,7 @@ import java.util.UUID;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： 手机设备相关处理类
  * @Time: 2017/9/26
  * @UpDate:
  * @Email: 994537867@qq.com

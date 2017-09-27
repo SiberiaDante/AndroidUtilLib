@@ -64,11 +64,11 @@ dependencies {
     </tr>
     <tr>
         <td>SDTitleBar</td>
-        <td>常规的titleBar的封装</td>
+        <td>常规的titleBar的封装,支持xml属性和Java代码设置</td>
     </tr>
     <tr>
         <td>SDTitleLayout</td>
-        <td>常规的能够满足开发需求的标题栏的封装</td>
+        <td>常规的能够满足开发需求的标题栏的封装，仅支持Java代码设置</td>
     </tr>
 </table>
 
@@ -164,7 +164,7 @@ dependencies {
         <td>图片处理相关工具类</td>
     </tr>
     <tr>
-        <td>SDClearUtil</td>
+        <td>SDCleanUtil</td>
         <td>清除缓存、数据、文件、数据库等相关工具类</td>
     </tr>
     <tr>
@@ -174,6 +174,10 @@ dependencies {
     <tr>
         <td>CrashHandler</td>
         <td>Crash异常处理等相关工具类</td>
+    </tr>
+    <tr>
+        <td>SDDataUtil</td>
+        <td>对象处理相关类</td>
     </tr>
     <tr>
         <td>SDDateUtil</td>
@@ -212,8 +216,16 @@ dependencies {
         <td>数字工具类</td>
     </tr>
     <tr>
+        <td>SDPhoneUtil</td>
+        <td>手机设备相关处理工具类</td>
+    </tr>
+    <tr>
         <td>SDProcessUtil</td>
         <td></td>
+    </tr>
+    <tr>
+        <td>SDRegexUtil</td>
+        <td>正则验证相关工具类</td>
     </tr>
     <tr>
         <td>SDScreenUtil</td>

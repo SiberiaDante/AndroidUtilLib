@@ -559,7 +559,12 @@ public class SDScreenUtil {
      * @param activity
      * @return 1:MIUUI 2:Flyme 3:android6.0
      */
-    public static int StatusBarLightMode(Activity activity) {
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public static void setStatusBarLightMode(Activity activity) {
+        setStatusBarLightMode(activity, getStatusBarLightType(activity));
+    }
+
+    private static int getStatusBarLightType(Activity activity) {
         int result = 0;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             if (MIUISetStatusBarLightMode(activity.getWindow(), true)) {
@@ -581,8 +586,8 @@ public class SDScreenUtil {
      * @param activity
      * @param type     1:MIUUI 2:Flyme 3:android6.0
      */
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
-    public static void StatusBarLightMode(Activity activity, int type) {
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+    public static void setStatusBarLightMode(Activity activity, int type) {
         if (type == 1) {
             MIUISetStatusBarLightMode(activity.getWindow(), true);
         } else if (type == 2) {
@@ -616,7 +621,7 @@ public class SDScreenUtil {
      * @param dark   是否把状态栏字体及图标颜色设置为深色
      * @return boolean 成功执行返回true
      */
-    public static boolean FlymeSetStatusBarLightMode(Window window, boolean dark) {
+    private static boolean FlymeSetStatusBarLightMode(Window window, boolean dark) {
         boolean result = false;
         if (window != null) {
             try {
@@ -651,7 +656,7 @@ public class SDScreenUtil {
      * @param dark   是否把状态栏字体及图标颜色设置为深色
      * @return boolean 成功执行返回true
      */
-    public static boolean MIUISetStatusBarLightMode(Window window, boolean dark) {
+    private static boolean MIUISetStatusBarLightMode(Window window, boolean dark) {
         boolean result = false;
         if (window != null) {
             Class clazz = window.getClass();

@@ -25,8 +25,12 @@ import java.util.Map;
 import java.util.Stack;
 
 /**
- * Created by SiberiaDante on 2017/5/10.
- * Activity相关工具类
+ * @Created SiberiaDante
+ * @Describe： Activity相关工具类
+ * @Time: 2017/5/10.
+ * @UpDate:
+ * @Email: 994537867@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
 
 public class SDActivityUtil {
