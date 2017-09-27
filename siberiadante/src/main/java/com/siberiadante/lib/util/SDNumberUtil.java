@@ -21,11 +21,51 @@ public class SDNumberUtil {
      * @return
      */
     public static boolean isNumeric(String str) {
-        Pattern pattern = Pattern.compile("[0-9]*");
-        Matcher isNum = pattern.matcher(str);
-        if (!isNum.matches()) {
-            return false;
-        }
-        return true;
+        return SDRegexUtil.isNum(str);
+    }
+
+    /**
+     * 验证字符串是否是正整数
+     * tips:不输入任何内容默认为数字，空格不是数字
+     *
+     * @param integer 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isPositionInteger(String integer) {
+        return SDRegexUtil.isPositionInteger(integer);
+    }
+
+    /**
+     * 验证字符串是否是负整数
+     * tips:不输入任何内容默认为数字，空格不是数字
+     *
+     * @param integer 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isNegativeInteger(String integer) {
+        return SDRegexUtil.isNegativeInteger(integer);
+
+    }
+
+    /**
+     * 验证整数（正整数和负整数）
+     *
+     * @param integer 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isInteger(String integer) {
+        return SDRegexUtil.isInteger(integer);
+
+    }
+
+    /**
+     * 验证正数、负数、和小数
+     *
+     * @param decimals 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isDecimals(String decimals) {
+        return SDRegexUtil.isDecimals(decimals);
+
     }
 }

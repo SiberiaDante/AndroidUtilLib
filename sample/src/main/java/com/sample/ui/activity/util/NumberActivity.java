@@ -8,6 +8,7 @@ import android.widget.EditText;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.SDNumberUtil;
+import com.siberiadante.lib.util.SDRegexUtil;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 import butterknife.ButterKnife;
@@ -15,7 +16,7 @@ import butterknife.ButterKnife;
 public class NumberActivity extends BaseActivity implements View.OnClickListener {
 
     private EditText edtInput;
-    private Button mBtnOne;
+    private Button mBtnOne, mBtnTwo, mBtnThree, mBtnFour, mBtnFive;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,25 +33,72 @@ public class NumberActivity extends BaseActivity implements View.OnClickListener
         mSDTitleBar.setImmersive(true);
         edtInput = (EditText) findViewById(R.id.edt_input);
         mBtnOne = ((Button) findViewById(R.id.btn_number_test_one));
+        mBtnTwo = ((Button) findViewById(R.id.btn_number_test_two));
+        mBtnThree = ((Button) findViewById(R.id.btn_number_test_three));
+        mBtnFour = ((Button) findViewById(R.id.btn_number_test_four));
+        mBtnFive = ((Button) findViewById(R.id.btn_number_test_five));
 
         mBtnOne.setOnClickListener(this);
+        mBtnTwo.setOnClickListener(this);
+        mBtnThree.setOnClickListener(this);
+        mBtnFour.setOnClickListener(this);
+        mBtnFive.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View view) {
+        String content = edtInput.getText().toString();
         switch (view.getId()) {
             case R.id.btn_number_test_one:
-                testIsNumber();
+                if (SDNumberUtil.isNumeric(content)) {
+                    mBtnOne.setText("true");
+                } else {
+                    mBtnOne.setText("false");
+                }
                 break;
-        }
-    }
-
-    private void testIsNumber() {
-        if (SDNumberUtil.isNumeric(edtInput.getText().toString())) {
-            mBtnOne.setText("true");
-        } else {
-            mBtnOne.setText("false");
+            case R.id.btn_number_test_two:
+                if (SDNumberUtil.isPositionInteger(content)) {
+                    mBtnTwo.setText("true");
+                } else {
+                    mBtnTwo.setText("false");
+                }
+                break;
+            case R.id.btn_number_test_three:
+                if (SDNumberUtil.isNegativeInteger(content)) {
+                    mBtnThree.setText("true");
+                } else {
+                    mBtnThree.setText("false");
+                }
+                break;
+            case R.id.btn_number_test_four:
+                if (SDNumberUtil.isInteger(content)) {
+                    mBtnFour.setText("true");
+                } else {
+                    mBtnFour.setText("false");
+                }
+                break;
+            case R.id.btn_number_test_five:
+                if (SDNumberUtil.isDecimals(content)) {
+                    mBtnFive.setText("true");
+                } else {
+                    mBtnFive.setText("false");
+                }
+                break;
+            case R.id.btn_number_test_phone_num:
+                if (SDRegexUtil.isMobileExact(content)) {
+                    mBtnFive.setText("true");
+                } else {
+                    mBtnFive.setText("false");
+                }
+                break;
+            case R.id.btn_number_test_card_num:
+                if (SDRegexUtil.isIDCard18(content)) {
+                    mBtnFive.setText("true");
+                } else {
+                    mBtnFive.setText("false");
+                }
+                break;
         }
     }
 }

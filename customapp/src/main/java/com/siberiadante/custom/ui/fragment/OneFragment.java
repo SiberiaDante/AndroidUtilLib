@@ -7,6 +7,8 @@ import android.view.View;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.siberiadante.custom.R;
+import com.siberiadante.custom.http.ApiService;
+import com.siberiadante.custom.http.RetrofitManager;
 import com.siberiadante.custom.ui.activity.Main2Activity;
 import com.siberiadante.custom.util.ImageLoadUtil;
 import com.siberiadante.lib.util.SDLogUtil;
@@ -46,7 +48,9 @@ public class OneFragment extends LazyFragment {
         SDToastUtil.toast("第一个页面");
         Log.d(TAG, "onCreateViewLazy: FragmentOne");
         initView();
+        initData();
     }
+
 
     private void initView() {
         SimpleDraweeView draweeView = (SimpleDraweeView) findViewById(R.id.dv_image_view);
@@ -68,6 +72,9 @@ public class OneFragment extends LazyFragment {
                 });
 
         addCompositeDisposable(disposable);
+    }
+
+    private void initData() {
     }
 
 }

@@ -48,9 +48,6 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         StringBuilder builder = new StringBuilder();
         builder.append("getAppVersionCode---"+ SDAppUtil.getAppVersionCode()+"\n");
         builder.append("getAppVersionName---"+ SDAppUtil.getAppVersionName()+"\n");
-        builder.append("getAndroidSystemVersion---"+ SDAppUtil.getAndroidSystemVersion()+"\n");
-        builder.append("getMobilePhoneTypeInfo---"+ SDAppUtil.getMobilePhoneTypeInfo()+"\n");
-        builder.append("getMobileAndAPPInfo---"+ SDAppUtil.getMobileAndAPPInfo()+"\n");
         builder.append("getPackageName---"+ SDAppUtil.getPackageName()+"\n");
         builder.append("isInstalledApp---"+ SDAppUtil.isInstalledApp()+"\n");
         builder.append("getAppName---"+ SDAppUtil.getAppName()+"\n");
@@ -66,10 +63,6 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         builder.append("getAppSignatureSHA1---"+ SDAppUtil.getAppSignatureSHA1("com.shuinsen.zhiri")+"\n");
         builder.append("isAppInForeground---"+ SDAppUtil.isAppInForeground()+"\n");
         builder.append("isAppInForeground---"+ SDAppUtil.isAppInForeground("com.shuinsen.zhiri")+"\n");
-        builder.append("getDeviceId---"+ SDAppUtil.getDeviceId()+"\n");
-        builder.append("getLocalMac---"+ SDAppUtil.getLocalMac()+"\n");
-        builder.append("getIMIEStatus---"+ SDAppUtil.getIMIEStatus()+"\n");
-        builder.append("getAndroidId---"+ SDAppUtil.getAndroidId()+"\n");
 
         mTvContent.setText(builder);
         mIvIcon.setImageDrawable(SDAppUtil.getAppIcon("com.shuinsen.zhiri"));

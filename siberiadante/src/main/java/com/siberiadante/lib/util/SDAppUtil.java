@@ -629,19 +629,19 @@ public class SDAppUtil {
      * @return {@code true}: 成功<br>{@code false}: 失败
      */
     public static boolean cleanAppData(File... dirs) {
-        boolean isSuccess = SDCleanUtil.clearInternalCache();
-        isSuccess &= SDCleanUtil.clearInternalDbs();
-        isSuccess &= SDCleanUtil.clearInternalSP();
-        isSuccess &= SDCleanUtil.clearInternalFiles();
-        isSuccess &= SDCleanUtil.clearExternalCache();
+        boolean isSuccess = SDCleanUtil.cleanInternalCache();
+        isSuccess &= SDCleanUtil.cleanInternalDbs();
+        isSuccess &= SDCleanUtil.cleanInternalSP();
+        isSuccess &= SDCleanUtil.cleanInternalFiles();
+        isSuccess &= SDCleanUtil.cleanExternalCache();
         for (File dir : dirs) {
-            isSuccess &= SDCleanUtil.clearCustomCache(dir);
+            isSuccess &= SDCleanUtil.cleanCustomCache(dir);
         }
         return isSuccess;
     }
 
 
-//TODO 以上-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
     /**

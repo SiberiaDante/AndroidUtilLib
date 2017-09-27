@@ -26,13 +26,13 @@ public class ClearActivity extends BaseActivity {
 
     private void initData() {
         File file = new File("");
-        Log.d(TAG, "initData: clearInternalCache=" + SDCleanUtil.clearInternalCache());
-        Log.d(TAG, "initData: clearInternalFiles=" + SDCleanUtil.clearInternalFiles());
-        Log.d(TAG, "initData: clearInternalDbs=" + SDCleanUtil.clearInternalDbs());
-        Log.d(TAG, "initData: clearInternalDbByName(String dbName)=" + SDCleanUtil.clearInternalDbByName("www"));
-        Log.d(TAG, "initData: clearInternalSP=" + SDCleanUtil.clearInternalSP());
-        Log.d(TAG, "initData: " + SDCleanUtil.clearCustomCache(""));
-        Log.d(TAG, "initData: " + SDCleanUtil.clearCustomCache(file));
+        Log.d(TAG, "initData: clearInternalCache=" + SDCleanUtil.cleanInternalCache());
+        Log.d(TAG, "initData: clearInternalFiles=" + SDCleanUtil.cleanInternalFiles());
+        Log.d(TAG, "initData: clearInternalDbs=" + SDCleanUtil.cleanInternalDbs());
+        Log.d(TAG, "initData: clearInternalDbByName(String dbName)=" + SDCleanUtil.cleanInternalDbByName("www"));
+        Log.d(TAG, "initData: clearInternalSP=" + SDCleanUtil.cleanInternalSP());
+        Log.d(TAG, "initData: " + SDCleanUtil.cleanCustomCache(""));
+        Log.d(TAG, "initData: " + SDCleanUtil.cleanCustomCache(file));
 
 
     }
