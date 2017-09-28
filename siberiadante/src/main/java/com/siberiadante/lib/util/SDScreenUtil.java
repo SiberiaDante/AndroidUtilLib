@@ -438,6 +438,7 @@ public class SDScreenUtil {
             window.setNavigationBarColor(Color.TRANSPARENT);
         } else {
             activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            setNavigationTranslucent(activity);
         }
     }
 

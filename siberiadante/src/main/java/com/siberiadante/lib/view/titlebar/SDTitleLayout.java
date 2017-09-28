@@ -286,7 +286,7 @@ public class SDTitleLayout extends RelativeLayout {
          * 如果是返回键，则点击实现页面返回，否则获取点击事件{@code setLeftClickListener()}
          */
         if (mIsBackView) {
-            mTvLeft.setOnClickListener(new OnClickListener() {
+            mIvLeft.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     ((Activity) mContext).finish();
@@ -578,6 +578,26 @@ public class SDTitleLayout extends RelativeLayout {
      */
     public void setIsLeftBackView(boolean isLeftBackView) {
         mIsBackView = isLeftBackView;
+        if (!mIsBackView) {
+            return;
+        }
+        if (mLeftImage != 0) {
+            mIvLeft.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Activity) mContext).finish();
+                }
+            });
+        }
+        if (SDStringUtil.isEmpty(mLeftText)) {
+            mTvLeft.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((Activity) mContext).finish();
+
+                }
+            });
+        }
     }
 
     /**
