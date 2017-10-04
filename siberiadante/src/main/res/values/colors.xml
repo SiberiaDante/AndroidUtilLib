@@ -13,4 +13,8 @@
     <color name="gray">#8F8F8F</color>
     <color name="gray_8c8c8c">#8c8c8c</color>
     <color name="gray_a5a5a5">#A5A5A5</color>
+    <!--SDSkipLoadView-->
+    <color name="circle_color">#6DDD22</color>
+    <color name="rect_color">#448CBB</color>
+    <color name="triangle_color">#EE5C42</color>
 </resources>

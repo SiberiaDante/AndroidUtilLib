@@ -345,4 +345,33 @@
         <enum name="bottom" value="4" />
     </attr>
     <!--@Time:2017-09-28——Start-->
+    <!--@Tme:2017-10-02——Start-->
+    <declare-styleable name="SDRatingBar">
+        <!--默认星星图片 -->
+        <attr name="sd_normalStar" />
+        <!--选中星星图片 -->
+        <attr name="sd_selectStar" />
+        <!--星星的总数量 -->
+        <attr name="sd_starNum" />
+        <!--星星的间隔 -->
+        <attr name="sd_starPadding" />
+    </declare-styleable>
+    <attr name="sd_normalStar" format="reference" />
+    <attr name="sd_selectStar" format="reference" />
+    <attr name="sd_starNum" format="integer" />
+    <attr name="sd_starPadding" format="dimension" />
+    <!--@Tme:2017-10-02——End-->
+    <!--@Tme:2017-10-03——Start-->
+    <declare-styleable name="SDLetterIndexView">
+        <!--字母文字颜色-->
+        <attr name="sd_defaultTextColor" />
+        <!--选中时字母文字颜色-->
+        <attr name="sd_selectTextColor" />
+        <!--字母文字大小-->
+        <attr name="sd_letterTextSize" />
+    </declare-styleable>
+    <attr name="sd_defaultTextColor" format="color" />
+    <attr name="sd_selectTextColor" format="color" />
+    <attr name="sd_letterTextSize" format="dimension" />
+    <!--@Tme:2017-10-03——End-->
 </resources>

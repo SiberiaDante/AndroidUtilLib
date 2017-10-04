@@ -34,8 +34,6 @@ public class SDCloseUtil {
                     e.printStackTrace();
                 }
             }
-
         }
-
     }
 }

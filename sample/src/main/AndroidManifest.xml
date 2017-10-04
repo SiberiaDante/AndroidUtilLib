@@ -70,7 +70,10 @@
         <activity android:name=".ui.activity.util.LogUtilActivity" />
         <activity android:name=".ui.activity.view.TitleLayoutActivity" />
         <activity android:name=".ui.activity.animation.SDSpreadLikeViewActivity" />
-        <activity android:name=".ui.activity.util.BitmapUtilActivity"></activity>
+        <activity android:name=".ui.activity.util.BitmapUtilActivity" />
+        <activity android:name=".ui.activity.view.RantingBarActivity" />
+        <activity android:name=".ui.activity.view.customview.SDLetterIndexActivity" />
+        <activity android:name=".ui.activity.view.customview.SDLoadViewActivity"></activity>
     </application>
 
 </manifest>

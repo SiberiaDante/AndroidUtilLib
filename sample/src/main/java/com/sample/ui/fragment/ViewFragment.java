@@ -18,8 +18,11 @@ import com.sample.ui.activity.view.DialogActivity;
 import com.sample.ui.activity.view.ImageSpanActivity;
 import com.sample.ui.activity.view.KeyBoardActivity;
 import com.sample.ui.activity.view.QQStepViewActivity;
+import com.sample.ui.activity.view.RantingBarActivity;
 import com.sample.ui.activity.view.ShapeViewActivity;
 import com.sample.ui.activity.view.TitleLayoutActivity;
+import com.sample.ui.activity.view.customview.SDLetterIndexActivity;
+import com.sample.ui.activity.view.customview.SDLoadViewActivity;
 import com.siberiadante.lib.util.SDActivityUtil;
 import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDTransitionUtil;
@@ -84,6 +87,9 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
         datas.add(new UtilData("WebVideoActivity", WebVideoActivity.class.getName()));
         datas.add(new UtilData("测试TitleLayout标题栏", TitleLayoutActivity.class.getName()));
         datas.add(new UtilData("点赞特效相关测试", SDSpreadLikeViewActivity.class.getName()));
+        datas.add(new UtilData("评分进度条测试", RantingBarActivity.class.getName()));
+        datas.add(new UtilData("字母索引测试", SDLetterIndexActivity.class.getName()));
+        datas.add(new UtilData("各种加载动画相关测试", SDLoadViewActivity.class.getName()));
         adapter.addAll(datas);
     }
 
