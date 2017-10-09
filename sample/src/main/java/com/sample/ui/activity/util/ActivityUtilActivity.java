@@ -1,13 +1,10 @@
 package com.sample.ui.activity.util;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.sample.R;
-import com.sample.SampleApplication;
 import com.sample.constants.Constants;
 import com.sample.ui.activity.BaseActivity;
 import com.sample.ui.activity.SecondActivity;

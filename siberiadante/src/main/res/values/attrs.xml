@@ -166,6 +166,7 @@
 
         <attr name="d_line_height" />
         <attr name="d_line_background" />
+        <attr name="d_have_line" />
 
         <attr name="d_title_layout_height" />
         <attr name="d_title_layout_background" />
@@ -180,7 +181,11 @@
     <attr name="d_left_text" format="reference|string" />
     <attr name="d_left_text_size" format="dimension|reference" />
     <attr name="d_left_text_color" format="color|reference" />
-    <attr name="d_left_text_style" format="reference" />
+    <attr name="d_left_text_style" format="reference">
+        <enum name="normal" value="0" />
+        <enum name="bold" value="1" />
+        <enum name="italic" value="2" />
+    </attr>
     <attr name="d_left_text_padding_start" format="dimension|reference" />
 
     <attr name="d_title_text" format="reference|string" />
@@ -188,17 +193,29 @@
     <attr name="d_title_color" format="color|reference" />
     <attr name="d_title_padding_start" format="dimension|reference" />
     <attr name="d_title_padding_end" format="dimension|reference" />
-    <attr name="d_title_style" format="reference" />
+    <attr name="d_title_style" format="reference">
+        <enum name="normal" value="0" />
+        <enum name="bold" value="1" />
+        <enum name="italic" value="2" />
+    </attr>
 
     <attr name="d_subtitle_text" format="reference|string" />
     <attr name="d_subtitle_size" format="dimension|reference" />
     <attr name="d_subtitle_color" format="dimension|reference" />
-    <attr name="d_subtitle_style" format="reference" />
+    <attr name="d_subtitle_style" format="reference">
+        <enum name="normal" value="0" />
+        <enum name="bold" value="1" />
+        <enum name="italic" value="2" />
+    </attr>
 
     <attr name="d_right_text" format="reference|string" />
     <attr name="d_right_text_color" format="color|reference" />
     <attr name="d_right_text_size" format="dimension|reference" />
-    <attr name="d_right_text_style" format="reference" />
+    <attr name="d_right_text_style" format="reference">
+        <enum name="normal" value="0" />
+        <enum name="bold" value="1" />
+        <enum name="italic" value="2" />
+    </attr>
     <attr name="d_right_text_padding_end" format="dimension|reference" />
 
     <attr name="d_right_image" format="reference" />
@@ -207,6 +224,8 @@
 
     <attr name="d_line_height" format="dimension|reference" />
     <attr name="d_line_background" format="color|reference" />
+    <attr name="d_have_line" format="boolean" />
+
 
     <attr name="d_title_layout_height" format="dimension|reference" />
     <attr name="d_title_layout_background" format="color|reference" />
