@@ -147,18 +147,18 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         if (fourFragment != null)
             ts.hide(fourFragment);
     }
-
-    @Override
-    public void onAttachFragment(Fragment fragment) {
-        if (oneFragment == null && fragment instanceof OneFragment)
-            oneFragment = (OneFragment) fragment;
-        if (twoFragment == null && fragment instanceof TwoFragment)
-            twoFragment = (TwoFragment) fragment;
-        if (threeFragment == null && fragment instanceof ThreeFragment)
-            threeFragment = (ThreeFragment) fragment;
-        if (fourFragment == null && fragment instanceof FourFragment)
-            fourFragment = (FourFragment) fragment;
-    }
+//
+//    @Override
+//    public void onAttachFragment(Fragment fragment) {
+//        if (oneFragment == null && fragment instanceof OneFragment)
+//            oneFragment = (OneFragment) fragment;
+//        if (twoFragment == null && fragment instanceof TwoFragment)
+//            twoFragment = (TwoFragment) fragment;
+//        if (threeFragment == null && fragment instanceof ThreeFragment)
+//            threeFragment = (ThreeFragment) fragment;
+//        if (fourFragment == null && fragment instanceof FourFragment)
+//            fourFragment = (FourFragment) fragment;
+//    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

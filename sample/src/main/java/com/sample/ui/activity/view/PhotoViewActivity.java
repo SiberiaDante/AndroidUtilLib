@@ -17,7 +17,7 @@
 //import com.sample.constants.SDConstants;
 //import com.siberiadante.lib.adapter.PhotoViewAdapter;
 //import com.siberiadante.lib.util.SDToastUtil;
-//import com.siberiadante.lib.widget.PhotoViewPager;
+//import com.siberiadante.lib.widget.viewpager.PhotoViewPager;
 //
 //import java.io.File;
 //import java.io.FileNotFoundException;

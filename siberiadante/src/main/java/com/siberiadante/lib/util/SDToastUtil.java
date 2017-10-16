@@ -402,7 +402,7 @@ public class SDToastUtil {
      * @param yOffset
      */
     public static void showView(@LayoutRes int resId, int position, int xOffset, int yOffset) {
-        showView(resId, POSITION_NULL, 0, 0, DURATION_NULL).show();
+        showView(resId, position, 0, 0, DURATION_NULL).show();
     }
 
 

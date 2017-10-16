@@ -125,7 +125,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
 
     private void testTimer() {
 
-        final TimerCountModel timerCountModel = new TimerCountModel(10000, 1000, new ITimerCountPresenter() {
+        TimerCountModel timerCountModel = new TimerCountModel(10000, 1000, new ITimerCountPresenter() {
             @Override
             public void onTimerCount(long time) {
                 SDLogUtil.d("-------------------" + time);
