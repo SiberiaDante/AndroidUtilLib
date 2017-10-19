@@ -7,10 +7,8 @@ import android.view.MotionEvent;
 
 /**
  * Created by SiberiaDante on 2017/3/28.
- * 照片查看器ViewPager
- * demo:
+ * Photo View ViewPager
  * sample/activity/PhotoViewActivity
- *
  */
 
 public class PhotoViewPager extends ViewPager {

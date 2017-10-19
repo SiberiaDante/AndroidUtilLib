@@ -535,7 +535,7 @@ public class SDScreenUtil {
         View view = activity.findViewById(action_bar_id);
         if (view != null) {
             TypedValue typedValue = new TypedValue();
-            if (activity.getTheme().resolveAttribute(R.attr.actionBarSize, typedValue, true)) {
+            if (activity.getTheme().resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
                 int actionBarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, activity.getResources().getDisplayMetrics());
                 setContentTopPadding(activity, actionBarHeight);
             }
