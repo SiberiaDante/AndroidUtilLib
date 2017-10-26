@@ -3,4 +3,22 @@
     <translate
         android:duration="600"
         android:toYDelta="100%p" />
+    <!--
+   interpolator属性：
+   @android:anim/accelerate_interpolator： 越来越快
+
+   @android:anim/decelerate_interpolator：越来越慢
+
+   @android:anim/accelerate_decelerate_interpolator：先快后慢
+
+   @android:anim/anticipate_interpolator: 先后退一小步然后向前加速
+
+   @android:anim/overshoot_interpolator：快速到达终点超出一小步然后回到终点
+
+   @android:anim/anticipate_overshoot_interpolator：到达终点超出一小步然后回到终点
+
+   @android:anim/bounce_interpolator：到达终点产生弹球效果，弹几下回到终点
+
+   @android:anim/linear_interpolator：均匀速度。
+   -->
 </set>

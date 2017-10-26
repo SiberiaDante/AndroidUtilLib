@@ -3,6 +3,7 @@ package com.siberiadante.lib.util;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -11,12 +12,17 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 
 import com.siberiadante.lib.SiberiaDanteLib;
 import com.siberiadante.lib.bean.SDAppInfo;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +33,10 @@ import java.util.List;
 
 public class SDAppUtil {
     public static final String TAG = SDAppUtil.class.getSimpleName();
+
+    private static final String CHECK_OP_NO_THROW = "checkOpNoThrow";
+    private static final String OP_POST_NOTIFICATION = "OP_POST_NOTIFICATION";
+
 
     public SDAppUtil() {
         new SiberiaDanteLibException(getClass().getSimpleName());
@@ -474,6 +484,43 @@ public class SDAppUtil {
     }
 
     /**
+     * judge notification whether opened
+     *
+     * @return
+     */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public static boolean isNotificationEnable(Context context) {
+        AppOpsManager mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
+        ApplicationInfo appInfo = context.getApplicationInfo();
+        String pkg = context.getApplicationContext().getPackageName();
+        int uid = appInfo.uid;
+
+        Class appOpsClass = null;
+      /* Context.APP_OPS_MANAGER */
+        try {
+            appOpsClass = Class.forName(AppOpsManager.class.getName());
+            Method checkOpNoThrowMethod = appOpsClass.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE,
+                    String.class);
+            Field opPostNotificationValue = appOpsClass.getDeclaredField(OP_POST_NOTIFICATION);
+
+            int value = (Integer) opPostNotificationValue.get(Integer.class);
+            return ((Integer) checkOpNoThrowMethod.invoke(mAppOps, value, uid, pkg) == AppOpsManager.MODE_ALLOWED);
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
      * 判断App是否处于前台
      *
      * @return {@code true}: 是<br>{@code false}: 否
@@ -501,6 +548,7 @@ public class SDAppUtil {
     public static boolean isAppInForeground(String packageName) {
         return !isSpace(packageName) && packageName.equals(SDProcessUtil.getForegroundProcessName());
     }
+
 
     /**
      * 安装App(支持7.0)
@@ -568,7 +616,6 @@ public class SDAppUtil {
         SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
-
 
 
     //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
