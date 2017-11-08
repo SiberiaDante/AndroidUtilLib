@@ -15,7 +15,7 @@ import java.io.File;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： —— all removed Android lib
  * @Time: 2017/5/15.
  * @UpDate:
  * @Email: 994537867@qq.com

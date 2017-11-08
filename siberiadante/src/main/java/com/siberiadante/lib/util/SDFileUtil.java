@@ -29,7 +29,7 @@ import java.util.List;
 
 /**
  * @Created SiberiaDante
- * @Describe：文件处理相关工具类
+ * @Describe：文件处理相关工具类—— all removed Android lib
  * @Time: 2017/5/4.
  * @UpDate:
  * @Email: 994537867@qq.com

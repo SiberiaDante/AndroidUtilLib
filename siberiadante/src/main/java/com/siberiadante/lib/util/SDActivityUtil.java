@@ -26,7 +26,7 @@ import java.util.Stack;
 
 /**
  * @Created SiberiaDante
- * @Describe： Activity相关工具类
+ * @Describe： Activity相关工具类—— all removed Android lib
  * @Time: 2017/5/10.
  * @UpDate:
  * @Email: 994537867@qq.com
@@ -34,8 +34,6 @@ import java.util.Stack;
  */
 
 public class SDActivityUtil {
-
-    private static Stack<Activity> activityStack;
 
 
     public SDActivityUtil() {
