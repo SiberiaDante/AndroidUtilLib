@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.sample.R;
 import com.sample.constants.Constants;
-import com.sample.ui.BaseFragmentN;
 import com.sample.util.JumpUtils;
 
 /**

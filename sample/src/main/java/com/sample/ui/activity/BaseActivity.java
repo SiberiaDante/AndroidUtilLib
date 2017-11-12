@@ -15,14 +15,22 @@ import com.siberiadante.lib.util.SDScreenUtil;
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 
-public class BaseActivity extends AppCompatActivity {
+import butterknife.ButterKnife;
+
+public abstract class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SDScreenUtil.setStatusTranslucent(this);
-        EventBus.getDefault().register(this);
+        beforeSetContentView();
+        setContentView(setLayoutId());
+        ButterKnife.bind(this);
+        initView(savedInstanceState);
+        initData();
+    }
 
+    public void beforeSetContentView() {
+        SDScreenUtil.setStatusTranslucent(this);
         SwipeBackHelper.onCreate(this);
         SwipeBackHelper.getCurrentPage(this)
                 .setSwipeBackEnable(true)
@@ -31,6 +39,13 @@ public class BaseActivity extends AppCompatActivity {
                 .setSwipeRelateEnable(true)
                 .setSwipeRelateOffset(300);
     }
+
+
+    public abstract int setLayoutId();
+
+    public abstract void initView(Bundle savedInstanceState);
+
+    public abstract void initData();
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +56,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        EventBus.getDefault().unregister(this);
         SwipeBackHelper.onDestroy(this);
     }
 

@@ -3,6 +3,7 @@ package com.sample.ui.activity;
 import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.SslErrorHandler;
@@ -14,7 +15,7 @@ import com.sample.R;
 import com.siberiadante.lib.util.SDScreenUtil;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
-public class WebViewActivity extends BaseActivity {
+public class WebViewActivity extends AppCompatActivity {
 
     private String url;
     private WebView mWebView;
@@ -34,7 +35,7 @@ public class WebViewActivity extends BaseActivity {
         final Intent intent = getIntent();
         url = intent.getStringExtra("url");
         title = intent.getStringExtra("title");
-        url="http://www.chinichi.cn/activity/index/app_detail.html?id=5";
+        url = "http://www.chinichi.cn/activity/index/app_detail.html?id=5";
     }
 
     private void initView() {

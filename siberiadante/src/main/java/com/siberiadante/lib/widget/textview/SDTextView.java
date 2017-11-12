@@ -1,4 +1,4 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.textview;
 
 /**
  * @Created SiberiaDante

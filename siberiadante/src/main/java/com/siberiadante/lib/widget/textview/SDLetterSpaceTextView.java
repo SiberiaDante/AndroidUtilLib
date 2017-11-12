@@ -1,4 +1,4 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.textview;
 
 import android.content.Context;
 import android.support.v7.widget.AppCompatTextView;

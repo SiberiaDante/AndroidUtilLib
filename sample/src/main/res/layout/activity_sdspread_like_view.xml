@@ -7,6 +7,8 @@
     android:layout_margin="30dp"
     tools:context="com.sample.ui.activity.animation.SDSpreadLikeViewActivity">
 
+    <include layout="@layout/include_title" />
+
     <com.siberiadante.lib.view.likeview.SDSpreadLikeView
         android:id="@+id/like_view_one"
         android:layout_width="50dp"

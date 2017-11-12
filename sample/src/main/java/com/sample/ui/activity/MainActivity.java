@@ -47,8 +47,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private FloatingActionButton mFloatBar;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
         setContentView(R.layout.activity_main);
 
         SwipeBackHelper.getCurrentPage(this)
@@ -56,12 +56,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         SwipeBackHelper.getCurrentPage(this)
                 .setSwipeRelateEnable(true)
                 .setDisallowInterceptTouchEvent(true);
-
-        initView();
-        initData();
     }
 
-    public void initView() {
+    @Override
+    public int setLayoutId() {
+        return R.layout.activity_main;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         mMianTitle = (SDTitleLayout) findViewById(R.id.title_layout_main);
         final RadioGroup mRGHome = (RadioGroup) findViewById(R.id.rg_home);
         mRBOne = (RadioButton) findViewById(R.id.rb_home_one);
@@ -107,6 +110,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         });
     }
 
+    @Override
     public void initData() {
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(MainFragment.getInstance(mFloatBar));

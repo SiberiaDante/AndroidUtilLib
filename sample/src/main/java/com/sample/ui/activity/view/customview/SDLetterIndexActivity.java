@@ -13,10 +13,14 @@ public class SDLetterIndexActivity extends BaseActivity {
 
     private Handler handler = new Handler();
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sdletter_index);
+    public int setLayoutId() {
+        return R.layout.activity_sdletter_index;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         final TextView tvIndicator = (TextView) findViewById(R.id.tv_indicator);
 
         SDLetterIndexView letterIndexView = (SDLetterIndexView) findViewById(R.id.letterIndexView);
@@ -40,7 +44,8 @@ public class SDLetterIndexActivity extends BaseActivity {
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    public void initData() {
+
     }
+
 }

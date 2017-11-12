@@ -10,9 +10,12 @@ import com.siberiadante.lib.view.SDRatingBarView;
 public class RantingBarActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ranking_bar);
+    public int setLayoutId() {
+        return R.layout.activity_ranking_bar;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         /** RatingBar 评分条测试**/
         SDRatingBarView ratingBar = (SDRatingBarView) findViewById(R.id.ratingBar);
 //        ratingBar.setInitRate(3);
@@ -22,5 +25,10 @@ public class RantingBarActivity extends BaseActivity {
                 SDLogUtil.i( "当前选择个数是" + rate + "个");
             }
         });
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

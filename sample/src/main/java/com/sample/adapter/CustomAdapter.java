@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.sample.R;
-import com.sample.bean.UtilData;
+import com.sample.bean.Data;
 
 /**
  * @Created SiberiaDante
@@ -18,7 +18,7 @@ import com.sample.bean.UtilData;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class CustomAdapter extends RecyclerArrayAdapter<UtilData> {
+public class CustomAdapter extends RecyclerArrayAdapter<Data> {
 
     public CustomAdapter(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class CustomAdapter extends RecyclerArrayAdapter<UtilData> {
         return new UtilHolder(parent);
     }
 
-    public class UtilHolder extends BaseViewHolder<UtilData> {
+    public class UtilHolder extends BaseViewHolder<Data> {
 
         private TextView mTitle;
 
@@ -39,7 +39,7 @@ public class CustomAdapter extends RecyclerArrayAdapter<UtilData> {
         }
 
         @Override
-        public void setData(UtilData data) {
+        public void setData(Data data) {
             super.setData(data);
             mTitle.setText(data.getTitle());
         }

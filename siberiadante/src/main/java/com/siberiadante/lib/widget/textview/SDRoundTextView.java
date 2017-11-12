@@ -1,31 +1,36 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.textview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.siberiadante.lib.widget.base.SDRoundViewAttr;
 
 /**
  * @Created SiberiaDante
- * @Describe： 简化LinearLayout shape 画背景
+ * @Describe： 简化TextView shape 画背景
  * @Time: 2017/9/4
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class SDRoundLinearLayout extends LinearLayout {
+@SuppressLint("AppCompatCustomView")
+public class SDRoundTextView extends TextView {
 
     private SDRoundViewAttr roundViewAttr;
 
-    public SDRoundLinearLayout(Context context) {
+    public SDRoundTextView(Context context) {
         this(context, null);
     }
 
-    public SDRoundLinearLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        roundViewAttr = new SDRoundViewAttr(this, context, attrs);
+    public SDRoundTextView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
 
+    public SDRoundTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        roundViewAttr = new SDRoundViewAttr(this, context, attrs);
     }
 
     public SDRoundViewAttr getRoundViewAttr() {

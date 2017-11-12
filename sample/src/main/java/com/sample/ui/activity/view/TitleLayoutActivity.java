@@ -8,11 +8,18 @@ import com.siberiadante.lib.view.titlebar.SDTitleLayout;
 
 public class TitleLayoutActivity extends BaseActivity {
 
+    public int setLayoutId() {
+        return R.layout.activity_title_layout;
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_title_layout);
+    public void initView(Bundle savedInstanceState) {
         final SDTitleLayout titleLayout = (SDTitleLayout) findViewById(R.id.title_layout_three);
         titleLayout.setTitle("Java代码设置标题");
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

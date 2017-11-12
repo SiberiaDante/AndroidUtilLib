@@ -33,18 +33,14 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dialog);
-        SDScreenUtil.setStatusTranslucent(this);
-        initView();
-        initData();
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+    public int setLayoutId() {
+        return R.layout.activity_dialog;
     }
 
-    private void initView() {
+    @Override
+    public void initView(Bundle savedInstanceState) {
         findViewById(R.id.btn_general_dialog_one).setOnClickListener(this);
         findViewById(R.id.btn_general_dialog_two).setOnClickListener(this);
         findViewById(R.id.btn_general_dialog_three).setOnClickListener(this);
@@ -92,7 +88,8 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
         });
     }
 
-    private void initData() {
+    @Override
+    public void initData() {
 
     }
 
@@ -206,7 +203,7 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     private void showEnsureDialogOne() {
         ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
-                .setTitle("这里是一个标题", ContextCompat.getColor(this,R.color.black))//可以不设置标题颜色，默认系统颜色
+                .setTitle("这里是一个标题", ContextCompat.getColor(this, R.color.black))//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
                 .setNegativeButton("取消", new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override

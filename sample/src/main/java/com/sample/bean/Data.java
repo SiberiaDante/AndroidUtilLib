@@ -11,20 +11,20 @@ import android.app.Activity;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class UtilData {
+public class Data {
     private String Title;
-    private String cls;
+    private Class<?> cls;
 
-    public UtilData(String title, String cls) {
+    public Data(String title, Class<?> cls) {
         Title = title;
         this.cls = cls;
     }
 
-    public String getCls() {
+    public Class<?> getCls() {
         return cls;
     }
 
-    public void setCls(String cls) {
+    public void setCls(Class<?> cls) {
         this.cls = cls;
     }
 

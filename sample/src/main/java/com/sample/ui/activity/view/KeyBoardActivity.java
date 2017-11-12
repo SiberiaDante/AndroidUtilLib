@@ -16,12 +16,20 @@ public class KeyBoardActivity extends BaseActivity {
     private View mBtnOne;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_key_board);
+    public int setLayoutId() {
+        return R.layout.activity_key_board;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         mEdtOne = (EditText) findViewById(R.id.edt_one);
         mEdtTwo = (EditText) findViewById(R.id.edt_two);
         mBtnOne = findViewById(R.id.btn_one);
+    }
+
+    @Override
+    public void initData() {
+
     }
 
 //    @Override

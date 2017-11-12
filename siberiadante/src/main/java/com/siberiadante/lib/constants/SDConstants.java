@@ -30,10 +30,13 @@ public class SDConstants {
      * GB与Byte的倍数
      */
     public static final int GB = 1073741824;
-    /**
-     * 毫秒与毫秒的倍数
-     */
-    public static final int MSEC = 1;
+
+    public enum MemoryUnit {
+        BYTE,
+        KB,
+        MB,
+        GB
+    }
 
     /******************** 时间相关常量 ********************/
     /**
@@ -52,13 +55,6 @@ public class SDConstants {
      * 天与毫秒的倍数
      */
     public static final int DAY = 86400000;
-
-    public enum MemoryUnit {
-        BYTE,
-        KB,
-        MB,
-        GB
-    }
 
     public enum TimeUnit {
         MSEC,

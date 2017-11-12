@@ -17,10 +17,14 @@ public class ImageSpanActivity extends BaseActivity {
     private TextView textView;
     private TextView textViewCustom;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_span);
+    public int setLayoutId() {
+        return R.layout.activity_image_span;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         textViewNoLineSpace = (TextView) findViewById(R.id.tv_image_span_no_line_space);
         textView = (TextView) findViewById(R.id.tv_image_span);
         textViewCustom = (TextView) findViewById(R.id.tv_image_span_custom);
@@ -40,5 +44,10 @@ public class ImageSpanActivity extends BaseActivity {
         SDCenterAlignImageSpan span = new SDCenterAlignImageSpan(this.getApplicationContext(), R.drawable.share_qq, ImageSpan.ALIGN_BASELINE);//重写的ImageSpan
         spannableStringCustom.setSpan(span, 0, 2, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         textViewCustom.setText(spannableStringCustom);
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

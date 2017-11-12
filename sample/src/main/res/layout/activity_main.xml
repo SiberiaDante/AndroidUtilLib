@@ -40,7 +40,7 @@
                 android:background="@color/gray_1"
                 android:orientation="horizontal">
 
-                <com.siberiadante.lib.widget.SDRadioButton
+                <com.siberiadante.lib.widget.radiobutton.SDRadioButton
                     android:id="@+id/rb_home_one"
                     style="@style/HomeRadioButton"
                     android:text="精选"
@@ -48,7 +48,7 @@
                     dante:drawableSize="25dp"
                     dante:drawableTop="@drawable/checked_home_one" />
 
-                <com.siberiadante.lib.widget.SDRadioButton
+                <com.siberiadante.lib.widget.radiobutton.SDRadioButton
                     android:id="@+id/rb_home_two"
                     style="@style/HomeRadioButton"
                     android:text="组件"
@@ -57,7 +57,7 @@
 
                     dante:drawableTop="@drawable/checked_home_two" />
 
-                <com.siberiadante.lib.widget.SDRadioButton
+                <com.siberiadante.lib.widget.radiobutton.SDRadioButton
                     android:id="@+id/rb_home_three"
                     style="@style/HomeRadioButton"
                     android:text="工具"
@@ -66,7 +66,7 @@
                     dante:drawableSize="25dp"
                     dante:drawableTop="@drawable/checked_home_three" />
 
-                <com.siberiadante.lib.widget.SDRadioButton
+                <com.siberiadante.lib.widget.radiobutton.SDRadioButton
                     android:id="@+id/rb_home_four"
                     style="@style/HomeRadioButton"
                     android:text="其他"

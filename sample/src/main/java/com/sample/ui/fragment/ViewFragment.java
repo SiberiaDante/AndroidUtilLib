@@ -11,23 +11,12 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.sample.R;
 import com.sample.adapter.CustomAdapter;
-import com.sample.bean.UtilData;
-import com.sample.ui.activity.WebVideoActivity;
-import com.sample.ui.activity.animation.SDSpreadLikeViewActivity;
-import com.sample.ui.activity.view.DialogActivity;
-import com.sample.ui.activity.view.ImageSpanActivity;
-import com.sample.ui.activity.view.KeyBoardActivity;
-import com.sample.ui.activity.view.QQStepViewActivity;
-import com.sample.ui.activity.view.RantingBarActivity;
-import com.sample.ui.activity.view.ShapeViewActivity;
-import com.sample.ui.activity.view.TitleLayoutActivity;
-import com.sample.ui.activity.view.customview.SDLetterIndexActivity;
-import com.sample.ui.activity.view.customview.SDLoadViewActivity;
+import com.sample.bean.Data;
+import com.sample.constants.Constants;
 import com.siberiadante.lib.util.SDActivityUtil;
 import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDTransitionUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -41,7 +30,7 @@ import java.util.List;
 public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.OnItemClickListener {
     public static final String TAG = ViewFragment.class.getSimpleName();
     private EasyRecyclerView mRecyclerView;
-    private List<UtilData> datas;
+    private List<Data> datas;
     private CustomAdapter adapter;
     private static FloatingActionButton mTop;
 
@@ -76,25 +65,12 @@ public class ViewFragment extends LazyFragment implements RecyclerArrayAdapter.O
         });
     }
 
-
     protected void initData() {
-        datas = new ArrayList<>();
-        datas.add(new UtilData("各种Dialog", DialogActivity.class.getName()));
-        datas.add(new UtilData("测试文字表情混排对齐", ImageSpanActivity.class.getName()));
-        datas.add(new UtilData("Shape封装的View测试", ShapeViewActivity.class.getName()));
-        datas.add(new UtilData("测试点击View切换软件盘测试", KeyBoardActivity.class.getName()));
-        datas.add(new UtilData("测试QQ运动计步器View", QQStepViewActivity.class.getName()));
-        datas.add(new UtilData("WebVideoActivity", WebVideoActivity.class.getName()));
-        datas.add(new UtilData("测试TitleLayout标题栏", TitleLayoutActivity.class.getName()));
-        datas.add(new UtilData("点赞特效相关测试", SDSpreadLikeViewActivity.class.getName()));
-        datas.add(new UtilData("评分进度条测试", RantingBarActivity.class.getName()));
-        datas.add(new UtilData("字母索引测试", SDLetterIndexActivity.class.getName()));
-        datas.add(new UtilData("各种加载动画相关测试", SDLoadViewActivity.class.getName()));
-        adapter.addAll(datas);
+        adapter.addAll(Constants.getViewData());
     }
 
     @Override
     public void onItemClick(int position) {
-        SDActivityUtil.startActivity("com.sample", datas.get(position).getCls());
+        SDActivityUtil.startActivity(Constants.getViewData().get(position).getCls());
     }
 }

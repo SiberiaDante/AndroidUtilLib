@@ -9,11 +9,13 @@ import com.siberiadante.lib.util.SDDateUtil;
 
 public class DateUtilActivity extends BaseActivity {
 
+    @Override
+    public int setLayoutId() {
+        return R.layout.activity_date_util;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_date_util);
+    public void initView(Bundle savedInstanceState) {
         TextView mTvDateUtil = (TextView) findViewById(R.id.tv_date_util);
         final String timeStamp = SDDateUtil.getTimeStamp();
         StringBuilder builder = new StringBuilder();
@@ -47,6 +49,10 @@ public class DateUtilActivity extends BaseActivity {
         builder.append(SDDateUtil.getStrToSDFTime(timeStamp, "yyyy年MM月dd日"));
         builder.append("\n");
         mTvDateUtil.setText(builder);
+    }
+
+    @Override
+    public void initData() {
 
     }
 }

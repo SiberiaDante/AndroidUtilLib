@@ -1,8 +1,7 @@
 package com.siberiadante.lib.util;
 
 import android.annotation.SuppressLint;
-
-import com.siberiadante.lib.constants.MemoryConstants;
+import com.siberiadante.lib.constants.SDConstants;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -1340,9 +1339,9 @@ public class SDFileUtil {
         if (is == null) return null;
         try {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] b = new byte[MemoryConstants.KB];
+            byte[] b = new byte[SDConstants.KB];
             int len;
-            while ((len = is.read(b, 0, MemoryConstants.KB)) != -1) {
+            while ((len = is.read(b, 0, SDConstants.KB)) != -1) {
                 os.write(b, 0, len);
             }
             return os;
@@ -1387,14 +1386,14 @@ public class SDFileUtil {
     private static String byte2FitMemorySize(long byteNum) {
         if (byteNum < 0) {
             return "shouldn't be less than zero!";
-        } else if (byteNum < MemoryConstants.KB) {
+        } else if (byteNum < SDConstants.KB) {
             return String.format("%.3fB", (double) byteNum + 0.0005);
-        } else if (byteNum < MemoryConstants.MB) {
-            return String.format("%.3fKB", (double) byteNum / MemoryConstants.KB + 0.0005);
-        } else if (byteNum < MemoryConstants.GB) {
-            return String.format("%.3fMB", (double) byteNum / MemoryConstants.MB + 0.0005);
+        } else if (byteNum < SDConstants.MB) {
+            return String.format("%.3fKB", (double) byteNum / SDConstants.KB + 0.0005);
+        } else if (byteNum < SDConstants.GB) {
+            return String.format("%.3fMB", (double) byteNum / SDConstants.MB + 0.0005);
         } else {
-            return String.format("%.3fGB", (double) byteNum / MemoryConstants.GB + 0.0005);
+            return String.format("%.3fGB", (double) byteNum / SDConstants.GB + 0.0005);
         }
     }
 

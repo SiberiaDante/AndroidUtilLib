@@ -147,7 +147,7 @@
 //    public boolean onKeyDown(int keyCode, KeyEvent event) {
 //        if (keyCode == KeyEvent.KEYCODE_BACK) {
 //            this.finish();
-//            overridePendingTransition(R.anim.photo_activity_before_enter, R.anim.photo_activity_exit);
+//            overridePendingTransition(R.anim.photo_activity_before_enter, R.anim.normal_exit);
 //        }
 //        return false;
 //    }

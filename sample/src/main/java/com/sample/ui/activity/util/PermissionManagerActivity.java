@@ -16,12 +16,20 @@ public class PermissionManagerActivity extends BaseActivity {
     private Button sd;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_permission_manager);
+    public int setLayoutId() {
+        return R.layout.activity_permission_manager;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         initPermission();
         initView();
         initListener();
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     private void initPermission() {

@@ -29,7 +29,7 @@
         dante:d_title_size="18sp"
         dante:d_title_text="ShapeTextView等" />
 
-    <com.siberiadante.lib.widget.SDRoundTextView
+    <com.siberiadante.lib.widget.textview.SDRoundTextView
         android:layout_width="200dp"
         android:layout_marginTop="10dp"
         android:layout_height="50dp"
@@ -43,7 +43,7 @@
         dante:r_strokeWidth="10dp"
         dante:r_textPressColor="@color/red" />
 
-    <com.siberiadante.lib.widget.SDRoundLinearLayout
+    <com.siberiadante.lib.widget.linearlayout.SDRoundLinearLayout
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -55,9 +55,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="这是一个LinearLayout" />
-    </com.siberiadante.lib.widget.SDRoundLinearLayout>
+    </com.siberiadante.lib.widget.linearlayout.SDRoundLinearLayout>
 
-    <com.siberiadante.lib.widget.SDRoundRelativeLayout
+    <com.siberiadante.lib.widget.relativelayout.SDRoundRelativeLayout
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -69,9 +69,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="这是一个RelativeLayout" />
-    </com.siberiadante.lib.widget.SDRoundRelativeLayout>
+    </com.siberiadante.lib.widget.relativelayout.SDRoundRelativeLayout>
 
-    <com.siberiadante.lib.widget.SDRoundFrameLayout
+    <com.siberiadante.lib.widget.framelayout.SDRoundFrameLayout
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -85,7 +85,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="这是一个FrameLayout" />
-    </com.siberiadante.lib.widget.SDRoundFrameLayout>
+    </com.siberiadante.lib.widget.framelayout.SDRoundFrameLayout>
 
     <FrameLayout
         android:layout_width="150dp"

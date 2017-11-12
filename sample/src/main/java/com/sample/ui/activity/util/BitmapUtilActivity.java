@@ -18,14 +18,21 @@ public class BitmapUtilActivity extends BaseActivity {
     private int blurRadius = 10;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bitmap_util);
-        mIvBG = (ImageView) findViewById(R.id.iv_bg);
+    public int setLayoutId() {
+        return R.layout.activity_bitmap_util;
+    }
 
+    @Override
+    public void initView(Bundle savedInstanceState) {
+        mIvBG = (ImageView) findViewById(R.id.iv_bg);
         String drawable2Base64 = SDBitmapUtil.drawable2Base64(getResources().getDrawable(R.mipmap.ic_launcher));
         SDLogUtil.d("----------" + drawable2Base64 + "-------------");
         testStackBlur();
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     private void testStackBlur() {
@@ -36,7 +43,5 @@ public class BitmapUtilActivity extends BaseActivity {
                 false);
         final Bitmap stackBlur = SDBitmapUtil.stackBlur(scaledBitmap, 5, true);
         mIvBG.setImageBitmap(stackBlur);
-
-
     }
 }

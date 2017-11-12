@@ -19,14 +19,18 @@ public class NumberActivity extends BaseActivity implements View.OnClickListener
     private Button mBtnOne, mBtnTwo, mBtnThree, mBtnFour, mBtnFive;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_number);
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
         ButterKnife.bind(this);
-        initView();
     }
 
-    private void initView() {
+    @Override
+    public int setLayoutId() {
+        return R.layout.activity_number;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         SDTitleBar mSDTitleBar = (SDTitleBar) findViewById(R.id.title_bar_number);
         mSDTitleBar.setBackgroundResource(R.color.red);
         mSDTitleBar.setTitle("NumberUtil测试");
@@ -43,9 +47,12 @@ public class NumberActivity extends BaseActivity implements View.OnClickListener
         mBtnThree.setOnClickListener(this);
         mBtnFour.setOnClickListener(this);
         mBtnFive.setOnClickListener(this);
-
     }
 
+    @Override
+    public void initData() {
+
+    }
     @Override
     public void onClick(View view) {
         String content = edtInput.getText().toString();

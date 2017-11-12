@@ -16,7 +16,7 @@ import android.widget.FrameLayout;
 
 import com.sample.R;
 
-public class WebVideoActivity extends BaseActivity {
+public class WebVideoActivity extends AppCompatActivity {
     private FrameLayout mFrameLayout;
     private WebView mWebView;
     private InsideWebChromeClient mInsideWebChromeClient;

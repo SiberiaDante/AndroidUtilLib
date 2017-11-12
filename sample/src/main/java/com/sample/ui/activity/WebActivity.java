@@ -44,13 +44,21 @@ public class WebActivity extends BaseActivity {
 
     private WebChromeClient mWebChromeClient=new WebChromeClient(){
     };
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_web);
+    public int setLayoutId() {
+        return R.layout.activity_web;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         mRLLayout = (RelativeLayout) findViewById(R.id.activity_web);
-        initIntent();
-        initWebView();
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     private void initIntent() {

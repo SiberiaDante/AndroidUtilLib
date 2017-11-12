@@ -8,8 +8,17 @@ import com.sample.ui.activity.BaseActivity;
 public class SDLoadViewActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sdload_view);
+    public int setLayoutId() {
+        return R.layout.activity_sdload_view;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

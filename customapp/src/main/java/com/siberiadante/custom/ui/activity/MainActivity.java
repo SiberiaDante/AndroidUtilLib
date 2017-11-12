@@ -1,6 +1,5 @@
 package com.siberiadante.custom.ui.activity;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
@@ -22,7 +21,7 @@ import com.siberiadante.custom.ui.fragment.ThreeFragment;
 import com.siberiadante.custom.ui.fragment.TwoFragment;
 import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToastUtil;
-import com.siberiadante.lib.widget.SDRadioButton;
+import com.siberiadante.lib.widget.radiobutton.SDRadioButton;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.textview;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

@@ -17,14 +17,12 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
     public static final String url = "http://img.67.com/upload/images/2016/05/26/aGV5YW96aG91MTQ2NDI0Njk3NQ==.jpg";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_toast);
-        initView();
+    public int setLayoutId() {
+        return R.layout.activity_toast;
     }
 
-    private void initView() {
-
+    @Override
+    public void initView(Bundle savedInstanceState) {
         findViewById(R.id.btn_show_text).setOnClickListener(this);
         findViewById(R.id.btn_show_text_translucent).setOnClickListener(this);
         findViewById(R.id.btn_show_bottom).setOnClickListener(this);
@@ -32,15 +30,18 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
         findViewById(R.id.btn_show_center).setOnClickListener(this);
         findViewById(R.id.btn_show_layout).setOnClickListener(this);
 
-
         findViewById(R.id.btn_show_lines).setOnClickListener(this);
         findViewById(R.id.btn_toast_cancel).setOnClickListener(this);
         findViewById(R.id.btn_toast_reset).setOnClickListener(this);
 
-
         findViewById(R.id.btn_toast_normal).setOnClickListener(this);
         findViewById(R.id.btn_toast_error).setOnClickListener(this);
         findViewById(R.id.btn_toast_success).setOnClickListener(this);
+    }
+
+    @Override
+    public void initData() {
+
     }
 
     @Override
@@ -78,7 +79,7 @@ public class ToastActivity extends BaseActivity implements View.OnClickListener 
                 break;
             case R.id.btn_toast_error:
 //                SDToastUtil.error("这是一个错误提示信息");
-                SDToastUtil.error("这是一个错误提示信息",Toast.LENGTH_SHORT);
+                SDToastUtil.error("这是一个错误提示信息", Toast.LENGTH_SHORT);
                 break;
             case R.id.btn_toast_success:
                 SDToastUtil.success("这是一个成功提示信息");

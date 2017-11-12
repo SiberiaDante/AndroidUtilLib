@@ -11,9 +11,12 @@ import com.siberiadante.lib.util.SDStorageUtil;
 public class SDCardUtilActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sdcard_util);
+    public int setLayoutId() {
+        return R.layout.activity_sdcard_util;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         final TextView t = (TextView) findViewById(R.id.tv_sdscrd_content);
         final StringBuilder builder = new StringBuilder();
         builder.append("---判断SD卡是否可用---" + SDStorageUtil.isSDCardMounted());
@@ -72,5 +75,10 @@ public class SDCardUtilActivity extends BaseActivity {
 
 
         t.setText(builder.toString());
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

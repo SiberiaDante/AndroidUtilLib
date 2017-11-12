@@ -2,7 +2,8 @@ package com.siberiadante.lib.constants;
 
 /**
  * @Created SiberiaDante
- * @Describe： 摘选自网络资料
+ * @Describe： 正则表达式
+ * 摘选自网络资料
  * @Time: 2017/9/26
  * @UpDate:
  * @Email: 994537867@qq.com

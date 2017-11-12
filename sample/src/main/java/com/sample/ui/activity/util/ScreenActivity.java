@@ -16,15 +16,18 @@ public class ScreenActivity extends BaseActivity {
     private TextView mTvScreen;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_test);
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
         SDScreenUtil.setStatusTranslucent(this);
-        initView();
-        initData();
     }
 
-    public void initView() {
+    @Override
+    public int setLayoutId() {
+        return R.layout.activity_screen_test;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         mTvScreen = (TextView) findViewById(R.id.tv_screen_content);
 
         findViewById(R.id.btn_screen_set_bar_color).setOnClickListener(new View.OnClickListener() {
@@ -39,9 +42,10 @@ public class ScreenActivity extends BaseActivity {
                 SDScreenUtil.setStatusBarLightMode(ScreenActivity.this);
             }
         });
-
     }
 
+
+    @Override
     public void initData() {
         int screenWidth = SDScreenUtil.getScreenWidthPx();
         int screenHeight = SDScreenUtil.getScreenHeightPx();

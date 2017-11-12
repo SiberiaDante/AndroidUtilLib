@@ -20,7 +20,7 @@
         android:layout_height="180dp"
         android:background="@drawable/background_top">
 
-        <com.siberiadante.lib.widget.SDRoundImageView
+        <com.siberiadante.lib.widget.imageview.SDRoundImageView
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_centerInParent="true"

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--动画相关的style-->
     <!-- dialog底部弹出菜单动画 -->
     <style name="bottom_animation" parent="android:Animation">
         <item name="@android:windowEnterAnimation">@anim/bottom_enter</item>

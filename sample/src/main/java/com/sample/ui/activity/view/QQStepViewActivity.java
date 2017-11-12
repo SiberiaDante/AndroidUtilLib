@@ -16,13 +16,12 @@ public class QQStepViewActivity extends BaseActivity {
     private TextView mTvStart;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qqexercise_pedometer);
-        initView();
+    public int setLayoutId() {
+        return R.layout.activity_qqexercise_pedometer;
     }
 
-    private void initView() {
+    @Override
+    public void initView(Bundle savedInstanceState) {
         mTvStart = (TextView) findViewById(R.id.tv_start);
         stepView = (QQStepView) findViewById(R.id.step_view);
         stepView.setStepMax(10000);
@@ -45,4 +44,10 @@ public class QQStepViewActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public void initData() {
+
+    }
+
 }

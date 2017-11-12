@@ -41,7 +41,7 @@ public class SDEnsureDialog {
         this.context = context;
         final WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
-        dialog = new Dialog(context, R.style.CustomDialog);
+        dialog = new Dialog(context, R.style.Custom_Dialog_Style);
         dialogWindow = dialog.getWindow();
 
     }

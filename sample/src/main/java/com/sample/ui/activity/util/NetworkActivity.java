@@ -14,15 +14,12 @@ public class NetworkActivity extends BaseActivity {
     private static final String TAG = NetworkActivity.class.getSimpleName();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_network_test);
-        initView();
-        initData();
+    public int setLayoutId() {
+        return R.layout.activity_network_test;
     }
 
-    public void initView() {
-
+    @Override
+    public void initView(Bundle savedInstanceState) {
         Button mBtnOpenSetting = (Button) findViewById(R.id.btn_network_open_setting);
         mBtnOpenSetting.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +29,7 @@ public class NetworkActivity extends BaseActivity {
         });
     }
 
+    @Override
     public void initData() {
         Log.d(TAG, "testNetworkUtil:isNetWorkConnected? " + SDNetWorkUtil.isNetWorkConnected());
         Log.d(TAG, "testNetworkUtil: isWifiConnected?" + SDNetWorkUtil.isWifiConnected());

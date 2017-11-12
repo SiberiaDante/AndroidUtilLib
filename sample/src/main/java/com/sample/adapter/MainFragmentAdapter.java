@@ -8,7 +8,6 @@ import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.sample.R;
 import com.sample.bean.MainData;
-import com.sample.bean.UtilData;
 
 /**
  * @Created SiberiaDante

@@ -1,4 +1,4 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.relativelayout;
 
 import android.content.Context;
 import android.util.AttributeSet;

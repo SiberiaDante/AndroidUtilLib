@@ -16,22 +16,4 @@ import com.siberiadante.lib.util.SDActivityUtil;
 
 public class JumpUtils {
 
-    /**
-     * 启动一个Activity
-     *
-     * @param activityName
-     */
-    public static void startJumpActivity(String activityName) {
-        SDActivityUtil.startActivity("com.sample", activityName);
-    }
-
-    /**
-     * 通过浏览器打开一个链接
-     *
-     * @param url
-     */
-    public static void startJumpBrowser(String url) {
-        SampleApplication.getInstance().startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
-    }
-
 }

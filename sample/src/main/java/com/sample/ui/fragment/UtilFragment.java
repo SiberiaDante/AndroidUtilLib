@@ -11,7 +11,8 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.jude.easyrecyclerview.decoration.DividerDecoration;
 import com.sample.R;
 import com.sample.adapter.CustomAdapter;
-import com.sample.bean.UtilData;
+import com.sample.bean.Data;
+import com.sample.constants.Constants;
 import com.sample.ui.activity.util.ActivityUtilActivity;
 import com.sample.ui.activity.util.AppActivity;
 import com.sample.ui.activity.util.BitmapUtilActivity;
@@ -25,6 +26,7 @@ import com.sample.ui.activity.util.SDCardUtilActivity;
 import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.util.ToastActivity;
 import com.sample.util.JumpUtils;
+import com.siberiadante.lib.util.SDActivityUtil;
 import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDTransitionUtil;
 
@@ -44,7 +46,7 @@ import java.util.List;
 public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.OnItemClickListener {
     private static String TAG = UtilFragment.class.getSimpleName();
     private EasyRecyclerView mRecyclerView;
-    private List<UtilData> datas;
+    private List<Data> datas;
     private CustomAdapter adapter;
     private static FloatingActionButton mTop;
 
@@ -80,20 +82,7 @@ public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.O
     }
 
     protected void initData() {
-        datas = new ArrayList<>();
-        datas.add(new UtilData("测试ActivityUtil类", ActivityUtilActivity.class.getName()));
-        datas.add(new UtilData("测试AppUtil类", AppActivity.class.getName()));
-        datas.add(new UtilData("测试BitmapUtil类", BitmapUtilActivity.class.getName()));
-        datas.add(new UtilData("测试ClearUtil类", ClearActivity.class.getName()));
-        datas.add(new UtilData("测试DataUtil类", DateUtilActivity.class.getName()));
-        datas.add(new UtilData("测试LogUtil类", LogUtilActivity.class.getName()));
-        datas.add(new UtilData("测试NetworkUtil类", NetworkActivity.class.getName()));
-        datas.add(new UtilData("测试NumberUtil类", NumberActivity.class.getName()));
-        datas.add(new UtilData("测试PermissionManagerUtil类", PermissionManagerActivity.class.getName()));
-        datas.add(new UtilData("测试ScreenUtil类", ScreenActivity.class.getName()));
-        datas.add(new UtilData("测试SDCardUtil类", SDCardUtilActivity.class.getName()));
-        datas.add(new UtilData("测试ToastUtil类", ToastActivity.class.getName()));
-        adapter.addAll(datas);
+        adapter.addAll(Constants.getUtilData());
     }
 
     @Override
@@ -102,7 +91,6 @@ public class UtilFragment extends LazyFragment implements RecyclerArrayAdapter.O
     }
 
     private void startUtilActivity(int position) {
-        JumpUtils.startJumpActivity(datas.get(position).getCls());
+        SDActivityUtil.startActivity(Constants.getUtilData().get(position).getCls());
     }
-
 }

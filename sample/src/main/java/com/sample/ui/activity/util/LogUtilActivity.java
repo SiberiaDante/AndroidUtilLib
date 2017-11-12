@@ -11,9 +11,17 @@ public class LogUtilActivity extends BaseActivity {
     private static final String TAG = LogUtilActivity.class.getSimpleName();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_util);
+    public int setLayoutId() {
+        return R.layout.activity_log_util;
+    }
+
+    @Override
+    public void initView(Bundle savedInstanceState) {
         SDLogUtil.showSquareLogE(TAG, "saskflasffffffffffffafpokfkjksdssssssssssssjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj");
+    }
+
+    @Override
+    public void initData() {
+
     }
 }

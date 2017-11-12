@@ -1,4 +1,4 @@
-package com.siberiadante.lib.widget;
+package com.siberiadante.lib.widget.radiobutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -23,6 +23,17 @@ import com.siberiadante.lib.R;
  * drawableBottom
  *
  * @Tips: 在xml中需要必填属性：android:clickable"="true";
+ */
+
+/**
+ * @Created： SiberiaDante
+ * @Date： 2016/12/4
+ * @Describe： 支持对RadioButton设置的图片大小进行控制：
+ * 在xml中设置RadioButton中的图片size
+ * drawableSize/drawableTop/drawableLeft/drawableRight/drawableBottom
+ * Tips: 在xml中需要必填属性：android:clickable"="true";
+ * @Github： https://github.com/SiberiaDante
+ * @Blog： http://www.cnblogs.com/shen-hua/
  */
 
 public class SDRadioButton extends AppCompatRadioButton {

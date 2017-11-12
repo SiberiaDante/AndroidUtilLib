@@ -21,58 +21,17 @@ import java.util.List;
  */
 
 public final class SiberiaDanteLib {
-    private static final String TAG = "SiberiaDanteLib";
+    public static final String TAG = SiberiaDanteLib.class.getSimpleName();
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    public static List<Activity> sActivityList = new LinkedList<>();//打开的Activity集合
-    @SuppressLint("StaticFieldLeak")
-    public static Activity sTopActivity;//Activity
-    @SuppressLint("StaticFieldLeak")
-    private static Application mSDApplication;
+//    @SuppressLint("StaticFieldLeak")
+//    public static Activity sTopActivity;//Activity
+//    public static List<Activity> sActivityList = new LinkedList<>();
 
     public SiberiaDanteLib() {
         throw new UnsupportedOperationException("not init SiberiaDanteLib");
     }
 
-    private static Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new Application.ActivityLifecycleCallbacks() {
-        @Override
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            sActivityList.add(activity);
-
-
-        }
-
-        @Override
-        public void onActivityStarted(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivityResumed(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivityPaused(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivityStopped(Activity activity) {
-
-        }
-
-        @Override
-        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-
-        }
-
-        @Override
-        public void onActivityDestroyed(Activity activity) {
-            sActivityList.remove(activity);
-
-        }
-    };
     /**
      * 初始化
      *
@@ -81,18 +40,6 @@ public final class SiberiaDanteLib {
     public static void initLib(Context context) {
         SiberiaDanteLib.context = context.getApplicationContext();
     }
-
-//    /**
-//     * 初始化
-//     *
-//     * @param context
-//     */
-//    @RequiresApi(api = Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-//    public static void initLib(Application context) {
-//        SiberiaDanteLib.context = context.getApplicationContext();
-//        SiberiaDanteLib.mSDApplication = context;
-//        context.registerActivityLifecycleCallbacks(activityLifecycleCallbacks);
-//    }
 
     /**
      * 日志输出控制
@@ -104,17 +51,54 @@ public final class SiberiaDanteLib {
         Log.e(TAG, "[---" + SDDateUtil.getSDFTimeYMDHSM() + "---] Enable Debug:--- " + isDebug + " ---");
     }
 
-
     /**
-     *
      * @return Application Context
      */
     public static Context getContext() {
         if (context != null) {
             return context;
         } else {
-            throw new NullPointerException(context.getString(R.string.NotInitError));
+            throw new NullPointerException("Use this lib,you need init first! In your Application: SiberiaDanteLib.initLib(appContext);");
         }
     }
+//    private static Application.ActivityLifecycleCallbacks activityLifecycleCallbacks = new Application.ActivityLifecycleCallbacks() {
+//        @Override
+//        public void onActivityCreated(Activity activity, Bundle bundle) {
+//            sActivityList.add(activity);
+//
+//
+//        }
+//
+//        @Override
+//        public void onActivityStarted(Activity activity) {
+//
+//        }
+//
+//        @Override
+//        public void onActivityResumed(Activity activity) {
+//
+//        }
+//
+//        @Override
+//        public void onActivityPaused(Activity activity) {
+//
+//        }
+//
+//        @Override
+//        public void onActivityStopped(Activity activity) {
+//
+//        }
+//
+//        @Override
+//        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+//
+//        }
+//
+//        @Override
+//        public void onActivityDestroyed(Activity activity) {
+//            sActivityList.remove(activity);
+//
+//        }
+//    };
 
 }

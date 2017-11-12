@@ -24,14 +24,12 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
     private TextView mTvContent;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app);
-        initView();
-        initData();
+    public int setLayoutId() {
+        return R.layout.activity_app;
     }
 
-    private void initView() {
+    @Override
+    public void initView(Bundle savedInstanceState) {
         SDLogUtil.d(TAG, "---" + getClass().getSimpleName() + "----------");
         mTvContent = (TextView) findViewById(R.id.tv_app_details);
         mIvIcon = (ImageView) findViewById(R.id.iv_icon);
@@ -44,7 +42,10 @@ public class AppActivity extends BaseActivity implements View.OnClickListener {
         mIvIcon.setOnClickListener(this);
     }
 
-    private void initData() {
+
+
+    @Override
+    public void initData() {
         StringBuilder builder = new StringBuilder();
         builder.append("getAppVersionCode---"+ SDAppUtil.getAppVersionCode()+"\n");
         builder.append("getAppVersionName---"+ SDAppUtil.getAppVersionName()+"\n");
