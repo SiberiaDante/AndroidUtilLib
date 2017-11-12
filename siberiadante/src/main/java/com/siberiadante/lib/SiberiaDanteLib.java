@@ -1,19 +1,11 @@
 package com.siberiadante.lib;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 
-import com.siberiadante.lib.constants.AppInfo;
+import com.siberiadante.lib.constants.SDAppInfo;
 import com.siberiadante.lib.util.SDDateUtil;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by SiberiaDante on 2017/5/10.
@@ -47,7 +39,7 @@ public final class SiberiaDanteLib {
      * @param isDebug
      */
     public static void setDebug(boolean isDebug) {
-        AppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
+        SDAppInfo.getInstance().getSPUtils().put("is_debug", isDebug);
         Log.e(TAG, "[---" + SDDateUtil.getSDFTimeYMDHSM() + "---] Enable Debug:--- " + isDebug + " ---");
     }
 

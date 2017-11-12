@@ -10,14 +10,14 @@ import com.siberiadante.lib.util.SDSPUtil;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class AppInfo {
+public class SDAppInfo {
     private SDSPUtil info;
 
-    private AppInfo() {
+    private SDAppInfo() {
         info = new SDSPUtil(SDConstants.INFO);
     }
 
-    public static AppInfo getInstance() {
+    public static SDAppInfo getInstance() {
         return AppInfoHolder.appInfo;
     }
 
@@ -26,7 +26,7 @@ public class AppInfo {
     }
 
     private static class AppInfoHolder {
-        private static final AppInfo appInfo = new AppInfo();
+        private static final SDAppInfo appInfo = new SDAppInfo();
     }
 
     public boolean isDebug() {

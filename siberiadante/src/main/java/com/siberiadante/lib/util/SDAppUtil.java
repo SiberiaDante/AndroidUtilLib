@@ -16,7 +16,7 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 
 import com.siberiadante.lib.SiberiaDanteLib;
-import com.siberiadante.lib.bean.SDAppInfo;
+import com.siberiadante.lib.bean.SDAppInfoBean;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 import java.io.File;
@@ -129,22 +129,22 @@ public class SDAppUtil {
 
     /**
      * 获取App信息
-     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
+     * <p>SDAppInfoBean（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
      *
      * @return 当前应用的AppInfo
      */
-    public static SDAppInfo getAppInfo() {
+    public static SDAppInfoBean getAppInfo() {
         return getAppInfo(SiberiaDanteLib.getContext().getPackageName());
     }
 
     /**
      * 获取App信息
-     * <p>SDAppInfo（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
+     * <p>SDAppInfoBean（名称，图标，包名，版本号，版本Code，是否系统应用）</p>
      *
      * @param packageName 包名
      * @return 当前应用的AppInfo
      */
-    public static SDAppInfo getAppInfo(String packageName) {
+    public static SDAppInfoBean getAppInfo(String packageName) {
         try {
             PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
             PackageInfo pi = pm.getPackageInfo(packageName, 0);
@@ -162,7 +162,7 @@ public class SDAppUtil {
      * @param pi 包的信息
      * @return AppInfo类
      */
-    private static SDAppInfo getBean(PackageManager pm, PackageInfo pi) {
+    private static SDAppInfoBean getBean(PackageManager pm, PackageInfo pi) {
         if (pm == null || pi == null) {
             return null;
         }
@@ -174,7 +174,7 @@ public class SDAppUtil {
         String versionName = pi.versionName;
         int versionCode = pi.versionCode;
         boolean isSystem = (ApplicationInfo.FLAG_SYSTEM & ai.flags) != 0;
-        return new SDAppInfo(packageName, name, icon, packagePath, versionName, versionCode, isSystem);
+        return new SDAppInfoBean(packageName, name, icon, packagePath, versionName, versionCode, isSystem);
     }
 
     /**
@@ -698,13 +698,13 @@ public class SDAppUtil {
      *
      * @return 所有已安装的AppInfo列表
      */
-    public static List<SDAppInfo> getAppsInfo() {
-        List<SDAppInfo> list = new ArrayList<>();
+    public static List<SDAppInfoBean> getAppsInfo() {
+        List<SDAppInfoBean> list = new ArrayList<>();
         PackageManager pm = SiberiaDanteLib.getContext().getPackageManager();
         // 获取系统中安装的所有软件信息
         List<PackageInfo> installedPackages = pm.getInstalledPackages(0);
         for (PackageInfo pi : installedPackages) {
-            SDAppInfo ai = getBean(pm, pi);
+            SDAppInfoBean ai = getBean(pm, pi);
             if (ai == null) continue;
             list.add(ai);
         }

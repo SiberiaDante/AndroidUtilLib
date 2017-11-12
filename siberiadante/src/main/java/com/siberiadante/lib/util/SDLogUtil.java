@@ -4,7 +4,7 @@ import android.os.Environment;
 import android.util.Log;
 
 import com.siberiadante.lib.SiberiaDanteLib;
-import com.siberiadante.lib.constants.AppInfo;
+import com.siberiadante.lib.constants.SDAppInfo;
 import com.siberiadante.lib.exception.SiberiaDanteLibException;
 
 import java.io.File;
@@ -28,7 +28,7 @@ public class SDLogUtil {
     }
 
     public static String TAG = "SiberiaDante";
-    private static boolean isDebug = AppInfo.getInstance().isDebug();
+    private static boolean isDebug = SDAppInfo.getInstance().isDebug();
     private static String TOP_BORDER = "╔══════════════════════════════════════════════════════════════════════════════════════════════════════════";
     private static String LEFT_BORDER = "║ ";
     private static String BOTTOM_BORDER = "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════";

@@ -8,5 +8,5 @@ package com.siberiadante.lib.constants;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class ResultCode {
+public class SDResultCode {
 }

@@ -11,7 +11,7 @@ import java.util.Set;
 
 /**
  * @Created SiberiaDante
- * @Describe： 使用参考sample/src/constants/SDAppInfo.java
+ * @Describe： 使用参考sample/src/constants/SDAppInfoBean.java
  * @Time: 2017/8/3
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
