@@ -7,7 +7,6 @@
 >* [Android开发必备经典收藏集（整理中）]
 >* [TitleLayout——通用万能标题栏]
 >* [CustomDialog——通用万能Dialog]
-### [CustomApp是基于MVP+Retrofit2.0+RxJava2.0的封装](https://github.com/SiberiaDante/SiberiaDanteLib/tree/b09d32278cdf8124a8f1b80bf280b3f478688ea3/customapp/)
 ## gradle依赖方法
 [![](https://jitpack.io/v/SibreiaDante/SiberiaDanteLib.svg)](https://jitpack.io/#SibreiaDante/SiberiaDanteLib)
 ```
@@ -19,7 +18,7 @@ dependencies {
 
  * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
  * 开启Debug模式：SiberiaDanteLib.setDebug(true);
-## [详细文档说明请看Wiki](https://github.com/SiberiaDante/SiberiaDanteLib/wiki)
+## [详细文档说明请看Wiki(完善中)](https://github.com/SiberiaDante/SiberiaDanteLib/wiki)
 
 ## [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d30aec89d5a4972db5ee018a0f9127641b18f8a0/doc/VERSION_UPDATE.md)
 
