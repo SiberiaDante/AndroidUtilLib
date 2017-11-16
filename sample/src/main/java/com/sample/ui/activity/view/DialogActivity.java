@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
-import com.siberiadante.lib.util.SDScreenUtil;
 import com.siberiadante.lib.util.SDToastUtil;
 import com.siberiadante.lib.view.dialog.SDCustomDialog;
 import com.siberiadante.lib.view.dialog.SDEditDialog;
@@ -388,8 +387,11 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showCustomDialog() {
-        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout, new int[]{R.id.dialog_sure, R.id.dialog_cancel}, 0, true, Gravity.CENTER);
-        customDialog.setOnCenterItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
+        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout,
+                new int[]{R.id.dialog_sure,
+                        R.id.dialog_cancel},
+                0, true, Gravity.CENTER);
+        customDialog.setOnSDCustomDialogItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
             @Override
             public void OnCustomDialogItemClick(SDCustomDialog dialog, View view) {
                 switch (view.getId()) {

@@ -15,6 +15,7 @@ import android.view.WindowManager;
 
 import com.siberiadante.lib.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,94 +31,83 @@ import java.util.List;
 public class SDCustomDialog extends Dialog implements View.OnClickListener {
     private Context context;      // 上下文
     private int mLayoutResId;      // 布局文件id
-    private int[] mListenedItems;  // 要监听的控件id
-    private int mAnimationResId;//主题style
+    private int[] mIds = new int[]{};  // 要监听的控件id
+    private int mAnimationResId = 0;//主题style
     private OnCustomDialogItemClickListener listener;
-    private boolean mIsDismiss = false;//是否默认所有按钮点击后取消dialog显示，false是需要在点击事件后手动调用dismiss
+    private boolean mIsDismiss = true;//是否默认所有按钮点击后取消dialog显示，false时需要在点击事件后手动调用dismiss
+    private boolean mIsDismissTouchOut = true;//是否允许触摸dialog外部区域取消显示dialog
     private int mPosition = 0; //Dialog 相对页面显示的位置
+    private List<View> mViews = new ArrayList<>();//监听的View的集合
 
-    public void setOnCenterItemClickListener(OnCustomDialogItemClickListener listener) {
+    public void setOnSDCustomDialogItemClickListener(OnCustomDialogItemClickListener listener) {
         this.listener = listener;
     }
 
-    /**
-     * 全部使用默认设置，你需要传入布局id，和需要设置点击事件的控件id
-     *
-     * @param context
-     * @param layoutResID   自己定义的布局
-     * @param listenedItems 需要设置点击事件的资源id
-     */
-    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems) {
+    public SDCustomDialog(Context context, int ids) {
+        super(context, R.style.Custom_Dialog_Style);
+        this.context = context;
+        this.mLayoutResId = ids;
+
+    }
+
+    public SDCustomDialog(Context context, int layoutResID, int[] ids) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mListenedItems = listenedItems;
+        this.mIds = ids;
     }
 
 
-//
-
-    /**
-     * @param context
-     * @param layoutResID    自己定义的布局
-     * @param listenedItems  需要设置点击事件的资源id
-     * @param animationResId dialog style，如果不使用自己的，则传0
-     */
-    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId) {
+    public SDCustomDialog(Context context, int layoutResID, int[] ids, int animationResId) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mListenedItems = listenedItems;
+        this.mIds = ids;
         this.mAnimationResId = animationResId;
     }
 
-    /**
-     * @param context
-     * @param layoutResID   自己定义的布局
-     * @param listenedItems 需要设置点击事件的资源id
-     * @param isDismiss     按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
-     */
-    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss) {
+
+    public SDCustomDialog(Context context, int layoutResID, int[] ids, boolean isDismiss) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mListenedItems = listenedItems;
+        this.mIds = ids;
         this.mIsDismiss = isDismiss;
     }
 
-    /**
-     * @param context
-     * @param layoutResID   自己定义的布局
-     * @param listenedItems 需要设置点击事件的资源id
-     * @param isDismiss     按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
-     * @param position      dialog 显示位置，默认CENTER,不设置时可以传0
-     */
-    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss, int position) {
+
+    public SDCustomDialog(Context context, int layoutResID, int[] ids, boolean isDismiss, int position) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mListenedItems = listenedItems;
+        this.mIds = ids;
         this.mIsDismiss = isDismiss;
         this.mPosition = position;
     }
 
     /**
-     * 满足你各种需求
-     *
      * @param context
-     * @param layoutResID    自己定义的布局
-     * @param listenedItems  需要设置点击事件的资源id
-     * @param animationResId dialog 弹出动画，如果不使用自己的，则传0
-     * @param isDismiss      按钮点击后是否默认取消dialog {@code true}取消 {@code false} 不取消
-     * @param position       dialog 显示位置，默认CENTER,不设置时可以传0
+     * @param layoutResID       布局Id
+     * @param ids               需要监听的View id集合
+     * @param animationResId    动画资源id
+     * @param isDismiss         是否默认点击所有View 取消dialog显示
+     * @param isDismissTouchOut 是否触摸dialog外部区域消失dialog显示
+     * @param position          dialog显示的位置
      */
-    public SDCustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId, boolean isDismiss, int position) {
+    public SDCustomDialog(Context context,
+                          int layoutResID,
+                          int[] ids,
+                          int animationResId,
+                          boolean isDismiss,
+                          boolean isDismissTouchOut,
+                          int position) {
         super(context, R.style.Custom_Dialog_Style); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mListenedItems = listenedItems;
+        this.mIds = ids;
         this.mAnimationResId = animationResId;
         this.mIsDismiss = isDismiss;
+        this.mIsDismissTouchOut = isDismissTouchOut;
         this.mPosition = position;
     }
 
@@ -142,11 +132,22 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
         WindowManager.LayoutParams lp = getWindow().getAttributes();
         lp.width = display.getWidth() * 4 / 5; // 设置dialog宽度为屏幕的4/5
         getWindow().setAttributes(lp);
-        setCanceledOnTouchOutside(true);// 点击Dialog外部消失
-        //遍历控件id,添加点击事件
-        for (int id : mListenedItems) {
-            findViewById(id).setOnClickListener(this);
+        setCanceledOnTouchOutside(mIsDismissTouchOut);
+        //遍历控件id,添加点击事件，添加资源到集合
+        for (int id : mIds) {
+            View view = findViewById(id);
+            view.setOnClickListener(this);
+            mViews.add(view);
         }
+    }
+
+    /**
+     * 获取需要监听的View集合
+     *
+     * @return
+     */
+    public List<View> getViews() {
+        return mViews;
     }
 
     @Override
