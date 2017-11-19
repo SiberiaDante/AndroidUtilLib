@@ -1,15 +1,10 @@
 package com.sample;
 
-import android.app.Activity;
 import android.app.Application;
-import android.os.Bundle;
 import android.support.multidex.MultiDex;
 
-import com.siberiadante.lib.SiberiaDanteLib;
+import com.siberiadante.lib.SDAndroidLib;
 import com.squareup.leakcanary.LeakCanary;
-
-import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
@@ -85,8 +80,8 @@ public class SampleApplication extends Application {
     }
 
     private void initSiberiaDanteLib() {
-        SiberiaDanteLib.initLib(instance);
-        SiberiaDanteLib.setDebug(true);
+        SDAndroidLib.initLib(instance);
+        SDAndroidLib.setDebug(true);
 
     }
 

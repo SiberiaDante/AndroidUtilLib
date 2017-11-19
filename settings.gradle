@@ -1,1 +1,1 @@
-include ':siberiadante', ':sample', ':customapp'
+include ':SDAndroidLib', ':sample'

@@ -34,7 +34,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':siberiadante')
+    compile project(':SDAndroidLib')
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     //    compile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
     compile 'com.android.support:appcompat-v7:25.3.1'

@@ -23,12 +23,8 @@ import com.sample.ui.fragment.UtilFragment;
 import com.sample.ui.fragment.OtherFragment;
 import com.sample.ui.fragment.ViewFragment;
 import com.siberiadante.lib.manager.PermissionManager;
-import com.siberiadante.lib.model.TimerCountModel;
-import com.siberiadante.lib.presenter.TimerCountPresenter;
-import com.siberiadante.lib.presenter.impl.ITimerCountPresenter;
 import com.siberiadante.lib.util.SDLogUtil;
 import com.siberiadante.lib.util.SDToastUtil;
-import com.siberiadante.lib.view.impl.ITimerCountView;
 import com.siberiadante.lib.view.titlebar.SDTitleLayout;
 
 import java.util.ArrayList;
@@ -123,24 +119,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mViewPager.addOnPageChangeListener(this);
         mRBOne.setChecked(true);
         testPermission();
-        // TODO: 2017/9/30 计时器的测试 还需完善？
-        testTimer();
-    }
-
-    private void testTimer() {
-
-        TimerCountModel timerCountModel = new TimerCountModel(10000, 1000, new ITimerCountPresenter() {
-            @Override
-            public void onTimerCount(long time) {
-                SDLogUtil.d("-------------------" + time);
-            }
-
-            @Override
-            public void onFinish() {
-                SDLogUtil.d("-------------------finish");
-            }
-        });
-        timerCountModel.start();
     }
 
     private void testPermission() {

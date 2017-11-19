@@ -387,27 +387,6 @@ public class DialogActivity extends BaseActivity implements View.OnClickListener
     }
 
     private void showCustomDialog() {
-        final SDCustomDialog customDialog = new SDCustomDialog(this, R.layout.dialog_layout,
-                new int[]{R.id.dialog_sure,
-                        R.id.dialog_cancel},
-                0, true, Gravity.CENTER);
-        customDialog.setOnSDCustomDialogItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
-            @Override
-            public void OnCustomDialogItemClick(SDCustomDialog dialog, View view) {
-                switch (view.getId()) {
-                    case R.id.dialog_cancel:
-                        customDialog.dismiss();
-                        SDToastUtil.toast("取消按钮被点击了");
-                        break;
-                    case R.id.dialog_sure:
-                        customDialog.dismiss();
-                        SDToastUtil.toast("确定按钮被点击了");
-                        break;
-                }
-
-            }
-        });
-        customDialog.show();
     }
 
 }

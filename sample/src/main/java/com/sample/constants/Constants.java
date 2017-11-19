@@ -39,7 +39,7 @@ import java.util.List;
 
 public class Constants {
     public static final String ALBUM_PATH = Environment.getExternalStorageDirectory() + "/sample/";
-    public static final String URL_SIBERIA_DANTE_LIB = "https://github.com/SiberiaDante/SiberiaDanteLib";
+    public static final String URL_SIBERIA_DANTE_LIB = "https://github.com/SiberiaDante/SDAndroidLib";
     public static final String URL_TITLE_LAYOUT = "https://github.com/SiberiaDante/TitleLayout";
     public static final String URL_CUSTOM_DIALOG = "https://github.com/SiberiaDante/SDCustomDialog";
 
