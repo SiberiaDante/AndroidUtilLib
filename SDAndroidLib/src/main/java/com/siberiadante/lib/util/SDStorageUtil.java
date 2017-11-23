@@ -29,7 +29,6 @@ public class SDStorageUtil {
 
     public SDStorageUtil() {
         throw new UnsupportedOperationException("UnInit this Lib");
-
     }
 
     /**

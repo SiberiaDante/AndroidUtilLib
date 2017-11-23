@@ -17,6 +17,7 @@ import android.support.annotation.RequiresApi;
 
 import com.siberiadante.lib.SDAndroidLib;
 import com.siberiadante.lib.bean.SDAppInfoBean;
+import com.siberiadante.lib.util.encrypt.SDSHA1Util;
 
 import java.io.File;
 import java.lang.reflect.Field;
@@ -478,8 +479,9 @@ public class SDAppUtil {
     public static String getAppSignatureSHA1(String packageName) {
         Signature[] signature = getAppSignature(packageName);
         if (signature == null) return null;
-        return SDEncryptUtil.encryptSHA1ToString(signature[0].toByteArray()).
-                replaceAll("(?<=[0-9A-F]{2})[0-9A-F]{2}", ":$0");
+        return SDSHA1Util.encrypt(signature[0].toByteArray()).replaceAll("(?<=[0-9A-F]{2})[0-9A-F]{2}", ":$0");
+//        return SDEncryptUtil.encryptSHA1ToString(signature[0].toByteArray()).
+//                replaceAll("(?<=[0-9A-F]{2})[0-9A-F]{2}", ":$0");
     }
 
     /**

@@ -12,4 +12,5 @@
     <string name="about_me">旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/blob/6501f32b327dfe511978d7aacef69b145e5a7a0f/ABOUTME.md)删除。持续更新维护中……</string>
     <string name="EncryptAlgorithm">加密算法</string>
     <string name="LikeView">点赞特效</string>
+    <string name="SDEncryptUtil">加密算法(EncryptAlgorithm)</string>
 </resources>

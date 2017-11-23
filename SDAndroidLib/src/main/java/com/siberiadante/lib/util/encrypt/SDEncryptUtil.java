@@ -226,7 +226,6 @@ public class SDEncryptUtil {
         return new String(ret);
     }
 
-
     /**
      * hexString转byteArr
      * <p>例如：</p>

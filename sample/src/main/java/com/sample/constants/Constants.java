@@ -66,7 +66,7 @@ public class Constants {
     public static List<Data> getUtilData() {
         List<Data> datas = new ArrayList<>();
         datas.add(new Data("测试ActivityUtil类", ActivityUtilActivity.class));
-        datas.add(new Data("各种加密算法", EncryptionActivity.class));
+        datas.add(new Data(SampleApplication.getInstance().getString(R.string.SDEncryptUtil), EncryptionActivity.class));
         datas.add(new Data("测试AppUtil类", AppActivity.class));
         datas.add(new Data("测试BitmapUtil类", BitmapUtilActivity.class));
         datas.add(new Data("测试ClearUtil类", ClearActivity.class));

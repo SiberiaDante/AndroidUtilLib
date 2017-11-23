@@ -59,7 +59,7 @@ public class EncryptionActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        titleBar.setTitle(getString(R.string.EncryptAlgorithm));
+        titleBar.setTitle(getString(R.string.SDEncryptUtil));
         stringBuilder = new StringBuilder();
     }
 
