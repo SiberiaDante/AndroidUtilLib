@@ -24,7 +24,7 @@ import java.util.List;
  * 额外支持：设置dialog位置，Dialog弹出动画，dialog是否点击按钮自动消失等
  * @Time: 2017/9/19
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

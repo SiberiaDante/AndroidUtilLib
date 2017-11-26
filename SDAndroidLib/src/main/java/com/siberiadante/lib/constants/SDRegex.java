@@ -6,7 +6,7 @@ package com.siberiadante.lib.constants;
  * 摘选自网络资料
  * @Time: 2017/9/26
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

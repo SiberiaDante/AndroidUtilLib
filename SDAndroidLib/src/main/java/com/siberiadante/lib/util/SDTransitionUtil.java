@@ -28,7 +28,7 @@ import static com.siberiadante.lib.constants.SDConstants.MB;
  * @Describe： 数据转换相关类
  * @Time: 2017/9/26
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

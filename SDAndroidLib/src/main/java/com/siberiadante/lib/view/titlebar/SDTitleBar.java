@@ -14,14 +14,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.siberiadante.lib.R;
-import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStatusBarUtil;
 import com.siberiadante.lib.util.SDTransitionUtil;
 
 /**
  * @Created SiberiaDante
  * @Describe： Titlebar 封装
  * @Time: 2017/6/30
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
@@ -68,7 +68,7 @@ public class SDTitleBar extends ViewGroup implements View.OnClickListener {
 
     private void init(Context context) {
         if (mImmersive) {
-            mStatusBarHeight = SDScreenUtil.getStatusBarHeight();
+            mStatusBarHeight = SDStatusBarUtil.getStatusBarHeight();
         }
         mActionPadding = SDTransitionUtil.dip2px(5);
         mOutPadding = SDTransitionUtil.dip2px(8);
@@ -173,7 +173,7 @@ public class SDTitleBar extends ViewGroup implements View.OnClickListener {
     public void setImmersive(boolean immersive) {
         mImmersive = immersive;
         if (mImmersive) {
-            mStatusBarHeight = SDScreenUtil.getStatusBarHeight();
+            mStatusBarHeight = SDStatusBarUtil.getStatusBarHeight();
         } else {
             mStatusBarHeight = 0;
         }

@@ -5,7 +5,7 @@ package com.siberiadante.lib.util.encrypt;
  * @Describe：
  * @CreateTime: 2017/11/23
  * @UpDateTime:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

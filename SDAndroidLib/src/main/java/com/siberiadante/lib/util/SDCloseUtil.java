@@ -9,7 +9,7 @@ import java.io.IOException;
  * @Created SiberiaDante
  * @Describe： 关闭相关工具类
  * @Time: 2017/5/15
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 public class SDCloseUtil {

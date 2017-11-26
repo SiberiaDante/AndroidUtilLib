@@ -10,7 +10,7 @@ import android.widget.EditText;
 import com.jude.swipbackhelper.SwipeBackHelper;
 import com.sample.event.AppExitEven;
 import com.siberiadante.lib.util.SDKeyBoardUtil;
-import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStatusBarUtil;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -29,7 +29,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     public void beforeSetContentView() {
-        SDScreenUtil.setStatusTranslucent(this);
+        SDStatusBarUtil.setStatusTranslucent(this);
         SwipeBackHelper.onCreate(this);
         SwipeBackHelper.getCurrentPage(this)
                 .setSwipeBackEnable(true)

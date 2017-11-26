@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStatusBarUtil;
 
 public class ScreenActivity extends BaseActivity {
 
@@ -18,7 +19,7 @@ public class ScreenActivity extends BaseActivity {
     @Override
     public void beforeSetContentView() {
         super.beforeSetContentView();
-        SDScreenUtil.setStatusTranslucent(this);
+        SDStatusBarUtil.setStatusTranslucent(this);
     }
 
     @Override
@@ -33,13 +34,13 @@ public class ScreenActivity extends BaseActivity {
         findViewById(R.id.btn_screen_set_bar_color).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SDScreenUtil.setStatusBarColor(ScreenActivity.this, ContextCompat.getColor(ScreenActivity.this, R.color.blue));
+                SDStatusBarUtil.setStatusBarColor(ScreenActivity.this, ContextCompat.getColor(ScreenActivity.this, R.color.blue));
             }
         });
         findViewById(R.id.btn_screen_set_bar_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SDScreenUtil.setStatusBarLightMode(ScreenActivity.this);
+                SDStatusBarUtil.setStatusBarLightMode(ScreenActivity.this);
             }
         });
     }

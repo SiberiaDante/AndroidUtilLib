@@ -19,7 +19,7 @@ import com.siberiadante.lib.R;
  * @Created SiberiaDante
  * @Describe： @{Link https://github.com/H07000223/FlycoRoundView}
  * @Time: 2017/9/4
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

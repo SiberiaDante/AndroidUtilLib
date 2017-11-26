@@ -20,7 +20,7 @@ import com.siberiadante.lib.R;
  * @Created SiberiaDante
  * @Describe： 带EditText的确认or取消弹窗
  * @Time: 2017/6/19
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

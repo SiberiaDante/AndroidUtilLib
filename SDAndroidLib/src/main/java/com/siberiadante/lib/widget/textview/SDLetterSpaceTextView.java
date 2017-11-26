@@ -12,7 +12,7 @@ import android.util.AttributeSet;
  * @Describe： 可设置字体间距的TextView
  * @Time: 2017/9/7
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

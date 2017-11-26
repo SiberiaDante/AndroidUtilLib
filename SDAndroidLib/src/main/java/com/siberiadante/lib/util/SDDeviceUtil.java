@@ -38,13 +38,13 @@ import java.util.UUID;
  * @Describe： 手机设备相关处理类
  * @Time: 2017/9/26
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class SDPhoneUtil {
+public class SDDeviceUtil {
 
-    private static final String TAG = SDPhoneUtil.class.getSimpleName();
+    private static final String TAG = SDDeviceUtil.class.getSimpleName();
 
     private static PackageManager getPackageManager() {
         return SDAndroidLib.getContext().getPackageManager();

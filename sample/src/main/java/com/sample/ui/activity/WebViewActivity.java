@@ -12,7 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.sample.R;
-import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStatusBarUtil;
 import com.siberiadante.lib.view.titlebar.SDTitleBar;
 
 public class WebViewActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class WebViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_view);
-        SDScreenUtil.setStatusTranslucent(this);
+        SDStatusBarUtil.setStatusTranslucent(this);
         initIntent();
         initView();
     }

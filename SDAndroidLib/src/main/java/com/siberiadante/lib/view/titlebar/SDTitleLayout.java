@@ -8,7 +8,6 @@ import android.graphics.Typeface;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -21,7 +20,7 @@ import android.widget.TextView;
 
 import com.siberiadante.lib.R;
 import com.siberiadante.lib.util.SDLogUtil;
-import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStatusBarUtil;
 import com.siberiadante.lib.util.SDStringUtil;
 import com.siberiadante.lib.util.SDTransitionUtil;
 
@@ -35,7 +34,7 @@ import com.siberiadante.lib.util.SDTransitionUtil;
  * 4、支持设置沉浸式状态栏
  * @Time: 2017/9/12
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
@@ -112,7 +111,7 @@ public class SDTitleLayout extends RelativeLayout {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
-        mStatusBarHeight = SDScreenUtil.getStatusBarHeight();
+        mStatusBarHeight = SDStatusBarUtil.getStatusBarHeight();
         inflate = LayoutInflater.from(context).inflate(R.layout.sd_title_layout, null);
         addView(inflate);
 

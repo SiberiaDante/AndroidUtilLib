@@ -31,7 +31,7 @@ import java.util.List;
  * @Describe：文件处理相关工具类—— all removed Android lib
  * @Time: 2017/5/4.
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

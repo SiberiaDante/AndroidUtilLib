@@ -21,7 +21,7 @@ import java.util.List;
  * @Describe： Activity相关工具类
  * @Time: 2017/5/10.
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

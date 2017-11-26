@@ -22,7 +22,7 @@ import java.util.List;
  * @Created SiberiaDante
  * @Describe： 仿IOS实现底部弹窗，可拓展多个item
  * @Time: 2017/6/14
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 public class SDBottomDialog {

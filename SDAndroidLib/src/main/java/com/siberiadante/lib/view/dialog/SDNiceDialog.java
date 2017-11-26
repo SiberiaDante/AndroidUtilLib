@@ -12,7 +12,7 @@ import com.siberiadante.lib.view.base.nicedialog.ViewHolder;
  * @Created SiberiaDante
  * @Describe： 原作者GitHub代码地址: https://github.com/Othershe/SDNiceDialog
  * @Time: 2017/8/10
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

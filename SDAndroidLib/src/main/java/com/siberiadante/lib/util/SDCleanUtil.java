@@ -8,7 +8,7 @@ import java.io.File;
  * @Created SiberiaDante
  * @Describe： 清除缓存、数据等相关应用
  * @Time: 2017/5/15
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

@@ -20,7 +20,7 @@ import com.siberiadante.lib.R;
  * @Created SiberiaDante
  * @Describe： 常规的提示确认dialog
  * @Time: 2017/6/29
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

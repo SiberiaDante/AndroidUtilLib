@@ -26,7 +26,7 @@ import com.siberiadante.lib.view.likeview.spreadlikeviewbase.RxShineView;
  * @Describe： 各种点赞特效
  * @Time: 2017/9/21
  * @UpDate:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

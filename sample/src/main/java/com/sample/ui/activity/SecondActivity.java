@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 
 import com.sample.R;
 import com.siberiadante.lib.util.SDLogUtil;
-import com.siberiadante.lib.util.SDScreenUtil;
+import com.siberiadante.lib.util.SDStatusBarUtil;
 
 public class SecondActivity extends AppCompatActivity {
 
@@ -21,7 +21,7 @@ public class SecondActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        SDScreenUtil.setStatusTranslucent(this);
+        SDStatusBarUtil.setStatusTranslucent(this);
         initView();
         initData();
     }

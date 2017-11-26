@@ -20,7 +20,7 @@ import java.util.List;
  * @Created SiberiaDante
  * @Describe： @{link https://github.com/zhang3550545/PermissionManager}
  * @Time: 2017/9/4
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 

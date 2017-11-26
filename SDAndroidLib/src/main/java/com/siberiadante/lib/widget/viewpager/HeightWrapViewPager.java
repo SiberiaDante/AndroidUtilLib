@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
  * @Describe： 高度自适应的ViewPager，
  * @CreateTime: 2017/10/16
  * @UpDateTime:
- * @Email: 994537867@qq.com
+ * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
