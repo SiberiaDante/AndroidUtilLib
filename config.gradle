@@ -6,4 +6,5 @@ ext {
     buildToolsVersion = '25.0.0'
 
     supportLibraryVersion='25.3.1'
+    design='25.3.1'
 }

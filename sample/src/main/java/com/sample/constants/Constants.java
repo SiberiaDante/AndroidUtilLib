@@ -18,6 +18,7 @@ import com.sample.ui.activity.util.NetworkActivity;
 import com.sample.ui.activity.util.NumberActivity;
 import com.sample.ui.activity.util.PermissionManagerActivity;
 import com.sample.ui.activity.util.SDCardUtilActivity;
+import com.sample.ui.activity.util.SDJumpActivity;
 import com.sample.ui.activity.util.ScreenActivity;
 import com.sample.ui.activity.util.ToastActivity;
 import com.sample.ui.activity.view.DialogActivity;
@@ -78,6 +79,7 @@ public class Constants {
         datas.add(new Data("测试ScreenUtil类", ScreenActivity.class));
         datas.add(new Data("测试SDCardUtil类", SDCardUtilActivity.class));
         datas.add(new Data("测试ToastUtil类", ToastActivity.class));
+        datas.add(new Data(SampleApplication.getInstance().getString(R.string.JumpUtil), SDJumpActivity.class));
         return datas;
     }
 }

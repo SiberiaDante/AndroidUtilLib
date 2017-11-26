@@ -62,6 +62,12 @@ public class SDActivityUtil {
         startActivity(SDAndroidLib.getContext(), SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, null);
     }
 
+    /**
+     * 启动一个包含动画的Activity
+     *
+     * @param options 动画
+     * @param cls
+     */
     public static void startActivity(final Bundle options,
                                      final Class<?> cls) {
         startActivity(SDAndroidLib.getContext(), SDAndroidLib.getContext().getPackageName(), cls.getName(), null, options);

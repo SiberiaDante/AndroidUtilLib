@@ -21,12 +21,12 @@ public class SDJumpUtil {
 
     /**
      * open setting
-     *
-     * @param activity
      */
-    public static void openSetting(Activity activity) {
-        Intent intent = new Intent(Settings.ACTION_SETTINGS);
-        activity.startActivity(intent);
+    public static void openSetting() {
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Settings.ACTION_SETTINGS);
+        SDAndroidLib.getContext().startActivity(intent);
     }
 
     /**
@@ -39,4 +39,28 @@ public class SDJumpUtil {
                 .setData(Uri.fromParts("package", SDAndroidLib.getContext().getPackageName(), null));
         SDAndroidLib.getContext().startActivity(intent);
     }
+
+    /**
+     * email
+     */
+    public static void openEmail() {
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Intent.ACTION_SENDTO);
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+
+    /**
+     * @param email email
+     */
+
+    public static void openEmail(String email) {
+        Uri uri = Uri.parse("mailto:" + email);
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Intent.ACTION_SENDTO)
+                .setData(uri);
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+
 }

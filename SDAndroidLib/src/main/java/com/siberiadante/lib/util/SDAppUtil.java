@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.siberiadante.lib.R;
 import com.siberiadante.lib.SDAndroidLib;
 import com.siberiadante.lib.bean.SDAppInfoBean;
 import com.siberiadante.lib.util.encrypt.SDSHA1Util;
@@ -80,7 +81,11 @@ public class SDAppUtil {
      * @return App版本名
      */
     public static String getAppVersionName() {
-        return getAppVersionName(SDAndroidLib.getContext().getPackageName());
+        return getAppVersionName(SDAndroidLib.getContext());
+    }
+
+    public static String getAppVersionName(Context context) {
+        return getAppVersionName(context.getPackageName());
     }
 
     /**
@@ -90,13 +95,15 @@ public class SDAppUtil {
      * @return App版本名
      */
     public static String getAppVersionName(String packageName) {
-        if (isSpace(packageName)) return null;
+        if (isSpace(packageName)) {
+            return SDAndroidLib.getContext().getString(R.string.can_not_find_package_name);
+        }
         try {
             PackageInfo pi = getPackageManager().getPackageInfo(packageName, 0);
             return pi == null ? null : pi.versionName;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
-            return null;
+            return SDAndroidLib.getContext().getString(R.string.can_not_find_version_name);
         }
     }
 
@@ -107,6 +114,10 @@ public class SDAppUtil {
      */
     public static int getAppVersionCode() {
         return getAppVersionCode(SDAndroidLib.getContext().getPackageName());
+    }
+
+    public static int getAppVersionCode(Context context) {
+        return getAppVersionCode(context.getPackageName());
     }
 
     /**

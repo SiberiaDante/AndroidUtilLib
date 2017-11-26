@@ -13,4 +13,5 @@
     <string name="EncryptAlgorithm">加密算法</string>
     <string name="LikeView">点赞特效</string>
     <string name="SDEncryptUtil">加密算法(EncryptAlgorithm)</string>
+    <string name="JumpUtil">测试JumpUtil类</string>
 </resources>

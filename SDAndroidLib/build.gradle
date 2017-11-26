@@ -28,5 +28,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     provided "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    provided "com.android.support:design:$rootProject.design"
     provided 'junit:junit:4.12'
 }

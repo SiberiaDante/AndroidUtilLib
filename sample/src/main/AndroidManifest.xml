@@ -30,7 +30,7 @@
         <activity android:name=".ui.activity.SecondActivity" />
         <activity android:name=".ui.activity.util.ToastActivity" />
         <activity android:name=".ui.activity.util.NetworkActivity" />
-        <!--<activity android:name=".ui.activity.BaseActivity" />-->
+        <!-- <activity android:name=".ui.activity.BaseActivity" /> -->
         <activity android:name=".ui.activity.util.ActivityUtilActivity" />
         <activity android:name=".ui.activity.util.ScreenActivity" />
         <activity android:name=".ui.activity.util.AppActivity" />
@@ -73,8 +73,9 @@
         <activity android:name=".ui.activity.util.BitmapUtilActivity" />
         <activity android:name=".ui.activity.view.RantingBarActivity" />
         <activity android:name=".ui.activity.view.customview.SDLetterIndexActivity" />
-        <activity android:name=".ui.activity.view.customview.SDLoadViewActivity"></activity>
-        <activity android:name=".ui.activity.util.EncryptionActivity"/>
+        <activity android:name=".ui.activity.view.customview.SDLoadViewActivity" />
+        <activity android:name=".ui.activity.util.EncryptionActivity" />
+        <activity android:name=".ui.activity.util.SDJumpActivity"></activity>
     </application>
 
 </manifest>
