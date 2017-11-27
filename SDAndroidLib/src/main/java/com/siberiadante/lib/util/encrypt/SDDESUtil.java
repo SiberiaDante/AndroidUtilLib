@@ -22,9 +22,7 @@ import javax.crypto.spec.DESKeySpec;
 
 public class SDDESUtil {
 
-    private final static String HEX = "0123456789ABCDEF";
     private final static String ALGORITHM = "DES";//DES是加密方式
-    private static final String SHA1PRNG = "SHA1PRNG";//// SHA1PRNG 强随机种子算法, 要区别4.2以上版本的调用方法
 
     /**
      * 对密钥进行处理
@@ -90,36 +88,36 @@ public class SDDESUtil {
         }
     }
 
-    /**
-     * 生成随机数，可以当做动态的密钥 加密和解密的密钥必须一致，不然将不能解密
-     */
-    public static String generateKey() {
-        try {
-            SecureRandom localSecureRandom = SecureRandom.getInstance(SHA1PRNG);
-            byte[] bytes_key = new byte[20];
-            localSecureRandom.nextBytes(bytes_key);
-            String str_key = toHex(bytes_key);
-            return str_key;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+//    /**
+//     * 生成随机数，可以当做动态的密钥 加密和解密的密钥必须一致，不然将不能解密
+//     */
+//    public static String generateKey() {
+//        try {
+//            SecureRandom localSecureRandom = SecureRandom.getInstance(SHA1PRNG);
+//            byte[] bytes_key = new byte[20];
+//            localSecureRandom.nextBytes(bytes_key);
+//            String str_key = toHex(bytes_key);
+//            return str_key;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
-    /**
-     * 二进制转字符
-     */
-    public static String toHex(byte[] buf) {
-        if (buf == null)
-            return "";
-        StringBuffer result = new StringBuffer(2 * buf.length);
-        for (int i = 0; i < buf.length; i++) {
-            appendHex(result, buf[i]);
-        }
-        return result.toString();
-    }
-
-    private static void appendHex(StringBuffer sb, byte b) {
-        sb.append(HEX.charAt((b >> 4) & 0x0f)).append(HEX.charAt(b & 0x0f));
-    }
+//    /**
+//     * 二进制转字符
+//     */
+//    public static String toHex(byte[] buf) {
+//        if (buf == null)
+//            return "";
+//        StringBuffer result = new StringBuffer(2 * buf.length);
+//        for (int i = 0; i < buf.length; i++) {
+//            appendHex(result, buf[i]);
+//        }
+//        return result.toString();
+//    }
+//
+//    private static void appendHex(StringBuffer sb, byte b) {
+//        sb.append(HEX.charAt((b >> 4) & 0x0f)).append(HEX.charAt(b & 0x0f));
+//    }
 }

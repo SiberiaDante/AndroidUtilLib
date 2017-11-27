@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:hint="请输入明文,秘钥默认为1" />
+            android:hint="请输入明文" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,14 +53,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="SHA" />
+                android:text="SHA加密" />
 
             <Button
                 android:id="@+id/btn_rsa"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="RSA家吗" />
+                android:text="RSA加密" />
 
         </LinearLayout>
 
@@ -97,7 +97,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="一伙加密" />
+                android:text="异或加密" />
 
             <Button
                 android:id="@+id/btn_clear"

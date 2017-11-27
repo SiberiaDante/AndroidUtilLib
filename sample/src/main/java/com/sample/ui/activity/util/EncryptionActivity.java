@@ -10,14 +10,17 @@ import android.widget.TextView;
 import com.sample.R;
 import com.sample.ui.activity.BaseActivity;
 import com.siberiadante.lib.util.SDLogUtil;
+import com.siberiadante.lib.util.encrypt.SDAESUtil;
 import com.siberiadante.lib.util.encrypt.SDBase64Util;
 import com.siberiadante.lib.util.encrypt.SDDESUtil;
+import com.siberiadante.lib.util.encrypt.SDEncryptUtil;
 import com.siberiadante.lib.util.encrypt.SDMD5Util;
 import com.siberiadante.lib.util.encrypt.SDSHA1Util;
 import com.siberiadante.lib.util.encrypt.SDSHA224Util;
 import com.siberiadante.lib.util.encrypt.SDSHA256Util;
 import com.siberiadante.lib.util.encrypt.SDSHA384Util;
 import com.siberiadante.lib.util.encrypt.SDSHA512Util;
+import com.siberiadante.lib.util.encrypt.base.SDBaseEncrypt;
 import com.siberiadante.lib.view.titlebar.SDTitleLayout;
 
 import butterknife.BindView;
@@ -85,6 +88,7 @@ public class EncryptionActivity extends BaseActivity {
             case R.id.btn_rsa:
                 break;
             case R.id.btn_aes:
+                encryptAES();
                 break;
             case R.id.btn_des:
                 encryptDES();
@@ -97,13 +101,16 @@ public class EncryptionActivity extends BaseActivity {
         }
     }
 
+    private void encryptAES() {
+    }
+
     private void encryptDES() {
         final String string = edtStr.getText().toString();
         if (string.isEmpty()) {
             return;
         }
         stringBuilder.append("DES加密转成十六进制：\n");
-        String generateKey = SDDESUtil.generateKey();
+        String generateKey = SDBaseEncrypt.generateKey();
         String encode = SDDESUtil.encrypt(string, generateKey);
         stringBuilder.append(encode);
         stringBuilder.append("\n");

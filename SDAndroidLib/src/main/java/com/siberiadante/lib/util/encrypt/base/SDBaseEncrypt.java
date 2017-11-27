@@ -9,9 +9,12 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 
 import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
 import javax.crypto.Mac;
+import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
@@ -26,6 +29,10 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class SDBaseEncrypt {
     private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+    private final static String HEX = "0123456789ABCDEF";
+
+
     /**
      * 分隔符分割的三个参数说明：
      * <p>法算法名称/加密模式/填充方式</p>
@@ -35,9 +42,66 @@ public class SDBaseEncrypt {
      */
     private final static String TRANSFORMATION = "DES/CBC/PKCS5Padding";//DES是加密方式 CBC是工作模式 PKCS5Padding是填充模式
     private final static String IVPARAMETERSPEC = "01020304";//初始化向量参数，AES 为16bytes. DES 为8bytes.
+    private static final String SHA1PRNG = "SHA1PRNG";//// SHA1PRNG 强随机种子算法, 要区别4.2以上版本的调用方法
 
 
     public static final String TAG = SDBaseEncrypt.class.getSimpleName();
+
+    /**
+     * 生成随机数，可以当做动态的密钥 加密和解密的密钥必须一致，不然将不能解密
+     */
+    public static String generateKey() {
+        try {
+            SecureRandom localSecureRandom = SecureRandom.getInstance(SHA1PRNG);
+            byte[] bytes_key = new byte[20];
+            localSecureRandom.nextBytes(bytes_key);
+            String str_key = toHex(bytes_key);
+            return str_key;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    // 对密钥进行处理
+    public static byte[] getRawKey(byte[] seed,String type) throws Exception {
+        KeyGenerator kgen = KeyGenerator.getInstance(type);
+        //for android
+        SecureRandom sr = null;
+        // 在4.2以上版本中，SecureRandom获取方式发生了改变
+        if (android.os.Build.VERSION.SDK_INT >= 17) {
+            sr = SecureRandom.getInstance(SHA1PRNG, "Crypto");
+        } else {
+            sr = SecureRandom.getInstance(SHA1PRNG);
+        }
+        // for Java
+        // secureRandom = SecureRandom.getInstance(SHA1PRNG);
+        sr.setSeed(seed);
+        kgen.init(128, sr); //256 bits or 128 bits,192bits
+        //AES中128位密钥版本有10个加密循环，192比特密钥版本有12个加密循环，256比特密钥版本则有14个加密循环。
+        SecretKey skey = kgen.generateKey();
+        byte[] raw = skey.getEncoded();
+        return raw;
+    }
+
+
+    /**
+     * 二进制转字符
+     */
+    public static String toHex(byte[] buf) {
+        if (buf == null)
+            return "";
+        StringBuffer result = new StringBuffer(2 * buf.length);
+        for (int i = 0; i < buf.length; i++) {
+            appendHex(result, buf[i]);
+        }
+        return result.toString();
+    }
+
+    private static void appendHex(StringBuffer sb, byte b) {
+        sb.append(HEX.charAt((b >> 4) & 0x0f)).append(HEX.charAt(b & 0x0f));
+    }
+
 
     /**
      * 哈希函数模板
