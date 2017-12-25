@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:gravity="start|center"
+        android:maxLines="1"
+        android:minHeight="50dp"
+        android:paddingEnd="5dp"
+        android:paddingStart="5dp"
+        android:text="测试一下"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp" />
+
+</android.support.constraint.ConstraintLayout>

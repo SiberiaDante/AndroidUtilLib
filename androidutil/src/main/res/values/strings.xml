@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidUtilLib</string>
+
+    <string name="can_not_find_version_info">无法获取版本信息</string>
+    <string name="can_not_find_version_name">not find app version name</string>
+    <string name="can_not_find_version_code">not find app version code</string>
+    <string name="can_not_find_package_name">not find app package name</string>
+</resources>
