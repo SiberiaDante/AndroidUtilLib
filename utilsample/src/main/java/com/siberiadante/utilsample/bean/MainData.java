@@ -1,6 +1,8 @@
 package com.siberiadante.utilsample.bean;
 
 import com.siberiadante.utilsample.activity.ActivityUtilActivity;
+import com.siberiadante.utilsample.activity.JumpUtilActivity;
+import com.siberiadante.utilsample.activity.TimerUtilActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +20,9 @@ import java.util.List;
 public class MainData {
     public static List<DataBean> getData() {
         List<DataBean> data = new ArrayList<>();
-        data.add(new DataBean("测试ActivityUtil", ActivityUtilActivity.class));
+        data.add(new DataBean("测试SDActivityUtil", ActivityUtilActivity.class));
+        data.add(new DataBean("测试SDJumpUtil", JumpUtilActivity.class));
+        data.add(new DataBean("测试SDTimerUtil", TimerUtilActivity.class));
 
         return data;
     }

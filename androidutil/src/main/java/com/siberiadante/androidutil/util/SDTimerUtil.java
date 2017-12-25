@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 /**
  * @Created SiberiaDante
@@ -18,7 +18,7 @@ public class SDTimerUtil {
      *
      * @return
      */
-    public static boolean isFastClick() {
+    public static boolean isNotFastClick() {
         boolean flag = false;
         long curClickTime = System.currentTimeMillis();
         if ((curClickTime - lastClickTime) >= DEFAULT_CLICK_DELAY_TIME) {

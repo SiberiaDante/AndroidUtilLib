@@ -11,6 +11,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.AnimRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import com.siberiadante.androidutil.SDAndroidLib;
@@ -52,17 +53,7 @@ public class SDJumpUtil {
     }
 
     /**
-     * 打开发送邮件页面
-     */
-    public static void openEmail() {
-        Intent intent = new Intent()
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setAction(Intent.ACTION_SENDTO);
-        SDAndroidLib.getContext().startActivity(intent);
-    }
-
-    /**
-     * 打开并发送邮件
+     * 打开发送邮件面板
      *
      * @param email email
      */
@@ -71,6 +62,29 @@ public class SDJumpUtil {
         Intent intent = new Intent()
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setAction(Intent.ACTION_SENDTO)
+                .setData(uri);
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+
+    /**
+     * 打开并发送一份邮件
+     * <p>
+     * setAction(Intent.ACTION_SENDTO):无附件的发送
+     * setAction(Intent.ACTION_SEND):带附件的发送
+     * setAction(Intent.ACTION_SEND_MULTIPLE ):带有多附件的发送
+     * </p>
+     *
+     * @param email   邮箱地址
+     * @param title   邮件标题
+     * @param content 邮件内容
+     */
+    public static void sendEmail(String email, String title, String content) {
+        Uri uri = Uri.parse("mailto:" + email);
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Intent.ACTION_SENDTO)
+                .putExtra(Intent.EXTRA_SUBJECT, title)
+                .putExtra(Intent.EXTRA_TEXT, content)
                 .setData(uri);
         SDAndroidLib.getContext().startActivity(intent);
     }
@@ -91,7 +105,7 @@ public class SDJumpUtil {
      *
      * @param cls class name
      */
-    public static void startActivity(final Class<?> cls) {
+    public static void startActivity(@NonNull Class<?> cls) {
         startActivity(cls, null);
     }
 
@@ -101,9 +115,9 @@ public class SDJumpUtil {
      * @param cls    class name
      * @param extras bundle 传值
      */
-    public static void startActivity(final Class<?> cls,
-                                     final Bundle extras) {
-        startActivity( SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, null);
+    public static void startActivity(@NonNull Class<?> cls,
+                                     @Nullable Bundle extras) {
+        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, null);
     }
 
     /**
@@ -112,9 +126,9 @@ public class SDJumpUtil {
      * @param options 动画
      * @param cls
      */
-    public static void startActivity(final Bundle options,
-                                     final Class<?> cls) {
-        startActivity( SDAndroidLib.getContext().getPackageName(), cls.getName(), null, options);
+    public static void startActivity(@Nullable Bundle options,
+                                     @NonNull Class<?> cls) {
+        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), null, options);
     }
 
     /**
@@ -122,10 +136,10 @@ public class SDJumpUtil {
      * @param extras  bundle
      * @param options bundle
      */
-    public static void startActivity(final Class<?> cls,
-                                     final Bundle extras,
-                                     final Bundle options) {
-        startActivity( SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, options);
+    public static void startActivity(@NonNull Class<?> cls,
+                                     @Nullable Bundle extras,
+                                     @Nullable Bundle options) {
+        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, options);
     }
 
 
@@ -139,10 +153,10 @@ public class SDJumpUtil {
      *                for building it manually.
      */
     private static void startActivity(
-                                      final String pkg,
-                                      final String cls,
-                                      final Bundle extras,
-                                      final Bundle options) {
+            @NonNull String pkg,
+            @NonNull String cls,
+            @Nullable Bundle extras,
+            @Nullable Bundle options) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         if (extras != null) {
             intent.putExtras(extras);
@@ -158,43 +172,43 @@ public class SDJumpUtil {
         }
     }
 
-//    /**
-//     * 包含启动动画，支持API16以下
-//     *
-//     * @param activity  activity
-//     * @param cls       class name
-//     * @param enterAnim enter anim
-//     * @param exitAnim  exit anim
-//     */
-//    public static void startActivity(final Activity activity,
-//                                     final String cls,
-//                                     @AnimRes final int enterAnim,
-//                                     @AnimRes final int exitAnim) {
-//        startActivity(activity, SDAndroidLib.getContext().getPackageName(), cls, null, enterAnim, exitAnim);
-//    }
-//
-//    /**
-//     * @param activity  activity
-//     * @param pkg       package name
-//     * @param cls       class name
-//     * @param extras    bundle
-//     * @param enterAnim enter anim
-//     * @param exitAnim  exit anim
-//     */
-//    public static void startActivity(final Activity activity,
-//                                     final String pkg,
-//                                     final String cls,
-//                                     final Bundle extras,
-//                                     @AnimRes final int enterAnim,
-//                                     @AnimRes final int exitAnim) {
-//        Intent intent = new Intent(Intent.ACTION_VIEW);
-//        if (extras != null) {
-//            intent.putExtras(extras);
-//        }
-//        intent.setComponent(new ComponentName(pkg, cls));
-//        activity.startActivity(intent);
-//        activity.overridePendingTransition(enterAnim, exitAnim);
-//    }
+    /**
+     * 包含启动动画，支持API16以下
+     *
+     * @param activity  activity
+     * @param cls       class name
+     * @param enterAnim enter anim
+     * @param exitAnim  exit anim
+     */
+    public static void startActivity(@NonNull Activity activity,
+                                     @NonNull String cls,
+                                     @AnimRes  int enterAnim,
+                                     @AnimRes  int exitAnim) {
+        startActivity(activity, SDAndroidLib.getContext().getPackageName(), cls, null, enterAnim, exitAnim);
+    }
+
+    /**
+     * @param activity  activity
+     * @param pkg       package name
+     * @param cls       class name
+     * @param extras    bundle
+     * @param enterAnim enter anim
+     * @param exitAnim  exit anim
+     */
+    public static void startActivity(@NonNull Activity activity,
+                                     @NonNull String pkg,
+                                     @NonNull String cls,
+                                     @Nullable Bundle extras,
+                                     @AnimRes  int enterAnim,
+                                     @AnimRes  int exitAnim) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        if (extras != null) {
+            intent.putExtras(extras);
+        }
+        intent.setComponent(new ComponentName(pkg, cls));
+        activity.startActivity(intent);
+        activity.overridePendingTransition(enterAnim, exitAnim);
+    }
 
 
 }

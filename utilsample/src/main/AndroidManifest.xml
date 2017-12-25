@@ -25,6 +25,8 @@
         <!-- <activity android:name=".util.EncryptionActivity" /> -->
         <!-- <activity android:name=".util.NetworkActivity" /> -->
         <!-- <activity android:name=".util.SDCardUtilActivity" /> -->
+        <activity android:name=".activity.JumpUtilActivity" />
+        <activity android:name=".activity.TimerUtilActivity"></activity>
     </application>
 
 </manifest>
