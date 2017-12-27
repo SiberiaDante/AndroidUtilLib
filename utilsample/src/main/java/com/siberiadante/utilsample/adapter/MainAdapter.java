@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.SDActivityUtil;
 import com.siberiadante.androidutil.util.SDJumpUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.bean.DataBean;

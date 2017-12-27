@@ -7,9 +7,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import com.siberiadante.androidutil.SDActivityUtil;
-import com.siberiadante.androidutil.SDLogUtil;
+import com.siberiadante.androidutil.util.SDActivityUtil;
 import com.siberiadante.androidutil.util.SDJumpUtil;
+import com.siberiadante.utilsample.MainActivity;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.SecondActivity;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
@@ -37,10 +37,11 @@ public class ActivityUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        SDLogUtil.d("-------------" + SecondActivity.class.getName());
+        boolean activityExists = SDActivityUtil.isActivityExists("com.siberiadante.utilsample", MainActivity.class.getName());
+        String launcherActivity = SDActivityUtil.getLauncherActivity("com.sample");
         StringBuilder builder = new StringBuilder();
-        builder.append("1.SecondActivity是否存在---" + SDActivityUtil.isActivityExists("com.sample", SecondActivity.class.getName()) + "\n");
-        builder.append("2.当前APP的启动Activity是---" + SDActivityUtil.getLauncherActivity("com.sample") + "\n");
+        builder.append("1.MainActivity是否存在---" + activityExists + "\n");
+        builder.append("2.当前APP的启动Activity是---" + launcherActivity + "\n");
         builder.append("3.包名为com.shuinsen.zhiri的APP的启动Activity是---" + SDActivityUtil.getLauncherActivity("com.shuinsen.zhiri") + "\n");
         mTvContent.setText(builder);
     }
@@ -54,7 +55,7 @@ public class ActivityUtilActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_start_other_activity:
-                SDJumpUtil.startActivity( SecondActivity.class);
+                SDJumpUtil.startActivity(SecondActivity.class);
                 break;
             case R.id.start_browser:
                 SDJumpUtil.openBrowser(Constants.GIT_HUB);
