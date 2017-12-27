@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.siberiadante.androidutil.SDActivityUtil;
 import com.siberiadante.androidutil.SDLogUtil;
+import com.siberiadante.androidutil.util.SDJumpUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.SecondActivity;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
@@ -53,10 +54,10 @@ public class ActivityUtilActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_start_other_activity:
-                SDActivityUtil.startActivity( SecondActivity.class);
+                SDJumpUtil.startActivity( SecondActivity.class);
                 break;
             case R.id.start_browser:
-                SDActivityUtil.startBrowser(Constants.GIT_HUB);
+                SDJumpUtil.openBrowser(Constants.GIT_HUB);
                 break;
         }
     }

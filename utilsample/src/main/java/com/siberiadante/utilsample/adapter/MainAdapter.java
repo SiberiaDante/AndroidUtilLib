@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.siberiadante.androidutil.SDActivityUtil;
+import com.siberiadante.androidutil.util.SDJumpUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.bean.DataBean;
 
@@ -46,7 +47,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SDActivityUtil.startActivity(mainDataList.get(position).getCls());
+                SDJumpUtil.startActivity(mainDataList.get(position).getCls());
 
             }
         });

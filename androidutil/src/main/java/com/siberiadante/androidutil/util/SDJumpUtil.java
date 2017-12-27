@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe：页面跳转、打开浏览器、发送短信、设置面板等工具类
  * @CreateTime: 2017/10/26
  * @UpDateTime:
  * @Email: 2654828081@qq.com
@@ -29,15 +29,14 @@ import java.util.List;
  */
 
 public class SDJumpUtil {
-    public static final String SETTINGS_ACTION = "android.settings.APPLICATION_DETAILS_SETTINGS";
 
     /**
-     * 打开设置页面
+     * 打开设置首页
      */
     public static void openSetting() {
         Intent intent = new Intent()
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                .setAction(Settings.ACTION_SETTINGS);
+                .setAction(Settings.ACTION_SETTINGS)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         SDAndroidLib.getContext().startActivity(intent);
     }
 
@@ -46,9 +45,37 @@ public class SDJumpUtil {
      */
     public static void openAppSetting() {
         Intent intent = new Intent()
-                .setAction(SETTINGS_ACTION)
+                .setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setData(Uri.fromParts("package", SDAndroidLib.getContext().getPackageName(), null));
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+
+    /**
+     * 打开无线设置面板
+     */
+    public static void openWifiSetting() {
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Settings.ACTION_WIFI_SETTINGS);
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+    /**
+     * 打开语言设置面板
+     */
+    public static void openLanguageSetting() {
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Settings.ACTION_LOCALE_SETTINGS);
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+    /**
+     * 打开位置设置面板
+     */
+    public static void openLocationSetting() {
+        Intent intent = new Intent()
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                .setAction(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
         SDAndroidLib.getContext().startActivity(intent);
     }
 
@@ -60,8 +87,8 @@ public class SDJumpUtil {
     public static void openEmail(String email) {
         Uri uri = Uri.parse("mailto:" + email);
         Intent intent = new Intent()
-                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setAction(Intent.ACTION_SENDTO)
+                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 .setData(uri);
         SDAndroidLib.getContext().startActivity(intent);
     }
@@ -73,6 +100,7 @@ public class SDJumpUtil {
      * <li>{@code setAction(Intent.ACTION_SEND)}:带附件的发送</li>
      * <li>{@code setAction(Intent.ACTION_SEND_MULTIPLE )}:带有多附件的发送</li>
      * </ul>
+     *
      * @param email   邮箱地址
      * @param title   邮件标题
      * @param content 邮件内容

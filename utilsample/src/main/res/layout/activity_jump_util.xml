@@ -13,49 +13,77 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btn_open_setting"
-            android:layout_width="match_parent"
-            android:text="打开设置页面"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_open_setting_details"
-            android:layout_width="match_parent"
-            android:text="打开APP设置详情页面"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_open_browser"
-            android:layout_width="match_parent"
-            android:text="通过浏览器大看一个网页"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_open_email"
-            android:layout_width="match_parent"
-            android:text="打开发送邮件面板"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/btn_send_email"
-            android:layout_width="match_parent"
-            android:text="打开并发送邮件"
-            android:layout_height="wrap_content" />
-        <Button
             android:id="@+id/btn_start_activity1"
             android:layout_width="match_parent"
-            android:text="启动一个Activity"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="启动一个Activity" />
+
         <Button
             android:id="@+id/btn_start_activity2"
             android:layout_width="match_parent"
-            android:text="启动一个传值的Activity"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="启动一个传值的Activity" />
+
         <Button
             android:id="@+id/btn_start_activity3"
             android:layout_width="match_parent"
-            android:text="启动一个动画的Activity1"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="启动一个动画的Activity1" />
+
         <Button
             android:id="@+id/btn_start_activity4"
             android:layout_width="match_parent"
-            android:text="启动一个动画的Activity2"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="启动一个动画的Activity2" />
+
+        <Button
+            android:id="@+id/btn_open_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开设置页面" />
+
+        <Button
+            android:id="@+id/btn_open_setting_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开APP设置详情页面" />
+
+        <Button
+            android:id="@+id/btn_open_wifi_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开无线设置页面" />
+
+        <Button
+            android:id="@+id/btn_open_browser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="通过浏览器打开一个网页" />
+
+        <Button
+            android:id="@+id/btn_open_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开发送邮件面板" />
+
+        <Button
+            android:id="@+id/btn_send_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开并发送邮件" />
+
+        <Button
+            android:id="@+id/btn_open_location_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开位置设置页面" />
+
+        <Button
+            android:id="@+id/btn_open_language_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开语言设置页面" />
+
+
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
