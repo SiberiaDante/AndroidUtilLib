@@ -1,7 +1,7 @@
 package com.siberiadante.androidutil;
 
 
-import com.siberiadante.androidutil.constant.SDRegex;
+import com.siberiadante.androidutil.constant.SDRegexUnit;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -36,7 +36,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isMobileSimple(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_MOBILE_SIMPLE, input);
+        return isMatch(SDRegexUnit.REGEX_MOBILE_SIMPLE, input);
     }
 
     /**
@@ -46,7 +46,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isMobileExact(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_MOBILE_EXACT, input);
+        return isMatch(SDRegexUnit.REGEX_MOBILE_EXACT, input);
     }
 
     /**
@@ -56,7 +56,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isTel(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_TEL, input);
+        return isMatch(SDRegexUnit.REGEX_TEL, input);
     }
 
     /**
@@ -66,7 +66,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isIDCard15(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_ID_CARD15, input);
+        return isMatch(SDRegexUnit.REGEX_ID_CARD15, input);
     }
 
     /**
@@ -76,7 +76,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isIDCard18(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_ID_CARD18, input);
+        return isMatch(SDRegexUnit.REGEX_ID_CARD18, input);
     }
 
 
@@ -87,7 +87,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isEmail(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_EMAIL, input);
+        return isMatch(SDRegexUnit.REGEX_EMAIL, input);
     }
 
     /**
@@ -97,7 +97,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isURL(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_URL, input);
+        return isMatch(SDRegexUnit.REGEX_URL, input);
     }
 
     /**
@@ -107,7 +107,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isZh(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_ZH, input);
+        return isMatch(SDRegexUnit.REGEX_ZH, input);
     }
 
 
@@ -119,7 +119,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isUsername(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_USERNAME, input);
+        return isMatch(SDRegexUnit.REGEX_USERNAME, input);
     }
 
     /**
@@ -129,7 +129,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isDate(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_DATE, input);
+        return isMatch(SDRegexUnit.REGEX_DATE, input);
     }
 
     /**
@@ -139,7 +139,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isIP(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_IP, input);
+        return isMatch(SDRegexUnit.REGEX_IP, input);
     }
 
     /**
@@ -149,7 +149,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isSpaceLine(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_BLANK_LINE, input);
+        return isMatch(SDRegexUnit.REGEX_BLANK_LINE, input);
     }
 
     /**
@@ -159,7 +159,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isSpaceStr(CharSequence input) {
-        return isMatchCanNull(SDRegex.REGEX_BLANK_STR, input);
+        return isMatchCanNull(SDRegexUnit.REGEX_BLANK_STR, input);
     }
 
     /**
@@ -169,7 +169,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isQQNum(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_TENCENT_NUM, input);
+        return isMatch(SDRegexUnit.REGEX_TENCENT_NUM, input);
     }
 
     /**
@@ -179,7 +179,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isPostCode(final CharSequence input) {
-        return isMatch(SDRegex.REGEX_ZIP_CODE, input);
+        return isMatch(SDRegexUnit.REGEX_ZIP_CODE, input);
     }
 
     /**
@@ -190,7 +190,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isNum(String integer) {
-        return isMatchCanNull(SDRegex.REGEX_NUM, integer);
+        return isMatchCanNull(SDRegexUnit.REGEX_NUM, integer);
     }
 
     /**
@@ -201,7 +201,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isPositionInteger(String integer) {
-        return isMatchCanNull(SDRegex.REGEX_POSITIVE_INTEGER, integer);
+        return isMatchCanNull(SDRegexUnit.REGEX_POSITIVE_INTEGER, integer);
     }
     /**
      * 验证字符串是否是负整数
@@ -211,7 +211,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isNegativeInteger(String integer) {
-        return isMatchCanNull(SDRegex.REGEX_NEGATIVE_INTEGER, integer);
+        return isMatchCanNull(SDRegexUnit.REGEX_NEGATIVE_INTEGER, integer);
     }
 
     /**
@@ -221,7 +221,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isInteger(String integer) {
-        return isMatchCanNull(SDRegex.REGEX_INTEGER, integer);
+        return isMatchCanNull(SDRegexUnit.REGEX_INTEGER, integer);
     }
 
     /**
@@ -231,7 +231,7 @@ public class SDRegexUtil {
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
     public static boolean isDecimals(String decimals) {
-        return Pattern.matches(SDRegex.REGEX_DECIMAL, decimals);
+        return Pattern.matches(SDRegexUnit.REGEX_DECIMAL, decimals);
     }
 
     /**

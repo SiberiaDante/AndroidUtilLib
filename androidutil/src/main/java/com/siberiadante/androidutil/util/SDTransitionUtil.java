@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.app.Activity;
 import android.support.annotation.CheckResult;
@@ -6,8 +6,10 @@ import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
 
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDStringUtil;
 import com.siberiadante.androidutil.constant.SDConstants;
-import com.siberiadante.androidutil.util.SDCloseUtil;
+import com.siberiadante.androidutil.constant.SDMemoryUnit;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -31,7 +33,7 @@ import java.util.Locale;
 
 public class SDTransitionUtil {
 
-    private static final DecimalFormat amountFormat = new DecimalFormat("###,###,###,##0.00");
+    private static final String moneyFormat = "###,###,###,##0.00";
     private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
@@ -47,19 +49,10 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 获取屏幕密度Dpi
-     *
-     * @param activity
-     * @return 屏幕密度Dpi
-     */
-    public static float getDensityDpi(Activity activity) {
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        return displayMetrics.densityDpi;
-    }
-
-    /**
      * dip转为 px
+     *
+     * @param dipValue
+     * @return px
      */
     public static int dip2px(float dipValue) {
         final float scale = SDAndroidLib.getContext().getResources().getDisplayMetrics().density;
@@ -67,12 +60,30 @@ public class SDTransitionUtil {
     }
 
     /**
+     * dip转为 px
+     *
+     * @param dipValue
+     * @return px
+     */
+    public static float dip2pxF(float dipValue) {
+        final float scale = SDAndroidLib.getContext().getResources().getDisplayMetrics().density;
+        return (dipValue * scale + 0.5f);
+    }
+
+    /**
      * px 转为 dip
      */
     public static int px2dip(float pxValue) {
         final float scale = SDAndroidLib.getContext().getResources().getDisplayMetrics().density;
-
         return (int) (pxValue / scale + 0.5f);
+    }
+
+    /**
+     * px 转为 dip
+     */
+    public static float px2dipF(float pxValue) {
+        float scale = SDAndroidLib.getContext().getResources().getDisplayMetrics().density;
+        return (pxValue / scale + 0.5f);
     }
 
     /**
@@ -86,6 +97,16 @@ public class SDTransitionUtil {
         return (int) (spValue * fontScale + 0.5f);
     }
 
+    /**
+     * 将sp值转换为px值，保证文字大小不变
+     *
+     * @param spValue
+     * @return
+     */
+    public static float sp2pxF(float spValue) {
+        final float fontScale = SDAndroidLib.getContext().getResources().getDisplayMetrics().scaledDensity;
+        return (spValue * fontScale + 0.5f);
+    }
 
     /**
      * 将px值转换为sp值，保证文字大小不变
@@ -98,6 +119,16 @@ public class SDTransitionUtil {
         return (int) (pxValue / fontScale + 0.5f);
     }
 
+    /**
+     * 将px值转换为sp值，保证文字大小不变
+     *
+     * @param pxValue
+     * @return
+     */
+    public static float px2spF(float pxValue) {
+        final float fontScale = SDAndroidLib.getContext().getResources().getDisplayMetrics().scaledDensity;
+        return (pxValue / fontScale + 0.5f);
+    }
 
     /**
      * Api方法转换
@@ -106,7 +137,6 @@ public class SDTransitionUtil {
      * @return
      */
     public static int dp2px(float dpValue) {
-
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, SDAndroidLib.getContext().getResources().getDisplayMetrics());
     }
 
@@ -116,13 +146,12 @@ public class SDTransitionUtil {
      * @param value 数值
      * @return
      */
-    public static String getAmountValue(String value) {
+    public static String getMoneyFormat(String value) {
         if (SDStringUtil.isEmpty(value)) {
             return "0.00";
         }
-        return amountFormat.format(Double.parseDouble(value));
+        return new DecimalFormat(moneyFormat).format(Double.parseDouble(value));
     }
-
 
     /**
      * 四舍五入
@@ -183,6 +212,28 @@ public class SDTransitionUtil {
     }
 
     /**
+     * 获取百分比（乘100,保留两位小数）
+     *
+     * @param value 数值带%符号
+     * @return
+     */
+    public static String getPercent(double value) {
+        return getPercent(value, 2);
+    }
+
+
+    /**
+     * 获取百分比（乘100）
+     *
+     * @param value 数值带%符号
+     * @param digit 保留小数位
+     * @return
+     */
+    public static String getPercent(double value, int digit) {
+        return getPercentValue(new BigDecimal(value), digit) + "%";
+    }
+
+    /**
      * 获取百分比（乘100）
      *
      * @param value 数值
@@ -196,9 +247,9 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 字符串转换成整数 ,字符串为空时 return 0;
+     * 数字字符串转换成整数 ,字符串为空时 return 0;
      *
-     * @param str 字符串
+     * @param str 数字字符串
      * @return
      */
     public static int stringToInt(String str) {
@@ -208,15 +259,16 @@ public class SDTransitionUtil {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e) {
+                System.out.print(e);
                 return 0;
             }
         }
     }
 
     /**
-     * 字符串转换成整型数组
+     * 字数字符串转换成整型数组
      *
-     * @param s
+     * @param s 数字字符串
      * @return
      */
     public static int[] stringToIntArray(String s) {
@@ -230,9 +282,9 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 字符串转换成long ,字符串为空时 return 0;
+     * 数字字符串转换成long ,字符串为空时 return 0;
      *
-     * @param str 字符串
+     * @param str 数字字符串
      * @return
      */
     public static long stringToLong(String str) {
@@ -248,9 +300,9 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 字符串转换成double ,字符串为空时 return 0;
+     * 数字字符串转换成double ,字符串为空时 return 0;
      *
-     * @param str 字符串
+     * @param str 数字字符串
      * @return
      */
     public static double stringToDouble(String str) {
@@ -266,9 +318,9 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 字符串转换成浮点型 Float,字符串为空时 return 0;
+     * 数字字符串转换成浮点型 Float,字符串为空时 return 0;
      *
-     * @param str 待转换的字符串
+     * @param str 待转换的数字字符串
      * @return 转换后的 float
      */
     public static float stringToFloat(String str) {
@@ -284,12 +336,12 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 将字符串格式化为带两位小数的字符串
+     * 将数字符串格式化为带两位小数的字符串
      *
-     * @param str 字符串
+     * @param str 数字字符串
      * @return
      */
-    public static String format2Decimals(String str) {
+    public static String formatToDecimals(String str) {
         DecimalFormat df = new DecimalFormat("#.00");
         if (df.format(stringToDouble(str)).startsWith(".")) {
             return "0" + df.format(stringToDouble(str));
@@ -299,15 +351,19 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 字符串转InputStream
+     * 将数字符串格式化为带两位小数的字符串
      *
-     * @param str
+     * @param str    数字字符串
+     * @param format 格式
      * @return
      */
-    public static InputStream StringToInputStream(String str) {
-        InputStream in_nocode = new ByteArrayInputStream(str.getBytes());
-        //InputStream   in_withcode   =   new ByteArrayInputStream(str.getBytes("UTF-8"));
-        return in_nocode;
+    public static String formatToDecimals(String str, String format) {
+        DecimalFormat df = new DecimalFormat(format);
+        if (df.format(stringToDouble(str)).startsWith(".")) {
+            return "0" + df.format(stringToDouble(str));
+        } else {
+            return df.format(stringToDouble(str));
+        }
     }
 
     /**
@@ -324,16 +380,50 @@ public class SDTransitionUtil {
     }
 
     /**
+     * 指定位置字符转成大写
+     *
+     * @param str   待转字符串
+     * @param index 待转换的字符的位置
+     * @return 字符串
+     */
+    public static String upperLetter(String str, int index) {
+        if (index >= str.length()) {
+            return str;
+        }
+        if (SDStringUtil.isEmpty(str) || !Character.isLowerCase(str.charAt(index))) {
+            return str;
+        }
+        return str.substring(0, index) + String.valueOf((char) (str.charAt(index) - 32)) + str.substring(index, str.length());
+    }
+
+    /**
      * 首字母小写
      *
-     * @param s 待转字符串
+     * @param str 待转字符串
      * @return 首字母小写字符串
      */
-    public static String lowerFirstLetter(String s) {
-        if (SDStringUtil.isEmpty(s) || !Character.isUpperCase(s.charAt(0))) {
-            return s;
+    public static String lowerFirstLetter(String str) {
+        if (SDStringUtil.isEmpty(str) || !Character.isUpperCase(str.charAt(0))) {
+            return str;
         }
-        return String.valueOf((char) (s.charAt(0) + 32)) + s.substring(1);
+        return String.valueOf((char) (str.charAt(0) + 32)) + str.substring(1);
+    }
+
+    /**
+     * 指定位置字符转成小写
+     *
+     * @param str   待转字符串
+     * @param index 待转换的字符的位置
+     * @return 字符串
+     */
+    public static String lowerLetter(String str, int index) {
+        if (index >= str.length()) {
+            return str;
+        }
+        if (SDStringUtil.isEmpty(str) || !Character.isUpperCase(str.charAt(index))) {
+            return str;
+        }
+        return str.substring(0, index) + String.valueOf((char) (str.charAt(0) + 32)) + str.substring(index, str.length());
     }
 
     /**
@@ -357,7 +447,7 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 转化为半角字符
+     * 转化为半角字符串
      *
      * @param s 待转字符串
      * @return 半角字符串
@@ -408,7 +498,7 @@ public class SDTransitionUtil {
      * @param s 单个汉字字符串
      * @return 如果字符串长度是1返回的是对应的ascii码，否则返回-1
      */
-    public static int oneCN2ASCII(String s) {
+    public static int oneCNToASCII(String s) {
         if (s.length() != 1) return -1;
         int ascii = 0;
         try {
@@ -434,8 +524,8 @@ public class SDTransitionUtil {
      * @param s 单个汉字字符串
      * @return 如果字符串长度是1返回的是对应的拼音，否则返回{@code null}
      */
-    public static String oneCN2PY(String s) {
-        int ascii = oneCN2ASCII(s);
+    public static String oneCNToPY(String s) {
+        int ascii = oneCNToASCII(s);
         if (ascii == -1) return null;
         String ret = null;
         if (0 <= ascii && ascii <= 127) {
@@ -461,7 +551,7 @@ public class SDTransitionUtil {
         if (SDStringUtil.isEmpty(s)) return "";
         String first, py;
         first = s.substring(0, 1);
-        py = oneCN2PY(first);
+        py = oneCNToPY(first);
         if (py == null) return null;
         return py.substring(0, 1);
     }
@@ -472,12 +562,12 @@ public class SDTransitionUtil {
      * @param s 汉字字符串
      * @return 拼音
      */
-    public static String cn2PY(String s) {
+    public static String cnToPY(String s) {
         String hz, py;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < s.length(); i++) {
             hz = s.substring(i, i + 1);
-            py = oneCN2PY(hz);
+            py = oneCNToPY(hz);
             if (py == null) {
                 py = "?";
             }
@@ -486,15 +576,16 @@ public class SDTransitionUtil {
         return sb.toString();
     }
 
+
     /**
      * byteArr转hexString
      * <p>例如：</p>
-     * bytes2HexString(new byte[] { 0, (byte) 0xa8 }) returns 00A8
+     * bytesToHexString(new byte[] { 0, (byte) 0xa8 }) returns 00A8
      *
      * @param bytes byte数组
      * @return 16进制大写字符串
      */
-    public static String bytes2HexString(byte[] bytes) {
+    public static String bytesToHexString(byte[] bytes) {
         char[] ret = new char[bytes.length << 1];
         for (int i = 0, j = 0; i < bytes.length; i++) {
             ret[j++] = hexDigits[bytes[i] >>> 4 & 0x0f];
@@ -506,12 +597,12 @@ public class SDTransitionUtil {
     /**
      * hexString转byteArr
      * <p>例如：</p>
-     * hexString2Bytes("00A8") returns { 0, (byte) 0xA8 }
+     * hexStringToBytes("00A8") returns { 0, (byte) 0xA8 }
      *
      * @param hexString 十六进制字符串
      * @return 字节数组
      */
-    public static byte[] hexString2Bytes(String hexString) {
+    public static byte[] hexStringToBytes(String hexString) {
         int len = hexString.length();
         if (len % 2 != 0) {
             throw new IllegalArgumentException("长度不是偶数");
@@ -519,7 +610,7 @@ public class SDTransitionUtil {
         char[] hexBytes = hexString.toUpperCase().toCharArray();
         byte[] ret = new byte[len >>> 1];
         for (int i = 0; i < len; i += 2) {
-            ret[i >> 1] = (byte) (hex2Dec(hexBytes[i]) << 4 | hex2Dec(hexBytes[i + 1]));
+            ret[i >> 1] = (byte) (hexToDec(hexBytes[i]) << 4 | hexToDec(hexBytes[i + 1]));
         }
         return ret;
     }
@@ -530,7 +621,7 @@ public class SDTransitionUtil {
      * @param hexChar hex单个字节
      * @return 0..15
      */
-    private static int hex2Dec(char hexChar) {
+    public static int hexToDec(char hexChar) {
         if (hexChar >= '0' && hexChar <= '9') {
             return hexChar - '0';
         } else if (hexChar >= 'A' && hexChar <= 'F') {
@@ -546,7 +637,7 @@ public class SDTransitionUtil {
      * @param chars 字符数组
      * @return 字节数组
      */
-    public static byte[] chars2Bytes(char[] chars) {
+    public static byte[] charsToBytes(char[] chars) {
         int len = chars.length;
         byte[] bytes = new byte[len];
         for (int i = 0; i < len; i++) {
@@ -561,7 +652,7 @@ public class SDTransitionUtil {
      * @param bytes 字节数组
      * @return 字符数组
      */
-    public static char[] bytes2Chars(byte[] bytes) {
+    public static char[] byteTo2Chars(byte[] bytes) {
         int len = bytes.length;
         char[] chars = new char[len];
         for (int i = 0; i < len; i++) {
@@ -575,25 +666,26 @@ public class SDTransitionUtil {
      *
      * @param byteNum 字节数
      * @param unit    <ul>
-     *                <li>{@link SDConstants.MemoryUnit#BYTE}: 字节</li>
-     *                <li>{@link SDConstants.MemoryUnit#KB}  : 千字节</li>
-     *                <li>{@link SDConstants.MemoryUnit#MB}  : 兆</li>
-     *                <li>{@link SDConstants.MemoryUnit#GB}  : GB</li>
+     *                <li>{@link SDMemoryUnit.MemoryUnit#BYTE}: 字节</li>
+     *                <li>{@link SDMemoryUnit.MemoryUnit#KB}  : 千字节</li>
+     *                <li>{@link SDMemoryUnit.MemoryUnit#MB}  : 兆</li>
+     *                <li>{@link SDMemoryUnit.MemoryUnit#GB}  : GB</li>
      *                </ul>
      * @return 以unit为单位的size
      */
-    public static double byte2Size(long byteNum, SDConstants.MemoryUnit unit) {
+    public static double byteToSize(long byteNum, SDMemoryUnit.MemoryUnit unit) {
         if (byteNum < 0) return -1;
         switch (unit) {
-            default:
             case BYTE:
-                return (double) byteNum / SDConstants.BYTE;
+                return (double) byteNum / SDMemoryUnit.BYTE;
             case KB:
-                return (double) byteNum / SDConstants.KB;
+                return (double) byteNum / SDMemoryUnit.KB;
             case MB:
-                return (double) byteNum / SDConstants.MB;
+                return (double) byteNum / SDMemoryUnit.MB;
             case GB:
-                return (double) byteNum / SDConstants.GB;
+                return (double) byteNum / SDMemoryUnit.GB;
+            default:
+                return -1;
         }
     }
 
@@ -602,25 +694,25 @@ public class SDTransitionUtil {
      *
      * @param size 大小
      * @param unit <ul>
-     *             <li>{@link SDConstants.MemoryUnit#BYTE}: 字节</li>
-     *             <li>{@link SDConstants.MemoryUnit#KB}  : 千字节</li>
-     *             <li>{@link SDConstants.MemoryUnit#MB}  : 兆</li>
-     *             <li>{@link SDConstants.MemoryUnit#GB}  : GB</li>
+     *             <li>{@link SDMemoryUnit.MemoryUnit#BYTE}: 字节</li>
+     *             <li>{@link SDMemoryUnit.MemoryUnit#KB}  : 千字节</li>
+     *             <li>{@link SDMemoryUnit.MemoryUnit#MB}  : 兆</li>
+     *             <li>{@link SDMemoryUnit.MemoryUnit#GB}  : GB</li>
      *             </ul>
      * @return 字节数
      */
-    public static long size2Byte(long size, SDConstants.MemoryUnit unit) {
+    public static long size2Byte(long size, SDMemoryUnit.MemoryUnit unit) {
         if (size < 0) return -1;
         switch (unit) {
             default:
             case BYTE:
-                return size * SDConstants.BYTE;
+                return size * SDMemoryUnit.BYTE;
             case KB:
-                return size * SDConstants.KB;
+                return size * SDMemoryUnit.KB;
             case MB:
-                return size *SDConstants. MB;
+                return size * SDMemoryUnit.MB;
             case GB:
-                return size * SDConstants.GB;
+                return size * SDMemoryUnit.GB;
         }
     }
 
@@ -634,15 +726,29 @@ public class SDTransitionUtil {
     public static String byte2FitSize(long byteNum) {
         if (byteNum < 0) {
             return "shouldn't be less than zero!";
-        } else if (byteNum <SDConstants. KB) {
+        } else if (byteNum < SDMemoryUnit.KB) {
             return String.format(Locale.getDefault(), "%.3fB", (double) byteNum);
-        } else if (byteNum < SDConstants.MB) {
-            return String.format(Locale.getDefault(), "%.3fKB", (double) byteNum /SDConstants. KB);
-        } else if (byteNum < SDConstants.GB) {
-            return String.format(Locale.getDefault(), "%.3fMB", (double) byteNum /SDConstants. MB);
+        } else if (byteNum < SDMemoryUnit.MB) {
+            return String.format(Locale.getDefault(), "%.3fKB", (double) byteNum / SDMemoryUnit.KB);
+        } else if (byteNum < SDMemoryUnit.GB) {
+            return String.format(Locale.getDefault(), "%.3fMB", (double) byteNum / SDMemoryUnit.MB);
         } else {
-            return String.format(Locale.getDefault(), "%.3fGB", (double) byteNum /SDConstants. GB);
+            return String.format(Locale.getDefault(), "%.3fGB", (double) byteNum / SDMemoryUnit.GB);
         }
+    }
+
+    // TODO: 2017/12/27 以下未测试
+
+    /**
+     * 字符串转InputStream
+     *
+     * @param str
+     * @return
+     */
+    public static InputStream StringToInputStream(String str) {
+        InputStream in_nocode = new ByteArrayInputStream(str.getBytes());
+        //InputStream   in_withcode   =   new ByteArrayInputStream(str.getBytes("UTF-8"));
+        return in_nocode;
     }
 
     /**
@@ -655,9 +761,9 @@ public class SDTransitionUtil {
         if (is == null) return null;
         try {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] b = new byte[SDConstants.KB];
+            byte[] b = new byte[SDMemoryUnit.KB];
             int len;
-            while ((len = is.read(b, 0, SDConstants.KB)) != -1) {
+            while ((len = is.read(b, 0, SDMemoryUnit.KB)) != -1) {
                 os.write(b, 0, len);
             }
             return os;

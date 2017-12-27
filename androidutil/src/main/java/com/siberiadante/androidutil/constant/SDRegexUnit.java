@@ -10,7 +10,7 @@ package com.siberiadante.androidutil.constant;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class SDRegex {
+public class SDRegexUnit {
     /**
      * 正则：手机号（简单）
      */

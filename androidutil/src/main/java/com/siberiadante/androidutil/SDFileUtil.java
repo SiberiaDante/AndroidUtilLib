@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 
 
 import com.siberiadante.androidutil.constant.SDConstants;
+import com.siberiadante.androidutil.constant.SDMemoryUnit;
 import com.siberiadante.androidutil.util.SDCloseUtil;
 
 import java.io.BufferedInputStream;
@@ -1342,9 +1343,9 @@ public class SDFileUtil {
         if (is == null) return null;
         try {
             ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] b = new byte[SDConstants.KB];
+            byte[] b = new byte[SDMemoryUnit.KB];
             int len;
-            while ((len = is.read(b, 0, SDConstants.KB)) != -1) {
+            while ((len = is.read(b, 0, SDMemoryUnit.KB)) != -1) {
                 os.write(b, 0, len);
             }
             return os;
@@ -1361,7 +1362,7 @@ public class SDFileUtil {
     /**
      * byteArr转hexString
      * <p>例如：</p>
-     * bytes2HexString(new byte[] { 0, (byte) 0xa8 }) returns 00A8
+     * bytesToHexString(new byte[] { 0, (byte) 0xa8 }) returns 00A8
      *
      * @param bytes 字节数组
      * @return 16进制大写字符串
@@ -1389,14 +1390,14 @@ public class SDFileUtil {
     private static String byte2FitMemorySize(long byteNum) {
         if (byteNum < 0) {
             return "shouldn't be less than zero!";
-        } else if (byteNum < SDConstants.KB) {
+        } else if (byteNum < SDMemoryUnit.KB) {
             return String.format("%.3fB", (double) byteNum + 0.0005);
-        } else if (byteNum < SDConstants.MB) {
-            return String.format("%.3fKB", (double) byteNum / SDConstants.KB + 0.0005);
-        } else if (byteNum < SDConstants.GB) {
-            return String.format("%.3fMB", (double) byteNum / SDConstants.MB + 0.0005);
+        } else if (byteNum < SDMemoryUnit.MB) {
+            return String.format("%.3fKB", (double) byteNum / SDMemoryUnit.KB + 0.0005);
+        } else if (byteNum < SDMemoryUnit.GB) {
+            return String.format("%.3fMB", (double) byteNum / SDMemoryUnit.MB + 0.0005);
         } else {
-            return String.format("%.3fGB", (double) byteNum / SDConstants.GB + 0.0005);
+            return String.format("%.3fGB", (double) byteNum / SDMemoryUnit.GB + 0.0005);
         }
     }
 

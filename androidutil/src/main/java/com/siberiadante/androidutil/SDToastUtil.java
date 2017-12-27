@@ -25,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.siberiadante.androidutil.util.SDTransitionUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 

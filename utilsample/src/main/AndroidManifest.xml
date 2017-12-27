@@ -26,7 +26,8 @@
         <!-- <activity android:name=".util.NetworkActivity" /> -->
         <!-- <activity android:name=".util.SDCardUtilActivity" /> -->
         <activity android:name=".activity.JumpUtilActivity" />
-        <activity android:name=".activity.TimerUtilActivity"></activity>
+        <activity android:name=".activity.TimerUtilActivity" />
+        <activity android:name=".activity.SDTransitionUtilActivity"></activity>
     </application>
 
 </manifest>

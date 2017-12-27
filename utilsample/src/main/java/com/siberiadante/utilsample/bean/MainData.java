@@ -2,6 +2,7 @@ package com.siberiadante.utilsample.bean;
 
 import com.siberiadante.utilsample.activity.ActivityUtilActivity;
 import com.siberiadante.utilsample.activity.JumpUtilActivity;
+import com.siberiadante.utilsample.activity.SDTransitionUtilActivity;
 import com.siberiadante.utilsample.activity.TimerUtilActivity;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class MainData {
         data.add(new DataBean("测试SDActivityUtil", ActivityUtilActivity.class));
         data.add(new DataBean("测试SDJumpUtil", JumpUtilActivity.class));
         data.add(new DataBean("测试SDTimerUtil", TimerUtilActivity.class));
+        data.add(new DataBean("测试SDTransitionUtil", SDTransitionUtilActivity.class));
 
         return data;
     }
