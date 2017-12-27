@@ -10,6 +10,8 @@ import android.os.StatFs;
 import android.support.annotation.RequiresApi;
 
 
+import com.siberiadante.androidutil.util.SDCloseUtil;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;

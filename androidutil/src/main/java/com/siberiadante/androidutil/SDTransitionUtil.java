@@ -7,6 +7,7 @@ import android.util.TypedValue;
 
 
 import com.siberiadante.androidutil.constant.SDConstants;
+import com.siberiadante.androidutil.util.SDCloseUtil;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

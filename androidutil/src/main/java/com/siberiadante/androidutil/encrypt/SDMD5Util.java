@@ -2,7 +2,7 @@ package com.siberiadante.androidutil.encrypt;
 
 
 
-import com.siberiadante.androidutil.SDCloseUtil;
+import com.siberiadante.androidutil.util.SDCloseUtil;
 import com.siberiadante.androidutil.encrypt.base.SDBaseEncrypt;
 
 import java.io.File;

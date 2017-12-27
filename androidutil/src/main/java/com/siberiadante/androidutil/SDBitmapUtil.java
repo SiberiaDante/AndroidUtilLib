@@ -37,6 +37,8 @@ import android.util.Base64;
 import android.view.View;
 
 
+import com.siberiadante.androidutil.util.SDCloseUtil;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;

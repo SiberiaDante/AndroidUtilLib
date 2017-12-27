@@ -1,26 +1,8 @@
 # SiberiaDanteLib
 >#### 旨在打造一款属于Android开发的强大工具库(部分代码资料来源网络，如有侵权，联系[本人](https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-Me.md)删除。持续更新维护中……）
 >#### 项目包含library和sample，每个library中的工具类都在sample中作了测试，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢.使用中也可以参考sample.
+# 重构中。。。重构中。。。重构中。。。重构中。。。
 
-[下载体验sample-apk](https://github.com/SiberiaDante/SiberiaDanteLib/blob/3b7f419a409f41d763e27160746c9de2f364b990/doc/assets/sample-debug.apk)
-## 推荐
->* [Android开发必备经典收藏集（整理中）]
->* [TitleLayout——通用万能标题栏]
->* [CustomDialog——通用万能Dialog]
-## gradle依赖方法
-[![](https://jitpack.io/v/SibreiaDante/SiberiaDanteLib.svg)](https://jitpack.io/#SibreiaDante/SiberiaDanteLib)
-```
-dependencies {
-    compile 'com.github.SibreiaDante:SiberiaDanteLib:v1.0.7'
-	}
-```
-## 使用说明
-
- * 使用之前需要在Application中初始化SiberiaDanteLib.initLib(context);
- * 开启Debug模式：SiberiaDanteLib.setDebug(true);
-## [详细文档说明请看Wiki(完善中)](https://github.com/SiberiaDante/SiberiaDanteLib/wiki)
-
-## [版本更新说明](https://github.com/SiberiaDante/SiberiaDanteLib/blob/d30aec89d5a4972db5ee018a0f9127641b18f8a0/doc/VERSION_UPDATE.md)
 
 ## SD-view
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Dialog">SD-Dialog</a>
