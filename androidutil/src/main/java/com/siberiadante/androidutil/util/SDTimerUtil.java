@@ -16,7 +16,7 @@ public class SDTimerUtil {
     /**
      * 防止重复点击同一按钮
      *
-     * @return
+     * @return {@code true}:可以点击<br>{@code false}:阻止点击
      */
     public static boolean isNotFastClick() {
         boolean flag = false;

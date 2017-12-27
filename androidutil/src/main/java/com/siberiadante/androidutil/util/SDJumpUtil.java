@@ -68,12 +68,11 @@ public class SDJumpUtil {
 
     /**
      * 打开并发送一份邮件
-     * <p>
-     * setAction(Intent.ACTION_SENDTO):无附件的发送
-     * setAction(Intent.ACTION_SEND):带附件的发送
-     * setAction(Intent.ACTION_SEND_MULTIPLE ):带有多附件的发送
-     * </p>
-     *
+     * <ul>
+     * <li>{@code setAction(Intent.ACTION_SENDTO)}:无附件的发送</li>
+     * <li>{@code setAction(Intent.ACTION_SEND)}:带附件的发送</li>
+     * <li>{@code setAction(Intent.ACTION_SEND_MULTIPLE )}:带有多附件的发送</li>
+     * </ul>
      * @param email   邮箱地址
      * @param title   邮件标题
      * @param content 邮件内容
@@ -182,8 +181,8 @@ public class SDJumpUtil {
      */
     public static void startActivity(@NonNull Activity activity,
                                      @NonNull String cls,
-                                     @AnimRes  int enterAnim,
-                                     @AnimRes  int exitAnim) {
+                                     @AnimRes int enterAnim,
+                                     @AnimRes int exitAnim) {
         startActivity(activity, SDAndroidLib.getContext().getPackageName(), cls, null, enterAnim, exitAnim);
     }
 
@@ -199,8 +198,8 @@ public class SDJumpUtil {
                                      @NonNull String pkg,
                                      @NonNull String cls,
                                      @Nullable Bundle extras,
-                                     @AnimRes  int enterAnim,
-                                     @AnimRes  int exitAnim) {
+                                     @AnimRes int enterAnim,
+                                     @AnimRes int exitAnim) {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         if (extras != null) {
             intent.putExtras(extras);
