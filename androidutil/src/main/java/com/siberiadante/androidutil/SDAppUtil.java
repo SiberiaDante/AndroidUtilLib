@@ -14,9 +14,11 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.FileProvider;
 
 
 import com.siberiadante.androidutil.bean.SDAppInfoBean;
+import com.siberiadante.androidutil.bean.SDInstallAppInfoBean;
 import com.siberiadante.androidutil.encrypt.SDSHA1Util;
 
 import java.io.File;
@@ -39,39 +41,42 @@ public class SDAppUtil {
 
 
     public SDAppUtil() {
-        throw new UnsupportedOperationException("not init SDAndroidLib");
+        throw new UnsupportedOperationException("not init ~~~");
     }
 
     private static PackageManager getPackageManager() {
         return SDAndroidLib.getContext().getPackageManager();
     }
 
-    /**
-     * 获取应用包名
-     *
-     * @return
-     */
     public static String getPackageName() {
         return SDAndroidLib.getContext().getPackageName();
     }
 
     /**
-     * 判断该应用是否安装
+     * 获取App名称
      *
-     * @return
+     * @return App名称
      */
-    public static boolean isInstalledApp() {
-        return !isSpace(getPackageName()) && getPackageManager().getLaunchIntentForPackage(getPackageName()) != null;
+    public static String getAppName() {
+        return getAppName(SDAndroidLib.getContext().getPackageName());
     }
 
     /**
-     * 判断App是否安装
+     * 获取App名称
      *
      * @param packageName 包名
-     * @return {@code true}: 已安装<br>{@code false}: 未安装
+     * @return App名称
      */
-    public static boolean isInstalledApp(String packageName) {
-        return !isSpace(packageName) && getPackageManager().getLaunchIntentForPackage(packageName) != null;
+    public static String getAppName(String packageName) {
+        if (isSpace(packageName)) return null;
+        try {
+            PackageManager pm = SDAndroidLib.getContext().getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(packageName, 0);
+            return pi == null ? null : pi.applicationInfo.loadLabel(pm).toString();
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -136,6 +141,32 @@ public class SDAppUtil {
         }
     }
 
+    /**
+     * 获取App图标
+     *
+     * @return App图标
+     */
+    public static Drawable getAppIcon() {
+        return getAppIcon(SDAndroidLib.getContext().getPackageName());
+    }
+
+    /**
+     * 获取App图标
+     *
+     * @param packageName 包名
+     * @return App图标
+     */
+    public static Drawable getAppIcon(String packageName) {
+        if (isSpace(packageName)) return null;
+        try {
+            PackageManager pm = SDAndroidLib.getContext().getPackageManager();
+            PackageInfo pi = pm.getPackageInfo(packageName, 0);
+            return pi == null ? null : pi.applicationInfo.loadIcon(pm);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     /**
      * 获取App信息
@@ -188,97 +219,22 @@ public class SDAppUtil {
     }
 
     /**
-     * 打开App
+     * 判断该应用是否安装
+     *
+     * @return
+     */
+    public static boolean isInstalledApp() {
+        return !isSpace(getPackageName()) && getPackageManager().getLaunchIntentForPackage(getPackageName()) != null;
+    }
+
+    /**
+     * 判断App是否安装
      *
      * @param packageName 包名
+     * @return {@code true}: 已安装<br>{@code false}: 未安装
      */
-    public static void launchApp(String packageName) {
-        if (isSpace(packageName)) return;
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getLaunchAppIntent(packageName));
-    }
-
-    /**
-     * 打开App
-     *
-     * @param activity    activity
-     * @param packageName 包名
-     * @param requestCode 请求值
-     */
-    public static void launchApp(Activity activity, String packageName, int requestCode) {
-        if (isSpace(packageName)) return;
-        activity.startActivityForResult(SDIntentUtil.getLaunchAppIntent(packageName), requestCode);
-    }
-
-
-    /**
-     * 打开App设置面板
-     */
-    public static void openAppSettings() {
-        openAppSettings(SDAndroidLib.getContext().getPackageName());
-    }
-
-    /**
-     * 打开App设置面板
-     *
-     * @param packageName 包名
-     */
-    public static void openAppSettings(String packageName) {
-        if (isSpace(packageName)) return;
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getAppDetailsSettingsIntent(packageName));
-    }
-
-    /**
-     * 获取App名称
-     *
-     * @return App名称
-     */
-    public static String getAppName() {
-        return getAppName(SDAndroidLib.getContext().getPackageName());
-    }
-
-    /**
-     * 获取App名称
-     *
-     * @param packageName 包名
-     * @return App名称
-     */
-    public static String getAppName(String packageName) {
-        if (isSpace(packageName)) return null;
-        try {
-            PackageManager pm = SDAndroidLib.getContext().getPackageManager();
-            PackageInfo pi = pm.getPackageInfo(packageName, 0);
-            return pi == null ? null : pi.applicationInfo.loadLabel(pm).toString();
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /**
-     * 获取App图标
-     *
-     * @return App图标
-     */
-    public static Drawable getAppIcon() {
-        return getAppIcon(SDAndroidLib.getContext().getPackageName());
-    }
-
-    /**
-     * 获取App图标
-     *
-     * @param packageName 包名
-     * @return App图标
-     */
-    public static Drawable getAppIcon(String packageName) {
-        if (isSpace(packageName)) return null;
-        try {
-            PackageManager pm = SDAndroidLib.getContext().getPackageManager();
-            PackageInfo pi = pm.getPackageInfo(packageName, 0);
-            return pi == null ? null : pi.applicationInfo.loadIcon(pm);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
+    public static boolean isInstalledApp(String packageName) {
+        return !isSpace(packageName) && getPackageManager().getLaunchIntentForPackage(packageName) != null;
     }
 
     /**
@@ -379,69 +335,6 @@ public class SDAppUtil {
     }
 
     /**
-     * 卸载APP
-     *
-     * @param packageName APP包名
-     */
-    public static void unInstallApp(String packageName) {
-        if (isSpace(packageName)) {
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_DELETE);
-        intent.setData(Uri.parse("package:" + packageName));
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        SDAndroidLib.getContext().startActivity(intent);
-    }
-
-    /**
-     * 卸载APP
-     *
-     * @param activity
-     * @param packageName app包名
-     * @param requestCode 卸载请求码
-     */
-    public static void unInstallApp(Activity activity, String packageName, int requestCode) {
-        if (isSpace(packageName)) {
-            return;
-        }
-        Intent intent = new Intent(Intent.ACTION_DELETE);
-        intent.setData(Uri.parse("package:" + packageName));
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivityForResult(intent, requestCode);
-    }
-
-    /**
-     * 后台卸载App
-     * <p>非root需添加权限 {@code <uses-permission android:name="android.permission.DELETE_PACKAGES" />}</p>
-     *
-     * @param packageName 包名
-     * @param isKeepData  是否保留数据
-     * @return {@code true}: 卸载成功<br>{@code false}: 卸载失败
-     */
-    public static boolean uninstallAppSilent(String packageName, boolean isKeepData) {
-        if (isSpace(packageName)) return false;
-        String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (isKeepData ? "-k " : "") + packageName;
-        SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
-        return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
-    }
-
-    /**
-     * @param packageName
-     * @return
-     */
-    private static boolean isSpace(String packageName) {
-        if (packageName == null) {
-            return true;
-        }
-        for (int i = 0, len = packageName.length(); i < len; ++i) {
-            if (!Character.isWhitespace(packageName.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    /**
      * 获取App签名
      *
      * @return App签名
@@ -494,16 +387,19 @@ public class SDAppUtil {
 //                replaceAll("(?<=[0-9A-F]{2})[0-9A-F]{2}", ":$0");
     }
 
+
     /**
-     * judge notification whether opened
+     * 判断手机通知权限是否打开
      *
      * @return
      */
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static boolean isNotificationEnable(Context context) {
-        AppOpsManager mAppOps = (AppOpsManager) context.getSystemService(Context.APP_OPS_SERVICE);
-        ApplicationInfo appInfo = context.getApplicationInfo();
-        String pkg = context.getApplicationContext().getPackageName();
+    public static boolean isNotificationEnable() {
+        if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.KITKAT) {
+            return true;
+        }
+        AppOpsManager mAppOps = (AppOpsManager) SDAndroidLib.getContext().getSystemService(Context.APP_OPS_SERVICE);
+        ApplicationInfo appInfo = SDAndroidLib.getContext().getApplicationInfo();
+        String pkg = SDAndroidLib.getContext().getApplicationContext().getPackageName();
         int uid = appInfo.uid;
 
         Class appOpsClass = null;
@@ -562,56 +458,167 @@ public class SDAppUtil {
 
 
     /**
-     * 安装App(支持7.0)
-     *
-     * @param filePath  文件路径
-     * @param authority 7.0及以上安装需要传入清单文件中的{@code <provider>}的authorities属性
-     *                  <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
+     * 打开App
      */
-    public static void installApp(String filePath, String authority) {
-        installApp(SDFileUtil.getFileByPath(filePath), authority);
+    public static void launchApp() {
+        launchApp(getPackageName());
     }
 
     /**
-     * 安装App（支持7.0）
+     * 打开App
      *
-     * @param file      文件
-     * @param authority 7.0及以上安装需要传入清单文件中的{@code <provider>}的authorities属性
-     *                  <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
+     * @param packageName 包名
      */
-    public static void installApp(File file, String authority) {
-        if (!SDFileUtil.isFileExists(file)) {
+    public static void launchApp(String packageName) {
+        if (isSpace(packageName)) return;
+        SDAndroidLib.getContext().startActivity(SDIntentUtil.getLaunchAppIntent(packageName));
+    }
+
+    /**
+     * 打开App
+     *
+     * @param activity    activity
+     * @param packageName 包名
+     * @param requestCode 请求值
+     */
+    public static void launchApp(Activity activity, String packageName, int requestCode) {
+        if (isSpace(packageName)) return;
+        activity.startActivityForResult(SDIntentUtil.getLaunchAppIntent(packageName), requestCode);
+    }
+
+    /**
+     * 调用系统安装应用,支持7.0
+     *
+     * @param context
+     * @param filePath  apk路径
+     * @param authority 7.0authority属性，参考sample
+     * @return
+     */
+    public static boolean installApp(Context context, String filePath, String authority) {
+        final File file = SDFileUtil.getFileByPath(filePath);
+        return installApp(context, file, authority);
+    }
+
+    /**
+     * 调用系统安装应用,支持7.0
+     *
+     * @param context
+     * @param file      apk文件
+     * @param authority 7.0authority属性，参考sample
+     * @return
+     */
+    public static boolean installApp(Context context, File file, String authority) {
+        if (file == null || !file.exists() || !file.isFile()) {
+            return false;
+        }
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Uri apkUri;
+        // Android 7.0 以上不支持 file://协议 需要通过 FileProvider 访问 sd卡 下面的文件，所以 Uri 需要通过 FileProvider 构造，协议为 content://
+        if (Build.VERSION.SDK_INT >= 24) {
+            // content:// 协议
+            apkUri = FileProvider.getUriForFile(context, authority, file);
+            //Granting Temporary Permissions to a URI
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        } else {
+            // file:// 协议
+            apkUri = Uri.fromFile(file);
+        }
+        intent.setDataAndType(apkUri, "application/vnd.android.package-archive");
+        context.startActivity(intent);
+        return true;
+    }
+
+    /**
+     * 卸载APP
+     *
+     * @param packageName APP包名
+     */
+    public static void unInstallApp(String packageName) {
+        if (isSpace(packageName)) {
             return;
         }
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getInstallAppIntent(file, authority));
+        Intent intent = new Intent(Intent.ACTION_DELETE);
+        intent.setData(Uri.parse("package:" + packageName));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        SDAndroidLib.getContext().startActivity(intent);
     }
 
     /**
-     * 安装App（支持6.0）
+     * 卸载APP
      *
-     * @param activity    activity
-     * @param filePath    文件路径
-     * @param authority   7.0及以上安装需要传入清单文件中的{@code <provider>}的authorities属性
-     *                    <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
-     * @param requestCode 请求值
+     * @param activity
+     * @param packageName app包名
+     * @param requestCode 卸载请求码
      */
-    public static void installApp(Activity activity, String filePath, String authority, int requestCode) {
-        installApp(activity, SDFileUtil.getFileByPath(filePath), authority, requestCode);
+    public static void unInstallAppResult(Activity activity, String packageName, int requestCode) {
+        if (isSpace(packageName)) {
+            return;
+        }
+        Intent intent = new Intent(Intent.ACTION_DELETE);
+        intent.setData(Uri.parse("package:" + packageName));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivityForResult(intent, requestCode);
     }
 
     /**
-     * 安装App(支持6.0)
+     * 获取已安装的所有应用的包名和启动logo
      *
-     * @param activity    activity
-     * @param file        文件
-     * @param authority   7.0及以上安装需要传入清单文件中的{@code <provider>}的authorities属性
-     *                    <br>参看https://developer.android.com/reference/android/support/v4/content/FileProvider.html
-     * @param requestCode 请求值
+     * @return
      */
-    public static void installApp(Activity activity, File file, String authority, int requestCode) {
-        if (!SDFileUtil.isFileExists(file)) return;
-        activity.startActivityForResult(SDIntentUtil.getInstallAppIntent(file, authority), requestCode);
+    public static List<SDInstallAppInfoBean> getInstallAppInfo() {
+        return getInstallAppInfo(SDAndroidLib.getContext());
     }
+
+    /**
+     * 获取已安装的所有应用的包名和启动logo
+     *
+     * @param context
+     * @return
+     */
+    public static List<SDInstallAppInfoBean> getInstallAppInfo(Context context) {
+        List<SDInstallAppInfoBean> appInfos = new ArrayList<>();
+        PackageManager packageManager = context.getPackageManager();
+        try {
+            List<PackageInfo> packageInfos = packageManager.getInstalledPackages(0);
+            for (int i = 0; i < packageInfos.size(); i++) {
+                PackageInfo packageInfo = packageInfos.get(i);
+                //过滤掉系统app
+//            if ((ApplicationInfo.FLAG_SYSTEM & packageInfo.applicationInfo.flags) != 0) {
+//                continue;
+//            }
+                SDInstallAppInfoBean myAppInfo = new SDInstallAppInfoBean();
+                myAppInfo.setAppName(packageInfo.packageName);
+                if (packageInfo.applicationInfo.loadIcon(packageManager) == null) {
+                    continue;
+                }
+                myAppInfo.setImage(packageInfo.applicationInfo.loadIcon(packageManager));
+                appInfos.add(myAppInfo);
+            }
+        } catch (Exception e) {
+            SDLogUtil.i(TAG, "--------------------获取应用包信息失败---------------------");
+        }
+        return appInfos;
+    }
+
+
+    /**
+     * @param packageName
+     * @return
+     */
+    private static boolean isSpace(String packageName) {
+        if (packageName == null) {
+            return true;
+        }
+        for (int i = 0, len = packageName.length(); i < len; ++i) {
+            if (!Character.isWhitespace(packageName.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     /**
      * 静默安装App
@@ -628,31 +635,28 @@ public class SDAppUtil {
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 
-
-    //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    public static ArrayList<String> getApkNameAll() {
-        return getApkName(SDStorageUtil.getSDCardPath());
+    /**
+     * 后台卸载App
+     * <p>非root需添加权限 {@code <uses-permission android:name="android.permission.DELETE_PACKAGES" />}</p>
+     *
+     * @param packageName 包名
+     * @param isKeepData  是否保留数据
+     * @return {@code true}: 卸载成功<br>{@code false}: 卸载失败
+     */
+    public static boolean uninstallAppSilent(String packageName, boolean isKeepData) {
+        if (isSpace(packageName)) return false;
+        String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (isKeepData ? "-k " : "") + packageName;
+        SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
+        return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
 
-    //用到了递归
-    //这个参数我使用的时候传递的是Environment.getExternalStorageDirectory().getAbsolutePath()
-    public static ArrayList<String> getApkName(String path) {
-        SDLogUtil.d("---path---" + path);
-        ArrayList<String> list = new ArrayList<>();
-        File file = new File(path);
-        if (file.isDirectory()) {
-            File[] dirFile = file.listFiles();
-            for (File f : dirFile) {
-                if (f.isDirectory())
-                    getApkName(f.getAbsolutePath());
-                else {
-                    if (f.getName().endsWith(".apk"))
-                        list.add(f.getAbsolutePath());
-                }
-            }
-        }
-        return list;
-    }
+
+    /**
+     * 根据路径获取PackageName
+     *
+     * @param apkPath
+     * @return
+     */
 
     public String getPackageName(String apkPath) {
         PackageManager pm = getPackageManager();
@@ -696,30 +700,6 @@ public class SDAppUtil {
             isSuccess &= SDCleanUtil.cleanCustomCache(dir);
         }
         return isSuccess;
-    }
-
-
-//TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-    /**
-     * 获取所有已安装App信息
-     * <p>{@link #getBean(PackageManager, PackageInfo)}（名称，图标，包名，包路径，版本号，版本Code，是否系统应用）</p>
-     * <p>依赖上面的getBean方法</p>
-     *
-     * @return 所有已安装的AppInfo列表
-     */
-    public static List<SDAppInfoBean> getAppsInfo() {
-        List<SDAppInfoBean> list = new ArrayList<>();
-        PackageManager pm = SDAndroidLib.getContext().getPackageManager();
-        // 获取系统中安装的所有软件信息
-        List<PackageInfo> installedPackages = pm.getInstalledPackages(0);
-        for (PackageInfo pi : installedPackages) {
-            SDAppInfoBean ai = getBean(pm, pi);
-            if (ai == null) continue;
-            list.add(ai);
-        }
-        return list;
     }
 
 

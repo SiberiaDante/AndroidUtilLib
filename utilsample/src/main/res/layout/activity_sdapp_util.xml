@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/page_padding_16"
+    android:scrollbars="none"
+    tools:context="com.siberiadante.utilsample.activity.SDAppUtilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/five"
+            android:layout_marginTop="@dimen/five"
+            android:gravity="center"
+            android:text="APP图标" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorContentText"
+            android:textSize="@dimen/font_16" />
+
+        <Button
+            android:id="@+id/btn_launch_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="启动APP" />
+
+        <Button
+            android:id="@+id/btn_install_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="安装APP" />
+
+        <Button
+            android:id="@+id/btn_uninstall_app"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="卸载APP" />
+
+        <Button
+            android:id="@+id/btn_get_install_app_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取所有已安装的应用名" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tv_info_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</ScrollView>

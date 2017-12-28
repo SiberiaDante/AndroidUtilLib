@@ -21,14 +21,8 @@ import butterknife.OnClick;
 public class ActivityUtilActivity extends BaseActivity {
 
     private static final String TAG = ActivityUtilActivity.class.getSimpleName();
-    @BindView(R.id.btn_start_other_activity)
-    Button btnStartOtherActivity;
-    @BindView(R.id.start_browser)
-    Button startBrowser;
     @BindView(R.id.tv_activity_test)
     TextView mTvContent;
-    @BindView(R.id.activity_util_test)
-    LinearLayout activityUtilTest;
 
     @Override
     public int setLayoutId() {
@@ -46,20 +40,9 @@ public class ActivityUtilActivity extends BaseActivity {
         mTvContent.setText(builder);
     }
 
-    @Override
     public void initData() {
 
     }
 
-    @OnClick({R.id.btn_start_other_activity, R.id.start_browser})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btn_start_other_activity:
-                SDJumpUtil.startActivity(SecondActivity.class);
-                break;
-            case R.id.start_browser:
-                SDJumpUtil.openBrowser(Constants.GIT_HUB);
-                break;
-        }
-    }
+
 }

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.siberiadante.utilsample">
 
+    <uses-permission android:name="android.permission.DELETE_PACKAGES"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
     <application
         android:name=".UtilSampleApp"
         android:allowBackup="true"
@@ -10,6 +14,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.siberiadante.utilsample.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +41,9 @@
         <!-- <activity android:name=".util.SDCardUtilActivity" /> -->
         <activity android:name=".activity.JumpUtilActivity" />
         <activity android:name=".activity.TimerUtilActivity" />
-        <activity android:name=".activity.SDTransitionUtilActivity"></activity>
+        <activity android:name=".activity.SDTransitionUtilActivity" />
+        <activity android:name=".activity.SDCloseUtilActivity" />
+        <activity android:name=".activity.SDAppUtilActivity"></activity>
     </application>
 
 </manifest>

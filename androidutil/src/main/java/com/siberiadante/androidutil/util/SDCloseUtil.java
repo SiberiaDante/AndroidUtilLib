@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class SDCloseUtil {
     public SDCloseUtil() {
-        throw new UnsupportedOperationException("not init SDAndroidLib");
+        throw new UnsupportedOperationException("not init ~~~");
     }
 
     /**

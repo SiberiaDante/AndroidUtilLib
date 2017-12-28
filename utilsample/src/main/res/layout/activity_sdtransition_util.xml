@@ -10,7 +10,7 @@
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp" />
+        android:padding="@dimen/page_padding_16"
+        android:textColor="@color/colorContentText"
+        android:textSize="@dimen/font_16" />
 </android.support.v4.widget.NestedScrollView>
