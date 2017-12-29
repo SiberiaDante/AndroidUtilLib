@@ -577,6 +577,10 @@ public class SDAppUtil {
      * @return
      */
     public static List<SDInstallAppInfoBean> getInstallAppInfo(Context context) {
+        return getInstallAppInfo(context, true);
+    }
+
+    public static List<SDInstallAppInfoBean> getInstallAppInfo(Context context, boolean showSystemApp) {
         List<SDInstallAppInfoBean> appInfos = new ArrayList<>();
         PackageManager packageManager = context.getPackageManager();
         try {
@@ -584,16 +588,26 @@ public class SDAppUtil {
             for (int i = 0; i < packageInfos.size(); i++) {
                 PackageInfo packageInfo = packageInfos.get(i);
                 //过滤掉系统app
-//            if ((ApplicationInfo.FLAG_SYSTEM & packageInfo.applicationInfo.flags) != 0) {
-//                continue;
-//            }
-                SDInstallAppInfoBean myAppInfo = new SDInstallAppInfoBean();
-                myAppInfo.setAppName(packageInfo.packageName);
+                if (!showSystemApp && (ApplicationInfo.FLAG_SYSTEM & packageInfo.applicationInfo.flags) != 0) {
+                    continue;
+                }
+                SDInstallAppInfoBean appInfoBean = new SDInstallAppInfoBean();
+                appInfoBean.setAppPackageName(packageInfo.packageName);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    appInfoBean.setMinSdkVersion(packageInfo.applicationInfo.minSdkVersion);
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    appInfoBean.setInstallLocation(packageInfo.installLocation);
+                }
+                appInfoBean.setVersionCode(packageInfo.versionCode);
+                appInfoBean.setUid(packageInfo.applicationInfo.uid);
+
                 if (packageInfo.applicationInfo.loadIcon(packageManager) == null) {
                     continue;
                 }
-                myAppInfo.setImage(packageInfo.applicationInfo.loadIcon(packageManager));
-                appInfos.add(myAppInfo);
+                appInfoBean.setAppName(packageInfo.applicationInfo.loadLabel(getPackageManager()).toString());
+                appInfoBean.setImage(packageInfo.applicationInfo.loadIcon(packageManager));
+                appInfos.add(appInfoBean);
             }
         } catch (Exception e) {
             SDLogUtil.i(TAG, "--------------------获取应用包信息失败---------------------");
@@ -649,7 +663,6 @@ public class SDAppUtil {
         SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
     }
-
 
     /**
      * 根据路径获取PackageName

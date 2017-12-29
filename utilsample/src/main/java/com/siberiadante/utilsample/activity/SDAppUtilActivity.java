@@ -2,6 +2,8 @@ package com.siberiadante.utilsample.activity;
 
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -36,10 +38,28 @@ public class SDAppUtilActivity extends BaseActivity {
     Button btnUninstallApp;
     @BindView(R.id.btn_get_install_app_info)
     Button btnGetInstallAPPInfo;
+    @BindView(R.id.btn_get_install_app_info2)
+    Button btnGetInstallAPPInfo2;
     @BindView(R.id.tv_info_content)
     TextView tvInfo;
-    @BindView(R.id.progress_bar)
-    ProgressBar progressBar;
+    @BindView(R.id.tv_info_content2)
+    TextView tvInfo2;
+    public static final int SHOW_ALL_INSTALL_APP_INFO = 0x01;
+    public static final int SHOW_ALL_INSTALL_APP_INFO_EX_SYS = 0x02;
+    private Handler mHandler = new Handler(new Handler.Callback() {
+        @Override
+        public boolean handleMessage(Message msg) {
+            switch (msg.what) {
+                case SHOW_ALL_INSTALL_APP_INFO:
+
+                    break;
+                case SHOW_ALL_INSTALL_APP_INFO_EX_SYS:
+
+                    break;
+            }
+            return false;
+        }
+    });
 
     @Override
     public int setLayoutId() {
@@ -67,7 +87,7 @@ public class SDAppUtilActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.btn_launch_app, R.id.btn_install_app, R.id.btn_uninstall_app, R.id.btn_get_install_app_info})
+    @OnClick({R.id.btn_launch_app, R.id.btn_install_app, R.id.btn_uninstall_app, R.id.btn_get_install_app_info, R.id.btn_get_install_app_info2})
     public void onViewClicked(View view) {
         String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Sample-debug.apk";
         switch (view.getId()) {
@@ -82,17 +102,28 @@ public class SDAppUtilActivity extends BaseActivity {
                 SDAppUtil.unInstallApp("com.siberiadante.viewsample");
                 break;
             case R.id.btn_get_install_app_info:
-                progressBar.setVisibility(View.VISIBLE);
-                List<SDInstallAppInfoBean> sdInstallAppInfoBeans = SDAppUtil.getInstallAppInfo(getPackageManager());
-                SDLogUtil.d(TAG, "--------------:" + sdInstallAppInfoBeans.size());
-                SDLogUtil.d(TAG, "--------------:" + sdInstallAppInfoBeans.get(0).getAppName());
-                final StringBuilder builder = new StringBuilder();
-
+                 List<SDInstallAppInfoBean> sdInstallAppInfoBeans = SDAppUtil.getInstallAppInfo(this, true);
+                 StringBuilder builder = new StringBuilder();
                 for (SDInstallAppInfoBean installAppInfoBean : sdInstallAppInfoBeans) {
-                    builder.append(installAppInfoBean.getAppName() + "\n");
+                    builder.append("应用名：").append(installAppInfoBean.getAppName()).append(" 包名：").append(installAppInfoBean.getAppPackageName()).append("\n");
                 }
                 tvInfo.setText(builder);
-                progressBar.setVisibility(View.GONE);
+                break;
+            case R.id.btn_get_install_app_info2:
+
+                List<SDInstallAppInfoBean> sdInstallAppInfoBeans2 = SDAppUtil.getInstallAppInfo(SDAppUtilActivity.this, false);
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getAppName());
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getAppPackageName());
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getInstallLocation());
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getMinSdkVersion());
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getTargetSdkVersion());
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getVersionCode());
+                SDLogUtil.d(TAG, "--------:" + sdInstallAppInfoBeans2.get(0).getUid());
+                final StringBuilder builder2 = new StringBuilder();
+                for (SDInstallAppInfoBean installAppInfoBean : sdInstallAppInfoBeans2) {
+                    builder2.append("应用名：").append(installAppInfoBean.getAppName()).append(" 包名：").append(installAppInfoBean.getAppPackageName()).append("\n");
+                }
+                tvInfo2.setText(builder2);
 
                 break;
         }

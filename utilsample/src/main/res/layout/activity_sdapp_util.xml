@@ -39,6 +39,13 @@
             android:layout_height="wrap_content"
             android:text="启动APP" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/five"
+            android:layout_marginTop="@dimen/five"
+            android:text="测试使用到的卸载和安装方法已经测试通过，你需要测试的话结合自己的APK测试一下" />
+
         <Button
             android:id="@+id/btn_install_app"
             android:layout_width="match_parent"
@@ -55,20 +62,25 @@
             android:id="@+id/btn_get_install_app_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="获取所有已安装的应用名" />
-
-        <ProgressBar
-            android:id="@+id/progress_bar"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:visibility="gone" />
+            android:text="获取所有已安装的应用名包含系统应用" />
 
         <TextView
             android:id="@+id/tv_info_content"
             android:layout_width="match_parent"
+            android:textColor="@color/colorContentText"
+            android:textSize="@dimen/font_16"
             android:layout_height="wrap_content" />
-
+        <Button
+            android:id="@+id/btn_get_install_app_info2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取所有已安装的应用名排除系统应用" />
+        <TextView
+            android:id="@+id/tv_info_content2"
+            android:textColor="@color/colorContentText"
+            android:textSize="@dimen/font_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </ScrollView>
