@@ -54,7 +54,7 @@ public class SDRegexUtil {
      * @param input 待验证文本
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
      */
-    public static boolean isTel(final CharSequence input) {
+    public static boolean isTelephone(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_TEL, input);
     }
 
@@ -69,7 +69,7 @@ public class SDRegexUtil {
     }
 
     /**
-     * 验证身份证号码18位
+     * 验证身份证号码18位，包含x结尾
      *
      * @param input 待验证文本
      * @return {@code true}: 匹配<br>{@code false}: 不匹配
@@ -78,6 +78,15 @@ public class SDRegexUtil {
         return isMatch(SDRegexUnit.REGEX_ID_CARD18, input);
     }
 
+    /**
+     * 验证身份证号码15位，18位，包含x结尾
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isIDCard(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_ID_CARD, input);
+    }
 
     /**
      * 验证邮箱
@@ -109,7 +118,6 @@ public class SDRegexUtil {
         return isMatch(SDRegexUnit.REGEX_ZH, input);
     }
 
-
     /**
      * 验证用户名
      * <p>取值范围为a-z,A-Z,0-9,"_",汉字，不能以"_"结尾,用户名必须是6-20位</p>
@@ -120,6 +128,8 @@ public class SDRegexUtil {
     public static boolean isUsername(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_USERNAME, input);
     }
+
+    // TODO: 2017/12/29
 
     /**
      * 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
@@ -202,6 +212,7 @@ public class SDRegexUtil {
     public static boolean isPositionInteger(String integer) {
         return isMatchCanNull(SDRegexUnit.REGEX_POSITIVE_INTEGER, integer);
     }
+
     /**
      * 验证字符串是否是负整数
      * tips:不输入任何内容默认为数字，空格不是数字

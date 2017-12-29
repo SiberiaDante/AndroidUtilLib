@@ -1,9 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.siberiadante.utilsample.activity.SDRegexUtilActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/edt_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入测试内容"
+        android:padding="@dimen/page_padding_16"
+        android:textColor="@color/colorContentText"
+        android:textSize="@dimen/font_16" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/page_padding_16"
+        android:textColor="@color/colorContentText"
+        android:textSize="@dimen/font_16" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/fifty"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_test_mobile_simple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证手机号码是否匹配（简单）" />
+
+            <Button
+                android:id="@+id/btn_test_mobile_exact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证手机号码是否匹配（精确）" />
+
+            <Button
+                android:id="@+id/btn_test_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证电话号码是否匹配" />
+
+            <Button
+                android:id="@+id/btn_test_id_card_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证身份证号码是否匹配（15位）" />
+
+            <Button
+                android:id="@+id/btn_test_id_card_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证身份证号码是否匹配（18位，包含x结尾）" />
+
+            <Button
+                android:id="@+id/btn_test_id_card_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证身份证号码是否匹配（15位，18位，包含x结尾）" />
+
+            <Button
+                android:id="@+id/btn_test_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证邮箱是否匹配" />
+
+            <Button
+                android:id="@+id/btn_test_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="测试URL是否匹配" />
+
+            <Button
+                android:id="@+id/btn_test_zh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证汉字" />
+
+            <Button
+                android:id="@+id/btn_test_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证用户名（取值范围为a-z,A-Z,0-9,'_',汉字，不能以'_'结尾,用户名必须是6-20位）" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

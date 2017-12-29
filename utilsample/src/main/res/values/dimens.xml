@@ -5,4 +5,5 @@
 
     <dimen name="page_padding_16">16dp</dimen>
     <dimen name="five">5dp</dimen>
+    <dimen name="fifty">50dp</dimen>
 </resources>
