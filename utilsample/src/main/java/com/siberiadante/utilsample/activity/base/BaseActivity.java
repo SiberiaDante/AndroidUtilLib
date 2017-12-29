@@ -2,6 +2,7 @@ package com.siberiadante.utilsample.activity.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -13,11 +14,13 @@ import com.siberiadante.androidutil.SDKeyBoardUtil;
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    public ActionBar actionBar;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         beforeSetContentView();
         setContentView(setLayoutId());
+        actionBar=getSupportActionBar();
         ButterKnife.bind(this);
         initView(savedInstanceState);
         initData();

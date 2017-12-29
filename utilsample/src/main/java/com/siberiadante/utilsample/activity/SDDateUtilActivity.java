@@ -19,6 +19,9 @@ public class SDDateUtilActivity extends BaseActivity {
     @BindView(R.id.tv_time)
     TextView tvTime;
     public static final int SHOW_TIME = 0x01;
+    /**
+     * 内存泄露
+     */
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         @Override
@@ -30,7 +33,6 @@ public class SDDateUtilActivity extends BaseActivity {
                     mHandler.sendEmptyMessageDelayed(SHOW_TIME, 1000);
                     break;
             }
-
         }
     };
 
@@ -41,6 +43,7 @@ public class SDDateUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        actionBar.setTitle("SDDateUtil");
         final StringBuilder builder = new StringBuilder();
         builder.append("获取当前时间戳：").append(SDDateUtil.getTimeStamp()).append("\n")
                 .append("获取指定格式下的时间：").append("\n")

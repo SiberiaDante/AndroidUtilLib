@@ -26,7 +26,7 @@ public class TimerUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-
+        actionBar.setTitle("SDTimerUtil");
     }
 
 

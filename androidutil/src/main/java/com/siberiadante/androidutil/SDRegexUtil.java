@@ -25,7 +25,6 @@ import java.util.regex.Pattern;
 public class SDRegexUtil {
     public SDRegexUtil() {
         throw new UnsupportedOperationException("UnInit this Lib");
-
     }
 
 

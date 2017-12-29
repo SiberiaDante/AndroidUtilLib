@@ -46,7 +46,9 @@
         <activity android:name=".activity.SDTransitionUtilActivity" />
         <activity android:name=".activity.SDCloseUtilActivity" />
         <activity android:name=".activity.SDAppUtilActivity" />
-        <activity android:name=".activity.SDDateUtilActivity"></activity>
+        <activity android:name=".activity.SDDateUtilActivity" />
+        <activity android:name=".activity.SDNumberUtilActivity" />
+        <activity android:name=".activity.SDRegexUtilActivity"></activity>
     </application>
 
 </manifest>
