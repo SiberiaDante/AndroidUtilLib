@@ -4,6 +4,7 @@ import com.siberiadante.utilsample.activity.ActivityUtilActivity;
 import com.siberiadante.utilsample.activity.JumpUtilActivity;
 import com.siberiadante.utilsample.activity.SDAppUtilActivity;
 import com.siberiadante.utilsample.activity.SDCloseUtilActivity;
+import com.siberiadante.utilsample.activity.SDDateUtilActivity;
 import com.siberiadante.utilsample.activity.SDTransitionUtilActivity;
 import com.siberiadante.utilsample.activity.TimerUtilActivity;
 
@@ -29,6 +30,7 @@ public class MainData {
         data.add(new DataBean("测试SDJumpUtil", JumpUtilActivity.class));
         data.add(new DataBean("测试SDTimerUtil", TimerUtilActivity.class));
         data.add(new DataBean("测试SDTransitionUtil", SDTransitionUtilActivity.class));
+        data.add(new DataBean("测试SDDateUtil", SDDateUtilActivity.class));
 
         return data;
     }

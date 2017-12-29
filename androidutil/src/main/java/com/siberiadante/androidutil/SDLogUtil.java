@@ -4,6 +4,8 @@ import android.os.Environment;
 import android.util.Log;
 
 
+import com.siberiadante.androidutil.util.SDDateUtil;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -256,7 +258,7 @@ public class SDLogUtil {
             e.printStackTrace();
         }
         int length = bytes.length;
-        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + SDDateUtil.getSDFTimeYMDHSM() + "\n" + LEFT_BORDER + "\t" + stackstr;
+        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + SDDateUtil.getSDFTimeYMdHms() + "\n" + LEFT_BORDER + "\t" + stackstr;
         if (length > CHUNK_SIZE) {
             int i = 0;
             while (i < length) {

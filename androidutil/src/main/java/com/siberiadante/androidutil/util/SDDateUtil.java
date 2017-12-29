@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -35,7 +35,8 @@ import java.util.Locale;
  */
 
 public class SDDateUtil {
-    public SDDateUtil() {throw new UnsupportedOperationException("not init SDAndroidLib");
+    public SDDateUtil() {
+        throw new UnsupportedOperationException("not init SDAndroidLib");
     }
 
     /**
@@ -48,6 +49,42 @@ public class SDDateUtil {
         return String.valueOf(time / 1000);
     }
 
+    public static String getYear() {
+        String format = "yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+    public static String getMonth() {
+        String format = "MM";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+    public static String getDay() {
+        String format = "dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+    public static String getHour() {
+        String format = "HH";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+    public static String getMinute() {
+        String format = "mm";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+    public static String getSecond() {
+        String format = "ss";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
 
     /**
      * 获取当前时间（格式：HH:mm）
@@ -110,17 +147,6 @@ public class SDDateUtil {
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
-
-    /**
-     * @return yyyy-MM-dd HH:mm:ss    2016-08-12 15:44:40
-     */
-    public static String getSDFTimeYMDHSM() {
-        String format = "yyyy-MM-dd HH:mm:ss";
-        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
-        Long strLong = Long.valueOf(getTimeStamp());
-        return sdf.format(new Date(strLong * 1000));
-    }
-
 
     /**
      * @return yyyy.MM.dd G 'at' HH:mm:ss z    2016.08.12 公元 at 15:44:40 CST
@@ -209,7 +235,7 @@ public class SDDateUtil {
     /**
      * 日期格式字符串转换成时间戳
      *
-     * @param str    时间戳
+     * @param str    字符串格式日期
      * @param format 时间转换格式 (参考前面）
      * @return 时间
      */

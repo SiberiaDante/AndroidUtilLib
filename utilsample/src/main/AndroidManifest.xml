@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.siberiadante.utilsample">
 
-    <uses-permission android:name="android.permission.DELETE_PACKAGES"
+    <uses-permission
+        android:name="android.permission.DELETE_PACKAGES"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INSTALL_PACKAGES" />
+
     <application
         android:name=".UtilSampleApp"
         android:allowBackup="true"
@@ -43,7 +45,8 @@
         <activity android:name=".activity.TimerUtilActivity" />
         <activity android:name=".activity.SDTransitionUtilActivity" />
         <activity android:name=".activity.SDCloseUtilActivity" />
-        <activity android:name=".activity.SDAppUtilActivity"></activity>
+        <activity android:name=".activity.SDAppUtilActivity" />
+        <activity android:name=".activity.SDDateUtilActivity"></activity>
     </application>
 
 </manifest>

@@ -3,6 +3,7 @@ package com.siberiadante.utilsample;
 import android.app.Application;
 
 import com.siberiadante.androidutil.SDAndroidLib;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * @Created SiberiaDante
@@ -20,5 +21,9 @@ public class UtilSampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         SDAndroidLib.initLib(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
     }
 }

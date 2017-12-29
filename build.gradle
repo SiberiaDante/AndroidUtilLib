@@ -36,9 +36,10 @@ ext {
     buildToolsVersion = '27.0.0'
 
     supportLibrary = '27.0.2'
-    constraint_layout='1.0.2'
+    constraint_layout = '1.0.2'
 
     butterknife = '8.8.0'
     butterknife_compiler = '8.7.0'
+    leakcanary_android = '1.5.1'
 
 }

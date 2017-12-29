@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.siberiadante.androidutil.SDDateUtil;
+import com.siberiadante.androidutil.util.SDDateUtil;
 import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.util.SDTimerUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class TimerUtilActivity extends BaseActivity {
