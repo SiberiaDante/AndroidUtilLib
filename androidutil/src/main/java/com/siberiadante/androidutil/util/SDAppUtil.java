@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -13,10 +13,18 @@ import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.RequiresApi;
 import android.support.v4.content.FileProvider;
 
 
+import com.siberiadante.androidutil.R;
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDCleanUtil;
+import com.siberiadante.androidutil.SDFileUtil;
+import com.siberiadante.androidutil.SDIntentUtil;
+import com.siberiadante.androidutil.SDLogUtil;
+import com.siberiadante.androidutil.SDProcessUtil;
+import com.siberiadante.androidutil.SDShellUtil;
+import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.bean.SDAppInfoBean;
 import com.siberiadante.androidutil.bean.SDInstallAppInfoBean;
 import com.siberiadante.androidutil.encrypt.SDSHA1Util;

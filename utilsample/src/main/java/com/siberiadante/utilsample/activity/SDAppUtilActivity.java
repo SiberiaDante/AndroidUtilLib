@@ -7,10 +7,9 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.SDAppUtil;
+import com.siberiadante.androidutil.util.SDAppUtil;
 import com.siberiadante.androidutil.SDLogUtil;
 import com.siberiadante.androidutil.bean.SDInstallAppInfoBean;
 import com.siberiadante.utilsample.R;
