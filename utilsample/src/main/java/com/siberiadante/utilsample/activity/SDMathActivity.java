@@ -3,7 +3,7 @@ package com.siberiadante.utilsample.activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.SDMathUtil;
+import com.siberiadante.androidutil.util.SDMathUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 

@@ -1,10 +1,11 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.os.Environment;
 import android.util.Log;
 
 
-import com.siberiadante.androidutil.util.SDDateUtil;
+import com.siberiadante.androidutil.BuildConfig;
+import com.siberiadante.androidutil.SDAndroidLib;
 
 import java.io.File;
 import java.io.FileNotFoundException;

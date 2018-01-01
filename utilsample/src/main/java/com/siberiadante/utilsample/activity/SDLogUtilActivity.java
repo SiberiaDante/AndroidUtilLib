@@ -1,9 +1,8 @@
 package com.siberiadante.utilsample.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.siberiadante.androidutil.SDLogUtil;
+import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 

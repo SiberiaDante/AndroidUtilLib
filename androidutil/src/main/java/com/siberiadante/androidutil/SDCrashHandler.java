@@ -5,6 +5,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 
+import com.siberiadante.androidutil.util.SDLogUtil;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;

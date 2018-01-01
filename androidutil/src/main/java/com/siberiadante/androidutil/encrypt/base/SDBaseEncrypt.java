@@ -3,7 +3,7 @@ package com.siberiadante.androidutil.encrypt.base;
 import android.util.Base64;
 
 
-import com.siberiadante.androidutil.SDLogUtil;
+import com.siberiadante.androidutil.util.SDLogUtil;
 
 import java.security.InvalidKeyException;
 import java.security.Key;

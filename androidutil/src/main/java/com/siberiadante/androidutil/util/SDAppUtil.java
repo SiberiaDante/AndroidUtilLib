@@ -21,7 +21,6 @@ import com.siberiadante.androidutil.SDAndroidLib;
 import com.siberiadante.androidutil.SDCleanUtil;
 import com.siberiadante.androidutil.SDFileUtil;
 import com.siberiadante.androidutil.SDIntentUtil;
-import com.siberiadante.androidutil.SDLogUtil;
 import com.siberiadante.androidutil.SDProcessUtil;
 import com.siberiadante.androidutil.SDShellUtil;
 import com.siberiadante.androidutil.SDToastUtil;

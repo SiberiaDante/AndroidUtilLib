@@ -27,15 +27,6 @@ import java.util.Enumeration;
  */
 
 public class SDNetWorkUtil {
-//    //没有网络连接
-//    private static final int NETWORK_NONE = 0;
-//    //wifi连接
-//    private static final int NETWORK_WIFI = 1;
-//    //手机网络数据连接类型
-//    private static final int NETWORK_2G = 2;
-//    private static final int NETWORK_3G = 3;
-//    private static final int NETWORK_4G = 4;
-//    private static final int NETWORK_MOBILE = 5;//UN_KNOWN
 
     private enum NetworkType {
         //没有网络连接
@@ -57,9 +48,8 @@ public class SDNetWorkUtil {
         return (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
     }
 
-    @SuppressLint("WifiManagerLeak")
     private static WifiManager getWifiManager() {
-        return (WifiManager) SDAndroidLib.getContext().getSystemService(Context.WIFI_SERVICE);
+        return (WifiManager) SDAndroidLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     }
 
     /**

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.siberiadante.androidutil.util.SDAppUtil;
-import com.siberiadante.androidutil.SDLogUtil;
+import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.androidutil.bean.SDInstallAppInfoBean;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
