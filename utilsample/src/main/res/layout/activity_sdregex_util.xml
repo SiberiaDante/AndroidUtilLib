@@ -78,6 +78,47 @@
                 android:text="验证邮箱是否匹配" />
 
             <Button
+                android:id="@+id/btn_test_qq_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证QQ邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_google_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证Google邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_163_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证163邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_sina_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证新浪邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_sohu_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证搜狐邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_hot_mai_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证HotMai邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_189_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证189邮箱是否匹配" />
+            <Button
+                android:id="@+id/btn_test_139_emil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证139邮箱是否匹配" />
+
+            <Button
                 android:id="@+id/btn_test_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,6 +135,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="验证用户名（取值范围为a-z,A-Z,0-9,'_',汉字，不能以'_'结尾,用户名必须是6-20位）" />
+
+            <Button
+                android:id="@+id/btn_test_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证yyyy-MM-dd格式的日期校验，已考虑平闰年" />
+
+            <Button
+                android:id="@+id/btn_test_ip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证IP地址" />
+
+            <Button
+                android:id="@+id/btn_test_blank_line"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证空白行" />
+
+            <Button
+                android:id="@+id/btn_test_blank_str"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证空白字符" />
+
+            <Button
+                android:id="@+id/btn_test_qq"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证QQ号" />
+
+            <Button
+                android:id="@+id/btn_test_post_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证中国邮政编码" />
+
+            <Button
+                android:id="@+id/btn_test_is_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证字符串是否全是数字" />
+
+            <Button
+                android:id="@+id/btn_test_is_pos_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证字符串是否是正整数" />
+
+            <Button
+                android:id="@+id/btn_test_is_neg_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证字符串是否是负整数" />
+
+            <Button
+                android:id="@+id/btn_test_integer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证整数（正整数和负整数）" />
+
+            <Button
+                android:id="@+id/btn_test_decimal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证正数、负数、和小数" />
+
+
 
 
         </LinearLayout>

@@ -47,6 +47,39 @@ public class SDRegexUnit {
      */
     public static final String REGEX_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
     /**
+     * 正则：qq邮箱
+     */
+    public static final String REGEX_QQ_EMAIL = "hyy12@qq.com";
+    /**
+     * 正则：谷歌邮箱
+     */
+    public static final String REGEX_GOOGLE_EMAIL = "hyy@gmail.com";
+
+    /**
+     * 正则： 163邮箱
+     */
+    public static final String REGEX_163_EMAIL = "hyy-123@163.com";
+    /**
+     * 正则： 新浪邮箱
+     */
+    public static final String REGEX_SINA_EMAIL = "732662@sina.com";
+    /**
+     * 正则：  搜狐邮箱
+     */
+    public static final String REGEX_SOHU_EMAIL = "hyy@sohu.com";
+    /**
+     * 正则：hotmai邮箱
+     */
+    public static final String REGEX_HOTMAIL_EMAIL = "hyy@hotmail.com";
+    /**
+     * 正则：189邮箱
+     */
+    public static final String REGEX_189_EMAIL = "hyy@189.cn";
+    /**
+     * 正则：139邮箱
+     */
+    public static final String REGEX_139_EMAIL = "hyy@139.com";
+    /**
      * 正则：URL
      */
     public static final String REGEX_URL = "[a-zA-z]+://[^\\s]*";
@@ -125,38 +158,7 @@ public class SDRegexUnit {
      */
     public static final String REGEX_DOUBLE_BYTE_CHAR = "[^\\x00-\\xff]";
 
-    /**
-     * 正则：谷歌邮箱
-     */
-    public static final String REGEX_GOOGLE_EMAIL = "hyy@gmail.com";
-    /**
-     * 正则：qq邮箱
-     */
-    public static final String REGEX_QQ_EMAIL = "hyy12@qq.com";
-    /**
-     * 正则： 163邮箱
-     */
-    public static final String REGEX_163_EMAIL = "hyy-123@163.com";
-    /**
-     * 正则： 新浪邮箱
-     */
-    public static final String REGEX_SINA_EMAIL = "732662@sina.com";
-    /**
-     * 正则：  搜狐邮箱
-     */
-    public static final String REGEX_SOHU_EMAIL = "hyy@sohu.com";
-    /**
-     * 正则：hotmai邮箱
-     */
-    public static final String REGEX_HOTMAIL_EMAIL = "hyy@hotmail.com";
-    /**
-     * 正则：189邮箱
-     */
-    public static final String REGEX_189_EMAIL = "hyy@189.cn";
-    /**
-     * 正则：139邮箱
-     */
-    public static final String REGEX_139_EMAIL = "hyy@139.com";
+
 
 
 

@@ -18,7 +18,6 @@ public class SDStringUtil {
 
     public SDStringUtil() {
         throw new UnsupportedOperationException("UnInit this Lib");
-
     }
 
     /**

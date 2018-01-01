@@ -34,21 +34,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".activity.ActivityUtilActivity" />
+        <activity android:name=".activity.SDActivityUtilActivity" />
         <!-- <activity android:name=".util.AppActivity" /> -->
         <!-- <activity android:name=".util.BitmapUtilActivity" /> -->
         <!-- <activity android:name=".util.DateUtilActivity" /> -->
         <!-- <activity android:name=".util.EncryptionActivity" /> -->
         <!-- <activity android:name=".util.NetworkActivity" /> -->
         <!-- <activity android:name=".util.SDCardUtilActivity" /> -->
-        <activity android:name=".activity.JumpUtilActivity" />
-        <activity android:name=".activity.TimerUtilActivity" />
+        <activity android:name=".activity.SDJumpUtilActivity" />
+        <activity android:name=".activity.SDTimerUtilActivity" />
         <activity android:name=".activity.SDTransitionUtilActivity" />
         <activity android:name=".activity.SDCloseUtilActivity" />
         <activity android:name=".activity.SDAppUtilActivity" />
         <activity android:name=".activity.SDDateUtilActivity" />
         <activity android:name=".activity.SDNumberUtilActivity" />
-        <activity android:name=".activity.SDRegexUtilActivity"></activity>
+        <activity android:name=".activity.SDRegexUtilActivity" />
+        <activity android:name=".activity.SDLogUtilActivity" />
+        <activity android:name=".activity.SDMathActivity"></activity>
     </application>
 
 </manifest>

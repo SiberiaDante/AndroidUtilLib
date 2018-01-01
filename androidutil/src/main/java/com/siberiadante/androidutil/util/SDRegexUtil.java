@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 
 import com.siberiadante.androidutil.constant.SDRegexUnit;
@@ -97,7 +97,78 @@ public class SDRegexUtil {
     public static boolean isEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_EMAIL, input);
     }
-
+    /**
+     * 验证QQ邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isQQEmail(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_QQ_EMAIL, input);
+    }
+    /**
+     * 验证谷歌邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isGoogleEmail(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_GOOGLE_EMAIL, input);
+    }
+    /**
+     * 验证163邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean is163Email(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_163_EMAIL, input);
+    }
+    /**
+     * 验证新浪邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isSiNaEmail(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_SINA_EMAIL, input);
+    }
+    /**
+     * 验证搜狐邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isSoHuEmail(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_SOHU_EMAIL, input);
+    }
+    /**
+     * 验证hotmai邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isHotMaiEmail(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_HOTMAIL_EMAIL, input);
+    }
+    /**
+     * 验证189邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean is189Email(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_189_EMAIL, input);
+    }
+    /**
+     * 验证139邮箱
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean is139Email(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_139_EMAIL, input);
+    }
     /**
      * 验证URL
      *
@@ -256,7 +327,7 @@ public class SDRegexUtil {
     }
 
     /**
-     * 判断是否匹配正则
+     * 判断是否匹配正则,内容可以为null
      *
      * @param regex 正则表达式
      * @param input 要匹配的字符串

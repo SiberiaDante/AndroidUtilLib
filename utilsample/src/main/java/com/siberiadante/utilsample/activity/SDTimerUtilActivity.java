@@ -13,7 +13,7 @@ import com.siberiadante.utilsample.activity.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class TimerUtilActivity extends BaseActivity {
+public class SDTimerUtilActivity extends BaseActivity {
 
     @BindView(R.id.btn_fast_click)
     Button btnFastClick;

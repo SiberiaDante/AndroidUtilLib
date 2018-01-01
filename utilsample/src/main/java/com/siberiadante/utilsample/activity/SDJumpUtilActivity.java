@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class JumpUtilActivity extends BaseActivity {
+public class SDJumpUtilActivity extends BaseActivity {
 
     @BindView(R.id.btn_open_setting)
     Button btnOpenSetting;

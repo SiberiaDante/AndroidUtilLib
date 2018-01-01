@@ -1,26 +1,19 @@
 package com.siberiadante.utilsample.activity;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
 import com.siberiadante.androidutil.util.SDActivityUtil;
-import com.siberiadante.androidutil.util.SDJumpUtil;
 import com.siberiadante.utilsample.MainActivity;
 import com.siberiadante.utilsample.R;
-import com.siberiadante.utilsample.SecondActivity;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
-import com.siberiadante.utilsample.constant.Constants;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
-public class ActivityUtilActivity extends BaseActivity {
+public class SDActivityUtilActivity extends BaseActivity {
 
-    private static final String TAG = ActivityUtilActivity.class.getSimpleName();
+    private static final String TAG = SDActivityUtilActivity.class.getSimpleName();
     @BindView(R.id.tv_activity_test)
     TextView mTvContent;
 
