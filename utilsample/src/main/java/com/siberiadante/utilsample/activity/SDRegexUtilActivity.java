@@ -81,6 +81,8 @@ public class SDRegexUtilActivity extends BaseActivity {
     Button btnTest189Emil;
     @BindView(R.id.btn_test_139_emil)
     Button btnTest139Emil;
+    @BindView(R.id.btn_clean)
+    Button btnClean;
 
     @Override
     public int setLayoutId() {
@@ -93,9 +95,9 @@ public class SDRegexUtilActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_test_mobile_simple, R.id.btn_test_mobile_exact, R.id.btn_test_phone,
+    @OnClick({R.id.btn_clean,R.id.btn_test_mobile_simple, R.id.btn_test_mobile_exact, R.id.btn_test_phone,
             R.id.btn_test_id_card_15, R.id.btn_test_id_card_18, R.id.btn_test_id_card_all,
-            R.id.btn_test_emil,R.id.btn_test_qq_emil, R.id.btn_test_google_emil, R.id.btn_test_163_emil, R.id.btn_test_sina_emil, R.id.btn_test_sohu_emil, R.id.btn_test_hot_mai_emil, R.id.btn_test_189_emil, R.id.btn_test_139_emil,
+            R.id.btn_test_emil, R.id.btn_test_qq_emil, R.id.btn_test_google_emil, R.id.btn_test_163_emil, R.id.btn_test_sina_emil, R.id.btn_test_sohu_emil, R.id.btn_test_hot_mai_emil, R.id.btn_test_189_emil, R.id.btn_test_139_emil,
             R.id.btn_test_url, R.id.btn_test_zh, R.id.btn_test_username,
             R.id.btn_test_ip, R.id.btn_test_blank_line, R.id.btn_test_blank_str, R.id.btn_test_qq,
             R.id.btn_test_post_code, R.id.btn_test_is_num, R.id.btn_test_is_pos_num, R.id.btn_test_is_neg_num, R.id.btn_test_integer, R.id.btn_test_decimal
@@ -104,6 +106,10 @@ public class SDRegexUtilActivity extends BaseActivity {
         String content = edtInput.getText().toString();
         boolean isTrue = false;
         switch (view.getId()) {
+            case R.id.btn_clean:
+                edtInput.setText("");
+                tvResult.setText("");
+                break;
             case R.id.btn_test_mobile_simple:
                 isTrue = SDRegexUtil.isMobileSimple(content);
                 break;
