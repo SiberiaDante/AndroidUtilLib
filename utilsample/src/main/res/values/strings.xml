@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">UtilSample</string>
+    <string name="sd_sp_util">SDSPUtil</string>
+    <string name="sd_activity_util">SDActivityUtil</string>
+    <string name="sd_app_util">SDAppUtil</string>
+    <string name="sd_close_util">SDCloseUtil</string>
+    <string name="sd_date_util">SDDateUtil</string>
+    <string name="sd_jump_util">SDJumpUtil</string>
+    <string name="sd_log_util">SDLogUtil</string>
+    <string name="sd_math_util">SDMathUtil</string>
+    <string name="sd_regex_util">SDRegexUtil</string>
+    <string name="sd_timer_util">SDTimerUtil</string>
+    <string name="sd_transition_util">SDTransitionUtil</string>
+    <string name="sd_number_util">SDNumberUtil</string>
 </resources>

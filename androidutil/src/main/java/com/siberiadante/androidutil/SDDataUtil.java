@@ -21,47 +21,10 @@ import java.util.Map;
 
 public class SDDataUtil {
 
-    public SDDataUtil() {throw new UnsupportedOperationException("not init SDAndroidLib");
+    public SDDataUtil() {
+        throw new UnsupportedOperationException("not init ---------" + SDDataUtil.class.getName());
     }
 
-    /**
-     * 判断对象是否为空
-     *
-     * @param obj 对象
-     * @return {@code true}: 为空<br>{@code false}: 不为空
-     */
-    public static boolean isEmpty(Object obj) {
-        if (obj == null) {
-            return true;
-        }
-        if (obj instanceof String && obj.toString().length() == 0) {
-            return true;
-        }
-        if (obj.getClass().isArray() && Array.getLength(obj) == 0) {
-            return true;
-        }
-        if (obj instanceof Collection && ((Collection) obj).isEmpty()) {
-            return true;
-        }
-        if (obj instanceof Map && ((Map) obj).isEmpty()) {
-            return true;
-        }
-        if (obj instanceof SparseArray && ((SparseArray) obj).size() == 0) {
-            return true;
-        }
-        if (obj instanceof SparseBooleanArray && ((SparseBooleanArray) obj).size() == 0) {
-            return true;
-        }
-        if (obj instanceof SparseIntArray && ((SparseIntArray) obj).size() == 0) {
-            return true;
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
-            if (obj instanceof SparseLongArray && ((SparseLongArray) obj).size() == 0) {
-                return true;
-            }
-        }
-        return false;
-    }
 
 
     /**
@@ -110,8 +73,6 @@ public class SDDataUtil {
         return card;
     }
 
-
-
     /**
      * 整型数组求和
      *
@@ -127,10 +88,6 @@ public class SDDataUtil {
 
         return sum;
     }
-
-
-
-
 
 
 }

@@ -47,7 +47,7 @@ public class SDJumpUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDJumpUtil");
+        actionBar.setTitle(R.string.sd_jump_util);
     }
 
     @OnClick({

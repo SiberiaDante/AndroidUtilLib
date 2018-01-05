@@ -21,6 +21,7 @@ public class SDMathActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        actionBar.setTitle(R.string.sd_math_util);
         StringBuilder builder = new StringBuilder();
         builder.append("sin 30度等于：").append(SDMathUtil.sin(30))
                 .append("cos 30度等于：").append(SDMathUtil.cos(30));

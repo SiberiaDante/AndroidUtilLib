@@ -91,7 +91,7 @@ public class SDRegexUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDRegexUtil");
+        actionBar.setTitle(R.string.sd_regex_util);
 
     }
 

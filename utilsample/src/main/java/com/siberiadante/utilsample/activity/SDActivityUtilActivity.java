@@ -24,7 +24,7 @@ public class SDActivityUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDActivityUtil");
+        actionBar.setTitle(R.string.sd_activity_util);
         boolean activityExists = SDActivityUtil.isActivityExists("com.siberiadante.utilsample", MainActivity.class.getName());
         String launcherActivity = SDActivityUtil.getLauncherActivity("com.sample");
         StringBuilder builder = new StringBuilder();

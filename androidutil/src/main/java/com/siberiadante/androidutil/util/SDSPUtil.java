@@ -1,9 +1,11 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 
+
+import com.siberiadante.androidutil.SDAndroidLib;
 
 import java.util.Map;
 import java.util.Set;

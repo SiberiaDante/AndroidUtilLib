@@ -8,7 +8,9 @@ import com.siberiadante.utilsample.activity.SDDateUtilActivity;
 import com.siberiadante.utilsample.activity.SDLogUtilActivity;
 import com.siberiadante.utilsample.activity.SDMathActivity;
 import com.siberiadante.utilsample.activity.SDNumberUtilActivity;
+import com.siberiadante.utilsample.activity.SDObjectUtilActivity;
 import com.siberiadante.utilsample.activity.SDRegexUtilActivity;
+import com.siberiadante.utilsample.activity.SDSPUtilActivity;
 import com.siberiadante.utilsample.activity.SDTimerUtilActivity;
 import com.siberiadante.utilsample.activity.SDTransitionUtilActivity;
 
@@ -39,6 +41,8 @@ public class MainData {
         data.add(new DataBean("测试SDRegexUtil", SDRegexUtilActivity.class));
         data.add(new DataBean("测试SDMathUtil", SDMathActivity.class));
         data.add(new DataBean("测试SDLogUtil", SDLogUtilActivity.class));
+        data.add(new DataBean("测试SDSPUtil", SDSPUtilActivity.class));
+        data.add(new DataBean("测试SDObjectUtil", SDObjectUtilActivity.class));
         return data;
     }
 }

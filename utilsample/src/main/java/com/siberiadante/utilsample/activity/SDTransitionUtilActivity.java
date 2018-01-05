@@ -22,7 +22,7 @@ public class SDTransitionUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDTransitionUtil");
+        actionBar.setTitle(R.string.sd_transition_util);
         final StringBuilder builder = new StringBuilder();
         builder.append("获取屏幕密度：" + SDTransitionUtil.getDensity(this) + "\n");
         builder.append("10dip转px：" + SDTransitionUtil.dip2px(10) + "\n");

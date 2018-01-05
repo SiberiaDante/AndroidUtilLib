@@ -67,7 +67,7 @@ public class SDAppUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDAppUtil");
+        actionBar.setTitle(R.string.sd_app_util);
         ivApp.setImageDrawable(SDAppUtil.getAppIcon());
         final StringBuilder builder = new StringBuilder();
         builder.append("获取APP的name：" + SDAppUtil.getAppName() + "\n");

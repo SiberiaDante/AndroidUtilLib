@@ -43,7 +43,7 @@ public class SDDateUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDDateUtil");
+        actionBar.setTitle(R.string.sd_date_util);
         final StringBuilder builder = new StringBuilder();
         builder.append("获取当前时间戳：").append(SDDateUtil.getTimeStamp()).append("\n")
                 .append("获取指定格式下的时间：").append("\n")

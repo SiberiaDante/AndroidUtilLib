@@ -14,6 +14,6 @@ public class SDCloseUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDCloseUtil");
+        actionBar.setTitle(R.string.sd_close_util);
     }
 }

@@ -16,6 +16,7 @@ public class SDLogUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        actionBar.setTitle(R.string.sd_log_util);
         SDLogUtil.d("默认TAG：SDLogUtil");
         SDLogUtil.d(TAG, "自定义TAG");
         SDLogUtil.e(TAG,"ErrorErrorErrorErrorErrorError");

@@ -50,7 +50,9 @@
         <activity android:name=".activity.SDNumberUtilActivity" />
         <activity android:name=".activity.SDRegexUtilActivity" />
         <activity android:name=".activity.SDLogUtilActivity" />
-        <activity android:name=".activity.SDMathActivity"></activity>
+        <activity android:name=".activity.SDMathActivity" />
+        <activity android:name=".activity.SDSPUtilActivity" />
+        <activity android:name=".activity.SDObjectUtilActivity"></activity>
     </application>
 
 </manifest>

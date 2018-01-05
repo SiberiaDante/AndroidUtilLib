@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="MatchMatchParent">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -42,5 +43,25 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">0dp</item>
+    </style>
+
+    <style name="CustomEditText">
+        <item name="android:minHeight">@dimen/fifty</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColorHint">@color/colorGray</item>
+        <item name="android:textSize">@dimen/font_15</item>
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:background">@null</item>
+        <item name="android:textCursorDrawable">@drawable/edit_cursor_line</item>
+        <item name="android:textSelectHandle">@drawable/edit_select_handle</item>
+    </style>
+
+    <style name="CustomTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/colorBlue</item>
+        <item name="android:textSize">@dimen/font_14</item>
+        <item name="android:lineSpacingExtra">@dimen/six</item>
     </style>
 </resources>

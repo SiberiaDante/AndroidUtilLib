@@ -16,4 +16,7 @@ public class Constants {
     public static final String B_LOG = "http://www.cnblogs.com/shen-hua/";
 
     public static final String QQ_EMAIL = "26548280@qq.com";
+
+    public static final String COMMON_APP_INFO = "COMMON_APP_INFO";
+
 }

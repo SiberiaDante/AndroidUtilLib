@@ -14,6 +14,6 @@ public class SDNumberUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        actionBar.setTitle("SDNumberUtil");
+        actionBar.setTitle(R.string.sd_number_util);
     }
 }

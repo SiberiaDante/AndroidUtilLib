@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    tools:context="com.siberiadante.utilsample.activity.SDSPUtilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/page_padding_16"
+        android:paddingStart="@dimen/page_padding_16">
+
+        <EditText
+            android:id="@+id/edt_input"
+            style="@style/CustomEditText"
+            android:layout_height="@dimen/one_hundred"
+            android:hint="请输入要保存的内容" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保存数据" />
+
+        <Button
+            android:id="@+id/btn_read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="读取数据" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/CustomTextView"
+            android:layout_marginTop="@dimen/twenty" />
+
+    </LinearLayout>
+
+</ScrollView>
