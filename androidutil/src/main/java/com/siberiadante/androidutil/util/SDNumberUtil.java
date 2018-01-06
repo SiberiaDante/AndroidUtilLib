@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import com.siberiadante.androidutil.util.SDRegexUtil;
 

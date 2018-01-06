@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siberiadante.utilsample.activity.SDStatusBarUtlActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/CustomTextView" />
+
+        <Button
+            android:id="@+id/btn_half_status_translucent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="半透明状态栏" />
+
+        <Button
+            android:id="@+id/btn_status_translucent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="透明状态栏" />
+
+        <Button
+            android:id="@+id/btn_nav_translucent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="透明导航栏" />
+
+        <Button
+            android:id="@+id/btn_status_nav_translucent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="透明状态栏和透明导航栏" />
+
+    </LinearLayout>
+</ScrollView>

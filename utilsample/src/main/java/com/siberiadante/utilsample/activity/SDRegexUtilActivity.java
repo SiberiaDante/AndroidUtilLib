@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.siberiadante.androidutil.util.SDStringUtil;
+import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.util.SDRegexUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
@@ -81,6 +83,8 @@ public class SDRegexUtilActivity extends BaseActivity {
     Button btnTest189Emil;
     @BindView(R.id.btn_test_139_emil)
     Button btnTest139Emil;
+    @BindView(R.id.btn_test_blank_card)
+    Button btnBlankCard;
     @BindView(R.id.btn_clean)
     Button btnClean;
 
@@ -95,12 +99,13 @@ public class SDRegexUtilActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_clean,R.id.btn_test_mobile_simple, R.id.btn_test_mobile_exact, R.id.btn_test_phone,
+    @OnClick({R.id.btn_clean, R.id.btn_test_mobile_simple, R.id.btn_test_mobile_exact, R.id.btn_test_phone,
             R.id.btn_test_id_card_15, R.id.btn_test_id_card_18, R.id.btn_test_id_card_all,
             R.id.btn_test_emil, R.id.btn_test_qq_emil, R.id.btn_test_google_emil, R.id.btn_test_163_emil, R.id.btn_test_sina_emil, R.id.btn_test_sohu_emil, R.id.btn_test_hot_mai_emil, R.id.btn_test_189_emil, R.id.btn_test_139_emil,
             R.id.btn_test_url, R.id.btn_test_zh, R.id.btn_test_username,
             R.id.btn_test_ip, R.id.btn_test_blank_line, R.id.btn_test_blank_str, R.id.btn_test_qq,
-            R.id.btn_test_post_code, R.id.btn_test_is_num, R.id.btn_test_is_pos_num, R.id.btn_test_is_neg_num, R.id.btn_test_integer, R.id.btn_test_decimal
+            R.id.btn_test_post_code, R.id.btn_test_is_num, R.id.btn_test_is_pos_num, R.id.btn_test_is_neg_num, R.id.btn_test_integer, R.id.btn_test_decimal,
+            R.id.btn_test_blank_card
     })
     public void onViewClicked(View view) {
         String content = edtInput.getText().toString();
@@ -193,6 +198,13 @@ public class SDRegexUtilActivity extends BaseActivity {
                 break;
             case R.id.btn_test_decimal:
                 isTrue = SDRegexUtil.isDecimals(content);
+                break;
+            case R.id.btn_test_blank_card:
+                if (SDStringUtil.isEmpty(content)) {
+                    SDToastUtil.toast(getString(R.string.input_content));
+                    return;
+                }
+                isTrue = SDRegexUtil.isBankCard(content);
                 break;
         }
         tvResult.setText("测试结果：" + isTrue);

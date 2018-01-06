@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.SDStringUtil;
+import com.siberiadante.androidutil.util.SDStringUtil;
 import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.util.SDRegexUtil;
 import com.siberiadante.utilsample.R;

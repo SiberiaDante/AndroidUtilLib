@@ -84,6 +84,21 @@
             android:layout_height="wrap_content"
             android:text="打开语言设置页面" />
 
+        <Button
+            android:id="@+id/btn_open_call"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开拨打电话页面" />
+        <Button
+            android:id="@+id/btn_open_send_sms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开发送短信页面" />
+        <Button
+            android:id="@+id/btn_open_send_sms_client"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开发送短信页面静默" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -1,11 +1,12 @@
 package com.siberiadante.utilsample.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.util.SDJumpUtil;
+import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.SecondActivity;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
@@ -39,6 +40,14 @@ public class SDJumpUtilActivity extends BaseActivity {
     Button btnOpenWifiSetting;
     @BindView(R.id.btn_open_location_setting)
     Button btnOpenLocationSetting;
+    @BindView(R.id.btn_open_language_setting)
+    Button btnOpenLanguageSetting;
+    @BindView(R.id.btn_open_call)
+    Button btnOpenCall;
+    @BindView(R.id.btn_open_send_sms)
+    Button btnOpenSendSms;
+    @BindView(R.id.btn_open_send_sms_client)
+    Button btnOpenSendSmsClient;
 
     @Override
     public int setLayoutId() {
@@ -57,7 +66,8 @@ public class SDJumpUtilActivity extends BaseActivity {
             R.id.btn_open_browser,
             R.id.btn_open_email, R.id.btn_send_email,
             R.id.btn_open_location_setting,
-            R.id.btn_open_language_setting
+            R.id.btn_open_language_setting,
+            R.id.btn_open_call, R.id.btn_open_send_sms,R.id.btn_open_send_sms_client
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -103,8 +113,15 @@ public class SDJumpUtilActivity extends BaseActivity {
             case R.id.btn_open_language_setting:
                 SDJumpUtil.openLanguageSetting();
                 break;
+            case R.id.btn_open_call:
+                SDJumpUtil.openCall("10086");
+                break;
+            case R.id.btn_open_send_sms:
+                SDJumpUtil.openSendSms("10086", "余额");
+                break;
+            case R.id.btn_open_send_sms_client:
+                SDJumpUtil.openSendSmsSilent("10086", "余额");
+                break;
         }
     }
-
-
 }

@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -21,6 +21,9 @@ import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.util.Xml;
 
+
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDIntentUtil;
 
 import org.xmlpull.v1.XmlSerializer;
 
@@ -149,9 +152,11 @@ public class SDDeviceUtil {
 
     /**
      * 获取设备的IMEI
+     * 需要权限 {@code <uses-permission android:name="android.permission.READ_PHONE_STATE" />}
      *
      * @return
      */
+    @SuppressLint("MissingPermission")
     public static String getDeviceIdIMEI() {
         TelephonyManager tm = (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
         return tm.getDeviceId();
@@ -172,6 +177,7 @@ public class SDDeviceUtil {
      *
      * @return
      */
+    @SuppressLint("MissingPermission")
     public static String getLocalMac() {
         WifiManager wifi = (WifiManager) SDAndroidLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo info = wifi.getConnectionInfo();
@@ -184,6 +190,7 @@ public class SDDeviceUtil {
      *
      * @return IMSI码
      */
+    @SuppressLint("MissingPermission")
     public static String getIMSI() {
         TelephonyManager tm = (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
         return tm != null ? tm.getSubscriberId() : null;
@@ -239,6 +246,7 @@ public class SDDeviceUtil {
 
     /**
      * 获取手机号
+     * 需要权限 {@code <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />}
      *
      * @param context
      * @return
@@ -288,6 +296,7 @@ public class SDDeviceUtil {
      * @param permission 例如 Manifest.permission.READ_PHONE_STATE
      * @return
      */
+    @Deprecated
     public static boolean checkPermission(Context context, String permission) {
         boolean result = false;
         if (Build.VERSION.SDK_INT >= 23) {
@@ -359,10 +368,12 @@ public class SDDeviceUtil {
 
     /**
      * 获取唯一的用户ID
+     * 需要权限 {@code <uses-permission android:name="android.permission.READ_PHONE_STATE" />}
      *
      * @param context
      * @return
      */
+    @SuppressLint("MissingPermission")
     public static String getSubscriberId(Context context) {
         TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return tm.getSubscriberId();
@@ -389,16 +400,6 @@ public class SDDeviceUtil {
         return tm != null ? tm.getSimOperatorName() : null;
     }
 
-    /**
-     * 获取SIM卡提供的移动国家码和移动网络码.5或6位的十进制数字
-     *
-     * @param context
-     * @return
-     */
-    public static String getSimOperator(Context context) {
-        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-        return tm.getSimOperator();
-    }
 
     /**
      * 获取Sim卡运营商名称
@@ -425,73 +426,14 @@ public class SDDeviceUtil {
     }
 
     /**
-     * 跳至拨号界面
+     * 获取SIM卡提供的移动国家码和移动网络码.5或6位的十进制数字
      *
-     * @param phoneNumber 电话号码
+     * @param context
+     * @return
      */
-    public static void dial(final String phoneNumber) {
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getDialIntent(phoneNumber));
-    }
-
-    /**
-     * 拨打电话
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}</p>
-     *
-     * @param phoneNumber 电话号码
-     */
-    public static void call(final String phoneNumber) {
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getCallIntent(phoneNumber));
-    }
-    /**
-     * 拨打电话
-     * 需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}
-     *
-     * @param context     上下文
-     * @param phoneNumber 电话号码
-     */
-    public static void callPhone(final Context context, String phoneNumber) {
-        if (!SDStringUtil.isEmpty(phoneNumber)) {
-            final String phoneNumber1 = phoneNumber.trim();// 删除字符串首部和尾部的空格
-            // 调用系统的拨号服务实现电话拨打功能
-            // 封装一个拨打电话的intent，并且将电话号码包装成一个Uri对象传入
-
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber1));
-            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-                return;
-            }
-            context.startActivity(intent);// 内部类
-        }
-    }
-
-    /**
-     * 跳至发送短信界面
-     *
-     * @param phoneNumber 接收号码
-     * @param content     短信内容
-     */
-    public static void sendSms(final String phoneNumber, final String content) {
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getSendSmsIntent(phoneNumber, content));
-    }
-
-    /**
-     * 发送短信
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.SEND_SMS"/>}</p>
-     *
-     * @param phoneNumber 接收号码
-     * @param content     短信内容
-     */
-    public static void sendSmsSilent(final String phoneNumber, final String content) {
-        if (SDStringUtil.isEmpty(content)) return;
-        PendingIntent sentIntent = PendingIntent.getBroadcast(SDAndroidLib.getContext(), 0, new Intent(), 0);
-        SmsManager smsManager = SmsManager.getDefault();
-        if (content.length() >= 70) {
-            List<String> ms = smsManager.divideMessage(content);
-            for (String str : ms) {
-                smsManager.sendTextMessage(phoneNumber, null, str, sentIntent, null);
-            }
-        } else {
-            smsManager.sendTextMessage(phoneNumber, null, content, sentIntent, null);
-        }
+    public static String getSimOperator(Context context) {
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return tm.getSimOperator();
     }
 
     /**
@@ -620,7 +562,7 @@ public class SDDeviceUtil {
      * SubscriberId(IMSI) = 460030419724900<br>
      * VoiceMailNumber = *86<br>
      */
-    @SuppressLint("HardwareIds")
+    @SuppressLint({"HardwareIds", "MissingPermission"})
     public static String getPhoneStatus() {
         TelephonyManager tm = (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
         String str = "";

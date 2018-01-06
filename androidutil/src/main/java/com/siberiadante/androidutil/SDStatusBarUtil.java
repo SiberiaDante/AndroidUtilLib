@@ -155,7 +155,7 @@ public class SDStatusBarUtil {
     /**
      * 半透明状态栏
      */
-    protected void setHalfTransparent(Activity activity) {
+    public static void setHalfTransparent(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             View decorView = activity.getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siberiadante.utilsample.activity.SDStringUtilActivity">
+
+    <!--<TextView-->
+    <!--android:id="@+id/tv_default"-->
+    <!--style="@style/CustomTextView"-->
+    <!--android:padding="@dimen/page_padding_16"-->
+    <!--android:text="默认字符是：SiberiaDante"-->
+    <!--app:layout_constraintEnd_toEndOf="parent"-->
+    <!--app:layout_constraintStart_toStartOf="parent"-->
+    <!--app:layout_constraintTop_toBottomOf="@+id/edt_input"-->
+    <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+    <EditText
+        android:id="@+id/edt_input"
+        style="@style/CustomEditText"
+        android:hint="默认字符或第二个字符为为SiberiaDante"
+        android:padding="@dimen/page_padding_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/CustomTextView"
+        android:padding="@dimen/page_padding_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_input" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_is_null"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="判断字符串是否为null或长度为0" />
+
+            <Button
+                android:id="@+id/btn_is_space"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="判断字符串是否为null或全为空格" />
+
+            <Button
+                android:id="@+id/btn_empty_str"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="判断字符串是否为null或全为空白字符" />
+
+            <Button
+                android:id="@+id/btn_is_have"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="str1 中是否包含str2" />
+
+            <Button
+                android:id="@+id/btn_equals"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="判断两字符串是否相等-精确" />
+
+            <Button
+                android:id="@+id/btn_equals_ignore"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="判断两字符串忽略大小写是否相等" />
+
+            <Button
+                android:id="@+id/btn_upper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="字符串首字母转成大写" />
+
+            <Button
+                android:id="@+id/btn_lower"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="字符串首字母转成小写" />
+
+            <Button
+                android:id="@+id/btn_reverse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="反转字符串" />
+
+            <Button
+                android:id="@+id/btn_to_dbc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="转化为半角字符" />
+
+            <Button
+                android:id="@+id/btn_to_sbc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="半角转换为全角" />
+
+            <Button
+                android:id="@+id/btn_to_en"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="去除特殊字符或将所有中文标号替换为英文标号" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

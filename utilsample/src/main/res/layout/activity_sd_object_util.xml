@@ -7,24 +7,24 @@
     android:overScrollMode="never"
     tools:context="com.siberiadante.utilsample.activity.SDObjectUtilActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingEnd="@dimen/page_padding_16"
-        android:paddingStart="@dimen/page_padding_16">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:paddingEnd="@dimen/page_padding_16"-->
+        <!--android:paddingStart="@dimen/page_padding_16">-->
 
-        <TextView
-            android:id="@+id/tv_des"
-            style="@style/CustomTextView" />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_des"-->
+            <!--style="@style/CustomTextView" />-->
 
-        <Button
-            android:id="@+id/btn_test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="测试创建对象是否为空" />
+        <!--<Button-->
+            <!--android:id="@+id/btn_test"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="测试创建对象是否为空" />-->
 
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 </ScrollView>

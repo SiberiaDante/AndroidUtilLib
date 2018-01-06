@@ -1,6 +1,9 @@
 package com.siberiadante.androidutil.util;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -13,8 +16,11 @@ import android.provider.Settings;
 import android.support.annotation.AnimRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.telephony.SmsManager;
 
 import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDIntentUtil;
 
 import java.util.List;
 
@@ -60,6 +66,7 @@ public class SDJumpUtil {
                 .setAction(Settings.ACTION_WIFI_SETTINGS);
         SDAndroidLib.getContext().startActivity(intent);
     }
+
     /**
      * 打开语言设置面板
      */
@@ -69,6 +76,7 @@ public class SDJumpUtil {
                 .setAction(Settings.ACTION_LOCALE_SETTINGS);
         SDAndroidLib.getContext().startActivity(intent);
     }
+
     /**
      * 打开位置设置面板
      */
@@ -126,6 +134,70 @@ public class SDJumpUtil {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         SDAndroidLib.getContext().startActivity(intent);
     }
+
+    /**
+     * 拨打电话
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}</p>
+     *
+     * @param phoneNumber 电话号码
+     */
+    public static void openCall(final String phoneNumber) {
+        SDAndroidLib.getContext().startActivity(SDIntentUtil.getCallIntent(phoneNumber));
+    }
+
+    /**
+     * 拨打电话
+     * 需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}
+     *
+     * @param context     上下文
+     * @param phoneNumber 电话号码
+     */
+    @SuppressLint("MissingPermission")
+    public static void openCall(final Context context, String phoneNumber) {
+        if (!SDStringUtil.isEmpty(phoneNumber)) {
+            final String phoneNumber1 = phoneNumber.trim();// 删除字符串首部和尾部的空格
+            // 调用系统的拨号服务实现电话拨打功能
+            // 封装一个拨打电话的intent，并且将电话号码包装成一个Uri对象传入
+
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber1));
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            context.startActivity(intent);// 内部类
+        }
+    }
+
+    /**
+     * 跳至发送短信界面
+     *
+     * @param phoneNumber 接收号码
+     * @param content     短信内容
+     */
+    public static void openSendSms(final String phoneNumber, final String content) {
+        SDAndroidLib.getContext().startActivity(SDIntentUtil.getSendSmsIntent(phoneNumber, content));
+    }
+
+    /**
+     * 发送短信-静默
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.SEND_SMS"/>}</p>
+     *
+     * @param phoneNumber 接收号码
+     * @param content     短信内容
+     */
+    public static void openSendSmsSilent(final String phoneNumber, final String content) {
+        if (SDStringUtil.isEmpty(content)) return;
+        PendingIntent sentIntent = PendingIntent.getBroadcast(SDAndroidLib.getContext(), 0, new Intent(), 0);
+        SmsManager smsManager = SmsManager.getDefault();
+        if (content.length() >= 70) {
+            List<String> ms = smsManager.divideMessage(content);
+            for (String str : ms) {
+                smsManager.sendTextMessage(phoneNumber, null, str, sentIntent, null);
+            }
+        } else {
+            smsManager.sendTextMessage(phoneNumber, null, content, sentIntent, null);
+        }
+    }
+
 
     /**
      * 启动一个Activity

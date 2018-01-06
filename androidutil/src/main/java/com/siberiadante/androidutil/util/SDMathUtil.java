@@ -28,4 +28,20 @@ public class SDMathUtil {
     public static float cos(int angle) {
         return (float) Math.cos(angle * Math.PI / 180);
     }
+
+    /**
+     * 整型数组求和
+     *
+     * @param ints
+     * @return
+     */
+    public static int intsGetSum(int[] ints) {
+        int sum = 0;
+
+        for (int i = 0, len = ints.length; i < len; i++) {
+            sum += ints[i];
+        }
+
+        return sum;
+    }
 }

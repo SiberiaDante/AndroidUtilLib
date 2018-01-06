@@ -1,6 +1,8 @@
 package com.siberiadante.utilsample.bean;
 
 import com.siberiadante.utilsample.activity.SDActivityUtilActivity;
+import com.siberiadante.utilsample.activity.SDDeviceUtilActivity;
+import com.siberiadante.utilsample.activity.SDFormatUtilActivity;
 import com.siberiadante.utilsample.activity.SDJumpUtilActivity;
 import com.siberiadante.utilsample.activity.SDAppUtilActivity;
 import com.siberiadante.utilsample.activity.SDCloseUtilActivity;
@@ -11,6 +13,8 @@ import com.siberiadante.utilsample.activity.SDNumberUtilActivity;
 import com.siberiadante.utilsample.activity.SDObjectUtilActivity;
 import com.siberiadante.utilsample.activity.SDRegexUtilActivity;
 import com.siberiadante.utilsample.activity.SDSPUtilActivity;
+import com.siberiadante.utilsample.activity.SDStatusBarUtlActivity;
+import com.siberiadante.utilsample.activity.SDStringUtilActivity;
 import com.siberiadante.utilsample.activity.SDTimerUtilActivity;
 import com.siberiadante.utilsample.activity.SDTransitionUtilActivity;
 
@@ -43,6 +47,10 @@ public class MainData {
         data.add(new DataBean("测试SDLogUtil", SDLogUtilActivity.class));
         data.add(new DataBean("测试SDSPUtil", SDSPUtilActivity.class));
         data.add(new DataBean("测试SDObjectUtil", SDObjectUtilActivity.class));
+        data.add(new DataBean("测试SDFormatUtil", SDFormatUtilActivity.class));
+        data.add(new DataBean("测试SDStringUtil", SDStringUtilActivity.class));
+        data.add(new DataBean("测试SDDeviceUtil", SDDeviceUtilActivity.class));
+        data.add(new DataBean("测试SDStatusBarUtil", SDStatusBarUtlActivity.class));
         return data;
     }
 }

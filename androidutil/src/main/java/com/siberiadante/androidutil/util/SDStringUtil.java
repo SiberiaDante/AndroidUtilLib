@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 
 
@@ -68,7 +68,7 @@ public class SDStringUtil {
     }
 
     /**
-     * 判断两字符串是否相等
+     * 判断两字符串是否相等-精确
      *
      * @param a 待校验字符串a
      * @param b 待校验字符串b
@@ -101,25 +101,7 @@ public class SDStringUtil {
         return a == null ? b == null : a.equalsIgnoreCase(b);
     }
 
-    /**
-     * 如果字符串为null转为长度为0的字符串
-     *
-     * @param s 待转字符串
-     * @return s为null转为长度为0字符串，否则不改变
-     */
-    public static String null2Length0(final String s) {
-        return s == null ? "" : s;
-    }
 
-    /**
-     * 返回字符串长度
-     *
-     * @param s 字符串
-     * @return null返回0，其他返回自身长度
-     */
-    public static int length(final CharSequence s) {
-        return s == null ? 0 : s.length();
-    }
 
     /**
      * 字符串首字母转成大写
@@ -211,7 +193,7 @@ public class SDStringUtil {
      * @param str
      * @return
      */
-    public static String removeSpecialString(String str) {
+    public static String removeSpecialStr(String str) {
         str = str.replaceAll("【", "[").replaceAll("】", "]")
                 .replaceAll("！", "!").replaceAll("：", ":");// 替换中文标号
         String regEx = "[『』]"; // 清除掉特殊字符
@@ -220,5 +202,14 @@ public class SDStringUtil {
         return m.replaceAll("").trim();
     }
 
+    /**
+     * 返回字符串长度
+     *
+     * @param s 字符串
+     * @return null返回0，其他返回自身长度
+     */
+    public static int length(final CharSequence s) {
+        return s == null ? 0 : s.length();
+    }
 
 }

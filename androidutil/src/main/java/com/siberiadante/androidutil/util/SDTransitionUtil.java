@@ -7,7 +7,6 @@ import android.util.TypedValue;
 
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDStringUtil;
 import com.siberiadante.androidutil.constant.SDConstants;
 import com.siberiadante.androidutil.constant.SDMemoryUnit;
 

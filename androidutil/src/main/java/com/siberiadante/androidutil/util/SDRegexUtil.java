@@ -1,6 +1,9 @@
 package com.siberiadante.androidutil.util;
 
 
+import android.support.annotation.CheckResult;
+import android.support.annotation.NonNull;
+
 import com.siberiadante.androidutil.constant.SDRegexUnit;
 
 import java.text.ParseException;
@@ -97,6 +100,7 @@ public class SDRegexUtil {
     public static boolean isEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_EMAIL, input);
     }
+
     /**
      * 验证QQ邮箱
      *
@@ -106,6 +110,7 @@ public class SDRegexUtil {
     public static boolean isQQEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_QQ_EMAIL, input);
     }
+
     /**
      * 验证谷歌邮箱
      *
@@ -115,6 +120,7 @@ public class SDRegexUtil {
     public static boolean isGoogleEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_GOOGLE_EMAIL, input);
     }
+
     /**
      * 验证163邮箱
      *
@@ -124,6 +130,7 @@ public class SDRegexUtil {
     public static boolean is163Email(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_163_EMAIL, input);
     }
+
     /**
      * 验证新浪邮箱
      *
@@ -133,6 +140,7 @@ public class SDRegexUtil {
     public static boolean isSiNaEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_SINA_EMAIL, input);
     }
+
     /**
      * 验证搜狐邮箱
      *
@@ -142,6 +150,7 @@ public class SDRegexUtil {
     public static boolean isSoHuEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_SOHU_EMAIL, input);
     }
+
     /**
      * 验证hotmai邮箱
      *
@@ -151,6 +160,7 @@ public class SDRegexUtil {
     public static boolean isHotMaiEmail(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_HOTMAIL_EMAIL, input);
     }
+
     /**
      * 验证189邮箱
      *
@@ -160,6 +170,7 @@ public class SDRegexUtil {
     public static boolean is189Email(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_189_EMAIL, input);
     }
+
     /**
      * 验证139邮箱
      *
@@ -169,6 +180,7 @@ public class SDRegexUtil {
     public static boolean is139Email(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_139_EMAIL, input);
     }
+
     /**
      * 验证URL
      *
@@ -199,6 +211,47 @@ public class SDRegexUtil {
     public static boolean isUsername(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_USERNAME, input);
     }
+
+    /**
+     * 校验银行卡卡号
+     *
+     * @param cardId
+     * @return
+     */
+    public static boolean isBankCard(@NonNull String cardId) {
+        char bit = getBankCardCheckCode(cardId.substring(0, cardId.length() - 1));
+        if (bit == 'N') {
+            return false;
+        }
+        return cardId.charAt(cardId.length() - 1) == bit;
+    }
+
+    /**
+     * 从不含校验位的银行卡卡号采用 Luhm 校验算法获得校验位
+     *
+     * @param nonCheckCodeCardId
+     * @return
+     */
+    @CheckResult
+    private static char getBankCardCheckCode(String nonCheckCodeCardId) {
+        if (nonCheckCodeCardId == null || nonCheckCodeCardId.trim().length() == 0
+                || !nonCheckCodeCardId.matches("\\d+")) {
+            //如果传的不是数据返回N
+            return 'N';
+        }
+        char[] chs = nonCheckCodeCardId.trim().toCharArray();
+        int luhmSum = 0;
+        for (int i = chs.length - 1, j = 0; i >= 0; i--, j++) {
+            int k = chs[i] - '0';
+            if (j % 2 == 0) {
+                k *= 2;
+                k = k / 10 + k % 10;
+            }
+            luhmSum += k;
+        }
+        return (luhmSum % 10 == 0) ? '0' : (char) ((10 - luhmSum % 10) + '0');
+    }
+
 
     // TODO: 2017/12/29
 

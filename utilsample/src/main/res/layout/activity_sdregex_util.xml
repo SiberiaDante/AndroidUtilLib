@@ -220,7 +220,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="验证正数、负数、和小数" />
-
+            <Button
+                android:id="@+id/btn_test_blank_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="验证是否是银行卡号" />
 
         </LinearLayout>
     </ScrollView>

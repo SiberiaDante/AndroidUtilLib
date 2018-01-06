@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siberiadante.utilsample.activity.SDFormatUtilActivity">
+
+    <EditText
+        android:id="@+id/edt_input"
+        style="@style/CustomEditText"
+        android:padding="@dimen/page_padding_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/CustomTextView"
+        android:padding="@dimen/page_padding_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_input" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layout_constraintTop_toBottomOf="@+id/tv_result">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_format_mobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="格式化手机号码" />
+
+            <Button
+                android:id="@+id/btn_format_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="格式化中间位数银行卡号" />
+
+            <Button
+                android:id="@+id/btn_format_card_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="格式化银行卡号" />
+
+        </LinearLayout>
+
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

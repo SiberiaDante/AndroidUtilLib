@@ -12,4 +12,5 @@
     <string name="sd_timer_util">SDTimerUtil</string>
     <string name="sd_transition_util">SDTransitionUtil</string>
     <string name="sd_number_util">SDNumberUtil</string>
+    <string name="input_content">请输入内容</string>
 </resources>
