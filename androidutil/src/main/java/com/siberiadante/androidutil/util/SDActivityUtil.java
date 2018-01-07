@@ -15,6 +15,7 @@ import android.support.annotation.Nullable;
 
 import com.siberiadante.androidutil.SDAndroidLib;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,8 +28,34 @@ import java.util.List;
  */
 
 public class SDActivityUtil {
+
+    private static List<Activity> activityList = new ArrayList<>();
+
     public SDActivityUtil() {
-        throw new UnsupportedOperationException("not init ~~~");
+        throw new UnsupportedOperationException("not init---" + SDActivityUtil.class.getSimpleName());
+    }
+
+    public static void addActivity(Activity activity) {
+        if (!activityList.contains(activity)) {
+            activityList.add(activity);
+        }
+    }
+
+    public static void removeActivity(Activity activity) {
+        if (activityList.contains(activity)) {
+            activityList.remove(activity);
+        }
+    }
+
+    public static void finishActivity(Activity activity) {
+        removeActivity(activity);
+        activity.finish();
+    }
+
+    public static void finishAllActivity() {
+        for (Activity activity : activityList) {
+            activity.finish();
+        }
     }
 
     /**
