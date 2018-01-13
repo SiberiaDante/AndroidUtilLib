@@ -16,6 +16,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDJumpUtilActivity extends BaseActivity {
 
     @BindView(R.id.btn_open_setting)
@@ -62,12 +69,12 @@ public class SDJumpUtilActivity extends BaseActivity {
     @OnClick({
             R.id.btn_start_activity1, R.id.btn_start_activity2, R.id.btn_start_activity3, R.id.btn_start_activity4,
             R.id.btn_open_setting, R.id.btn_open_setting_details,
-            R.id.btn_open_wifi_setting,
+            R.id.btn_open_wifi_setting, R.id.btn_open_network_setting,
             R.id.btn_open_browser,
             R.id.btn_open_email, R.id.btn_send_email,
             R.id.btn_open_location_setting,
             R.id.btn_open_language_setting,
-            R.id.btn_open_call, R.id.btn_open_send_sms,R.id.btn_open_send_sms_client
+            R.id.btn_open_call, R.id.btn_open_send_sms, R.id.btn_open_send_sms_client
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -97,7 +104,9 @@ public class SDJumpUtilActivity extends BaseActivity {
             case R.id.btn_open_wifi_setting:
                 SDJumpUtil.openWifiSetting();
                 break;
-
+            case R.id.btn_open_network_setting:
+                SDJumpUtil.openNetWorkSetting();
+                break;
             case R.id.btn_open_browser:
                 SDJumpUtil.openBrowser(Constants.B_LOG);
                 break;

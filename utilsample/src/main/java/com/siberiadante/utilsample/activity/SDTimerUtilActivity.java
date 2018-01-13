@@ -13,11 +13,18 @@ import com.siberiadante.utilsample.activity.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDTimerUtilActivity extends BaseActivity {
 
     @BindView(R.id.btn_fast_click)
     Button btnFastClick;
-    private int count=1;
+    private int count = 1;
 
     @Override
     public int setLayoutId() {
@@ -35,7 +42,7 @@ public class SDTimerUtilActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btn_fast_click:
                 if (SDTimerUtil.isNotFastClick()) {
-                    SDToastUtil.toast("第 " +count+++" 次点击："+ SDDateUtil.getSDFTimeYMdHms());
+                    SDToastUtil.toast("第 " + count++ + " 次点击：" + SDDateUtil.getSDFTimeYMdHms());
                 }
                 break;
         }

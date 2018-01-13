@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.siberiadante.utilsample.activity.SDScreenUtilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/page_padding_16">
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/CustomTextView" />
+
+        <ImageView
+            android:id="@+id/iv_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_get_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="重新获取屏幕数据" />
+
+        <Button
+            android:id="@+id/btn_set_land"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置屏幕为横屏" />
+
+        <Button
+            android:id="@+id/btn_set_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置屏幕为竖屏" />
+
+        <Button
+            android:id="@+id/btn_get_screen_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取当前屏幕截图包含状态栏" />
+
+        <Button
+            android:id="@+id/btn_get_screen_pic_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取当前屏幕截图不包含状态栏" />
+
+        <Button
+            android:id="@+id/btn_forbid_screen_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="禁用系统截屏功能" />
+
+        <Button
+            android:id="@+id/btn_show_notify_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="显示通知栏" />
+
+        <Button
+            android:id="@+id/btn_hide_notify_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="隐藏通知栏" />
+
+        <Button
+            android:id="@+id/btn_keep_screen_wake_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="保持屏幕唤醒" />
+
+        <Button
+            android:id="@+id/btn_set_dormant_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="设置进入休眠时长" />
+
+    </LinearLayout>
+
+</ScrollView>

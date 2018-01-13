@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingEnd="@dimen/page_padding_16"
+    android:paddingStart="@dimen/page_padding_16"
+    tools:context="com.siberiadante.utilsample.activity.SDNetWorkUtilActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/CustomTextView" />
+
+        <Button
+            android:id="@+id/change_mobile_data_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开或关闭移动数据" />
+
+
+        <Button
+            android:id="@+id/change_wifi_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开或关闭wifi" />
+
+        <Button
+            android:id="@+id/open_network_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开无线和网络控制面板" />
+        <Button
+            android:id="@+id/open_wifi_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开无线控制面板" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

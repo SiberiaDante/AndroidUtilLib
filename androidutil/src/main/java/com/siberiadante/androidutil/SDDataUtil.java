@@ -3,7 +3,7 @@ package com.siberiadante.androidutil;
 
 /**
  * @Created SiberiaDante
- * @Describe： 对象处理相关类
+ * @Describe： 数据处理相关类
  * @Time: 2017/9/26
  * @UpDate: 2017-09-27
  * @Email: 2654828081@qq.com

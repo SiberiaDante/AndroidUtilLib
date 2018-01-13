@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.app.Activity;
 import android.app.KeyguardManager;
@@ -16,6 +16,8 @@ import android.view.View;
 import android.view.WindowManager;
 
 
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDStatusBarUtil;
 import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 import java.lang.reflect.Method;
@@ -70,24 +72,6 @@ public class SDScreenUtil {
     }
 
     /**
-     * 获取屏幕的宽度（单位：px）
-     *
-     * @return 屏幕宽
-     */
-    public static int getScreenWidth() {
-        return SDAndroidLib.getContext().getResources().getDisplayMetrics().widthPixels;
-    }
-
-    /**
-     * 获取屏幕的高度（单位：px）
-     *
-     * @return 屏幕高
-     */
-    public static int getScreenHeight() {
-        return SDAndroidLib.getContext().getResources().getDisplayMetrics().heightPixels;
-    }
-
-    /**
      * @return 获取屏幕的宽 单位：dp
      */
     public static int getScreenWidthDp() {
@@ -106,6 +90,25 @@ public class SDScreenUtil {
         windowManager.getDefaultDisplay().getMetrics(dm);
         return SDTransitionUtil.px2dip(dm.heightPixels);
     }
+
+    /**
+     * 获取屏幕的宽度（单位：px）
+     *
+     * @return 屏幕宽
+     */
+    public static int getScreenWidth() {
+        return SDAndroidLib.getContext().getResources().getDisplayMetrics().widthPixels;
+    }
+
+    /**
+     * 获取屏幕的高度（单位：px）
+     *
+     * @return 屏幕高
+     */
+    public static int getScreenHeight() {
+        return SDAndroidLib.getContext().getResources().getDisplayMetrics().heightPixels;
+    }
+
 
     /**
      * 设置屏幕为横屏
@@ -236,6 +239,7 @@ public class SDScreenUtil {
      * @param context        上下文
      * @param isSettingPanel {@code true}: 打开设置<br>{@code false}: 打开通知
      */
+    @Deprecated
     public static void showNotificationBar(Context context, boolean isSettingPanel) {
         String methodName = (Build.VERSION.SDK_INT <= 16) ? "expand" : (isSettingPanel ? "expandSettingsPanel" : "expandNotificationsPanel");
         invokePanels(context, methodName);
@@ -247,6 +251,7 @@ public class SDScreenUtil {
      *
      * @param context 上下文
      */
+    @Deprecated
     public static void hideNotificationBar(Context context) {
         String methodName = (Build.VERSION.SDK_INT <= 16) ? "collapse" : "collapsePanels";
         invokePanels(context, methodName);
@@ -299,6 +304,15 @@ public class SDScreenUtil {
         Settings.System.putInt(SDAndroidLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);
     }
 
+
+    /**
+     * 设置永不休眠
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.WRITE_SETTINGS" />}</p>
+     */
+    public static void setNeverSleep() {
+        Settings.System.putInt(SDAndroidLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, Integer.MAX_VALUE);
+    }
+
     /**
      * 获取进入休眠时长
      *
@@ -312,5 +326,6 @@ public class SDScreenUtil {
             return -123;
         }
     }
+
 
 }

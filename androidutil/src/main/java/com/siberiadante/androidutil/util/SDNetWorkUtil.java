@@ -1,8 +1,6 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
@@ -11,6 +9,9 @@ import android.support.annotation.RequiresApi;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
+
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDShellUtil;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -54,6 +55,7 @@ public class SDNetWorkUtil {
 
     /**
      * 获取活动网络信息
+     * {@code <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>}
      *
      * @return
      */
@@ -82,6 +84,7 @@ public class SDNetWorkUtil {
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
+    @Deprecated
     public static boolean isWifiAvailable() {
         return getWifiEnabled() && isAvailableByPing();
     }
@@ -224,16 +227,18 @@ public class SDNetWorkUtil {
     }
 
     /**
-     * 打开网络控制面板
+     * 打开无线和网络控制面板
      */
     public static void openNetworkSettings() {
-        if (android.os.Build.VERSION.SDK_INT > 10) {
-            SDAndroidLib.getContext().startActivity(new Intent(android.provider.Settings.ACTION_WIRELESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        } else {
-            SDAndroidLib.getContext().startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-        }
+        SDJumpUtil.openNetWorkSetting();
     }
 
+    /**
+     * 打开网络控制面板
+     */
+    public static void openWifiSettings() {
+        SDJumpUtil.openWifiSetting();
+    }
 
     /**
      * 获取网络运营商名称

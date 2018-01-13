@@ -10,7 +10,7 @@
     </tr>
     <tr>
         <td>SDActivityUtil</td>
-        <td>页面跳转、传值、启动应用等工具类</td>
+        <td>Activity相关处理工具类</td>
     </tr>
     <tr>
         <td>SDAppUtil</td>

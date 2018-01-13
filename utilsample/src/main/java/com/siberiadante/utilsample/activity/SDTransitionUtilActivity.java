@@ -10,6 +10,13 @@ import com.siberiadante.utilsample.activity.base.BaseActivity;
 
 import butterknife.BindView;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDTransitionUtilActivity extends BaseActivity {
 
     @BindView(R.id.tv_content)

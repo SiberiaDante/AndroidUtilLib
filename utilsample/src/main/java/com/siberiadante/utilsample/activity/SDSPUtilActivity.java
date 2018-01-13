@@ -16,6 +16,13 @@ import com.siberiadante.utilsample.constant.SDAppInfo;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDSPUtilActivity extends BaseActivity {
 
     @BindView(R.id.edt_input)

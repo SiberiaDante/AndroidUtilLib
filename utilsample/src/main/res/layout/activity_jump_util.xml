@@ -53,7 +53,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="打开无线设置页面" />
-
+        <Button
+            android:id="@+id/btn_open_network_setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="打开无线和网络设置页面" />
         <Button
             android:id="@+id/btn_open_browser"
             android:layout_width="match_parent"

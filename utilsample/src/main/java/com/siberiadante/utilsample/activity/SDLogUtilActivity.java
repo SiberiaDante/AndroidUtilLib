@@ -6,6 +6,13 @@ import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDLogUtilActivity extends BaseActivity {
     public static final String TAG = SDLogUtilActivity.class.getSimpleName();
 
@@ -19,12 +26,12 @@ public class SDLogUtilActivity extends BaseActivity {
         actionBar.setTitle(R.string.sd_log_util);
         SDLogUtil.d("默认TAG：SDLogUtil");
         SDLogUtil.d(TAG, "自定义TAG");
-        SDLogUtil.e(TAG,"ErrorErrorErrorErrorErrorError");
-        SDLogUtil.i(TAG,"InfoInfoInfoInfoInfoInfoInfoInfo");
-        SDLogUtil.printTimeLogD(TAG,"带时间的日志输出");
-        SDLogUtil.printTimeLogE(TAG,"带时间的日志输出");
-        SDLogUtil.printTimeLogI(TAG,"带时间的日志输出");
-        SDLogUtil.showSquareLogE(TAG,"showSquareLogE-showSquareLogE-showSquareLogE-showSquareLogE");
+        SDLogUtil.e(TAG, "ErrorErrorErrorErrorErrorError");
+        SDLogUtil.i(TAG, "InfoInfoInfoInfoInfoInfoInfoInfo");
+        SDLogUtil.printTimeLogD(TAG, "带时间的日志输出");
+        SDLogUtil.printTimeLogE(TAG, "带时间的日志输出");
+        SDLogUtil.printTimeLogI(TAG, "带时间的日志输出");
+        SDLogUtil.showSquareLogE(TAG, "showSquareLogE-showSquareLogE-showSquareLogE-showSquareLogE");
 
     }
 }

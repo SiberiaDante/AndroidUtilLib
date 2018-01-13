@@ -68,6 +68,19 @@ public class SDJumpUtil {
     }
 
     /**
+     * 打开无线和网络设置面板
+     */
+    public static void openNetWorkSetting() {
+        Intent intent;
+        if (android.os.Build.VERSION.SDK_INT > 10) {
+            intent = new Intent(Settings.ACTION_WIRELESS_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        } else {
+            intent = new Intent(android.provider.Settings.ACTION_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        SDAndroidLib.getContext().startActivity(intent);
+    }
+
+    /**
      * 打开语言设置面板
      */
     public static void openLanguageSetting() {

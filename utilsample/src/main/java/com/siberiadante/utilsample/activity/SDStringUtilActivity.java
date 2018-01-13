@@ -13,6 +13,13 @@ import com.siberiadante.utilsample.activity.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDStringUtilActivity extends BaseActivity {
 
     @BindView(R.id.edt_input)
@@ -76,10 +83,10 @@ public class SDStringUtilActivity extends BaseActivity {
                 result = String.valueOf(SDStringUtil.isHaveString(inputContent, defaultStr));
                 break;
             case R.id.btn_equals:
-                result = String.valueOf(SDStringUtil.equals(inputContent,defaultStr));
+                result = String.valueOf(SDStringUtil.equals(inputContent, defaultStr));
                 break;
             case R.id.btn_equals_ignore:
-                result = String.valueOf(SDStringUtil.equalsIgnoreCase(inputContent,defaultStr));
+                result = String.valueOf(SDStringUtil.equalsIgnoreCase(inputContent, defaultStr));
                 break;
             case R.id.btn_upper:
                 result = SDStringUtil.upperFirstLetter(inputContent);

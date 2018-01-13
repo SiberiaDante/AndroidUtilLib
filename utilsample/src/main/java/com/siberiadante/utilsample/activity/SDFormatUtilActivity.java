@@ -6,7 +6,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.util.SDFormatUtil;
+import com.siberiadante.androidutil.util.SDStringUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
@@ -14,6 +16,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDFormatUtilActivity extends BaseActivity {
 
 
@@ -41,6 +50,10 @@ public class SDFormatUtilActivity extends BaseActivity {
     @OnClick({R.id.btn_format_mobile, R.id.btn_format_card, R.id.btn_format_card_1})
     public void onViewClicked(View view) {
         final String inputContent = edtInput.getText().toString();
+        if (SDStringUtil.isEmpty(inputContent)) {
+            SDToastUtil.toast("请输入内容");
+            return;
+        }
         String result = "";
         switch (view.getId()) {
             case R.id.btn_format_mobile:
@@ -53,7 +66,7 @@ public class SDFormatUtilActivity extends BaseActivity {
                 result = SDFormatUtil.formatCardEnd4(inputContent);
                 break;
         }
-        tvResult.setText("格式化结果："+result);
+        tvResult.setText("格式化结果：" + result);
 
     }
 }

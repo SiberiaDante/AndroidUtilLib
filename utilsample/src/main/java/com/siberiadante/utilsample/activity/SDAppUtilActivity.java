@@ -21,6 +21,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+/**
+ * @Created： SiberiaDante
+ * @Date： 2018/01/01
+ * @Describe：
+ * @github： https://github.com/SiberiaDante
+ * @博客园： http://www.cnblogs.com/shen-hua/
+ */
 public class SDAppUtilActivity extends BaseActivity {
 
     public static final String TAG = SDAppUtilActivity.class.getSimpleName();
@@ -102,8 +109,8 @@ public class SDAppUtilActivity extends BaseActivity {
                 SDAppUtil.unInstallApp("com.siberiadante.viewsample");
                 break;
             case R.id.btn_get_install_app_info:
-                 List<SDInstallAppInfoBean> sdInstallAppInfoBeans = SDAppUtil.getInstallAppInfo(this, true);
-                 StringBuilder builder = new StringBuilder();
+                List<SDInstallAppInfoBean> sdInstallAppInfoBeans = SDAppUtil.getInstallAppInfo(this, true);
+                StringBuilder builder = new StringBuilder();
                 for (SDInstallAppInfoBean installAppInfoBean : sdInstallAppInfoBeans) {
                     builder.append("应用名：").append(installAppInfoBean.getAppName()).append(" 包名：").append(installAppInfoBean.getAppPackageName()).append("\n");
                 }

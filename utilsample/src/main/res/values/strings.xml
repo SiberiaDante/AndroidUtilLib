@@ -13,4 +13,5 @@
     <string name="sd_transition_util">SDTransitionUtil</string>
     <string name="sd_number_util">SDNumberUtil</string>
     <string name="input_content">请输入内容</string>
+    <string name="sd_screen_util">SDScreenUtil</string>
 </resources>
