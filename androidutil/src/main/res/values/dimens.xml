@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--font size-->
     <dimen name="font_11">11sp</dimen>
     <dimen name="font_12">12sp</dimen>
     <dimen name="font_13">13sp</dimen>
@@ -13,10 +14,6 @@
     <dimen name="font_21">21sp</dimen>
     <dimen name="font_22">22sp</dimen>
     <dimen name="font_36">36sp</dimen>
-
-    <dimen name="page_padding_16">16dp</dimen>
-    <dimen name="one_hundred">100dp</dimen>
-
     <!--base size-->
     <dimen name="zero">0dp</dimen>
     <dimen name="one_point_five">0.5dp</dimen>
@@ -55,12 +52,5 @@
 
     <!--other-->
     <dimen name="notify_radius">4dp</dimen>
-
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="nav_header_vertical_spacing">8dp</dimen>
-    <dimen name="nav_header_height">176dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
 
 </resources>

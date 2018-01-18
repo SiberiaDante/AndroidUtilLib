@@ -36,5 +36,6 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.butterknife"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife_compiler"
     debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanary_android"
+    compile "com.jude:swipebackhelper:$rootProject.swipebackhelper"
     implementation project(':androidutil')
 }

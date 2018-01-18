@@ -35,7 +35,7 @@ import java.util.List;
  */
 
 public class MainData {
-    public static List<DataBean> getData() {
+    public static List<DataBean> getUtilData() {
         List<DataBean> data = new ArrayList<>();
         data.add(new DataBean("测试SDActivityUtil", SDActivityUtilActivity.class));
         data.add(new DataBean("测试SDAPPUtil", SDAppUtilActivity.class));
@@ -57,6 +57,14 @@ public class MainData {
         data.add(new DataBean("测试SDScreenUtil", SDScreenUtilActivity.class));
         data.add(new DataBean("测试SDNetWorkUtil", SDNetWorkUtilActivity.class));
         data.add(new DataBean("测试SDCleanUtil", SDCleanUtilActivity.class));
+        return data;
+    }
+
+    public static List<DataBean> getViewData() {
+        List<DataBean> data = new ArrayList<>();
+        data.add(new DataBean("测试SDActivityUtil", SDActivityUtilActivity.class));
+        data.add(new DataBean("测试SDAPPUtil", SDAppUtilActivity.class));
+        data.add(new DataBean("测试SDCloseUtil", SDCloseUtilActivity.class));
         return data;
     }
 }

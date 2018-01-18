@@ -5,7 +5,6 @@ import android.widget.TextView;
 
 
 import com.siberiadante.androidutil.util.SDActivityUtil;
-import com.siberiadante.utilsample.MainActivity;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
@@ -32,7 +31,7 @@ public class SDActivityUtilActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
         actionBar.setTitle(R.string.sd_activity_util);
-        boolean activityExists = SDActivityUtil.isActivityExists("com.siberiadante.utilsample", MainActivity.class.getName());
+        boolean activityExists = SDActivityUtil.isActivityExists("com.siberiadante.utilsample", HomeMainActivity.class.getName());
         String launcherActivity = SDActivityUtil.getLauncherActivity("com.sample");
         StringBuilder builder = new StringBuilder();
         builder.append("1.MainActivity是否存在---" + activityExists + "\n");

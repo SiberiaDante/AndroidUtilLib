@@ -26,7 +26,7 @@ import com.siberiadante.androidutil.SDShellUtil;
 import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.bean.SDAppInfoBean;
 import com.siberiadante.androidutil.bean.SDInstallAppInfoBean;
-import com.siberiadante.androidutil.encrypt.SDSHA1Util;
+import com.siberiadante.androidutil.util.encrypt.SDSHA1Util;
 
 import java.io.File;
 import java.lang.reflect.Field;

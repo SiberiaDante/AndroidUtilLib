@@ -42,5 +42,6 @@ ext {
     butterknife = '8.8.0'
     butterknife_compiler = '8.7.0'
     leakcanary_android = '1.5.1'
+    swipebackhelper = '3.1.2'
 
 }

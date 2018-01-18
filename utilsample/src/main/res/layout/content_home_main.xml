@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.siberiadante.utilsample.activity.HomeMainActivity"
+    tools:showIn="@layout/app_bar_home_main">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <RadioGroup
+        android:id="@+id/rg_main"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/fifty"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/five">
+
+        <com.siberiadante.androidutil.radiobutton.SDRadioButton
+            android:id="@+id/rb_one"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@drawable/select_rb_tab_color"
+            app:drawableSize="25dp"
+            app:drawableTop="@drawable/select_home_tab" />
+
+        <com.siberiadante.androidutil.radiobutton.SDRadioButton
+            android:id="@+id/rb_two"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="AndroidViews"
+            android:textColor="@drawable/select_rb_tab_color"
+            app:drawableSize="25dp"
+            app:drawableTop="@drawable/select_home_tab" />
+
+        <com.siberiadante.androidutil.radiobutton.SDRadioButton
+            android:id="@+id/rb_three"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="AndroidUtils"
+            android:textColor="@drawable/select_rb_tab_color"
+            app:drawableSize="25dp"
+            app:drawableTop="@drawable/select_home_tab" />
+
+        <com.siberiadante.androidutil.radiobutton.SDNotifyRadioButton
+            android:id="@+id/rb_four"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/select_home_tab"
+            android:gravity="center"
+            android:text="Practice"
+            android:textColor="@drawable/select_rb_tab_color"
+            app:sd_notify_color="@color/colorRed"
+            app:sd_notify_radius="@dimen/four"
+            app:sd_notify_show="true" />
+    </RadioGroup>
+</LinearLayout>

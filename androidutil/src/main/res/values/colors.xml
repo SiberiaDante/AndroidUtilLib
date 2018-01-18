@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--base-->
+    <color name="viewColorWhite">#ffffff</color>
+    <color name="viewColorBlack">#000000</color>
+    <color name="viewColorRed">#ff0000</color>
+    <color name="viewColorGray">#898888</color>
+    <color name="viewColorGray24">#cc424242</color>
+    <color name="viewColorGreen">#00ff26</color>
+    <color name="viewColorBlue">#000dff</color>
+    <color name="viewColorYellow">#ffe100</color>
+    <!--other-->
+    <color name="viewColorCircleNotify">#ff3955</color>
+
+</resources>

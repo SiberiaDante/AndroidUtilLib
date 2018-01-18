@@ -14,4 +14,9 @@
     <string name="sd_number_util">SDNumberUtil</string>
     <string name="input_content">请输入内容</string>
     <string name="sd_screen_util">SDScreenUtil</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home_main">HomeMainActivity</string>
 </resources>
