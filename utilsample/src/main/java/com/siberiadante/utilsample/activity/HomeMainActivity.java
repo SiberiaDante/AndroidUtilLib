@@ -16,8 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
 
-import com.siberiadante.androidutil.radiobutton.SDNotifyRadioButton;
-import com.siberiadante.androidutil.radiobutton.SDRadioButton;
+import com.siberiadante.androidutil.widget.radiobutton.SDNotifyRadioButton;
+import com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.adapter.MainActivityAdapter;
 import com.siberiadante.utilsample.fragment.BlogFragment;
@@ -39,11 +39,11 @@ public class HomeMainActivity extends AppCompatActivity
     @BindView(R.id.view_pager)
     ViewPager viewPager;
     @BindView(R.id.rb_one)
-    SDRadioButton rbOne;
+    SDDrawableRadioButton rbOne;
     @BindView(R.id.rb_two)
-    SDRadioButton rbTwo;
+    SDDrawableRadioButton rbTwo;
     @BindView(R.id.rb_three)
-    SDRadioButton rbThree;
+    SDDrawableRadioButton rbThree;
     @BindView(R.id.rb_four)
     SDNotifyRadioButton rbFour;
     @BindView(R.id.rg_main)

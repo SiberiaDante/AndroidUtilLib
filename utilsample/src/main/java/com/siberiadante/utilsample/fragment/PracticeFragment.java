@@ -2,10 +2,18 @@ package com.siberiadante.utilsample.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.siberiadante.androidutil.view.MyCycleView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.fragment.base.BaseFragment;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 
 /**
@@ -20,6 +28,12 @@ import com.siberiadante.utilsample.fragment.base.BaseFragment;
 
 public class PracticeFragment extends BaseFragment {
 
+    @BindView(R.id.iv_image)
+    MyCycleView ivImage;
+    @BindView(R.id.ll_circle)
+    LinearLayout llCircle;
+    Unbinder unbinder;
+
     public static PracticeFragment getInstance() {
         return new PracticeFragment();
     }
@@ -31,11 +45,12 @@ public class PracticeFragment extends BaseFragment {
 
     @Override
     protected void initViews(View view, @Nullable Bundle savedInstanceState) {
-
     }
 
     @Override
     protected void initData() {
 
     }
+
+
 }

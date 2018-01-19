@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingEnd="@dimen/page_padding_16"
     android:paddingStart="@dimen/page_padding_16"
-    tools:context="com.siberiadante.utilsample.activity.SDNetWorkUtilActivity">
+    tools:context="com.siberiadante.utilsample.activity.util.SDNetWorkUtilActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

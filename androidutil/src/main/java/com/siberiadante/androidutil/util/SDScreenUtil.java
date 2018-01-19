@@ -96,6 +96,7 @@ public class SDScreenUtil {
      *
      * @return 屏幕宽
      */
+    @Deprecated
     public static int getScreenWidth() {
         return SDAndroidLib.getContext().getResources().getDisplayMetrics().widthPixels;
     }
@@ -105,6 +106,7 @@ public class SDScreenUtil {
      *
      * @return 屏幕高
      */
+    @Deprecated
     public static int getScreenHeight() {
         return SDAndroidLib.getContext().getResources().getDisplayMetrics().heightPixels;
     }

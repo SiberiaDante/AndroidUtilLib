@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:overScrollMode="never"
-    tools:context="com.siberiadante.utilsample.activity.SDObjectUtilActivity">
+    tools:context="com.siberiadante.utilsample.activity.util.SDObjectUtilActivity">
 
     <!--<LinearLayout-->
         <!--android:layout_width="match_parent"-->

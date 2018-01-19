@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.radiobutton;
+package com.siberiadante.androidutil.widget.radiobutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -35,43 +35,43 @@ import com.siberiadante.androidutil.R;
  * @Blog： http://www.cnblogs.com/shen-hua/
  */
 
-public class SDRadioButton extends AppCompatRadioButton {
-    public static final String TAG = SDRadioButton.class.getSimpleName();
+public class SDDrawableRadioButton extends AppCompatRadioButton {
+    public static final String TAG = SDDrawableRadioButton.class.getSimpleName();
     private int mDrawableSize;// xml文件中设置的大小
 
-    public SDRadioButton(Context context) {
+    public SDDrawableRadioButton(Context context) {
         this(context, null, 0);
     }
 
-    public SDRadioButton(Context context, AttributeSet attrs) {
+    public SDDrawableRadioButton(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public SDRadioButton(Context context, AttributeSet attrs, int defStyle) {
+    public SDDrawableRadioButton(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         // TODO Auto-generated constructor stub
         Drawable drawableLeft = null, drawableTop = null, drawableRight = null, drawableBottom = null;
         TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.SDRadioButton);
+                R.styleable.SDDrawableRadioButton);
 
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
             Log.i(TAG, "attr:" + attr);
-            if (attr == R.styleable.SDRadioButton_drawableSize) {
-                mDrawableSize = a.getDimensionPixelSize(R.styleable.SDRadioButton_drawableSize, 50);
+            if (attr == R.styleable.SDDrawableRadioButton_drawableSize) {
+                mDrawableSize = a.getDimensionPixelSize(R.styleable.SDDrawableRadioButton_drawableSize, 50);
                 Log.i(TAG, "mDrawableSize:" + mDrawableSize);
             }
-            if (attr == R.styleable.SDRadioButton_drawableTop) {
+            if (attr == R.styleable.SDDrawableRadioButton_drawableTop) {
                 drawableTop = a.getDrawable(attr);
             }
-            if (attr == R.styleable.SDRadioButton_drawableBottom) {
+            if (attr == R.styleable.SDDrawableRadioButton_drawableBottom) {
                 drawableRight = a.getDrawable(attr);
             }
-            if (attr == R.styleable.SDRadioButton_drawableRight) {
+            if (attr == R.styleable.SDDrawableRadioButton_drawableRight) {
                 drawableBottom = a.getDrawable(attr);
             }
-            if (attr == R.styleable.SDRadioButton_drawableLeft) {
+            if (attr == R.styleable.SDDrawableRadioButton_drawableLeft) {
                 drawableLeft = a.getDrawable(attr);
             }
         }

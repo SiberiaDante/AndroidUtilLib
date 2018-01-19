@@ -11,7 +11,7 @@ import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： <p>避免输入法面板遮挡:在manifest.xml中activity中设置{@code android:windowSoftInputMode="adjustPan"}</p>
  * @Time: 2017/9/14
  * @UpDate:
  * @Email: 2654828081@qq.com
@@ -25,11 +25,16 @@ public class SDKeyBoardUtil {
 
     }
 
-    /*
-      避免输入法面板遮挡
-      <p>在manifest.xml中activity中设置</p>
-      <p>android:windowSoftInputMode="adjustPan"</p>
-     */
+    /**
+     * 打开键盘
+     **/
+    public static void openKeyboard(Context context, View view) {
+        InputMethodManager imm = (InputMethodManager) context.getSystemService(INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            view.requestFocus();
+            imm.showSoftInput(view, 0);
+        }
+    }
 
     /**
      * 动态显示软键盘
@@ -146,14 +151,5 @@ public class SDKeyBoardUtil {
         */
     }
 
-    /**
-     * 打开键盘
-     **/
-    public static void showInput(Context context, View view) {
-        InputMethodManager imm = (InputMethodManager) context.getSystemService(INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            view.requestFocus();
-            imm.showSoftInput(view, 0);
-        }
-    }
+
 }

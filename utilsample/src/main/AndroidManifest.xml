@@ -36,6 +36,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
         <activity
             android:name=".activity.HomeMainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -46,35 +47,35 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
-        <activity android:name=".activity.SDActivityUtilActivity" />
+        <activity android:name=".activity.util.SDActivityUtilActivity" />
         <!-- <activity android:name=".util.AppActivity" /> -->
         <!-- <activity android:name=".util.BitmapUtilActivity" /> -->
         <!-- <activity android:name=".util.DateUtilActivity" /> -->
         <!-- <activity android:name=".util.EncryptionActivity" /> -->
         <!-- <activity android:name=".util.NetworkActivity" /> -->
         <!-- <activity android:name=".util.SDCardUtilActivity" /> -->
-        <activity android:name=".activity.SDJumpUtilActivity" />
-        <activity android:name=".activity.SDTimerUtilActivity" />
-        <activity android:name=".activity.SDTransitionUtilActivity" />
-        <activity android:name=".activity.SDCloseUtilActivity" />
-        <activity android:name=".activity.SDAppUtilActivity" />
-        <activity android:name=".activity.SDDateUtilActivity" />
-        <activity android:name=".activity.SDNumberUtilActivity" />
-        <activity android:name=".activity.SDRegexUtilActivity" />
-        <activity android:name=".activity.SDLogUtilActivity" />
-        <activity android:name=".activity.SDMathActivity" />
-        <activity android:name=".activity.SDSPUtilActivity" />
-        <activity android:name=".activity.SDObjectUtilActivity" />
-        <activity android:name=".activity.SDFormatUtilActivity" />
-        <activity android:name=".activity.SDStringUtilActivity" />
-        <activity android:name=".activity.SDDeviceUtilActivity" />
-        <activity android:name=".activity.SDStatusBarUtlActivity" />
+        <activity android:name=".activity.util.SDJumpUtilActivity" />
+        <activity android:name=".activity.util.SDTimerUtilActivity" />
+        <activity android:name=".activity.util.SDTransitionUtilActivity" />
+        <activity android:name=".activity.util.SDCloseUtilActivity" />
+        <activity android:name=".activity.util.SDAppUtilActivity" />
+        <activity android:name=".activity.util.SDDateUtilActivity" />
+        <activity android:name=".activity.util.SDNumberUtilActivity" />
+        <activity android:name=".activity.util.SDRegexUtilActivity" />
+        <activity android:name=".activity.util.SDLogUtilActivity" />
+        <activity android:name=".activity.util.SDMathActivity" />
+        <activity android:name=".activity.util.SDSPUtilActivity" />
+        <activity android:name=".activity.util.SDObjectUtilActivity" />
+        <activity android:name=".activity.util.SDFormatUtilActivity" />
+        <activity android:name=".activity.util.SDStringUtilActivity" />
+        <activity android:name=".activity.util.SDDeviceUtilActivity" />
+        <activity android:name=".activity.util.SDStatusBarUtlActivity" />
         <activity
-            android:name=".activity.SDScreenUtilActivity"
+            android:name=".activity.util.SDScreenUtilActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
-        <activity android:name=".activity.SDNetWorkUtilActivity" />
-        <activity android:name=".activity.SDCleanUtilActivity" />
-
+        <activity android:name=".activity.util.SDNetWorkUtilActivity" />
+        <activity android:name=".activity.util.SDCleanUtilActivity" />
+        <activity android:name=".activity.util.SDKeyBoardUtilActivity"></activity>
     </application>
 
 </manifest>

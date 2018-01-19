@@ -8,7 +8,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,7 +19,6 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDIntentUtil;
 
 import java.util.List;
 

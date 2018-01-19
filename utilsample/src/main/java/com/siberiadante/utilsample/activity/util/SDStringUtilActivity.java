@@ -1,4 +1,4 @@
-package com.siberiadante.utilsample.activity;
+package com.siberiadante.utilsample.activity.util;
 
 import android.os.Bundle;
 import android.view.View;

@@ -75,7 +75,7 @@
     <attr name="r_isRippleEnable" format="boolean" />
     <!--@Time：2017-09-04——End-->
     <!--TabRadioButton-->
-    <declare-styleable name="SDRadioButton">
+    <declare-styleable name="SDDrawableRadioButton">
         <attr name="drawableSize" />
         <attr name="drawableTop" />
         <attr name="drawableLeft" />

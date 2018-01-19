@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="@dimen/page_padding_16"
     android:scrollbars="none"
-    tools:context="com.siberiadante.utilsample.activity.SDAppUtilActivity">
+    tools:context="com.siberiadante.utilsample.activity.util.SDAppUtilActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

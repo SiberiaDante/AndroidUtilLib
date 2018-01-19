@@ -1,4 +1,4 @@
-package com.siberiadante.utilsample.activity;
+package com.siberiadante.utilsample.activity.util;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

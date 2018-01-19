@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.radiobutton;
+package com.siberiadante.androidutil.widget.radiobutton;
 
 import android.content.Context;
 import android.content.res.TypedArray;

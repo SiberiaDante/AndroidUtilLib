@@ -4,7 +4,7 @@ import android.graphics.drawable.Drawable;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： 已安装的APP信息实体类
  * @CreateTime: 2017/12/28
  * @UpDateTime:
  * @Email: 2654828081@qq.com

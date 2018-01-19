@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 
+
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDFileUtil;
 
 import java.io.File;
 

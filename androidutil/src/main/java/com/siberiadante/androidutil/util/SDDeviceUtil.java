@@ -1,11 +1,8 @@
 package com.siberiadante.androidutil.util;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
-import android.app.PendingIntent;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -15,16 +12,12 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.SystemClock;
 import android.provider.Settings;
-import android.support.annotation.RequiresPermission;
-import android.support.v4.app.ActivityCompat;
-import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.util.Xml;
 
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDIntentUtil;
 
 import org.xmlpull.v1.XmlSerializer;
 

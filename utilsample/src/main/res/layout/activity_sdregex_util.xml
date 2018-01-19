@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.siberiadante.utilsample.activity.SDRegexUtilActivity">
+    tools:context="com.siberiadante.utilsample.activity.util.SDRegexUtilActivity">
 
     <EditText
         android:id="@+id/edt_input"
