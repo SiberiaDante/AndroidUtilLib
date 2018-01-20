@@ -33,8 +33,8 @@
             android:gravity="center"
             android:text="Home"
             android:textColor="@drawable/select_rb_tab_color"
-            app:drawableSize="25dp"
-            app:drawableTop="@drawable/select_home_tab" />
+            app:sd_drawableSize="25dp"
+            app:sd_drawableTop="@drawable/select_home_tab" />
 
         <com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton
             android:id="@+id/rb_two"
@@ -46,8 +46,8 @@
             android:gravity="center"
             android:text="AndroidViews"
             android:textColor="@drawable/select_rb_tab_color"
-            app:drawableSize="25dp"
-            app:drawableTop="@drawable/select_home_tab" />
+            app:sd_drawableSize="25dp"
+            app:sd_drawableTop="@drawable/select_home_tab" />
 
         <com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton
             android:id="@+id/rb_three"
@@ -59,8 +59,8 @@
             android:gravity="center"
             android:text="AndroidUtils"
             android:textColor="@drawable/select_rb_tab_color"
-            app:drawableSize="25dp"
-            app:drawableTop="@drawable/select_home_tab" />
+            app:sd_drawableSize="25dp"
+            app:sd_drawableTop="@drawable/select_home_tab" />
 
         <com.siberiadante.androidutil.widget.radiobutton.SDNotifyRadioButton
             android:id="@+id/rb_four"

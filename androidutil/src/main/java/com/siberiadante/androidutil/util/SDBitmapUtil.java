@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
@@ -37,6 +37,8 @@ import android.util.Base64;
 import android.view.View;
 
 
+import com.siberiadante.androidutil.SDAndroidLib;
+import com.siberiadante.androidutil.SDFileUtil;
 import com.siberiadante.androidutil.util.SDCloseUtil;
 
 import java.io.BufferedInputStream;
@@ -60,7 +62,7 @@ import java.io.OutputStream;
 public class SDBitmapUtil {
 
     public SDBitmapUtil() {
-        throw new UnsupportedOperationException("not init SDAndroidLib");
+        throw new UnsupportedOperationException("not init lib");
     }
 
     /**

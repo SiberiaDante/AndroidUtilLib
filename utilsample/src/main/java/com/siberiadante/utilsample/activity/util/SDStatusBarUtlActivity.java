@@ -20,6 +20,7 @@ import butterknife.OnClick;
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */
+@Deprecated
 public class SDStatusBarUtlActivity extends BaseActivity {
 
     @BindView(R.id.tv_result)

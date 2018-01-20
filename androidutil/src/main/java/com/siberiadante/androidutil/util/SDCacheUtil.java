@@ -1,17 +1,17 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.os.Environment;
 
+
+import com.siberiadante.androidutil.SDAndroidLib;
 
 import java.io.File;
 import java.math.BigDecimal;
 
 /**
- *
  * @Describe：
  * @CreateTime: 2017/11/20
  * @UpDateTime:
- *
  */
 
 public class SDCacheUtil {
@@ -38,7 +38,6 @@ public class SDCacheUtil {
         try {
             File[] fileList = file.listFiles();
             for (int i = 0; i < fileList.length; i++) {
-                // 如果下面还有文件
                 if (fileList[i].isDirectory()) {
                     size = size + getFolderSize(fileList[i]);
                 } else {
@@ -88,16 +87,6 @@ public class SDCacheUtil {
         return result4.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString()
                 + "TB";
     }
-
-//    /**
-//     * 清除缓存
-//     */
-//    public static boolean clearAllCache() {
-//        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-//            deleteDir(SDAndroidLib.getContext().getExternalCacheDir());
-//        }
-//        return deleteDir(SDAndroidLib.getContext().getCacheDir());
-//    }
 
     private static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {

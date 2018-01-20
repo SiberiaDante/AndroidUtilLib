@@ -37,7 +37,7 @@ import com.siberiadante.androidutil.R;
 
 public class SDDrawableRadioButton extends AppCompatRadioButton {
     public static final String TAG = SDDrawableRadioButton.class.getSimpleName();
-    private int mDrawableSize;// xml文件中设置的大小
+    private int mDrawableSize;
 
     public SDDrawableRadioButton(Context context) {
         this(context, null, 0);
@@ -58,20 +58,20 @@ public class SDDrawableRadioButton extends AppCompatRadioButton {
         for (int i = 0; i < n; i++) {
             int attr = a.getIndex(i);
             Log.i(TAG, "attr:" + attr);
-            if (attr == R.styleable.SDDrawableRadioButton_drawableSize) {
-                mDrawableSize = a.getDimensionPixelSize(R.styleable.SDDrawableRadioButton_drawableSize, 50);
+            if (attr == R.styleable.SDDrawableRadioButton_sd_drawableSize) {
+                mDrawableSize = a.getDimensionPixelSize(R.styleable.SDDrawableRadioButton_sd_drawableSize, 50);
                 Log.i(TAG, "mDrawableSize:" + mDrawableSize);
             }
-            if (attr == R.styleable.SDDrawableRadioButton_drawableTop) {
+            if (attr == R.styleable.SDDrawableRadioButton_sd_drawableTop) {
                 drawableTop = a.getDrawable(attr);
             }
-            if (attr == R.styleable.SDDrawableRadioButton_drawableBottom) {
+            if (attr == R.styleable.SDDrawableRadioButton_sd_drawableBottom) {
                 drawableRight = a.getDrawable(attr);
             }
-            if (attr == R.styleable.SDDrawableRadioButton_drawableRight) {
+            if (attr == R.styleable.SDDrawableRadioButton_sd_drawableRight) {
                 drawableBottom = a.getDrawable(attr);
             }
-            if (attr == R.styleable.SDDrawableRadioButton_drawableLeft) {
+            if (attr == R.styleable.SDDrawableRadioButton_sd_drawableLeft) {
                 drawableLeft = a.getDrawable(attr);
             }
         }

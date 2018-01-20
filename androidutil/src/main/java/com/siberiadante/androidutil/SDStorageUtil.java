@@ -23,7 +23,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * Created by SiberiaDante on 2017/5/15.
+ * @Created SiberiaDante
+ * @Describe：
+ * @Time: 2017/5/15
+ * @Email: 2654828081@qq.com
+ * @GitHub: https://github.com/SiberiaDante
  */
 
 public class SDStorageUtil {
@@ -42,7 +46,7 @@ public class SDStorageUtil {
     /**
      * 判断SD卡是否可用
      *
-     * @return true : 可用<br>false : 不可用
+     * @return {@code true} 可用<br> {@code false }不可用
      */
     public static boolean isSDCardMounted() {
         return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());

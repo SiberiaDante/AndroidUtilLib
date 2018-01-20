@@ -197,6 +197,7 @@ public class HomeMainActivity extends AppCompatActivity
                 break;
             case R.id.rb_four:
                 viewPager.setCurrentItem(3, false);
+                rbFour.isShowNotify(false);
                 break;
         }
     }

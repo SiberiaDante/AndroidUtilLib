@@ -1,13 +1,15 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
-import static com.siberiadante.androidutil.SDBitmapUtil.bitmap2Bytes;
-import static com.siberiadante.androidutil.SDBitmapUtil.bitmap2StrByBase64;
-import static com.siberiadante.androidutil.SDBitmapUtil.bytes2Bitmap;
-import static com.siberiadante.androidutil.SDBitmapUtil.drawable2Bitmap;
+import com.siberiadante.androidutil.SDAndroidLib;
+
+import static com.siberiadante.androidutil.util.SDBitmapUtil.bitmap2Bytes;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.bitmap2StrByBase64;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.bytes2Bitmap;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.drawable2Bitmap;
 
 /**
  * @Created SiberiaDante

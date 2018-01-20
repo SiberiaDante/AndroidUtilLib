@@ -1,6 +1,7 @@
 package com.siberiadante.utilsample.bean;
 
 import com.siberiadante.utilsample.activity.util.SDActivityUtilActivity;
+import com.siberiadante.utilsample.activity.util.SDCacheUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDCleanUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDDeviceUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDFormatUtilActivity;
@@ -57,6 +58,7 @@ public class MainData {
         data.add(new DataBean("测试SDScreenUtil", SDScreenUtilActivity.class));
         data.add(new DataBean("测试SDNetWorkUtil", SDNetWorkUtilActivity.class));
         data.add(new DataBean("测试SDCleanUtil", SDCleanUtilActivity.class));
+        data.add(new DataBean("测试SDCacheUtil", SDCacheUtilActivity.class));
         return data;
     }
 

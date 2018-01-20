@@ -76,17 +76,17 @@
     <!--@Time：2017-09-04——End-->
     <!--TabRadioButton-->
     <declare-styleable name="SDDrawableRadioButton">
-        <attr name="drawableSize" />
-        <attr name="drawableTop" />
-        <attr name="drawableLeft" />
-        <attr name="drawableRight" />
-        <attr name="drawableBottom" />
+        <attr name="sd_drawableSize" format="dimension"  />
+        <attr name="sd_drawableTop" format="reference"/>
+        <attr name="sd_drawableLeft" format="reference"/>
+        <attr name="sd_drawableRight" format="reference"/>
+        <attr name="sd_drawableBottom" format="reference"/>
     </declare-styleable>
-    <attr name="drawableSize" format="dimension" />
-    <attr name="drawableTop" format="reference" />
-    <attr name="drawableLeft" format="reference" />
-    <attr name="drawableRight" format="reference" />
-    <attr name="drawableBottom" format="reference" />
+    <!--<attr name="drawableSize" format="dimension" />-->
+    <!--<attr name="drawableTop" format="reference" />-->
+    <!--<attr name="drawableLeft" format="reference" />-->
+    <!--<attr name="drawableRight" format="reference" />-->
+    <!--<attr name="drawableBottom" format="reference" />-->
     <!--@Time：2017-09-05——Start-->
     <declare-styleable name="SDHexagonView">
         <attr name="h_radius" />

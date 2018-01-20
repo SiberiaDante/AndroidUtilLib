@@ -75,7 +75,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".activity.util.SDNetWorkUtilActivity" />
         <activity android:name=".activity.util.SDCleanUtilActivity" />
-        <activity android:name=".activity.util.SDKeyBoardUtilActivity"></activity>
+        <activity android:name=".activity.util.SDKeyBoardUtilActivity" />
+        <activity android:name=".activity.util.SDCacheUtilActivity"></activity>
     </application>
 
 </manifest>

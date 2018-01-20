@@ -25,12 +25,12 @@ import com.siberiadante.androidutil.R;
 public class SDNotifyRadioButton extends AppCompatRadioButton {
     private Paint mPaint = new Paint();
     private int mRadius;
-    private boolean isShow = true;
+    private boolean isNotifyShow = true;
 
     public SDNotifyRadioButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDNotifyRadioButton);
-        isShow = attributes.getBoolean(R.styleable.SDNotifyRadioButton_sd_notify_show, isShow);
+        isNotifyShow = attributes.getBoolean(R.styleable.SDNotifyRadioButton_sd_notify_show, isNotifyShow);
         mRadius = attributes.getDimensionPixelSize(R.styleable.SDNotifyRadioButton_sd_notify_radius, 4);
         int color = attributes.getColor(R.styleable.SDNotifyRadioButton_sd_notify_color, Color.RED);
 
@@ -42,7 +42,7 @@ public class SDNotifyRadioButton extends AppCompatRadioButton {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (isShow) {
+        if (isNotifyShow) {
             //获取到DrawableTop,  0 drawableleft 1 drawabletop 2 drawableright 3 drawablebottom
             Drawable[] compoundDrawables = getCompoundDrawables();
             Drawable drawableTop = compoundDrawables[1];
@@ -62,10 +62,10 @@ public class SDNotifyRadioButton extends AppCompatRadioButton {
     /**
      * 设置圆点是否显示
      *
-     * @param isShow
+     * @param isNotifyShow
      */
-    public void isShow(boolean isShow) {
-        this.isShow = isShow;
+    public void isShowNotify(boolean isNotifyShow) {
+        this.isNotifyShow = isNotifyShow;
         invalidate();
     }
 }
