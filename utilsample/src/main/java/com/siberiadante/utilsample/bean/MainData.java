@@ -21,6 +21,10 @@ import com.siberiadante.utilsample.activity.util.SDStatusBarUtlActivity;
 import com.siberiadante.utilsample.activity.util.SDStringUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDTimerUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDTransitionUtilActivity;
+import com.siberiadante.utilsample.activity.view.SDLoadingViewActivity;
+import com.siberiadante.utilsample.activity.widget.SDAvatarListLayoutActivity;
+import com.siberiadante.utilsample.activity.widget.SDImageViewActivity;
+import com.siberiadante.utilsample.activity.widget.SDShapeWidgetActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,9 +68,19 @@ public class MainData {
 
     public static List<DataBean> getViewData() {
         List<DataBean> data = new ArrayList<>();
-        data.add(new DataBean("测试SDActivityUtil", SDActivityUtilActivity.class));
-        data.add(new DataBean("测试SDAPPUtil", SDAppUtilActivity.class));
-        data.add(new DataBean("测试SDCloseUtil", SDCloseUtilActivity.class));
+        data.add(new DataBean("测试加载动画", SDLoadingViewActivity.class));
+        data.add(new DataBean("测试简化shape组件", SDShapeWidgetActivity.class));
+        data.add(new DataBean("测试ImageView", SDImageViewActivity.class));
+        data.add(new DataBean("测试头像叠加列表组件", SDAvatarListLayoutActivity.class));
+        return data;
+    }
+
+    public static List<DataBean> getWidgetData() {
+        List<DataBean> data = new ArrayList<>();
+        data.add(new DataBean("测试加载动画", SDLoadingViewActivity.class));
+        data.add(new DataBean("测试简化shape组件", SDShapeWidgetActivity.class));
+        data.add(new DataBean("测试ImageView", SDImageViewActivity.class));
+        data.add(new DataBean("测试ImageView", SDAvatarListLayoutActivity.class));
         return data;
     }
 }

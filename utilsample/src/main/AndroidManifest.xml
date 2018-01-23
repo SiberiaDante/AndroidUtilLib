@@ -76,7 +76,11 @@
         <activity android:name=".activity.util.SDNetWorkUtilActivity" />
         <activity android:name=".activity.util.SDCleanUtilActivity" />
         <activity android:name=".activity.util.SDKeyBoardUtilActivity" />
-        <activity android:name=".activity.util.SDCacheUtilActivity"></activity>
+        <activity android:name=".activity.view.SDLoadingViewActivity" />
+        <activity android:name=".activity.widget.SDShapeWidgetActivity" />
+        <activity android:name=".activity.widget.SDImageViewActivity" />
+        <activity android:name=".activity.widget.SDAvatarListLayoutActivity"/>
+        <activity android:name=".activity.util.SDCacheUtilActivity"/>
     </application>
 
 </manifest>
