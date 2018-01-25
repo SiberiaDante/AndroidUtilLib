@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dante="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
+    android:overScrollMode="never"
     tools:context="com.siberiadante.utilsample.activity.widget.SDImageViewActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.siberiadante.androidutil.widget.imageview.SDNotifyImageView
+            android:id="@+id/sd_iv_notify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten"
+            android:paddingEnd="@dimen/sixteen"
+            android:paddingStart="@dimen/sixteen"
+            android:src="@drawable/icon_message"
+            dante:sd_notify_color="@color/colorRed"
+            dante:sd_notify_radius="4dp"
+            dante:sd_notify_show="true" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ten"
+            android:gravity="center"
+            android:text="点击图片清除消息通知圆点" />
+
+        <com.siberiadante.androidutil.widget.imageview.SDCircleImageView
+            android:id="@+id/iv_circle"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="@dimen/ten"
+            android:src="@drawable/meinv"
+            dante:sd_civ_border_color="@color/colorRed"
+            dante:sd_civ_border_width="2dp" />
+
+    </LinearLayout>
+
+</ScrollView>

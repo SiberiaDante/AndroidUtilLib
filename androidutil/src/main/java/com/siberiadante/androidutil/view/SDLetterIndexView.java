@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.widget.sdviews;
+package com.siberiadante.androidutil.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;

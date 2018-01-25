@@ -1,30 +1,34 @@
-package com.siberiadante.androidutil.widget.framelayout;
+package com.siberiadante.androidutil.widget.textview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.siberiadante.androidutil.widget.base.SDRoundViewAttr;
 
 
 /**
  * @Created SiberiaDante
- * @Describe： 简化FrameLayout shape 画背景
+ * @Describe： 简化TextView shape 画背景
  * @Time: 2017/9/4
  * @Email: 2654828081@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class SDShapeFrameLayout extends FrameLayout {
+public class SDShapeTextView extends TextView {
 
     private SDRoundViewAttr roundViewAttr;
 
-    public SDShapeFrameLayout(Context context) {
+    public SDShapeTextView(Context context) {
         this(context, null);
     }
 
-    public SDShapeFrameLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
+    public SDShapeTextView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public SDShapeTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         roundViewAttr = new SDRoundViewAttr(this, context, attrs);
     }
 

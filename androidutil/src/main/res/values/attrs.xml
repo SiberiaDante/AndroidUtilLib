@@ -1,121 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="SDNotifyRadioButton">
+    <declare-styleable name="SDCircleNotifyView">
         <attr name="sd_notify_color" format="color" />
         <attr name="sd_notify_radius" format="dimension" />
         <attr name="sd_notify_show" format="boolean" />
     </declare-styleable>
-    <!--<attr name="sd_notify_color" format="color" />-->
-    <!--<attr name="sd_notify_radius" format="dimension" />-->
-    <!--<attr name="sd_notify_show" format="boolean" />-->
-
-    <!--Line EditText-->
+    <declare-styleable name="SDCircleImageView">
+        <attr name="sd_civ_border_width" format="dimension" />
+        <attr name="sd_civ_border_color" format="color" />
+        <attr name="sd_civ_border_overlay" format="boolean" />
+        <attr name="sd_civ_fill_color" format="color" />
+        <attr name="sd_civ_circle_background_color" format="color" />
+    </declare-styleable>
     <declare-styleable name="SDLineEditText">
-        <attr name="line_color" />
+        <attr name="sd_line_color" format="color" />
     </declare-styleable>
-    <attr name="line_color" format="color" />
-    <!--StepView-->
     <declare-styleable name="SDStepView">
-        <attr name="outerColor" />
-        <attr name="innerColor" />
-        <attr name="borderWidth" />
-        <attr name="stepViewTextSize" />
-        <attr name="stepViewTextColor" />
+        <attr name="sd_step_outerColor" format="color" />
+        <attr name="sd_step_innerColor" format="color" />
+        <attr name="sd_step_borderWidth" format="dimension" />
+        <attr name="sd_step_TextSize" format="dimension" />
+        <attr name="sd_step_TextColor" format="color" />
     </declare-styleable>
-    <attr name="outerColor" format="color" />
-    <attr name="innerColor" format="color" />
-    <attr name="borderWidth" format="dimension" />
-    <attr name="stepViewTextSize" format="dimension" />
-    <attr name="stepViewTextColor" format="color" />
-
     <!--@Time：2017-09-04——Start-->
-    <declare-styleable name="RoundView">
-        <attr name="r_backgroundColor" />
-        <attr name="r_backgroundPressColor" />
-        <attr name="r_cornerRadius" />
-        <attr name="r_strokeWidth" />
-        <attr name="r_strokeColor" />
-        <attr name="r_strokePressColor" />
-        <attr name="r_textPressColor" />
-        <attr name="r_isRadiusHalfHeight" />
-        <attr name="r_isWidthHeightEqual" />
-        <attr name="r_cornerRadius_TL" />
-        <attr name="r_cornerRadius_TR" />
-        <attr name="r_cornerRadius_BL" />
-        <attr name="r_cornerRadius_BR" />
-        <attr name="r_isRippleEnable" />
+    <declare-styleable name="SDRoundViewAttr">
+        <attr name="sd_backgroundColor" format="color" /> <!-- 圆角矩形背景色 -->
+        <attr name="sd_backgroundPressColor" format="color" /> <!-- 圆角矩形背景色press -->
+        <attr name="sd_cornerRadius" format="dimension" /><!-- 圆角弧度,单位dp-->
+        <attr name="sd_strokeWidth" format="dimension" /> <!-- 圆角边框宽度,单位dp-->
+        <attr name="sd_strokeColor" format="color" /> <!-- 圆角边框颜色-->
+        <attr name="sd_strokePressColor" format="color" /> <!-- 圆角边框颜色press -->
+        <attr name="sd_textPressColor" format="color" /><!-- 文字颜色press-->
+        <attr name="sd_isRadiusHalfHeight" format="boolean" /> <!-- 圆角弧度是高度一半-->
+        <attr name="sd_isWidthHeightEqual" format="boolean" />  <!-- 圆角矩形宽高相等,取较宽高中大值-->
+        <attr name="sd_cornerRadius_topLeft" format="dimension" /> <!-- 圆角弧度,单位dp,TopLeft-->
+        <attr name="sd_cornerRadius_topRight" format="dimension" /><!-- 圆角弧度,单位dp,TopRight-->
+        <attr name="sd_cornerRadius_bottomLeft" format="dimension" /> <!-- 圆角弧度,单位dp,BottomLeft-->
+        <attr name="sd_cornerRadius_bottomRight" format="dimension" />  <!-- 圆角弧度,单位dp,BottomRight-->
+        <attr name="sd_isRippleEnable" format="boolean" /> <!-- 是否有Ripple效果,api21+有效-->
     </declare-styleable>
-    <!-- 圆角矩形背景色 -->
-    <attr name="r_backgroundColor" format="color" />
-    <!-- 圆角矩形背景色press -->
-    <attr name="r_backgroundPressColor" format="color" />
-    <!-- 圆角弧度,单位dp-->
-    <attr name="r_cornerRadius" format="dimension" />
-    <!-- 圆角弧度,单位dp-->
-    <attr name="r_strokeWidth" format="dimension" />
-    <!-- 圆角边框颜色-->
-    <attr name="r_strokeColor" format="color" />
-    <!-- 圆角边框颜色press -->
-    <attr name="r_strokePressColor" format="color" />
-    <!-- 文字颜色press-->
-    <attr name="r_textPressColor" format="color" />
-    <!-- 圆角弧度是高度一半-->
-    <attr name="r_isRadiusHalfHeight" format="boolean" />
-    <!-- 圆角矩形宽高相等,取较宽高中大值-->
-    <attr name="r_isWidthHeightEqual" format="boolean" />
-    <!-- 圆角弧度,单位dp,TopLeft-->
-    <attr name="r_cornerRadius_TL" format="dimension" />
-    <!-- 圆角弧度,单位dp,TopRight-->
-    <attr name="r_cornerRadius_TR" format="dimension" />
-    <!-- 圆角弧度,单位dp,BottomLeft-->
-    <attr name="r_cornerRadius_BL" format="dimension" />
-    <!-- 圆角弧度,单位dp,BottomRight-->
-    <attr name="r_cornerRadius_BR" format="dimension" />
-    <!-- 是否有Ripple效果,api21+有效-->
-    <attr name="r_isRippleEnable" format="boolean" />
     <!--@Time：2017-09-04——End-->
     <!--TabRadioButton-->
     <declare-styleable name="SDDrawableRadioButton">
-        <attr name="sd_drawableSize" format="dimension"  />
-        <attr name="sd_drawableTop" format="reference"/>
-        <attr name="sd_drawableLeft" format="reference"/>
-        <attr name="sd_drawableRight" format="reference"/>
-        <attr name="sd_drawableBottom" format="reference"/>
+        <attr name="sd_drawableSize" format="dimension" />
+        <attr name="sd_drawableTop" format="reference" />
+        <attr name="sd_drawableLeft" format="reference" />
+        <attr name="sd_drawableRight" format="reference" />
+        <attr name="sd_drawableBottom" format="reference" />
     </declare-styleable>
-    <!--<attr name="drawableSize" format="dimension" />-->
-    <!--<attr name="drawableTop" format="reference" />-->
-    <!--<attr name="drawableLeft" format="reference" />-->
-    <!--<attr name="drawableRight" format="reference" />-->
-    <!--<attr name="drawableBottom" format="reference" />-->
     <!--@Time：2017-09-05——Start-->
     <declare-styleable name="SDHexagonView">
-        <attr name="h_radius" />
-        <attr name="h_outerWidth" />
-        <attr name="h_outerColor" />
-        <attr name="h_innerColor" />
-        <attr name="h_isHasStroke" />
+        <attr name="sd_hexagon_radius" format="dimension|reference" />
+        <attr name="sd_hexagon_outerWidth" format="dimension|reference" />
+        <attr name="sd_hexagon_outerColor" format="color|reference" />
+        <attr name="sd_hexagon_innerColor" format="color|reference" />
+        <attr name="sd_hexagon_isHasStroke" format="boolean|reference" />
     </declare-styleable>
-    <attr name="h_radius" format="dimension|reference" />
-    <attr name="h_outerWidth" format="dimension|reference" />
-    <attr name="h_outerColor" format="color|reference" />
-    <attr name="h_innerColor" format="color|reference" />
-    <attr name="h_isHasStroke" format="boolean|reference" />
     <!--@Time：2017-09-05——End-->
     <!--@Tme:2017-10-02——Start-->
-    <declare-styleable name="SDRatingBar">
+    <declare-styleable name="SDRatingBarView">
         <!--默认星星图片 -->
-        <attr name="sd_normalStar" />
+        <attr name="sd_normalStar" format="reference" />
         <!--选中星星图片 -->
-        <attr name="sd_selectStar" />
+        <attr name="sd_selectStar" format="reference" />
         <!--星星的总数量 -->
-        <attr name="sd_starNum" />
+        <attr name="sd_starNum" format="integer" />
         <!--星星的间隔 -->
-        <attr name="sd_starPadding" />
+        <attr name="sd_starPadding" format="dimension" />
     </declare-styleable>
-    <attr name="sd_normalStar" format="reference" />
-    <attr name="sd_selectStar" format="reference" />
-    <attr name="sd_starNum" format="integer" />
-    <attr name="sd_starPadding" format="dimension" />
     <!--@Tme:2017-10-02——End-->
     <!--@Tme:2017-10-03——Start-->
     <declare-styleable name="SDLetterIndexView">
@@ -190,11 +142,5 @@
         <!--要叠加的ImageView偏移量-->
         <attr name="image_offset" format="float" />
     </declare-styleable>
-    <declare-styleable name="SDCircleImageView">
-        <attr name="civ_border_width" format="dimension" />
-        <attr name="civ_border_color" format="color" />
-        <attr name="civ_border_overlay" format="boolean" />
-        <attr name="civ_fill_color" format="color" />
-        <attr name="civ_circle_background_color" format="color" />
-    </declare-styleable>
+
 </resources>

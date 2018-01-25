@@ -32,7 +32,8 @@ import com.siberiadante.androidutil.R;
 
 /**
  * @Created SiberiaDante
- * @Describe：<p>原文地址：https://github.com/hdodenhof/CircleImageView</p>
+ * @Describe： <p>圆形ImageView，可设置描边相关等</p>
+ * <p>原文作者地址：https://github.com/hdodenhof/CircleImageView</p>
  * @CreateTime: 2017/12/26
  * @UpDateTime:
  * @Email: 2654828081@qq.com
@@ -91,19 +92,17 @@ public class SDCircleImageView extends ImageView {
 
     public SDCircleImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SDCircleImageView, defStyle, 0);
-
-        mBorderWidth = a.getDimensionPixelSize(R.styleable.SDCircleImageView_civ_border_width, DEFAULT_BORDER_WIDTH);
-        mBorderColor = a.getColor(R.styleable.SDCircleImageView_civ_border_color, DEFAULT_BORDER_COLOR);
-        mBorderOverlay = a.getBoolean(R.styleable.SDCircleImageView_civ_border_overlay, DEFAULT_BORDER_OVERLAY);
+        mBorderWidth = a.getDimensionPixelSize(R.styleable.SDCircleImageView_sd_civ_border_width, DEFAULT_BORDER_WIDTH);
+        mBorderColor = a.getColor(R.styleable.SDCircleImageView_sd_civ_border_color, DEFAULT_BORDER_COLOR);
+        mBorderOverlay = a.getBoolean(R.styleable.SDCircleImageView_sd_civ_border_overlay, DEFAULT_BORDER_OVERLAY);
 
         // Look for deprecated civ_fill_color if civ_circle_background_color is not set
-        if (a.hasValue(R.styleable.SDCircleImageView_civ_circle_background_color)) {
-            mCircleBackgroundColor = a.getColor(R.styleable.SDCircleImageView_civ_circle_background_color,
+        if (a.hasValue(R.styleable.SDCircleImageView_sd_civ_circle_background_color)) {
+            mCircleBackgroundColor = a.getColor(R.styleable.SDCircleImageView_sd_civ_circle_background_color,
                     DEFAULT_CIRCLE_BACKGROUND_COLOR);
-        } else if (a.hasValue(R.styleable.SDCircleImageView_civ_fill_color)) {
-            mCircleBackgroundColor = a.getColor(R.styleable.SDCircleImageView_civ_fill_color,
+        } else if (a.hasValue(R.styleable.SDCircleImageView_sd_civ_fill_color)) {
+            mCircleBackgroundColor = a.getColor(R.styleable.SDCircleImageView_sd_civ_fill_color,
                     DEFAULT_CIRCLE_BACKGROUND_COLOR);
         }
 
@@ -227,7 +226,6 @@ public class SDCircleImageView extends ImageView {
      * Return the color drawn behind the circle-shaped drawable.
      *
      * @return The color drawn behind the drawable
-     *
      * @deprecated Use {@link #getCircleBackgroundColor()} instead.
      */
     @Deprecated
@@ -240,7 +238,6 @@ public class SDCircleImageView extends ImageView {
      * this has no effect if the drawable is opaque or no drawable is set.
      *
      * @param fillColor The color to be drawn behind the drawable
-     *
      * @deprecated Use {@link #setCircleBackgroundColor(int)} instead.
      */
     @Deprecated
@@ -254,7 +251,6 @@ public class SDCircleImageView extends ImageView {
      *
      * @param fillColorRes The color resource to be resolved to a color and
      *                     drawn behind the drawable
-     *
      * @deprecated Use {@link #setCircleBackgroundColorResource(int)} instead.
      */
     @Deprecated
@@ -431,7 +427,7 @@ public class SDCircleImageView extends ImageView {
     }
 
     private RectF calculateBounds() {
-        int availableWidth  = getWidth() - getPaddingLeft() - getPaddingRight();
+        int availableWidth = getWidth() - getPaddingLeft() - getPaddingRight();
         int availableHeight = getHeight() - getPaddingTop() - getPaddingBottom();
 
         int sideLength = Math.min(availableWidth, availableHeight);

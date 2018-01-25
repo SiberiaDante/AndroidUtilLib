@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.widget.sdviews;
+package com.siberiadante.androidutil.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -50,11 +50,11 @@ public class SDStepView extends View {
         //5onMeasure
         //6onDraw
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.SDStepView);
-        mOuterColor = array.getColor(R.styleable.SDStepView_outerColor, mOuterColor);
-        mInnerColor = array.getColor(R.styleable.SDStepView_innerColor, mInnerColor);
-        mBorderWidth = array.getDimension(R.styleable.SDStepView_borderWidth, mBorderWidth);
-        mStepViewTextColor = array.getColor(R.styleable.SDStepView_stepViewTextColor, mStepViewTextColor);
-        mStepViewTextSize = array.getDimension(R.styleable.SDStepView_stepViewTextSize, mStepViewTextSize);
+        mOuterColor = array.getColor(R.styleable.SDStepView_sd_step_outerColor, mOuterColor);
+        mInnerColor = array.getColor(R.styleable.SDStepView_sd_step_innerColor, mInnerColor);
+        mBorderWidth = array.getDimension(R.styleable.SDStepView_sd_step_borderWidth, mBorderWidth);
+        mStepViewTextColor = array.getColor(R.styleable.SDStepView_sd_step_TextColor, mStepViewTextColor);
+        mStepViewTextSize = array.getDimension(R.styleable.SDStepView_sd_step_TextSize, mStepViewTextSize);
         array.recycle();
         //外层圆弧画笔
         mOutPaint = new Paint();

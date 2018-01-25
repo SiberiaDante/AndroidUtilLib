@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.os.StatFs;
 import android.support.annotation.RequiresApi;
 
 
+import com.siberiadante.androidutil.SDAndroidLib;
 import com.siberiadante.androidutil.util.SDCloseUtil;
 
 import java.io.BufferedInputStream;
@@ -151,7 +152,7 @@ public class SDStorageUtil {
             StatFs fs = new StatFs(getSDCardBaseDir());
             long count = fs.getFreeBlocksLong();
             long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
+            return count * size / 1024 ;
         }
         return 0;
     }
@@ -167,7 +168,7 @@ public class SDStorageUtil {
             StatFs fs = new StatFs(getSDCardBaseDir());
             long count = fs.getFreeBlocksLong();
             long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
+            return count * size;
         }
         return 0;
     }
@@ -199,7 +200,7 @@ public class SDStorageUtil {
             StatFs fs = new StatFs(getSDCardBaseDir());
             long count = fs.getAvailableBlocksLong();
             long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
+            return count * size / 1024 ;
         }
         return 0;
     }
@@ -215,7 +216,7 @@ public class SDStorageUtil {
             StatFs fs = new StatFs(getSDCardBaseDir());
             long count = fs.getAvailableBlocksLong();
             long size = fs.getBlockSizeLong();
-            return count * size / 1024 / 1024;
+            return count * size;
         }
         return 0;
     }

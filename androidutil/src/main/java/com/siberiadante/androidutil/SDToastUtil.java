@@ -50,6 +50,7 @@ import java.util.List;
  * 我们需要重置Toast对象，其实就是创建一个新的常规对象
  */
 
+@Deprecated
 public class SDToastUtil {
     @ColorInt
     private static final int DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF");
@@ -131,7 +132,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param content
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @return
@@ -174,7 +174,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param content
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @return
@@ -218,7 +217,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param content
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @return
@@ -260,7 +258,7 @@ public class SDToastUtil {
 
     /**
      * @param content
-     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param textSize
      * @param textColor
      */
@@ -272,7 +270,7 @@ public class SDToastUtil {
      * Toast 无背景透明的文本
      *
      * @param content  内容
-     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     @CheckResult
     private static Toast showTranslucentText(String content, int duration, float textSize, int textColor) {
@@ -457,7 +455,7 @@ public class SDToastUtil {
      * 非单例模式，自定义时间
      *
      * @param resId    图片资源ID
-     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
     public static void showImageCenter(int resId, int duration) {
         toast = Toast.makeText(SDAndroidLib.getContext(), "", Toast.LENGTH_LONG);
@@ -498,7 +496,7 @@ public class SDToastUtil {
      * 非单例模式，自定义时间,自定义位置
      *
      * @param resId    图片资源ID
-     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param position 显示位置 {@code Gravity.CENTER} {@code Gravity.BOTTOM} {@code Gravity.TOP} or {@code Gravity.TOP|Gravity.BOTTOM}
      */
     public static void showImage(int resId, int duration, int position) {
@@ -517,7 +515,7 @@ public class SDToastUtil {
      * 非单例模式，自定义时间,自定义位置
      *
      * @param bitmap   图片资源ID
-     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param position 显示位置 {@code Gravity.CENTER} {@code Gravity.BOTTOM} {@code Gravity.TOP} or {@code Gravity.TOP|Gravity.BOTTOM}
      */
     public static void showImage(Bitmap bitmap, int duration, int position) {
@@ -658,7 +656,6 @@ public class SDToastUtil {
 
 
     /**
-     *
      * @param message
      */
     public static void warning(@NonNull String message) {
@@ -666,7 +663,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
@@ -675,7 +671,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param withIcon
@@ -686,7 +681,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      */
     public static void info(@NonNull String message) {
@@ -694,7 +688,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
@@ -703,7 +696,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param withIcon
@@ -714,7 +706,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      */
     public static void success(@NonNull String message) {
@@ -722,7 +713,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      */
@@ -731,7 +721,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @param withIcon
@@ -742,7 +731,6 @@ public class SDToastUtil {
     }
 
     /**
-     *
      * @param message
      */
     public static void error(@NonNull String message) {
@@ -872,15 +860,14 @@ public class SDToastUtil {
         return currentToast;
     }
 
-    private static  Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
+    private static Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
         final NinePatchDrawable toastDrawable = (NinePatchDrawable) getDrawable(R.drawable.toast_frame);
         toastDrawable.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
         return toastDrawable;
     }
 
 
-
-    private static  void setBackground(@NonNull View view, Drawable drawable) {
+    private static void setBackground(@NonNull View view, Drawable drawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             view.setBackground(drawable);
         } else {
@@ -888,7 +875,7 @@ public class SDToastUtil {
         }
     }
 
-    private static  Drawable getDrawable(@DrawableRes int id) {
+    private static Drawable getDrawable(@DrawableRes int id) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             return SDAndroidLib.getContext().getDrawable(id);
         else

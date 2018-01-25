@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.widget.sdviews;
+package com.siberiadante.androidutil.view;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -41,13 +41,13 @@ public class SDRatingBarView extends View {
 
     public SDRatingBarView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SDRatingBar);
-        int normalRes = typedArray.getResourceId(R.styleable.SDRatingBar_sd_normalStar, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.SDRatingBarView);
+        int normalRes = typedArray.getResourceId(R.styleable.SDRatingBarView_sd_normalStar, 0);
         mNormalStar = BitmapFactory.decodeResource(getResources(), normalRes);
-        int selectRes = typedArray.getResourceId(R.styleable.SDRatingBar_sd_selectStar, 0);
+        int selectRes = typedArray.getResourceId(R.styleable.SDRatingBarView_sd_selectStar, 0);
         mSelectStar = BitmapFactory.decodeResource(getResources(), selectRes);
-        mStarNum = typedArray.getInt(R.styleable.SDRatingBar_sd_starNum, 5);
-        mStarPadding = typedArray.getDimensionPixelOffset(R.styleable.SDRatingBar_sd_starPadding, 0);
+        mStarNum = typedArray.getInt(R.styleable.SDRatingBarView_sd_starNum, 5);
+        mStarPadding = typedArray.getDimensionPixelOffset(R.styleable.SDRatingBarView_sd_starPadding, 0);
         typedArray.recycle();
         mPaint = new Paint();
     }

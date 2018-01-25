@@ -1,9 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dante="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.siberiadante.utilsample.activity.widget.SDShapeWidgetActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/page_padding_16">
+
+        <com.siberiadante.androidutil.widget.framelayout.SDShapeFrameLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:paddingEnd="@dimen/page_padding_16"
+            android:paddingStart="@dimen/page_padding_16"
+            android:textColor="@color/colorBlack"
+            dante:sd_backgroundColor="@color/colorBlue"
+            dante:sd_backgroundPressColor="@color/colorBlue"
+            dante:sd_cornerRadius="20dp"
+            dante:sd_isRippleEnable="true"
+            dante:sd_strokeColor="@color/colorRed"
+            dante:sd_strokePressColor="@color/colorRed"
+            dante:sd_strokeWidth="5dp"
+            dante:sd_textPressColor="@color/colorRed">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="这是一个SDShapeFrameLayout"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/font_20"
+                android:textStyle="bold" />
+
+        </com.siberiadante.androidutil.widget.framelayout.SDShapeFrameLayout>
+
+        <com.siberiadante.androidutil.widget.linearlayout.SDShapeLinearLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/ten"
+            android:layout_marginTop="@dimen/ten"
+            android:gravity="center"
+            android:paddingEnd="@dimen/page_padding_16"
+            android:paddingStart="@dimen/page_padding_16"
+            android:textColor="@color/colorBlack"
+            dante:sd_backgroundColor="@color/colorRed"
+            dante:sd_backgroundPressColor="@color/colorBlue"
+            dante:sd_cornerRadius="20dp"
+            dante:sd_isRippleEnable="true"
+            dante:sd_strokeColor="@color/colorGreen"
+            dante:sd_strokePressColor="@color/colorRed"
+            dante:sd_strokeWidth="5dp"
+            dante:sd_textPressColor="@color/colorRed">
+
+            <com.siberiadante.androidutil.widget.textview.SDShapeTextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingEnd="@dimen/page_padding_16"
+                android:paddingStart="@dimen/page_padding_16"
+                android:text="外层是SDShapeLinearLayout"
+                android:textColor="@color/colorBlack"
+                dante:sd_backgroundColor="@color/colorRed"
+                dante:sd_backgroundPressColor="@color/colorBlue"
+                dante:sd_cornerRadius_bottomLeft="10dp"
+                dante:sd_cornerRadius_topLeft="10dp"
+                dante:sd_isRippleEnable="true"
+                dante:sd_strokeColor="@color/colorGreen"
+                dante:sd_strokePressColor="@color/colorRed"
+                dante:sd_strokeWidth="5dp"
+                dante:sd_textPressColor="@color/colorRed" />
+
+            <com.siberiadante.androidutil.widget.textview.SDShapeTextView
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:paddingEnd="@dimen/page_padding_16"
+                android:paddingStart="@dimen/page_padding_16"
+                android:text="简化TextView画Shape"
+                android:textColor="@color/colorBlack"
+                dante:sd_backgroundColor="@color/colorRed"
+                dante:sd_backgroundPressColor="@color/colorBlue"
+                dante:sd_cornerRadius_bottomRight="10dp"
+                dante:sd_cornerRadius_topRight="10dp"
+                dante:sd_isRippleEnable="true"
+                dante:sd_strokeColor="@color/colorGreen"
+                dante:sd_strokePressColor="@color/colorRed"
+                dante:sd_strokeWidth="5dp"
+                dante:sd_textPressColor="@color/colorRed" />
+        </com.siberiadante.androidutil.widget.linearlayout.SDShapeLinearLayout>
+
+        <com.siberiadante.androidutil.widget.relativelayout.SDShapeRelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:paddingEnd="@dimen/page_padding_16"
+            android:paddingStart="@dimen/page_padding_16"
+            android:textColor="@color/colorBlack"
+            dante:sd_backgroundColor="@color/colorBlue"
+            dante:sd_backgroundPressColor="@color/colorBlue"
+            dante:sd_cornerRadius="20dp"
+            dante:sd_isRippleEnable="true"
+            dante:sd_strokeColor="@color/colorRed"
+            dante:sd_strokePressColor="@color/colorRed"
+            dante:sd_strokeWidth="5dp"
+            dante:sd_textPressColor="@color/colorRed">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="这是一个SDShapeRelativeLayout"
+                android:textColor="@color/colorRed"
+                android:textSize="@dimen/font_20"
+                android:textStyle="bold" />
+
+        </com.siberiadante.androidutil.widget.relativelayout.SDShapeRelativeLayout>
+
+    </LinearLayout>
+
+</ScrollView>

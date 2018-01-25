@@ -18,6 +18,7 @@
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
 
     <application
         android:name=".UtilSampleApp"
@@ -79,8 +80,16 @@
         <activity android:name=".activity.view.SDLoadingViewActivity" />
         <activity android:name=".activity.widget.SDShapeWidgetActivity" />
         <activity android:name=".activity.widget.SDImageViewActivity" />
-        <activity android:name=".activity.widget.SDAvatarListLayoutActivity"/>
-        <activity android:name=".activity.util.SDCacheUtilActivity"/>
+        <activity android:name=".activity.widget.SDAvatarListLayoutActivity" />
+        <activity android:name=".activity.util.SDCacheUtilActivity" />
+        <activity android:name=".activity.widget.SDEditTextWidgetActivity" />
+        <activity android:name=".activity.view.SDRankingActivity" />
+        <activity android:name=".activity.view.SDStepViewActivity" />
+        <activity android:name=".activity.util.SDDataUtilActivity" />
+        <activity android:name=".activity.util.SDProcessUtilActivity" />
+        <activity android:name=".activity.util.SDFileUtilActivity" />
+        <activity android:name=".activity.util.SDStorageUtilActivity" />
+        <activity android:name=".activity.widget.SDSpecialWidgetActivity"></activity>
     </application>
 
 </manifest>

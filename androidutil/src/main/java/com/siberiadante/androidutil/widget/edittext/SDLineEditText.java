@@ -43,7 +43,7 @@ public class SDLineEditText extends AppCompatEditText {
         TypedArray attrArrays = context.obtainStyledAttributes(attrs, R.styleable.SDLineEditText);
 
         mPaint = new Paint();
-        mLineColor = attrArrays.getColor(R.styleable.SDLineEditText_line_color, mLineColor);
+        mLineColor = attrArrays.getColor(R.styleable.SDLineEditText_sd_line_color, mLineColor);
 //        int lenght = attrArrays.getIndexCount();
 //        for (int i = 0; i < lenght; i++) {
 //            int index = attrArrays.getIndex(i);

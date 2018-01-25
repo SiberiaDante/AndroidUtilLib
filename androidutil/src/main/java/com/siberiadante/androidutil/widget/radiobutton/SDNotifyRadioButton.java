@@ -1,5 +1,6 @@
 package com.siberiadante.androidutil.widget.radiobutton;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -24,19 +25,36 @@ import com.siberiadante.androidutil.R;
 
 public class SDNotifyRadioButton extends AppCompatRadioButton {
     private Paint mPaint = new Paint();
-    private int mRadius;
+    private int mRadius=4;
     private boolean isNotifyShow = true;
+
+//    public SDNotifyRadioButton(Context context) {
+//        super(context,null);
+//    }
 
     public SDNotifyRadioButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        final TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDNotifyRadioButton);
-        isNotifyShow = attributes.getBoolean(R.styleable.SDNotifyRadioButton_sd_notify_show, isNotifyShow);
-        mRadius = attributes.getDimensionPixelSize(R.styleable.SDNotifyRadioButton_sd_notify_radius, 4);
-        int color = attributes.getColor(R.styleable.SDNotifyRadioButton_sd_notify_color, Color.RED);
+        @SuppressLint("CustomViewStyleable") TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDCircleNotifyView);
+        isNotifyShow = attributes.getBoolean(R.styleable.SDCircleNotifyView_sd_notify_show, isNotifyShow);
+        mRadius = attributes.getDimensionPixelSize(R.styleable.SDCircleNotifyView_sd_notify_radius, mRadius);
+        int color = attributes.getColor(R.styleable.SDCircleNotifyView_sd_notify_color, Color.RED);
 
         mPaint.setAntiAlias(true);
         mPaint.setColor(color);
         attributes.recycle();
+
+    }
+
+    public SDNotifyRadioButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+//        @SuppressLint("CustomViewStyleable") TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDCircleNotifyView);
+//        isNotifyShow = attributes.getBoolean(R.styleable.SDCircleNotifyView_sd_notify_show, isNotifyShow);
+//        mRadius = attributes.getDimensionPixelSize(R.styleable.SDCircleNotifyView_sd_notify_radius, mRadius);
+//        int color = attributes.getColor(R.styleable.SDCircleNotifyView_sd_notify_color, Color.RED);
+//
+//        mPaint.setAntiAlias(true);
+//        mPaint.setColor(color);
+//        attributes.recycle();
     }
 
     @Override
@@ -47,13 +65,13 @@ public class SDNotifyRadioButton extends AppCompatRadioButton {
             Drawable[] compoundDrawables = getCompoundDrawables();
             Drawable drawableTop = compoundDrawables[1];
             //drawableTop的 right top bottom的值
-            final Rect rect = drawableTop.getBounds();
+             Rect rect = drawableTop.getBounds();
             /**
              * getMeasuredWidth() / 2：控件宽度的一半
              * rect.width()/2：图片宽度的一半
              * radius / 2：圆点宽度的一半
              */
-            final float rx = getMeasuredWidth() / 2 + rect.width() / 2 - mRadius / 2;
+             float rx = getMeasuredWidth() / 2 + rect.width() / 2 - mRadius / 2;
             float ry = rect.height() / 4;
             canvas.drawCircle(rx, ry, mRadius, mPaint);
         }

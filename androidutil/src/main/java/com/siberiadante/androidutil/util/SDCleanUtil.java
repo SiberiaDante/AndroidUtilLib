@@ -1,11 +1,13 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 
 import android.os.Environment;
 
+import com.siberiadante.androidutil.SDAndroidLib;
+
 import java.io.File;
 
-import static com.siberiadante.androidutil.SDFileUtil.deleteDir;
+import static com.siberiadante.androidutil.util.SDFileUtil.deleteDir;
 
 /**
  * @Created SiberiaDante
@@ -17,7 +19,7 @@ import static com.siberiadante.androidutil.SDFileUtil.deleteDir;
 
 public class SDCleanUtil {
     public SDCleanUtil() {
-        throw new UnsupportedOperationException("not init SDAndroidLib");
+        throw new UnsupportedOperationException("not init lib---" + SDCleanUtil.class.getName());
     }
 
     /**
@@ -25,7 +27,7 @@ public class SDCleanUtil {
      */
     public static boolean clearAllCache() {
         if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
-            deleteDir(SDAndroidLib.getContext().getExternalCacheDir());
+            SDFileUtil.deleteDir(SDAndroidLib.getContext().getExternalCacheDir());
         }
         return deleteDir(SDAndroidLib.getContext().getCacheDir());
     }

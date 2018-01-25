@@ -38,8 +38,6 @@ import android.view.View;
 
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDFileUtil;
-import com.siberiadante.androidutil.util.SDCloseUtil;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.widget.sdviews;
+package com.siberiadante.androidutil.widget.special;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -83,11 +83,11 @@ public class SDHexagonView extends View {
     public SDHexagonView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray mTypeArray = context.obtainStyledAttributes(attrs, R.styleable.SDHexagonView, defStyleAttr, 0);
-        mRadius = mTypeArray.getDimensionPixelSize(R.styleable.SDHexagonView_h_radius, 0);
-        mInnerColor = mTypeArray.getColor(R.styleable.SDHexagonView_h_innerColor, Color.WHITE);
-        mOuterColor = mTypeArray.getColor(R.styleable.SDHexagonView_h_outerColor, DEFAULT_OUTER_COLOR);
-        mOuterWidth = mTypeArray.getDimensionPixelSize(R.styleable.SDHexagonView_h_outerWidth, DEFAULT_OUTER_WIDTH);
-        isHasStroke = mTypeArray.getBoolean(R.styleable.SDHexagonView_h_isHasStroke, true);
+        mRadius = mTypeArray.getDimensionPixelSize(R.styleable.SDHexagonView_sd_hexagon_radius, 0);
+        mInnerColor = mTypeArray.getColor(R.styleable.SDHexagonView_sd_hexagon_innerColor, Color.WHITE);
+        mOuterColor = mTypeArray.getColor(R.styleable.SDHexagonView_sd_hexagon_outerColor, DEFAULT_OUTER_COLOR);
+        mOuterWidth = mTypeArray.getDimensionPixelSize(R.styleable.SDHexagonView_sd_hexagon_outerWidth, DEFAULT_OUTER_WIDTH);
+        isHasStroke = mTypeArray.getBoolean(R.styleable.SDHexagonView_sd_hexagon_isHasStroke, true);
         mTypeArray.recycle();
         initData();
     }

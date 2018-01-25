@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.view.SDStepViewActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.siberiadante.androidutil.view.SDStepView
+            android:id="@+id/step_view"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:sd_step_borderWidth="10dp"
+            app:sd_step_innerColor="@color/viewColorBlue"
+            app:sd_step_outerColor="@color/colorAccent"
+            app:sd_step_TextColor="@color/viewColorBlue"
+            app:sd_step_TextSize="28sp" />
+
+        <Button
+            android:id="@+id/tv_start"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@color/viewColorGray"
+            android:gravity="center"
+            android:text="Start"
+            android:textColor="@color/viewColorWhite"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

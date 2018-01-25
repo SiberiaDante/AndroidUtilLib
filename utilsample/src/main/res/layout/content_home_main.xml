@@ -31,7 +31,7 @@
             android:button="@null"
             android:clickable="true"
             android:gravity="center"
-            android:text="Home"
+            android:text="SDUtil"
             android:textColor="@drawable/select_rb_tab_color"
             app:sd_drawableSize="25dp"
             app:sd_drawableTop="@drawable/select_home_tab" />
@@ -44,7 +44,7 @@
             android:button="@null"
             android:clickable="true"
             android:gravity="center"
-            android:text="AndroidViews"
+            android:text="SDView"
             android:textColor="@drawable/select_rb_tab_color"
             app:sd_drawableSize="25dp"
             app:sd_drawableTop="@drawable/select_home_tab" />
@@ -57,7 +57,7 @@
             android:button="@null"
             android:clickable="true"
             android:gravity="center"
-            android:text="AndroidUtils"
+            android:text="SDWidget"
             android:textColor="@drawable/select_rb_tab_color"
             app:sd_drawableSize="25dp"
             app:sd_drawableTop="@drawable/select_home_tab" />

@@ -157,10 +157,15 @@ public class SDSkipLoadView extends LinearLayout {
         rotateAnimation.start();
     }
 
+    /**
+     * 不处理会有内存泄露
+     *
+     * @param visibility
+     */
     @Override
     public void setVisibility(int visibility) {
         super.setVisibility(View.INVISIBLE);
-        //清楚View的动画
+        //清除View的动画
         mShapeChangeView.clearAnimation();
         mShadowView.clearAnimation();
 

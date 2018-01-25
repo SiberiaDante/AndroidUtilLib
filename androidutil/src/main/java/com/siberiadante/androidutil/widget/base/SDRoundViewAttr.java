@@ -52,21 +52,21 @@ public class SDRoundViewAttr {
     }
 
     private void obtainAttributes(Context context, AttributeSet attrs) {
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.RoundView);
-        backgroundColor = ta.getColor(R.styleable.RoundView_r_backgroundColor, Color.TRANSPARENT);
-        backgroundPressColor = ta.getColor(R.styleable.RoundView_r_backgroundPressColor, Integer.MAX_VALUE);
-        cornerRadius = ta.getDimensionPixelSize(R.styleable.RoundView_r_cornerRadius, 0);
-        strokeWidth = ta.getDimensionPixelSize(R.styleable.RoundView_r_strokeWidth, 0);
-        strokeColor = ta.getColor(R.styleable.RoundView_r_strokeColor, Color.TRANSPARENT);
-        strokePressColor = ta.getColor(R.styleable.RoundView_r_strokePressColor, Integer.MAX_VALUE);
-        textPressColor = ta.getColor(R.styleable.RoundView_r_textPressColor, Integer.MAX_VALUE);
-        isRadiusHalfHeight = ta.getBoolean(R.styleable.RoundView_r_isRadiusHalfHeight, false);
-        isWidthHeightEqual = ta.getBoolean(R.styleable.RoundView_r_isWidthHeightEqual, false);
-        cornerRadius_TL = ta.getDimensionPixelSize(R.styleable.RoundView_r_cornerRadius_TL, 0);
-        cornerRadius_TR = ta.getDimensionPixelSize(R.styleable.RoundView_r_cornerRadius_TR, 0);
-        cornerRadius_BL = ta.getDimensionPixelSize(R.styleable.RoundView_r_cornerRadius_BL, 0);
-        cornerRadius_BR = ta.getDimensionPixelSize(R.styleable.RoundView_r_cornerRadius_BR, 0);
-        isRippleEnable = ta.getBoolean(R.styleable.RoundView_r_isRippleEnable, true);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.SDRoundViewAttr);
+        backgroundColor = ta.getColor(R.styleable.SDRoundViewAttr_sd_backgroundColor, Color.TRANSPARENT);
+        backgroundPressColor = ta.getColor(R.styleable.SDRoundViewAttr_sd_backgroundPressColor, Integer.MAX_VALUE);
+        cornerRadius = ta.getDimensionPixelSize(R.styleable.SDRoundViewAttr_sd_cornerRadius, 0);
+        strokeWidth = ta.getDimensionPixelSize(R.styleable.SDRoundViewAttr_sd_strokeWidth, 0);
+        strokeColor = ta.getColor(R.styleable.SDRoundViewAttr_sd_strokeColor, Color.TRANSPARENT);
+        strokePressColor = ta.getColor(R.styleable.SDRoundViewAttr_sd_strokePressColor, Integer.MAX_VALUE);
+        textPressColor = ta.getColor(R.styleable.SDRoundViewAttr_sd_textPressColor, Integer.MAX_VALUE);
+        isRadiusHalfHeight = ta.getBoolean(R.styleable.SDRoundViewAttr_sd_isRadiusHalfHeight, false);
+        isWidthHeightEqual = ta.getBoolean(R.styleable.SDRoundViewAttr_sd_isWidthHeightEqual, false);
+        cornerRadius_TL = ta.getDimensionPixelSize(R.styleable.SDRoundViewAttr_sd_cornerRadius_topLeft, 0);
+        cornerRadius_TR = ta.getDimensionPixelSize(R.styleable.SDRoundViewAttr_sd_cornerRadius_topRight, 0);
+        cornerRadius_BL = ta.getDimensionPixelSize(R.styleable.SDRoundViewAttr_sd_cornerRadius_bottomLeft, 0);
+        cornerRadius_BR = ta.getDimensionPixelSize(R.styleable.SDRoundViewAttr_sd_cornerRadius_bottomRight, 0);
+        isRippleEnable = ta.getBoolean(R.styleable.SDRoundViewAttr_sd_isRippleEnable, true);
 
         ta.recycle();
     }

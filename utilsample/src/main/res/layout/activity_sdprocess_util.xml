@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.siberiadante.utilsample.activity.util.SDCleanUtilActivity">
+    tools:context="com.siberiadante.utilsample.activity.util.SDProcessUtilActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,41 +17,29 @@
             style="@style/CustomTextView" />
 
         <Button
-            android:id="@+id/btn_clean_inner_db"
+            android:id="@+id/btn_get_foreground_process"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="清空当前APP内部数据库" />
+            android:text="获取前台线程包名" />
 
         <Button
-            android:id="@+id/btn_clean_inner_sp"
+            android:id="@+id/btn_kill_app_process"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="清空当前APP内部ShrendPrefrences" />
-
+            android:text="杀死当前APP后台进程" />
 
         <Button
-            android:id="@+id/btn_clean_outer_cache"
+            android:id="@+id/btn_kill_backstage_process"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="清空当前APP外部缓存" />
-
-
-        <Button
-            android:id="@+id/btn_clean_inner_file"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="清空当前APP内部文件" />
+            android:text="杀死所有的后台服务进程" />
 
         <Button
-            android:id="@+id/btn_clean_all_cache"
+            android:id="@+id/btn_get_backstage_process"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="清空当前APP全部缓存" />
+            android:text="获取后台服务进程" />
 
-        <Button
-            android:id="@+id/btn_clean_inner_cache"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="清空当前APP内部缓存" />
     </LinearLayout>
+
 </ScrollView>

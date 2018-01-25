@@ -20,10 +20,10 @@ import com.siberiadante.androidutil.widget.radiobutton.SDNotifyRadioButton;
 import com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.adapter.MainActivityAdapter;
-import com.siberiadante.utilsample.fragment.BlogFragment;
-import com.siberiadante.utilsample.fragment.UtilFragment;
+import com.siberiadante.utilsample.fragment.SDUtilFragment;
+import com.siberiadante.utilsample.fragment.SDWidgetFragment;
 import com.siberiadante.utilsample.fragment.PracticeFragment;
-import com.siberiadante.utilsample.fragment.ViewFragment;
+import com.siberiadante.utilsample.fragment.SDViewFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,10 +86,10 @@ public class HomeMainActivity extends AppCompatActivity
 
     private void initData() {
         List<Fragment> fragments = new ArrayList<>();
-        fragments.add(UtilFragment.getInstance());
-        fragments.add(ViewFragment.getInstance());
+        fragments.add(SDUtilFragment.getInstance());
+        fragments.add(SDViewFragment.getInstance());
+        fragments.add(SDWidgetFragment.getInstance());
         fragments.add(PracticeFragment.getInstance());
-        fragments.add(BlogFragment.getInstance());
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager(), fragments));
         viewPager.setCurrentItem(0);
         viewPager.setOffscreenPageLimit(4);

@@ -24,13 +24,13 @@ import butterknife.BindView;
  * @Blogs: http://www.cnblogs.com/shen-hua/
  */
 
-public class ViewFragment extends BaseFragment {
+public class SDViewFragment extends BaseFragment {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    public static ViewFragment getInstance() {
-        return new ViewFragment();
+    public static SDViewFragment getInstance() {
+        return new SDViewFragment();
     }
 
     @Override
