@@ -153,93 +153,6 @@ public class SDBitmapUtil {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
-//    /**
-//     * drawable转byteArr
-//     *
-//     * @param drawable drawable对象
-//     * @return drawable对象字节数组
-//     */
-//    public static byte[] drawable2Bytes(Drawable drawable) {
-//        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
-//    }
-//
-//    /**
-//     * drawable转byteArr
-//     *
-//     * @param drawable drawable对象
-//     * @param quality
-//     * @return drawable对象字节数组
-//     */
-//    public static byte[] drawable2Bytes(Drawable drawable, int quality) {
-//        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
-//    }
-//
-//    /**
-//     * drawable转byteArr
-//     *
-//     * @param drawable drawable对象
-//     * @param format   格式
-//     * @return drawable对象字节数组
-//     */
-//    public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format) {
-//        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format, 100);
-//    }
-//
-//    /**
-//     * drawable转byteArr
-//     *
-//     * @param drawable drawable对象
-//     * @param format
-//     * @param quality
-//     * @return drawable对象字节数组
-//     */
-//    public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format, int quality) {
-//        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format, quality);
-//    }
-//
-//    /**
-//     * drawable转base64
-//     *
-//     * @param drawable drawable对象
-//     * @return drawable对象字节数组
-//     */
-//    public static String drawable2Base64(Drawable drawable) {
-//        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
-//    }
-//
-//    /**
-//     * drawable转base64
-//     *
-//     * @param drawable drawable对象
-//     * @param quality
-//     * @return drawable对象字节数组
-//     */
-//    public static String drawable2Base64(Drawable drawable, int quality) {
-//        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
-//    }
-//
-//    /**
-//     * drawable转base64
-//     *
-//     * @param drawable drawable对象
-//     * @param format   格式
-//     * @return drawable对象字节数组
-//     */
-//    public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format) {
-//        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), format, 100);
-//    }
-//
-//    /**
-//     * drawable转base64
-//     *
-//     * @param drawable drawable对象
-//     * @param format
-//     * @param quality
-//     * @return drawable对象字节数组
-//     */
-//    public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format, int quality) {
-//        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), format, quality);
-//    }
 
     /**
      * byteArr转bitmap
@@ -261,27 +174,6 @@ public class SDBitmapUtil {
     public static Bitmap bytes2Bitmap(byte[] bytes, int offset) {
         return (bytes == null || bytes.length == 0) ? null : BitmapFactory.decodeByteArray(bytes, offset, bytes.length);
     }
-//
-//    /**
-//     * byteArr转drawable
-//     *
-//     * @param bytes 字节数组
-//     * @return drawable
-//     */
-//    public static Drawable bytes2Drawable(byte[] bytes) {
-//        return bytes2Drawable(bytes, 0);
-//    }
-//
-//    /**
-//     * byteArr转drawable
-//     *
-//     * @param bytes  字节数组
-//     * @param offset decode的位移量，一般为0
-//     * @return drawable
-//     */
-//    public static Drawable bytes2Drawable(byte[] bytes, int offset) {
-//        return bitmap2Drawable(bytes2Bitmap(bytes, offset));
-//    }
 
     /**
      * bitmap转drawable
@@ -455,7 +347,6 @@ public class SDBitmapUtil {
                                        final float radius) {
         return toRoundCorner(src, radius, 0, 0);
     }
-
 
     /**
      * Bitmap转为圆角图片
@@ -745,6 +636,7 @@ public class SDBitmapUtil {
      * @param file 文件
      * @return bitmap
      */
+    @Deprecated
     public static Bitmap getBitmap(final File file) {
         if (file == null) return null;
         InputStream is = null;
@@ -755,8 +647,6 @@ public class SDBitmapUtil {
         } else {
             return null;
         }
-
-
     }
 
     /**
@@ -1989,11 +1879,5 @@ public class SDBitmapUtil {
         yuvImage.compressToJpeg(new Rect(0, 0, width, height), 100, baos);
         return baos.toByteArray();
     }
-
-
-    ///////////////////////////////////////////////////////////////////////////
-    // 下方和压缩有关
-    ///////////////////////////////////////////////////////////////////////////
-
 
 }

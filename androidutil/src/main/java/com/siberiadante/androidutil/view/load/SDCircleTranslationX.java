@@ -34,9 +34,9 @@ public class SDCircleTranslationX extends View {
     /**
      * 交换执行动画的颜色数组
      */
-    private int[] colors = new int[]{getResources().getColor(R.color.viewColorYellow),
-            getResources().getColor(R.color.viewColorRed),
-            getResources().getColor(R.color.viewColorBlue)};
+    private int[] colors = new int[]{getResources().getColor(R.color.sdColorYellow),
+            getResources().getColor(R.color.sdColorRed),
+            getResources().getColor(R.color.sdColorBlue)};
 
     /**
      * 动画所执行的最大偏移量（即中间点和最左边的距离）

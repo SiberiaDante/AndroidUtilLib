@@ -79,17 +79,17 @@ public class SDShapeChangeView extends View {
         switch (mCurShape) {
             case CIRCLE:
                 //画圆
-                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.viewColorRed));
+                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.sdColorRed));
                 canvas.drawCircle(center, center, center, mPaint);
                 break;
             case RECTANGLE:
                 //画正方形
-                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.viewColorGreen));
+                mPaint.setColor(ContextCompat.getColor(getContext(), R.color.sdColorGreen));
                 canvas.drawRect(0, 0, getRight(), getBottom(), mPaint);
                 break;
             case TRIANGLE:
                 //用Path画三角形
-                mPaint.setColor(ContextCompat.getColor(getContext(),R.color.viewColorGray));
+                mPaint.setColor(ContextCompat.getColor(getContext(),R.color.sdColorGray));
                 //指定path的起点
                 mPath.moveTo(getWidth() / 2, 0);
                 mPath.lineTo(0, (float) (getWidth() / 2 * Math.sqrt(3)));

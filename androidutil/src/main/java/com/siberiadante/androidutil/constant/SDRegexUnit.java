@@ -157,6 +157,10 @@ public class SDRegexUnit {
      * 正则：双字节字符(包括汉字在内)
      */
     public static final String REGEX_DOUBLE_BYTE_CHAR = "[^\\x00-\\xff]";
+    /**
+     * 正则：大小写英文字母组成
+     */
+    public static final String REGEX_ALL_ENGLISH_STR="^^[A-Za-z]+$";
 
 
 

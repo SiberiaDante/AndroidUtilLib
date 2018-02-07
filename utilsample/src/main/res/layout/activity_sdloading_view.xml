@@ -27,6 +27,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+
+        <com.siberiadante.androidutil.view.SDRotateImageView
+            android:id="@+id/sd_rotate_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.siberiadante.androidutil.view.load.SDZoomImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
+
     </LinearLayout>
 
 </ScrollView>
