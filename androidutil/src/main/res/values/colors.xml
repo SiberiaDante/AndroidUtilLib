@@ -5,6 +5,8 @@
     <color name="sdColorBlack">#000000</color>
     <color name="sdColorRed">#ff0000</color>
     <color name="sdColorGray">#898888</color>
+    <color name="sdColorGrayPress">#f8f8f8</color>
+    <color name="sdColorGrayLine">#f0f0f0</color>
     <color name="sdColorGray24">#cc424242</color>
     <color name="sdColorGreen">#00ff26</color>
     <color name="sdColorBlue">#000dff</color>

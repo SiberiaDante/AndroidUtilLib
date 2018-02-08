@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.siberiadante.utilsample.activity.view.SDDialogViewActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_general_dialog_one"
+                style="@style/MainButton"
+                android:text="提示确认Dialog" />
+
+            <Button
+                android:id="@+id/btn_general_dialog_two"
+                style="@style/MainButton"
+                android:text="提示确认Dialog-带副标题" />
+
+            <Button
+                android:id="@+id/btn_general_dialog_three"
+                style="@style/MainButton"
+                android:text="提示确认Dialog-带图标" />
+
+            <Button
+                android:id="@+id/btn_general_dialog_four"
+                style="@style/MainButton"
+                android:text="提示确认Dialog-一个按钮" />
+
+            <Button
+                android:id="@+id/btn_bottom_popup_widow"
+                style="@style/MainButton"
+                android:text="仿IOS底部弹窗" />
+
+            <Button
+                android:id="@+id/btn_edit_dialog"
+                style="@style/MainButton"
+                android:text="仿IOS中间弹窗可编辑" />
+
+            <Button
+                android:id="@+id/btn_custom_dialog"
+                style="@style/MainButton"
+                android:text="自定义布局的Dialog" />
+
+
+            <Button
+                android:id="@+id/btn_sd_custom_dialog"
+                style="@style/MainButton"
+                android:text="自定义布局支持各种自定义Dialog" />
+        </LinearLayout>
+</ScrollView>

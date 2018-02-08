@@ -203,7 +203,7 @@ public class SDTitleLayout extends RelativeLayout {
         mTvSubTitle = ((TextView) inflate.findViewById(R.id.tv_sub_title));
         mIvRight = ((ImageView) inflate.findViewById(R.id.iv_right));
         mTvRight = ((TextView) inflate.findViewById(R.id.tv_right));
-        mViewLine = inflate.findViewById(R.id.view_line);
+        mViewLine = inflate.findViewById(R.id.bottom_item_dialog_view_line);
     }
 
     private void initData() {

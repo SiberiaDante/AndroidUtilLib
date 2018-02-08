@@ -25,6 +25,7 @@ import com.siberiadante.utilsample.activity.util.SDStorageUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDStringUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDTimerUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDTransitionUtilActivity;
+import com.siberiadante.utilsample.activity.view.SDDialogViewActivity;
 import com.siberiadante.utilsample.activity.view.SDLoadingViewActivity;
 import com.siberiadante.utilsample.activity.view.SDRankingActivity;
 import com.siberiadante.utilsample.activity.view.SDStepViewActivity;
@@ -80,6 +81,7 @@ public class MainData {
 
     public static List<DataBean> getViewData() {
         List<DataBean> data = new ArrayList<>();
+        data.add(new DataBean("测试Dialog", SDDialogViewActivity.class));
         data.add(new DataBean("测试加载动画", SDLoadingViewActivity.class));
         data.add(new DataBean("测试计步器", SDStepViewActivity.class));
         return data;

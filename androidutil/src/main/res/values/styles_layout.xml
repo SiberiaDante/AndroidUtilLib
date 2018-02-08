@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="ViewLineHorizontalOnePx">
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/sdColorGrayLine</item>
+    </style>
+
+    <style name="ViewLineHorizontalOneDp">
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/sdColorGrayLine</item>
+    </style>
+
+    <style name="ViewLineHorizontalEightDp">
+        <item name="android:layout_height">@dimen/eight</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/sdColorGrayLine</item>
+    </style>
+
+    <style name="ViewLineVerticalOneDp">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">1dp</item>
+        <item name="android:background">@color/sdColorGrayLine</item>
+    </style>
 </resources>
