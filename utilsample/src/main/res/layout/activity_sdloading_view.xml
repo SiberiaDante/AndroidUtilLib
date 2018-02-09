@@ -27,16 +27,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-
-        <com.siberiadante.androidutil.view.SDRotateImageView
-            android:id="@+id/sd_rotate_view"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <com.siberiadante.androidutil.view.load.SDZoomImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            <com.siberiadante.androidutil.view.SDRotateImageView
+                android:id="@+id/sd_rotate_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
+            <com.siberiadante.androidutil.view.load.SDZoomImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <com.siberiadante.androidutil.view.MyCycleView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_default_circle" />
+
+        </LinearLayout>
     </LinearLayout>
 
 </ScrollView>

@@ -10,7 +10,6 @@ import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SDLoadingViewActivity extends BaseActivity {
@@ -32,13 +31,6 @@ public class SDLoadingViewActivity extends BaseActivity {
 
     }
 
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
-    }
-
     @OnClick({R.id.sd_rotate_view})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -47,6 +39,7 @@ public class SDLoadingViewActivity extends BaseActivity {
                 break;
         }
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

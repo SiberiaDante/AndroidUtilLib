@@ -90,7 +90,8 @@
         <activity android:name=".activity.util.SDFileUtilActivity" />
         <activity android:name=".activity.util.SDStorageUtilActivity" />
         <activity android:name=".activity.widget.SDSpecialWidgetActivity" />
-        <activity android:name=".activity.view.SDDialogViewActivity"></activity>
+        <activity android:name=".activity.view.SDDialogViewActivity" />
+        <activity android:name=".TestAttrActivity"></activity>
     </application>
 
 </manifest>
