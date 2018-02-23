@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.Display;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.KeyboardShortcutGroup;
 import android.view.Menu;
 import android.view.View;
@@ -28,7 +30,7 @@ import java.util.List;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class CustomDialog extends Dialog implements View.OnClickListener {
+public class SDCustomDialog extends Dialog implements View.OnClickListener {
     private Context context;      // 上下文
     private int mLayoutResId;      // 布局文件id
     private int[] mIds = new int[]{};  // 要监听的控件id
@@ -36,6 +38,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
     private OnCustomDialogItemClickListener listener;
     private boolean mIsDismiss = true;//是否默认所有按钮点击后取消dialog显示，false时需要在点击事件后手动调用dismiss
     private boolean mIsDismissTouchOut = true;//是否允许触摸dialog外部区域取消显示dialog
+    private boolean isKeyDownForbid = false;//是否拦截返回键事件
     private int mPosition = 0; //Dialog 相对页面显示的位置
     private List<View> mViews = new ArrayList<>();//监听的View的集合
 
@@ -43,77 +46,80 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         this.listener = listener;
     }
 
-    public CustomDialog(Context context, int layoutResID) {
+    public SDCustomDialog(Context context, int layoutResID) {
         super(context, R.style.CustomDialogStyle);
         this.context = context;
         this.mLayoutResId = layoutResID;
-
     }
 
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems) {
+
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedIds) {
         super(context, R.style.CustomDialogStyle); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mIds = listenedItems;
+        this.mIds = listenedIds;
     }
 
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, int animationResId) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedIds, int animationResId) {
         super(context, R.style.CustomDialogStyle); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mIds = listenedItems;
+        this.mIds = listenedIds;
         this.mAnimationResId = animationResId;
     }
 
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedIds, boolean isDismiss) {
         super(context, R.style.CustomDialogStyle); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mIds = listenedItems;
+        this.mIds = listenedIds;
         this.mIsDismiss = isDismiss;
     }
 
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss, boolean isDismissTouchOut) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedIds, boolean isDismiss, boolean isDismissTouchOut) {
         super(context, R.style.CustomDialogStyle); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mIds = listenedItems;
+        this.mIds = listenedIds;
         this.mIsDismiss = isDismiss;
         this.mIsDismissTouchOut = isDismissTouchOut;
     }
 
-    public CustomDialog(Context context, int layoutResID, int[] listenedItems, boolean isDismiss, int position) {
+    public SDCustomDialog(Context context, int layoutResID, int[] listenedIds, boolean isDismiss, int position) {
         super(context, R.style.CustomDialogStyle); //dialog的样式
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mIds = listenedItems;
+        this.mIds = listenedIds;
         this.mPosition = position;
+        this.mIsDismiss = isDismiss;
     }
-
 
     /**
      * @param context
      * @param layoutResID       布局Id
-     * @param ids               需要监听的View id集合
+     * @param listenedIds               需要监听的View id集合
      * @param animationResId    动画资源id
      * @param isDismiss         是否默认点击所有View 取消dialog显示
      * @param isDismissTouchOut 是否触摸dialog外部区域消失dialog显示
+     * @param isKeyDownForbid   设置Dialog显示时是否拦截返回键事件
      * @param position          dialog显示的位置
      */
-    public CustomDialog(Context context,
-                        int layoutResID,
-                        int[] ids,
-                        int animationResId,
-                        boolean isDismiss,
-                        boolean isDismissTouchOut,
-                        int position) {
+    public SDCustomDialog(Context context,
+                          int layoutResID,
+                          int[] listenedIds,
+                          int animationResId,
+                          boolean isDismiss,
+                          boolean isDismissTouchOut,
+                          boolean isKeyDownForbid,
+                          int position) {
         super(context, R.style.CustomDialogStyle);
         this.context = context;
         this.mLayoutResId = layoutResID;
-        this.mIds = ids;
+        this.mIds = listenedIds;
         this.mAnimationResId = animationResId;
         this.mIsDismiss = isDismiss;
         this.mIsDismissTouchOut = isDismissTouchOut;
+        this.isKeyDownForbid = isKeyDownForbid;
         this.mPosition = position;
 
     }
@@ -157,13 +163,31 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
         return mViews;
     }
 
+    /**
+     * 设置Dialog显示时是否拦截返回键事件
+     *
+     * @param keyDownForbid
+     */
+    public void setKeyDownForbid(boolean keyDownForbid) {
+        this.isKeyDownForbid = keyDownForbid;
+    }
+
+    /**
+     * 设置是否触摸Dialog以外区域取消Dialog
+     *
+     * @param isDismissTouchOut
+     */
+    public void setIsDismissTouchOut(boolean isDismissTouchOut) {
+        this.mIsDismissTouchOut = isDismissTouchOut;
+    }
+
     @Override
     public void onProvideKeyboardShortcuts(List<KeyboardShortcutGroup> data, @Nullable Menu menu, int deviceId) {
 
     }
 
     public interface OnCustomDialogItemClickListener {
-        void OnCustomDialogItemClick(CustomDialog dialog, View view);
+        void OnCustomDialogItemClick(SDCustomDialog dialog, View view);
     }
 
 
@@ -174,5 +198,10 @@ public class CustomDialog extends Dialog implements View.OnClickListener {
             dismiss();
         }
         listener.OnCustomDialogItemClick(this, view);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
+        return isKeyDownForbid || super.onKeyDown(keyCode, event);
     }
 }

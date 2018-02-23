@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.siberiadante.androidutil.view.dialog.BottomItemDialog;
-import com.siberiadante.androidutil.view.dialog.CustomDialog;
+import com.siberiadante.androidutil.view.dialog.SDCustomDialog;
 import com.siberiadante.androidutil.view.dialog.EditDialog;
 import com.siberiadante.androidutil.view.dialog.EnsureDialog;
 import com.siberiadante.utilsample.R;
@@ -220,24 +220,35 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     private void showCustomDialog() {
-        CustomDialog customDialog = new CustomDialog(this, R.layout.dialog_sd_custom);
-        customDialog.show();
+        SDCustomDialog sdCustomDialog = new SDCustomDialog(this,
+                R.layout.dialog_sd_custom,
+                new int[]{R.id.btn_cancel, R.id.btn_sure});
+        sdCustomDialog.setOnDialogItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
+            @Override
+            public void OnCustomDialogItemClick(SDCustomDialog dialog, View view) {
+
+            }
+        });
+        sdCustomDialog.show();
+        sdCustomDialog.setIsDismissTouchOut(true);
+        sdCustomDialog.setKeyDownForbid(true);
     }
 
     /**
      * 这种方式使用中的缺陷就是需要资源id需要一一对应
      */
     private void showSDCustomEditDialog() {
-        final CustomDialog customDialog = new CustomDialog(this,
+        final SDCustomDialog customDialog = new SDCustomDialog(this,
                 R.layout.dialog_sd_custom,
                 new int[]{R.id.btn_cancel, R.id.btn_sure, R.id.edt_content, R.id.edt_sub_content},
                 0,
                 false,
                 false,
+                true,
                 Gravity.CENTER);
-        customDialog.setOnDialogItemClickListener(new CustomDialog.OnCustomDialogItemClickListener() {
+        customDialog.setOnDialogItemClickListener(new SDCustomDialog.OnCustomDialogItemClickListener() {
             @Override
-            public void OnCustomDialogItemClick(CustomDialog dialog, View view) {
+            public void OnCustomDialogItemClick(SDCustomDialog dialog, View view) {
                 switch (view.getId()) {
                     case R.id.btn_cancel:
                         customDialog.dismiss();
