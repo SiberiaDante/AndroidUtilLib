@@ -22,6 +22,10 @@
         <td>图片处理相关工具类</td>
     </tr>
     <tr>
+        <td>SDCacheUtil</td>
+        <td>缓存相关工具类</td>
+    </tr>
+    <tr>
         <td>SDCleanUtil</td>
         <td>清除缓存、数据、文件、数据库等相关工具类</td>
     </tr>
@@ -42,6 +46,14 @@
         <td>时间、日期转换</td>
     </tr>
     <tr>
+        <td>SDDeviceUtil</td>
+        <td>手机设备相关处理类</td>
+    </tr>
+    <tr>
+        <td>SDDrawableUtil</td>
+        <td>drawable 相关处理工具类</td>
+    </tr>
+    <tr>
         <td>SDEncryptUtil</td>
         <td>加密算法相关工具类</td>
     </tr>
@@ -50,8 +62,16 @@
         <td>文件处理相关工具类</td>
     </tr>
     <tr>
+        <td>SDFormatUtil</td>
+        <td>格式化相关处理工具类</td>
+    </tr>
+    <tr>
         <td>SDIntentUtil</td>
         <td>Intent相关工具类</td>
+    </tr>
+    <tr>
+        <td>SDJumpUtil</td>
+        <td>页面跳转、打开浏览器、发送短信、设置面板等工具类</td>
     </tr>
     <tr>
         <td>SDKeyBoardUtil</td>
@@ -63,7 +83,7 @@
     </tr>
     <tr>
         <td>SDMathUtil</td>
-        <td></td>
+        <td>数学公式计算工具类</td>
     </tr>
     <tr>
         <td>SDNetWorkUtil</td>
@@ -72,10 +92,6 @@
     <tr>
         <td>SDNumberUtil</td>
         <td>数字工具类</td>
-    </tr>
-    <tr>
-        <td>SDPhoneUtil</td>
-        <td>手机设备相关处理工具类</td>
     </tr>
     <tr>
         <td>SDProcessUtil</td>
@@ -110,17 +126,42 @@
         <td>字符处理相关工具类</td>
     </tr>
     <tr>
+        <td>SDTimerUtil</td>
+        <td>计时相关工具类</td>
+    </tr>
+    <tr>
         <td>SDToast</td>
         <td>toast吐司工具类</td>
     </tr>
     <tr>
         <td>SDTransitionUtil</td>
-        <td>dp、px、sp等转换相关工具类</td>
+        <td>数据、数值转换相关类</td>
     </tr>
     <tr>
         <td>SpannableStringUtil</td>
         <td></td>
     </tr>
+</table>
+
+## 加载动画相关
+
+<table align="left">
+    <tr>
+        <td>SDZoomImageView</td>
+        <td>旋转一张图片的动画</td>
+    </tr>
+    <tr>
+        <td>SDSkipLoadView</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDCircleTranslationX</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDCircleMove</td>
+        <td></td>
+    </tr> 
 </table>
 
 ## SD-view
@@ -132,11 +173,7 @@
         <th>简单说明</th>
     </tr>
     <tr>
-        <td>SDNiceDialog</a></td>
-        <td>只需要传入布局id,可实现子View事件的监听、设置Dialog相关属性等</td>
-    </tr>
-    <tr>
-        <td>SDBottomDialog</td>
+        <td>SDBottomItemDialog</td>
         <td>仿IOS底部弹出可拓展多个item的dialog</td>
     </tr>
     <tr>
@@ -151,20 +188,12 @@
         <td>SDEnsureDialog</td>
         <td>常规提示确认dialog</td>
     </tr>
-    <tr>
-        <td>SDEnsureSubDialog</td>
-        <td>常规提示确认dialog,带标题，可设置log</td>
-    </tr>
 </table>
 
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-TitleBar">SD-TitleBar</a>
 <table  align="left">
     <tr>
         <th colspan="2" style="color:red">标题栏</th>
-    </tr>
-    <tr>
-        <td>SDTitleBar</td>
-        <td>常规的titleBar的封装,支持xml属性和Java代码设置</td>
     </tr>
     <tr>
         <td>SDTitleLayout</td>
@@ -182,13 +211,26 @@
         <td>Picasso加载图片时将图片转换为圆形工具</td>
     </tr>
     <tr>
-        <td>QQStepView</td>
+        <td>SDStepView</td>
         <td> 自定义View实现仿QQ运动步数功能</td>
+    </tr>
+    <tr>
+        <td>SDLetterIndexView</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDRatingBarView</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDTitleLayout</td>
+        <td></td>
     </tr>
     <tr>
         <td></td>
         <td></td>
     </tr>
+
 </table>
 
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Widget">SD-Widget</a>
@@ -247,9 +289,7 @@
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
 
 
- 参考:https://github.com/Blankj/AndroidUtilCode
 
 <!--  推荐-->
-[Android开发必备经典收藏集（整理中）]:http://www.jianshu.com/p/a49081da249a
 [TitleLayout——通用万能标题栏]:https://github.com/SiberiaDante/TitleLayout
 [CustomDialog——通用万能Dialog]:https://github.com/SiberiaDante/CustomDialog

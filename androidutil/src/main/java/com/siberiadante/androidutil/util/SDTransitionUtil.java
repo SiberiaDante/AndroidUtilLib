@@ -23,7 +23,7 @@ import java.util.Locale;
 
 /**
  * @Created SiberiaDante
- * @Describe： 数据转换相关类
+ * @Describe： 数据、数值转换相关类
  * @Time: 2017/9/26
  * @UpDate:
  * @Email: 2654828081@qq.com

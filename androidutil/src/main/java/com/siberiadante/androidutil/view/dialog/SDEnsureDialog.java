@@ -24,7 +24,7 @@ import com.siberiadante.androidutil.R;
  * @GitHub: https://github.com/SiberiaDante
  */
 
-public class EnsureDialog {
+public class SDEnsureDialog {
     private final Display display;
     private Context context;
     private TextView mTvTitle;
@@ -37,7 +37,7 @@ public class EnsureDialog {
     private Window dialogWindow;
     private LinearLayout mLinearBottom;
 
-    public EnsureDialog(Context context) {
+    public SDEnsureDialog(Context context) {
         this.context = context;
         final WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
@@ -51,7 +51,7 @@ public class EnsureDialog {
      *
      * @return
      */
-    public EnsureDialog builder() {
+    public SDEnsureDialog builder() {
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_ensure_layout, null, false);
         LinearLayout mLinearDialog = ((LinearLayout) view.findViewById(R.id.linear_dialog));
         mLinearBottom = ((LinearLayout) view.findViewById(R.id.linear_bottom));
@@ -74,7 +74,7 @@ public class EnsureDialog {
      * @param gravity
      * @return
      */
-    public EnsureDialog setGravity(int gravity) {
+    public SDEnsureDialog setGravity(int gravity) {
         dialogWindow.setGravity(gravity);
         return this;
     }
@@ -85,7 +85,7 @@ public class EnsureDialog {
      * @param drawable
      * @return
      */
-    public EnsureDialog setIncon(int drawable) {
+    public SDEnsureDialog setIncon(int drawable) {
         mIvIcon.setVisibility(View.VISIBLE);
         mIvIcon.setImageResource(drawable);
         return this;
@@ -97,7 +97,7 @@ public class EnsureDialog {
      * @param title
      * @return
      */
-    public EnsureDialog setTitle(String title) {
+    public SDEnsureDialog setTitle(String title) {
         if ("".equals(title)) {
             mTvTitle.setText("标题");
         } else {
@@ -111,7 +111,7 @@ public class EnsureDialog {
      * @param color
      * @return
      */
-    public EnsureDialog setTitle(String title, int color) {
+    public SDEnsureDialog setTitle(String title, int color) {
         if ("".equals(title)) {
             mTvTitle.setText("标题");
         } else {
@@ -127,7 +127,7 @@ public class EnsureDialog {
      * @param title
      * @return
      */
-    public EnsureDialog setSubTitle(String title) {
+    public SDEnsureDialog setSubTitle(String title) {
 
         if ("".equals(title)) {
             mTvSubTitle.setVisibility(View.GONE);
@@ -146,7 +146,7 @@ public class EnsureDialog {
      * @param color
      * @return
      */
-    public EnsureDialog setSubTitle(String title, int color) {
+    public SDEnsureDialog setSubTitle(String title, int color) {
         if ("".equals(title)) {
             mTvSubTitle.setVisibility(View.GONE);
             mTvSubTitle.setText("标题");
@@ -166,7 +166,7 @@ public class EnsureDialog {
      * @param listener
      * @return
      */
-    public EnsureDialog setPositiveButton(String text, final View.OnClickListener listener) {
+    public SDEnsureDialog setPositiveButton(String text, final View.OnClickListener listener) {
         if ("".equals(text)) {
             mTvSure.setText("确认");
         } else {
@@ -189,7 +189,7 @@ public class EnsureDialog {
      * @param listener
      * @return
      */
-    public EnsureDialog setPositiveButton(String text, int color, final View.OnClickListener listener) {
+    public SDEnsureDialog setPositiveButton(String text, int color, final View.OnClickListener listener) {
         if ("".equals(text)) {
             mTvSure.setText("确认");
         } else {
@@ -213,7 +213,7 @@ public class EnsureDialog {
      * @param listener
      * @return
      */
-    public EnsureDialog setNegativeButton(String text, final View.OnClickListener listener) {
+    public SDEnsureDialog setNegativeButton(String text, final View.OnClickListener listener) {
         if ("".equals(text)) {
             mTvCancel.setText("取消");
         } else {
@@ -230,7 +230,7 @@ public class EnsureDialog {
         return this;
     }
 
-    public EnsureDialog setNegativeButton(String text, int color, final View.OnClickListener listener) {
+    public SDEnsureDialog setNegativeButton(String text, int color, final View.OnClickListener listener) {
         if ("".equals(text)) {
             mTvCancel.setText("取消");
         } else {
@@ -254,7 +254,7 @@ public class EnsureDialog {
      * @param listener
      * @return
      */
-    public EnsureDialog setCenterButton(String text, final View.OnClickListener listener) {
+    public SDEnsureDialog setCenterButton(String text, final View.OnClickListener listener) {
         if ("".equals(text)) {
             mTvOK.setText("确认");
         } else {
@@ -280,7 +280,7 @@ public class EnsureDialog {
      * @param listener
      * @return
      */
-    public EnsureDialog setCenterButton(String text, int color, final View.OnClickListener listener) {
+    public SDEnsureDialog setCenterButton(String text, int color, final View.OnClickListener listener) {
         if ("".equals(text)) {
             mTvOK.setText("确认");
         } else {
@@ -306,7 +306,7 @@ public class EnsureDialog {
      * @param cancelable
      * @return
      */
-    public EnsureDialog setCancelable(boolean cancelable) {
+    public SDEnsureDialog setCancelable(boolean cancelable) {
         dialog.setCancelable(cancelable);
         return this;
     }
@@ -316,7 +316,7 @@ public class EnsureDialog {
      *
      * @return
      */
-    public EnsureDialog dismiss() {
+    public SDEnsureDialog dismiss() {
         dialog.dismiss();
         return this;
     }

@@ -27,7 +27,7 @@ import java.util.List;
  * @Email: 994537867@qq.com
  * @GitHub: https://github.com/SiberiaDante
  */
-public class BottomItemDialog {
+public class SDBottomItemDialog {
 
     private Context context;
     private Dialog dialog;
@@ -40,13 +40,13 @@ public class BottomItemDialog {
     private Display display;
     private View view_line;
 
-    public BottomItemDialog(Context context) {
+    public SDBottomItemDialog(Context context) {
         this.context = context;
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         display = windowManager.getDefaultDisplay();
     }
 
-    public BottomItemDialog builder() {
+    public SDBottomItemDialog builder() {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_bottom_item_layout, null);
         view.setMinimumWidth(display.getWidth());
         sLayout_content = (ScrollView) view.findViewById(R.id.bottom_item_dialog_scroll_view);
@@ -72,7 +72,7 @@ public class BottomItemDialog {
         return this;
     }
 
-    public BottomItemDialog setTitle(String title) {
+    public SDBottomItemDialog setTitle(String title) {
         showTitle = true;
         txt_title.setVisibility(View.VISIBLE);
         view_line.setVisibility(View.VISIBLE);
@@ -80,7 +80,7 @@ public class BottomItemDialog {
         return this;
     }
 
-    public BottomItemDialog setTitle(String title, int color, float size) {
+    public SDBottomItemDialog setTitle(String title, int color, float size) {
         showTitle = true;
         txt_title.setVisibility(View.VISIBLE);
         view_line.setVisibility(View.VISIBLE);
@@ -90,18 +90,18 @@ public class BottomItemDialog {
         return this;
     }
 
-    public BottomItemDialog setCancelable(boolean cancel) {
+    public SDBottomItemDialog setCancelable(boolean cancel) {
         dialog.setCancelable(cancel);
         return this;
     }
 
-    public BottomItemDialog setCanceled(boolean cancel) {
+    public SDBottomItemDialog setCanceled(boolean cancel) {
         dialog.setCanceledOnTouchOutside(cancel);
         return this;
     }
 
-    public BottomItemDialog addSheetItem(String strItem, SheetItemColor color,
-                                         OnSheetItemClickListener listener) {
+    public SDBottomItemDialog addSheetItem(String strItem, SheetItemColor color,
+                                           OnSheetItemClickListener listener) {
         if (sheetItemList == null) {
             sheetItemList = new ArrayList<SheetItem>();
         }

@@ -5,7 +5,7 @@ import com.siberiadante.androidutil.SDAndroidLib;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： 格式化相关处理工具类
  * @CreateTime: 2018/1/6
  * @UpDateTime:
  * @Email: 2654828081@qq.com

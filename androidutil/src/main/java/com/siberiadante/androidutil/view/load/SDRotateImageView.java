@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.view;
+package com.siberiadante.androidutil.view.load;
 
 import android.content.Context;
 import android.support.annotation.Nullable;

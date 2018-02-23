@@ -13,7 +13,7 @@ import static com.siberiadante.androidutil.util.SDBitmapUtil.drawable2Bitmap;
 
 /**
  * @Created SiberiaDante
- * @Describe：
+ * @Describe： drawable 相关处理工具类
  * @CreateTime: 2017/11/27
  * @UpDateTime:
  * @Email: 2654828081@qq.com

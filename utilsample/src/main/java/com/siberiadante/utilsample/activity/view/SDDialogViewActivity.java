@@ -8,10 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.siberiadante.androidutil.view.dialog.BottomItemDialog;
+import com.siberiadante.androidutil.view.dialog.SDBottomItemDialog;
 import com.siberiadante.androidutil.view.dialog.SDCustomDialog;
-import com.siberiadante.androidutil.view.dialog.EditDialog;
-import com.siberiadante.androidutil.view.dialog.EnsureDialog;
+import com.siberiadante.androidutil.view.dialog.SDEditDialog;
+import com.siberiadante.androidutil.view.dialog.SDEnsureDialog;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
@@ -40,7 +40,7 @@ public class SDDialogViewActivity extends BaseActivity {
     @BindView(R.id.btn_sd_custom_dialog)
     Button btnSdCustomDialog;
 
-    private EnsureDialog ensureDialog;
+    private SDEnsureDialog ensureDialog;
 
 
     @Override
@@ -84,10 +84,10 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     /**
-     * EditDialog
+     * SDEditDialog
      */
     private void showEditDialog() {
-        final EditDialog dialog = new EditDialog(this).builder();
+        final SDEditDialog dialog = new SDEditDialog(this).builder();
         dialog.setTitle("可编辑Dialog");
         dialog.setCancelable(false);
         dialog.setNegativeButton("取消", new View.OnClickListener() {
@@ -107,24 +107,24 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     /**
-     * BottomItemDialog
+     * SDBottomItemDialog
      */
     private void showBottomPopupWindow() {
-        new BottomItemDialog(this).builder()
+        new SDBottomItemDialog(this).builder()
                 .setCancelable(false).setCanceled(true)//setTitle("选择").
-                .addSheetItem("相机", BottomItemDialog.SheetItemColor.BLACK, new BottomItemDialog.OnSheetItemClickListener() {
+                .addSheetItem("相机", SDBottomItemDialog.SheetItemColor.BLACK, new SDBottomItemDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //需要对相机进行运行时权限的申请
                     }
                 })
-                .addSheetItem("相册", BottomItemDialog.SheetItemColor.BLACK, new BottomItemDialog.OnSheetItemClickListener() {
+                .addSheetItem("相册", SDBottomItemDialog.SheetItemColor.BLACK, new SDBottomItemDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //调用手机相册的方法,该方法在下面有具体实现
                     }
                 })
-                .addSheetItem("时光机", BottomItemDialog.SheetItemColor.BLACK, new BottomItemDialog.OnSheetItemClickListener() {
+                .addSheetItem("时光机", SDBottomItemDialog.SheetItemColor.BLACK, new SDBottomItemDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
 
@@ -134,10 +134,10 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     /**
-     * EnsureDialog
+     * SDEnsureDialog
      */
     private void showEnsureDialogOne() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.sdColorBlack))//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
@@ -159,7 +159,7 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     private void showEnsureDialogTwo() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.sdColorBlack))//可以不设置标题颜色，默认系统颜色
                 .setSubTitle("这是一个副标题")
@@ -182,7 +182,7 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     private void showEnsureDialogThree() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.sdColorBlack))//可以不设置标题颜色，默认系统颜色
                 .setIncon(R.drawable.icon_tips)//不设置图标，默认没有图标
@@ -205,7 +205,7 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     private void showEnsureDialogFour() {
-        ensureDialog = new EnsureDialog(this).builder()
+        ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", R.color.sdColorBlack)//可以不设置标题颜色，默认系统颜色
                 .setCancelable(false)
