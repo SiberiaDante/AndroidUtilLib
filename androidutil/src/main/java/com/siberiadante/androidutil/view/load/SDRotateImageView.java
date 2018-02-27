@@ -14,13 +14,13 @@ import android.widget.ImageView;
 import com.siberiadante.androidutil.R;
 
 /**
- * @Created SiberiaDante
- * @Describe： 旋转一张图片的动画
- * @CreateTime: 2018/1/26
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
- * @Blogs: http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Describe： 旋转一张图片的动画
+ * CreateTime: 2018/1/26
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
  */
 
 public class SDRotateImageView extends FrameLayout {

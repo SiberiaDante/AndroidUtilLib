@@ -1,61 +1,39 @@
 package com.siberiadante.androidutil.util;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.AnimRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-
 
 import com.siberiadante.androidutil.SDAndroidLib;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Created SiberiaDante
- * @Describe： Activity相关工具类
- * @Time: 2017/5/10.
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/5/10.
+ * UpDateTime:
+ * Describe： Activity相关工具类
  */
-
 public class SDActivityUtil {
-
-    private static List<Activity> activityList = new ArrayList<>();
 
     public SDActivityUtil() {
         throw new UnsupportedOperationException("not init---" + SDActivityUtil.class.getSimpleName());
     }
 
-    public static void addActivity(Activity activity) {
-        if (!activityList.contains(activity)) {
-            activityList.add(activity);
-        }
-    }
-
-    public static void removeActivity(Activity activity) {
-        if (activityList.contains(activity)) {
-            activityList.remove(activity);
-        }
-    }
-
-    public static void finishActivity(Activity activity) {
-        removeActivity(activity);
-        activity.finish();
-    }
-
-    public static void finishAllActivity() {
-        for (Activity activity : activityList) {
-            activity.finish();
-        }
+    /**
+     * 判断Activity是否在运行
+     *
+     * @param activity
+     * @return
+     */
+    public static boolean isActivityRunning(Activity activity) {
+        return activity != null && !activity.isFinishing() && !activity.isDestroyed();
     }
 
     /**
@@ -65,7 +43,7 @@ public class SDActivityUtil {
      * @param activityName activity全路径名
      * @return {@code true}: 存在；{@code false }:不存在
      */
-    public static boolean isActivityExists(@Nullable String packageName, @Nullable String activityName) {
+    public static boolean isActivityExists(@NonNull String packageName, @NonNull String activityName) {
         Intent intent = new Intent();
         intent.setClassName(packageName, activityName);
         PackageManager packageManager = SDAndroidLib.getContext().getPackageManager();
@@ -76,7 +54,7 @@ public class SDActivityUtil {
     }
 
     /**
-     * 获取启动 activity
+     * 获取应用启动 activity
      *
      * @param packageName 应用包名
      * @return 应用启动的 activity全路径名

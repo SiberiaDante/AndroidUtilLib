@@ -14,11 +14,11 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 /**
- * @Created SiberiaDante
- * @Describe： 日志打印工具类.应用Log日志对APP的信息泄露极为致命，所以项目上线时需要关闭项目整体的Log日志输出
- * @Time: 2017/8/7
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 日志打印工具类.应用Log日志对APP的信息泄露极为致命，所以项目上线时需要关闭项目整体的Log日志输出
+ * Time: 2017/8/7
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  * can use
  */
 

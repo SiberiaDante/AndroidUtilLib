@@ -1,11 +1,11 @@
 package com.siberiadante.androidutil.util;
 
 /**
- * @Created SiberiaDante
- * @Describe： 数学公式计算工具类
- * @Time: 2017/9/5
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 数学公式计算工具类
+ * Time: 2017/9/5
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDMathUtil {

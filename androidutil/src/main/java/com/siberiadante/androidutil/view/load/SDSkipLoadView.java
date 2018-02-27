@@ -21,9 +21,9 @@ import com.siberiadante.androidutil.view.load.base.SDShapeChangeView;
 
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2017/10/3
- * @Describe： 跳跃动画
+ * Describe： 跳跃动画
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */

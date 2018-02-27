@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @Time: 2017/6/30
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：
+ * Time: 2017/6/30
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class MainActivityAdapter extends FragmentPagerAdapter {

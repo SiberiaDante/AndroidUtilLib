@@ -13,9 +13,9 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2017/10/3
- * @Describe：
+ * Describe：
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */

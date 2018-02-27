@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2017/11/8
- * @Describe： <a href="https://github.com/SiberiaDante/ResourceCollection/blob/59f58757fcbdda9f025c83f7fe392db78faf2ed7/DataEncryption/Base64.md">分分钟完全掌握Base64编码</a>
+ * Describe： <a href="https://github.com/SiberiaDante/ResourceCollection/blob/59f58757fcbdda9f025c83f7fe392db78faf2ed7/DataEncryption/Base64.md">分分钟完全掌握Base64编码</a>
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */

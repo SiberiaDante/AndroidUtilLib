@@ -15,12 +15,12 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： 带通知圆点的RadioButton
- * @CreateTime: 2017/12/13
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 带通知圆点的RadioButton
+ * CreateTime: 2017/12/13
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDNotifyRadioButton extends AppCompatRadioButton {

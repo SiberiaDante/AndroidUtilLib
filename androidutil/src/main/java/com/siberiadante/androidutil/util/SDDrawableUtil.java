@@ -12,14 +12,14 @@ import static com.siberiadante.androidutil.util.SDBitmapUtil.bytes2Bitmap;
 import static com.siberiadante.androidutil.util.SDBitmapUtil.drawable2Bitmap;
 
 /**
- * @Created SiberiaDante
- * @Describe： drawable 相关处理工具类
- * @CreateTime: 2017/11/27
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/11/27
+ * UpDateTime:
+ * Describe：drawable 相关处理工具类
  */
-
 public class SDDrawableUtil {
     /**
      * drawable转byteArr

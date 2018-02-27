@@ -8,11 +8,11 @@ import com.siberiadante.androidutil.widget.base.SDRoundViewAttr;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： 简化LinearLayout shape 画背景
- * @Time: 2017/9/4
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 简化LinearLayout shape 画背景
+ * Time: 2017/9/4
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDShapeLinearLayout extends LinearLayout {

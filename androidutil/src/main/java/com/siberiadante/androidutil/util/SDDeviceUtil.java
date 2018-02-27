@@ -30,14 +30,14 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * @Created SiberiaDante
- * @Describe： 手机设备相关处理类
- * @Time: 2017/9/26
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/9/26
+ * UpDateTime:
+ * Describe： 手机设备相关处理类
  */
-
 public class SDDeviceUtil {
 
     private static final String TAG = SDDeviceUtil.class.getSimpleName();

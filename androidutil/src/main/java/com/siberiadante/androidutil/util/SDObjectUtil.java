@@ -11,13 +11,13 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @CreateTime: 2018/1/5
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
- * @Blogs: http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Describe：
+ * CreateTime: 2018/1/5
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
  */
 
 public class SDObjectUtil {
@@ -61,4 +61,16 @@ public class SDObjectUtil {
         return false;
     }
 
+    /**
+     * 判断两个对象是否相等
+     *
+     * @param o1
+     * @param o2
+     * @return
+     */
+    public static boolean isEquals(Object o1, Object o2) {
+        if (o1 != null) {
+            return o1 == o2 || o1.equals(o2);
+        } else return o2 == null;
+    }
 }

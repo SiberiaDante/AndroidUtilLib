@@ -10,12 +10,12 @@ import android.view.inputmethod.InputMethodManager;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
- * @Created SiberiaDante
- * @Describe： <p>避免输入法面板遮挡:在manifest.xml中activity中设置{@code android:windowSoftInputMode="adjustPan"}</p>
- * @Time: 2017/9/14
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： <p>避免输入法面板遮挡:在manifest.xml中activity中设置{@code android:windowSoftInputMode="adjustPan"}</p>
+ * Time: 2017/9/14
+ * UpDate:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDKeyBoardUtil {

@@ -21,13 +21,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @Created SiberiaDante
- * @Describe： 通用Dialog，只需要传入布局id,和需要设置点击事件的控件id;
+ * Created: SiberiaDante
+ * Describe： 通用Dialog，只需要传入布局id,和需要设置点击事件的控件id;
  * 额外支持：设置dialog位置，Dialog弹出动画，dialog是否点击按钮自动消失等
- * @Time: 2017/9/19
- * @UpDate:
- * @Email: 994537867@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Time: 2017/9/19
+ * UpDate:
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDCustomDialog extends Dialog implements View.OnClickListener {

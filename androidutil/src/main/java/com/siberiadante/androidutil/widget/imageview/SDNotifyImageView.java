@@ -16,12 +16,12 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： 带通知圆点的ImageView
- * @CreateTime: 2017/12/12
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 带通知圆点的ImageView
+ * CreateTime: 2017/12/12
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDNotifyImageView extends AppCompatImageView {

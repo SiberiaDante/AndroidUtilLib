@@ -1,12 +1,13 @@
 package com.siberiadante.androidutil.constant;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @Time: 2017/6/30
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/6/30
+ * UpDateTime:
+ * Describe：常量相关类
  */
 
 public class SDConstants {

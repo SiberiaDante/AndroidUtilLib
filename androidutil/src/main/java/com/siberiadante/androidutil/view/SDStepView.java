@@ -14,9 +14,9 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2017/7/23
- * @Describe： 参考文章http://www.jianshu.com/p/4e0eb9bb09ab QQ计步器View
+ * Describe： 参考文章http://www.jianshu.com/p/4e0eb9bb09ab QQ计步器View
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */

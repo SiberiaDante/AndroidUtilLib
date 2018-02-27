@@ -14,8 +14,8 @@ import java.security.NoSuchAlgorithmException;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： 内含方法
+ * Created: SiberiaDante
+ * Describe： 内含方法
  * Hash MD5加密：
  * 加密字符串
  * 加密字符串 带盐
@@ -24,10 +24,10 @@ import java.security.NoSuchAlgorithmException;
  * Hmac MD5加密：
  * 加密字符串
  * 加密字节数组
- * @CreateTime: 2017/11/8
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * CreateTime: 2017/11/8
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 /*
 

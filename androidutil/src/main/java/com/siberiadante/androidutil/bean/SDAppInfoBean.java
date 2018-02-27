@@ -3,14 +3,14 @@ package com.siberiadante.androidutil.bean;
 import android.graphics.drawable.Drawable;
 
 /**
- * Created by SiberiaDante
- * Describe: 封装App信息的Bean类
- * Time:  2017/5/15.
+ * Created: SiberiaDante
  * Email: 2654828081@qq.com
  * GitHub: https://github.com/SiberiaDante
- * 博客园： http://www.cnblogs.com/shen-hua/
+ * Blog: http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/5/15.
+ * UpdateTime:
+ * Describe: 封装App信息的Bean类
  */
-
 public class SDAppInfoBean {
     private String name;
     private Drawable icon;

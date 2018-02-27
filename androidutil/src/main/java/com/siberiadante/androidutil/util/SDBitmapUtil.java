@@ -50,13 +50,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * @Created： SiberiaDante
- * @Date： 2017/9/22
- * @Describe：
- * @github： https://github.com/SiberiaDante
- * @博客园： http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/9/22
+ * UpDateTime:
+ * Describe：
  */
-
 public class SDBitmapUtil {
 
     public SDBitmapUtil() {

@@ -24,12 +24,12 @@ import java.util.List;
 
 
 /**
- * @Created SiberiaDante
- * @Describe：页面跳转、打开浏览器、发送短信、设置面板等工具类
- * @CreateTime: 2017/10/26
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：页面跳转、打开浏览器、发送短信、设置面板等工具类
+ * CreateTime: 2017/10/26
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDJumpUtil {

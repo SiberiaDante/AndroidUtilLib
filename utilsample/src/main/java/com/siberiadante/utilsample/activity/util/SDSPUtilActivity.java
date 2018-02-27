@@ -17,9 +17,9 @@ import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2018/01/01
- * @Describe：
+ * Describe：
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */

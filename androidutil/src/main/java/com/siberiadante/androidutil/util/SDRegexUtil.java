@@ -17,12 +17,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @Created SiberiaDante
- * @Describe： 正则验证相关工具类
- * @Time: 2017/9/26
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 正则验证相关工具类
+ * Time: 2017/9/26
+ * UpDate:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDRegexUtil {

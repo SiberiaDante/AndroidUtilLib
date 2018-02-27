@@ -13,12 +13,12 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @CreateTime: 2017/12/5
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：
+ * CreateTime: 2017/12/5
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public abstract class BaseFragment extends Fragment {

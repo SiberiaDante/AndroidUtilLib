@@ -9,11 +9,14 @@ import java.io.File;
 import java.math.BigDecimal;
 
 /**
- * @Describe：
- * @CreateTime: 2017/11/20
- * @UpDateTime:
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/11/20
+ * UpDateTime:
+ * Describe：
  */
-
 public class SDCacheUtil {
     /**
      * 获取缓存大小

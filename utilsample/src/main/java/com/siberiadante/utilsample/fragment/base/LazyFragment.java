@@ -6,12 +6,12 @@ import android.view.View;
 
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @CreateTime: 2017/12/5
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：
+ * CreateTime: 2017/12/5
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 /*
 http://www.jianshu.com/p/092418c5fe7f

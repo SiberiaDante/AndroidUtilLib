@@ -31,12 +31,12 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * @Created SiberiaDante
- * @Describe：文件处理相关工具类—— all removed Android lib
- * @Time: 2017/5/4.
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：文件处理相关工具类—— all removed Android lib
+ * Time: 2017/5/4.
+ * UpDate:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDFileUtil {

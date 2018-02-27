@@ -10,13 +10,14 @@ import java.io.File;
 import static com.siberiadante.androidutil.util.SDFileUtil.deleteDir;
 
 /**
- * @Created SiberiaDante
- * @Describe： 清除缓存、数据等相关应用
- * @Time: 2017/5/15
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/5/15
+ * UpDateTime:
+ * Describe：清除缓存、数据等相关应用
  */
-
 public class SDCleanUtil {
     public SDCleanUtil() {
         throw new UnsupportedOperationException("not init lib---" + SDCleanUtil.class.getName());

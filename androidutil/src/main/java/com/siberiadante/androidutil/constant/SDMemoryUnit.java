@@ -1,13 +1,13 @@
 package com.siberiadante.androidutil.constant;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @CreateTime: 2017/12/27
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
- * @Blogs: http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/12/27
+ * UpDateTime:
+ * Describe：内存大小倍数关系
  */
 
 public class SDMemoryUnit {

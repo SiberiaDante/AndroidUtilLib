@@ -13,13 +13,13 @@ import com.siberiadante.androidutil.R;
 import com.siberiadante.androidutil.util.SDLogUtil;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @CreateTime: 2017/12/22
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
- * @Blogs: http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Describe：
+ * CreateTime: 2017/12/22
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
  */
 
 public class SDCircleTranslationX extends View {

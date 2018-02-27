@@ -17,11 +17,11 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： @{Link https://github.com/H07000223/FlycoRoundView}
- * @Time: 2017/9/4
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： @{Link https://github.com/H07000223/FlycoRoundView}
+ * Time: 2017/9/4
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDRoundViewAttr {

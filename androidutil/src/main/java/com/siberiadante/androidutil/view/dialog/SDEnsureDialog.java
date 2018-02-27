@@ -17,11 +17,11 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： 常规的提示确认dialog
- * @Time: 2017/6/29
- * @Email: 994537867@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 常规的提示确认dialog
+ * Time: 2017/6/29
+ * Email: 994537867@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDEnsureDialog {

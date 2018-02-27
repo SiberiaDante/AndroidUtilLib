@@ -7,13 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * @Created SiberiaDante
- * @Describe：解决ScrollView嵌套RecyclerView的问题
- * @CreateTime: 2017/12/27
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
- * @Blogs: http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Describe：解决ScrollView嵌套RecyclerView的问题
+ * CreateTime: 2017/12/27
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
  */
 
 public class SDFullyGridLayoutManager extends GridLayoutManager {

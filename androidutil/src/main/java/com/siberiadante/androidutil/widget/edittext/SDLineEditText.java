@@ -12,12 +12,12 @@ import com.siberiadante.androidutil.R;
 
 
 /**
- * @Created SiberiaDante
- * @Describe： 自定义下划线的EditText
- * @CreateTime: 2017/12/18
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 自定义下划线的EditText
+ * CreateTime: 2017/12/18
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDLineEditText extends AppCompatEditText {

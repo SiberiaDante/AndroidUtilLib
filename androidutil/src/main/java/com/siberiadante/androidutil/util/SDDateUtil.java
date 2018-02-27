@@ -9,6 +9,12 @@ import java.util.Locale;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/5/15
+ * UpDateTime:
+ * Describe：
  * 格式转换参考
  * HH:mm    15:44
  * h:mm a    3:44 下午
@@ -55,30 +61,35 @@ public class SDDateUtil {
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
+
     public static String getMonth() {
         String format = "MM";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
+
     public static String getDay() {
         String format = "dd";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
+
     public static String getHour() {
         String format = "HH";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
+
     public static String getMinute() {
         String format = "mm";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
         Long strLong = Long.valueOf(getTimeStamp());
         return sdf.format(new Date(strLong * 1000));
     }
+
     public static String getSecond() {
         String format = "ss";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);

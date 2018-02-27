@@ -32,10 +32,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by SiberiaDante on 2017/5/4.
- * 获取应用/手机信息、判断应用是否安装，卸载/安装APP，手机网络面板设置等
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/5/4.
+ * UpDateTime:
+ * Describe：获取应用/手机信息、判断应用是否安装，卸载/安装APP，手机网络面板设置等
  */
-
 public class SDAppUtil {
     public static final String TAG = SDAppUtil.class.getSimpleName();
 
@@ -406,7 +410,7 @@ public class SDAppUtil {
         int uid = appInfo.uid;
 
         Class appOpsClass = null;
-      /* Context.APP_OPS_MANAGER */
+        /* Context.APP_OPS_MANAGER */
         try {
             appOpsClass = Class.forName(AppOpsManager.class.getName());
             Method checkOpNoThrowMethod = appOpsClass.getMethod(CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE,

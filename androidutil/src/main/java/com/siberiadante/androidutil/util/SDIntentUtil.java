@@ -14,12 +14,12 @@ import com.siberiadante.androidutil.SDAndroidLib;
 import java.io.File;
 
 /**
- * @Created SiberiaDante
- * @Describe： —— all removed Android lib
- * @Time: 2017/5/15.
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： —— all removed Android lib
+ * Time: 2017/5/15.
+ * UpDate:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDIntentUtil {

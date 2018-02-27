@@ -17,9 +17,9 @@ import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2017/10/3
- * @Describe： 字母索引
+ * Describe： 字母索引
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */

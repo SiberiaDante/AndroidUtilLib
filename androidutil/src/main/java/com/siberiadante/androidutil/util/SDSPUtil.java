@@ -11,11 +11,11 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @Created SiberiaDante
- * @Describe： 使用参考sample/src/constants/SDAppInfoBean.java
- * @Time: 2017/8/3
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe： 使用参考sample/src/constants/SDAppInfoBean.java
+ * Time: 2017/8/3
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public final class SDSPUtil {

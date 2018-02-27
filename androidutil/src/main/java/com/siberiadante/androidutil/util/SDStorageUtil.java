@@ -24,11 +24,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @Time: 2017/5/15
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：
+ * Time: 2017/5/15
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDStorageUtil {

@@ -4,12 +4,12 @@ package com.siberiadante.androidutil.util.encrypt;
 import com.siberiadante.androidutil.util.encrypt.base.SDBaseEncrypt;
 
 /**
- * @Created SiberiaDante
- * @Describe：
- * @CreateTime: 2017/11/8
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Describe：
+ * CreateTime: 2017/11/8
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
  */
 
 public class SDMD2Util {

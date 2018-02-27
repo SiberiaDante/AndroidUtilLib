@@ -1,9 +1,9 @@
 package com.siberiadante.androidutilkotlin;
 
 /**
- * @Created： SiberiaDante
+ * Created:： SiberiaDante
  * @Date： 2018/1/7
- * @Describe：
+ * Describe：
  * @Github： https://github.com/SiberiaDante
  * @Blog： http://www.cnblogs.com/shen-hua/
  */

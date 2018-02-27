@@ -1,13 +1,13 @@
 package com.siberiadante.androidutil.constant;
 
 /**
- * @Created SiberiaDante
- * @Describe： 正则表达式
- * 摘选自网络资料
- * @Time: 2017/9/26
- * @UpDate:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/9/26
+ * UpDateTime:
+ * Describe： 正则表达式
  */
 
 public class SDRegexUnit {
@@ -160,7 +160,7 @@ public class SDRegexUnit {
     /**
      * 正则：大小写英文字母组成
      */
-    public static final String REGEX_ALL_ENGLISH_STR="^^[A-Za-z]+$";
+    public static final String REGEX_ALL_ENGLISH_STR = "^^[A-Za-z]+$";
 
 
 

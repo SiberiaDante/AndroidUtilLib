@@ -3,13 +3,13 @@ package com.siberiadante.androidutil.bean;
 import android.graphics.drawable.Drawable;
 
 /**
- * @Created SiberiaDante
- * @Describe： 已安装的APP信息实体类
- * @CreateTime: 2017/12/28
- * @UpDateTime:
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
- * @Blogs: http://www.cnblogs.com/shen-hua/
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * Blog: http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/12/28
+ * UpDateTime:
+ * Describe： 已安装的APP信息实体类
  */
 
 public class SDInstallAppInfoBean {

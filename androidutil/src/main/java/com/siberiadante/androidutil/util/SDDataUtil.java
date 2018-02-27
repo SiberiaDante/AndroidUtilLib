@@ -1,15 +1,14 @@
 package com.siberiadante.androidutil.util;
 
-
 /**
- * @Created SiberiaDante
- * @Describe： 数据处理相关类
- * @Time: 2017/9/26
- * @UpDate: 2017-09-27
- * @Email: 2654828081@qq.com
- * @GitHub: https://github.com/SiberiaDante
+ * Created: SiberiaDante
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/5/15
+ * UpDateTime:
+ * Describe：数据处理相关类
  */
-
 public class SDDataUtil {
 
     /**
