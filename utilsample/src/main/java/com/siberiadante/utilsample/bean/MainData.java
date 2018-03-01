@@ -34,6 +34,7 @@ import com.siberiadante.utilsample.activity.widget.SDEditTextWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDImageViewActivity;
 import com.siberiadante.utilsample.activity.widget.SDShapeWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDSpecialWidgetActivity;
+import com.siberiadante.utilsample.activity.widget.SDTextViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,6 +96,7 @@ public class MainData {
         data.add(new DataBean("测试EditText组件", SDEditTextWidgetActivity.class));
         data.add(new DataBean("测试评分组件", SDRankingActivity.class));
         data.add(new DataBean("测试特殊组件", SDSpecialWidgetActivity.class));
+        data.add(new DataBean("测试TextView相关组件", SDTextViewActivity.class));
         return data;
     }
 }

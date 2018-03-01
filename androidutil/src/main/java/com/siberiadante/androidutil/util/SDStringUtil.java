@@ -2,6 +2,9 @@ package com.siberiadante.androidutil.util;
 
 
 
+import android.graphics.Paint;
+import android.widget.TextView;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -210,6 +213,42 @@ public class SDStringUtil {
      */
     public static int length(final CharSequence s) {
         return s == null ? 0 : s.length();
+    }
+
+    /**
+     * 处理TextView中英文导致自动换行问题
+     * @param textView
+     * @return
+     */
+    public static String adaptiveText(final TextView textView) {
+        final String originalText = textView.getText().toString(); //原始文本
+        final Paint tvPaint = textView.getPaint();//获取TextView的Paint
+        final float tvWidth = textView.getWidth() - textView.getPaddingLeft() - textView.getPaddingRight(); //TextView的可用宽度
+        //将原始文本按行拆分
+        String[] originalTextLines = originalText.replaceAll("\r", "").split("\n");
+        StringBuilder newTextBuilder = new StringBuilder();
+        for (String originalTextLine : originalTextLines) {
+            //文本内容小于TextView宽度，即不换行，不作处理
+            if (tvPaint.measureText(originalTextLine) <= tvWidth) {
+                newTextBuilder.append(originalTextLine);
+            } else {
+                //如果整行宽度超过控件可用宽度，则按字符测量，在超过可用宽度的前一个字符处手动换行
+                float lineWidth = 0;
+                for (int i = 0; i != originalTextLine.length(); ++i) {
+                    char charAt = originalTextLine.charAt(i);
+                    lineWidth += tvPaint.measureText(String.valueOf(charAt));
+                    if (lineWidth <= tvWidth) {
+                        newTextBuilder.append(charAt);
+                    } else {
+                        //单行超过TextView可用宽度，换行
+                        newTextBuilder.append("\n");
+                        lineWidth = 0;
+                        --i;//该代码作用是将本轮循环回滚，在新的一行重新循环判断该字符
+                    }
+                }
+            }
+        }
+        return newTextBuilder.toString();
     }
 
 }
