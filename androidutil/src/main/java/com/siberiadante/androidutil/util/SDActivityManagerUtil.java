@@ -1,9 +1,15 @@
 package com.siberiadante.androidutil.util;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
+
+import com.siberiadante.androidutil.SDAndroidLib;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * Created: SiberiaDante
@@ -15,47 +21,115 @@ import java.util.List;
  * Describe： Activity管理工具类
  */
 public class SDActivityManagerUtil {
-    private static List<Activity> activityList = new ArrayList<>();
+    private static Stack<Activity> activitys;
+
+    private static class SDActivityManagerHolder {
+        private static final SDActivityManagerUtil activityManager = new SDActivityManagerUtil();
+    }
+
+    private SDActivityManagerUtil() {
+    }
+
+    public static SDActivityManagerUtil getInstance() {
+        return SDActivityManagerHolder.activityManager;
+    }
 
     /**
-     * 把当前Activity添加到activityList集合中
+     * 向栈中添加一个Activity
      *
      * @param activity
      */
-    public static void addActivity(Activity activity) {
-        if (!activityList.contains(activity)) {
-            activityList.add(activity);
+    public void addActivity(Activity activity) {
+        if (activitys == null) {
+            activitys = new Stack<>();
+        }
+        activitys.add(activity);
+    }
+
+    /**
+     * 移除栈中的某一个Activity
+     *
+     * @param activity
+     */
+    public void removeActivity(Activity activity) {
+        if (activitys.contains(activity)) {
+            activitys.remove(activity);
         }
     }
 
     /**
-     * 把当前Activity从activityList集合中移除
+     * 移除栈中的某一个Activity并销毁
      *
      * @param activity
      */
-    public static void removeActivity(Activity activity) {
-        if (activityList.contains(activity)) {
-            activityList.remove(activity);
-        }
-    }
-
-    /**
-     * 把当前Activity从activityList集合中移除并销毁
-     *
-     * @param activity
-     */
-    public static void finishActivity(Activity activity) {
-        removeActivity(activity);
-        activity.finish();
-    }
-
-    /**
-     * 从当前activityList集合中销毁所有的Activity
-     */
-    public static void finishAllActivity() {
-        for (Activity activity : activityList) {
-            removeActivity(activity);
+    public void finishActivity(Activity activity) {
+        if (activity != null) {
+            if (activitys.contains(activity)) {
+                activitys.remove(activity);
+            }
             activity.finish();
+            activity = null;
+        }
+    }
+
+    /**
+     * 获取栈顶的Activity
+     *
+     * @return
+     */
+    public Activity currentActivity() {
+        return activitys.lastElement();
+    }
+
+    /**
+     * 移除栈顶的Activity
+     */
+    public void removeCurrentActivity() {
+        Activity activity = activitys.lastElement();
+        if (activitys.contains(activity)) {
+            activitys.remove(activity);
+        }
+    }
+
+    /**
+     * 移除栈顶的Activity并销毁
+     */
+    public void finishCurrentActivity() {
+        Activity activity = activitys.lastElement();
+        if (activitys.contains(activity)) {
+            activitys.remove(activity);
+        }
+        activity.finish();
+        activity = null;
+    }
+
+    /**
+     * 结束栈中所有的Activity
+     */
+    public void finishAllActivity() {
+        for (Activity activity : activitys) {
+            if (activity != null) {
+                activity.finish();
+            }
+        }
+        activitys.clear();
+    }
+
+    /**
+     * 退出应用程序
+     * 需求要权限{@code uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"}
+     */
+    public void AppExit() {
+        try {
+            finishAllActivity();
+            ActivityManager activityMgr = (ActivityManager) SDAndroidLib.getContext().getSystemService(Context.ACTIVITY_SERVICE);
+            if (activityMgr != null) {
+                activityMgr.killBackgroundProcesses(SDAndroidLib.getContext().getPackageName());
+            }
+//            activityMgr.restartPackage(context.getPackageName());
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

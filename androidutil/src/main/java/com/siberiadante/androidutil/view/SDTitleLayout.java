@@ -745,6 +745,45 @@ public class SDTitleLayout extends RelativeLayout {
         mTvSubTitle.setVisibility(visible);
     }
 
+    /**
+     * 设置左侧文字是否可以点击
+     *
+     * @param isClickable
+     */
+    public void setLeftTextClickable(boolean isClickable) {
+        mTvLeft.setClickable(isClickable);
+        mTvLeft.setFocusable(isClickable);
+    }
+
+    /**
+     * 设置左侧图片是否可以点击
+     *
+     * @param isClickable
+     */
+    public void setLeftImageClickable(boolean isClickable) {
+        mIvLeft.setClickable(isClickable);
+        mIvLeft.setFocusable(isClickable);
+    }
+
+    /**
+     * 设置右侧文字是否可以点击
+     *
+     * @param isClickable
+     */
+    public void setRightTextClickable(boolean isClickable) {
+        mTvRight.setClickable(isClickable);
+        mTvRight.setFocusable(isClickable);
+    }
+
+    /**
+     * 设置右侧图片是否可以点击
+     *
+     * @param isClickable
+     */
+    public void setRightImageClickable(boolean isClickable) {
+        mIvRight.setClickable(isClickable);
+        mIvRight.setFocusable(isClickable);
+    }
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

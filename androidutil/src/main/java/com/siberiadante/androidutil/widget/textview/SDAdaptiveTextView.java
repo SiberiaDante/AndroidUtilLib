@@ -13,7 +13,7 @@ import android.widget.TextView;
  * Blog: http://www.cnblogs.com/shen-hua/
  * CreateTime: 2018/3/1
  * UpDateTime:
- * Describe: 解决TextView的内容中包含中英文导致自动换行bug
+ * Describe: 解决TextView的内容中包含中英文导致自动换行bug,会有性能影响，可以考虑使用文字转半角使用
  */
 public class SDAdaptiveTextView extends TextView {
     public SDAdaptiveTextView(Context context) {

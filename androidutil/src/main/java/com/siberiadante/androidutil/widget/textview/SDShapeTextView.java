@@ -6,15 +6,15 @@ import android.widget.TextView;
 
 import com.siberiadante.androidutil.widget.base.SDRoundViewAttr;
 
-
 /**
  * Created: SiberiaDante
- * Describe： 简化TextView shape 画背景
- * Time: 2017/9/4
  * Email: 2654828081@qq.com
  * GitHub: https://github.com/SiberiaDante
+ * 博客园:http://www.cnblogs.com/shen-hua/
+ * CreateTime: 2017/9/4
+ * UpDateTime:
+ * Describe： 简化TextView shape 画背景
  */
-
 public class SDShapeTextView extends TextView {
 
     private SDRoundViewAttr roundViewAttr;

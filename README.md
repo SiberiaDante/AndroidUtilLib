@@ -242,7 +242,7 @@
     </tr>
     <tr>
         <td>SDCenterAlignImageSpan</td>
-        <td>图文混排对齐</td>
+        <td>图文混排对齐的ImageSpan</td>
     </tr>
     <tr>
         <td>SDHexagonView</td>
