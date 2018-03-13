@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.SiberiaDante'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
@@ -20,7 +21,10 @@ android {
     }
 
 }
-
+//repositories {
+//    jcenter()
+//    maven { url "https://jitpack.io" }
+//}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -29,4 +33,5 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+//    compile 'com.github.jitpack:gradle-simple:1.0.5'
 }
