@@ -13,16 +13,16 @@
         android:orientation="vertical"
         android:padding="@dimen/page_padding_16">
 
-        <com.siberiadante.androidutil.view.load.SDCircleMove
+        <com.siberiadante.androidutil.view.loading.SDCircleMove
             android:id="@+id/sd_circle_move"
             android:layout_width="match_parent"
             android:layout_height="@dimen/fifty" />
 
-        <com.siberiadante.androidutil.view.load.SDCircleTranslationX
+        <com.siberiadante.androidutil.view.loading.SDCircleTranslationX
             android:layout_width="match_parent"
             android:layout_height="@dimen/fifty" />
 
-        <com.siberiadante.androidutil.view.load.SDSkipLoadView
+        <com.siberiadante.androidutil.view.loading.SDSkipLoadView
             android:id="@+id/sd_skip_load_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -33,12 +33,12 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <com.siberiadante.androidutil.view.load.SDRotateImageView
+            <com.siberiadante.androidutil.view.loading.SDRotateImageView
                 android:id="@+id/sd_rotate_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <com.siberiadante.androidutil.view.load.SDZoomImageView
+            <com.siberiadante.androidutil.view.loading.SDZoomImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

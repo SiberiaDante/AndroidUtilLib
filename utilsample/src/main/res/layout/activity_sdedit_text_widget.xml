@@ -19,7 +19,7 @@
             android:layout_height="@dimen/fifty"
             android:gravity="center_vertical"
             dante:sd_line_color="@color/colorRed"
-            android:hint="自定义EditText下划线"
+            android:hint="自定义EditText下划线：SDLineEditText"
             android:textSize="@dimen/font_12" />
 
     </LinearLayout>

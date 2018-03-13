@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 
 import com.siberiadante.androidutil.util.SDLogUtil;
-import com.siberiadante.androidutil.view.SDRatingBarView;
+import com.siberiadante.androidutil.widget.special.SDRatingBarView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 

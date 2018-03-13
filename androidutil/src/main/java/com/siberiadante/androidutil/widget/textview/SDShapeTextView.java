@@ -1,5 +1,6 @@
 package com.siberiadante.androidutil.widget.textview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.siberiadante.androidutil.widget.base.SDRoundViewAttr;
  * UpDateTime:
  * Describe： 简化TextView shape 画背景
  */
+@SuppressLint("AppCompatCustomView")
 public class SDShapeTextView extends TextView {
 
     private SDRoundViewAttr roundViewAttr;

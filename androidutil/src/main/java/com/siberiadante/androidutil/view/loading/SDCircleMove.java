@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.view.load;
+package com.siberiadante.androidutil.view.loading;
 
 import android.animation.Animator;
 import android.animation.AnimatorSet;

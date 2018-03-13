@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.view.load.base;
+package com.siberiadante.androidutil.view.loading.base;
 
 import android.content.Context;
 import android.graphics.Canvas;

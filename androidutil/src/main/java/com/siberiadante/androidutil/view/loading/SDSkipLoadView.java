@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.view.load;
+package com.siberiadante.androidutil.view.loading;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 
 import com.siberiadante.androidutil.R;
 import com.siberiadante.androidutil.util.SDTransitionUtil;
-import com.siberiadante.androidutil.view.load.base.SDShapeChangeView;
+import com.siberiadante.androidutil.view.loading.base.SDShapeChangeView;
 
 
 /**

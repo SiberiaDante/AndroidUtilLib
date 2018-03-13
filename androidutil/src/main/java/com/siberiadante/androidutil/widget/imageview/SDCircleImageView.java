@@ -1,5 +1,6 @@
 package com.siberiadante.androidutil.widget.imageview;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -41,6 +42,7 @@ import com.siberiadante.androidutil.R;
  * Blog: http://www.cnblogs.com/shen-hua/
  */
 
+@SuppressLint("AppCompatCustomView")
 public class SDCircleImageView extends ImageView {
 
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;

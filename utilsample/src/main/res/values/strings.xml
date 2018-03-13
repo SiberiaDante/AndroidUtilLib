@@ -12,8 +12,11 @@
     <string name="sd_timer_util">SDTimerUtil</string>
     <string name="sd_transition_util">SDTransitionUtil</string>
     <string name="sd_number_util">SDNumberUtil</string>
-    <string name="input_content">请输入内容</string>
     <string name="sd_screen_util">SDScreenUtil</string>
+    <!--widget-->
+    <string name="sd_title_layout">SDTitleLayout</string>
+
+    <string name="input_content">请输入内容</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

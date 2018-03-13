@@ -4,6 +4,8 @@
 # 重构中。。。重构中。。。重构中。。。重构中。。。
 
 # 文档更新更不上，具体使用参考 utilsample
+## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
+
 <table align="left">
     <tr style="color:red">
         <th>SD-Util相关类</th>
@@ -143,6 +145,64 @@
     </tr>
 </table>
 
+## 加解密相关工具类
+<table align="left">
+    <tr>
+        <td>SD3DesUtil</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDAESUtil</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDBase64Util</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDDESUtil</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDEncryptUtil</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDMD2Util</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDMD5Util</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDRSAUtil</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDSHA1Util</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDSHA224Util</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDSHA256Util</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDSHA384Util</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDSHA512Util</td>
+        <td></td>
+    </tr>
+
+
+
+</table>
 ## 加载动画相关
 
 <table align="left">
@@ -233,7 +293,7 @@
 
 </table>
 
-## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Widget">SD-Widget</a>
+## 组件相关（SD-Widget）
 
 <table align="left">
     <tr style="color:red">
@@ -245,48 +305,87 @@
         <td>图文混排对齐的ImageSpan</td>
     </tr>
     <tr>
+        <td>SDLineEditText</td>
+        <td>自定义下划线的EditText</td>
+    </tr>
+    <tr>
+        <td>SDShapeFrameLayout</td>
+        <td>简化FrameLayout shape 画背景</td>
+    </tr>
+    <tr>
+        <td><a href="http://www.cnblogs.com/shen-hua/p/8124319.html">SDAvatarListLayout</a></td>
+        <td>头像列表叠加组件</td>
+    </tr>    
+    <tr>
+        <td>SDCircleImageView</td>
+        <td>圆形ImageView，可设置描边相关等</td>
+    </tr>
+    <tr>
+        <td>SDNotifyImageView</td>
+        <td>带通知圆点的ImageView</td>
+    </tr>    
+    <tr>
+        <td>SDFullyGridLayoutManager</td>
+        <td>解决ScrollView嵌套RecyclerView的问题</td>
+    </tr>  
+    <tr>
+        <td>SDFullyLinearLayoutManager</td>
+        <td>解决ScrollView嵌套RecyclerView的问题</td>
+    </tr>  
+    <tr>
+        <td>SDFullyStaggeredGridLayoutManager</td>
+        <td>解决ScrollView嵌套RecyclerView的问题</td>
+    </tr>  
+    <tr>
+        <td>SDShapeLinearLayout</td>
+        <td>简化LinearLayout shape 画背景</td>
+    </tr>  
+    <tr>
+        <td>SDDrawableRadioButton</td>
+        <td>可设置图片大小的RadioButton</td>
+    </tr>
+    <tr>
+        <td>SDNotifyRadioButton</td>
+        <td>带通知圆点的RadioButton</td>
+    </tr>
+    <tr>
+        <td>SDShapeRelativeLayout</td>
+        <td>简化RelativeLayout shape 画背景</td>
+    </tr>
+    <tr>
         <td>SDHexagonView</td>
         <td>正六边形TextView</td>
     </tr>
     <tr>
-        <td>SDJustifyTextView</td>
-        <td>适用文字对齐，错乱修正等；原文地址：https://github.com/ufo22940268/android-justifiedtextview</td>
+        <td>SDLetterIndexView</td>
+        <td>字母索引组件</td>
     </tr>
+    <tr>
+        <td>SDRatingBarView</td>
+        <td>评分组件</td>
+    </tr>
+    <tr>
+        <td>SDAdaptiveTextView</td>
+        <td>解决TextView的内容中包含中英文导致自动换行bug</td>
+    </tr>
+    <tr>
+        <td>SDFoldTextView</td>
+        <td></td>
+    </tr> 
+    <tr>
+        <td>SDShapeTextView</td>
+        <td>简化TextView shape 画背景</td>
+    </tr>   
     <tr>
         <td>SDLetterSpaceTextView</td>
-        <td>可设置文字间距的TextView</td>
-    </tr>
-    <tr>
-        <td>SDRadioButton</td>
-        <td>可设置图片大小的RadioButton</td>
-    </tr>
-    <tr>
-        <td>SDRoundFrameLayout</td>
-        <td>可在布局中直接设置shape相关的属性（背景颜色、角度等）</td>
-    </tr>
-    <tr>
-        <td>SDRoundImage</td>
-        <td>圆形ImageView控件,直接在布局中使用</td>
-    </tr>
-    <tr>
-        <td>SDRoundLinearLayout</td>
-        <td>可在布局中直接设置shape相关的属性（背景颜色、角度等）</td>
-    </tr>
-    <tr>
-        <td>SDRoundRelativeLayout</td>
-        <td>可在布局中直接设置shape相关的属性（背景颜色、角度等）</td>
-    </tr>
-    <tr>
-        <td>SDRoundTextView</td>
-        <td>可在布局中直接设置shape相关的属性（背景颜色、角度等）</td>
+        <td></td>
     </tr>
     <tr>
         <td>SuperTextView</td>
-        <td>超酷炫的TextView，可以设置出各种特效文字</td>
+        <td></td>
     </tr>
 </table>
 
-## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
 
 
 

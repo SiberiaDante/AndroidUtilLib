@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.view;
+package com.siberiadante.androidutil.widget.special;
 
 import android.app.Activity;
 import android.content.Context;
@@ -25,7 +25,7 @@ import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 
 /**
- * Describe： 使用说明<br/><a href=" /TitleLayout">GitHub</a>
+ * Describe： 使用说明<br/><a href=" https://github.com/SiberiaDante/TitleLayout">GitHub</a>
  * 完善中：
  * 1、测量左右View的宽度，依次来衡量标题位置
  * 2、可设置View大小

@@ -5,7 +5,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.siberiadante.androidutil.view.load.base.SDShapeChangeView
+    <com.siberiadante.androidutil.view.loading.base.SDShapeChangeView
         android:id="@+id/shapeChangeView"
         android:layout_width="30dp"
         android:layout_height="30dp"

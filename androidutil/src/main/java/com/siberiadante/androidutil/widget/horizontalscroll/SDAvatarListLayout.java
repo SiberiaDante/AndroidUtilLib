@@ -22,7 +22,7 @@ import static android.widget.RelativeLayout.ALIGN_PARENT_LEFT;
 
 /**
  * Created: SiberiaDante
- * Describe：
+ * Describe：头像列表叠加组件
  * CreateTime: 2017/12/26
  * UpDateTime:
  * Email: 2654828081@qq.com

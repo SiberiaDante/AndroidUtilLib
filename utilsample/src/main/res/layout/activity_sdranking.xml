@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:padding="@dimen/sixteen">
 
-        <com.siberiadante.androidutil.view.SDRatingBarView
+        <com.siberiadante.androidutil.widget.special.SDRatingBarView
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
