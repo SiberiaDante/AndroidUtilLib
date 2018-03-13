@@ -33,9 +33,9 @@ dependencies {
     implementation "com.android.support:design:$rootProject.ext.supportLibrary"
     implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraint_layout"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile "com.jakewharton:butterknife:$rootProject.butterknife"
+    implementation "com.jakewharton:butterknife:$rootProject.butterknife"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknife_compiler"
-    debugCompile "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanary_android"
-    compile "com.jude:swipebackhelper:$rootProject.swipebackhelper"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanary_android"
+    implementation "com.jude:swipebackhelper:$rootProject.swipebackhelper"
     implementation project(':androidutil')
 }
