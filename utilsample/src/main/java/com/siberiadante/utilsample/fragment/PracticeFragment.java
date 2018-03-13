@@ -2,17 +2,14 @@ package com.siberiadante.utilsample.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.siberiadante.androidutil.view.MyCycleView;
+import com.siberiadante.androidutil.view.loading.SDRotateImageView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.fragment.base.BaseFragment;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 
@@ -29,7 +26,7 @@ import butterknife.Unbinder;
 public class PracticeFragment extends BaseFragment {
 
     @BindView(R.id.iv_image)
-    MyCycleView ivImage;
+    SDRotateImageView ivImage;
     @BindView(R.id.ll_circle)
     LinearLayout llCircle;
     Unbinder unbinder;

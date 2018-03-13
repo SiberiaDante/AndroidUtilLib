@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:visibility="gone" />
 
-    <com.siberiadante.androidutil.view.MyCycleView
+    <com.siberiadante.androidutil.view.loading.SDRotateImageView
         android:id="@+id/iv_image"
         android:layout_width="100dp"
         android:layout_height="100dp"

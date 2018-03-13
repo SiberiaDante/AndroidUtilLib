@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 
-import com.siberiadante.androidutil.view.SDStepView;
+import com.siberiadante.androidutil.view.custom.SDStepView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 

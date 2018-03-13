@@ -6,6 +6,11 @@
 # 文档更新更不上，具体使用参考 utilsample
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
 
+## 关注我微信公众号：mumacode
+
+![](https://github.com/SiberiaDante/AndroidUtilLib/blob/master/Documents/imgs/icon_qrcode.jpg)
+
+
 <table align="left">
     <tr style="color:red">
         <th>SD-Util相关类</th>
@@ -262,35 +267,65 @@
 </table>
 
 ### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-View">其他SD-View相关</a>
+
+<table  align="left">
+    <tr>
+        <td>SDStepView</td>
+        <td>仿QQ计步器View</td>
+    </tr>
+</table>
+
+<table  align="left">
+    <tr>
+        <td>SDDrawableDecoration</td>
+        <td>RecyclerView 分隔线，可传入一个Drawable对象</td>
+    </tr>
+    <tr>
+        <td>SDNormalDecoration</td>
+        <td>RecyclerView 分隔线,可设置颜色和高度</td>
+    </tr>   
+</table> 
+### 加载动画等相关
+<table  align="left">
+    <tr>
+        <td>SDCircleMove</td>
+        <td>仿百度圆加载动画</td>
+    </tr>
+    <tr>
+        <td>SDCircleTranslationX</td>
+        <td>仿百度圆加载动画</td>
+    </tr>   
+    <tr>
+        <td>SDRotateImageView</td>
+        <td>旋转一张图片的动画</td>
+    </tr>
+    <tr>
+        <td>SDRotateLayoutImageView</td>
+        <td>旋转一张图片的动画</td>
+    </tr>
+    <tr>
+        <td>SDSkipLoadView</td>
+        <td>跳跃动画</td>
+    </tr>  
+    <tr>
+        <td>SDZoomImageView</td>
+        <td>缩放一张图片的动画</td>
+    </tr>
+
+</table> 
+   
 <table  align="left">
     <tr>
         <th colspan="2" style="color:red">其他View相关</th>
-    </tr>
-    <tr>
-        <td>PicassoCircleTransfer</td>
-        <td>Picasso加载图片时将图片转换为圆形工具</td>
-    </tr>
+    </tr> 
     <tr>
         <td>SDStepView</td>
         <td> 自定义View实现仿QQ运动步数功能</td>
     </tr>
     <tr>
-        <td>SDLetterIndexView</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>SDRatingBarView</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>SDTitleLayout</td>
-        <td></td>
-    </tr>
-    <tr>
         <td></td>
         <td></td>
     </tr>
-
 </table>
 
 ## 组件相关（SD-Widget）

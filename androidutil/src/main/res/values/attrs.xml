@@ -242,7 +242,7 @@
         <attr name="image_offset" format="float" />
     </declare-styleable>
 
-    <declare-styleable name="SDRotateImageView">
+    <declare-styleable name="SDRotateLayoutImageView">
         <attr name="sd_rotate_image" format="reference"/>
         <attr name="sd_rotate_imageInterpolator" format="string"/>
     </declare-styleable>

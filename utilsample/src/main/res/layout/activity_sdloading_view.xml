@@ -33,7 +33,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <com.siberiadante.androidutil.view.loading.SDRotateImageView
+            <com.siberiadante.androidutil.view.loading.SDRotateLayoutImageView
                 android:id="@+id/sd_rotate_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <com.siberiadante.androidutil.view.MyCycleView
+            <com.siberiadante.androidutil.view.loading.SDRotateImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/icon_default_circle" />

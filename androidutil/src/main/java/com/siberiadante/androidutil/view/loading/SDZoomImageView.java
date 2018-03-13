@@ -17,7 +17,7 @@ import com.siberiadante.androidutil.R;
 
 /**
  * Created: SiberiaDante
- * Describe： 旋转一张图片的动画
+ * Describe： 缩放一张图片的动画
  * CreateTime: 2018/1/26
  * UpDateTime:
  * Email: 2654828081@qq.com

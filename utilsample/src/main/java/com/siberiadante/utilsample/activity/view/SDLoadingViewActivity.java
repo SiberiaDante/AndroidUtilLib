@@ -3,7 +3,7 @@ package com.siberiadante.utilsample.activity.view;
 import android.os.Bundle;
 import android.view.View;
 
-import com.siberiadante.androidutil.view.loading.SDRotateImageView;
+import com.siberiadante.androidutil.view.loading.SDRotateLayoutImageView;
 import com.siberiadante.androidutil.view.loading.SDCircleMove;
 import com.siberiadante.androidutil.view.loading.SDSkipLoadView;
 import com.siberiadante.utilsample.R;
@@ -19,7 +19,7 @@ public class SDLoadingViewActivity extends BaseActivity {
     @BindView(R.id.sd_skip_load_view)
     SDSkipLoadView sdSkipLoadView;
     @BindView(R.id.sd_rotate_view)
-    SDRotateImageView sdRotateView;
+    SDRotateLayoutImageView sdRotateView;
 
     @Override
     public int setLayoutId() {
