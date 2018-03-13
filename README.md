@@ -1,15 +1,23 @@
 # SiberiaDanteLib
 >#### 旨在打造一款属于Android开发的强大工具库(持续更新维护中。。。）
 >#### 项目包含library和sample，每个library中的工具类都在sample中作了测试，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢.使用中也可以参考sample.
-# 重构中。。。重构中。。。重构中。。。重构中。。。
 
-# 文档更新更不上，具体使用参考 utilsample
-## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
+```
+compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.0'
+```
+初始化
+```
+ SDAndroidLib.initLib(context);
+```
 
 ## 关注我微信公众号：mumacode
 
 ![](https://github.com/SiberiaDante/AndroidUtilLib/blob/master/Documents/imgs/icon_qrcode.jpg)
 
+
+### 文档更新更不上，具体使用参考 utilsample
+
+## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
 
 <table align="left">
     <tr style="color:red">
@@ -150,8 +158,10 @@
     </tr>
 </table>
 
-## 加解密相关工具类
 <table align="left">
+    <tr>
+        <th colspan="2" style="color:red">加解密相关工具类</th>
+    </tr>
     <tr>
         <td>SD3DesUtil</td>
         <td></td>
@@ -204,13 +214,12 @@
         <td>SDSHA512Util</td>
         <td></td>
     </tr>
-
-
-
 </table>
-## 加载动画相关
 
 <table align="left">
+    <tr>
+        <th colspan="2" style="color:red">加载动画相关</th>
+    </tr>
     <tr>
         <td>SDZoomImageView</td>
         <td>旋转一张图片的动画</td>
@@ -230,12 +239,10 @@
 </table>
 
 ## SD-view
-### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Dialog">SD-Dialog</a>
 
 <table align="left">
-    <tr style="color:red">
-        <th>Dialog相关封装</th>
-        <th>简单说明</th>
+    <tr>
+        <th colspan="2" style="color:red">Dialog相关封装</th>
     </tr>
     <tr>
         <td>SDBottomItemDialog</td>
@@ -266,9 +273,10 @@
     </tr>
 </table>
 
-### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-View">其他SD-View相关</a>
-
 <table  align="left">
+    <tr>
+        <th colspan="2" style="color:red">自定义View</th>
+    </tr> 
     <tr>
         <td>SDStepView</td>
         <td>仿QQ计步器View</td>
@@ -276,6 +284,9 @@
 </table>
 
 <table  align="left">
+    <tr>
+        <th colspan="2" style="color:red">RecyclerView 分割线</th>
+    </tr> 
     <tr>
         <td>SDDrawableDecoration</td>
         <td>RecyclerView 分隔线，可传入一个Drawable对象</td>
@@ -285,8 +296,11 @@
         <td>RecyclerView 分隔线,可设置颜色和高度</td>
     </tr>   
 </table> 
-### 加载动画等相关
+
 <table  align="left">
+    <tr>
+        <th colspan="2" style="color:red">加载动画等相关</th>
+    </tr> 
     <tr>
         <td>SDCircleMove</td>
         <td>仿百度圆加载动画</td>
@@ -328,12 +342,9 @@
     </tr>
 </table>
 
-## 组件相关（SD-Widget）
-
 <table align="left">
     <tr style="color:red">
-        <th>SD-Widget相关类</th>
-        <th>SD-Widget相关类简要说明</th>
+         <th colspan="2" style="color:red">SD-Widget相关类</th>
     </tr>
     <tr>
         <td>SDCenterAlignImageSpan</td>
