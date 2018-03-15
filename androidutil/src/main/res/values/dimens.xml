@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--font size-->
+    <dimen name="font_10">10sp</dimen>
     <dimen name="font_11">11sp</dimen>
     <dimen name="font_12">12sp</dimen>
     <dimen name="font_13">13sp</dimen>
@@ -13,6 +14,9 @@
     <dimen name="font_20">20sp</dimen>
     <dimen name="font_21">21sp</dimen>
     <dimen name="font_22">22sp</dimen>
+    <dimen name="font_23">23sp</dimen>
+    <dimen name="font_24">24sp</dimen>
+    <dimen name="font_25">25sp</dimen>
     <dimen name="font_36">36sp</dimen>
     <!--base size-->
     <dimen name="zero">0dp</dimen>
@@ -26,6 +30,7 @@
     <dimen name="seven">7dp</dimen>
     <dimen name="eight">8dp</dimen>
     <dimen name="nine">9dp</dimen>
+
     <dimen name="ten">10dp</dimen>
     <dimen name="eleven">11dp</dimen>
     <dimen name="twelve">12dp</dimen>
@@ -36,18 +41,94 @@
     <dimen name="seventeen">17dp</dimen>
     <dimen name="eighteen">18dp</dimen>
     <dimen name="nineteen">19dp</dimen>
+
     <dimen name="twenty">20dp</dimen>
     <dimen name="twenty_one">21dp</dimen>
+    <dimen name="twenty_two">21dp</dimen>
+    <dimen name="twenty_three">21dp</dimen>
     <dimen name="twenty_four">24dp</dimen>
     <dimen name="twenty_five">25dp</dimen>
+    <dimen name="twenty_six">26dp</dimen>
+    <dimen name="twenty_seven">27dp</dimen>
+    <dimen name="twenty_eight">28dp</dimen>
+    <dimen name="twenty_nine">29dp</dimen>
+
+    <dimen name="thirty">30dp</dimen>
+    <dimen name="thirty_one">31dp</dimen>
     <dimen name="thirty_two">32dp</dimen>
+    <dimen name="thirty_three">33dp</dimen>
+    <dimen name="thirty_four">34dp</dimen>
+    <dimen name="thirty_five">35dp</dimen>
+    <dimen name="thirty_six">36dp</dimen>
+    <dimen name="thirty_seven">37dp</dimen>
     <dimen name="thirty_eight">38dp</dimen>
+    <dimen name="thirty_nine">39dp</dimen>
+
+    <dimen name="forty">40dp</dimen>
+    <dimen name="forty_one">41dp</dimen>
     <dimen name="forty_two">42dp</dimen>
+    <dimen name="forty_three">43dp</dimen>
+    <dimen name="forty_four">44dp</dimen>
     <dimen name="forty_five">45dp</dimen>
+    <dimen name="forty_six">46dp</dimen>
+    <dimen name="forty_seven">47dp</dimen>
     <dimen name="forty_eight">48dp</dimen>
+    <dimen name="forty_nine">49dp</dimen>
+
     <dimen name="fifty">50dp</dimen>
+    <dimen name="fifty_one">51dp</dimen>
+    <dimen name="fifty_two">52dp</dimen>
+    <dimen name="fifty_three">53dp</dimen>
     <dimen name="fifty_four">54dp</dimen>
+    <dimen name="fifty_five">55dp</dimen>
+    <dimen name="fifty_six">56dp</dimen>
+    <dimen name="fifty_seven">57dp</dimen>
+    <dimen name="fifty_eight">58dp</dimen>
+    <dimen name="fifty_nine">59dp</dimen>
+
+    <dimen name="sixty">60dp</dimen>
+    <dimen name="sixty_one">61dp</dimen>
+    <dimen name="sixty_two">62dp</dimen>
     <dimen name="sixty_three">63dp</dimen>
+    <dimen name="sixty_four">64dp</dimen>
+    <dimen name="sixty_five">65dp</dimen>
+    <dimen name="sixty_six">66dp</dimen>
+    <dimen name="sixty_seven">67dp</dimen>
+    <dimen name="sixty_eight">68dp</dimen>
+    <dimen name="sixty_nine">69dp</dimen>
+
+    <dimen name="seventy">70dp</dimen>
+    <dimen name="seventy_one">71dp</dimen>
+    <dimen name="seventy_two">72dp</dimen>
+    <dimen name="seventy_three">73dp</dimen>
+    <dimen name="seventy_four">74dp</dimen>
+    <dimen name="seventy_five">75dp</dimen>
+    <dimen name="seventy_six">76dp</dimen>
+    <dimen name="seventy_seven">77dp</dimen>
+    <dimen name="seventy_eight">78dp</dimen>
+    <dimen name="seventy_nine">79dp</dimen>
+
+    <dimen name="eighty">80dp</dimen>
+    <dimen name="eighty_one">81dp</dimen>
+    <dimen name="eighty_two">82dp</dimen>
+    <dimen name="eighty_three">83dp</dimen>
+    <dimen name="eighty_four">84dp</dimen>
+    <dimen name="eighty_five">85dp</dimen>
+    <dimen name="eighty_six">86dp</dimen>
+    <dimen name="eighty_seven">87dp</dimen>
+    <dimen name="eighty_eight">88dp</dimen>
+    <dimen name="eighty_nine">89dp</dimen>
+
+    <dimen name="ninety">90dp</dimen>
+    <dimen name="ninety_one">91dp</dimen>
+    <dimen name="ninety_two">92dp</dimen>
+    <dimen name="ninety_three">93dp</dimen>
+    <dimen name="ninety_four">94dp</dimen>
+    <dimen name="ninety_five">95dp</dimen>
+    <dimen name="ninety_six">96dp</dimen>
+    <dimen name="ninety_seven">97dp</dimen>
+    <dimen name="ninety_eight">98dp</dimen>
+    <dimen name="ninety_nine">99dp</dimen>
     <dimen name="one_five_zero">150dp</dimen>
 
     <!--other-->
