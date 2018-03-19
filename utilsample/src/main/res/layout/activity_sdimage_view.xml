@@ -42,6 +42,22 @@
             dante:sd_civ_border_color="@color/colorRed"
             dante:sd_civ_border_width="2dp" />
 
+        <com.siberiadante.androidutil.widget.imageview.SDRoundImageView
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/meinv"
+            android:scaleType="centerCrop"
+            dante:sd_round_img_radius="@dimen/eight"
+            dante:sd_round_img_type="round" />
+        <com.siberiadante.androidutil.widget.imageview.SDRoundImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="@dimen/ten"
+            android:src="@drawable/meinv"
+            android:scaleType="centerCrop"
+            dante:sd_round_img_radius="@dimen/eight"
+            dante:sd_round_img_type="circle" />
+
     </LinearLayout>
 
 </ScrollView>

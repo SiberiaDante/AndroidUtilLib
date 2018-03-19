@@ -233,6 +233,13 @@
         <!--字体样式-->
         <attr name="sd_text_typeface" format="string" />
     </declare-styleable>
+    <declare-styleable name="SDRoundImageView">
+        <attr name="sd_round_img_type" format="enum">
+            <enum name="circle" value="1"/>
+            <enum name="round" value="2"/>
+        </attr>
+        <attr name="sd_round_img_radius" format="dimension"/>
+    </declare-styleable>
     <declare-styleable name="SDAvatarListLayout">
         <!--创建的最大ImageView数量-->
         <attr name="image_max_count" format="integer" />
