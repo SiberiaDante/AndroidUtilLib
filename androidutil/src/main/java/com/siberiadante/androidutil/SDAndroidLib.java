@@ -3,6 +3,8 @@ package com.siberiadante.androidutil;
 import android.content.Context;
 import android.util.Log;
 
+import com.siberiadante.androidutil.util.SDLogUtil;
+
 /**
  * Created: SiberiaDante
  * Describe：
@@ -16,6 +18,8 @@ import android.util.Log;
 public class SDAndroidLib {
     private static Context context;
 
+    public static boolean isDebug;
+
     /**
      * 初始化
      *
@@ -25,6 +29,9 @@ public class SDAndroidLib {
         SDAndroidLib.context = context.getApplicationContext();
     }
 
+    public static void setDebug(boolean debug) {
+        isDebug = debug;
+    }
 
     /**
      * @return Application Context

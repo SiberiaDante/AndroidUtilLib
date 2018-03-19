@@ -21,6 +21,7 @@ public class UtilSampleApp extends Application {
     public void onCreate() {
         super.onCreate();
         SDAndroidLib.initLib(this);
+        SDAndroidLib.setDebug(true);
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return;
         }

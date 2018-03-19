@@ -28,7 +28,8 @@ public class SDLogUtil {
     }
 
     public static String TAG = "SiberiaDante";
-    private static boolean isDebug = BuildConfig.DEBUG;
+//    private static boolean isDebug = BuildConfig.DEBUG;
+    private static boolean isDebug = SDAndroidLib.isDebug;
     private static String TOP_BORDER = "╔══════════════════════════════════════════════════════════════════════════════════════════════════════════";
     private static String LEFT_BORDER = "║ ";
     private static String BOTTOM_BORDER = "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════";

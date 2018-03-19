@@ -18,22 +18,34 @@ public class SDNormalDecoration extends RecyclerView.ItemDecoration {
 
     private Paint mPaint;
     private int mHeight;
-
+    /**
+     * marginEnd  marginStart
+     * 父布局使用padding,避免使用margin
+     */
+    private int marginSE=0;
     public SDNormalDecoration(int color, int height) {
         this.mHeight = height;
         mPaint = new Paint();
         mPaint.setColor(color);
         mPaint.setAntiAlias(true);
     }
-
+    public SDNormalDecoration(int color, int marginSE, int height) {
+        this.mHeight = height;
+        this.marginSE = marginSE;
+        this.mPaint = new Paint();
+        this.mPaint.setColor(color);
+        this.mPaint.setAntiAlias(true);
+    }
     @Override
 
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
         super.onDraw(c, parent, state);
         int childCount = parent.getChildCount();
         Rect rect = new Rect();
-        rect.left = parent.getPaddingLeft();
-        rect.right = parent.getWidth() - parent.getPaddingRight();
+//        rect.left = parent.getPaddingLeft();
+//        rect.right = parent.getWidth() - parent.getPaddingRight();
+        rect.left = parent.getPaddingLeft()+marginSE;
+        rect.right = parent.getWidth() - parent.getPaddingRight()-marginSE;
         for (int i = 0; i < childCount; i++) {
             View childView = parent.getChildAt(i);
             rect.top = childView.getBottom();

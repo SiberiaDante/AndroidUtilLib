@@ -8,6 +8,7 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.0'
 初始化
 ```
  SDAndroidLib.initLib(context);
+ SDAndroidLib.setDebug(true);
 ```
 
 ## 关注我微信公众号：mumacode

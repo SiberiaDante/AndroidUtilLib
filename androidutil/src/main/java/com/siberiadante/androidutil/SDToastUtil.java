@@ -50,7 +50,6 @@ import java.util.List;
  * 我们需要重置Toast对象，其实就是创建一个新的常规对象
  */
 
-@Deprecated
 public class SDToastUtil {
     @ColorInt
     private static final int DEFAULT_TEXT_COLOR = Color.parseColor("#FFFFFF");
