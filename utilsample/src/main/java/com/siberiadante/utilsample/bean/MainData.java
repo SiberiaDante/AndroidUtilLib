@@ -16,6 +16,7 @@ import com.siberiadante.utilsample.activity.util.SDMathActivity;
 import com.siberiadante.utilsample.activity.util.SDNetWorkUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDNumberUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDObjectUtilActivity;
+import com.siberiadante.utilsample.activity.util.SDPhotoUtilsActivity;
 import com.siberiadante.utilsample.activity.util.SDProcessUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDRegexUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDSPUtilActivity;
@@ -69,6 +70,7 @@ public class MainData {
         data.add(new DataBean("测试SDNetWorkUtil", SDNetWorkUtilActivity.class));
         data.add(new DataBean("测试SDNumberUtil", SDNumberUtilActivity.class));
         data.add(new DataBean("测试SDObjectUtil", SDObjectUtilActivity.class));
+        data.add(new DataBean("测试SDPhotoUtil", SDPhotoUtilsActivity.class));
         data.add(new DataBean("测试SDProcessUtil", SDProcessUtilActivity.class));
         data.add(new DataBean("测试SDRegexUtil", SDRegexUtilActivity.class));
         data.add(new DataBean("测试SDScreenUtil", SDScreenUtilActivity.class));

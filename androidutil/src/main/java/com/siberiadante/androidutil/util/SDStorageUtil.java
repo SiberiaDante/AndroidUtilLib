@@ -45,6 +45,16 @@ public class SDStorageUtil {
     }
 
     /**
+     * 判断SD卡是否存在
+     *
+     * @return
+     */
+    public static boolean hasSdcard() {
+        String state = Environment.getExternalStorageState();
+        return state.equals(Environment.MEDIA_MOUNTED);
+    }
+
+    /**
      * 判断SD卡是否可用
      *
      * @return {@code true} 可用<br> {@code false }不可用
@@ -152,7 +162,7 @@ public class SDStorageUtil {
             StatFs fs = new StatFs(getSDCardBaseDir());
             long count = fs.getFreeBlocksLong();
             long size = fs.getBlockSizeLong();
-            return count * size / 1024 ;
+            return count * size / 1024;
         }
         return 0;
     }
@@ -200,7 +210,7 @@ public class SDStorageUtil {
             StatFs fs = new StatFs(getSDCardBaseDir());
             long count = fs.getAvailableBlocksLong();
             long size = fs.getBlockSizeLong();
-            return count * size / 1024 ;
+            return count * size / 1024;
         }
         return 0;
     }

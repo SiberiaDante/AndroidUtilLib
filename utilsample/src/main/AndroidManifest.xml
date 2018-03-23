@@ -93,7 +93,8 @@
         <activity android:name=".activity.view.SDDialogViewActivity" />
         <activity android:name=".TestAttrActivity" />
         <activity android:name=".activity.widget.SDTextViewActivity" />
-        <activity android:name=".activity.widget.SDTitleLayoutWidgetActivity"></activity>
+        <activity android:name=".activity.widget.SDTitleLayoutWidgetActivity" />
+        <activity android:name=".activity.util.SDPhotoUtilsActivity"></activity>
     </application>
 
 </manifest>

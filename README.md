@@ -110,6 +110,14 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.0'
         <td>数字工具类</td>
     </tr>
     <tr>
+        <td>SDObjectUtil</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>SDPhotoUtils</td>
+        <td>调用系统相机、相册、裁剪等工具类</td>
+    </tr>
+    <tr>
         <td>SDProcessUtil</td>
         <td></td>
     </tr>
