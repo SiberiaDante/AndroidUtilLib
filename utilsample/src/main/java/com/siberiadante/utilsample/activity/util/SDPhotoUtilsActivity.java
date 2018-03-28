@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.androidutil.util.SDPhotoUtils;
 import com.siberiadante.androidutil.util.SDStorageUtil;
 import com.siberiadante.utilsample.R;
@@ -27,6 +28,7 @@ import butterknife.OnClick;
 
 public class SDPhotoUtilsActivity extends BaseActivity {
 
+    private static final String TAG = SDPhotoUtilsActivity.class.getSimpleName();
     @BindView(R.id.iv_img)
     ImageView ivImg;
     @BindView(R.id.btn_camera)
@@ -81,11 +83,12 @@ public class SDPhotoUtilsActivity extends BaseActivity {
         requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, new RequestPermissionCallBack() {
             @Override
             public void granted() {
+                SDLogUtil.d(TAG,"---------------------");
                 if (SDStorageUtil.hasSdcard()) {
                     imageUri = Uri.fromFile(fileUri);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                         //通过FileProvider创建一个content类型的Uri
-                        imageUri = FileProvider.getUriForFile(SDPhotoUtilsActivity.this, "com.donkor.demo.takephoto.fileprovider", fileUri);
+                        imageUri = FileProvider.getUriForFile(SDPhotoUtilsActivity.this, "com.siberiadante.utilsample.fileProvider", fileUri);
                     SDPhotoUtils.takePicture(SDPhotoUtilsActivity.this, imageUri, CODE_CAMERA_REQUEST);
                 } else {
                     Toast.makeText(SDPhotoUtilsActivity.this, "设备没有SD卡！", Toast.LENGTH_SHORT).show();
@@ -114,7 +117,7 @@ public class SDPhotoUtilsActivity extends BaseActivity {
                     cropImageUri = Uri.fromFile(fileCropUri);
                     Uri newUri = Uri.parse(SDPhotoUtils.getPath(this, data.getData()));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                        newUri = FileProvider.getUriForFile(this, "com.donkor.demo.takephoto.fileprovider", new File(newUri.getPath()));
+                        newUri = FileProvider.getUriForFile(this, "com.siberiadante.utilsample.fileProvider", new File(newUri.getPath()));
                     SDPhotoUtils.cropImageUri(this, newUri, cropImageUri, 1, 1, output_X, output_Y, CODE_RESULT_REQUEST);
                     break;
                 case CODE_RESULT_REQUEST:

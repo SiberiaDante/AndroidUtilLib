@@ -14,6 +14,7 @@ import butterknife.BindView;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2018/01/01
  * Describe：
  * @github： https://github.com/SiberiaDante
@@ -70,6 +71,7 @@ public class SDDateUtilActivity extends BaseActivity {
                 .append(SDDateUtil.getStrToTime()).append("\n")
                 .append("自己输入格式类型:").append(SDDateUtil.getSDFTime("yyyy-MM-dd HH:mm:ss")).append("\n").append("\n")
                 .append("根据时间格式和时间转成时间戳:").append(SDDateUtil.getDateToTimeStamp("2017-12-29 10:58:00", "yyyy-MM-dd HH:mm:ss")).append("\n")
+                .append("获取某一个月有多少天：（2018 年 的 3 月有 ").append(SDDateUtil.getMonthOfDay(2018, 3)).append("天")
                 .append("根据生日获取星座:").append(SDDateUtil.getConstellation(8, 20)).append("\n").append("\n").append("\n")
                 .append("更多支持请看源码^_^")
         ;

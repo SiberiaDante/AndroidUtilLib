@@ -1,7 +1,6 @@
 package com.siberiadante.androidutil.util;
 
 
-
 import android.graphics.Paint;
 import android.widget.TextView;
 
@@ -10,6 +9,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/7/10
  * UpDate:
  * Describe：
@@ -103,7 +103,6 @@ public class SDStringUtil {
     public static boolean equalsIgnoreCase(final String a, final String b) {
         return a == null ? b == null : a.equalsIgnoreCase(b);
     }
-
 
 
     /**
@@ -217,6 +216,7 @@ public class SDStringUtil {
 
     /**
      * 处理TextView中英文导致自动换行问题
+     *
      * @param textView
      * @return
      */
