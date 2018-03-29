@@ -15,7 +15,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.siberiadante.androidutil.util.SDLogUtil;
-import com.siberiadante.androidutil.util.SDPhotoUtils;
+import com.siberiadante.androidutil.util.SDPhotoUtil;
 import com.siberiadante.androidutil.util.SDStorageUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
@@ -69,7 +69,7 @@ public class SDPhotoUtilsActivity extends BaseActivity {
         requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, new RequestPermissionCallBack() {
             @Override
             public void granted() {
-                SDPhotoUtils.openPic(SDPhotoUtilsActivity.this, CODE_GALLERY_REQUEST);
+                SDPhotoUtil.openPic(SDPhotoUtilsActivity.this, CODE_GALLERY_REQUEST);
             }
 
             @Override
@@ -89,7 +89,7 @@ public class SDPhotoUtilsActivity extends BaseActivity {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                         //通过FileProvider创建一个content类型的Uri
                         imageUri = FileProvider.getUriForFile(SDPhotoUtilsActivity.this, "com.siberiadante.utilsample.fileProvider", fileUri);
-                    SDPhotoUtils.takePicture(SDPhotoUtilsActivity.this, imageUri, CODE_CAMERA_REQUEST);
+                    SDPhotoUtil.takePicture(SDPhotoUtilsActivity.this, imageUri, CODE_CAMERA_REQUEST);
                 } else {
                     Toast.makeText(SDPhotoUtilsActivity.this, "设备没有SD卡！", Toast.LENGTH_SHORT).show();
                     Log.e("asd", "设备没有SD卡");
@@ -111,17 +111,17 @@ public class SDPhotoUtilsActivity extends BaseActivity {
             switch (requestCode) {
                 case CODE_CAMERA_REQUEST://拍照完成回调
                     cropImageUri = Uri.fromFile(fileCropUri);
-                    SDPhotoUtils.cropImageUri(this, imageUri, cropImageUri, 1, 1, output_X, output_Y, CODE_RESULT_REQUEST);
+                    SDPhotoUtil.cropImageUri(this, imageUri, cropImageUri, 1, 1, output_X, output_Y, CODE_RESULT_REQUEST);
                     break;
                 case CODE_GALLERY_REQUEST://访问相册完成回调
                     cropImageUri = Uri.fromFile(fileCropUri);
-                    Uri newUri = Uri.parse(SDPhotoUtils.getPath(this, data.getData()));
+                    Uri newUri = Uri.parse(SDPhotoUtil.getPath(this, data.getData()));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                         newUri = FileProvider.getUriForFile(this, "com.siberiadante.utilsample.fileProvider", new File(newUri.getPath()));
-                    SDPhotoUtils.cropImageUri(this, newUri, cropImageUri, 1, 1, output_X, output_Y, CODE_RESULT_REQUEST);
+                    SDPhotoUtil.cropImageUri(this, newUri, cropImageUri, 1, 1, output_X, output_Y, CODE_RESULT_REQUEST);
                     break;
                 case CODE_RESULT_REQUEST:
-                    Bitmap bitmap = SDPhotoUtils.getBitmapFromUri(cropImageUri, this);
+                    Bitmap bitmap = SDPhotoUtil.getBitmapFromUri(cropImageUri, this);
                     if (bitmap != null) {
                         ivImg.setImageBitmap(bitmap);
                     }

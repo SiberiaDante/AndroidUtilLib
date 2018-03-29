@@ -443,7 +443,27 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.0'
 
 
 
-
-<!--  推荐-->
-[TitleLayout——通用万能标题栏]:https://github.com/SiberiaDante/TitleLayout
-[CustomDialog——通用万能Dialog]:https://github.com/SiberiaDante/CustomDialog
+## [版本更新说明]
+v1.1.1(未发布)
+    * 增加SDPhotoUtil:拍照、相册操作、裁剪相关工具类
+    * 增加组件SDRoundImageView：支持设置ImageView圆角、圆形
+    * SDNormalDecoration增加支持设置左右间距
+v1.1.0
+    大版本更新，重构项目结构等
+* 1.0.8
+    * 更新SDActivityUtil
+    * 更新SDDateUtil
+    * 更新SDNumberUtil
+    * 更新SDScreenUtil
+    * 更新SDStringUtil
+    * 增加SDPhoneUtil
+    * 增加SDRegexUtil
+    * 增加SDRegexConstants
+    * 增加SDSkipLoadView
+    * 增加SDShapeChangeView
+    * 增加SDRatingBarView
+    * 增加SDLetterIndexView
+* 1.0.7
+    * 增加SDBitmapUtil
+    * 增加SDCustomDialog
+    * 增加SDLogUtil

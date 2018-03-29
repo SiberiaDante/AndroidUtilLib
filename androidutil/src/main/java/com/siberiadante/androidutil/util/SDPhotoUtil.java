@@ -22,7 +22,7 @@ import android.provider.MediaStore;
  * UpDateTime:
  * Describe: 调用系统相机、相册、裁剪等工具类
  */
-public class SDPhotoUtils {
+public class SDPhotoUtil {
     private static final String TAG = "PhotoUtils";
 
     /**
