@@ -1,10 +1,12 @@
 package com.siberiadante.utilsample.activity.util;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 
 import com.siberiadante.androidutil.util.SDActivityUtil;
+import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.HomeMainActivity;
 import com.siberiadante.utilsample.activity.base.BaseActivity;

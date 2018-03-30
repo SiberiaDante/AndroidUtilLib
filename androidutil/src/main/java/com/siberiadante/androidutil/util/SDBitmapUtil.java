@@ -56,7 +56,7 @@ import java.io.OutputStream;
  * 博客园:http://www.cnblogs.com/shen-hua/
  * CreateTime: 2017/9/22
  * UpDateTime:
- * Describe：
+ * Describe：Bitmap相关处理工具类
  */
 public class SDBitmapUtil {
 
@@ -70,8 +70,8 @@ public class SDBitmapUtil {
      * @param bitmap 图片
      * @return 字节数组
      */
-    public static byte[] bitmap2Bytes(final Bitmap bitmap) {
-        return bitmap2Bytes(bitmap, Bitmap.CompressFormat.JPEG, 100);
+    public static byte[] bitmapToBytes(Bitmap bitmap) {
+        return bitmapToBytes(bitmap, Bitmap.CompressFormat.JPEG, 100);
     }
 
     /**
@@ -81,8 +81,8 @@ public class SDBitmapUtil {
      * @param quality 压缩百分比：100-0，100位不压缩
      * @return 字节数组
      */
-    public static byte[] bitmap2Bytes(Bitmap bitmap, int quality) {
-        return bitmap2Bytes(bitmap, Bitmap.CompressFormat.JPEG, quality);
+    public static byte[] bitmapToBytes(Bitmap bitmap, int quality) {
+        return bitmapToBytes(bitmap, Bitmap.CompressFormat.JPEG, quality);
     }
 
     /**
@@ -92,8 +92,8 @@ public class SDBitmapUtil {
      * @param format 格式
      * @return 字节数组
      */
-    public static byte[] bitmap2Bytes(Bitmap bitmap, Bitmap.CompressFormat format) {
-        return bitmap2Bytes(bitmap, format, 100);
+    public static byte[] bitmapToBytes(Bitmap bitmap, Bitmap.CompressFormat format) {
+        return bitmapToBytes(bitmap, format, 100);
     }
 
     /**
@@ -102,7 +102,7 @@ public class SDBitmapUtil {
      * @param quality 压缩百分比：100-0，100位不压缩
      * @return 字节数组
      */
-    public static byte[] bitmap2Bytes(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
+    public static byte[] bitmapToBytes(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
         if (bitmap == null) return null;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(format, quality, baos);
@@ -115,8 +115,8 @@ public class SDBitmapUtil {
      * @param bitmap 图片
      * @return base64 编码的图片
      */
-    public static String bitmap2StrByBase64(Bitmap bitmap) {
-        return bitmap2StrByBase64(bitmap, Bitmap.CompressFormat.JPEG, 100);
+    public static String bitmapToStrByBase64(Bitmap bitmap) {
+        return bitmapToStrByBase64(bitmap, Bitmap.CompressFormat.JPEG, 100);
     }
 
     /**
@@ -126,8 +126,8 @@ public class SDBitmapUtil {
      * @param quality 压缩百分比：100-0，100位不压缩
      * @return base64 编码的图片
      */
-    public static String bitmap2StrByBase64(Bitmap bitmap, int quality) {
-        return bitmap2StrByBase64(bitmap, Bitmap.CompressFormat.JPEG, quality);
+    public static String bitmapToStrByBase64(Bitmap bitmap, int quality) {
+        return bitmapToStrByBase64(bitmap, Bitmap.CompressFormat.JPEG, quality);
     }
 
     /**
@@ -137,8 +137,8 @@ public class SDBitmapUtil {
      * @param format bitmap格式
      * @return base64 编码的图片
      */
-    public static String bitmap2StrByBase64(Bitmap bitmap, Bitmap.CompressFormat format) {
-        return bitmap2StrByBase64(bitmap, format, 100);
+    public static String bitmapToStrByBase64(Bitmap bitmap, Bitmap.CompressFormat format) {
+        return bitmapToStrByBase64(bitmap, format, 100);
     }
 
     /**
@@ -149,8 +149,8 @@ public class SDBitmapUtil {
      * @param quality 压缩百分比：100-0，100位不压缩
      * @return base64 编码的图片
      */
-    public static String bitmap2StrByBase64(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
-        byte[] bytes = bitmap2Bytes(bitmap, format, quality);
+    public static String bitmapToStrByBase64(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
+        byte[] bytes = bitmapToBytes(bitmap, format, quality);
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
@@ -161,8 +161,8 @@ public class SDBitmapUtil {
      * @param bytes 字节数组
      * @return bitmap
      */
-    public static Bitmap bytes2Bitmap(byte[] bytes) {
-        return bytes2Bitmap(bytes, 0);
+    public static Bitmap bytesToBitmap(byte[] bytes) {
+        return bytesToBitmap(bytes, 0);
     }
 
     /**
@@ -172,7 +172,7 @@ public class SDBitmapUtil {
      * @param offset decode的位移量，一般为0
      * @return bitmap
      */
-    public static Bitmap bytes2Bitmap(byte[] bytes, int offset) {
+    public static Bitmap bytesToBitmap(byte[] bytes, int offset) {
         return (bytes == null || bytes.length == 0) ? null : BitmapFactory.decodeByteArray(bytes, offset, bytes.length);
     }
 
@@ -182,7 +182,7 @@ public class SDBitmapUtil {
      * @param bitmap bitmap对象
      * @return drawable
      */
-    public static Drawable bitmap2Drawable(final Bitmap bitmap) {
+    public static Drawable bitmapToDrawable(final Bitmap bitmap) {
         return bitmap == null ? null : new BitmapDrawable(SDAndroidLib.getContext().getResources(), bitmap);
     }
 
@@ -192,7 +192,7 @@ public class SDBitmapUtil {
      * @param drawable drawable对象
      * @return bitmap
      */
-    public static Bitmap drawable2Bitmap(final Drawable drawable) {
+    public static Bitmap drawableToBitmap(final Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
             if (bitmapDrawable.getBitmap() != null) {
@@ -219,8 +219,8 @@ public class SDBitmapUtil {
      * @param view 视图
      * @return bitmap
      */
-    public static Bitmap view2Bitmap(final View view) {
-        return view2Bitmap(view, Bitmap.Config.ARGB_8888);
+    public static Bitmap viewToBitmap(final View view) {
+        return viewToBitmap(view, Bitmap.Config.ARGB_8888);
     }
 
     /**
@@ -229,7 +229,7 @@ public class SDBitmapUtil {
      * @param view 视图
      * @return bitmap
      */
-    public static Bitmap view2Bitmap(final View view, Bitmap.Config config) {
+    public static Bitmap viewToBitmap(final View view, Bitmap.Config config) {
         if (view == null) return null;
         Bitmap ret = Bitmap.createBitmap(view.getWidth(), view.getHeight(), config);
         Canvas canvas = new Canvas(ret);
@@ -249,7 +249,7 @@ public class SDBitmapUtil {
      * @param src 源图片
      * @return 圆形图片
      */
-    public static Bitmap toRound(final Bitmap src) {
+    public static Bitmap bitmapToRound(final Bitmap src) {
         return toRound(src, 0, 0);
     }
 

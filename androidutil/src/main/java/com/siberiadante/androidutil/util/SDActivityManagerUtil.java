@@ -23,11 +23,12 @@ import java.util.Stack;
 public class SDActivityManagerUtil {
     private static Stack<Activity> activitys;
 
-    private static class SDActivityManagerHolder {
-        private static final SDActivityManagerUtil activityManager = new SDActivityManagerUtil();
+    private SDActivityManagerUtil() {
+        throw new UnsupportedOperationException("not init " + SDActivityManagerUtil.class.getName());
     }
 
-    private SDActivityManagerUtil() {
+    private static class SDActivityManagerHolder {
+        private static final SDActivityManagerUtil activityManager = new SDActivityManagerUtil();
     }
 
     public static SDActivityManagerUtil getInstance() {
@@ -62,7 +63,7 @@ public class SDActivityManagerUtil {
      *
      * @param activity
      */
-    public void finishActivity(Activity activity) {
+    public void removeAndFinishActivity(Activity activity) {
         if (activity != null) {
             if (activitys.contains(activity)) {
                 activitys.remove(activity);
@@ -73,7 +74,7 @@ public class SDActivityManagerUtil {
     }
 
     /**
-     * 获取栈顶的Activity
+     * 获取栈顶/当前的Activity
      *
      * @return
      */
@@ -82,7 +83,7 @@ public class SDActivityManagerUtil {
     }
 
     /**
-     * 移除栈顶的Activity
+     * 移除栈顶/当前的Activity
      */
     public void removeCurrentActivity() {
         Activity activity = activitys.lastElement();
@@ -94,7 +95,7 @@ public class SDActivityManagerUtil {
     /**
      * 移除栈顶的Activity并销毁
      */
-    public void finishCurrentActivity() {
+    public void removeAndFinishCurrentActivity() {
         Activity activity = activitys.lastElement();
         if (activitys.contains(activity)) {
             activitys.remove(activity);
@@ -119,7 +120,7 @@ public class SDActivityManagerUtil {
      * 退出应用程序
      * 需求要权限{@code uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"}
      */
-    public void AppExit() {
+    public void appExit() {
         try {
             finishAllActivity();
             ActivityManager activityMgr = (ActivityManager) SDAndroidLib.getContext().getSystemService(Context.ACTIVITY_SERVICE);

@@ -6,10 +6,11 @@ import android.graphics.drawable.Drawable;
 
 import com.siberiadante.androidutil.SDAndroidLib;
 
-import static com.siberiadante.androidutil.util.SDBitmapUtil.bitmap2Bytes;
-import static com.siberiadante.androidutil.util.SDBitmapUtil.bitmap2StrByBase64;
-import static com.siberiadante.androidutil.util.SDBitmapUtil.bytes2Bitmap;
-import static com.siberiadante.androidutil.util.SDBitmapUtil.drawable2Bitmap;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.bitmapToBytes;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.bitmapToStrByBase64;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.bytesToBitmap;
+import static com.siberiadante.androidutil.util.SDBitmapUtil.drawableToBitmap;
+
 
 /**
  * Created: SiberiaDante
@@ -28,7 +29,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static byte[] drawable2Bytes(Drawable drawable) {
-        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
+        return drawable == null ? null : bitmapToBytes(drawableToBitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
     }
 
     /**
@@ -39,7 +40,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static byte[] drawable2Bytes(Drawable drawable, int quality) {
-        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
+        return drawable == null ? null : bitmapToBytes(drawableToBitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
     }
 
     /**
@@ -50,7 +51,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format) {
-        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format, 100);
+        return drawable == null ? null : bitmapToBytes(drawableToBitmap(drawable), format, 100);
     }
 
     /**
@@ -62,7 +63,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static byte[] drawable2Bytes(Drawable drawable, Bitmap.CompressFormat format, int quality) {
-        return drawable == null ? null : bitmap2Bytes(drawable2Bitmap(drawable), format, quality);
+        return drawable == null ? null : bitmapToBytes(drawableToBitmap(drawable), format, quality);
     }
 
     /**
@@ -72,7 +73,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static String drawable2Base64(Drawable drawable) {
-        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
+        return drawable == null ? null : bitmapToStrByBase64(drawableToBitmap(drawable), Bitmap.CompressFormat.JPEG, 100);
     }
 
     /**
@@ -83,7 +84,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static String drawable2Base64(Drawable drawable, int quality) {
-        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
+        return drawable == null ? null : bitmapToStrByBase64(drawableToBitmap(drawable), Bitmap.CompressFormat.JPEG, quality);
     }
 
     /**
@@ -94,7 +95,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format) {
-        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), format, 100);
+        return drawable == null ? null : bitmapToStrByBase64(drawableToBitmap(drawable), format, 100);
     }
 
     /**
@@ -106,7 +107,7 @@ public class SDDrawableUtil {
      * @return drawable对象字节数组
      */
     public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format, int quality) {
-        return drawable == null ? null : bitmap2StrByBase64(drawable2Bitmap(drawable), format, quality);
+        return drawable == null ? null : bitmapToStrByBase64(drawableToBitmap(drawable), format, quality);
     }
     /**
      * byteArr转drawable
@@ -126,7 +127,7 @@ public class SDDrawableUtil {
      * @return drawable
      */
     public static Drawable bytes2Drawable(byte[] bytes, int offset) {
-        return bitmap2Drawable(bytes2Bitmap(bytes, offset));
+        return bitmap2Drawable(bytesToBitmap(bytes, offset));
     }
 
     /**

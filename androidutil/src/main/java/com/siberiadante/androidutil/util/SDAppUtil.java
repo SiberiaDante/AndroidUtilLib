@@ -48,13 +48,17 @@ public class SDAppUtil {
 
 
     public SDAppUtil() {
-        throw new UnsupportedOperationException("not init ~~~");
+        throw new UnsupportedOperationException("not init " + SDAppUtil.class.getName());
     }
 
     private static PackageManager getPackageManager() {
         return SDAndroidLib.getContext().getPackageManager();
     }
 
+    /**
+     * 获取APP包名
+     * @return
+     */
     public static String getPackageName() {
         return SDAndroidLib.getContext().getPackageName();
     }
@@ -558,7 +562,7 @@ public class SDAppUtil {
      * @param packageName app包名
      * @param requestCode 卸载请求码
      */
-    public static void unInstallAppResult(Activity activity, String packageName, int requestCode) {
+    public static void unInstallApp(Activity activity, String packageName, int requestCode) {
         if (isSpace(packageName)) {
             return;
         }

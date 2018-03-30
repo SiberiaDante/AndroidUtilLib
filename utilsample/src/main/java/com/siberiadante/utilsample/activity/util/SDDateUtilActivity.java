@@ -87,4 +87,10 @@ public class SDDateUtilActivity extends BaseActivity {
             mHandler.sendEmptyMessageDelayed(SHOW_TIME, 1000);
         }
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
+    }
 }

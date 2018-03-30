@@ -19,7 +19,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".UtilSampleApp"
@@ -95,7 +95,8 @@
         <activity android:name=".TestAttrActivity" />
         <activity android:name=".activity.widget.SDTextViewActivity" />
         <activity android:name=".activity.widget.SDTitleLayoutWidgetActivity" />
-        <activity android:name=".activity.util.SDPhotoUtilsActivity"></activity>
+        <activity android:name=".activity.util.SDPhotoUtilsActivity" />
+        <activity android:name=".activity.util.SDBitmapUtilActivity"></activity>
     </application>
 
 </manifest>
