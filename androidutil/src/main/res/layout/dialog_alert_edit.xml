@@ -3,29 +3,29 @@
     android:id="@+id/linear_alert_dialog_bg"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_corners_white_1"
-    android:orientation="vertical" >
+    android:background="@drawable/dialog_alert_edit_bg"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tv_alert_dialog_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="@dimen/fifteen"
+        android:layout_marginRight="@dimen/fifteen"
+        android:layout_marginTop="@dimen/fifteen"
         android:gravity="center"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textColor="@color/sdColorBlack"
+        android:textSize="@dimen/font_18"
+        android:textStyle="normal" />
 
     <EditText
         android:id="@+id/edt_alert_dialog_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/fifteen"
+        android:layout_marginRight="@dimen/fifteen"
+        android:layout_marginTop="@dimen/fifteen"
         android:background="@drawable/shape_alert_dialog_edit"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="15dp"
         android:maxLines="1"
         android:textColor="#000000"
         android:textSize="18sp" />
@@ -39,18 +39,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_alert_dialog_cancel"
             android:layout_width="wrap_content"
             android:layout_height="43dp"
             android:layout_weight="1"
-            android:background="@drawable/pressed_color_right_bottom_radius_gray"
+            android:background="@drawable/dialog_alert_edit_cancel_normal"
             android:gravity="center"
             android:textColor="@color/sdColorBlack"
             android:textSize="16sp"
-            android:textStyle="bold"/>
+            android:textStyle="normal" />
 
         <ImageView
             android:id="@+id/img_alert_dialog_line"
@@ -63,11 +63,11 @@
             android:layout_width="wrap_content"
             android:layout_height="43dp"
             android:layout_weight="1"
-            android:background="@drawable/pressed_bg_right_bottom_radius"
+            android:background="@drawable/dialog_alert_edit_sure_normal"
             android:gravity="center"
             android:textColor="@color/sdColorBlack"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/font_16"
+            android:textStyle="normal" />
     </LinearLayout>
 
 </LinearLayout>
