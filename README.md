@@ -3,7 +3,7 @@
 >#### 项目包含library和sample，每个library中的工具类都在sample中作了测试，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢.使用中也可以参考sample.
 
 ```
-compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.1'
+compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.0'
 ```
 初始化
 ```
@@ -444,7 +444,7 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.1'
 
 
 ## [版本更新说明]
-* v1.1.1
+* v1.1.1(未发布)
     * 增加SDPhotoUtil:拍照、相册操作、裁剪相关工具类
     * 增加组件SDRoundImageView：支持设置ImageView圆角、圆形
     * SDNormalDecoration增加支持设置左右间距
