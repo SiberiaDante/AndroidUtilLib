@@ -271,14 +271,14 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:v1.1.0'
     </tr>
 </table>
 
-### <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-TitleBar">SD-TitleBar</a>
-<table  align="left">
+### SDTitleLayout
+<table  align="left">
     <tr>
         <th colspan="2" style="color:red">标题栏</th>
     </tr>
     <tr>
         <td>SDTitleLayout</td>
-        <td>常规的能够满足开发需求的标题栏的封装，仅支持Java代码设置</td>
+        <td>常规的能够满足开发需求的标题栏的封装，并支持Java代码设置</td>
     </tr>
 </table>
 
