@@ -3,7 +3,7 @@ package com.siberiadante.utilsample.activity.widget;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.siberiadante.androidutil.SDStatusBarUtil;
+import com.siberiadante.androidutil.util.SDStatusBarUtil;
 import com.siberiadante.androidutil.widget.special.SDTitleLayout;
 import com.siberiadante.utilsample.R;
 

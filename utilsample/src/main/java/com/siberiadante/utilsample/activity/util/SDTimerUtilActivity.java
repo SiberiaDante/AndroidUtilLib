@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.siberiadante.androidutil.util.SDDateUtil;
-import com.siberiadante.androidutil.SDToastUtil;
+import com.siberiadante.androidutil.util.SDToastUtil;
 import com.siberiadante.androidutil.util.SDTimerUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;

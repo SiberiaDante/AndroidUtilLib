@@ -27,6 +27,7 @@ import butterknife.BindView;
 public class SDWidgetFragment extends BaseFragment {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+
     public static SDWidgetFragment getInstance() {
         return new SDWidgetFragment();
     }

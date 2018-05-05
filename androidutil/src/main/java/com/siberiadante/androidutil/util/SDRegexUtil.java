@@ -42,6 +42,17 @@ public class SDRegexUtil {
     }
 
     /**
+     * 判断是否匹配正则
+     *
+     * @param regex 正则表达式
+     * @param input 要匹配的字符串
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isMatch(final String regex, final CharSequence input) {
+        return input != null && input.length() > 0 && Pattern.matches(regex, input);
+    }
+
+    /**
      * 验证手机号（精确）
      *
      * @param input 待验证文本
@@ -226,6 +237,9 @@ public class SDRegexUtil {
         return cardId.charAt(cardId.length() - 1) == bit;
     }
 
+
+    // TODO: 2017/12/29
+
     /**
      * 从不含校验位的银行卡卡号采用 Luhm 校验算法获得校验位
      *
@@ -250,19 +264,6 @@ public class SDRegexUtil {
             luhmSum += k;
         }
         return (luhmSum % 10 == 0) ? '0' : (char) ((10 - luhmSum % 10) + '0');
-    }
-
-
-    // TODO: 2017/12/29
-
-    /**
-     * 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
-     *
-     * @param input 待验证文本
-     * @return {@code true}: 匹配<br>{@code false}: 不匹配
-     */
-    public static boolean isDate(final CharSequence input) {
-        return isMatch(SDRegexUnit.REGEX_DATE, input);
     }
 
     /**
@@ -296,6 +297,17 @@ public class SDRegexUtil {
     }
 
     /**
+     * 判断是否匹配正则,内容可以为null
+     *
+     * @param regex 正则表达式
+     * @param input 要匹配的字符串
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isMatchCanNull(final String regex, final CharSequence input) {
+        return Pattern.matches(regex, input);
+    }
+
+    /**
      * 验证QQ号
      *
      * @param input 待验证文本
@@ -313,17 +325,6 @@ public class SDRegexUtil {
      */
     public static boolean isPostCode(final CharSequence input) {
         return isMatch(SDRegexUnit.REGEX_ZIP_CODE, input);
-    }
-
-    /**
-     * 验证字符串是否全是数字
-     * tips:不输入任何内容默认为数字，空格不是数字
-     *
-     * @param integer 待验证文本
-     * @return {@code true}: 匹配<br>{@code false}: 不匹配
-     */
-    public static boolean isNum(String integer) {
-        return isMatchCanNull(SDRegexUnit.REGEX_NUM, integer);
     }
 
     /**
@@ -366,28 +367,6 @@ public class SDRegexUtil {
      */
     public static boolean isDecimals(String decimals) {
         return Pattern.matches(SDRegexUnit.REGEX_DECIMAL, decimals);
-    }
-
-    /**
-     * 判断是否匹配正则
-     *
-     * @param regex 正则表达式
-     * @param input 要匹配的字符串
-     * @return {@code true}: 匹配<br>{@code false}: 不匹配
-     */
-    public static boolean isMatch(final String regex, final CharSequence input) {
-        return input != null && input.length() > 0 && Pattern.matches(regex, input);
-    }
-
-    /**
-     * 判断是否匹配正则,内容可以为null
-     *
-     * @param regex 正则表达式
-     * @param input 要匹配的字符串
-     * @return {@code true}: 匹配<br>{@code false}: 不匹配
-     */
-    public static boolean isMatchCanNull(final String regex, final CharSequence input) {
-        return Pattern.matches(regex, input);
     }
 
     /**
@@ -445,16 +424,6 @@ public class SDRegexUtil {
         if (input == null) return null;
         return Pattern.compile(regex).matcher(input).replaceAll(replacement);
     }
-    /**
-     * 身份证号码验证 1、号码的结构 公民身份号码是特征组合码，由十七位数字本体码和一位校验码组成。排列顺序从左至右依次为：六位数字地址码，
-     * 八位数字出生日期码，三位数字顺序码和一位数字校验码。 2、地址码(前六位数）
-     * 表示编码对象常住户口所在县(市、旗、区)的行政区划代码，按GB/T2260的规定执行。 3、出生日期码（第七位至十四位）
-     * 表示编码对象出生的年、月、日，按GB/T7408的规定执行，年、月、日代码之间不用分隔符。 4、顺序码（第十五位至十七位）
-     * 表示在同一地址码所标识的区域范围内，对同年、同月、同日出生的人编定的顺序号， 顺序码的奇数分配给男性，偶数分配给女性。 5、校验码（第十八位数）
-     * （1）十七位数字本体码加权求和公式 S = Sum(Ai * Wi), i = 0, ... , 16 ，先对前17位数字的权求和
-     * Ai:表示第i位置上的身份证号码数字值 Wi:表示第i位置上的加权因子 Wi: 7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2
-     * （2）计算模 Y = mod(S, 11) （3）通过模得到对应的校验码 Y: 0 1 2 3 4 5 6 7 8 9 10 校验码: 1 0 X 9 8 7 6 5 4 3 2
-     */
 
     /**
      * 功能：身份证的有效验证
@@ -551,6 +520,37 @@ public class SDRegexUtil {
         }
         // =====================(end)=====================
         return "有效";
+    }
+
+    /**
+     * 验证字符串是否全是数字
+     * tips:不输入任何内容默认为数字，空格不是数字
+     *
+     * @param integer 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isNum(String integer) {
+        return isMatchCanNull(SDRegexUnit.REGEX_NUM, integer);
+    }
+    /**
+     * 身份证号码验证 1、号码的结构 公民身份号码是特征组合码，由十七位数字本体码和一位校验码组成。排列顺序从左至右依次为：六位数字地址码，
+     * 八位数字出生日期码，三位数字顺序码和一位数字校验码。 2、地址码(前六位数）
+     * 表示编码对象常住户口所在县(市、旗、区)的行政区划代码，按GB/T2260的规定执行。 3、出生日期码（第七位至十四位）
+     * 表示编码对象出生的年、月、日，按GB/T7408的规定执行，年、月、日代码之间不用分隔符。 4、顺序码（第十五位至十七位）
+     * 表示在同一地址码所标识的区域范围内，对同年、同月、同日出生的人编定的顺序号， 顺序码的奇数分配给男性，偶数分配给女性。 5、校验码（第十八位数）
+     * （1）十七位数字本体码加权求和公式 S = Sum(Ai * Wi), i = 0, ... , 16 ，先对前17位数字的权求和
+     * Ai:表示第i位置上的身份证号码数字值 Wi:表示第i位置上的加权因子 Wi: 7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2
+     * （2）计算模 Y = mod(S, 11) （3）通过模得到对应的校验码 Y: 0 1 2 3 4 5 6 7 8 9 10 校验码: 1 0 X 9 8 7 6 5 4 3 2
+     */
+
+    /**
+     * 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
+     *
+     * @param input 待验证文本
+     * @return {@code true}: 匹配<br>{@code false}: 不匹配
+     */
+    public static boolean isDate(final CharSequence input) {
+        return isMatch(SDRegexUnit.REGEX_DATE, input);
     }
 
     /**

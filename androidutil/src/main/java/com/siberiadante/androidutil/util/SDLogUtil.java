@@ -23,17 +23,16 @@ import java.io.UnsupportedEncodingException;
  */
 
 public class SDLogUtil {
-    public SDLogUtil() {
-        throw new UnsupportedOperationException("UnInit this Lib");
-    }
-
     public static String TAG = "SiberiaDante";
-//    private static boolean isDebug = BuildConfig.DEBUG;
+    //    private static boolean isDebug = BuildConfig.DEBUG;
     private static boolean isDebug = SDAndroidLib.isDebug;
     private static String TOP_BORDER = "╔══════════════════════════════════════════════════════════════════════════════════════════════════════════";
     private static String LEFT_BORDER = "║ ";
     private static String BOTTOM_BORDER = "╚══════════════════════════════════════════════════════════════════════════════════════════════════════════";
     private static int CHUNK_SIZE = 106; //设置字节数
+    public SDLogUtil() {
+        throw new UnsupportedOperationException("UnInit this Lib");
+    }
 
     public static void setTag(String tag) {
         SDLogUtil.TAG = tag;
@@ -44,17 +43,6 @@ public class SDLogUtil {
             Log.i(TAG, msg);
     }
 
-    public static void i(String tag, String msg) {
-        if (isDebug)
-            Log.i(tag, msg);
-    }
-
-
-    public static void d(String msg) {
-        if (isDebug)
-            Log.d(TAG, msg);
-    }
-
     public static void d(String tag, String msg) {
         if (isDebug)
             Log.d(tag, msg);
@@ -63,11 +51,6 @@ public class SDLogUtil {
     public static void e(String msg) {
         if (isDebug)
             Log.e(TAG, msg);
-    }
-
-    public static void e(String tag, String msg) {
-        if (isDebug)
-            Log.e(tag, msg);
     }
 
     public static void v(String msg) {
@@ -98,6 +81,11 @@ public class SDLogUtil {
      */
     public static void printTimeLogI(String tag, String msg) {
         d(tag + "[" + SDDateUtil.getSDFTime(SDDateUtil.getTimeStamp()) + "]:" + msg);
+    }
+
+    public static void d(String msg) {
+        if (isDebug)
+            Log.d(TAG, msg);
     }
 
     /**
@@ -152,6 +140,63 @@ public class SDLogUtil {
         }
     }
 
+    public static void i(String tag, String msg) {
+        if (isDebug)
+            Log.i(tag, msg);
+    }
+
+    private static String msgFormat(String stackstr, String msg) {
+        byte[] bytes = new byte[0];
+        try {
+            bytes = msg.getBytes("utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        int length = bytes.length;
+        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + SDDateUtil.getSDFTimeYMdHms() + "\n" + LEFT_BORDER + "\t" + stackstr;
+        if (length > CHUNK_SIZE) {
+            int i = 0;
+            while (i < length) {
+                int count = Math.min(length - i, CHUNK_SIZE);
+                String tempStr = new String(bytes, i, count);
+                newMsg += "\n" + LEFT_BORDER + "\t" + tempStr;
+                i += CHUNK_SIZE;
+            }
+        } else {
+            newMsg += "\n" + LEFT_BORDER + "\t" + msg;
+        }
+        newMsg += "\n" + BOTTOM_BORDER;
+        return newMsg;
+
+    }
+
+    private static String targetStackTraceMSg() {
+        StackTraceElement targetStackTraceElement = getTargetStackTraceElement();
+        if (targetStackTraceElement != null) {
+            return "at " + targetStackTraceElement.getClassName() + "." + targetStackTraceElement.getMethodName() +
+                    "(" + targetStackTraceElement.getFileName() + ":" + targetStackTraceElement.getLineNumber() + ")";
+
+        } else {
+            return "";
+        }
+    }
+
+    private static StackTraceElement getTargetStackTraceElement() {
+        StackTraceElement targetStackTrace = null;
+        boolean shouldTrace = false;
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+
+        for (StackTraceElement stackTraceElement : stackTrace) {
+            boolean isLogMethod = stackTraceElement.getClassName().equals(SDLogUtil.class.getName());
+            if (shouldTrace && !isLogMethod) {
+                targetStackTrace = stackTraceElement;
+                break;
+            }
+            shouldTrace = isLogMethod;
+        }
+        return targetStackTrace;
+    }
+
     /**
      * 以带边框的形式打印log
      *
@@ -162,6 +207,11 @@ public class SDLogUtil {
         if (isDebug) {
             e(tag, msgFormat(targetStackTraceMSg(), msg));
         }
+    }
+
+    public static void e(String tag, String msg) {
+        if (isDebug)
+            Log.e(tag, msg);
     }
 
     /**
@@ -188,7 +238,6 @@ public class SDLogUtil {
             i(tag, logContent);
         }
     }
-
 
     /**
      * 文件形式存储到SD卡
@@ -222,58 +271,5 @@ public class SDLogUtil {
                 e.printStackTrace();
             }
         }
-    }
-
-
-    private static String targetStackTraceMSg() {
-        StackTraceElement targetStackTraceElement = getTargetStackTraceElement();
-        if (targetStackTraceElement != null) {
-            return "at " + targetStackTraceElement.getClassName() + "." + targetStackTraceElement.getMethodName() +
-                    "(" + targetStackTraceElement.getFileName() + ":" + targetStackTraceElement.getLineNumber() + ")";
-
-        } else {
-            return "";
-        }
-    }
-
-    private static StackTraceElement getTargetStackTraceElement() {
-        StackTraceElement targetStackTrace = null;
-        boolean shouldTrace = false;
-        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-
-        for (StackTraceElement stackTraceElement : stackTrace) {
-            boolean isLogMethod = stackTraceElement.getClassName().equals(SDLogUtil.class.getName());
-            if (shouldTrace && !isLogMethod) {
-                targetStackTrace = stackTraceElement;
-                break;
-            }
-            shouldTrace = isLogMethod;
-        }
-        return targetStackTrace;
-    }
-
-    private static String msgFormat(String stackstr, String msg) {
-        byte[] bytes = new byte[0];
-        try {
-            bytes = msg.getBytes("utf-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        int length = bytes.length;
-        String newMsg = TOP_BORDER + "\n" + LEFT_BORDER + "\t" + SDDateUtil.getSDFTimeYMdHms() + "\n" + LEFT_BORDER + "\t" + stackstr;
-        if (length > CHUNK_SIZE) {
-            int i = 0;
-            while (i < length) {
-                int count = Math.min(length - i, CHUNK_SIZE);
-                String tempStr = new String(bytes, i, count);
-                newMsg += "\n" + LEFT_BORDER + "\t" + tempStr;
-                i += CHUNK_SIZE;
-            }
-        } else {
-            newMsg += "\n" + LEFT_BORDER + "\t" + msg;
-        }
-        newMsg += "\n" + BOTTOM_BORDER;
-        return newMsg;
-
     }
 }

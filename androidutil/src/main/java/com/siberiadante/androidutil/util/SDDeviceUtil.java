@@ -42,10 +42,6 @@ public class SDDeviceUtil {
 
     private static final String TAG = SDDeviceUtil.class.getSimpleName();
 
-    private static PackageManager getPackageManager() {
-        return SDAndroidLib.getContext().getPackageManager();
-    }
-
     private static PackageInfo getPackageInfo() {
         try {
             return getPackageManager().getPackageInfo(SDAndroidLib.getContext().getPackageName(), 0);
@@ -53,6 +49,10 @@ public class SDDeviceUtil {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private static PackageManager getPackageManager() {
+        return SDAndroidLib.getContext().getPackageManager();
     }
 
     /**
@@ -127,6 +127,27 @@ public class SDDeviceUtil {
         return deviceId;
     }
 
+    /**
+     * 获取Mac地址
+     * 需要权限 {@code uses-permission android:name="android.permission.ACCESS_WIFI_STATE"}
+     *
+     * @return
+     */
+    @SuppressLint("MissingPermission")
+    public static String getLocalMac() {
+        WifiManager wifi = (WifiManager) SDAndroidLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        WifiInfo info = wifi.getConnectionInfo();
+        return info.getMacAddress();
+    }
+
+    /**
+     * 获取Android Id
+     *
+     * @return
+     */
+    public static String getAndroidId() {
+        return Settings.Secure.getString(SDAndroidLib.getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+    }
 
     /**
      * 获取IMEI码
@@ -145,6 +166,16 @@ public class SDDeviceUtil {
     }
 
     /**
+     * 判断设备是否是手机
+     *
+     * @return {@code true}: 是<br>{@code false}: 否
+     */
+    public static boolean isPhone() {
+        TelephonyManager tm = (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
+        return tm != null && tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
+    }
+
+    /**
      * 获取设备的IMEI
      * 需要权限 {@code <uses-permission android:name="android.permission.READ_PHONE_STATE" />}
      *
@@ -154,28 +185,6 @@ public class SDDeviceUtil {
     public static String getDeviceIdIMEI() {
         TelephonyManager tm = (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
         return tm.getDeviceId();
-    }
-
-    /**
-     * 获取Android Id
-     *
-     * @return
-     */
-    public static String getAndroidId() {
-        return Settings.Secure.getString(SDAndroidLib.getContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-    }
-
-    /**
-     * 获取Mac地址
-     * 需要权限 {@code uses-permission android:name="android.permission.ACCESS_WIFI_STATE"}
-     *
-     * @return
-     */
-    @SuppressLint("MissingPermission")
-    public static String getLocalMac() {
-        WifiManager wifi = (WifiManager) SDAndroidLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        WifiInfo info = wifi.getConnectionInfo();
-        return info.getMacAddress();
     }
 
     /**
@@ -202,15 +211,6 @@ public class SDDeviceUtil {
     }
 
     /**
-     * 获取设备厂商，如Xiaomi
-     *
-     * @return 设备厂商
-     */
-    public static String getBuildMANUFACTURER() {
-        return Build.MANUFACTURER;// samsung 品牌
-    }
-
-    /**
      * 序列号
      *
      * @return
@@ -227,15 +227,13 @@ public class SDDeviceUtil {
         return serial;
     }
 
-
     /**
-     * 判断设备是否是手机
+     * 获取设备厂商，如Xiaomi
      *
-     * @return {@code true}: 是<br>{@code false}: 否
+     * @return 设备厂商
      */
-    public static boolean isPhone() {
-        TelephonyManager tm = (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
-        return tm != null && tm.getPhoneType() != TelephonyManager.PHONE_TYPE_NONE;
+    public static String getBuildMANUFACTURER() {
+        return Build.MANUFACTURER;// samsung 品牌
     }
 
     /**

@@ -19,7 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.siberiadante.androidutil.R;
-import com.siberiadante.androidutil.SDStatusBarUtil;
+import com.siberiadante.androidutil.util.SDStatusBarUtil;
 import com.siberiadante.androidutil.util.SDStringUtil;
 import com.siberiadante.androidutil.util.SDTransitionUtil;
 

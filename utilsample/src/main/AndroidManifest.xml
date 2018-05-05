@@ -96,7 +96,8 @@
         <activity android:name=".activity.widget.SDTextViewActivity" />
         <activity android:name=".activity.widget.SDTitleLayoutWidgetActivity" />
         <activity android:name=".activity.util.SDPhotoUtilsActivity" />
-        <activity android:name=".activity.util.SDBitmapUtilActivity"></activity>
+        <activity android:name=".activity.util.SDBitmapUtilActivity" />
+        <activity android:name=".activity.widget.SDFlowTagLayoutActivity"></activity>
     </application>
 
 </manifest>

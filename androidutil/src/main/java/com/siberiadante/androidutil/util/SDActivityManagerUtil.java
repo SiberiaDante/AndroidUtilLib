@@ -27,10 +27,6 @@ public class SDActivityManagerUtil {
         throw new UnsupportedOperationException("not init " + SDActivityManagerUtil.class.getName());
     }
 
-    private static class SDActivityManagerHolder {
-        private static final SDActivityManagerUtil activityManager = new SDActivityManagerUtil();
-    }
-
     public static SDActivityManagerUtil getInstance() {
         return SDActivityManagerHolder.activityManager;
     }
@@ -105,18 +101,6 @@ public class SDActivityManagerUtil {
     }
 
     /**
-     * 结束栈中所有的Activity
-     */
-    public void finishAllActivity() {
-        for (Activity activity : activitys) {
-            if (activity != null) {
-                activity.finish();
-            }
-        }
-        activitys.clear();
-    }
-
-    /**
      * 退出应用程序
      * 需求要权限{@code uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"}
      */
@@ -132,5 +116,21 @@ public class SDActivityManagerUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 结束栈中所有的Activity
+     */
+    public void finishAllActivity() {
+        for (Activity activity : activitys) {
+            if (activity != null) {
+                activity.finish();
+            }
+        }
+        activitys.clear();
+    }
+
+    private static class SDActivityManagerHolder {
+        private static final SDActivityManagerUtil activityManager = new SDActivityManagerUtil();
     }
 }

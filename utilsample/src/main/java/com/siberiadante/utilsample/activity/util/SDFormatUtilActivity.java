@@ -6,14 +6,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.SDToastUtil;
+import com.siberiadante.androidutil.util.SDToastUtil;
 import com.siberiadante.androidutil.util.SDFormatUtil;
 import com.siberiadante.androidutil.util.SDStringUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

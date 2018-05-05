@@ -5,9 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.TextView;
 
 import com.siberiadante.androidutil.util.SDJumpUtil;
+import com.siberiadante.androidutil.widget.textview.SDAdaptiveTextView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.bean.DataBean;
 
@@ -41,13 +43,19 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
     }
 
     @Override
-    public void onBindViewHolder(MainViewHolder holder, final int position) {
+    public void onBindViewHolder(final MainViewHolder holder, final int position) {
         holder.textView.setText(mainDataList.get(position).getTitle());
         holder.textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SDJumpUtil.startActivity(mainDataList.get(position).getCls());
-
+            }
+        });
+        holder.textView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                holder.textView.setAdaptiveText(mainDataList.get(position).getTitle());
+                holder.textView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
             }
         });
 
@@ -60,7 +68,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.MainViewHolder
 
     public class MainViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textView;
+        SDAdaptiveTextView textView;
 
         public MainViewHolder(View itemView) {
             super(itemView);

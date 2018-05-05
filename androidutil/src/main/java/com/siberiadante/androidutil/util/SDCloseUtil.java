@@ -1,7 +1,6 @@
 package com.siberiadante.androidutil.util;
 
 
-
 import java.io.Closeable;
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 /**
  * Created: SiberiaDante

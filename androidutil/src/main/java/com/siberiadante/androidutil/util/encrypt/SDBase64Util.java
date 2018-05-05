@@ -9,6 +9,7 @@ import java.io.IOException;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/11/8
  * Describe： <a href="https://github.com/SiberiaDante/ResourceCollection/blob/59f58757fcbdda9f025c83f7fe392db78faf2ed7/DataEncryption/Base64.md">分分钟完全掌握Base64编码</a>
  * @github： https://github.com/SiberiaDante
@@ -71,6 +72,7 @@ public class SDBase64Util {
 
     /**
      * Base64解码
+     *
      * @param data 编码的字符串
      * @return 解码后的字符串
      */

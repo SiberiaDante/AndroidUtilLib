@@ -24,15 +24,6 @@ public class SDDESUtil {
     private final static String ALGORITHM = "DES";//DES是加密方式
 
     /**
-     * 对密钥进行处理
-     */
-    private static Key getRawKey(String key) throws Exception {
-        DESKeySpec dks = new DESKeySpec(key.getBytes());
-        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(ALGORITHM);
-        return keyFactory.generateSecret(dks);
-    }
-
-    /**
      * DES算法，加密
      *
      * @param data 待加密字符串
@@ -42,7 +33,6 @@ public class SDDESUtil {
     public static String encrypt(String data, String key) {
         return encrypt(data.getBytes(), key);
     }
-
 
     /**
      * DES算法，加密
@@ -58,6 +48,15 @@ public class SDDESUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * 对密钥进行处理
+     */
+    private static Key getRawKey(String key) throws Exception {
+        DESKeySpec dks = new DESKeySpec(key.getBytes());
+        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(ALGORITHM);
+        return keyFactory.generateSecret(dks);
     }
 
     /**

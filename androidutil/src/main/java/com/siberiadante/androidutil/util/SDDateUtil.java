@@ -45,6 +45,13 @@ public class SDDateUtil {
         throw new UnsupportedOperationException("not init SDAndroidLib");
     }
 
+    public static String getYear() {
+        String format = "yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
     /**
      * 取得当前时间戳（精确到秒）
      *
@@ -53,13 +60,6 @@ public class SDDateUtil {
     public static String getTimeStamp() {
         long time = System.currentTimeMillis();
         return String.valueOf(time / 1000);
-    }
-
-    public static String getYear() {
-        String format = "yyyy";
-        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
-        Long strLong = Long.valueOf(getTimeStamp());
-        return sdf.format(new Date(strLong * 1000));
     }
 
     public static String getMonth() {

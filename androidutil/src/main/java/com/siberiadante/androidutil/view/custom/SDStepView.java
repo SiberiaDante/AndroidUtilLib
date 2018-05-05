@@ -15,6 +15,7 @@ import com.siberiadante.androidutil.R;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/7/23
  * Describe： 参考文章http://www.jianshu.com/p/4e0eb9bb09ab QQ计步器View
  * @github： https://github.com/SiberiaDante
@@ -80,17 +81,6 @@ public class SDStepView extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        //在布局文件中，可能wrap_content，可能高宽不一致
-        //获取模式 AT_MOST
-        //宽度高度不一致时取最小值，保持是个正方形
-        int width = MeasureSpec.getSize(widthMeasureSpec);
-        int height = MeasureSpec.getSize(heightMeasureSpec);
-        setMeasuredDimension(width > height ? height : width, width > height ? height : width);
-    }
-
-    @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //画外圆弧：
@@ -118,6 +108,17 @@ public class SDStepView extends View {
         int dy = (fontMetricsInt.bottom = fontMetricsInt.top) - fontMetricsInt.bottom;
         int baseLine = getHeight() / 2 + dy;
         canvas.drawText(stepText, dx, baseLine, mTextPaint);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        //在布局文件中，可能wrap_content，可能高宽不一致
+        //获取模式 AT_MOST
+        //宽度高度不一致时取最小值，保持是个正方形
+        int width = MeasureSpec.getSize(widthMeasureSpec);
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+        setMeasuredDimension(width > height ? height : width, width > height ? height : width);
     }
 
     //其他，动画效果等

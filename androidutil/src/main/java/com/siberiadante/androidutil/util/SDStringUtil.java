@@ -24,16 +24,6 @@ public class SDStringUtil {
     }
 
     /**
-     * 判断字符串是否为null或长度为0
-     *
-     * @param s 待校验字符串
-     * @return {@code true}: 空<br> {@code false}: 不为空
-     */
-    public static boolean isEmpty(final CharSequence s) {
-        return s == null || s.length() == 0;
-    }
-
-    /**
      * 判断字符串是否为null或全为空格
      *
      * @param s 待校验字符串
@@ -104,7 +94,6 @@ public class SDStringUtil {
         return a == null ? b == null : a.equalsIgnoreCase(b);
     }
 
-
     /**
      * 字符串首字母转成大写
      *
@@ -114,6 +103,16 @@ public class SDStringUtil {
     public static String upperFirstLetter(final String s) {
         if (isEmpty(s) || !Character.isLowerCase(s.charAt(0))) return s;
         return String.valueOf((char) (s.charAt(0) - 32)) + s.substring(1);
+    }
+
+    /**
+     * 判断字符串是否为null或长度为0
+     *
+     * @param s 待校验字符串
+     * @return {@code true}: 空<br> {@code false}: 不为空
+     */
+    public static boolean isEmpty(final CharSequence s) {
+        return s == null || s.length() == 0;
     }
 
     /**
@@ -146,6 +145,16 @@ public class SDStringUtil {
             chars[len - i - 1] = c;
         }
         return new String(chars);
+    }
+
+    /**
+     * 返回字符串长度
+     *
+     * @param s 字符串
+     * @return null返回0，其他返回自身长度
+     */
+    public static int length(final CharSequence s) {
+        return s == null ? 0 : s.length();
     }
 
     /**
@@ -202,16 +211,6 @@ public class SDStringUtil {
         Pattern p = Pattern.compile(regEx);
         Matcher m = p.matcher(str);
         return m.replaceAll("").trim();
-    }
-
-    /**
-     * 返回字符串长度
-     *
-     * @param s 字符串
-     * @return null返回0，其他返回自身长度
-     */
-    public static int length(final CharSequence s) {
-        return s == null ? 0 : s.length();
     }
 
     /**

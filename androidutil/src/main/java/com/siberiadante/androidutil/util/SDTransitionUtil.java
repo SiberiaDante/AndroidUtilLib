@@ -170,11 +170,9 @@ public class SDTransitionUtil {
      * @param digit 保留小数位
      * @return
      */
-    public static String getRoundUp(String value, int digit) {
-        if (SDStringUtil.isEmpty(value)) {
-            return "0";
-        }
-        return getRoundUp(new BigDecimal(Double.parseDouble(value)), digit);
+    @CheckResult
+    private static String getRoundUp(BigDecimal value, int digit) {
+        return value.setScale(digit, BigDecimal.ROUND_HALF_UP).toString();
     }
 
     /**
@@ -184,9 +182,11 @@ public class SDTransitionUtil {
      * @param digit 保留小数位
      * @return
      */
-    @CheckResult
-    private static String getRoundUp(BigDecimal value, int digit) {
-        return value.setScale(digit, BigDecimal.ROUND_HALF_UP).toString();
+    public static String getRoundUp(String value, int digit) {
+        if (SDStringUtil.isEmpty(value)) {
+            return "0";
+        }
+        return getRoundUp(new BigDecimal(Double.parseDouble(value)), digit);
     }
 
     /**
@@ -211,28 +211,6 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 获取百分比（乘100,保留两位小数）
-     *
-     * @param value 数值带%符号
-     * @return
-     */
-    public static String getPercent(double value) {
-        return getPercent(value, 2);
-    }
-
-
-    /**
-     * 获取百分比（乘100）
-     *
-     * @param value 数值带%符号
-     * @param digit 保留小数位
-     * @return
-     */
-    public static String getPercent(double value, int digit) {
-        return getPercentValue(new BigDecimal(value), digit) + "%";
-    }
-
-    /**
      * 获取百分比（乘100）
      *
      * @param value 数值
@@ -243,6 +221,27 @@ public class SDTransitionUtil {
     private static String getPercentValue(BigDecimal value, int digit) {
         BigDecimal result = value.multiply(new BigDecimal(100));
         return getRoundUp(result, digit);
+    }
+
+    /**
+     * 获取百分比（乘100,保留两位小数）
+     *
+     * @param value 数值带%符号
+     * @return
+     */
+    public static String getPercent(double value) {
+        return getPercent(value, 2);
+    }
+
+    /**
+     * 获取百分比（乘100）
+     *
+     * @param value 数值带%符号
+     * @param digit 保留小数位
+     * @return
+     */
+    public static String getPercent(double value, int digit) {
+        return getPercentValue(new BigDecimal(value), digit) + "%";
     }
 
     /**
@@ -299,24 +298,6 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 数字字符串转换成double ,字符串为空时 return 0;
-     *
-     * @param str 数字字符串
-     * @return
-     */
-    public static double stringToDouble(String str) {
-        if (SDStringUtil.isEmpty(str)) {
-            return 0;
-        } else {
-            try {
-                return Double.parseDouble(str);
-            } catch (NumberFormatException e) {
-                return 0;
-            }
-        }
-    }
-
-    /**
      * 数字字符串转换成浮点型 Float,字符串为空时 return 0;
      *
      * @param str 待转换的数字字符串
@@ -346,6 +327,24 @@ public class SDTransitionUtil {
             return "0" + df.format(stringToDouble(str));
         } else {
             return df.format(stringToDouble(str));
+        }
+    }
+
+    /**
+     * 数字字符串转换成double ,字符串为空时 return 0;
+     *
+     * @param str 数字字符串
+     * @return
+     */
+    public static double stringToDouble(String str) {
+        if (SDStringUtil.isEmpty(str)) {
+            return 0;
+        } else {
+            try {
+                return Double.parseDouble(str);
+            } catch (NumberFormatException e) {
+                return 0;
+            }
         }
     }
 
@@ -492,29 +491,18 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 单个汉字转成ASCII码
+     * 获得第一个汉字首字母
      *
      * @param s 单个汉字字符串
-     * @return 如果字符串长度是1返回的是对应的ascii码，否则返回-1
+     * @return 拼音
      */
-    public static int oneCNToASCII(String s) {
-        if (s.length() != 1) return -1;
-        int ascii = 0;
-        try {
-            byte[] bytes = s.getBytes("GB2312");
-            if (bytes.length == 1) {
-                ascii = bytes[0];
-            } else if (bytes.length == 2) {
-                int highByte = 256 + bytes[0];
-                int lowByte = 256 + bytes[1];
-                ascii = (256 * highByte + lowByte) - 256 * 256;
-            } else {
-                throw new IllegalArgumentException("Illegal resource string");
-            }
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return ascii;
+    public static String getPYFirstLetter(String s) {
+        if (SDStringUtil.isEmpty(s)) return "";
+        String first, py;
+        first = s.substring(0, 1);
+        py = oneCNToPY(first);
+        if (py == null) return null;
+        return py.substring(0, 1);
     }
 
     /**
@@ -541,18 +529,29 @@ public class SDTransitionUtil {
     }
 
     /**
-     * 获得第一个汉字首字母
+     * 单个汉字转成ASCII码
      *
      * @param s 单个汉字字符串
-     * @return 拼音
+     * @return 如果字符串长度是1返回的是对应的ascii码，否则返回-1
      */
-    public static String getPYFirstLetter(String s) {
-        if (SDStringUtil.isEmpty(s)) return "";
-        String first, py;
-        first = s.substring(0, 1);
-        py = oneCNToPY(first);
-        if (py == null) return null;
-        return py.substring(0, 1);
+    public static int oneCNToASCII(String s) {
+        if (s.length() != 1) return -1;
+        int ascii = 0;
+        try {
+            byte[] bytes = s.getBytes("GB2312");
+            if (bytes.length == 1) {
+                ascii = bytes[0];
+            } else if (bytes.length == 2) {
+                int highByte = 256 + bytes[0];
+                int lowByte = 256 + bytes[1];
+                ascii = (256 * highByte + lowByte) - 256 * 256;
+            } else {
+                throw new IllegalArgumentException("Illegal resource string");
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return ascii;
     }
 
     /**
@@ -751,6 +750,43 @@ public class SDTransitionUtil {
     }
 
     /**
+     * byteArr转inputStream
+     *
+     * @param bytes 字节数组
+     * @return 输入流
+     */
+    public static InputStream bytes2InputStream(byte[] bytes) {
+        return new ByteArrayInputStream(bytes);
+    }
+
+    /**
+     * inputStream按编码格式转string
+     *
+     * @param is          输入流
+     * @param charsetName 编码格式
+     * @return 字符串
+     */
+    public static String inputStream2String(InputStream is, String charsetName) {
+        if (is == null || SDStringUtil.isEmpty(charsetName)) return null;
+        try {
+            return new String(inputStream2Bytes(is), charsetName);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * inputStream转byteArr
+     *
+     * @param is 输入流
+     * @return 字节数组
+     */
+    public static byte[] inputStream2Bytes(InputStream is) {
+        return input2OutputStream(is).toByteArray();
+    }
+
+    /**
      * inputStream转outputStream
      *
      * @param is 输入流
@@ -771,74 +807,6 @@ public class SDTransitionUtil {
             return null;
         } finally {
             SDCloseUtil.closeIO(is);
-        }
-    }
-
-    /**
-     * inputStream转byteArr
-     *
-     * @param is 输入流
-     * @return 字节数组
-     */
-    public static byte[] inputStream2Bytes(InputStream is) {
-        return input2OutputStream(is).toByteArray();
-    }
-
-    /**
-     * byteArr转inputStream
-     *
-     * @param bytes 字节数组
-     * @return 输入流
-     */
-    public static InputStream bytes2InputStream(byte[] bytes) {
-        return new ByteArrayInputStream(bytes);
-    }
-
-    /**
-     * outputStream转byteArr
-     *
-     * @param out 输出流
-     * @return 字节数组
-     */
-    public static byte[] outputStream2Bytes(OutputStream out) {
-        if (out == null) return null;
-        return ((ByteArrayOutputStream) out).toByteArray();
-    }
-
-    /**
-     * byteArr转outputStream
-     *
-     * @param bytes 字节数组
-     * @return 字节数组
-     */
-    public static OutputStream bytes2OutputStream(byte[] bytes) {
-        ByteArrayOutputStream os = null;
-        try {
-            os = new ByteArrayOutputStream();
-            os.write(bytes);
-            return os;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            SDCloseUtil.closeIO(os);
-        }
-    }
-
-    /**
-     * inputStream按编码格式转string
-     *
-     * @param is          输入流
-     * @param charsetName 编码格式
-     * @return 字符串
-     */
-    public static String inputStream2String(InputStream is, String charsetName) {
-        if (is == null || SDStringUtil.isEmpty(charsetName)) return null;
-        try {
-            return new String(inputStream2Bytes(is), charsetName);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 
@@ -877,6 +845,17 @@ public class SDTransitionUtil {
     }
 
     /**
+     * outputStream转byteArr
+     *
+     * @param out 输出流
+     * @return 字节数组
+     */
+    public static byte[] outputStream2Bytes(OutputStream out) {
+        if (out == null) return null;
+        return ((ByteArrayOutputStream) out).toByteArray();
+    }
+
+    /**
      * string按编码格式转outputStream
      *
      * @param string      字符串
@@ -890,6 +869,26 @@ public class SDTransitionUtil {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    /**
+     * byteArr转outputStream
+     *
+     * @param bytes 字节数组
+     * @return 字节数组
+     */
+    public static OutputStream bytes2OutputStream(byte[] bytes) {
+        ByteArrayOutputStream os = null;
+        try {
+            os = new ByteArrayOutputStream();
+            os.write(bytes);
+            return os;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            SDCloseUtil.closeIO(os);
         }
     }
 

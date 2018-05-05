@@ -75,6 +75,19 @@ public class SDBitmapUtil {
     }
 
     /**
+     * @param bitmap  图片
+     * @param format
+     * @param quality 压缩百分比：100-0，100位不压缩
+     * @return 字节数组
+     */
+    public static byte[] bitmapToBytes(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
+        if (bitmap == null) return null;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(format, quality, baos);
+        return baos.toByteArray();
+    }
+
+    /**
      * bitmap转byteArr
      *
      * @param bitmap  图片
@@ -97,19 +110,6 @@ public class SDBitmapUtil {
     }
 
     /**
-     * @param bitmap  图片
-     * @param format
-     * @param quality 压缩百分比：100-0，100位不压缩
-     * @return 字节数组
-     */
-    public static byte[] bitmapToBytes(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
-        if (bitmap == null) return null;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(format, quality, baos);
-        return baos.toByteArray();
-    }
-
-    /**
      * 将Bitmap转换成Base64字符串
      *
      * @param bitmap 图片
@@ -117,6 +117,19 @@ public class SDBitmapUtil {
      */
     public static String bitmapToStrByBase64(Bitmap bitmap) {
         return bitmapToStrByBase64(bitmap, Bitmap.CompressFormat.JPEG, 100);
+    }
+
+    /**
+     * 将Bitmap转换成Base64字符串
+     *
+     * @param bitmap  图片
+     * @param format  bitmap格式
+     * @param quality 压缩百分比：100-0，100位不压缩
+     * @return base64 编码的图片
+     */
+    public static String bitmapToStrByBase64(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
+        byte[] bytes = bitmapToBytes(bitmap, format, quality);
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
     /**
@@ -140,20 +153,6 @@ public class SDBitmapUtil {
     public static String bitmapToStrByBase64(Bitmap bitmap, Bitmap.CompressFormat format) {
         return bitmapToStrByBase64(bitmap, format, 100);
     }
-
-    /**
-     * 将Bitmap转换成Base64字符串
-     *
-     * @param bitmap  图片
-     * @param format  bitmap格式
-     * @param quality 压缩百分比：100-0，100位不压缩
-     * @return base64 编码的图片
-     */
-    public static String bitmapToStrByBase64(Bitmap bitmap, Bitmap.CompressFormat format, int quality) {
-        byte[] bytes = bitmapToBytes(bitmap, format, quality);
-        return Base64.encodeToString(bytes, Base64.DEFAULT);
-    }
-
 
     /**
      * byteArr转bitmap
@@ -290,6 +289,16 @@ public class SDBitmapUtil {
             canvas.drawCircle(width / 2f, height / 2f, radius, paint);
         }
         return ret;
+    }
+
+    /**
+     * 判断bitmap对象是否为空
+     *
+     * @param src 源图片
+     * @return {@code true}: 是<br>{@code false}: 否
+     */
+    public static boolean isEmptyBitmap(final Bitmap src) {
+        return src == null || src.getWidth() == 0 || src.getHeight() == 0;
     }
 
     /**
@@ -456,19 +465,6 @@ public class SDBitmapUtil {
      * @param degrees 旋转角度
      * @param px      旋转点横坐标
      * @param py      旋转点纵坐标
-     * @return 旋转后的图片
-     */
-    public static Bitmap rotateBitmap(final Bitmap bitmap, final int degrees, final float px, final float py) {
-        return rotateBitmap(bitmap, degrees, px, py, false);
-    }
-
-    /**
-     * 旋转图片
-     *
-     * @param bitmap  源图片
-     * @param degrees 旋转角度
-     * @param px      旋转点横坐标
-     * @param py      旋转点纵坐标
      * @param recycle 是否回收
      * @return 旋转后的图片
      */
@@ -480,6 +476,19 @@ public class SDBitmapUtil {
         Bitmap ret = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         if (recycle && !bitmap.isRecycled()) bitmap.recycle();
         return ret;
+    }
+
+    /**
+     * 旋转图片
+     *
+     * @param bitmap  源图片
+     * @param degrees 旋转角度
+     * @param px      旋转点横坐标
+     * @param py      旋转点纵坐标
+     * @return 旋转后的图片
+     */
+    public static Bitmap rotateBitmap(final Bitmap bitmap, final int degrees, final float px, final float py) {
+        return rotateBitmap(bitmap, degrees, px, py, false);
     }
 
     /**
@@ -590,6 +599,26 @@ public class SDBitmapUtil {
      * @param src     源图片
      * @param kx      倾斜因子x
      * @param ky      倾斜因子y
+     * @param px      平移因子x
+     * @param py      平移因子y
+     * @param recycle 是否回收
+     * @return 倾斜后的图片
+     */
+    public static Bitmap skew(final Bitmap src, final float kx, final float ky, final float px, final float py, final boolean recycle) {
+        if (isEmptyBitmap(src)) return null;
+        Matrix matrix = new Matrix();
+        matrix.setSkew(kx, ky, px, py);
+        Bitmap ret = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
+        if (recycle && !src.isRecycled()) src.recycle();
+        return ret;
+    }
+
+    /**
+     * 倾斜图片
+     *
+     * @param src     源图片
+     * @param kx      倾斜因子x
+     * @param ky      倾斜因子y
      * @param recycle 是否回收
      * @return 倾斜后的图片
      */
@@ -609,26 +638,6 @@ public class SDBitmapUtil {
      */
     public static Bitmap skew(final Bitmap src, final float kx, final float ky, final float px, final float py) {
         return skew(src, kx, ky, px, py, false);
-    }
-
-    /**
-     * 倾斜图片
-     *
-     * @param src     源图片
-     * @param kx      倾斜因子x
-     * @param ky      倾斜因子y
-     * @param px      平移因子x
-     * @param py      平移因子y
-     * @param recycle 是否回收
-     * @return 倾斜后的图片
-     */
-    public static Bitmap skew(final Bitmap src, final float kx, final float ky, final float px, final float py, final boolean recycle) {
-        if (isEmptyBitmap(src)) return null;
-        Matrix matrix = new Matrix();
-        matrix.setSkew(kx, ky, px, py);
-        Bitmap ret = Bitmap.createBitmap(src, 0, 0, src.getWidth(), src.getHeight(), matrix, true);
-        if (recycle && !src.isRecycled()) src.recycle();
-        return ret;
     }
 
     /**
@@ -757,6 +766,44 @@ public class SDBitmapUtil {
     }
 
     /**
+     * 添加边框
+     *
+     * @param src          源图片
+     * @param borderSize   边框尺寸
+     * @param color        边框颜色
+     * @param isCircle     是否画圆
+     * @param cornerRadius 圆角半径
+     * @param recycle      是否回收
+     * @return 边框图
+     */
+    private static Bitmap addBorder(final Bitmap src,
+                                    @IntRange(from = 1) final int borderSize,
+                                    @ColorInt final int color,
+                                    final boolean isCircle,
+                                    final float cornerRadius,
+                                    final boolean recycle) {
+        if (isEmptyBitmap(src)) return null;
+        Bitmap ret = recycle ? src : src.copy(src.getConfig(), true);
+        int width = ret.getWidth();
+        int height = ret.getHeight();
+        Canvas canvas = new Canvas(ret);
+        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        paint.setColor(color);
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(borderSize);
+        if (isCircle) {
+            float radius = Math.min(width, height) / 2f - borderSize / 2f;
+            canvas.drawCircle(width / 2f, height / 2f, radius, paint);
+        } else {
+            int halfBorderSize = borderSize >> 1;
+            RectF rectF = new RectF(halfBorderSize, halfBorderSize,
+                    width - halfBorderSize, height - halfBorderSize);
+            canvas.drawRoundRect(rectF, cornerRadius, cornerRadius, paint);
+        }
+        return ret;
+    }
+
+    /**
      * 添加圆角边框
      *
      * @param src          源图片
@@ -802,44 +849,6 @@ public class SDBitmapUtil {
                                          @ColorInt final int color,
                                          final boolean recycle) {
         return addBorder(src, borderSize, color, true, 0, recycle);
-    }
-
-    /**
-     * 添加边框
-     *
-     * @param src          源图片
-     * @param borderSize   边框尺寸
-     * @param color        边框颜色
-     * @param isCircle     是否画圆
-     * @param cornerRadius 圆角半径
-     * @param recycle      是否回收
-     * @return 边框图
-     */
-    private static Bitmap addBorder(final Bitmap src,
-                                    @IntRange(from = 1) final int borderSize,
-                                    @ColorInt final int color,
-                                    final boolean isCircle,
-                                    final float cornerRadius,
-                                    final boolean recycle) {
-        if (isEmptyBitmap(src)) return null;
-        Bitmap ret = recycle ? src : src.copy(src.getConfig(), true);
-        int width = ret.getWidth();
-        int height = ret.getHeight();
-        Canvas canvas = new Canvas(ret);
-        Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint.setColor(color);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(borderSize);
-        if (isCircle) {
-            float radius = Math.min(width, height) / 2f - borderSize / 2f;
-            canvas.drawCircle(width / 2f, height / 2f, radius, paint);
-        } else {
-            int halfBorderSize = borderSize >> 1;
-            RectF rectF = new RectF(halfBorderSize, halfBorderSize,
-                    width - halfBorderSize, height - halfBorderSize);
-            canvas.drawRoundRect(rectF, cornerRadius, cornerRadius, paint);
-        }
-        return ret;
     }
 
     /**
@@ -1103,20 +1112,6 @@ public class SDBitmapUtil {
      * renderScript模糊图片
      * <p>API大于17</p>
      *
-     * @param src    源图片
-     * @param radius 模糊半径(0...25)
-     * @return 模糊后的图片
-     */
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    public static Bitmap renderScriptBlur(final Bitmap src,
-                                          @FloatRange(from = 0, to = 25, fromInclusive = false) final float radius) {
-        return renderScriptBlur(src, radius, false);
-    }
-
-    /**
-     * renderScript模糊图片
-     * <p>API大于17</p>
-     *
      * @param src     源图片
      * @param radius  模糊半径(0...25)
      * @param recycle 是否回收
@@ -1146,17 +1141,6 @@ public class SDBitmapUtil {
             }
         }
         return ret;
-    }
-
-    /**
-     * stack模糊图片
-     *
-     * @param src    源图片
-     * @param radius 模糊半径
-     * @return stack模糊后的图片
-     */
-    public static Bitmap stackBlur(final Bitmap src, final int radius) {
-        return stackBlur(src, radius, false);
     }
 
     /**
@@ -1366,6 +1350,31 @@ public class SDBitmapUtil {
     }
 
     /**
+     * renderScript模糊图片
+     * <p>API大于17</p>
+     *
+     * @param src    源图片
+     * @param radius 模糊半径(0...25)
+     * @return 模糊后的图片
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public static Bitmap renderScriptBlur(final Bitmap src,
+                                          @FloatRange(from = 0, to = 25, fromInclusive = false) final float radius) {
+        return renderScriptBlur(src, radius, false);
+    }
+
+    /**
+     * stack模糊图片
+     *
+     * @param src    源图片
+     * @param radius 模糊半径
+     * @return stack模糊后的图片
+     */
+    public static Bitmap stackBlur(final Bitmap src, final int radius) {
+        return stackBlur(src, radius, false);
+    }
+
+    /**
      * 图片锐化（拉普拉斯变换）
      *
      * @param bmp
@@ -1416,7 +1425,6 @@ public class SDBitmapUtil {
         bitmap.setPixels(pixels, 0, width, 0, 0, width, height);
         return bitmap;
     }
-
 
     /**
      * 图片二值化
@@ -1473,6 +1481,31 @@ public class SDBitmapUtil {
     /**
      * 保存图片
      *
+     * @param src     源图片
+     * @param file    要保存到的文件
+     * @param format  格式
+     * @param recycle 是否回收
+     * @return {@code true}: 成功<br>{@code false}: 失败
+     */
+    public static boolean save(final Bitmap src, final File file, final Bitmap.CompressFormat format, final boolean recycle) {
+        if (isEmptyBitmap(src) || !SDFileUtil.createFileByDeleteOldFile(file)) return false;
+        OutputStream os = null;
+        boolean ret = false;
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file));
+            ret = src.compress(format, 100, os);
+            if (recycle && !src.isRecycled()) src.recycle();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            SDCloseUtil.closeIO(os);
+        }
+        return ret;
+    }
+
+    /**
+     * 保存图片
+     *
      * @param src      源图片
      * @param filePath 要保存到的文件路径
      * @param format   格式
@@ -1505,31 +1538,6 @@ public class SDBitmapUtil {
      */
     public static boolean save(final Bitmap src, final String filePath, final Bitmap.CompressFormat format, final boolean recycle) {
         return save(src, SDFileUtil.getFileByPath(filePath), format, recycle);
-    }
-
-    /**
-     * 保存图片
-     *
-     * @param src     源图片
-     * @param file    要保存到的文件
-     * @param format  格式
-     * @param recycle 是否回收
-     * @return {@code true}: 成功<br>{@code false}: 失败
-     */
-    public static boolean save(final Bitmap src, final File file, final Bitmap.CompressFormat format, final boolean recycle) {
-        if (isEmptyBitmap(src) || !SDFileUtil.createFileByDeleteOldFile(file)) return false;
-        OutputStream os = null;
-        boolean ret = false;
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file));
-            ret = src.compress(format, 100, os);
-            if (recycle && !src.isRecycled()) src.recycle();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            SDCloseUtil.closeIO(os);
-        }
-        return ret;
     }
 
     /**
@@ -1665,16 +1673,6 @@ public class SDBitmapUtil {
     public static boolean isBMP(final byte[] b) {
         return b.length >= 2
                 && (b[0] == 0x42) && (b[1] == 0x4d);
-    }
-
-    /**
-     * 判断bitmap对象是否为空
-     *
-     * @param src 源图片
-     * @return {@code true}: 是<br>{@code false}: 否
-     */
-    public static boolean isEmptyBitmap(final Bitmap src) {
-        return src == null || src.getWidth() == 0 || src.getHeight() == 0;
     }
 
     /**

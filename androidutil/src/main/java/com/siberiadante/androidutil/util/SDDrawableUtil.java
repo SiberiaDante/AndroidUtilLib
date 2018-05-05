@@ -109,6 +109,7 @@ public class SDDrawableUtil {
     public static String drawable2Base64(Drawable drawable, Bitmap.CompressFormat format, int quality) {
         return drawable == null ? null : bitmapToStrByBase64(drawableToBitmap(drawable), format, quality);
     }
+
     /**
      * byteArr转drawable
      *

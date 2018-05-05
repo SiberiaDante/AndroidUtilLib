@@ -17,8 +17,6 @@ import android.view.WindowManager;
 
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDStatusBarUtil;
-import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 import java.lang.reflect.Method;
 
@@ -111,6 +109,14 @@ public class SDScreenUtil {
         return SDAndroidLib.getContext().getResources().getDisplayMetrics().heightPixels;
     }
 
+    /**
+     * 判断是否横屏
+     *
+     * @return {@code true}: 是<br>{@code false}: 否
+     */
+    public static boolean isLandscape() {
+        return SDAndroidLib.getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+    }
 
     /**
      * 设置屏幕为横屏
@@ -127,30 +133,21 @@ public class SDScreenUtil {
     }
 
     /**
-     * 设置屏幕为竖屏
-     *
-     * @param activity activity
-     */
-    public static void setPortrait(Activity activity) {
-        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-    }
-
-    /**
-     * 判断是否横屏
-     *
-     * @return {@code true}: 是<br>{@code false}: 否
-     */
-    public static boolean isLandscape() {
-        return SDAndroidLib.getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-    }
-
-    /**
      * 判断是否竖屏
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isPortrait() {
         return SDAndroidLib.getContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT;
+    }
+
+    /**
+     * 设置屏幕为竖屏
+     *
+     * @param activity activity
+     */
+    public static void setPortrait(Activity activity) {
+        activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     /**
@@ -248,6 +245,23 @@ public class SDScreenUtil {
     }
 
     /**
+     * 反射唤醒通知栏
+     *
+     * @param context    上下文
+     * @param methodName 方法名
+     */
+    private static void invokePanels(Context context, String methodName) {
+        try {
+            Object service = context.getSystemService(Context.NOTIFICATION_SERVICE);
+            Class<?> statusBarManager = Class.forName("android.app.StatusBarManager");
+            Method expand = statusBarManager.getMethod(methodName);
+            expand.invoke(service);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * 隐藏通知栏
      * <p>需添加权限 {@code <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>}</p>
      *
@@ -270,23 +284,6 @@ public class SDScreenUtil {
     }
 
     /**
-     * 反射唤醒通知栏
-     *
-     * @param context    上下文
-     * @param methodName 方法名
-     */
-    private static void invokePanels(Context context, String methodName) {
-        try {
-            Object service = context.getSystemService(Context.NOTIFICATION_SERVICE);
-            Class<?> statusBarManager = Class.forName("android.app.StatusBarManager");
-            Method expand = statusBarManager.getMethod(methodName);
-            expand.invoke(service);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * 判断是否锁屏
      *
      * @return {@code true}: 是<br>{@code false}: 否
@@ -295,17 +292,6 @@ public class SDScreenUtil {
         KeyguardManager km = (KeyguardManager) SDAndroidLib.getContext().getSystemService(Context.KEYGUARD_SERVICE);
         return km.inKeyguardRestrictedInputMode();
     }
-
-    /**
-     * 设置进入休眠时长
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.WRITE_SETTINGS" />}</p>
-     *
-     * @param duration 时长
-     */
-    public static void setSleepDuration(int duration) {
-        Settings.System.putInt(SDAndroidLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);
-    }
-
 
     /**
      * 设置永不休眠
@@ -327,6 +313,16 @@ public class SDScreenUtil {
             e.printStackTrace();
             return -123;
         }
+    }
+
+    /**
+     * 设置进入休眠时长
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.WRITE_SETTINGS" />}</p>
+     *
+     * @param duration 时长
+     */
+    public static void setSleepDuration(int duration) {
+        Settings.System.putInt(SDAndroidLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);
     }
 
 

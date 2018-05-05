@@ -8,6 +8,7 @@ import android.view.View;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/11/11
  * Describe：  RecyclerView 分隔线
  * @github： https://github.com/SiberiaDante
@@ -22,14 +23,16 @@ public class SDNormalDecoration extends RecyclerView.ItemDecoration {
      * marginEnd  marginStart
      * 父布局使用padding,避免使用margin
      */
-    private int marginStart=0;
-    private int marginEnd=0;
+    private int marginStart = 0;
+    private int marginEnd = 0;
+
     public SDNormalDecoration(int color, int height) {
         this.mHeight = height;
         mPaint = new Paint();
         mPaint.setColor(color);
         mPaint.setAntiAlias(true);
     }
+
     public SDNormalDecoration(int color, int marginSE, int height) {
         this.mHeight = height;
         this.marginStart = marginSE;
@@ -38,7 +41,8 @@ public class SDNormalDecoration extends RecyclerView.ItemDecoration {
         this.mPaint.setColor(color);
         this.mPaint.setAntiAlias(true);
     }
-    public SDNormalDecoration(int color, int marginStart,int marginEnd, int height) {
+
+    public SDNormalDecoration(int color, int marginStart, int marginEnd, int height) {
         this.mHeight = height;
         this.marginStart = marginStart;
         this.marginEnd = marginEnd;
@@ -46,6 +50,7 @@ public class SDNormalDecoration extends RecyclerView.ItemDecoration {
         this.mPaint.setColor(color);
         this.mPaint.setAntiAlias(true);
     }
+
     @Override
 
     public void onDraw(Canvas c, RecyclerView parent, RecyclerView.State state) {
@@ -54,8 +59,8 @@ public class SDNormalDecoration extends RecyclerView.ItemDecoration {
         Rect rect = new Rect();
 //        rect.left = parent.getPaddingLeft();
 //        rect.right = parent.getWidth() - parent.getPaddingRight();
-        rect.left = parent.getPaddingLeft()+marginStart;
-        rect.right = parent.getWidth() - parent.getPaddingRight()-marginEnd;
+        rect.left = parent.getPaddingLeft() + marginStart;
+        rect.right = parent.getWidth() - parent.getPaddingRight() - marginEnd;
         for (int i = 0; i < childCount; i++) {
             View childView = parent.getChildAt(i);
             rect.top = childView.getBottom();

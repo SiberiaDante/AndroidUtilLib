@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import com.siberiadante.androidutil.util.SDCloseUtil;
 
@@ -22,52 +22,6 @@ public final class SDShellUtil {
      */
     public static CommandResult execCmd(String command, boolean isRoot) {
         return execCmd(new String[]{command}, isRoot, true);
-    }
-
-    /**
-     * 是否是在root下执行命令
-     *
-     * @param commands 多条命令链表
-     * @param isRoot   是否需要root权限执行
-     * @return CommandResult
-     */
-    public static CommandResult execCmd(List<String> commands, boolean isRoot) {
-        return execCmd(commands == null ? null : commands.toArray(new String[]{}), isRoot, true);
-    }
-
-    /**
-     * 是否是在root下执行命令
-     *
-     * @param commands 多条命令数组
-     * @param isRoot   是否需要root权限执行
-     * @return CommandResult
-     */
-    public static CommandResult execCmd(String[] commands, boolean isRoot) {
-        return execCmd(commands, isRoot, true);
-    }
-
-    /**
-     * 是否是在root下执行命令
-     *
-     * @param command         命令
-     * @param isRoot          是否需要root权限执行
-     * @param isNeedResultMsg 是否需要结果消息
-     * @return CommandResult
-     */
-    public static CommandResult execCmd(String command, boolean isRoot, boolean isNeedResultMsg) {
-        return execCmd(new String[]{command}, isRoot, isNeedResultMsg);
-    }
-
-    /**
-     * 是否是在root下执行命令
-     *
-     * @param commands        命令链表
-     * @param isRoot          是否需要root权限执行
-     * @param isNeedResultMsg 是否需要结果消息
-     * @return CommandResult
-     */
-    public static CommandResult execCmd(List<String> commands, boolean isRoot, boolean isNeedResultMsg) {
-        return execCmd(commands == null ? null : commands.toArray(new String[]{}), isRoot, isNeedResultMsg);
     }
 
     /**
@@ -127,6 +81,52 @@ public final class SDShellUtil {
                 successMsg == null ? null : successMsg.toString(),
                 errorMsg == null ? null : errorMsg.toString()
         );
+    }
+
+    /**
+     * 是否是在root下执行命令
+     *
+     * @param commands 多条命令链表
+     * @param isRoot   是否需要root权限执行
+     * @return CommandResult
+     */
+    public static CommandResult execCmd(List<String> commands, boolean isRoot) {
+        return execCmd(commands == null ? null : commands.toArray(new String[]{}), isRoot, true);
+    }
+
+    /**
+     * 是否是在root下执行命令
+     *
+     * @param commands 多条命令数组
+     * @param isRoot   是否需要root权限执行
+     * @return CommandResult
+     */
+    public static CommandResult execCmd(String[] commands, boolean isRoot) {
+        return execCmd(commands, isRoot, true);
+    }
+
+    /**
+     * 是否是在root下执行命令
+     *
+     * @param command         命令
+     * @param isRoot          是否需要root权限执行
+     * @param isNeedResultMsg 是否需要结果消息
+     * @return CommandResult
+     */
+    public static CommandResult execCmd(String command, boolean isRoot, boolean isNeedResultMsg) {
+        return execCmd(new String[]{command}, isRoot, isNeedResultMsg);
+    }
+
+    /**
+     * 是否是在root下执行命令
+     *
+     * @param commands        命令链表
+     * @param isRoot          是否需要root权限执行
+     * @param isNeedResultMsg 是否需要结果消息
+     * @return CommandResult
+     */
+    public static CommandResult execCmd(List<String> commands, boolean isRoot, boolean isNeedResultMsg) {
+        return execCmd(commands == null ? null : commands.toArray(new String[]{}), isRoot, isNeedResultMsg);
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 
 import android.content.Context;
@@ -25,6 +25,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.siberiadante.androidutil.R;
+import com.siberiadante.androidutil.SDAndroidLib;
 import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 import java.util.ArrayList;
@@ -32,7 +34,7 @@ import java.util.List;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
- *
+ * <p>
  * Created: SiberiaDante
  * Describe：
  * Time: 2017/5/14
@@ -117,21 +119,6 @@ public class SDToastUtil {
 
     /**
      * @param content
-     */
-    public static void toastBottomLong(String content) {
-        showSingleToastBottom(content, Toast.LENGTH_LONG).show();
-    }
-
-    /**
-     * @param content
-     * @return mToastBottom 对象，可自定义设置
-     */
-    public static Toast getToastBottom(String content) {
-        return showSingleToastBottom(content, DURATION_NULL);
-    }
-
-    /**
-     * @param content
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
      * @return
      */
@@ -153,23 +140,23 @@ public class SDToastUtil {
     /**
      * @param content
      */
+    public static void toastBottomLong(String content) {
+        showSingleToastBottom(content, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * @param content
+     * @return mToastBottom 对象，可自定义设置
+     */
+    public static Toast getToastBottom(String content) {
+        return showSingleToastBottom(content, DURATION_NULL);
+    }
+
+    /**
+     * @param content
+     */
     public static void toastCenterShort(String content) {
         showSingleToastCenter(content, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * @param content
-     */
-    public static void toastCenterLong(String content) {
-        showSingleToastCenter(content, Toast.LENGTH_LONG).show();
-    }
-
-    /**
-     * @param content
-     * @return mToastCenter 对象，可自定义设置
-     */
-    public static Toast getToastCenter(String content) {
-        return showSingleToastCenter(content, DURATION_NULL);
     }
 
     /**
@@ -196,23 +183,23 @@ public class SDToastUtil {
     /**
      * @param content
      */
+    public static void toastCenterLong(String content) {
+        showSingleToastCenter(content, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * @param content
+     * @return mToastCenter 对象，可自定义设置
+     */
+    public static Toast getToastCenter(String content) {
+        return showSingleToastCenter(content, DURATION_NULL);
+    }
+
+    /**
+     * @param content
+     */
     public static void toastTopShort(String content) {
         showSingleToastTop(content, Toast.LENGTH_SHORT).show();
-    }
-
-    /**
-     * @param content
-     */
-    public static void toastTopLong(String content) {
-        showSingleToastTop(content, Toast.LENGTH_LONG).show();
-    }
-
-    /**
-     * @param content
-     * @return mToastTop 对象，可自定义设置
-     */
-    public static Toast getToastTop(String content) {
-        return showSingleToastTop(content, DURATION_NULL);
     }
 
     /**
@@ -237,32 +224,27 @@ public class SDToastUtil {
     }
 
     /**
+     * @param content
+     */
+    public static void toastTopLong(String content) {
+        showSingleToastTop(content, Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * @param content
+     * @return mToastTop 对象，可自定义设置
+     */
+    public static Toast getToastTop(String content) {
+        return showSingleToastTop(content, DURATION_NULL);
+    }
+
+    /**
      * Toast 无背景透明的文本
      *
      * @param content
      */
     public static void toastTranslucent(String content) {
         showTranslucentText(content, DURATION_NULL, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR).show();
-    }
-
-    /**
-     * Toast 无背景透明的文本
-     *
-     * @param content
-     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
-     */
-    public static void toastTranslucent(String content, int duration) {
-        showTranslucentText(content, duration, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR).show();
-    }
-
-    /**
-     * @param content
-     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
-     * @param textSize
-     * @param textColor
-     */
-    public static void toastTranslucent(String content, int duration, float textSize, int textColor) {
-        showTranslucentText(content, duration, textSize, textColor).show();
     }
 
     /**
@@ -303,12 +285,67 @@ public class SDToastUtil {
     }
 
     /**
+     * Toast 无背景透明的文本
+     *
+     * @param content
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     */
+    public static void toastTranslucent(String content, int duration) {
+        showTranslucentText(content, duration, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR).show();
+    }
+
+    /**
+     * @param content
+     * @param duration  显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param textSize
+     * @param textColor
+     */
+    public static void toastTranslucent(String content, int duration, float textSize, int textColor) {
+        showTranslucentText(content, duration, textSize, textColor).show();
+    }
+
+    /**
      * 显示多行文字
      *
      * @param contents
      */
     public static void showLinesText(List<String> contents) {
         showLinesToastText(contents, BACKGROUND_COLOR_NULL, DEFAULT_TEXT_SIZE, DEFAULT_TEXT_COLOR, 30, 10, 30, 10).show();
+    }
+
+    /**
+     * Toast 多行文本
+     *
+     * @param textSize  字体大小
+     * @param textColor 字体颜色
+     * @param contents  list 形式的文本内容
+     */
+    @CheckResult
+    private static Toast showLinesToastText(List<String> contents, int backgroundColor, int textSize,
+                                            int textColor, int paddingStart, int paddingTop, int paddingRight, int paddingLeft) {
+        if (null == mToastLines) {
+            mToastLines = Toast.makeText(SDAndroidLib.getContext(), "", Toast.LENGTH_LONG);
+        }
+        toastList.add(mToastLines);
+        LinearLayout linearLayoutTop = new LinearLayout(SDAndroidLib.getContext());//创建线性布局
+        linearLayoutTop.setPadding(SDTransitionUtil.dip2px(paddingStart), SDTransitionUtil.dip2px(paddingTop), SDTransitionUtil.dip2px(paddingRight), SDTransitionUtil.dip2px(paddingLeft));
+
+        if (BACKGROUND_COLOR_NULL == backgroundColor) {
+            linearLayoutTop.setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
+        } else {
+            linearLayoutTop.setBackgroundColor(backgroundColor);
+        }
+        linearLayoutTop.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
+        for (int i = 0; i < contents.size(); i++) {
+            TextView textView = new TextView(SDAndroidLib.getContext());
+            textView.setText(contents.get(i));
+            textView.setTextSize(textSize);
+            textView.setTextColor(textColor);
+            linearLayoutTop.addView(textView);
+        }
+        mToastLines.setView(linearLayoutTop);
+        mToastLines.setDuration(Toast.LENGTH_LONG);
+        return mToastLines;
     }
 
     /**
@@ -350,57 +387,11 @@ public class SDToastUtil {
     }
 
     /**
-     * Toast 多行文本
-     *
-     * @param textSize  字体大小
-     * @param textColor 字体颜色
-     * @param contents  list 形式的文本内容
-     */
-    @CheckResult
-    private static Toast showLinesToastText(List<String> contents, int backgroundColor, int textSize,
-                                            int textColor, int paddingStart, int paddingTop, int paddingRight, int paddingLeft) {
-        if (null == mToastLines) {
-            mToastLines = Toast.makeText(SDAndroidLib.getContext(), "", Toast.LENGTH_LONG);
-        }
-        toastList.add(mToastLines);
-        LinearLayout linearLayoutTop = new LinearLayout(SDAndroidLib.getContext());//创建线性布局
-        linearLayoutTop.setPadding(SDTransitionUtil.dip2px(paddingStart), SDTransitionUtil.dip2px(paddingTop), SDTransitionUtil.dip2px(paddingRight), SDTransitionUtil.dip2px(paddingLeft));
-
-        if (BACKGROUND_COLOR_NULL == backgroundColor) {
-            linearLayoutTop.setBackgroundColor(DEFAULT_BACKGROUND_COLOR);
-        } else {
-            linearLayoutTop.setBackgroundColor(backgroundColor);
-        }
-        linearLayoutTop.setOrientation(LinearLayout.VERTICAL);//设置布局垂直
-        for (int i = 0; i < contents.size(); i++) {
-            TextView textView = new TextView(SDAndroidLib.getContext());
-            textView.setText(contents.get(i));
-            textView.setTextSize(textSize);
-            textView.setTextColor(textColor);
-            linearLayoutTop.addView(textView);
-        }
-        mToastLines.setView(linearLayoutTop);
-        mToastLines.setDuration(Toast.LENGTH_LONG);
-        return mToastLines;
-    }
-
-    /**
      * @param resId 布局id
      */
     public static void showView(@LayoutRes int resId) {
         showView(resId, POSITION_NULL, 0, 0, DURATION_NULL).show();
     }
-
-    /**
-     * @param resId    布局id
-     * @param position
-     * @param xOffset
-     * @param yOffset
-     */
-    public static void showView(@LayoutRes int resId, int position, int xOffset, int yOffset) {
-        showView(resId, position, 0, 0, DURATION_NULL).show();
-    }
-
 
     /**
      * @param resId    布局id
@@ -428,6 +419,16 @@ public class SDToastUtil {
             mToastView.setGravity(position, xOffset, yOffset);
         }
         return mToastView;
+    }
+
+    /**
+     * @param resId    布局id
+     * @param position
+     * @param xOffset
+     * @param yOffset
+     */
+    public static void showView(@LayoutRes int resId, int position, int xOffset, int yOffset) {
+        showView(resId, position, 0, 0, DURATION_NULL).show();
     }
 
     /**
@@ -563,6 +564,82 @@ public class SDToastUtil {
     /**
      * @param context
      * @param message
+     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
+     * @param icon
+     * @param withIcon
+     * @return
+     */
+    @CheckResult
+    public static Toast normal(@NonNull Context context, @NonNull String message, int duration, Drawable icon, boolean withIcon) {
+        return custom(context, message, icon, DEFAULT_TEXT_COLOR, duration, withIcon);
+    }
+
+    @CheckResult
+    public static Toast custom(@NonNull Context context, @NonNull String message, Drawable icon,
+                               @ColorInt int textColor, int duration, boolean withIcon) {
+        return custom(context, message, icon, textColor, -1, duration, withIcon, false);
+    }
+
+    @CheckResult
+    public static Toast custom(@NonNull Context context, @NonNull String message, Drawable icon, @ColorInt int textColor, @ColorInt int tintColor, int duration, boolean withIcon, boolean shouldTint) {
+        if (currentToast == null) {
+            currentToast = new Toast(context);
+        }
+        final View toastLayout = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.sd_toast_layout, null);
+        final ImageView toastIcon = (ImageView) toastLayout.findViewById(R.id.toast_icon);
+        final TextView toastTextView = (TextView) toastLayout.findViewById(R.id.toast_text);
+        Drawable drawableFrame;
+
+        if (shouldTint) {
+            drawableFrame = tint9PatchDrawableFrame(context, tintColor);
+        } else {
+            drawableFrame = getDrawable(R.drawable.toast_frame);
+        }
+        setBackground(toastLayout, drawableFrame);
+
+        if (withIcon) {
+            if (icon == null) {
+                throw new IllegalArgumentException("Avoid passing 'icon' as null if 'withIcon' is set to true");
+            } else {
+                setBackground(toastIcon, icon);
+            }
+        } else {
+            toastIcon.setVisibility(View.GONE);
+        }
+
+        toastTextView.setTextColor(textColor);
+        toastTextView.setText(message);
+        toastTextView.setTypeface(Typeface.create(TOAST_TYPEFACE, Typeface.NORMAL));
+
+        currentToast.setView(toastLayout);
+        currentToast.setDuration(duration);
+        return currentToast;
+    }
+
+    private static Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
+        final NinePatchDrawable toastDrawable = (NinePatchDrawable) getDrawable(R.drawable.toast_frame);
+        toastDrawable.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
+        return toastDrawable;
+    }
+
+    private static Drawable getDrawable(@DrawableRes int id) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            return SDAndroidLib.getContext().getDrawable(id);
+        else
+            return SDAndroidLib.getContext().getResources().getDrawable(id);
+    }
+
+    private static void setBackground(@NonNull View view, Drawable drawable) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            view.setBackground(drawable);
+        } else {
+            view.setBackgroundDrawable(drawable);
+        }
+    }
+
+    /**
+     * @param context
+     * @param message
      * @return
      */
     @CheckResult
@@ -641,24 +718,15 @@ public class SDToastUtil {
     }
 
     /**
-     * @param context
-     * @param message
-     * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
-     * @param icon
-     * @param withIcon
-     * @return
-     */
-    @CheckResult
-    public static Toast normal(@NonNull Context context, @NonNull String message, int duration, Drawable icon, boolean withIcon) {
-        return custom(context, message, icon, DEFAULT_TEXT_COLOR, duration, withIcon);
-    }
-
-
-    /**
      * @param message
      */
     public static void warning(@NonNull String message) {
         warning(SDAndroidLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
+    }
+
+    @CheckResult
+    public static Toast warning(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
+        return custom(context, message, getDrawable(R.drawable.ic_error_outline_white_48dp), DEFAULT_TEXT_COLOR, WARNING_COLOR, duration, withIcon, true);
     }
 
     /**
@@ -686,6 +754,13 @@ public class SDToastUtil {
         info(SDAndroidLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
     }
 
+    //*******************************************常规方法********************************************
+
+    @CheckResult
+    public static Toast info(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
+        return custom(context, message, getDrawable(R.drawable.ic_info_outline_white_48dp), DEFAULT_TEXT_COLOR, INFO_COLOR, duration, withIcon, true);
+    }
+
     /**
      * @param message
      * @param duration 显示时长 {@code Toast.LENGTH_LONG} {@code Toast.LENGTH_SHORT}
@@ -709,6 +784,11 @@ public class SDToastUtil {
      */
     public static void success(@NonNull String message) {
         success(SDAndroidLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
+    }
+
+    @CheckResult
+    public static Toast success(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
+        return custom(context, message, getDrawable(R.drawable.ic_check_white_48dp), DEFAULT_TEXT_COLOR, SUCCESS_COLOR, duration, withIcon, true);
     }
 
     /**
@@ -736,7 +816,10 @@ public class SDToastUtil {
         error(SDAndroidLib.getContext(), message, Toast.LENGTH_SHORT, true).show();
     }
 
-    //*******************************************常规方法********************************************
+    @CheckResult
+    public static Toast error(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
+        return custom(context, message, getDrawable(R.drawable.ic_clear_white_48dp), DEFAULT_TEXT_COLOR, ERROR_COLOR, duration, withIcon, true);
+    }
 
     public static void error(@NonNull String message, int duration) {
         error(SDAndroidLib.getContext(), message, duration, true).show();
@@ -746,20 +829,16 @@ public class SDToastUtil {
         return custom(SDAndroidLib.getContext(), message, getDrawable(R.drawable.ic_clear_white_48dp), DEFAULT_TEXT_COLOR, ERROR_COLOR, duration, withIcon, true);
     }
 
-
     @CheckResult
     public static Toast warning(@NonNull Context context, @NonNull String message) {
         return warning(context, message, Toast.LENGTH_SHORT, true);
     }
 
+    //===========================================常规方法============================================
+
     @CheckResult
     public static Toast warning(@NonNull Context context, @NonNull String message, int duration) {
         return warning(context, message, duration, true);
-    }
-
-    @CheckResult
-    public static Toast warning(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, getDrawable(R.drawable.ic_error_outline_white_48dp), DEFAULT_TEXT_COLOR, WARNING_COLOR, duration, withIcon, true);
     }
 
     @CheckResult
@@ -772,10 +851,7 @@ public class SDToastUtil {
         return info(context, message, duration, true);
     }
 
-    @CheckResult
-    public static Toast info(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, getDrawable(R.drawable.ic_info_outline_white_48dp), DEFAULT_TEXT_COLOR, INFO_COLOR, duration, withIcon, true);
-    }
+    //*******************************************内需方法********************************************
 
     @CheckResult
     public static Toast success(@NonNull Context context, @NonNull String message) {
@@ -788,16 +864,9 @@ public class SDToastUtil {
     }
 
     @CheckResult
-    public static Toast success(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, getDrawable(R.drawable.ic_check_white_48dp), DEFAULT_TEXT_COLOR, SUCCESS_COLOR, duration, withIcon, true);
-    }
-
-    @CheckResult
     public static Toast error(@NonNull Context context, @NonNull String message) {
         return error(context, message, Toast.LENGTH_SHORT, true);
     }
-
-    //===========================================常规方法============================================
 
     @CheckResult
     public static Toast error(@NonNull Context context, @NonNull String message, int duration) {
@@ -805,79 +874,8 @@ public class SDToastUtil {
     }
 
     @CheckResult
-    public static Toast error(@NonNull Context context, @NonNull String message, int duration, boolean withIcon) {
-        return custom(context, message, getDrawable(R.drawable.ic_clear_white_48dp), DEFAULT_TEXT_COLOR, ERROR_COLOR, duration, withIcon, true);
-    }
-
-    @CheckResult
-    public static Toast custom(@NonNull Context context, @NonNull String message, Drawable icon,
-                               @ColorInt int textColor, int duration, boolean withIcon) {
-        return custom(context, message, icon, textColor, -1, duration, withIcon, false);
-    }
-
-    //*******************************************内需方法********************************************
-
-    @CheckResult
     public static Toast custom(@NonNull Context context, @NonNull String message, @DrawableRes int iconRes,
                                @ColorInt int textColor, @ColorInt int tintColor, int duration, boolean withIcon, boolean shouldTint) {
         return custom(context, message, getDrawable(iconRes), textColor, tintColor, duration, withIcon, shouldTint);
-    }
-
-    @CheckResult
-    public static Toast custom(@NonNull Context context, @NonNull String message, Drawable icon, @ColorInt int textColor, @ColorInt int tintColor, int duration, boolean withIcon, boolean shouldTint) {
-        if (currentToast == null) {
-            currentToast = new Toast(context);
-        }
-        final View toastLayout = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.sd_toast_layout, null);
-        final ImageView toastIcon = (ImageView) toastLayout.findViewById(R.id.toast_icon);
-        final TextView toastTextView = (TextView) toastLayout.findViewById(R.id.toast_text);
-        Drawable drawableFrame;
-
-        if (shouldTint) {
-            drawableFrame = tint9PatchDrawableFrame(context, tintColor);
-        } else {
-            drawableFrame = getDrawable(R.drawable.toast_frame);
-        }
-        setBackground(toastLayout, drawableFrame);
-
-        if (withIcon) {
-            if (icon == null) {
-                throw new IllegalArgumentException("Avoid passing 'icon' as null if 'withIcon' is set to true");
-            } else {
-                setBackground(toastIcon, icon);
-            }
-        } else {
-            toastIcon.setVisibility(View.GONE);
-        }
-
-        toastTextView.setTextColor(textColor);
-        toastTextView.setText(message);
-        toastTextView.setTypeface(Typeface.create(TOAST_TYPEFACE, Typeface.NORMAL));
-
-        currentToast.setView(toastLayout);
-        currentToast.setDuration(duration);
-        return currentToast;
-    }
-
-    private static Drawable tint9PatchDrawableFrame(@NonNull Context context, @ColorInt int tintColor) {
-        final NinePatchDrawable toastDrawable = (NinePatchDrawable) getDrawable(R.drawable.toast_frame);
-        toastDrawable.setColorFilter(new PorterDuffColorFilter(tintColor, PorterDuff.Mode.SRC_IN));
-        return toastDrawable;
-    }
-
-
-    private static void setBackground(@NonNull View view, Drawable drawable) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackground(drawable);
-        } else {
-            view.setBackgroundDrawable(drawable);
-        }
-    }
-
-    private static Drawable getDrawable(@DrawableRes int id) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            return SDAndroidLib.getContext().getDrawable(id);
-        else
-            return SDAndroidLib.getContext().getResources().getDrawable(id);
     }
 }

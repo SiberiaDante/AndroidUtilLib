@@ -4,16 +4,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.util.SDJumpUtil;
-import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.SecondActivity;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 import com.siberiadante.utilsample.constant.Constants;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**

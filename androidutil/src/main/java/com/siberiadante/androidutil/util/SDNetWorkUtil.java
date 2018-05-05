@@ -11,7 +11,6 @@ import android.util.Log;
 
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDShellUtil;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -22,35 +21,19 @@ import java.util.Enumeration;
 
 /**
  * Created by SiberiaDante on 2017/5/4.
- *
+ * <p>
  * UpDate: 2017-09-12
+ *
  * @Describe can use
  */
 
 public class SDNetWorkUtil {
 
-    private enum NetworkType {
-        //没有网络连接
-        NETWORK_NONE,
-        //wifi连接
-        NETWORK_WIFI,
-        //手机网络数据连接类型
-        NETWORK_2G,
-        NETWORK_3G,
-        NETWORK_4G,
-        NETWORK_MOBILE
-    }
-
-    private static ConnectivityManager getConnectivityManager() {
-        return (ConnectivityManager) SDAndroidLib.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-    }
-
-    private static TelephonyManager getTelephoneManager() {
-        return (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
-    }
-
-    private static WifiManager getWifiManager() {
-        return (WifiManager) SDAndroidLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+    /**
+     * 判断网络是否连接
+     */
+    public static boolean isNetWorkConnected() {
+        return getNetworkInfo() != null && getNetworkInfo().isConnected();
     }
 
     /**
@@ -63,18 +46,8 @@ public class SDNetWorkUtil {
         return getConnectivityManager().getActiveNetworkInfo();
     }
 
-    /**
-     * 判断网络是否连接
-     */
-    public static boolean isNetWorkConnected() {
-        return getNetworkInfo() != null && getNetworkInfo().isConnected();
-    }
-
-    /**
-     * 判断是否是无线连接
-     */
-    public static boolean isWifiConnected() {
-        return getNetworkInfo() != null && getNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
+    private static ConnectivityManager getConnectivityManager() {
+        return (ConnectivityManager) SDAndroidLib.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
     }
 
     /**
@@ -87,48 +60,6 @@ public class SDNetWorkUtil {
     @Deprecated
     public static boolean isWifiAvailable() {
         return getWifiEnabled() && isAvailableByPing();
-    }
-
-    /**
-     * 判断是否4G连接
-     */
-    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
-    public static boolean is4GConnected() {
-        return getNetworkInfo() != null && getNetworkInfo().getType() == TelephonyManager.NETWORK_TYPE_LTE;
-    }
-
-    /**
-     * 判断移动数据是否打开
-     *
-     * @return {@code true}: 是<br>{@code false}: 否
-     */
-    public static boolean getDataEnabled() {
-        try {
-            Method getMobileDataEnabledMethod = getTelephoneManager().getClass().getDeclaredMethod("getDataEnabled");
-            if (null != getMobileDataEnabledMethod) {
-                return (boolean) getMobileDataEnabledMethod.invoke(getTelephoneManager());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    /**
-     * 打开或关闭移动数据
-     * <p>需系统应用 需添加权限{@code <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>}</p>
-     *
-     * @param enabled {@code true}: 打开<br>{@code false}: 关闭
-     */
-    public static void setDataEnabled(boolean enabled) {
-        try {
-            Method setMobileDataEnabledMethod = getTelephoneManager().getClass().getDeclaredMethod("setDataEnabled", boolean.class);
-            if (null != setMobileDataEnabledMethod) {
-                setMobileDataEnabledMethod.invoke(getTelephoneManager(), enabled);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -156,6 +87,91 @@ public class SDNetWorkUtil {
             if (getWifiManager().isWifiEnabled()) {
                 getWifiManager().setWifiEnabled(false);
             }
+        }
+    }
+
+    /**
+     * 判断网络是否可用
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.INTERNET"/>}</p>
+     * <p>需要异步ping，如果ping不通就说明网络不可用</p>
+     * <p>ping的ip为阿里巴巴公共ip：223.5.5.5</p>
+     *
+     * @return {@code true}: 可用<br>{@code false}: 不可用
+     */
+    public static boolean isAvailableByPing() {
+        return isAvailableByPing(null);
+    }
+
+    private static WifiManager getWifiManager() {
+        return (WifiManager) SDAndroidLib.getContext().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+    }
+
+    /**
+     * 判断网络是否可用
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.INTERNET"/>}</p>
+     * <p>需要异步ping，如果ping不通就说明网络不可用</p>
+     *
+     * @param ip ip地址（自己服务器ip），如果为空，ip为阿里巴巴公共ip
+     * @return {@code true}: 可用<br>{@code false}: 不可用
+     */
+    public static boolean isAvailableByPing(String ip) {
+        if (ip == null || ip.length() <= 0) {
+            ip = "223.5.5.5";// 阿里巴巴公共ip
+        }
+        SDShellUtil.CommandResult result = SDShellUtil.execCmd(String.format("ping -c 1 %s", ip), false);
+        boolean ret = result.result == 0;
+        if (result.errorMsg != null) {
+            Log.d("NetworkUtils", "isAvailableByPing() called" + result.errorMsg);
+        }
+        if (result.successMsg != null) {
+            Log.d("NetworkUtils", "isAvailableByPing() called" + result.successMsg);
+        }
+        return ret;
+    }
+
+    /**
+     * 判断是否4G连接
+     */
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public static boolean is4GConnected() {
+        return getNetworkInfo() != null && getNetworkInfo().getType() == TelephonyManager.NETWORK_TYPE_LTE;
+    }
+
+    /**
+     * 判断移动数据是否打开
+     *
+     * @return {@code true}: 是<br>{@code false}: 否
+     */
+    public static boolean getDataEnabled() {
+        try {
+            Method getMobileDataEnabledMethod = getTelephoneManager().getClass().getDeclaredMethod("getDataEnabled");
+            if (null != getMobileDataEnabledMethod) {
+                return (boolean) getMobileDataEnabledMethod.invoke(getTelephoneManager());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private static TelephonyManager getTelephoneManager() {
+        return (TelephonyManager) SDAndroidLib.getContext().getSystemService(Context.TELEPHONY_SERVICE);
+    }
+
+    /**
+     * 打开或关闭移动数据
+     * <p>需系统应用 需添加权限{@code <uses-permission android:name="android.permission.MODIFY_PHONE_STATE"/>}</p>
+     *
+     * @param enabled {@code true}: 打开<br>{@code false}: 关闭
+     */
+    public static void setDataEnabled(boolean enabled) {
+        try {
+            Method setMobileDataEnabledMethod = getTelephoneManager().getClass().getDeclaredMethod("setDataEnabled", boolean.class);
+            if (null != setMobileDataEnabledMethod) {
+                setMobileDataEnabledMethod.invoke(getTelephoneManager(), enabled);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -227,6 +243,13 @@ public class SDNetWorkUtil {
     }
 
     /**
+     * 判断是否是无线连接
+     */
+    public static boolean isWifiConnected() {
+        return getNetworkInfo() != null && getNetworkInfo().getType() == ConnectivityManager.TYPE_WIFI;
+    }
+
+    /**
      * 打开无线和网络控制面板
      */
     public static void openNetworkSettings() {
@@ -248,41 +271,6 @@ public class SDNetWorkUtil {
      */
     public static String getNetworkOperatorName() {
         return getTelephoneManager() != null ? getTelephoneManager().getNetworkOperatorName() : null;
-    }
-
-    /**
-     * 判断网络是否可用
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.INTERNET"/>}</p>
-     * <p>需要异步ping，如果ping不通就说明网络不可用</p>
-     * <p>ping的ip为阿里巴巴公共ip：223.5.5.5</p>
-     *
-     * @return {@code true}: 可用<br>{@code false}: 不可用
-     */
-    public static boolean isAvailableByPing() {
-        return isAvailableByPing(null);
-    }
-
-    /**
-     * 判断网络是否可用
-     * <p>需添加权限 {@code <uses-permission android:name="android.permission.INTERNET"/>}</p>
-     * <p>需要异步ping，如果ping不通就说明网络不可用</p>
-     *
-     * @param ip ip地址（自己服务器ip），如果为空，ip为阿里巴巴公共ip
-     * @return {@code true}: 可用<br>{@code false}: 不可用
-     */
-    public static boolean isAvailableByPing(String ip) {
-        if (ip == null || ip.length() <= 0) {
-            ip = "223.5.5.5";// 阿里巴巴公共ip
-        }
-        SDShellUtil.CommandResult result = SDShellUtil.execCmd(String.format("ping -c 1 %s", ip), false);
-        boolean ret = result.result == 0;
-        if (result.errorMsg != null) {
-            Log.d("NetworkUtils", "isAvailableByPing() called" + result.errorMsg);
-        }
-        if (result.successMsg != null) {
-            Log.d("NetworkUtils", "isAvailableByPing() called" + result.successMsg);
-        }
-        return ret;
     }
 
     /**
@@ -336,5 +324,17 @@ public class SDNetWorkUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    private enum NetworkType {
+        //没有网络连接
+        NETWORK_NONE,
+        //wifi连接
+        NETWORK_WIFI,
+        //手机网络数据连接类型
+        NETWORK_2G,
+        NETWORK_3G,
+        NETWORK_4G,
+        NETWORK_MOBILE
     }
 }

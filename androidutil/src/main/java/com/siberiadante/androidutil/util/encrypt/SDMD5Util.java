@@ -1,7 +1,6 @@
 package com.siberiadante.androidutil.util.encrypt;
 
 
-
 import com.siberiadante.androidutil.util.SDCloseUtil;
 import com.siberiadante.androidutil.util.encrypt.base.SDBaseEncrypt;
 
@@ -45,6 +44,26 @@ public class SDMD5Util {
     }
 
     /**
+     * MD5加密字节数组
+     *
+     * @param data 明文字节数组
+     * @return 32位大写密文
+     */
+    public static String hashEncode32(final byte[] data) {
+        return SDBaseEncrypt.bytes2HexString(hashEncode(data));
+    }
+
+    /**
+     * MD5加密
+     *
+     * @param data 明文字节数组
+     * @return 密文字节数组
+     */
+    public static byte[] hashEncode(final byte[] data) {
+        return SDBaseEncrypt.hashTemplate(data, "MD5");
+    }
+
+    /**
      * MD5加密字符串
      *
      * @param data 明文字符串
@@ -52,6 +71,16 @@ public class SDMD5Util {
      */
     public static String hashEncode16(final String data) {
         return hashEncode16(data.getBytes());
+    }
+
+    /**
+     * MD5加密字节数组
+     *
+     * @param data 明文字节数组
+     * @return 16位大写密文
+     */
+    public static String hashEncode16(final byte[] data) {
+        return SDBaseEncrypt.bytes2HexString(hashEncode(data)).substring(8, 24);
     }
 
     /**
@@ -74,26 +103,6 @@ public class SDMD5Util {
      */
     public static String hashEncode16(final String data, final String salt) {
         return SDBaseEncrypt.bytes2HexString(hashEncode((data + salt).getBytes())).substring(8, 24);
-    }
-
-    /**
-     * MD5加密字节数组
-     *
-     * @param data 明文字节数组
-     * @return 32位大写密文
-     */
-    public static String hashEncode32(final byte[] data) {
-        return SDBaseEncrypt.bytes2HexString(hashEncode(data));
-    }
-
-    /**
-     * MD5加密字节数组
-     *
-     * @param data 明文字节数组
-     * @return 16位大写密文
-     */
-    public static String hashEncode16(final byte[] data) {
-        return SDBaseEncrypt.bytes2HexString(hashEncode(data)).substring(8, 24);
     }
 
     /**
@@ -127,16 +136,6 @@ public class SDMD5Util {
     }
 
     /**
-     * MD5加密
-     *
-     * @param data 明文字节数组
-     * @return 密文字节数组
-     */
-    public static byte[] hashEncode(final byte[] data) {
-        return SDBaseEncrypt.hashTemplate(data, "MD5");
-    }
-
-    /**
      * MD5加密文件
      *
      * @param filePath 文件路径
@@ -156,18 +155,6 @@ public class SDMD5Util {
     public static String hashEncodeFile(final File file) {
         return SDBaseEncrypt.bytes2HexString(hashEncodeFile2Byte(file));
     }
-
-    /**
-     * MD5加密文件
-     *
-     * @param filePath 文件路径
-     * @return 文件的MD5校验码
-     */
-    public static byte[] hashEncodeFile2Byte(final String filePath) {
-        File file = SDBaseEncrypt.isSpace(filePath) ? null : new File(filePath);
-        return hashEncodeFile2Byte(file);
-    }
-
 
     /**
      * MD5加密文件
@@ -195,6 +182,17 @@ public class SDMD5Util {
         } finally {
             SDCloseUtil.closeIO(fis);
         }
+    }
+
+    /**
+     * MD5加密文件
+     *
+     * @param filePath 文件路径
+     * @return 文件的MD5校验码
+     */
+    public static byte[] hashEncodeFile2Byte(final String filePath) {
+        File file = SDBaseEncrypt.isSpace(filePath) ? null : new File(filePath);
+        return hashEncodeFile2Byte(file);
     }
 // ___________________________________________________________________
 // HmacMD5加密: 2017/11/8

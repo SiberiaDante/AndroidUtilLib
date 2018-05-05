@@ -13,7 +13,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDToastUtil;
 
 import java.util.Arrays;
 import java.util.Collections;

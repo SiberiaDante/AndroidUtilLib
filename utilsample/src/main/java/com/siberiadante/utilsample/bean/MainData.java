@@ -32,6 +32,7 @@ import com.siberiadante.utilsample.activity.view.SDRankingActivity;
 import com.siberiadante.utilsample.activity.view.SDStepViewActivity;
 import com.siberiadante.utilsample.activity.widget.SDAvatarListLayoutActivity;
 import com.siberiadante.utilsample.activity.widget.SDEditTextWidgetActivity;
+import com.siberiadante.utilsample.activity.widget.SDFlowTagLayoutActivity;
 import com.siberiadante.utilsample.activity.widget.SDImageViewActivity;
 import com.siberiadante.utilsample.activity.widget.SDShapeWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDSpecialWidgetActivity;
@@ -100,6 +101,7 @@ public class MainData {
         data.add(new DataBean("测试评分组件", SDRankingActivity.class));
         data.add(new DataBean("测试特殊组件", SDSpecialWidgetActivity.class));
         data.add(new DataBean("测试TextView相关组件", SDTextViewActivity.class));
+        data.add(new DataBean("测试SDFlowTabLayout组件", SDFlowTagLayoutActivity.class));
         data.add(new DataBean("测试SDTitleLayout相关组件", SDTitleLayoutWidgetActivity.class));
         return data;
     }

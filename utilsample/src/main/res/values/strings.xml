@@ -15,6 +15,7 @@
     <string name="sd_screen_util">SDScreenUtil</string>
     <!--widget-->
     <string name="sd_title_layout">SDTitleLayout</string>
+    <string name="sd_flow_tab_layout">SDFlowTabLayout</string>
 
     <string name="input_content">请输入内容</string>
 

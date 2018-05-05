@@ -231,29 +231,6 @@ public class SDJumpUtil {
     }
 
     /**
-     * 启动一个包含动画的Activity
-     *
-     * @param options 动画
-     * @param cls
-     */
-    public static void startActivity(@Nullable Bundle options,
-                                     @NonNull Class<?> cls) {
-        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), null, options);
-    }
-
-    /**
-     * @param cls     class name
-     * @param extras  bundle
-     * @param options bundle
-     */
-    public static void startActivity(@NonNull Class<?> cls,
-                                     @Nullable Bundle extras,
-                                     @Nullable Bundle options) {
-        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, options);
-    }
-
-
-    /**
      * @param pkg     package name
      * @param cls     class name
      * @param extras  bundle
@@ -280,6 +257,28 @@ public class SDJumpUtil {
         } else {
             SDAndroidLib.getContext().startActivity(intent);
         }
+    }
+
+    /**
+     * 启动一个包含动画的Activity
+     *
+     * @param options 动画
+     * @param cls
+     */
+    public static void startActivity(@Nullable Bundle options,
+                                     @NonNull Class<?> cls) {
+        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), null, options);
+    }
+
+    /**
+     * @param cls     class name
+     * @param extras  bundle
+     * @param options bundle
+     */
+    public static void startActivity(@NonNull Class<?> cls,
+                                     @Nullable Bundle extras,
+                                     @Nullable Bundle options) {
+        startActivity(SDAndroidLib.getContext().getPackageName(), cls.getName(), extras, options);
     }
 
     /**

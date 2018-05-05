@@ -13,7 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class SDEncryptUtil {
     private static final String TAG = SDEncryptUtil.class.getSimpleName();
-
+    private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
      * DES加密模板
@@ -38,8 +38,6 @@ public class SDEncryptUtil {
             return null;
         }
     }
-
-    private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
      * byteArr转hexString
@@ -84,6 +82,16 @@ public class SDEncryptUtil {
         return ret;
     }
 
+    private static boolean isSpace(String s) {
+        if (s == null) return true;
+        for (int i = 0, len = s.length(); i < len; ++i) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     /**
      * hexChar转int
      *
@@ -118,15 +126,5 @@ public class SDEncryptUtil {
      */
     private static byte[] base64Decode(byte[] input) {
         return Base64.decode(input, Base64.NO_WRAP);
-    }
-
-    private static boolean isSpace(String s) {
-        if (s == null) return true;
-        for (int i = 0, len = s.length(); i < len; ++i) {
-            if (!Character.isWhitespace(s.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
     }
 }

@@ -4,6 +4,7 @@ import com.siberiadante.androidutil.util.SDRegexUtil;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/7/10
  * Describe： 字符处理相关工具
  * @github： https://github.com/SiberiaDante

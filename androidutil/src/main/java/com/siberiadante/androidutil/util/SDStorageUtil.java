@@ -55,33 +55,12 @@ public class SDStorageUtil {
     }
 
     /**
-     * 判断SD卡是否可用
-     *
-     * @return {@code true} 可用<br> {@code false }不可用
-     */
-    public static boolean isSDCardMounted() {
-        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
-    }
-
-    /**
      * 判断SDCard是否可拆卸
      *
      * @return
      */
     public static boolean isSDCarfRemovable() {
         return Environment.isExternalStorageRemovable();
-    }
-
-    /**
-     * 获取SD卡的根目录
-     *
-     * @return
-     */
-    public static String getSDCardBaseDir() {
-        if (isSDCardMounted()) {
-            return Environment.getExternalStorageDirectory().getAbsolutePath();
-        }
-        return null;
     }
 
     /**
@@ -99,6 +78,27 @@ public class SDStorageUtil {
             return count * size / 1024 / 1024;
         }
         return 0;
+    }
+
+    /**
+     * 判断SD卡是否可用
+     *
+     * @return {@code true} 可用<br> {@code false }不可用
+     */
+    public static boolean isSDCardMounted() {
+        return Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
+    }
+
+    /**
+     * 获取SD卡的根目录
+     *
+     * @return
+     */
+    public static String getSDCardBaseDir() {
+        if (isSDCardMounted()) {
+            return Environment.getExternalStorageDirectory().getAbsolutePath();
+        }
+        return null;
     }
 
     /**
@@ -509,47 +509,6 @@ public class SDStorageUtil {
         }
     }
 
-    // 从SD卡获取文件
-    public static byte[] loadFileFromSDCard(String fileDir) {
-        BufferedInputStream bis = null;
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-        try {
-            bis = new BufferedInputStream(
-                    new FileInputStream(new File(fileDir)));
-            byte[] buffer = new byte[8 * 1024];
-            int c = 0;
-            while ((c = bis.read(buffer)) != -1) {
-                baos.write(buffer, 0, c);
-                baos.flush();
-            }
-            return baos.toByteArray();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                baos.close();
-                bis.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return null;
-    }
-
-    // 从SDCard中寻找指定目录下的文件，返回Bitmap
-    public Bitmap loadBitmapFromSDCard(String filePath) {
-        byte[] data = loadFileFromSDCard(filePath);
-        if (data != null) {
-            Bitmap bm = BitmapFactory.decodeByteArray(data, 0, data.length);
-            if (bm != null) {
-                return bm;
-            }
-        }
-        return null;
-    }
-
-
     // 从sdcard中删除文件
     public static boolean removeFileFromSDCard(String filePath) {
         File file = new File(filePath);
@@ -589,6 +548,46 @@ public class SDStorageUtil {
     public static boolean isFileExist(String filePath) {
         File file = new File(filePath);
         return file.isFile();
+    }
+
+    // 从SDCard中寻找指定目录下的文件，返回Bitmap
+    public Bitmap loadBitmapFromSDCard(String filePath) {
+        byte[] data = loadFileFromSDCard(filePath);
+        if (data != null) {
+            Bitmap bm = BitmapFactory.decodeByteArray(data, 0, data.length);
+            if (bm != null) {
+                return bm;
+            }
+        }
+        return null;
+    }
+
+    // 从SD卡获取文件
+    public static byte[] loadFileFromSDCard(String fileDir) {
+        BufferedInputStream bis = null;
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+        try {
+            bis = new BufferedInputStream(
+                    new FileInputStream(new File(fileDir)));
+            byte[] buffer = new byte[8 * 1024];
+            int c = 0;
+            while ((c = bis.read(buffer)) != -1) {
+                baos.write(buffer, 0, c);
+                baos.flush();
+            }
+            return baos.toByteArray();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                baos.close();
+                bis.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
     }
 
     public static class SDCardInfo {

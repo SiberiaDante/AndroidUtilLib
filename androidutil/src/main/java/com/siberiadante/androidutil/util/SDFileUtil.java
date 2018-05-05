@@ -40,15 +40,7 @@ import java.util.List;
  */
 
 public class SDFileUtil {
-    /**
-     * 根据文件路径获取文件
-     *
-     * @param filePath 文件路径
-     * @return 文件
-     */
-    public static File getFileByPath(String filePath) {
-        return isSpace(filePath) ? null : new File(filePath);
-    }
+    private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /**
      * 判断文件是否存在
@@ -68,6 +60,26 @@ public class SDFileUtil {
      */
     public static boolean isFileExists(File file) {
         return file != null && file.exists();
+    }
+
+    /**
+     * 根据文件路径获取文件
+     *
+     * @param filePath 文件路径
+     * @return 文件
+     */
+    public static File getFileByPath(String filePath) {
+        return isSpace(filePath) ? null : new File(filePath);
+    }
+
+    public static boolean isSpace(String s) {
+        if (s == null) return true;
+        for (int i = 0, len = s.length(); i < len; ++i) {
+            if (!Character.isWhitespace(s.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -328,6 +340,44 @@ public class SDFileUtil {
     }
 
     /**
+     * 将输入流写入文件
+     *
+     * @param file   文件
+     * @param is     输入流
+     * @param append 是否追加在文件末
+     * @return {@code true}: 写入成功<br>{@code false}: 写入失败
+     */
+    public static boolean writeFileFromIS(File file, InputStream is, boolean append) {
+        if (file == null || is == null) return false;
+        if (!createOrIsExistsFile(file)) return false;
+        OutputStream os = null;
+        try {
+            os = new BufferedOutputStream(new FileOutputStream(file, append));
+            byte data[] = new byte[1024];
+            int len;
+            while ((len = is.read(data, 0, 1024)) != -1) {
+                os.write(data, 0, len);
+            }
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            SDCloseUtil.closeIO(is, os);
+        }
+    }
+
+    /**
+     * 删除文件
+     *
+     * @param file 文件
+     * @return {@code true}: 删除成功<br>{@code false}: 删除失败
+     */
+    public static boolean deleteFile(File file) {
+        return file != null && (!file.exists() || file.isFile() && file.delete());
+    }
+
+    /**
      * 复制目录
      *
      * @param srcDirPath  源目录路径
@@ -459,16 +509,6 @@ public class SDFileUtil {
      */
     public static boolean deleteFile(String srcFilePath) {
         return deleteFile(getFileByPath(srcFilePath));
-    }
-
-    /**
-     * 删除文件
-     *
-     * @param file 文件
-     * @return {@code true}: 删除成功<br>{@code false}: 删除失败
-     */
-    public static boolean deleteFile(File file) {
-        return file != null && (!file.exists() || file.isFile() && file.delete());
     }
 
     /**
@@ -764,34 +804,6 @@ public class SDFileUtil {
     }
 
     /**
-     * 将输入流写入文件
-     *
-     * @param file   文件
-     * @param is     输入流
-     * @param append 是否追加在文件末
-     * @return {@code true}: 写入成功<br>{@code false}: 写入失败
-     */
-    public static boolean writeFileFromIS(File file, InputStream is, boolean append) {
-        if (file == null || is == null) return false;
-        if (!createOrIsExistsFile(file)) return false;
-        OutputStream os = null;
-        try {
-            os = new BufferedOutputStream(new FileOutputStream(file, append));
-            byte data[] = new byte[1024];
-            int len;
-            while ((len = is.read(data, 0, 1024)) != -1) {
-                os.write(data, 0, len);
-            }
-            return true;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        } finally {
-            SDCloseUtil.closeIO(is, os);
-        }
-    }
-
-    /**
      * 将字符串写入文件
      *
      * @param filePath 文件路径
@@ -852,20 +864,6 @@ public class SDFileUtil {
     /**
      * 指定编码按行读取文件到链表中
      *
-     * @param filePath    文件路径
-     * @param st          需要读取的开始行数
-     * @param end         需要读取的结束行数
-     * @param charsetName 编码格式
-     * @return 包含制定行的list
-     */
-    public static List<String> readFile2List(String filePath, int st, int end, String
-            charsetName) {
-        return readFile2List(getFileByPath(filePath), st, end, charsetName);
-    }
-
-    /**
-     * 指定编码按行读取文件到链表中
-     *
      * @param file        文件
      * @param st          需要读取的开始行数
      * @param end         需要读取的结束行数
@@ -897,6 +895,20 @@ public class SDFileUtil {
         } finally {
             SDCloseUtil.closeIO(reader);
         }
+    }
+
+    /**
+     * 指定编码按行读取文件到链表中
+     *
+     * @param filePath    文件路径
+     * @param st          需要读取的开始行数
+     * @param end         需要读取的结束行数
+     * @param charsetName 编码格式
+     * @return 包含制定行的list
+     */
+    public static List<String> readFile2List(String filePath, int st, int end, String
+            charsetName) {
+        return readFile2List(getFileByPath(filePath), st, end, charsetName);
     }
 
     /**
@@ -964,6 +976,41 @@ public class SDFileUtil {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    /**
+     * inputStream转byteArr
+     *
+     * @param is 输入流
+     * @return 字节数组
+     */
+    private static byte[] inputStream2Bytes(InputStream is) {
+        if (is == null) return null;
+        return input2OutputStream(is).toByteArray();
+    }
+
+    /**
+     * inputStream转outputStream
+     *
+     * @param is 输入流
+     * @return outputStream子类
+     */
+    private static ByteArrayOutputStream input2OutputStream(InputStream is) {
+        if (is == null) return null;
+        try {
+            ByteArrayOutputStream os = new ByteArrayOutputStream();
+            byte[] b = new byte[SDMemoryUnit.KB];
+            int len;
+            while ((len = is.read(b, 0, SDMemoryUnit.KB)) != -1) {
+                os.write(b, 0, len);
+            }
+            return os;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            SDCloseUtil.closeIO(is);
         }
     }
 
@@ -1106,6 +1153,39 @@ public class SDFileUtil {
     }
 
     /**
+     * 获取文件长度
+     *
+     * @param file 文件
+     * @return 文件长度
+     */
+    public static long getFileLength(File file) {
+        if (!isFile(file)) return -1;
+        return file.length();
+    }
+
+    /**
+     * 字节数转合适内存大小
+     * <p>保留3位小数</p>
+     *
+     * @param byteNum 字节数
+     * @return 合适内存大小
+     */
+    @SuppressLint("DefaultLocale")
+    private static String byte2FitMemorySize(long byteNum) {
+        if (byteNum < 0) {
+            return "shouldn't be less than zero!";
+        } else if (byteNum < SDMemoryUnit.KB) {
+            return String.format("%.3fB", (double) byteNum + 0.0005);
+        } else if (byteNum < SDMemoryUnit.MB) {
+            return String.format("%.3fKB", (double) byteNum / SDMemoryUnit.KB + 0.0005);
+        } else if (byteNum < SDMemoryUnit.GB) {
+            return String.format("%.3fMB", (double) byteNum / SDMemoryUnit.MB + 0.0005);
+        } else {
+            return String.format("%.3fGB", (double) byteNum / SDMemoryUnit.GB + 0.0005);
+        }
+    }
+
+    /**
      * 获取目录长度
      *
      * @param dirPath 目录路径
@@ -1148,17 +1228,6 @@ public class SDFileUtil {
     }
 
     /**
-     * 获取文件长度
-     *
-     * @param file 文件
-     * @return 文件长度
-     */
-    public static long getFileLength(File file) {
-        if (!isFile(file)) return -1;
-        return file.length();
-    }
-
-    /**
      * 获取文件的MD5校验码
      *
      * @param filePath 文件路径
@@ -1172,22 +1241,31 @@ public class SDFileUtil {
     /**
      * 获取文件的MD5校验码
      *
-     * @param filePath 文件路径
-     * @return 文件的MD5校验码
-     */
-    public static byte[] getFileMD5(String filePath) {
-        File file = isSpace(filePath) ? null : new File(filePath);
-        return getFileMD5(file);
-    }
-
-    /**
-     * 获取文件的MD5校验码
-     *
      * @param file 文件
      * @return 文件的MD5校验码
      */
     public static String getFileMD5ToString(File file) {
         return bytes2HexString(getFileMD5(file));
+    }
+
+    /**
+     * byteArr转hexString
+     * <p>例如：</p>
+     * bytesToHexString(new byte[] { 0, (byte) 0xa8 }) returns 00A8
+     *
+     * @param bytes 字节数组
+     * @return 16进制大写字符串
+     */
+    private static String bytes2HexString(byte[] bytes) {
+        if (bytes == null) return null;
+        int len = bytes.length;
+        if (len <= 0) return null;
+        char[] ret = new char[len << 1];
+        for (int i = 0, j = 0; i < len; i++) {
+            ret[j++] = hexDigits[bytes[i] >>> 4 & 0x0f];
+            ret[j++] = hexDigits[bytes[i] & 0x0f];
+        }
+        return new String(ret);
     }
 
     /**
@@ -1218,6 +1296,17 @@ public class SDFileUtil {
     }
 
     /**
+     * 获取文件的MD5校验码
+     *
+     * @param filePath 文件路径
+     * @return 文件的MD5校验码
+     */
+    public static byte[] getFileMD5(String filePath) {
+        File file = isSpace(filePath) ? null : new File(filePath);
+        return getFileMD5(file);
+    }
+
+    /**
      * 获取全路径中的最长目录
      *
      * @param file 文件
@@ -1239,6 +1328,10 @@ public class SDFileUtil {
         int lastSep = filePath.lastIndexOf(File.separator);
         return lastSep == -1 ? "" : filePath.substring(0, lastSep + 1);
     }
+
+    ///////////////////////////////////////////////////////////////////////////
+    // copy from ConvertUtils
+    ///////////////////////////////////////////////////////////////////////////
 
     /**
      * 获取全路径中的文件名
@@ -1316,99 +1409,6 @@ public class SDFileUtil {
         int lastSep = filePath.lastIndexOf(File.separator);
         if (lastPoi == -1 || lastSep >= lastPoi) return "";
         return filePath.substring(lastPoi + 1);
-    }
-
-    ///////////////////////////////////////////////////////////////////////////
-    // copy from ConvertUtils
-    ///////////////////////////////////////////////////////////////////////////
-
-    /**
-     * inputStream转byteArr
-     *
-     * @param is 输入流
-     * @return 字节数组
-     */
-    private static byte[] inputStream2Bytes(InputStream is) {
-        if (is == null) return null;
-        return input2OutputStream(is).toByteArray();
-    }
-
-    /**
-     * inputStream转outputStream
-     *
-     * @param is 输入流
-     * @return outputStream子类
-     */
-    private static ByteArrayOutputStream input2OutputStream(InputStream is) {
-        if (is == null) return null;
-        try {
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
-            byte[] b = new byte[SDMemoryUnit.KB];
-            int len;
-            while ((len = is.read(b, 0, SDMemoryUnit.KB)) != -1) {
-                os.write(b, 0, len);
-            }
-            return os;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        } finally {
-            SDCloseUtil.closeIO(is);
-        }
-    }
-
-    private static final char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-
-    /**
-     * byteArr转hexString
-     * <p>例如：</p>
-     * bytesToHexString(new byte[] { 0, (byte) 0xa8 }) returns 00A8
-     *
-     * @param bytes 字节数组
-     * @return 16进制大写字符串
-     */
-    private static String bytes2HexString(byte[] bytes) {
-        if (bytes == null) return null;
-        int len = bytes.length;
-        if (len <= 0) return null;
-        char[] ret = new char[len << 1];
-        for (int i = 0, j = 0; i < len; i++) {
-            ret[j++] = hexDigits[bytes[i] >>> 4 & 0x0f];
-            ret[j++] = hexDigits[bytes[i] & 0x0f];
-        }
-        return new String(ret);
-    }
-
-    /**
-     * 字节数转合适内存大小
-     * <p>保留3位小数</p>
-     *
-     * @param byteNum 字节数
-     * @return 合适内存大小
-     */
-    @SuppressLint("DefaultLocale")
-    private static String byte2FitMemorySize(long byteNum) {
-        if (byteNum < 0) {
-            return "shouldn't be less than zero!";
-        } else if (byteNum < SDMemoryUnit.KB) {
-            return String.format("%.3fB", (double) byteNum + 0.0005);
-        } else if (byteNum < SDMemoryUnit.MB) {
-            return String.format("%.3fKB", (double) byteNum / SDMemoryUnit.KB + 0.0005);
-        } else if (byteNum < SDMemoryUnit.GB) {
-            return String.format("%.3fMB", (double) byteNum / SDMemoryUnit.MB + 0.0005);
-        } else {
-            return String.format("%.3fGB", (double) byteNum / SDMemoryUnit.GB + 0.0005);
-        }
-    }
-
-    public  static boolean isSpace(String s) {
-        if (s == null) return true;
-        for (int i = 0, len = s.length(); i < len; ++i) {
-            if (!Character.isWhitespace(s.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
     }
 
     /**

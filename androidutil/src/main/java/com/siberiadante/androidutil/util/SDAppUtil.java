@@ -18,8 +18,6 @@ import android.support.v4.content.FileProvider;
 
 import com.siberiadante.androidutil.R;
 import com.siberiadante.androidutil.SDAndroidLib;
-import com.siberiadante.androidutil.SDShellUtil;
-import com.siberiadante.androidutil.SDToastUtil;
 import com.siberiadante.androidutil.bean.SDAppInfoBean;
 import com.siberiadante.androidutil.bean.SDInstallAppInfoBean;
 import com.siberiadante.androidutil.util.encrypt.SDSHA1Util;
@@ -51,18 +49,6 @@ public class SDAppUtil {
         throw new UnsupportedOperationException("not init " + SDAppUtil.class.getName());
     }
 
-    private static PackageManager getPackageManager() {
-        return SDAndroidLib.getContext().getPackageManager();
-    }
-
-    /**
-     * 获取APP包名
-     * @return
-     */
-    public static String getPackageName() {
-        return SDAndroidLib.getContext().getPackageName();
-    }
-
     /**
      * 获取App名称
      *
@@ -88,6 +74,22 @@ public class SDAppUtil {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * @param packageName
+     * @return
+     */
+    private static boolean isSpace(String packageName) {
+        if (packageName == null) {
+            return true;
+        }
+        for (int i = 0, len = packageName.length(); i < len; ++i) {
+            if (!Character.isWhitespace(packageName.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -122,6 +124,10 @@ public class SDAppUtil {
         }
     }
 
+    private static PackageManager getPackageManager() {
+        return SDAndroidLib.getContext().getPackageManager();
+    }
+
     /**
      * 获取App版本号
      *
@@ -129,10 +135,6 @@ public class SDAppUtil {
      */
     public static int getAppVersionCode() {
         return getAppVersionCode(SDAndroidLib.getContext().getPackageName());
-    }
-
-    public static int getAppVersionCode(Context context) {
-        return getAppVersionCode(context.getPackageName());
     }
 
     /**
@@ -150,6 +152,10 @@ public class SDAppUtil {
             e.printStackTrace();
             return -1;
         }
+    }
+
+    public static int getAppVersionCode(Context context) {
+        return getAppVersionCode(context.getPackageName());
     }
 
     /**
@@ -239,6 +245,15 @@ public class SDAppUtil {
     }
 
     /**
+     * 获取APP包名
+     *
+     * @return
+     */
+    public static String getPackageName() {
+        return SDAndroidLib.getContext().getPackageName();
+    }
+
+    /**
      * 判断App是否安装
      *
      * @param packageName 包名
@@ -272,33 +287,6 @@ public class SDAppUtil {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             return null;
-        }
-    }
-
-    /**
-     * 判断App是否是系统应用
-     *
-     * @return {@code true}: 是<br>{@code false}: 否
-     */
-    public static boolean isSystemApp() {
-        return isSystemApp(SDAndroidLib.getContext().getPackageName());
-    }
-
-    /**
-     * 判断App是否是系统应用
-     *
-     * @param packageName 包名
-     * @return {@code true}: 是<br>{@code false}: 否
-     */
-    public static boolean isSystemApp(String packageName) {
-        if (isSpace(packageName)) return false;
-        try {
-            PackageManager pm = SDAndroidLib.getContext().getPackageManager();
-            ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
-            return ai != null && (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return false;
         }
     }
 
@@ -398,7 +386,6 @@ public class SDAppUtil {
 //                replaceAll("(?<=[0-9A-F]{2})[0-9A-F]{2}", ":$0");
     }
 
-
     /**
      * 判断手机通知权限是否打开
      *
@@ -466,7 +453,6 @@ public class SDAppUtil {
     public static boolean isAppInForeground(String packageName) {
         return !isSpace(packageName) && packageName.equals(SDProcessUtil.getForegroundProcessName());
     }
-
 
     /**
      * 打开App
@@ -626,25 +612,6 @@ public class SDAppUtil {
         return appInfos;
     }
 
-
-    /**
-     * @param packageName
-     * @return
-     */
-    private static boolean isSpace(String packageName) {
-        if (packageName == null) {
-            return true;
-        }
-        for (int i = 0, len = packageName.length(); i < len; ++i) {
-            if (!Character.isWhitespace(packageName.charAt(i))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
     /**
      * 静默安装App
      * <p>非root需添加权限 {@code <uses-permission android:name="android.permission.INSTALL_PACKAGES" />}</p>
@@ -661,6 +628,35 @@ public class SDAppUtil {
     }
 
     /**
+     * 判断App是否是系统应用
+     *
+     * @return {@code true}: 是<br>{@code false}: 否
+     */
+    public static boolean isSystemApp() {
+        return isSystemApp(SDAndroidLib.getContext().getPackageName());
+    }
+
+    //TODO 以下-待测试~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    /**
+     * 判断App是否是系统应用
+     *
+     * @param packageName 包名
+     * @return {@code true}: 是<br>{@code false}: 否
+     */
+    public static boolean isSystemApp(String packageName) {
+        if (isSpace(packageName)) return false;
+        try {
+            PackageManager pm = SDAndroidLib.getContext().getPackageManager();
+            ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
+            return ai != null && (ai.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    /**
      * 后台卸载App
      * <p>非root需添加权限 {@code <uses-permission android:name="android.permission.DELETE_PACKAGES" />}</p>
      *
@@ -673,24 +669,6 @@ public class SDAppUtil {
         String command = "LD_LIBRARY_PATH=/vendor/lib:/system/lib pm uninstall " + (isKeepData ? "-k " : "") + packageName;
         SDShellUtil.CommandResult commandResult = SDShellUtil.execCmd(command, !isSystemApp(), true);
         return commandResult.successMsg != null && commandResult.successMsg.toLowerCase().contains("success");
-    }
-
-    /**
-     * 根据路径获取PackageName
-     *
-     * @param apkPath
-     * @return
-     */
-
-    public String getPackageName(String apkPath) {
-        PackageManager pm = getPackageManager();
-        PackageInfo info = pm.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES);
-        if (info != null) {
-            //既然获取了ApplicationInfo,那么和应用相关的一些信息就都可以获取了,具体可以获取什么大家可以看看ApplicationInfo这个类
-            ApplicationInfo appInfo = info.applicationInfo;
-            return appInfo.packageName;
-        }
-        return "";
     }
 
     /**
@@ -724,6 +702,24 @@ public class SDAppUtil {
             isSuccess &= SDCleanUtil.cleanCustomCache(dir);
         }
         return isSuccess;
+    }
+
+    /**
+     * 根据路径获取PackageName
+     *
+     * @param apkPath
+     * @return
+     */
+
+    public String getPackageName(String apkPath) {
+        PackageManager pm = getPackageManager();
+        PackageInfo info = pm.getPackageArchiveInfo(apkPath, PackageManager.GET_ACTIVITIES);
+        if (info != null) {
+            //既然获取了ApplicationInfo,那么和应用相关的一些信息就都可以获取了,具体可以获取什么大家可以看看ApplicationInfo这个类
+            ApplicationInfo appInfo = info.applicationInfo;
+            return appInfo.packageName;
+        }
+        return "";
     }
 
 

@@ -5,12 +5,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.SDStatusBarUtil;
+import com.siberiadante.androidutil.util.SDStatusBarUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
