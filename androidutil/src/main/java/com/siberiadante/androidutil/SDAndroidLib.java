@@ -16,9 +16,8 @@ import com.siberiadante.androidutil.util.SDLogUtil;
  */
 
 public class SDAndroidLib {
-    private static Context context;
-
     public static boolean isDebug;
+    private static Context context;
 
     /**
      * 初始化

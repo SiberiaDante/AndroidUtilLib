@@ -28,15 +28,12 @@ import com.siberiadante.androidutil.util.SDMathUtil;
 
 public class SDHexagonView extends View {
 
-    //正六边形的边数量
-    private static final int POLYGON_COUNT = 6;
-
-    //默认的边框宽度
-    private static final int DEFAULT_OUTER_WIDTH = 4;
-
     //默认的边框颜色
     public static final int DEFAULT_OUTER_COLOR = Color.parseColor("#f5c421");
-
+    //正六边形的边数量
+    private static final int POLYGON_COUNT = 6;
+    //默认的边框宽度
+    private static final int DEFAULT_OUTER_WIDTH = 4;
     //包裹着正六边形的圆的半径
     private int mMaxRadius;
     private int mRadius;
@@ -114,6 +111,16 @@ public class SDHexagonView extends View {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (!isEventInPath(event)) {
+                return false;
+            }
+        }
+        return super.dispatchTouchEvent(event);
+    }
+
+    @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
         mCenterX = w / 2;
@@ -124,7 +131,6 @@ public class SDHexagonView extends View {
         }
         lineMultShape(POLYGON_COUNT);
     }
-
 
     /**
      * 绘制多边形
@@ -155,16 +161,6 @@ public class SDHexagonView extends View {
         }
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
-        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            if (!isEventInPath(event)) {
-                return false;
-            }
-        }
-        return super.dispatchTouchEvent(event);
-    }
-
     /**
      * 判断是否在多边形内
      *
@@ -182,6 +178,10 @@ public class SDHexagonView extends View {
         return mRegion.contains((int) event.getX(), (int) event.getY());
     }
 
+    public int getOuterColor() {
+        return mOuterColor;
+    }
+
     /**
      * 设置多边形边框颜色
      */
@@ -191,8 +191,8 @@ public class SDHexagonView extends View {
         invalidate();
     }
 
-    public int getOuterColor() {
-        return mOuterColor;
+    public int getInnerColor() {
+        return mInnerColor;
     }
 
     /**
@@ -202,10 +202,6 @@ public class SDHexagonView extends View {
         mInnerColor = color;
         mInnerPaint.setColor(color);
         invalidate();
-    }
-
-    public int getInnerColor() {
-        return mInnerColor;
     }
 
     /**
@@ -224,6 +220,10 @@ public class SDHexagonView extends View {
         return mOuterWidth;
     }
 
+    public boolean getViewFullMode() {
+        return isHasStroke;
+    }
+
     /**
      * 设置正六边形是否被填充(无边框)
      */
@@ -232,8 +232,8 @@ public class SDHexagonView extends View {
         invalidate();
     }
 
-    public boolean getViewFullMode() {
-        return isHasStroke;
+    public int getRadius() {
+        return mRadius;
     }
 
     /**
@@ -243,10 +243,6 @@ public class SDHexagonView extends View {
         this.mRadius = radius;
         lineMultShape(POLYGON_COUNT);
         invalidate();
-    }
-
-    public int getRadius() {
-        return mRadius;
     }
 
     /**

@@ -236,17 +236,17 @@ public class SDTitleLayout extends RelativeLayout {
         settingLine();
     }
 
-    private void settingLine() {
-        if (!mIsHaveLine) {
-            mViewLine.setVisibility(GONE);
-            return;
-        }
-        mViewLine.setBackgroundColor(mLineBackground);
-        //横线高度
-        if (mLineHeight != 0) {
-            ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
-            mViewLineLayoutParams.height = mLineHeight;
-            mViewLine.setLayoutParams(mViewLineLayoutParams);
+    private void initLayoutHeight() {
+        if (mIsImmersiveStateBar) {
+            int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
+            LayoutParams mRlLayoutLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
+            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+            mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
+        } else {
+            LayoutParams mRlLayoutLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
+            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
+            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
         }
     }
 
@@ -285,6 +285,32 @@ public class SDTitleLayout extends RelativeLayout {
         }
     }
 
+    private void settingTitle() {
+        if (SDStringUtil.isEmpty(mTitle)) {
+            mTvTitle.setVisibility(INVISIBLE);
+        } else {
+            mTvTitle.setVisibility(VISIBLE);
+            mTvTitle.setText(mTitle);
+            mTvTitle.setTypeface(Typeface.defaultFromStyle(mTitleStyle));
+            mTvTitle.setTextSize(SDTransitionUtil.px2sp(mTitleSize));
+            mTvTitle.setTextColor(mTitleColor);
+        }
+    }
+
+    private void settingSubTitle() {
+        if (SDStringUtil.isEmpty(mSubTitle)) {
+            mTvSubTitle.setVisibility(GONE);
+        } else {
+            mTvSubTitle.setVisibility(VISIBLE);
+            mTvSubTitle.setText(mSubTitle);
+            mTvSubTitle.setTextSize(SDTransitionUtil.px2sp(mSubTitleSize));
+            mTvSubTitle.setTextColor(mSubTitleColor);
+            mTvSubTitle.setTypeface(Typeface.defaultFromStyle(mSubTitleStyle));
+            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
+            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
+        }
+    }
+
     private void settingRightImage() {
         if (mRightImage != 0) {
             mIvRight.setVisibility(VISIBLE);
@@ -296,6 +322,20 @@ public class SDTitleLayout extends RelativeLayout {
             mIvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
         } else {
             mIvRight.setVisibility(GONE);
+        }
+    }
+
+    private void settingRightText() {
+        if (SDStringUtil.isEmpty(mRightText)) {
+            mTvRight.setVisibility(GONE);
+        } else {
+            mTvRight.setVisibility(VISIBLE);
+            mIvRight.setVisibility(GONE);
+            mTvRight.setText(mRightText);
+            mTvRight.setTextSize(SDTransitionUtil.px2sp(mRightTextSize));
+            mTvRight.setTextColor(mRightTextColor);
+            mTvRight.setPadding(0, 0, mRightTextPaddingEnd, 0);
+            mTvRight.setTypeface(Typeface.defaultFromStyle(mRightTextStyle));
         }
     }
 
@@ -317,57 +357,17 @@ public class SDTitleLayout extends RelativeLayout {
 
     }
 
-    private void settingRightText() {
-        if (SDStringUtil.isEmpty(mRightText)) {
-            mTvRight.setVisibility(GONE);
-        } else {
-            mTvRight.setVisibility(VISIBLE);
-            mIvRight.setVisibility(GONE);
-            mTvRight.setText(mRightText);
-            mTvRight.setTextSize(SDTransitionUtil.px2sp(mRightTextSize));
-            mTvRight.setTextColor(mRightTextColor);
-            mTvRight.setPadding(0, 0, mRightTextPaddingEnd, 0);
-            mTvRight.setTypeface(Typeface.defaultFromStyle(mRightTextStyle));
+    private void settingLine() {
+        if (!mIsHaveLine) {
+            mViewLine.setVisibility(GONE);
+            return;
         }
-    }
-
-    private void settingSubTitle() {
-        if (SDStringUtil.isEmpty(mSubTitle)) {
-            mTvSubTitle.setVisibility(GONE);
-        } else {
-            mTvSubTitle.setVisibility(VISIBLE);
-            mTvSubTitle.setText(mSubTitle);
-            mTvSubTitle.setTextSize(SDTransitionUtil.px2sp(mSubTitleSize));
-            mTvSubTitle.setTextColor(mSubTitleColor);
-            mTvSubTitle.setTypeface(Typeface.defaultFromStyle(mSubTitleStyle));
-            mTvSubTitle.setGravity(Gravity.TOP | Gravity.CENTER);
-            mTvTitle.setGravity(Gravity.BOTTOM | Gravity.CENTER);
-        }
-    }
-
-    private void settingTitle() {
-        if (SDStringUtil.isEmpty(mTitle)) {
-            mTvTitle.setVisibility(INVISIBLE);
-        } else {
-            mTvTitle.setVisibility(VISIBLE);
-            mTvTitle.setText(mTitle);
-            mTvTitle.setTypeface(Typeface.defaultFromStyle(mTitleStyle));
-            mTvTitle.setTextSize(SDTransitionUtil.px2sp(mTitleSize));
-            mTvTitle.setTextColor(mTitleColor);
-        }
-    }
-
-    private void initLayoutHeight() {
-        if (mIsImmersiveStateBar) {
-            int layoutHeight = mLayoutBarHeight + mStatusBarHeight;
-            LayoutParams mRlLayoutLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, layoutHeight);
-            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
-            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
-            mRlLayout.setPadding(0, mStatusBarHeight, 0, 0);
-        } else {
-            LayoutParams mRlLayoutLayoutParams = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, mLayoutBarHeight);
-            mRlLayoutLayoutParams.addRule(CENTER_IN_PARENT);
-            mRlLayout.setLayoutParams(mRlLayoutLayoutParams);
+        mViewLine.setBackgroundColor(mLineBackground);
+        //横线高度
+        if (mLineHeight != 0) {
+            ViewGroup.LayoutParams mViewLineLayoutParams = mViewLine.getLayoutParams();
+            mViewLineLayoutParams.height = mLineHeight;
+            mViewLine.setLayoutParams(mViewLineLayoutParams);
         }
     }
 

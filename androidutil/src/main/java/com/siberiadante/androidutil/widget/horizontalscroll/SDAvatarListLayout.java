@@ -94,6 +94,11 @@ public class SDAvatarListLayout extends HorizontalScrollView {
         listener.showImageView(imageViewList);
     }
 
+    private void hideAllImageView() {
+        for (SDCircleImageView head : imageViewList) {
+            head.setVisibility(View.GONE);
+        }
+    }
 
     public void setAvatarListListener(List<Integer> drawableList) {
         if (drawableList == null) {
@@ -108,12 +113,6 @@ public class SDAvatarListLayout extends HorizontalScrollView {
                 break;
             }
             --i;
-        }
-    }
-
-    private void hideAllImageView() {
-        for (SDCircleImageView head : imageViewList) {
-            head.setVisibility(View.GONE);
         }
     }
 

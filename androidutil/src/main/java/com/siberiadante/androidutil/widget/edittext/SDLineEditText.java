@@ -34,11 +34,6 @@ public class SDLineEditText extends AppCompatEditText {
         initData(context, attrs);
     }
 
-    public SDLineEditText(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        initData(context, attrs);
-    }
-
     private void initData(Context context, AttributeSet attrs) {
         TypedArray attrArrays = context.obtainStyledAttributes(attrs, R.styleable.SDLineEditText);
 
@@ -54,6 +49,11 @@ public class SDLineEditText extends AppCompatEditText {
 //            }
 //        }
         attrArrays.recycle();
+    }
+
+    public SDLineEditText(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initData(context, attrs);
     }
 
     @Override

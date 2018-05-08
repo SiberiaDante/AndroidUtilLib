@@ -21,7 +21,7 @@ import android.widget.EditText;
 
 
 import com.jude.swipbackhelper.SwipeBackHelper;
-import com.siberiadante.androidutil.SDKeyBoardUtil;
+import com.siberiadante.androidutil.util.SDKeyBoardUtil;
 import com.siberiadante.utilsample.listener.RequestPermissionCallBack;
 
 import butterknife.ButterKnife;

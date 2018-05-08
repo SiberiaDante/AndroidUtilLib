@@ -25,7 +25,7 @@ import com.siberiadante.androidutil.R;
 
 public class SDNotifyRadioButton extends AppCompatRadioButton {
     private Paint mPaint = new Paint();
-    private int mRadius=4;
+    private int mRadius = 4;
     private boolean isNotifyShow = true;
 
 //    public SDNotifyRadioButton(Context context) {
@@ -65,13 +65,13 @@ public class SDNotifyRadioButton extends AppCompatRadioButton {
             Drawable[] compoundDrawables = getCompoundDrawables();
             Drawable drawableTop = compoundDrawables[1];
             //drawableTop的 right top bottom的值
-             Rect rect = drawableTop.getBounds();
+            Rect rect = drawableTop.getBounds();
             /**
              * getMeasuredWidth() / 2：控件宽度的一半
              * rect.width()/2：图片宽度的一半
              * radius / 2：圆点宽度的一半
              */
-             float rx = getMeasuredWidth() / 2 + rect.width() / 2 - mRadius / 2;
+            float rx = getMeasuredWidth() / 2 + rect.width() / 2 - mRadius / 2;
             float ry = rect.height() / 4;
             canvas.drawCircle(rx, ry, mRadius, mPaint);
         }

@@ -17,16 +17,14 @@ import android.view.ViewGroup;
 
 public class SDFullyStaggeredGridLayoutManager extends StaggeredGridLayoutManager {
 
-    public SDFullyStaggeredGridLayoutManager(int spanCount, int orientation) {
-        super(spanCount, orientation);
-    }
-
     // 尺寸的数组，[0]是宽，[1]是高
     private int[] measuredDimension = new int[2];
-
     // 用来比较同行/列那个item罪宽/高
     private int[] dimension;
 
+    public SDFullyStaggeredGridLayoutManager(int spanCount, int orientation) {
+        super(spanCount, orientation);
+    }
 
     @Override
 
@@ -117,16 +115,6 @@ public class SDFullyStaggeredGridLayoutManager extends StaggeredGridLayoutManage
         }
     }
 
-    private int findMax(int[] array) {
-        int max = array[0];
-        for (int value : array) {
-            if (value > max) {
-                max = value;
-            }
-        }
-        return max;
-    }
-
     /**
      * 得到最数组中最小元素的下标
      *
@@ -143,6 +131,16 @@ public class SDFullyStaggeredGridLayoutManager extends StaggeredGridLayoutManage
             }
         }
         return index;
+    }
+
+    private int findMax(int[] array) {
+        int max = array[0];
+        for (int value : array) {
+            if (value > max) {
+                max = value;
+            }
+        }
+        return max;
     }
 
 }

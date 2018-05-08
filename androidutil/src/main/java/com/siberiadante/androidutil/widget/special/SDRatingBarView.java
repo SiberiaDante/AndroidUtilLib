@@ -16,6 +16,7 @@ import com.siberiadante.androidutil.R;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/10/2
  * Describe： 评分组件
  * @github： https://github.com/SiberiaDante
@@ -24,6 +25,7 @@ import com.siberiadante.androidutil.R;
 
 public class SDRatingBarView extends View {
 
+    public OnRateSelectedListener onRateSelectedListener;
     private Bitmap mNormalStar;
     private Bitmap mSelectStar;
     private int mStarPadding;
@@ -50,32 +52,6 @@ public class SDRatingBarView extends View {
         mStarPadding = typedArray.getDimensionPixelOffset(R.styleable.SDRatingBarView_sd_starPadding, 0);
         typedArray.recycle();
         mPaint = new Paint();
-    }
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        //高度设置为 星星的高度
-        int height = mNormalStar.getHeight();
-        //宽度设置为 星星总宽度 + 间隔
-        int width = mNormalStar.getWidth() * mStarNum + mStarPadding * (mStarNum - 1);
-        setMeasuredDimension(width, height);
-    }
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        for (int i = 0; i < mStarNum; i++) {
-            int x = (mNormalStar.getWidth() + mStarPadding) * i;
-            if (mCurrentStarPos > i) {
-                //绘制选中
-                canvas.drawBitmap(mSelectStar, x, 0, mPaint);
-            } else {
-                //绘制默认
-                canvas.drawBitmap(mNormalStar, x, 0, mPaint);
-            }
-        }
     }
 
     @Override
@@ -106,6 +82,32 @@ public class SDRatingBarView extends View {
         return true;
     }
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        for (int i = 0; i < mStarNum; i++) {
+            int x = (mNormalStar.getWidth() + mStarPadding) * i;
+            if (mCurrentStarPos > i) {
+                //绘制选中
+                canvas.drawBitmap(mSelectStar, x, 0, mPaint);
+            } else {
+                //绘制默认
+                canvas.drawBitmap(mNormalStar, x, 0, mPaint);
+            }
+        }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        //高度设置为 星星的高度
+        int height = mNormalStar.getHeight();
+        //宽度设置为 星星总宽度 + 间隔
+        int width = mNormalStar.getWidth() * mStarNum + mStarPadding * (mStarNum - 1);
+        setMeasuredDimension(width, height);
+    }
+
     /**
      * 初始化级别
      *
@@ -119,15 +121,12 @@ public class SDRatingBarView extends View {
         invalidate();
     }
 
-    public OnRateSelectedListener onRateSelectedListener;
-
     public void setonRateSelectedListener(OnRateSelectedListener listener) {
         this.onRateSelectedListener = listener;
     }
 
     public interface OnRateSelectedListener {
         /**
-         *
          * @param rate ：触摸选中的组件个数
          */
         void onRateSelect(int rate);

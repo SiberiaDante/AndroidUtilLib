@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil;
+package com.siberiadante.androidutil.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+
+import com.siberiadante.androidutil.SDAndroidLib;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 

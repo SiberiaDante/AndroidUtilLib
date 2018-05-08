@@ -35,6 +35,7 @@ public class SDAdaptiveTextView extends TextView {
 
     /**
      * 设置TextView的文本内容,改方法不能再主线程中执行
+     *
      * @param text
      */
     public void setAdaptiveText(String text) {

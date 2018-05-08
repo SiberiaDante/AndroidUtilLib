@@ -26,6 +26,7 @@ import com.siberiadante.androidutil.R;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2016/12/4
  * Describe： 支持对RadioButton设置的图片大小进行控制：
  * 在xml中设置RadioButton中的图片size
@@ -41,10 +42,6 @@ public class SDDrawableRadioButton extends AppCompatRadioButton {
 
     public SDDrawableRadioButton(Context context) {
         this(context, null, 0);
-    }
-
-    public SDDrawableRadioButton(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
     }
 
     public SDDrawableRadioButton(Context context, AttributeSet attrs, int defStyle) {
@@ -97,6 +94,10 @@ public class SDDrawableRadioButton extends AppCompatRadioButton {
             bottom.setBounds(0, 0, mDrawableSize, mDrawableSize);
         }
         setCompoundDrawables(left, top, right, bottom);
+    }
+
+    public SDDrawableRadioButton(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
     }
 
 }

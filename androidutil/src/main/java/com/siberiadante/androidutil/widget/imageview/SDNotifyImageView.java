@@ -26,12 +26,12 @@ import com.siberiadante.androidutil.R;
 
 public class SDNotifyImageView extends AppCompatImageView {
     private Paint mPaint = new Paint();
-    private int mRadius=4;
+    private int mRadius = 4;
     private boolean isNotifyShow = true;
 
     public SDNotifyImageView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        @SuppressLint("CustomViewStyleable") TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDCircleNotifyView );
+        @SuppressLint("CustomViewStyleable") TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SDCircleNotifyView);
         isNotifyShow = attributes.getBoolean(R.styleable.SDCircleNotifyView_sd_notify_show, isNotifyShow);
         mRadius = attributes.getDimensionPixelSize(R.styleable.SDCircleNotifyView_sd_notify_radius, mRadius);
         int color = attributes.getColor(R.styleable.SDCircleNotifyView_sd_notify_color, Color.RED);

@@ -21,6 +21,7 @@ import com.siberiadante.androidutil.util.SDLogUtil;
 
 public class SDFullyLinearLayoutManager extends LinearLayoutManager {
     public static final String TAG = SDFullyLinearLayoutManager.class.getSimpleName();
+    private int[] mMeasuredDimension = new int[2];
 
     public SDFullyLinearLayoutManager(Context context) {
         super(context);
@@ -29,8 +30,6 @@ public class SDFullyLinearLayoutManager extends LinearLayoutManager {
     public SDFullyLinearLayoutManager(Context context, int orientation, boolean reverseLayout) {
         super(context, orientation, reverseLayout);
     }
-
-    private int[] mMeasuredDimension = new int[2];
 
     @Override
     public void onMeasure(RecyclerView.Recycler recycler, RecyclerView.State state,

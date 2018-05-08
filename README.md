@@ -12,11 +12,6 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
  SDAndroidLib.setDebug(true);
 ```
 
-## 关注我微信公众号：mumacode
-
-![](https://github.com/SiberiaDante/AndroidUtilLib/blob/master/Documents/imgs/icon_qrcode.jpg)
-
-
 ### 文档更新更不上，具体使用参考 utilsample
 
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
@@ -155,16 +150,12 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
         <td>计时相关工具类</td>
     </tr>
     <tr>
-        <td>SDToast</td>
+        <td>SDToastUtil</td>
         <td>toast吐司工具类</td>
     </tr>
     <tr>
         <td>SDTransitionUtil</td>
         <td>数据、数值转换相关类</td>
-    </tr>
-    <tr>
-        <td>SpannableStringUtil</td>
-        <td></td>
     </tr>
 </table>
 
@@ -226,6 +217,8 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
     </tr>
 </table>
 
+## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-View">SD-view</a>
+
 <table align="left">
     <tr>
         <th colspan="2" style="color:red">加载动画相关</th>
@@ -248,7 +241,6 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
     </tr> 
 </table>
 
-## SD-view
 
 <table align="left">
     <tr>
@@ -269,17 +261,6 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
     <tr>
         <td>SDEnsureDialog</td>
         <td>常规提示确认dialog</td>
-    </tr>
-</table>
-
-### SDTitleLayout
-<table  align="left">
-    <tr>
-        <th colspan="2" style="color:red">标题栏</th>
-    </tr>
-    <tr>
-        <td>SDTitleLayout</td>
-        <td>常规的能够满足开发需求的标题栏的封装，并支持Java代码设置</td>
     </tr>
 </table>
 
@@ -351,6 +332,9 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
         <td></td>
     </tr>
 </table>
+
+
+## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Widget">SD-Widget</a>
 
 <table align="left">
     <tr style="color:red">
@@ -443,9 +427,19 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
 </table>
 
 
+### SDTitleLayout
+<table  align="left">
+    <tr>
+        <th colspan="2" style="color:red">标题栏</th>
+    </tr>
+    <tr>
+        <td>SDTitleLayout</td>
+        <td>常规的能够满足开发需求的标题栏的封装，并支持Java代码设置</td>
+    </tr>
+</table>
 
 ## [版本更新说明]
-* v1.1.1(未发布)
+* v1.1.1
     * 增加SDPhotoUtil:拍照、相册操作、裁剪相关工具类
     * 增加组件SDRoundImageView：支持设置ImageView圆角、圆形
     * SDNormalDecoration增加支持设置左右间距
@@ -468,3 +462,9 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
     * 增加SDBitmapUtil
     * 增加SDCustomDialog
     * 增加SDLogUtil
+
+
+## 关注我微信公众号：mumacode
+
+![](https://github.com/SiberiaDante/AndroidUtilLib/blob/master/Documents/imgs/icon_qrcode.jpg)
+

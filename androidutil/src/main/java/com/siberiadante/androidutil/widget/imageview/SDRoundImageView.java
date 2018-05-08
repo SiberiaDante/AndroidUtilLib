@@ -54,6 +54,10 @@ public class SDRoundImageView extends ImageView {
         initViews();
     }
 
+    private void initViews() {
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
+    }
+
     public SDRoundImageView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
@@ -69,10 +73,6 @@ public class SDRoundImageView extends ImageView {
         currMode = a.hasValue(R.styleable.SDRoundImageView_sd_round_img_type) ? a.getInt(R.styleable.SDRoundImageView_sd_round_img_type, MODE_NONE) : MODE_NONE;
         currRound = a.hasValue(R.styleable.SDRoundImageView_sd_round_img_radius) ? a.getDimensionPixelSize(R.styleable.SDRoundImageView_sd_round_img_radius, currRound) : currRound;
         a.recycle();
-    }
-
-    private void initViews() {
-        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DITHER_FLAG);
     }
 
     @Override

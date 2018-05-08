@@ -18,6 +18,7 @@ import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2017/10/3
  * Describe： 字母索引
  * @github： https://github.com/SiberiaDante
@@ -66,44 +67,6 @@ public class SDLetterIndexView extends View {
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
-        //其中字母宽度和画笔有关，用画笔测量其宽度
-        int oneLetterWidth = (int) mDefaultPaint.measureText("A");
-        int width = getPaddingLeft() + getPaddingRight() + oneLetterWidth;
-        int height = MeasureSpec.getSize(heightMeasureSpec);
-
-        setMeasuredDimension(width, height);
-
-    }
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-
-        itemHeight = (getHeight() - getPaddingBottom() - getPaddingTop()) / letters.length;
-        for (int i = 0; i < letters.length; i++) {
-
-            //每个字母x的坐标
-            int x = (int) (getWidth() / 2 - mDefaultPaint.measureText(letters[i]) / 2);
-            Paint.FontMetricsInt fontInt = mDefaultPaint.getFontMetricsInt();
-            //字母中心位置
-            int letterCenterY = itemHeight * i + itemHeight / 2 + getPaddingTop();
-            int dy = (fontInt.bottom - fontInt.top) / 2 - fontInt.bottom;
-            int baseLine = letterCenterY + dy;
-
-            if (i == mTouchIndex) {
-                canvas.drawText(letters[i], x, baseLine, mSelectPaint);
-            } else {
-                canvas.drawText(letters[i], x, baseLine, mDefaultPaint);
-            }
-            SDLogUtil.d(letters[i]);
-        }
-    }
-
-    @Override
     public boolean onTouchEvent(MotionEvent event) {
 
         switch (event.getAction()) {
@@ -138,17 +101,53 @@ public class SDLetterIndexView extends View {
         return true;
     }
 
-    public interface OnLetterTouchListener {
-        /**
-         *
-         * @param letter 触摸的字母
-         * @param isShow 是否已经显示
-         */
-        void onTouchIndex(String letter, boolean isShow);
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        itemHeight = (getHeight() - getPaddingBottom() - getPaddingTop()) / letters.length;
+        for (int i = 0; i < letters.length; i++) {
+
+            //每个字母x的坐标
+            int x = (int) (getWidth() / 2 - mDefaultPaint.measureText(letters[i]) / 2);
+            Paint.FontMetricsInt fontInt = mDefaultPaint.getFontMetricsInt();
+            //字母中心位置
+            int letterCenterY = itemHeight * i + itemHeight / 2 + getPaddingTop();
+            int dy = (fontInt.bottom - fontInt.top) / 2 - fontInt.bottom;
+            int baseLine = letterCenterY + dy;
+
+            if (i == mTouchIndex) {
+                canvas.drawText(letters[i], x, baseLine, mSelectPaint);
+            } else {
+                canvas.drawText(letters[i], x, baseLine, mDefaultPaint);
+            }
+            SDLogUtil.d(letters[i]);
+        }
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+        //其中字母宽度和画笔有关，用画笔测量其宽度
+        int oneLetterWidth = (int) mDefaultPaint.measureText("A");
+        int width = getPaddingLeft() + getPaddingRight() + oneLetterWidth;
+        int height = MeasureSpec.getSize(heightMeasureSpec);
+
+        setMeasuredDimension(width, height);
+
     }
 
     public void setOnLetterTouchListener(OnLetterTouchListener onLetterTouchListener) {
         this.onLetterTouchListener = onLetterTouchListener;
+    }
+
+    public interface OnLetterTouchListener {
+        /**
+         * @param letter 触摸的字母
+         * @param isShow 是否已经显示
+         */
+        void onTouchIndex(String letter, boolean isShow);
     }
 
 

@@ -38,7 +38,7 @@ public class SDScreenUtil {
     private static final String TAG_MARGIN_ADDED = "marginAdded";
 
     private SDScreenUtil() {
-        throw new UnsupportedOperationException("UnInit this Lib");
+        throw new UnsupportedOperationException("UnInit AndroidUtilLib");
     }
 
     public static float getDensity(Activity activity) {
@@ -51,6 +51,7 @@ public class SDScreenUtil {
     /**
      * @return 获取屏幕的宽 单位：px
      */
+    @Deprecated
     public static int getScreenWidthPx() {
         WindowManager windowManager = (WindowManager) SDAndroidLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
@@ -61,6 +62,7 @@ public class SDScreenUtil {
     /**
      * @return 获取屏幕的高 单位：px
      */
+    @Deprecated
     public static int getScreenHeightPx() {
         WindowManager windowManager = (WindowManager) SDAndroidLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
@@ -72,6 +74,7 @@ public class SDScreenUtil {
     /**
      * @return 获取屏幕的宽 单位：dp
      */
+    @Deprecated
     public static int getScreenWidthDp() {
         WindowManager windowManager = (WindowManager) SDAndroidLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
@@ -82,6 +85,7 @@ public class SDScreenUtil {
     /**
      * @return 获取屏幕的高 单位：dp
      */
+    @Deprecated
     public static int getScreenHeightDp() {
         WindowManager windowManager = (WindowManager) SDAndroidLib.getContext().getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
@@ -94,7 +98,6 @@ public class SDScreenUtil {
      *
      * @return 屏幕宽
      */
-    @Deprecated
     public static int getScreenWidth() {
         return SDAndroidLib.getContext().getResources().getDisplayMetrics().widthPixels;
     }
@@ -104,7 +107,6 @@ public class SDScreenUtil {
      *
      * @return 屏幕高
      */
-    @Deprecated
     public static int getScreenHeight() {
         return SDAndroidLib.getContext().getResources().getDisplayMetrics().heightPixels;
     }

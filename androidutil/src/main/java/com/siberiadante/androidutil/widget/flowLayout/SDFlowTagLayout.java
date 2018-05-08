@@ -8,14 +8,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 
+import com.siberiadante.androidutil.widget.flowLayout.sdflowtaglistener.OnInitSelectedPosition;
+import com.siberiadante.androidutil.widget.flowLayout.sdflowtaglistener.OnTagClickListener;
+import com.siberiadante.androidutil.widget.flowLayout.sdflowtaglistener.OnTagSelectListener;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
+/**
+ * Created: SiberiaDante
+ * Describe： 自适应的标签流式布局，适用于搜索历史、标签等
+ * CreateTime: 2017/12/18
+ * UpDateTime:
+ * Email: 2654828081@qq.com
+ * GitHub: https://github.com/SiberiaDante
+ */
 public class SDFlowTagLayout extends ViewGroup {
-
-    private static final String TAG = SDFlowTagLayout.class.getSimpleName();
 
     /**
      * FlowLayout not support checked
@@ -29,7 +38,7 @@ public class SDFlowTagLayout extends ViewGroup {
      * FlowLayout support multi-select
      */
     public static final int FLOW_TAG_CHECKED_MULTI = 2;
-
+    private static final String TAG = SDFlowTagLayout.class.getSimpleName();
     /**
      * Should be used by subclasses to listen to changes in the dataset
      */
@@ -184,19 +193,25 @@ public class SDFlowTagLayout extends ViewGroup {
         return mAdapter;
     }
 
-    class AdapterDataSetObserver extends DataSetObserver {
-        @Override
-        public void onChanged() {
-            super.onChanged();
-            reloadData();
+    /**
+     * 像ListView、GridView一样使用FlowLayout
+     *
+     * @param adapter
+     */
+    public void setAdapter(ListAdapter adapter) {
+        if (mAdapter != null && mDataSetObserver != null) {
+            mAdapter.unregisterDataSetObserver(mDataSetObserver);
         }
 
-        @Override
-        public void onInvalidated() {
-            super.onInvalidated();
+        //清除现有的数据
+        removeAllViews();
+        mAdapter = adapter;
+
+        if (mAdapter != null) {
+            mDataSetObserver = new AdapterDataSetObserver();
+            mAdapter.registerDataSetObserver(mDataSetObserver);
         }
     }
-
 
     /**
      * 重新加载刷新数据
@@ -306,26 +321,6 @@ public class SDFlowTagLayout extends ViewGroup {
     }
 
     /**
-     * 像ListView、GridView一样使用FlowLayout
-     *
-     * @param adapter
-     */
-    public void setAdapter(ListAdapter adapter) {
-        if (mAdapter != null && mDataSetObserver != null) {
-            mAdapter.unregisterDataSetObserver(mDataSetObserver);
-        }
-
-        //清除现有的数据
-        removeAllViews();
-        mAdapter = adapter;
-
-        if (mAdapter != null) {
-            mDataSetObserver = new AdapterDataSetObserver();
-            mAdapter.registerDataSetObserver(mDataSetObserver);
-        }
-    }
-
-    /**
      * 获取标签模式
      *
      * @return
@@ -341,5 +336,18 @@ public class SDFlowTagLayout extends ViewGroup {
      */
     public void setTagCheckedMode(int tagMode) {
         this.mTagCheckMode = tagMode;
+    }
+
+    class AdapterDataSetObserver extends DataSetObserver {
+        @Override
+        public void onChanged() {
+            super.onChanged();
+            reloadData();
+        }
+
+        @Override
+        public void onInvalidated() {
+            super.onInvalidated();
+        }
     }
 }
