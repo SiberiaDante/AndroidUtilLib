@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/tv_content"
         android:textColor="@color/colorContentText"
-        android:textSize="@dimen/font_16"
+        android:textSize="@dimen/sd_font_16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </android.support.constraint.ConstraintLayout>

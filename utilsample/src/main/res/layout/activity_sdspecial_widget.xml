@@ -24,7 +24,7 @@
                 app:sd_hexagon_innerColor="@color/colorGreen"
                 app:sd_hexagon_isHasStroke="false"
                 app:sd_hexagon_outerColor="@color/colorRed"
-                app:sd_hexagon_outerWidth="@dimen/five" />
+                app:sd_hexagon_outerWidth="@dimen/sd_five" />
 
             <com.siberiadante.androidutil.widget.special.SDHexagonView
                 android:layout_width="100dp"
@@ -39,7 +39,7 @@
                 app:sd_hexagon_innerColor="@color/colorGreen"
                 app:sd_hexagon_isHasStroke="true"
                 app:sd_hexagon_outerColor="@color/colorRed"
-                app:sd_hexagon_outerWidth="@dimen/five" />
+                app:sd_hexagon_outerWidth="@dimen/sd_five" />
         </LinearLayout>
 
     </LinearLayout>

@@ -21,8 +21,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/five"
-            android:layout_marginTop="@dimen/five"
+            android:layout_marginBottom="@dimen/sd_five"
+            android:layout_marginTop="@dimen/sd_five"
             android:gravity="center"
             android:text="APP图标" />
 
@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorContentText"
-            android:textSize="@dimen/font_16" />
+            android:textSize="@dimen/sd_font_16" />
 
         <Button
             android:id="@+id/btn_launch_app"
@@ -42,8 +42,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/five"
-            android:layout_marginTop="@dimen/five"
+            android:layout_marginBottom="@dimen/sd_five"
+            android:layout_marginTop="@dimen/sd_five"
             android:text="测试使用到的卸载和安装方法已经测试通过，你需要测试的话结合自己的APK测试一下" />
 
         <Button
@@ -68,7 +68,7 @@
             android:id="@+id/tv_info_content"
             android:layout_width="match_parent"
             android:textColor="@color/colorContentText"
-            android:textSize="@dimen/font_16"
+            android:textSize="@dimen/sd_font_16"
             android:layout_height="wrap_content" />
         <Button
             android:id="@+id/btn_get_install_app_info2"
@@ -78,7 +78,7 @@
         <TextView
             android:id="@+id/tv_info_content2"
             android:textColor="@color/colorContentText"
-            android:textSize="@dimen/font_16"
+            android:textSize="@dimen/sd_font_16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

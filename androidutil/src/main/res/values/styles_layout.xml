@@ -14,7 +14,7 @@
     </style>
 
     <style name="ViewLineHorizontalEightDp">
-        <item name="android:layout_height">@dimen/eight</item>
+        <item name="android:layout_height">@dimen/sd_eight</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:background">@color/sdColorGrayLine</item>
     </style>

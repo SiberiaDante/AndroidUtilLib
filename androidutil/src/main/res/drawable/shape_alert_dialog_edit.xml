@@ -6,8 +6,8 @@
         android:color="@color/sdColorGray" />
     <solid android:color="@color/sdColorWhite" />
     <padding
-        android:bottom="@dimen/two"
-        android:left="@dimen/two"
-        android:right="@dimen/two"
-        android:top="@dimen/two" />
+        android:bottom="@dimen/sd_two"
+        android:left="@dimen/sd_two"
+        android:right="@dimen/sd_two"
+        android:top="@dimen/sd_two" />
 </shape>

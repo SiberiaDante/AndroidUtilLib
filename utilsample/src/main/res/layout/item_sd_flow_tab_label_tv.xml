@@ -11,11 +11,11 @@
         android:layout_marginEnd="@dimen/twelve"
         android:background="@drawable/shape_gray_f1"
         android:ellipsize="middle"
-        android:paddingBottom="@dimen/four"
+        android:paddingBottom="@dimen/sd_four"
         android:paddingEnd="@dimen/sixteen"
         android:paddingStart="@dimen/sixteen"
-        android:paddingTop="@dimen/four"
+        android:paddingTop="@dimen/sd_four"
         android:singleLine="true"
         android:textColor="@color/colorBlack"
-        android:textSize="@dimen/font_12" />
+        android:textSize="@dimen/sd_font_12" />
 </RelativeLayout>

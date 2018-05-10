@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dante="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:dante="http://schemas.android.com/apk/res-auto"
     tools:context="com.siberiadante.utilsample.activity.widget.SDEditTextWidgetActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:padding="@dimen/page_padding_16"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="@dimen/page_padding_16">
 
         <com.siberiadante.androidutil.widget.edittext.SDLineEditText
             android:id="@+id/edt_line"
@@ -18,9 +18,19 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/fifty"
             android:gravity="center_vertical"
-            dante:sd_line_color="@color/colorRed"
             android:hint="自定义EditText下划线：SDLineEditText"
-            android:textSize="@dimen/font_12" />
+            android:textSize="@dimen/sd_font_12"
+            dante:sd_line_color="@color/colorRed" />
+
+        <EditText
+            android:id="@+id/edt_cash"
+            style="@style/BaseEditText"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fifty"
+            android:layout_marginTop="@dimen/eighteen"
+            android:hint="只能输入金额格式的内容并保留两位小数"
+            android:inputType="numberDecimal"
+            android:textSize="@dimen/sd_font_12" />
 
     </LinearLayout>
 </ScrollView>

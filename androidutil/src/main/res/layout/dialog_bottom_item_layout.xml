@@ -21,7 +21,7 @@
             android:paddingBottom="@dimen/ten"
             android:paddingTop="@dimen/ten"
             android:textColor="@color/sdColorBlack"
-            android:textSize="@dimen/font_13"
+            android:textSize="@dimen/sd_font_13"
             android:visibility="gone" />
 
         <View
@@ -52,6 +52,6 @@
         android:gravity="center"
         android:text="@string/cancel"
         android:textColor="@color/sdColorBlack"
-        android:textSize="@dimen/font_18" />
+        android:textSize="@dimen/sd_font_18" />
 
 </LinearLayout>

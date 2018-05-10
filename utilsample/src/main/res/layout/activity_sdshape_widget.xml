@@ -35,7 +35,7 @@
                 android:gravity="center"
                 android:text="这是一个SDShapeFrameLayout"
                 android:textColor="@color/colorRed"
-                android:textSize="@dimen/font_20"
+                android:textSize="@dimen/sd_font_20"
                 android:textStyle="bold" />
 
         </com.siberiadante.androidutil.widget.framelayout.SDShapeFrameLayout>
@@ -119,7 +119,7 @@
                 android:gravity="center"
                 android:text="这是一个SDShapeRelativeLayout"
                 android:textColor="@color/colorRed"
-                android:textSize="@dimen/font_20"
+                android:textSize="@dimen/sd_font_20"
                 android:textStyle="bold" />
 
         </com.siberiadante.androidutil.widget.relativelayout.SDShapeRelativeLayout>

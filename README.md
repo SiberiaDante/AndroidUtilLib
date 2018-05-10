@@ -349,6 +349,10 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
         <td>自定义下划线的EditText</td>
     </tr>
     <tr>
+        <td>SDCashierInputFilter</td>
+        <td>格式化EditText只能输入金额格式的数字</td>
+    </tr>
+    <tr>
         <td>SDShapeFrameLayout</td>
         <td>简化FrameLayout shape 画背景</td>
     </tr>

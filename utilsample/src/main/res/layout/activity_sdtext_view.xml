@@ -29,7 +29,7 @@
                 android:id="@+id/tv_sd_adaptive"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/eight"
+                android:layout_marginTop="@dimen/sd_eight"
                 android:text="这是正常的SDAdaptiveTextViewSiberiaDanteSiberiaDanteSiberiaDanteSiberiaDanteSiberiaDanteSiberiaDante" />
         </LinearLayout>
 

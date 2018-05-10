@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--font size-->
-    <dimen name="font_10">10sp</dimen>
-    <dimen name="font_11">11sp</dimen>
-    <dimen name="font_12">12sp</dimen>
-    <dimen name="font_13">13sp</dimen>
-    <dimen name="font_14">14sp</dimen>
-    <dimen name="font_15">15sp</dimen>
-    <dimen name="font_16">16sp</dimen>
-    <dimen name="font_17">17sp</dimen>
-    <dimen name="font_18">18sp</dimen>
-    <dimen name="font_19">19sp</dimen>
-    <dimen name="font_20">20sp</dimen>
-    <dimen name="font_21">21sp</dimen>
-    <dimen name="font_22">22sp</dimen>
-    <dimen name="font_23">23sp</dimen>
-    <dimen name="font_24">24sp</dimen>
-    <dimen name="font_25">25sp</dimen>
-    <dimen name="font_36">36sp</dimen>
+    <dimen name="sd_font_10">10sp</dimen>
+    <dimen name="sd_font_11">11sp</dimen>
+    <dimen name="sd_font_12">12sp</dimen>
+    <dimen name="sd_font_13">13sp</dimen>
+    <dimen name="sd_font_14">14sp</dimen>
+    <dimen name="sd_font_15">15sp</dimen>
+    <dimen name="sd_font_16">16sp</dimen>
+    <dimen name="sd_font_17">17sp</dimen>
+    <dimen name="sd_font_18">18sp</dimen>
+    <dimen name="sd_font_19">19sp</dimen>
+    <dimen name="sd_font_20">20sp</dimen>
+    <dimen name="sd_font_21">21sp</dimen>
+    <dimen name="sd_font_22">22sp</dimen>
+    <dimen name="sd_font_23">23sp</dimen>
+    <dimen name="sd_font_24">24sp</dimen>
+    <dimen name="sd_font_25">25sp</dimen>
+    <dimen name="sd_font_36">36sp</dimen>
     <!--base size-->
-    <dimen name="zero">0dp</dimen>
-    <dimen name="one_point_five">0.5dp</dimen>
-    <dimen name="one">1dp</dimen>
-    <dimen name="two">2dp</dimen>
-    <dimen name="three">3dp</dimen>
-    <dimen name="four">4dp</dimen>
-    <dimen name="five">5dp</dimen>
-    <dimen name="six">6dp</dimen>
-    <dimen name="seven">7dp</dimen>
-    <dimen name="eight">8dp</dimen>
-    <dimen name="nine">9dp</dimen>
+    <dimen name="sd_zero">0dp</dimen>
+    <dimen name="sd_one_point_five">0.5dp</dimen>
+    <dimen name="sd_one">1dp</dimen>
+    <dimen name="sd_two">2dp</dimen>
+    <dimen name="sd_three">3dp</dimen>
+    <dimen name="sd_four">4dp</dimen>
+    <dimen name="sd_five">5dp</dimen>
+    <dimen name="sd_six">6dp</dimen>
+    <dimen name="sd_seven">7dp</dimen>
+    <dimen name="sd_eight">8dp</dimen>
+    <dimen name="sd_nine">9dp</dimen>
 
     <dimen name="ten">10dp</dimen>
     <dimen name="eleven">11dp</dimen>
@@ -132,6 +132,6 @@
     <dimen name="one_five_zero">150dp</dimen>
 
     <!--other-->
-    <dimen name="notify_radius">4dp</dimen>
+    <dimen name="sd_notify_radius">4dp</dimen>
 
 </resources>
