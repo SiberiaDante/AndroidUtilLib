@@ -8,11 +8,11 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
 ```
 初始化
 ```
- SDAndroidLib.initLib(context);
- SDAndroidLib.setDebug(true);
+ SDAndroidLib.initLib(context);//初始化
+ SDAndroidLib.setDebug(true);//开启Debug模式
 ```
 
-### 文档更新更不上，具体使用参考 utilsample
+### 文档更新跟不上，具体使用参考 utilsample
 
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
 
@@ -341,16 +341,16 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
          <th colspan="2" style="color:red">SD-Widget相关类</th>
     </tr>
     <tr>
-        <td>SDCenterAlignImageSpan</td>
-        <td>图文混排对齐的ImageSpan</td>
-    </tr>
-    <tr>
         <td>SDLineEditText</td>
         <td>自定义下划线的EditText</td>
     </tr>
     <tr>
         <td>SDCashierInputFilter</td>
         <td>格式化EditText只能输入金额格式的数字</td>
+    </tr>
+    <tr>
+        <td>SDFlowTagLayout</td>
+        <td>自适应的标签流式布局，适用于搜索历史、标签等</td>
     </tr>
     <tr>
         <td>SDShapeFrameLayout</td>
@@ -367,6 +367,10 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
     <tr>
         <td>SDNotifyImageView</td>
         <td>带通知圆点的ImageView</td>
+    </tr>     
+    <tr>
+        <td>SDRoundImageView</td>
+        <td>可以设置ImageView 圆角、圆等</td>
     </tr>    
     <tr>
         <td>SDFullyGridLayoutManager</td>
@@ -409,6 +413,10 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
         <td>评分组件</td>
     </tr>
     <tr>
+        <td>SDTitleLayout</td>
+        <td>通用的标题栏，支持动态修改、沉浸式等</td>
+    </tr>
+    <tr>
         <td>SDAdaptiveTextView</td>
         <td>解决TextView的内容中包含中英文导致自动换行bug</td>
     </tr>
@@ -428,6 +436,10 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
         <td>SuperTextView</td>
         <td></td>
     </tr>
+    <tr>
+        <td>SDCenterAlignImageSpan</td>
+        <td>图文混排对齐的ImageSpan</td>
+    </tr>
 </table>
 
 
@@ -443,6 +455,9 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
 </table>
 
 ## [版本更新说明]
+* v1.1.2(未发布)
+    * SDCashierInputFilter：格式化EditText金额输入规则
+    * SDFlowTagLayout：自适应的标签流式布局，适用于搜索历史、标签等
 * v1.1.1
     * 增加SDPhotoUtil:拍照、相册操作、裁剪相关工具类
     * 增加组件SDRoundImageView：支持设置ImageView圆角、圆形

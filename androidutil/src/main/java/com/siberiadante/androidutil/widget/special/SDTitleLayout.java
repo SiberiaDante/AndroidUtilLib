@@ -26,11 +26,7 @@ import com.siberiadante.androidutil.util.SDTransitionUtil;
 
 /**
  * Describe： 使用说明<br/><a href=" https://github.com/SiberiaDante/TitleLayout">GitHub</a>
- * 完善中：
- * 1、测量左右View的宽度，依次来衡量标题位置
- * 2、可设置View大小
- * 3、增加动态控制View等
- * 4、支持设置沉浸式状态栏
+ * 通用的标题栏，支持动态修改、沉浸式等
  * Time: 2017/9/12
  * UpDate:
  */
