@@ -326,7 +326,7 @@ public class SDNetWorkUtil {
         }
     }
 
-    private enum NetworkType {
+    public enum NetworkType {
         //没有网络连接
         NETWORK_NONE,
         //wifi连接
