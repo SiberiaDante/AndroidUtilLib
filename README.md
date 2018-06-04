@@ -455,7 +455,7 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
 </table>
 
 ## [版本更新说明]
-* v1.1.2(未发布)
+* v1.1.2
     * SDCashierInputFilter：格式化EditText金额输入规则
     * SDFlowTagLayout：自适应的标签流式布局，适用于搜索历史、标签等
 * v1.1.1
@@ -482,8 +482,4 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
     * 增加SDCustomDialog
     * 增加SDLogUtil
 
-
-## 关注我微信公众号：mumacode
-
-![](https://github.com/SiberiaDante/AndroidUtilLib/blob/master/Documents/imgs/icon_qrcode.jpg)
 
