@@ -44,8 +44,8 @@
 
     <dimen name="twenty">20dp</dimen>
     <dimen name="twenty_one">21dp</dimen>
-    <dimen name="twenty_two">21dp</dimen>
-    <dimen name="twenty_three">21dp</dimen>
+    <dimen name="twenty_two">22dp</dimen>
+    <dimen name="twenty_three">23dp</dimen>
     <dimen name="twenty_four">24dp</dimen>
     <dimen name="twenty_five">25dp</dimen>
     <dimen name="twenty_six">26dp</dimen>
@@ -129,6 +129,118 @@
     <dimen name="ninety_seven">97dp</dimen>
     <dimen name="ninety_eight">98dp</dimen>
     <dimen name="ninety_nine">99dp</dimen>
+
+    <dimen name="one_hundred_zero">100dp</dimen>
+    <dimen name="one_hundred_one">101dp</dimen>
+    <dimen name="one_hundred_two">102dp</dimen>
+    <dimen name="one_hundred_three">103dp</dimen>
+    <dimen name="one_hundred_four">104dp</dimen>
+    <dimen name="one_hundred_five">105dp</dimen>
+    <dimen name="one_hundred_six">106dp</dimen>
+    <dimen name="one_hundred_seven">107dp</dimen>
+    <dimen name="one_hundred_eight">108dp</dimen>
+    <dimen name="one_hundred_nine">109dp</dimen>
+
+    <dimen name="one_hundred_ten">110dp</dimen>
+    <dimen name="one_hundred_eleven">111dp</dimen>
+    <dimen name="one_hundred_twelve">112dp</dimen>
+    <dimen name="one_hundred_thirteen">113dp</dimen>
+    <dimen name="one_hundred_fourteen">114dp</dimen>
+    <dimen name="one_hundred_fifteen">115dp</dimen>
+    <dimen name="one_hundred_sixteen">116dp</dimen>
+    <dimen name="one_hundred_seventeen">117dp</dimen>
+    <dimen name="one_hundred_eighteen">118dp</dimen>
+    <dimen name="one_hundred_nineteen">119dp</dimen>
+
+    <dimen name="one_hundred_twenty">120dp</dimen>
+    <dimen name="one_hundred_twenty_one">121dp</dimen>
+    <dimen name="one_hundred_twenty_two">122dp</dimen>
+    <dimen name="one_hundred_twenty_three">123dp</dimen>
+    <dimen name="one_hundred_twenty_four">124dp</dimen>
+    <dimen name="one_hundred_twenty_five">125dp</dimen>
+    <dimen name="one_hundred_twenty_six">126dp</dimen>
+    <dimen name="one_hundred_twenty_seven">127dp</dimen>
+    <dimen name="one_hundred_twenty_eight">128dp</dimen>
+    <dimen name="one_hundred_twenty_nine">129dp</dimen>
+
+    <dimen name="one_hundred_thirty">130dp</dimen>
+    <dimen name="one_hundred_thirty_one">131dp</dimen>
+    <dimen name="one_hundred_thirty_two">132dp</dimen>
+    <dimen name="one_hundred_thirty_three">133dp</dimen>
+    <dimen name="one_hundred_thirty_four">134dp</dimen>
+    <dimen name="one_hundred_thirty_five">135dp</dimen>
+    <dimen name="one_hundred_thirty_six">136dp</dimen>
+    <dimen name="one_hundred_thirty_seven">137dp</dimen>
+    <dimen name="one_hundred_thirty_eight">138dp</dimen>
+    <dimen name="one_hundred_thirty_nine">139dp</dimen>
+
+    <dimen name="one_hundred_forty">140dp</dimen>
+    <dimen name="one_hundred_forty_one">141dp</dimen>
+    <dimen name="one_hundred_forty_two">142dp</dimen>
+    <dimen name="one_hundred_forty_three">143dp</dimen>
+    <dimen name="one_hundred_forty_four">144dp</dimen>
+    <dimen name="one_hundred_forty_five">145dp</dimen>
+    <dimen name="one_hundred_forty_six">146dp</dimen>
+    <dimen name="one_hundred_forty_seven">147dp</dimen>
+    <dimen name="one_hundred_forty_eight">148dp</dimen>
+    <dimen name="one_hundred_forty_nine">149dp</dimen>
+
+    <dimen name="one_hundred_fifty">150dp</dimen>
+    <dimen name="one_hundred_fifty_one">151dp</dimen>
+    <dimen name="one_hundred_fifty_two">152dp</dimen>
+    <dimen name="one_hundred_fifty_three">153dp</dimen>
+    <dimen name="one_hundred_fifty_four">154dp</dimen>
+    <dimen name="one_hundred_fifty_five">155dp</dimen>
+    <dimen name="one_hundred_fifty_six">156dp</dimen>
+    <dimen name="one_hundred_fifty_seven">157dp</dimen>
+    <dimen name="one_hundred_fifty_eight">158dp</dimen>
+    <dimen name="one_hundred_fifty_nine">159dp</dimen>
+
+    <dimen name="one_hundred_sixty">160dp</dimen>
+    <dimen name="one_hundred_sixty_one">161dp</dimen>
+    <dimen name="one_hundred_sixty_two">162dp</dimen>
+    <dimen name="one_hundred_sixty_three">163dp</dimen>
+    <dimen name="one_hundred_sixty_four">164dp</dimen>
+    <dimen name="one_hundred_sixty_five">165dp</dimen>
+    <dimen name="one_hundred_sixty_six">166dp</dimen>
+    <dimen name="one_hundred_sixty_seven">167dp</dimen>
+    <dimen name="one_hundred_sixty_eight">168dp</dimen>
+    <dimen name="one_hundred_sixty_nine">169dp</dimen>
+
+    <dimen name="one_hundred_seventy">170dp</dimen>
+    <dimen name="one_hundred_seventy_one">171dp</dimen>
+    <dimen name="one_hundred_seventy_two">172dp</dimen>
+    <dimen name="one_hundred_seventy_three">173dp</dimen>
+    <dimen name="one_hundred_seventy_four">174dp</dimen>
+    <dimen name="one_hundred_seventy_five">175dp</dimen>
+    <dimen name="one_hundred_seventy_six">176dp</dimen>
+    <dimen name="one_hundred_seventy_seven">177dp</dimen>
+    <dimen name="one_hundred_seventy_eight">178dp</dimen>
+    <dimen name="one_hundred_seventy_nine">179dp</dimen>
+
+    <dimen name="one_hundred_eighty">180dp</dimen>
+    <dimen name="one_hundred_eighty_one">181dp</dimen>
+    <dimen name="one_hundred_eighty_two">182dp</dimen>
+    <dimen name="one_hundred_eighty_three">183dp</dimen>
+    <dimen name="one_hundred_eighty_four">184dp</dimen>
+    <dimen name="one_hundred_eighty_five">185dp</dimen>
+    <dimen name="one_hundred_eighty_six">186dp</dimen>
+    <dimen name="one_hundred_eighty_seven">187dp</dimen>
+    <dimen name="one_hundred_eighty_eight">188dp</dimen>
+    <dimen name="one_hundred_eighty_nine">189dp</dimen>
+
+    <dimen name="one_hundred_ninety">190dp</dimen>
+    <dimen name="one_hundred_ninety_one">191dp</dimen>
+    <dimen name="one_hundred_ninety_two">192dp</dimen>
+    <dimen name="one_hundred_ninety_three">193dp</dimen>
+    <dimen name="one_hundred_ninety_four">194dp</dimen>
+    <dimen name="one_hundred_ninety_five">195dp</dimen>
+    <dimen name="one_hundred_ninety_six">196dp</dimen>
+    <dimen name="one_hundred_ninety_seven">197dp</dimen>
+    <dimen name="one_hundred_ninety_eight">198dp</dimen>
+    <dimen name="one_hundred_ninety_nine">199dp</dimen>
+
+
     <dimen name="one_five_zero">150dp</dimen>
 
     <!--other-->
