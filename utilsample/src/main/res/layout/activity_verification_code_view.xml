@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.widget.VerificationCodeViewActivity">
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minHeight="@dimen/sixty"
+        android:text="输入验证码"
+        android:textColor="@color/sdColorBlack"
+        android:textSize="@dimen/font_18"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.siberiadante.androidutil.widget.special.SDVerificationCodeView
+        android:id="@+id/ver_code_view_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_tips"
+        app:sd_vcv_bg_complete="@drawable/shape_vcv_bg_complete"
+        app:sd_vcv_count="5"
+        app:sd_vcv_et_bg_focus="@drawable/shape_vcv_bg_focus"
+        app:sd_vcv_et_bg_normal="@drawable/shape_vcv_bg_normal"
+        app:sd_vcv_et_width="28dp" />
+
+
+    <com.siberiadante.androidutil.widget.special.SDVerificationCodeView
+        android:id="@+id/ver_code_view_base_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/ver_code_view_base"
+        app:sd_vcv_bg_complete="@drawable/shape_vcv_bg_complete"
+        app:sd_vcv_count="5"
+        app:sd_vcv_et_bg_focus="@drawable/shape_vcv_bg_normal"
+        app:sd_vcv_et_bg_normal="@drawable/shape_vcv_bg_normal"
+        app:sd_vcv_et_width="28dp" />
+
+    <com.siberiadante.androidutil.widget.special.SDVerificationCodeView
+        android:id="@+id/vcv_code_psd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/ver_code_view_base_1"
+        app:sd_vcv_bg_complete="@drawable/shape_vcv_bg_complete"
+        app:sd_vcv_count="5"
+        app:sd_vcv_et_bg_focus="@drawable/shape_vcv_bg_normal"
+        app:sd_vcv_et_bg_normal="@drawable/shape_vcv_bg_normal"
+        app:sd_vcv_et_is_pwd="true"
+        app:sd_vcv_et_pwd_radius="@dimen/five"
+        app:sd_vcv_et_width="28dp" />
+</android.support.constraint.ConstraintLayout>

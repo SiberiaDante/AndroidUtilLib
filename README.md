@@ -417,6 +417,10 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
         <td>通用的标题栏，支持动态修改、沉浸式等</td>
     </tr>
     <tr>
+        <td>SDVerificationCodeView</td>
+        <td>验证码/密码方框格式输入控件</td>
+    </tr>
+    <tr>
         <td>SDAdaptiveTextView</td>
         <td>解决TextView的内容中包含中英文导致自动换行bug</td>
     </tr>
@@ -455,6 +459,8 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
 </table>
 
 ## [版本更新说明]
+* v1.1.3(未发布)
+    SDVerificationCodeView：验证码/密码输入框
 * v1.1.2
     * SDCashierInputFilter：格式化EditText金额输入规则
     * SDFlowTagLayout：自适应的标签流式布局，适用于搜索历史、标签等

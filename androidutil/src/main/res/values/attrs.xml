@@ -235,10 +235,10 @@
     </declare-styleable>
     <declare-styleable name="SDRoundImageView">
         <attr name="sd_round_img_type" format="enum">
-            <enum name="circle" value="1"/>
-            <enum name="round" value="2"/>
+            <enum name="circle" value="1" />
+            <enum name="round" value="2" />
         </attr>
-        <attr name="sd_round_img_radius" format="dimension"/>
+        <attr name="sd_round_img_radius" format="dimension" />
     </declare-styleable>
     <declare-styleable name="SDAvatarListLayout">
         <!--创建的最大ImageView数量-->
@@ -250,7 +250,30 @@
     </declare-styleable>
 
     <declare-styleable name="SDRotateLayoutImageView">
-        <attr name="sd_rotate_image" format="reference"/>
-        <attr name="sd_rotate_imageInterpolator" format="string"/>
+        <attr name="sd_rotate_image" format="reference" />
+        <attr name="sd_rotate_imageInterpolator" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="SDVerificationCodeView">
+        <!--input box count-->
+        <attr name="sd_vcv_count" format="integer" />
+        <!--input box view width-->
+        <attr name="sd_vcv_et_width" format="dimension|reference" />
+        <!--input box view divider-->
+        <attr name="sd_vcv_divider_drawable" format="reference" />
+        <!--input box text color-->
+        <attr name="sd_vcv_et_text_color" format="color|reference" />
+        <!--input box text size-->
+        <attr name="sd_vcv_et_text_size" format="dimension|reference" />
+        <!--input box get focus bg-->
+        <attr name="sd_vcv_et_bg_focus" format="reference" />
+        <!--input box normal bg-->
+        <attr name="sd_vcv_et_bg_normal" format="reference" />
+        <!--input box complete bg-->
+        <attr name="sd_vcv_bg_complete" format="reference" />
+        <!--is input type psd :true/false-->
+        <attr name="sd_vcv_et_is_pwd" format="boolean" />
+        <!--psd circle radius-->
+        <attr name="sd_vcv_et_pwd_radius" format="dimension|reference" />
     </declare-styleable>
 </resources>

@@ -38,6 +38,7 @@ import com.siberiadante.utilsample.activity.widget.SDShapeWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDSpecialWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDTextViewActivity;
 import com.siberiadante.utilsample.activity.widget.SDTitleLayoutWidgetActivity;
+import com.siberiadante.utilsample.activity.widget.VerificationCodeViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,6 +104,7 @@ public class MainData {
         data.add(new DataBean("测试TextView相关组件", SDTextViewActivity.class));
         data.add(new DataBean("测试SDFlowTabLayout组件", SDFlowTagLayoutActivity.class));
         data.add(new DataBean("测试SDTitleLayout相关组件", SDTitleLayoutWidgetActivity.class));
+        data.add(new DataBean("测试验证码输入框组件", VerificationCodeViewActivity.class));
         return data;
     }
 }
