@@ -1,9 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.util.SDBitmapUtilActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.siberiadante.androidutil.widget.linearlayout.SDShapeLinearLayout
+            android:id="@+id/ll_view_to_bitmap"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            app:sd_cornerRadius="10dp"
+            app:sd_strokeWidth="2dp"
+            app:sd_strokeColor="@color/colorPrimary"
+            android:layout_margin="20dp"
+            app:sd_backgroundColor="@color/colorRed">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="我是要生成图片的View" />
+        </com.siberiadante.androidutil.widget.linearlayout.SDShapeLinearLayout>
+
+        <Button
+            android:id="@+id/btn_view_to_bitmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="上面的View生成图片显示在下面" />
+
+        <ImageView
+            android:id="@+id/iv_view_to_bitmap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,6 +1,7 @@
 package com.siberiadante.utilsample.bean;
 
 import com.siberiadante.utilsample.activity.util.SDActivityUtilActivity;
+import com.siberiadante.utilsample.activity.util.SDBitmapUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDCacheUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDCleanUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDDataUtilActivity;
@@ -58,6 +59,7 @@ public class MainData {
         List<DataBean> data = new ArrayList<>();
         data.add(new DataBean("测试SDActivityUtil", SDActivityUtilActivity.class));
         data.add(new DataBean("测试SDAPPUtil", SDAppUtilActivity.class));
+        data.add(new DataBean("测试SDBitmapUtil", SDBitmapUtilActivity.class));
         data.add(new DataBean("测试SDCacheUtil", SDCacheUtilActivity.class));
         data.add(new DataBean("测试SDCleanUtil", SDCleanUtilActivity.class));
         data.add(new DataBean("测试SDCloseUtil", SDCloseUtilActivity.class));
