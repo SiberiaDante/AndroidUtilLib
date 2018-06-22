@@ -325,17 +325,6 @@ public class SDDateUtil {
         return sdf.format(new Date(strLong * 1000));
     }
 
-//    /**
-//     * 将时间字符串转为Date类型
-//     * <p>time格式为yyyy-MM-dd HH:mm:ss</p>
-//     *
-//     * @param time 时间字符串
-//     * @return Date类型
-//     */
-//    public static Date string2Date(String time) {
-//        return string2Date(time, DEFAULT_PATTERN);
-//    }
-
     /**
      * get the total number of days this month
      *
@@ -459,12 +448,18 @@ public class SDDateUtil {
     /**
      * convert to time according to the millisecond timestamp adn date pattern
      *
-     * @param millis  the millisecond timestamp
+     * @param millisecond  the millisecond timestamp
      * @param pattern time pattern
      * @return time, date
      */
-    public static String getSDFDateFromMillisTimeStamp(String millis, String pattern) {
-        return new SimpleDateFormat(pattern, Locale.getDefault()).format(new Date(Long.valueOf(millis)));
+    public static String getSDFDateFromMillisTimeStamp(String millisecond, String pattern) {
+        if (millisecond == null || millisecond.isEmpty() || millisecond.equals("null")) {
+            return "";
+        }
+        if (pattern == null || pattern.isEmpty()) {
+            pattern = "yyyy-MM-dd HH:mm:ss";
+        }
+        return new SimpleDateFormat(pattern, Locale.getDefault()).format(new Date(Long.valueOf(millisecond)));
     }
 
     /**
@@ -628,16 +623,6 @@ public class SDDateUtil {
         return getWeekOfYear(millis2Date(millis));
     }
 
-//    /**
-//     * 获取生肖
-//     * <p>time格式为yyyy-MM-dd HH:mm:ss</p>
-//     *
-//     * @param time 时间字符串
-//     * @return The Chinese Zodiac
-//     */
-//    public static String getChineseZodiac(String time) {
-//        return getChineseZodiac(string2Date(time, DEFAULT_PATTERN));
-//    }
 
     /**
      * Obtain The Chinese Zodiac according to the time str and this time pattern
