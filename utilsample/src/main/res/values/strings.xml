@@ -23,4 +23,6 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home_main">HomeMainActivity</string>
+    <string name="input_encrypt_content">请输入加密内容</string>
+    <string name="md5_encrypt">MD5加密</string>
 </resources>

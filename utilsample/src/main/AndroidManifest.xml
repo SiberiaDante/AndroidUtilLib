@@ -98,7 +98,9 @@
         <activity android:name=".activity.util.SDPhotoUtilsActivity" />
         <activity android:name=".activity.util.SDBitmapUtilActivity" />
         <activity android:name=".activity.widget.SDFlowTagLayoutActivity" />
-        <activity android:name=".activity.widget.VerificationCodeViewActivity"></activity>
+        <activity android:name=".activity.widget.VerificationCodeViewActivity" />
+        <activity android:name=".activity.util.SDEncryptUtilActivity" />
+        <activity android:name=".activity.widget.SDOverScrollBehaviorActivity"></activity>
     </application>
 
 </manifest>

@@ -3,7 +3,10 @@ package com.siberiadante.androidutil.util;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -41,10 +44,19 @@ import java.util.Locale;
  */
 
 public class SDDateUtil {
+
+    private static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
+    private static final String[] CHINESE_ZODIAC = {"猴", "鸡", "狗", "猪", "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊"};
+
     public SDDateUtil() {
         throw new UnsupportedOperationException("not init SDAndroidLib");
     }
 
+    /**
+     * get the current year
+     *
+     * @return year
+     */
     public static String getYear() {
         String format = "yyyy";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
@@ -53,15 +65,20 @@ public class SDDateUtil {
     }
 
     /**
-     * 取得当前时间戳（精确到秒）
+     * get the current timestamp (accurate to seconds)
      *
-     * @return 时间戳
+     * @return timestamp
      */
     public static String getTimeStamp() {
         long time = System.currentTimeMillis();
         return String.valueOf(time / 1000);
     }
 
+    /**
+     * get the current month
+     *
+     * @return month
+     */
     public static String getMonth() {
         String format = "MM";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
@@ -69,6 +86,11 @@ public class SDDateUtil {
         return sdf.format(new Date(strLong * 1000));
     }
 
+    /**
+     * get the current day
+     *
+     * @return day
+     */
     public static String getDay() {
         String format = "dd";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
@@ -76,6 +98,11 @@ public class SDDateUtil {
         return sdf.format(new Date(strLong * 1000));
     }
 
+    /**
+     * get the current hour
+     *
+     * @return hour
+     */
     public static String getHour() {
         String format = "HH";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
@@ -83,6 +110,11 @@ public class SDDateUtil {
         return sdf.format(new Date(strLong * 1000));
     }
 
+    /**
+     * get the current minute
+     *
+     * @return minute
+     */
     public static String getMinute() {
         String format = "mm";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
@@ -90,6 +122,11 @@ public class SDDateUtil {
         return sdf.format(new Date(strLong * 1000));
     }
 
+    /**
+     * get the current second
+     *
+     * @return second
+     */
     public static String getSecond() {
         String format = "ss";
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
@@ -98,9 +135,9 @@ public class SDDateUtil {
     }
 
     /**
-     * 获取当前时间（格式：HH:mm）
+     * get the current hours:minutes
      *
-     * @return HH:mm    15:44
+     * @return time format：HH:mm   15:44
      */
     public static String getSDFTimeHm() {
         String format = "HH:mm";
@@ -110,7 +147,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return h:mm a    3:44 下午
+     * @return time format：h:mm a    3:44 下午
      */
     public static String getSDFTimeHmA() {
         String format = "h:mm a";
@@ -120,7 +157,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return 时间格式：HH:mm:ss    15:44:40
+     * @return time format：HH:mm:ss    15:44:40
      */
     public static String getSDFTimeHms() {
         String format = "HH:mm:ss";
@@ -130,7 +167,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return yyyy-MM-dd    2016-08-12
+     * @return time format：yyyy-MM-dd    2016-08-12
      */
     public static String getSDFTimeYMd() {
         String format = "yyyy-MM-dd";
@@ -140,7 +177,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return yyyy-MM-dd HH:mm    2016-08-12 15:44
+     * @return time format：yyyy-MM-dd HH:mm    2016-08-12 15:44
      */
     public static String getSDFTimeYMdHm() {
         String format = "yyyy-MM-dd HH:mm";
@@ -150,7 +187,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return yyyy-MM-dd HH:mm:ss    2016-08-12 15:44:40
+     * @return time format：yyyy-MM-dd HH:mm:ss    2016-08-12 15:44:40
      */
     public static String getSDFTimeYMdHms() {
         String format = "yyyy-MM-dd HH:mm:ss";
@@ -160,7 +197,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return yyyy.MM.dd G 'at' HH:mm:ss z    2016.08.12 公元 at 15:44:40 CST
+     * @return time format：yyyy.MM.dd G 'at' HH:mm:ss z    2016.08.12 公元 at 15:44:40 CST
      */
     public static String getSDFTimeCST() {
         String format = "yyyy.MM.dd G 'at' HH:mm:ss z";
@@ -170,10 +207,8 @@ public class SDDateUtil {
     }
 
     /**
-     * 默认时间格式：yyyy-MM-dd HH:mm:ss
-     *
-     * @param str 时间戳
-     * @return
+     * @param str timestamp
+     * @return time format：yyyy-MM-dd HH:mm:ss
      */
     public static String getStrToTime(String str) {
         //判断时间戳是否为空
@@ -187,7 +222,7 @@ public class SDDateUtil {
     }
 
     /**
-     * @return
+     * @return time format：yyyy年MM月dd日 HH时mm分ss秒
      */
     public static String getStrToTime() {
         String format = "yyyy年MM月dd日 HH时mm分ss秒";
@@ -197,11 +232,10 @@ public class SDDateUtil {
     }
 
     /**
-     * @param str 时间戳
-     * @return HH:mm    15:44
+     * @param str timestamp
+     * @return time format：HH:mm    15:44
      */
     public static String getStrToTimeHm(String str) {
-        //判断时间戳是否为空
         if (str == null || str.isEmpty() || str.equals("null")) {
             return "";
         }
@@ -212,13 +246,10 @@ public class SDDateUtil {
     }
 
     /**
-     * 默认时间格式：yyyy-MM-dd HH:mm:ss
-     *
-     * @param str 时间戳
-     * @return HH:mm:ss    15:44:40
+     * @param str timestamp
+     * @return time format：HH:mm:ss    15:44:40
      */
     public static String getStrToTimeHms(String str) {
-        //判断时间戳是否为空
         if (str == null || str.isEmpty() || str.equals("null")) {
             return "";
         }
@@ -229,11 +260,10 @@ public class SDDateUtil {
     }
 
     /**
-     * @param str 时间戳
-     * @return yyyy-MM-dd HH:mm    2016-08-12 15:44
+     * @param str timestamp
+     * @return time format：yyyy-MM-dd HH:mm    2016-08-12 15:44
      */
     public static String getStrToTimeYMdHm(String str) {
-        //判断时间戳是否为空
         if (str == null || str.isEmpty() || str.equals("null")) {
             return "";
         }
@@ -244,13 +274,13 @@ public class SDDateUtil {
     }
 
     /**
-     * 日期格式字符串转换成时间戳
+     * according to date and date format string convert to timestamp
      *
-     * @param str    字符串格式日期
-     * @param format 时间转换格式 (参考前面）
-     * @return 时间
+     * @param str    date str
+     * @param format time format
+     * @return timestamp
      */
-    public static String getDateToTimeStamp(String str, String format) {
+    public static String getTimeStampFromFormat(String str, String format) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
             return String.valueOf(sdf.parse(str).getTime() / 1000);
@@ -261,15 +291,13 @@ public class SDDateUtil {
     }
 
     /**
-     * 支持输出各种格式的日期、时间
+     * support the output of various formats of the current date and time
      *
-     * @param format
-     * @return 日期、时间格式
+     * @param format time format of your definition
+     * @return date or time
      */
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
     public static String getSDFTime(String format) {
-
-        //未指定format格式时默认输出yyyy-MM-dd HH:mm:ss
         if (format == null || format.isEmpty()) {
             format = "yyyy-MM-dd HH:mm:ss";
         }
@@ -279,29 +307,37 @@ public class SDDateUtil {
     }
 
     /**
-     * 支持输出各种格式的日期、时间
+     * get the time based on timestamp and time format
      *
-     * @param str    时间戳
-     * @param format
-     * @return 日期、时间格式
+     * @param timestamp timestamp
+     * @param format    time format
+     * @return time, date
      */
-    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-    public static String getStrToSDFTime(String str, String format) {
-        //判断时间戳是否为空
-        if (str == null || str.isEmpty() || str.equals("null")) {
+    public static String getSDFDateFromTimeStamp(String timestamp, String format) {
+        if (timestamp == null || timestamp.isEmpty() || timestamp.equals("null")) {
             return "";
         }
-        //未指定format格式时默认输出yyyy-MM-dd HH:mm:ss
         if (format == null || format.isEmpty()) {
             format = "yyyy-MM-dd HH:mm:ss";
         }
         SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
-        Long strLong = Long.valueOf(str);
+        Long strLong = Long.valueOf(timestamp);
         return sdf.format(new Date(strLong * 1000));
     }
 
+//    /**
+//     * 将时间字符串转为Date类型
+//     * <p>time格式为yyyy-MM-dd HH:mm:ss</p>
+//     *
+//     * @param time 时间字符串
+//     * @return Date类型
+//     */
+//    public static Date string2Date(String time) {
+//        return string2Date(time, DEFAULT_PATTERN);
+//    }
+
     /**
-     * 获取某一个月有几天
+     * get the total number of days this month
      *
      * @param year
      * @param month
@@ -335,11 +371,11 @@ public class SDDateUtil {
     }
 
     /**
-     * 根据日期判断星座
+     * judge constellation form the date (month and day)
      *
-     * @param month 月份
-     * @param day   天
-     * @return 星座
+     * @param month month
+     * @param day   day
+     * @return constellation
      */
     public static String getConstellation(int month, int day) {
         String[] starArr = {"魔羯座", "水瓶座", "双鱼座", "牡羊座", "金牛座", "双子座", "巨蟹座", "狮子座", "处女座", "天秤座", "天蝎座", "射手座"};
@@ -358,5 +394,291 @@ public class SDDateUtil {
         }
         // 返回索引指向的星座string
         return starArr[index];
+    }
+
+    /**
+     * judge the time whether is leap year
+     *
+     * @param time time with format,like:{@code  yyyy-MM-dd HH:mm:ss}
+     * @return {@code true}: is leap year<br>{@code false}: is average year
+     */
+    public static boolean isLeapYear(String time) {
+        return isLeapYear(string2Date(time, DEFAULT_PATTERN));
+    }
+
+    /**
+     * judge this date whether is leap year
+     *
+     * @param date date object
+     * @return {@code true}: is leap year<br>{@code false}: is average year
+     */
+    public static boolean isLeapYear(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int year = cal.get(Calendar.YEAR);
+        return isLeapYear(year);
+    }
+
+    /**
+     * time convert to date object
+     *
+     * @param time    time str
+     * @param pattern time format
+     * @return type:Date
+     */
+    public static Date string2Date(String time, String pattern) {
+        return new Date(string2Millis(time, pattern));
+    }
+
+    /**
+     * judge this year whether is leap year
+     *
+     * @param year number of year
+     * @return {@code true}: is leap year<br>{@code false}: is average year
+     */
+    public static boolean isLeapYear(int year) {
+        return year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+    }
+
+    /**
+     * convert to the  millisecond timestamp according to date and date pattern
+     *
+     * @param time    time str
+     * @param pattern time pattern
+     * @return the millisecond timestamp
+     */
+    public static long string2Millis(String time, String pattern) {
+        try {
+            return new SimpleDateFormat(pattern, Locale.getDefault()).parse(time).getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    /**
+     * convert to time according to the millisecond timestamp adn date pattern
+     *
+     * @param millis  the millisecond timestamp
+     * @param pattern time pattern
+     * @return time, date
+     */
+    public static String getSDFDateFromMillisTimeStamp(String millis, String pattern) {
+        return new SimpleDateFormat(pattern, Locale.getDefault()).format(new Date(Long.valueOf(millis)));
+    }
+
+    /**
+     * judge is leap year
+     *
+     * @param time    time format,format need same whit the params #pattern
+     * @param pattern time pattern
+     * @return {@code true}: is leap year<br>{@code false}: is average year
+     */
+    public static boolean isLeapYear(String time, String pattern) {
+        return isLeapYear(string2Date(time, pattern));
+    }
+
+    /**
+     * judge is leap year based on millis time
+     *
+     * @param millis the millis timestamp
+     * @return {@code true}: is leap year<br>{@code false}: is average year
+     */
+    public static boolean isLeapYear(long millis) {
+        return isLeapYear(millis2Date(millis));
+    }
+
+    /**
+     * convert
+     *
+     * @param millis the millis timestamp
+     * @return {@link Date}
+     */
+    public static Date millis2Date(long millis) {
+        return new Date(millis);
+    }
+
+    /**
+     * get the week
+     *
+     * @param time    time str
+     * @param pattern time pattern
+     * @return the week str
+     */
+    public static String getWeek(String time, String pattern) {
+        return getWeek(string2Date(time, pattern));
+    }
+
+    /**
+     * get the week
+     *
+     * @param date {@link Date}
+     * @return the week str
+     */
+    public static String getWeek(Date date) {
+        return new SimpleDateFormat("EEEE", Locale.getDefault()).format(date);
+    }
+
+    /**
+     * get the week
+     *
+     * @param millis the milliseconds timestamp
+     * @return the week str
+     */
+    public static String getWeek(long millis) {
+        return getWeek(new Date(millis));
+    }
+
+    /**
+     * get the week
+     *
+     * @param time    time str
+     * @param pattern time pattern
+     * @return 1...7
+     */
+    public static int getWeekIndex(String time, String pattern) {
+        return getWeekIndex(string2Date(time, pattern));
+    }
+
+    /**
+     * get the week
+     *
+     * @param date {@link Date}
+     * @return 1...7
+     */
+    public static int getWeekIndex(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.DAY_OF_WEEK);
+    }
+
+    /**
+     * get the week
+     *
+     * @param millis the milliseconds timestamp
+     * @return 1...7
+     */
+    public static int getWeekIndex(long millis) {
+        return getWeekIndex(millis2Date(millis));
+    }
+
+    /**
+     * get the week of the month
+     *
+     * @param time    time str
+     * @param pattern time pattern
+     * @return 1...
+     */
+    public static int getWeekOfMonth(String time, String pattern) {
+        return getWeekOfMonth(string2Date(time, pattern));
+    }
+
+    /**
+     * get the week of the month
+     *
+     * @param date {@link Date}
+     * @return 1...
+     */
+    public static int getWeekOfMonth(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.WEEK_OF_MONTH);
+    }
+
+    /**
+     * get the week of the month
+     *
+     * @param millis the milliseconds timestamp
+     * @return 1...5
+     */
+    public static int getWeekOfMonth(long millis) {
+        return getWeekOfMonth(millis2Date(millis));
+    }
+
+    /**
+     * get the week of this year
+     *
+     * @param time    time str
+     * @param pattern time pattern
+     * @return 1...54
+     */
+    public static int getWeekOfYear(String time, String pattern) {
+        return getWeekOfYear(string2Date(time, pattern));
+    }
+
+    /**
+     * get the week of the year
+     *
+     * @param date {@link Date}
+     * @return 1...54
+     */
+    public static int getWeekOfYear(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return cal.get(Calendar.WEEK_OF_YEAR);
+    }
+
+    /**
+     * Obtain which  week of this year according to the milliseconds timestamp
+     *
+     * @param millis the milliseconds timestamp
+     * @return 1.2.3.4...
+     */
+    public static int getWeekOfYear(long millis) {
+        return getWeekOfYear(millis2Date(millis));
+    }
+
+//    /**
+//     * 获取生肖
+//     * <p>time格式为yyyy-MM-dd HH:mm:ss</p>
+//     *
+//     * @param time 时间字符串
+//     * @return The Chinese Zodiac
+//     */
+//    public static String getChineseZodiac(String time) {
+//        return getChineseZodiac(string2Date(time, DEFAULT_PATTERN));
+//    }
+
+    /**
+     * Obtain The Chinese Zodiac according to the time str and this time pattern
+     *
+     * @param time    time str
+     * @param pattern time pattern
+     * @return The Chinese Zodiac
+     */
+    public static String getChineseZodiac(String time, String pattern) {
+        return getChineseZodiac(string2Date(time, pattern));
+    }
+
+    /**
+     * Obtain The Chinese Zodiac according to the {@link Date}
+     *
+     * @param date {@link Date}
+     * @return The Chinese Zodiac
+     */
+    public static String getChineseZodiac(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        return CHINESE_ZODIAC[cal.get(Calendar.YEAR) % 12];
+    }
+
+    /**
+     * Obtain The Chinese Zodiac according to the millisecond timestamp
+     *
+     * @param millis the millisecond timestamp
+     * @return The Chinese Zodiac
+     */
+    public static String getChineseZodiac(long millis) {
+        return getChineseZodiac(millis2Date(millis));
+    }
+
+    /**
+     * obtain The Chinese Zodiac according to the year
+     *
+     * @param year year
+     * @return he Chinese Zodiac
+     */
+    public static String getChineseZodiac(int year) {
+        return CHINESE_ZODIAC[year % 12];
     }
 }
