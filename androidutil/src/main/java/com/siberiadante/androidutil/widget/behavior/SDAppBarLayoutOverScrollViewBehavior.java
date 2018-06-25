@@ -20,6 +20,7 @@ import com.siberiadante.androidutil.util.SDLogUtil;
  * 个人信息布局的top和botoom跟随图片位移
  * toolbar背景变色
  */
+@Deprecated
 public class SDAppBarLayoutOverScrollViewBehavior extends AppBarLayout.Behavior {
     private static final String TAG = "overScroll";
     private static final String TAG_TOOLBAR = "toolbar";

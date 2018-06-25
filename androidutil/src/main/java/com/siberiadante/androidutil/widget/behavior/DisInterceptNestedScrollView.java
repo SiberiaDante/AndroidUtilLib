@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 /**
  * 用于子类防止父类拦截子类的事件
  */
+@Deprecated
 public class DisInterceptNestedScrollView extends NestedScrollView {
     public DisInterceptNestedScrollView(Context context) {
         super(context);

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".activity.util.SDEncryptUtilActivity">
 
-    <EditText
+    <com.siberiadante.androidutil.widget.edittext.SDLineEditText
         android:id="@+id/edt_input"
         style="@style/CustomEditText"
         android:layout_width="match_parent"
@@ -15,81 +15,249 @@
         android:minHeight="@dimen/fifty"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_encrypt"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="开始加密"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edt_input" />
+
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="@dimen/fifteen"
+        android:paddingTop="@dimen/fifteen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_encrypt">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingEnd="@dimen/five"
+            android:paddingStart="@dimen/five">
 
-            <LinearLayout
-                android:id="@+id/ll_md5"
+            <TextView
+                android:id="@+id/md2_encrypt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/six"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/edt_input">
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/md2_encrypt" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/md5_encrypt" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MD5解密" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/md5_encrypt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/six"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/edt_input">
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/md5_encrypt" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MD5加密" />
-
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MD5解密" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/base64_encrypt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/six"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/edt_input">
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/base64_encrypt" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MD5加密" />
+            <TextView
+                android:id="@+id/base64_decode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/base64_decode" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="MD5解密" />
+            <TextView
+                android:id="@+id/des_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/des_encrypt" />
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/des_decode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/des_decode" />
+
+            <TextView
+                android:id="@+id/des3_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/des3_encrypt" />
+
+            <TextView
+                android:id="@+id/sha1_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha1_encrypt" />
+
+
+            <TextView
+                android:id="@+id/sha1_encrypt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha1_decode" />
+
+            <TextView
+                android:id="@+id/sha224_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha224_encrypt" />
+
+            <TextView
+                android:id="@+id/sha224_encrypt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha224_encrypt" />
+
+            <TextView
+                android:id="@+id/sha256_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha256_encrypt" />
+
+            <TextView
+                android:id="@+id/sha256_encrypt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha256_encrypt" />
+
+            <TextView
+                android:id="@+id/sha384_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha384_encrypt" />
+
+            <TextView
+                android:id="@+id/sha384_encrypt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha384_encrypt" />
+
+            <TextView
+                android:id="@+id/sha512_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha512_encrypt" />
+
+            <TextView
+                android:id="@+id/sha512_encrypt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/sha512_encrypt" />
+
+            <TextView
+                android:id="@+id/aes_encrypt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/eight"
+                android:background="@drawable/shape_gray_2"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/forty"
+                android:paddingEnd="@dimen/fifteen"
+                android:paddingStart="@dimen/fifteen"
+                android:text="@string/aes_encrypt" />
+
         </LinearLayout>
     </ScrollView>
 

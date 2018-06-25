@@ -6,6 +6,7 @@ import com.siberiadante.utilsample.activity.util.SDCacheUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDCleanUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDDataUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDDeviceUtilActivity;
+import com.siberiadante.utilsample.activity.util.SDEncryptUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDFileUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDFormatUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDJumpUtilActivity;
@@ -67,6 +68,7 @@ public class MainData {
         data.add(new DataBean("测试SDDataUtil", SDDataUtilActivity.class));
         data.add(new DataBean("测试SDDateUtil", SDDateUtilActivity.class));
         data.add(new DataBean("测试SDDeviceUtil", SDDeviceUtilActivity.class));
+        data.add(new DataBean("测试加解密Util", SDEncryptUtilActivity.class));
         data.add(new DataBean("测试SDFileUtil", SDFileUtilActivity.class));
         data.add(new DataBean("测试SDFormatUtil", SDFormatUtilActivity.class));
         data.add(new DataBean("测试SDJumpUtil", SDJumpUtilActivity.class));

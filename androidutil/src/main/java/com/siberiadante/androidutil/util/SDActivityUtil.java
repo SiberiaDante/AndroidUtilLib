@@ -26,7 +26,7 @@ import java.util.List;
 public class SDActivityUtil {
 
     public SDActivityUtil() {
-        throw new UnsupportedOperationException("not init---" + SDActivityUtil.class.getName());
+        throw new UnsupportedOperationException("---" + SDActivityUtil.class.getName() + "---not init com.github.SiberiaDante:AndroidUtilLib");
     }
 
     /**

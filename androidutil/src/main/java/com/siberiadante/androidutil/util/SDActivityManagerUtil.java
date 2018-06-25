@@ -18,13 +18,13 @@ import java.util.Stack;
  * Blog: http://www.cnblogs.com/shen-hua/
  * CreateTime: 2018/02/27.
  * UpDateTime:
- * Describe： Activity管理工具类
+ * Describe： ActivityManager Utils,
  */
 public class SDActivityManagerUtil {
     private static Stack<Activity> activitys;
 
     private SDActivityManagerUtil() {
-        throw new UnsupportedOperationException("not init " + SDActivityManagerUtil.class.getName());
+        throw new UnsupportedOperationException("---" + SDActivityManagerUtil.class.getName() + "---not init com.github.SiberiaDante:AndroidUtilLib");
     }
 
     public static SDActivityManagerUtil getInstance() {

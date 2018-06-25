@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.util.encrypt;
+package com.siberiadante.androidutil.util.encrypt.base;
 
 import android.util.Base64;
 

@@ -18,6 +18,7 @@ import com.siberiadante.androidutil.util.SDLogUtil;
  * onLayoutChild——onStartNestedScroll——onNestedScrollAccepted——onNestedPreScroll——onNestedScroll——
  * onNestedPreFling——onNestedFling——onStartNestedScroll——onNestedScrollAccepted——onStopNestedScroll——onNestedPreScroll——onStopNestedScroll
  */
+@Deprecated
 public class AppBarLayoutOverScrollViewBehavior extends AppBarLayout.Behavior {
     public static final String TAG = AppBarLayoutOverScrollViewBehavior.class.getSimpleName();
     private static final String scrollTag = "overScroll";
