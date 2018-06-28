@@ -49,6 +49,33 @@ public class SDAppBarLayoutOverScrollViewBehavior extends AppBarLayout.Behavior 
     }
 
     @Override
+    public boolean onStartNestedScroll(CoordinatorLayout parent, AppBarLayout child, View directTargetChild, View target, int nestedScrollAxes) {
+        isAnimate = true;
+        if (target instanceof DisInterceptNestedScrollView) return true;//这个布局就是middleLayout
+        return super.onStartNestedScroll(parent, child, directTargetChild, target, nestedScrollAxes);
+    }
+
+
+    @Override
+    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout child, View target, int dx, int dy, int[] consumed) {
+        if (!isRecovering) {
+            if (mTargetView != null && ((dy < 0 && child.getBottom() >= mParentHeight)
+                    || (dy > 0 && child.getBottom() > mParentHeight))) {
+                scale(child, target, dy);
+                return;
+            }
+        }
+        super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
+
+    }
+
+    @Override
+    public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout abl, View target) {
+        recovery(abl);
+        super.onStopNestedScroll(coordinatorLayout, abl, target);
+    }
+
+    @Override
     public boolean onLayoutChild(CoordinatorLayout parent, AppBarLayout abl, int layoutDirection) {
         SDLogUtil.d(TAG, "----------onLayoutChild----------------");
         boolean handled = super.onLayoutChild(parent, abl, layoutDirection);
@@ -85,60 +112,6 @@ public class SDAppBarLayoutOverScrollViewBehavior extends AppBarLayout.Behavior 
         mParentHeight = abl.getHeight();
         mTargetViewHeight = mTargetView.getHeight();
         mMiddleHeight = middleLayout.getHeight();
-    }
-
-    @Override
-    public boolean onStartNestedScroll(CoordinatorLayout parent, AppBarLayout child, View directTargetChild, View target, int nestedScrollAxes) {
-        isAnimate = true;
-        if (target instanceof DisInterceptNestedScrollView) return true;//这个布局就是middleLayout
-        return super.onStartNestedScroll(parent, child, directTargetChild, target, nestedScrollAxes);
-    }
-
-    @Override
-    public void onStopNestedScroll(CoordinatorLayout coordinatorLayout, AppBarLayout abl, View target) {
-        recovery(abl);
-        super.onStopNestedScroll(coordinatorLayout, abl, target);
-    }
-
-    @Override
-    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, AppBarLayout child, View target, int dx, int dy, int[] consumed) {
-        if (!isRecovering) {
-            if (mTargetView != null && ((dy < 0 && child.getBottom() >= mParentHeight)
-                    || (dy > 0 && child.getBottom() > mParentHeight))) {
-                scale(child, target, dy);
-                return;
-            }
-        }
-        super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
-
-    }
-
-    @Override
-    public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, AppBarLayout child, View target, float velocityX, float velocityY) {
-        if (velocityY > 100) {//当y速度>100,就秒弹回
-            isAnimate = false;
-        }
-        return super.onNestedPreFling(coordinatorLayout, child, target, velocityX, velocityY);
-    }
-
-    private void scale(AppBarLayout abl, View target, int dy) {
-        mTotalDy += -dy;
-        mTotalDy = Math.min(mTotalDy, TARGET_HEIGHT);
-        mLastScale = Math.max(1f, 1f + mTotalDy / TARGET_HEIGHT);
-        ViewCompat.setScaleX(mTargetView, mLastScale);
-        ViewCompat.setScaleY(mTargetView, mLastScale);
-        mLastBottom = mParentHeight + (int) (mTargetViewHeight / 2 * (mLastScale - 1));
-        abl.setBottom(mLastBottom);
-        target.setScrollY(0);
-
-        middleLayout.setTop(mLastBottom - mMiddleHeight);
-        middleLayout.setBottom(mLastBottom);
-
-        if (onProgressChangeListener != null) {
-            float progress = Math.min((mLastScale - 1) / MAX_REFRESH_LIMIT, 1);//计算0~1的进度
-            onProgressChangeListener.onProgressChange(progress, false);
-        }
-
     }
 
     private void recovery(final AppBarLayout abl) {
@@ -198,6 +171,34 @@ public class SDAppBarLayoutOverScrollViewBehavior extends AppBarLayout.Behavior 
                     onProgressChangeListener.onProgressChange(0, true);
             }
         }
+    }
+
+    private void scale(AppBarLayout abl, View target, int dy) {
+        mTotalDy += -dy;
+        mTotalDy = Math.min(mTotalDy, TARGET_HEIGHT);
+        mLastScale = Math.max(1f, 1f + mTotalDy / TARGET_HEIGHT);
+        ViewCompat.setScaleX(mTargetView, mLastScale);
+        ViewCompat.setScaleY(mTargetView, mLastScale);
+        mLastBottom = mParentHeight + (int) (mTargetViewHeight / 2 * (mLastScale - 1));
+        abl.setBottom(mLastBottom);
+        target.setScrollY(0);
+
+        middleLayout.setTop(mLastBottom - mMiddleHeight);
+        middleLayout.setBottom(mLastBottom);
+
+        if (onProgressChangeListener != null) {
+            float progress = Math.min((mLastScale - 1) / MAX_REFRESH_LIMIT, 1);//计算0~1的进度
+            onProgressChangeListener.onProgressChange(progress, false);
+        }
+
+    }
+
+    @Override
+    public boolean onNestedPreFling(CoordinatorLayout coordinatorLayout, AppBarLayout child, View target, float velocityX, float velocityY) {
+        if (velocityY > 100) {//当y速度>100,就秒弹回
+            isAnimate = false;
+        }
+        return super.onNestedPreFling(coordinatorLayout, child, target, velocityX, velocityY);
     }
 
     public void setOnProgressChangeListener(onProgressChangeListener onProgressChangeListener) {

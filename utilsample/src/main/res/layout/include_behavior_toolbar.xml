@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/title_layout"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@android:color/transparent"
+    android:gravity="center_vertical"
+    app:layout_collapseMode="pin">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen"
+        android:src="@drawable/back_white" />
+
+    <android.support.v7.widget.ButtonBarLayout
+        android:id="@+id/buttonBarLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <com.siberiadante.androidutil.widget.imageview.SDCircleImageView
+            android:id="@+id/toolbar_avatar"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@color/colorAccent" />
+
+
+        <TextView
+            android:id="@+id/toolbar_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/font_16" />
+
+    </android.support.v7.widget.ButtonBarLayout>
+
+    <ImageView
+        android:id="@+id/iv_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/sixteen"
+        android:src="@drawable/icon_menu_white" />
+
+    <!--</android.support.v7.widget.Toolbar>-->
+</LinearLayout>

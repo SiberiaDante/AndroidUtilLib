@@ -584,4 +584,17 @@ public class SDStatusBarUtil {
         return statusBarView;
     }
 
+    /**
+     * 增加View的paddingTop,增加的值为状态栏高度 (智能判断，并设置高度)
+     */
+    public static void setPaddingSmart(Context context, View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            ViewGroup.LayoutParams lp = view.getLayoutParams();
+            if (lp != null && lp.height > 0) {
+                lp.height += getStatusBarHeight();//增高
+            }
+            view.setPadding(view.getPaddingLeft(), view.getPaddingTop() + getStatusBarHeight(),
+                    view.getPaddingRight(), view.getPaddingBottom());
+        }
+    }
 }

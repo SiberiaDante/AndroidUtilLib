@@ -100,7 +100,10 @@
         <activity android:name=".activity.widget.SDFlowTagLayoutActivity" />
         <activity android:name=".activity.widget.VerificationCodeViewActivity" />
         <activity android:name=".activity.util.SDEncryptUtilActivity" />
-        <activity android:name=".activity.widget.SDOverScrollBehaviorActivity"></activity>
-    </application>
+        <activity
+            android:name=".activity.widget.SDOverScrollBehaviorActivity"
+            android:theme="@style/AppThemeNoActionBar" />
 
-</manifest>
+</application>
+
+    </manifest>

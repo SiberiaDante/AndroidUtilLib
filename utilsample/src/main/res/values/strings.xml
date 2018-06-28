@@ -1,4 +1,6 @@
 <resources>
+    <string name="over_scroll_view_header">com.siberiadante.androidutil.widget.behavior.SDAppBarLayoutOverScrollViewBehavior</string>
+    <string name="appbar_circleimageview_behavior">com.siberiadante.androidutil.widget.behavior.CircleImageInUsercBehavior</string>
     <string name="app_name">UtilSample</string>
     <string name="sd_sp_util">SDSPUtil</string>
     <string name="sd_activity_util">SDActivityUtil</string>
