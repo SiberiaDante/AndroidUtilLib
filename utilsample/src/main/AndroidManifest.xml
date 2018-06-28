@@ -94,7 +94,9 @@
         <activity android:name=".activity.view.SDDialogViewActivity" />
         <activity android:name=".TestAttrActivity" />
         <activity android:name=".activity.widget.SDTextViewActivity" />
-        <activity android:name=".activity.widget.SDTitleLayoutWidgetActivity" />
+        <activity
+            android:name=".activity.widget.SDTitleLayoutWidgetActivity"
+            android:theme="@style/AppThemeNoActionBar" />
         <activity android:name=".activity.util.SDPhotoUtilsActivity" />
         <activity android:name=".activity.util.SDBitmapUtilActivity" />
         <activity android:name=".activity.widget.SDFlowTagLayoutActivity" />
@@ -104,6 +106,6 @@
             android:name=".activity.widget.SDOverScrollBehaviorActivity"
             android:theme="@style/AppThemeNoActionBar" />
 
-</application>
+    </application>
 
-    </manifest>
+</manifest>

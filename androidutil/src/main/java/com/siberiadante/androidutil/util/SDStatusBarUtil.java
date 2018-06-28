@@ -253,6 +253,8 @@ public class SDStatusBarUtil {
         int resourceId = resources.getIdentifier(STATUS_BAR_HEIGHT_RES_NAME, "dimen", "android");
         if (resourceId > 0) {
             result = resources.getDimensionPixelSize(resourceId);
+        } else {
+            result = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, result, Resources.getSystem().getDisplayMetrics());
         }
         return result;
     }
@@ -282,21 +284,25 @@ public class SDStatusBarUtil {
         return mStatusBarView;
     }
 
-    public static void addMarginTopToContentChild(View mContentChild, int statusBarHeight) {
-        if (mContentChild == null) {
+    public static void addMarginTopToContentChild(View contentChild, int statusBarHeight) {
+        if (contentChild == null) {
             return;
         }
-        if (!TAG_MARGIN_ADDED.equals(mContentChild.getTag())) {
-            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mContentChild.getLayoutParams();
+        if (!TAG_MARGIN_ADDED.equals(contentChild.getTag())) {
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) contentChild.getLayoutParams();
             lp.topMargin += statusBarHeight;
-            mContentChild.setLayoutParams(lp);
-            mContentChild.setTag(TAG_MARGIN_ADDED);
+            contentChild.setLayoutParams(lp);
+            contentChild.setTag(TAG_MARGIN_ADDED);
         }
     }
 
     public static void setContentTopPadding(Activity activity, int padding) {
         ViewGroup mContentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
         mContentView.setPadding(0, padding, 0, 0);
+    }
+
+    public static void addMarginTopToContentChild(View contentChild) {
+        addMarginTopToContentChild(contentChild, getStatusBarHeight());
     }
 
     /**
