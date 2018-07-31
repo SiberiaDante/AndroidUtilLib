@@ -368,6 +368,14 @@ public class SDTitleLayout extends RelativeLayout {
     }
 
     /**
+     * setting title layout background
+     * @param colorRes
+     */
+    public void setTitleLayoutBackground(int colorRes) {
+        mRlLayout.setBackgroundColor(colorRes);
+    }
+
+    /**
      * 设置title
      *
      * @param title

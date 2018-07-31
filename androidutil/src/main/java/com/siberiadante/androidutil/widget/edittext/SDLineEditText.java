@@ -39,6 +39,8 @@ public class SDLineEditText extends AppCompatEditText {
 
         mPaint = new Paint();
         mLineColor = attrArrays.getColor(R.styleable.SDLineEditText_sd_line_color, mLineColor);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setColor(mLineColor);
 //        int lenght = attrArrays.getIndexCount();
 //        for (int i = 0; i < lenght; i++) {
 //            int index = attrArrays.getIndex(i);
@@ -59,8 +61,8 @@ public class SDLineEditText extends AppCompatEditText {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setColor(mLineColor);
+//        mPaint.setStyle(Paint.Style.STROKE);
+//        mPaint.setColor(mLineColor);
         canvas.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1, mPaint);
     }
 }

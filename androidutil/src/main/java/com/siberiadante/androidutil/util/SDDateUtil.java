@@ -448,8 +448,8 @@ public class SDDateUtil {
     /**
      * convert to time according to the millisecond timestamp adn date pattern
      *
-     * @param millisecond  the millisecond timestamp
-     * @param pattern time pattern
+     * @param millisecond the millisecond timestamp
+     * @param pattern     time pattern
      * @return time, date
      */
     public static String getSDFDateFromMillisTimeStamp(String millisecond, String pattern) {
