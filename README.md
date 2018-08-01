@@ -37,7 +37,7 @@ SDLogUtil                           日志打印控制工具类
 SDMathUtil                          数学公式计算工具类
 SDNetWorkUtil                       判断网络连接、获取网络类型等
 SDNumberUtil                        数字工具类
-SDObjectUtil
+SDObjectUtil                        对象处理工具类
 SDPhotoUtils                        调用系统相机、相册、裁剪等工具类
 SDProcessUtil
 SDRegexUtil                         正则验证相关工具类
@@ -130,6 +130,8 @@ SDTitleLayout       常规的能够满足开发需求的标题栏的封装，并
 
 
 ## [版本更新说明]
+* v1.1.4(未发布)
+    * SDLineEditText：增加下划线高度、下划线paddingTop
 * v1.1.3
     * SDVerificationCodeView：验证码/密码输入框
     * SDTitleLayout 增加动态设置背景颜色，增加相应子View是否可点击等

@@ -9,6 +9,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.util.AttributeSet;
 
 import com.siberiadante.androidutil.R;
+import com.siberiadante.androidutil.util.SDLogUtil;
 
 
 /**
@@ -24,6 +25,8 @@ public class SDLineEditText extends AppCompatEditText {
 
     private Paint mPaint;
     private int mLineColor = Color.BLACK;
+    private int mLineHeight = 1;
+    private int mLinePaddingTop = 1;
 
     public SDLineEditText(Context context) {
         super(context);
@@ -36,20 +39,13 @@ public class SDLineEditText extends AppCompatEditText {
 
     private void initData(Context context, AttributeSet attrs) {
         TypedArray attrArrays = context.obtainStyledAttributes(attrs, R.styleable.SDLineEditText);
-
         mPaint = new Paint();
         mLineColor = attrArrays.getColor(R.styleable.SDLineEditText_sd_line_color, mLineColor);
+        mLineHeight = attrArrays.getDimensionPixelSize(R.styleable.SDLineEditText_sd_line_height, mLineHeight);
+        mLinePaddingTop = attrArrays.getDimensionPixelSize(R.styleable.SDLineEditText_sd_line_paddingTop, mLinePaddingTop);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(mLineColor);
-//        int lenght = attrArrays.getIndexCount();
-//        for (int i = 0; i < lenght; i++) {
-//            int index = attrArrays.getIndex(i);
-//            switch (index) {
-//                case R.styleable.LineEditText_line_color:
-//                    mLineColor = attrArrays.getColor(index, mLineColor);
-//                    break;
-//            }
-//        }
+        mPaint.setStrokeWidth(mLineHeight);
         attrArrays.recycle();
     }
 
@@ -61,8 +57,6 @@ public class SDLineEditText extends AppCompatEditText {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        mPaint.setStyle(Paint.Style.STROKE);
-//        mPaint.setColor(mLineColor);
-        canvas.drawLine(0, getHeight() - 1, getWidth() - 1, getHeight() - 1, mPaint);
+        canvas.drawLine(0, getHeight() - mLinePaddingTop, getWidth(), getHeight() - mLinePaddingTop, mPaint);
     }
 }

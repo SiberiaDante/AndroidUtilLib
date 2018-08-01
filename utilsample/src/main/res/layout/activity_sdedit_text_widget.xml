@@ -16,11 +16,12 @@
             android:id="@+id/edt_line"
             style="@style/BaseEditText"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/fifty"
+            android:layout_height="@dimen/eighty"
             android:gravity="center_vertical"
-            android:hint="自定义EditText下划线：SDLineEditText"
+            android:hint="自定义EditText下划线(下划线高度、颜色、padding)：SDLineEditText"
             android:textSize="@dimen/sd_font_12"
-            dante:sd_line_color="@color/colorRed" />
+            dante:sd_line_color="@color/colorRed"
+            dante:sd_line_height="@dimen/five" />
 
         <EditText
             android:id="@+id/edt_cash"

@@ -113,6 +113,8 @@
     </declare-styleable>
     <declare-styleable name="SDLineEditText">
         <attr name="sd_line_color" format="color" />
+        <attr name="sd_line_height" format="dimension" />
+        <attr name="sd_line_paddingTop" format="dimension" />
     </declare-styleable>
     <declare-styleable name="SDStepView">
         <attr name="sd_step_outerColor" format="color" />
