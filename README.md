@@ -15,6 +15,57 @@ compile 'com.github.SiberiaDante:AndroidUtilLib:***'
 ### 文档更新跟不上，具体使用参考 utilsample
 
 ## <a href="https://github.com/SiberiaDante/SiberiaDanteLib/wiki/About-SD-Util">SD-Util</a>
+```
+
+SDActivityUtil                      Activity相关处理工具类
+SDAppUtil                           获取应用、手机、安卓系统等信息,安装应用等
+SDBitmapUtil                        图片处理相关工具类
+SDCacheUtil                         缓存相关工具类
+SDCleanUtil                         清除缓存、数据、文件、数据库等相关工具类
+SDCloseUtil                         关闭流等相关工具类
+CrashHandler                        Crash异常处理等相关工具类
+SDDataUtil                          对象处理相关类
+SDDateUtil                          时间、日期转换
+SDDeviceUtil                        手机设备相关处理类
+SDDrawableUtil                      drawable 相关处理工具类
+SDEncryptUtil                       加密算法相关工具类
+SDFileUtil                          文件处理相关工具类
+SDFormatUtil                        格式化相关处理工具类
+SDIntentUtil                        Intent相关工具类
+SDJumpUtil                          页面跳转、打开浏览器、发送短信、设置面板等工具类
+SDKeyBoardUtil                      键盘相关工具类
+SDLogUtil                           日志打印控制工具类
+SDMathUtil                          数学公式计算工具类
+SDNetWorkUtil                       判断网络连接、获取网络类型等
+SDNumberUtil                        数字工具类
+SDObjectUtil
+SDPhotoUtils                        调用系统相机、相册、裁剪等工具类
+SDProcessUtil
+SDRegexUtil                         正则验证相关工具类
+SDScreenUtil                        获取屏幕宽高、设置状态栏、导航栏、全屏、截图等相关工具类
+SDShellUtil
+SDSnackBarUtil
+SDSPUtil                            SharedPreference的封装，用来储存数据
+SDStorageUtil                       SD卡处理以及存储相关工具类
+SDStringUtil                        字符处理相关工具类
+SDTimerUtil                         计时相关工具类
+SDToastUtil                         toast吐司工具类
+SDTransitionUtil                    数据、数值转换相关类
+SD3DesUtil
+SDAESUtil
+SDBase64Util
+SDDESUtil
+SDEncryptUtil
+SDMD2Util
+SDMD5Util
+SDRSAUtil
+SDSHA1Util
+SDSHA224Util
+SDSHA256Util
+SDSHA384Util
+SDSHA512Util
+```
+
 
 <table align="left">
     <tr style="color:red">
