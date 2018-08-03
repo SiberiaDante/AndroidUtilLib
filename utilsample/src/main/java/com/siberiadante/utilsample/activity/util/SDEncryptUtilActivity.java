@@ -71,7 +71,8 @@ public class SDEncryptUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        edtInput.setText("SiberiaDante");
+//        edtInput.setText("SiberiaDante");
+        edtInput.setText("viivbooksillymuddleheaded15331069231.0.0");
 
     }
 
@@ -86,19 +87,19 @@ public class SDEncryptUtilActivity extends BaseActivity {
         desDecode.setText("DES解密结果：\n" + SDDESUtil.decrypt(SDDESUtil.encrypt(content, "123456789"), "123456789"));//bug
         des3Encrypt.setText("DES加密结果：\n");
 
-        sha1Encrypt.setText("SHA1加密结果(无秘钥)：\n" + SDSHA1Util.encrypt(content));//ok
-        sha1Encrypt1.setText("SHA1加密结果(有秘钥)：\n" + SDSHA1Util.encrypt(content, "123456789"));//ok
+        sha1Encrypt.setText("SHA1加密结果(无秘钥)：\n" + SDSHA1Util.encrypt(content));
+        sha1Encrypt1.setText("SHA1加密结果(有秘钥)：\n" + SDSHA1Util.encrypt(content, "123456789"));
 
         sha224Encrypt.setText("SHA224加密结果(无秘钥)：\n" + SDSHA224Util.encrypt(content));//bug
         sha224Encrypt1.setText("SHA224加密结果(有秘钥)：\n" + SDSHA224Util.encrypt(content, "123456789"));//bug
 
-        sha256Encrypt.setText("SHA256加密结果(无秘钥)：\n" + SDSHA256Util.encrypt(content));//ok
-        sha256Encrypt1.setText("SHA256加密结果(有秘钥)：\n" + SDSHA256Util.encrypt(content, "123456789"));//ok
+        sha256Encrypt.setText("SHA256加密结果(无秘钥)：\n" + SDSHA256Util.encrypt(content));
+        sha256Encrypt1.setText("SHA256加密结果(有秘钥)：\n" + SDSHA256Util.encrypt(content, "123456789"));
 
-        sha384Encrypt.setText("SHA384加密结果(无秘钥)：\n" + SDSHA384Util.encrypt(content));//ok
+        sha384Encrypt.setText("SHA384加密结果(无秘钥)：\n" + SDSHA384Util.encrypt(content));
         sha384Encrypt1.setText("SHA384加密结果(有秘钥)：\n" + SDSHA384Util.encrypt(content, "123456789"));//bug
 
-        sha512Encrypt.setText("SHA512加密结果(无秘钥)：\n" + SDSHA512Util.encrypt(content));//ok
-        sha512Encrypt1.setText("SHA512加密结果(有秘钥)：\n" + SDSHA512Util.encrypt(content, "123456789"));//ok
+        sha512Encrypt.setText("SHA512加密结果(无秘钥)：\n" + SDSHA512Util.encrypt(content));
+        sha512Encrypt1.setText("SHA512加密结果(有秘钥)：\n" + SDSHA512Util.encrypt(content, "123456789"));
     }
 }

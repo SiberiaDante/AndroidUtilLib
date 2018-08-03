@@ -94,7 +94,7 @@ public class SDTitleLayout extends RelativeLayout {
 //    private int mRightTotalWidth;
 
     private Context mContext;
-    private int mScreenWidth;
+//    private int mScreenWidth;
 
     public SDTitleLayout(@NonNull Context context) {
         this(context, null);
@@ -252,7 +252,7 @@ public class SDTitleLayout extends RelativeLayout {
             mIvLeft.setImageResource(mLeftImage);
             //image size
             ViewGroup.LayoutParams mIvLeftLayoutParams = mIvLeft.getLayoutParams();
-            mIvLeftLayoutParams.width = mLeftImageWidth;
+            mIvLeftLayoutParams.width = mLeftImageWidth+mLeftImagePaddingStart;
             mIvLeft.setPadding(mLeftImagePaddingStart, 0, 0, 0);
             mIvLeft.setLayoutParams(mIvLeftLayoutParams);
 //            mLeftTotalWidth += mLeftImageWidth;
@@ -313,7 +313,7 @@ public class SDTitleLayout extends RelativeLayout {
             mTvRight.setVisibility(GONE);
             mIvRight.setImageResource(mRightImage);
             ViewGroup.LayoutParams mIvRightLayoutParams = mIvRight.getLayoutParams();
-            mIvRightLayoutParams.width = mRightImageWidth;
+            mIvRightLayoutParams.width = mRightImageWidth+mRightImagePaddingEnd;
             mIvRight.setLayoutParams(mIvRightLayoutParams);
             mIvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
         } else {
@@ -792,7 +792,7 @@ public class SDTitleLayout extends RelativeLayout {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        mScreenWidth = MeasureSpec.getSize(widthMeasureSpec);
+//        mScreenWidth = MeasureSpec.getSize(widthMeasureSpec);
         int mRlLeftMeasuredWidth = mRlLeft.getMeasuredWidth();
         int mRlRightMeasuredWidth = mRlRight.getMeasuredWidth();
         if (mRlLeftMeasuredWidth > mRlRightMeasuredWidth) {

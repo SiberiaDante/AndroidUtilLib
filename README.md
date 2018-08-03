@@ -1,5 +1,5 @@
 # SiberiaDanteLib
->#### 旨在打造一款属于Android开发的强大工具库(持续更新维护中。。。）
+>#### 旨在打造一款属于Android快速开发的强大工具库
 >#### 项目包含library和sample，每个library中的工具类都在sample中作了测试，如遇到bug，烦请提交[Issuses](https://github.com/SiberiaDante/SiberiaDanteLib/issues)，万分感谢.使用中也可以参考sample.
 
 [![](https://jitpack.io/v/SiberiaDante/AndroidUtilLib.svg)](https://jitpack.io/#SiberiaDante/AndroidUtilLib)
@@ -132,6 +132,7 @@ SDTitleLayout       常规的能够满足开发需求的标题栏的封装，并
 ## [版本更新说明]
 * v1.1.4(未发布)
     * SDLineEditText：增加下划线高度、下划线paddingTop
+    * SDTitleLayout：修复设置左右图片Padding造成的问题
 * v1.1.3
     * SDVerificationCodeView：验证码/密码输入框
     * SDTitleLayout 增加动态设置背景颜色，增加相应子View是否可点击等
