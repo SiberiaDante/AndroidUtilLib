@@ -5,7 +5,7 @@
 [![](https://jitpack.io/v/SiberiaDante/AndroidUtilLib.svg)](https://jitpack.io/#SiberiaDante/AndroidUtilLib)
 
 ```
-compile 'com.github.SiberiaDante:AndroidUtilLib:***'
+implementation 'com.github.SiberiaDante:AndroidUtilLib:v1.1.3'
 ```
 初始化
 ```
