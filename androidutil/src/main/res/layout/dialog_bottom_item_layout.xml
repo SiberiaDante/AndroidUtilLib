@@ -43,7 +43,8 @@
         </ScrollView>
     </LinearLayout>
 
-    <View style="@style/ViewLineHorizontalEightDp" />
+    <View style="@style/ViewLineHorizontalEightDp"
+        android:id="@+id/bottom_item_dialog_view_bottom_line"/>
 
     <TextView
         android:id="@+id/tv_bottom_item_dialog_cancel"

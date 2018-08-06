@@ -53,7 +53,9 @@ public class SDDialogViewActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_general_dialog_one, R.id.btn_general_dialog_two, R.id.btn_general_dialog_three, R.id.btn_general_dialog_four, R.id.btn_bottom_popup_widow, R.id.btn_edit_dialog, R.id.btn_custom_dialog, R.id.btn_sd_custom_dialog})
+    @OnClick({R.id.btn_general_dialog_one, R.id.btn_general_dialog_two, R.id.btn_general_dialog_three, R.id.btn_general_dialog_four,
+            R.id.btn_bottom_popup_widow,R.id.btn_bottom_popup_widow2,
+            R.id.btn_edit_dialog, R.id.btn_custom_dialog, R.id.btn_sd_custom_dialog})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_general_dialog_one:
@@ -71,6 +73,9 @@ public class SDDialogViewActivity extends BaseActivity {
             case R.id.btn_bottom_popup_widow:
                 showBottomPopupWindow();
                 break;
+            case R.id.btn_bottom_popup_widow2:
+                showBottomPopupWindow2();
+                break;
             case R.id.btn_edit_dialog:
                 showEditDialog();
                 break;
@@ -81,56 +86,6 @@ public class SDDialogViewActivity extends BaseActivity {
                 showSDCustomEditDialog();
                 break;
         }
-    }
-
-    /**
-     * SDEditDialog
-     */
-    private void showEditDialog() {
-        final SDEditDialog dialog = new SDEditDialog(this).builder();
-        dialog.setTitle("可编辑Dialog");
-        dialog.setCancelable(false);
-        dialog.setNegativeButton("取消", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-            }
-        });
-        dialog.setPositiveButton("确定", new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final String msg = dialog.getMsg();
-                Toast.makeText(SDDialogViewActivity.this, "输入内容为：" + msg, Toast.LENGTH_LONG).show();
-                dialog.dismiss();
-            }
-        });
-        dialog.show();
-    }
-
-    /**
-     * SDBottomItemDialog
-     */
-    private void showBottomPopupWindow() {
-        new SDBottomItemDialog(this).builder()
-                .setCancelable(false).setCanceled(true)//setTitle("选择").
-                .addSheetItem("相机", SDBottomItemDialog.SheetItemColor.BLACK, new SDBottomItemDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        //需要对相机进行运行时权限的申请
-                    }
-                })
-                .addSheetItem("相册", SDBottomItemDialog.SheetItemColor.BLACK, new SDBottomItemDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-                        //调用手机相册的方法,该方法在下面有具体实现
-                    }
-                })
-                .addSheetItem("时光机", SDBottomItemDialog.SheetItemColor.BLACK, new SDBottomItemDialog.OnSheetItemClickListener() {
-                    @Override
-                    public void onClick(int which) {
-
-                    }
-                })
-                .show();
     }
 
     /**
@@ -217,6 +172,110 @@ public class SDDialogViewActivity extends BaseActivity {
                 })
         ;
         ensureDialog.show();
+    }
+
+    /**
+     * SDBottomItemDialog
+     */
+    private void showBottomPopupWindow() {
+        new SDBottomItemDialog(this).builder()
+                .setCancelable(false).setCanceled(true)//setTitle("选择").
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack),  new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                })
+                .show();
+    }
+
+    private void showBottomPopupWindow2() {
+        new SDBottomItemDialog(this).builder()
+                .setCancelable(false).setCanceled(true)//setTitle("选择").
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), 10, new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机", ContextCompat.getColor(this, R.color.colorRed), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                })
+                .setCancelViewGone()
+                .show();
+    }
+    /**
+     * SDEditDialog
+     */
+    private void showEditDialog() {
+        final SDEditDialog dialog = new SDEditDialog(this).builder();
+        dialog.setTitle("可编辑Dialog");
+        dialog.setCancelable(false);
+        dialog.setNegativeButton("取消", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            }
+        });
+        dialog.setPositiveButton("确定", new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String msg = dialog.getMsg();
+                Toast.makeText(SDDialogViewActivity.this, "输入内容为：" + msg, Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     private void showCustomDialog() {

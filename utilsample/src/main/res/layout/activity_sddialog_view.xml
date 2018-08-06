@@ -34,8 +34,11 @@
             <Button
                 android:id="@+id/btn_bottom_popup_widow"
                 style="@style/MainButton"
-                android:text="仿IOS底部弹窗" />
-
+                android:text="仿IOS底部弹窗1" />
+            <Button
+                android:id="@+id/btn_bottom_popup_widow2"
+                style="@style/MainButton"
+                android:text="仿IOS底部弹窗2" />
             <Button
                 android:id="@+id/btn_edit_dialog"
                 style="@style/MainButton"

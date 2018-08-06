@@ -133,6 +133,7 @@ SDTitleLayout       常规的能够满足开发需求的标题栏的封装，并
 * v1.1.4(未发布)
     * SDLineEditText：增加下划线高度、下划线paddingTop
     * SDTitleLayout：修复设置左右图片Padding造成的问题
+    * SDBottomItemDialog:支持Item颜色、字体大小设置；支持底部取消按钮隐藏；支持Item超过7条时滚动显示或者全部显示
 * v1.1.3
     * SDVerificationCodeView：验证码/密码输入框
     * SDTitleLayout 增加动态设置背景颜色，增加相应子View是否可点击等
