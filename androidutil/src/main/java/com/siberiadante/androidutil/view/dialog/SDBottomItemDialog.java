@@ -2,8 +2,6 @@ package com.siberiadante.androidutil.view.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.opengl.Visibility;
 import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.Gravity;
