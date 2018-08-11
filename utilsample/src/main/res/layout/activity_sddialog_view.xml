@@ -40,6 +40,10 @@
                 style="@style/MainButton"
                 android:text="仿IOS底部弹窗2" />
             <Button
+                android:id="@+id/btn_bottom_popup_widow3"
+                style="@style/MainButton"
+                android:text="仿IOS底部弹窗3" />
+            <Button
                 android:id="@+id/btn_edit_dialog"
                 style="@style/MainButton"
                 android:text="仿IOS中间弹窗可编辑" />

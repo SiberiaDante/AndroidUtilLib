@@ -16,9 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.siberiadante.androidutil.util.SDScreenUtil;
 import com.siberiadante.androidutil.widget.radiobutton.SDNotifyRadioButton;
 import com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton;
 import com.siberiadante.utilsample.R;
+import com.siberiadante.utilsample.activity.base.BaseActivity;
 import com.siberiadante.utilsample.adapter.MainActivityAdapter;
 import com.siberiadante.utilsample.fragment.SDUtilFragment;
 import com.siberiadante.utilsample.fragment.SDWidgetFragment;
@@ -31,8 +33,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeMainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener , ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
+public class HomeMainActivity extends BaseActivity
+        implements NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
@@ -54,19 +56,34 @@ public class HomeMainActivity extends AppCompatActivity
     NavigationView navigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_home_main);
+//        ButterKnife.bind(this);
+//        initView();
+//        initData();
+//    }
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_main);
-        ButterKnife.bind(this);
-        initView();
-        initData();
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
+        if (SDScreenUtil.isPortrait()) {
+            SDScreenUtil.adaptScreenPortrait(this, 360);
+        } else {
+            SDScreenUtil.adaptScreenLandscape(this, 360);
+        }
     }
 
+    @Override
+    public int setLayoutId() {
+        return R.layout.activity_home_main;
+    }
 
+    @Override
+    public void initView(Bundle savedInstanceState) {
 
-    private void initView() {
         setSupportActionBar(toolbar);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +101,24 @@ public class HomeMainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    private void initData() {
+//    private void initData() {
+//        List<Fragment> fragments = new ArrayList<>();
+//        fragments.add(SDUtilFragment.getInstance());
+//        fragments.add(SDViewFragment.getInstance());
+//        fragments.add(SDWidgetFragment.getInstance());
+//        fragments.add(PracticeFragment.getInstance());
+//        viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager(), fragments));
+//        viewPager.setCurrentItem(0);
+//        viewPager.setOffscreenPageLimit(4);
+//        viewPager.addOnPageChangeListener(this);
+//        rgMain.setOnCheckedChangeListener(this);
+//        rbOne.setChecked(true);
+//    }
+
+
+    @Override
+    public void initData() {
+        super.initData();
         List<Fragment> fragments = new ArrayList<>();
         fragments.add(SDUtilFragment.getInstance());
         fragments.add(SDViewFragment.getInstance());
@@ -96,6 +130,12 @@ public class HomeMainActivity extends AppCompatActivity
         viewPager.addOnPageChangeListener(this);
         rgMain.setOnCheckedChangeListener(this);
         rbOne.setChecked(true);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SDScreenUtil.cancelAdaptScreen(this);
     }
 
     @Override

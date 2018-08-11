@@ -22,14 +22,15 @@ import android.widget.EditText;
 
 import com.jude.swipbackhelper.SwipeBackHelper;
 import com.siberiadante.androidutil.util.SDKeyBoardUtil;
+import com.siberiadante.androidutil.util.SDScreenUtil;
 import com.siberiadante.utilsample.listener.RequestPermissionCallBack;
 
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
+    private final int mRequestCode = 1024;
     public ActionBar actionBar;
     private RequestPermissionCallBack mRequestPermissionCallBack;
-    private final int mRequestCode = 1024;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .setSwipeEdge(200)
                 .setSwipeRelateEnable(true)
                 .setSwipeRelateOffset(300);
-
+//        if (SDScreenUtil.isPortrait()) {
+//            SDScreenUtil.adaptScreenPortrait(this, 360);
+//        } else {
+//            SDScreenUtil.adaptScreenLandscape(this, 360);
+//        }
     }
 
     public abstract int setLayoutId();
@@ -82,25 +87,66 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         SwipeBackHelper.onDestroy(this);
+//        SDScreenUtil.cancelAdaptScreen(this);
     }
 
     //软键盘的处理——Start
 
-    /**
-     * 清除editText的焦点
-     *
-     * @param v   焦点所在View
-     * @param ids 输入框
-     */
-    public void clearViewFocus(View v, int... ids) {
-        if (null != v && null != ids && ids.length > 0) {
-            for (int id : ids) {
-                if (v.getId() == id) {
-                    v.clearFocus();
-                    break;
-                }
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            if (isTouchView(filterViewByIds(), ev)) return super.dispatchTouchEvent(ev);
+            if (hideSoftByEditViewIds() == null || hideSoftByEditViewIds().length == 0)
+                return super.dispatchTouchEvent(ev);
+            View v = getCurrentFocus();
+            if (isFocusEditText(v, hideSoftByEditViewIds())) {
+                if (isTouchView(hideSoftByEditViewIds(), ev))
+                    return super.dispatchTouchEvent(ev);
+                //隐藏键盘
+                SDKeyBoardUtil.hideInputForce(this);
+                clearViewFocus(v, hideSoftByEditViewIds());
+
             }
         }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * 是否触摸在指定view上面,对某个控件过滤
+     */
+    public boolean isTouchView(View[] views, MotionEvent ev) {
+        if (views == null || views.length == 0) return false;
+        int[] location = new int[2];
+        for (View view : views) {
+            view.getLocationOnScreen(location);
+            int x = location[0];
+            int y = location[1];
+            if (ev.getX() > x && ev.getX() < (x + view.getWidth())
+                    && ev.getY() > y && ev.getY() < (y + view.getHeight())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 传入要过滤的View
+     * 过滤之后点击将不会有隐藏软键盘的操作
+     *
+     * @return id 数组
+     */
+    public View[] filterViewByIds() {
+        return null;
+    }
+
+    /**
+     * 传入EditText的Id
+     * 没有传入的EditText不做处理
+     *
+     * @return id 数组
+     */
+    public int[] hideSoftByEditViewIds() {
+        return null;
     }
 
     /**
@@ -125,24 +171,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 是否触摸在指定view上面,对某个控件过滤
      */
-    public boolean isTouchView(View[] views, MotionEvent ev) {
-        if (views == null || views.length == 0) return false;
-        int[] location = new int[2];
-        for (View view : views) {
-            view.getLocationOnScreen(location);
-            int x = location[0];
-            int y = location[1];
-            if (ev.getX() > x && ev.getX() < (x + view.getWidth())
-                    && ev.getY() > y && ev.getY() < (y + view.getHeight())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * 是否触摸在指定view上面,对某个控件过滤
-     */
     public boolean isTouchView(int[] ids, MotionEvent ev) {
         int[] location = new int[2];
         for (int id : ids) {
@@ -159,47 +187,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         return false;
     }
 
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
-            if (isTouchView(filterViewByIds(), ev)) return super.dispatchTouchEvent(ev);
-            if (hideSoftByEditViewIds() == null || hideSoftByEditViewIds().length == 0)
-                return super.dispatchTouchEvent(ev);
-            View v = getCurrentFocus();
-            if (isFocusEditText(v, hideSoftByEditViewIds())) {
-                if (isTouchView(hideSoftByEditViewIds(), ev))
-                    return super.dispatchTouchEvent(ev);
-                //隐藏键盘
-                SDKeyBoardUtil.hideInputForce(this);
-                clearViewFocus(v, hideSoftByEditViewIds());
-
+    /**
+     * 清除editText的焦点
+     *
+     * @param v   焦点所在View
+     * @param ids 输入框
+     */
+    public void clearViewFocus(View v, int... ids) {
+        if (null != v && null != ids && ids.length > 0) {
+            for (int id : ids) {
+                if (v.getId() == id) {
+                    v.clearFocus();
+                    break;
+                }
             }
         }
-        return super.dispatchTouchEvent(ev);
-    }
-
-    /**
-     * 传入EditText的Id
-     * 没有传入的EditText不做处理
-     *
-     * @return id 数组
-     */
-    public int[] hideSoftByEditViewIds() {
-        return null;
-    }
-
-    /**
-     * 传入要过滤的View
-     * 过滤之后点击将不会有隐藏软键盘的操作
-     *
-     * @return id 数组
-     */
-    public View[] filterViewByIds() {
-        return null;
     }
 
     //软键盘的处理——End
-
 
     /**
      * 权限请求结果回调

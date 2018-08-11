@@ -5,6 +5,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
@@ -327,5 +328,51 @@ public class SDScreenUtil {
         Settings.System.putInt(SDAndroidLib.getContext().getContentResolver(), Settings.System.SCREEN_OFF_TIMEOUT, duration);
     }
 
+    public static void adaptScreenPortrait(final Activity activity,
+                                           final int designWidthInPx) {
+        adaptScreen(activity, designWidthInPx, true);
+    }
 
+    private static void adaptScreen(final Activity activity,
+                                    final int sizeInPx,
+                                    final boolean isVerticalSlide) {
+        final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();
+        final DisplayMetrics appDm = SDAndroidLib.getContext().getResources().getDisplayMetrics();
+        final DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();
+        if (isVerticalSlide) {
+            activityDm.density = activityDm.widthPixels / (float) sizeInPx;
+        } else {
+            activityDm.density = activityDm.heightPixels / (float) sizeInPx;
+        }
+        activityDm.scaledDensity = activityDm.density * (systemDm.scaledDensity / systemDm.density);
+        activityDm.densityDpi = (int) (160 * activityDm.density);
+
+        appDm.density = activityDm.density;
+        appDm.scaledDensity = activityDm.scaledDensity;
+        appDm.densityDpi = activityDm.densityDpi;
+    }
+
+    public static void adaptScreenLandscape(final Activity activity,
+                                            final int designHeightInPx) {
+        adaptScreen(activity, designHeightInPx, false);
+    }
+
+    public static void cancelAdaptScreen(final Activity activity) {
+        final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();
+        final DisplayMetrics appDm = SDAndroidLib.getContext().getResources().getDisplayMetrics();
+        final DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();
+        activityDm.density = systemDm.density;
+        activityDm.scaledDensity = systemDm.scaledDensity;
+        activityDm.densityDpi = systemDm.densityDpi;
+
+        appDm.density = systemDm.density;
+        appDm.scaledDensity = systemDm.scaledDensity;
+        appDm.densityDpi = systemDm.densityDpi;
+    }
+
+    public static boolean isAdaptScreen() {
+        final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();
+        final DisplayMetrics appDm = SDAndroidLib.getContext().getResources().getDisplayMetrics();
+        return systemDm.density != appDm.density;
+    }
 }

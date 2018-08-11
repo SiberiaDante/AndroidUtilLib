@@ -54,7 +54,7 @@ public class SDDialogViewActivity extends BaseActivity {
     }
 
     @OnClick({R.id.btn_general_dialog_one, R.id.btn_general_dialog_two, R.id.btn_general_dialog_three, R.id.btn_general_dialog_four,
-            R.id.btn_bottom_popup_widow,R.id.btn_bottom_popup_widow2,
+            R.id.btn_bottom_popup_widow, R.id.btn_bottom_popup_widow2, R.id.btn_bottom_popup_widow3,
             R.id.btn_edit_dialog, R.id.btn_custom_dialog, R.id.btn_sd_custom_dialog})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -75,6 +75,9 @@ public class SDDialogViewActivity extends BaseActivity {
                 break;
             case R.id.btn_bottom_popup_widow2:
                 showBottomPopupWindow2();
+                break;
+            case R.id.btn_bottom_popup_widow3:
+                showBottomPopupWindow3();
                 break;
             case R.id.btn_edit_dialog:
                 showEditDialog();
@@ -186,7 +189,7 @@ public class SDDialogViewActivity extends BaseActivity {
                         //需要对相机进行运行时权限的申请
                     }
                 })
-                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack),  new SDBottomItemDialog.OnSheetItemClickListener() {
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
                     @Override
                     public void onClick(int which) {
                         //调用手机相册的方法,该方法在下面有具体实现
@@ -255,6 +258,32 @@ public class SDDialogViewActivity extends BaseActivity {
                 .setCancelViewGone()
                 .show();
     }
+
+    private void showBottomPopupWindow3() {
+        new SDBottomItemDialog(this).builder()
+                .setCancelable(false).setCanceled(true)
+                .setTitle("上传你美丽的头像", ContextCompat.getColor(this, R.color.colorRed), 18)
+                .addSheetItem("相机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //需要对相机进行运行时权限的申请
+                    }
+                })
+                .addSheetItem("相册", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+                        //调用手机相册的方法,该方法在下面有具体实现
+                    }
+                })
+                .addSheetItem("时光机", ContextCompat.getColor(this, R.color.colorBlack), new SDBottomItemDialog.OnSheetItemClickListener() {
+                    @Override
+                    public void onClick(int which) {
+
+                    }
+                })
+                .show();
+    }
+
     /**
      * SDEditDialog
      */
