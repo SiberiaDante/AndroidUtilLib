@@ -62,11 +62,11 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .setSwipeEdge(200)
                 .setSwipeRelateEnable(true)
                 .setSwipeRelateOffset(300);
-//        if (SDScreenUtil.isPortrait()) {
-//            SDScreenUtil.adaptScreenPortrait(this, 360);
-//        } else {
-//            SDScreenUtil.adaptScreenLandscape(this, 360);
-//        }
+        if (SDScreenUtil.isPortrait()) {
+            SDScreenUtil.adaptScreenPortrait(this, 360);
+        } else {
+            SDScreenUtil.adaptScreenLandscape(this, 360);
+        }
     }
 
     public abstract int setLayoutId();
@@ -87,7 +87,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         SwipeBackHelper.onDestroy(this);
-//        SDScreenUtil.cancelAdaptScreen(this);
     }
 
     //软键盘的处理——Start

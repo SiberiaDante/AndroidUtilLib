@@ -5,7 +5,7 @@
 [![](https://jitpack.io/v/SiberiaDante/AndroidUtilLib.svg)](https://jitpack.io/#SiberiaDante/AndroidUtilLib)
 
 ```
-implementation 'com.github.SiberiaDante:AndroidUtilLib:v1.1.3'
+implementation 'com.github.SiberiaDante:AndroidUtilLib:最新的'
 ```
 初始化
 ```
@@ -127,6 +127,16 @@ SDCenterAlignImageSpan      图文混排对齐的ImageSpan
 标题栏[【详细使用方法和介绍点这里查看】](https://github.com/SiberiaDante/TitleLayout)
 ```
 SDTitleLayout       常规的能够满足开发需求的标题栏的封装，并支持Java代码设置
+```
+屏幕适配
+```
+BaseActivity中使用如下代码（setContentView之前）：
+if (SDScreenUtil.isPortrait()) {
+    SDScreenUtil.adaptScreenPortrait(this, 360);
+} else {
+    SDScreenUtil.adaptScreenLandscape(this, 360);
+}
+setContentView(***)
 ```
 
 

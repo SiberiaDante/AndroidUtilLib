@@ -56,25 +56,6 @@ public class HomeMainActivity extends BaseActivity
     NavigationView navigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_home_main);
-//        ButterKnife.bind(this);
-//        initView();
-//        initData();
-//    }
-
-
-    @Override
-    public void beforeSetContentView() {
-        super.beforeSetContentView();
-        if (SDScreenUtil.isPortrait()) {
-            SDScreenUtil.adaptScreenPortrait(this, 360);
-        } else {
-            SDScreenUtil.adaptScreenLandscape(this, 360);
-        }
-    }
 
     @Override
     public int setLayoutId() {
@@ -130,12 +111,6 @@ public class HomeMainActivity extends BaseActivity
         viewPager.addOnPageChangeListener(this);
         rgMain.setOnCheckedChangeListener(this);
         rbOne.setChecked(true);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        SDScreenUtil.cancelAdaptScreen(this);
     }
 
     @Override
