@@ -4,12 +4,14 @@
         <attr name="d_left_image" />
         <attr name="d_left_image_width" />
         <attr name="d_left_image_padding_start" />
+        <attr name="d_left_image_padding_end" />
 
         <attr name="d_left_text" />
         <attr name="d_left_text_size" />
         <attr name="d_left_text_color" />
         <attr name="d_left_text_style" />
         <attr name="d_left_text_padding_start" />
+        <attr name="d_left_text_padding_end" />
 
         <attr name="d_title_text" />
         <attr name="d_title_size" />
@@ -26,10 +28,12 @@
         <attr name="d_right_text_size" />
         <attr name="d_right_text_style" />
         <attr name="d_right_text_padding_end" />
+        <attr name="d_right_text_padding_start" />
 
         <attr name="d_right_image" />
         <attr name="d_right_image_width" />
         <attr name="d_right_image_padding_end" />
+        <attr name="d_right_image_padding_start" />
 
         <attr name="d_line_height" />
         <attr name="d_line_background" />
@@ -44,6 +48,7 @@
     <attr name="d_left_image" format="reference" />
     <attr name="d_left_image_width" format="dimension|reference" />
     <attr name="d_left_image_padding_start" format="dimension|reference" />
+    <attr name="d_left_image_padding_end" format="dimension|reference" />
 
     <attr name="d_left_text" format="reference|string" />
     <attr name="d_left_text_size" format="dimension|reference" />
@@ -54,6 +59,7 @@
         <enum name="italic" value="2" />
     </attr>
     <attr name="d_left_text_padding_start" format="dimension|reference" />
+    <attr name="d_left_text_padding_end" format="dimension|reference" />
 
     <attr name="d_title_text" format="reference|string" />
     <attr name="d_title_size" format="dimension|reference" />
@@ -84,10 +90,12 @@
         <enum name="italic" value="2" />
     </attr>
     <attr name="d_right_text_padding_end" format="dimension|reference" />
+    <attr name="d_right_text_padding_start" format="dimension|reference" />
 
     <attr name="d_right_image" format="reference" />
     <attr name="d_right_image_width" format="dimension|reference" />
     <attr name="d_right_image_padding_end" format="dimension|reference" />
+    <attr name="d_right_image_padding_start" format="dimension|reference" />
 
     <attr name="d_line_height" format="dimension|reference" />
     <attr name="d_line_background" format="color|reference" />

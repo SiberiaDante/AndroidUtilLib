@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dante="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.widget.SDTitleLayoutWidgetActivity">
+
     <com.siberiadante.androidutil.widget.special.SDTitleLayout
         android:id="@+id/title_layout_one"
         android:layout_width="match_parent"
@@ -55,16 +56,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         dante:d_is_back_view="false"
-        dante:d_left_image="@drawable/back_gray"
-        dante:d_left_image_padding_start="10dp"
-        dante:d_left_image_width="30dp"
+        dante:d_left_text="返回"
+        dante:d_left_text_color="@color/colorBlack"
+        dante:d_left_text_padding_end="10dp"
+        dante:d_left_text_padding_start="10dp"
+        dante:d_left_text_size="16sp"
         dante:d_line_height="1px"
         dante:d_right_image="@drawable/icon_collection"
         dante:d_title_color="@color/colorBlack"
         dante:d_title_layout_background="@color/colorRed"
         dante:d_title_layout_height="50dp"
         dante:d_title_size="18sp"
-        dante:d_title_text="这里是标题" />
+        dante:d_title_text="这里是标题这里是标题这里是标题这里是标题" />
 
     <com.siberiadante.androidutil.widget.special.SDTitleLayout
         android:id="@+id/title_layout_four"

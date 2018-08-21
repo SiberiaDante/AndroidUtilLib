@@ -38,12 +38,14 @@ public class SDTitleLayout extends RelativeLayout {
     private int mLeftImage;
     private int mLeftImageWidth = SDTransitionUtil.dip2px(30);
     private int mLeftImagePaddingStart = SDTransitionUtil.dip2px(10);
+    private int mLeftImagePaddingEnd = SDTransitionUtil.dip2px(10);
 
     private String mLeftText = "";
     private int mLeftTextSize = SDTransitionUtil.dip2px(16);
     private int mLeftTextColor = Color.BLACK;
     private int mLeftTextStyle = Typeface.NORMAL;
     private int mLeftTextPaddingStart = SDTransitionUtil.dip2px(10);
+    private int mLeftTextPaddingEnd = SDTransitionUtil.dip2px(10);
 
     private String mTitle = "";
     private float mTitleSize = SDTransitionUtil.dip2px(18);
@@ -59,6 +61,7 @@ public class SDTitleLayout extends RelativeLayout {
     private int mRightImage;
     private int mRightImageWidth = SDTransitionUtil.dip2px(30);
     private int mRightImagePaddingEnd = SDTransitionUtil.dip2px(10);
+    private int mRightImagePaddingStart = SDTransitionUtil.dip2px(10);
 
     private String mRightText = "";
     private float mRightTextSize = SDTransitionUtil.dip2px(16);
@@ -66,6 +69,7 @@ public class SDTitleLayout extends RelativeLayout {
     private int mRightTextStyle = Typeface.NORMAL;
 
     private int mRightTextPaddingEnd = SDTransitionUtil.dip2px(10);
+    private int mRightTextPaddingStart = SDTransitionUtil.dip2px(10);
 
     private int mLineHeight = 1;
 
@@ -123,6 +127,7 @@ public class SDTitleLayout extends RelativeLayout {
         mLeftImage = attributes.getResourceId(R.styleable.SDTitleLayout_d_left_image, 0);
         mLeftImageWidth = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_image_width, mLeftImageWidth);
         mLeftImagePaddingStart = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_image_padding_start, mLeftImagePaddingStart);
+        mLeftImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_image_padding_end, mLeftImagePaddingEnd);
 
         /*
         左侧文字、字体大小、字体颜色、字体左边距
@@ -130,6 +135,7 @@ public class SDTitleLayout extends RelativeLayout {
         mLeftText = attributes.getString(R.styleable.SDTitleLayout_d_left_text);
         mLeftTextSize = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_text_size, mLeftTextSize);
         mLeftTextPaddingStart = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_text_padding_start, mLeftTextPaddingStart);
+        mLeftTextPaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_left_text_padding_end, mLeftTextPaddingEnd);
         mLeftTextColor = attributes.getColor(R.styleable.SDTitleLayout_d_left_text_color, mLeftTextColor);
         mLeftTextStyle = attributes.getInt(R.styleable.SDTitleLayout_d_left_text_style, mLeftTextStyle);
 
@@ -156,6 +162,7 @@ public class SDTitleLayout extends RelativeLayout {
         mRightImage = attributes.getResourceId(R.styleable.SDTitleLayout_d_right_image, 0);
         mRightImageWidth = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_width, mRightImageWidth);
         mRightImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_padding_end, mRightImagePaddingEnd);
+        mRightImagePaddingStart= attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_padding_start, mRightImagePaddingStart);
 
         /*
         右侧文字、字体大小、字体颜色、字体左边距
@@ -163,6 +170,7 @@ public class SDTitleLayout extends RelativeLayout {
         mRightText = attributes.getString(R.styleable.SDTitleLayout_d_right_text);
         mRightTextSize = attributes.getDimension(R.styleable.SDTitleLayout_d_right_text_size, mRightTextSize);
         mRightTextPaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_text_padding_end, mRightTextPaddingEnd);
+        mRightTextPaddingStart = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_text_padding_start, mRightTextPaddingStart);
         mRightTextColor = attributes.getColor(R.styleable.SDTitleLayout_d_right_text_color, mRightTextColor);
         mRightTextStyle = attributes.getInt(R.styleable.SDTitleLayout_d_right_text_style, mRightTextStyle);
 
@@ -252,8 +260,8 @@ public class SDTitleLayout extends RelativeLayout {
             mIvLeft.setImageResource(mLeftImage);
             //image size
             ViewGroup.LayoutParams mIvLeftLayoutParams = mIvLeft.getLayoutParams();
-            mIvLeftLayoutParams.width = mLeftImageWidth+mLeftImagePaddingStart;
-            mIvLeft.setPadding(mLeftImagePaddingStart, 0, 0, 0);
+            mIvLeftLayoutParams.width = mLeftImageWidth+mLeftImagePaddingStart+mLeftImagePaddingEnd;
+            mIvLeft.setPadding(mLeftImagePaddingStart, 0, mLeftImagePaddingEnd, 0);
             mIvLeft.setLayoutParams(mIvLeftLayoutParams);
 //            mLeftTotalWidth += mLeftImageWidth;
 //            SDLogUtil.d("---------" + mLeftTotalWidth + "------------");
@@ -268,7 +276,8 @@ public class SDTitleLayout extends RelativeLayout {
 
     private void settingLeftText() {
         if (SDStringUtil.isEmpty(mLeftText)) {
-            mTvLeft.setPadding(0, 0, 100, 0);
+            mTvLeft.setPadding(0, 0, 0, 0);
+//            mTvLeft.setPadding(0, 0, 100, 0);
             mTvLeft.setVisibility(GONE);
         } else {
             mTvLeft.setVisibility(VISIBLE);
@@ -276,7 +285,7 @@ public class SDTitleLayout extends RelativeLayout {
             mTvLeft.setTextSize(SDTransitionUtil.px2sp(mLeftTextSize));
             mTvLeft.setTextColor(mLeftTextColor);
             mTvLeft.setTypeface(Typeface.defaultFromStyle(mLeftTextStyle));
-            mTvLeft.setPadding(mLeftTextPaddingStart, 0, 0, 0);
+            mTvLeft.setPadding(mLeftTextPaddingStart, 0, mLeftTextPaddingEnd, 0);
 //            mLeftTotalWidth += mLeftTextPaddingStart;
         }
     }
@@ -313,9 +322,9 @@ public class SDTitleLayout extends RelativeLayout {
             mTvRight.setVisibility(GONE);
             mIvRight.setImageResource(mRightImage);
             ViewGroup.LayoutParams mIvRightLayoutParams = mIvRight.getLayoutParams();
-            mIvRightLayoutParams.width = mRightImageWidth+mRightImagePaddingEnd;
+            mIvRightLayoutParams.width = mRightImageWidth+mRightImagePaddingEnd+mRightImagePaddingStart;
             mIvRight.setLayoutParams(mIvRightLayoutParams);
-            mIvRight.setPadding(0, 0, mRightImagePaddingEnd, 0);
+            mIvRight.setPadding(mRightImagePaddingStart, 0, mRightImagePaddingEnd, 0);
         } else {
             mIvRight.setVisibility(GONE);
         }
@@ -330,7 +339,7 @@ public class SDTitleLayout extends RelativeLayout {
             mTvRight.setText(mRightText);
             mTvRight.setTextSize(SDTransitionUtil.px2sp(mRightTextSize));
             mTvRight.setTextColor(mRightTextColor);
-            mTvRight.setPadding(0, 0, mRightTextPaddingEnd, 0);
+            mTvRight.setPadding(mRightTextPaddingStart, 0, mRightTextPaddingEnd, 0);
             mTvRight.setTypeface(Typeface.defaultFromStyle(mRightTextStyle));
         }
     }

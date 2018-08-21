@@ -143,6 +143,7 @@ setContentView(***)
 ## [版本更新说明]
 * v1.1.5(未发布)
     * SDCustomDialog/SDBottomItemDialog/SDEditDialog/SDEnsureDialog：优化过时方法、适配高版本
+    * SDTitleLayout:增加部分属性
 * v1.1.4
     * 增加屏幕适配方案，几行代码轻松实现屏幕适配
     * SDLineEditText：增加下划线高度、下划线paddingTop
