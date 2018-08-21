@@ -72,8 +72,7 @@ public class SDEncryptUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-//        edtInput.setText("SiberiaDante");
-        edtInput.setText("viivbooksillymuddleheaded15331069231.0.0");
+        edtInput.setText("SiberiaDante");
 
     }
 

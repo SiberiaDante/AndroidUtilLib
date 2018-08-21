@@ -2,6 +2,7 @@ package com.siberiadante.androidutil.view.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Point;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,9 @@ public class SDEditDialog {
     public SDEditDialog(Context context) {
         this.context = context;
         WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        display = windowManager.getDefaultDisplay();
+        if (windowManager != null) {
+            display = windowManager.getDefaultDisplay();
+        }
     }
 
     public SDEditDialog builder() {
@@ -49,7 +52,9 @@ public class SDEditDialog {
         btn_pos = (Button) view.findViewById(R.id.btn_alert_dialog_sure);
         dialog = new Dialog(context, R.style.CustomDialogStyle);
         dialog.setContentView(view);
-        mLinearLayout.setLayoutParams(new FrameLayout.LayoutParams((int) (display.getWidth() * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT));
+        Point point = new Point();
+        display.getSize(point);
+        mLinearLayout.setLayoutParams(new FrameLayout.LayoutParams((int) (point.x * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT));
         return this;
     }
 

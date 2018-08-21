@@ -2,6 +2,7 @@ package com.siberiadante.androidutil.view.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Point;
 import android.support.v4.content.ContextCompat;
 import android.view.Display;
 import android.view.Gravity;
@@ -50,7 +51,7 @@ public class SDBottomItemDialog {
 
     public SDBottomItemDialog builder() {
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_bottom_item_layout, null);
-        view.setMinimumWidth(display.getWidth());
+
         sLayout_content = view.findViewById(R.id.bottom_item_dialog_scroll_view);
         lLayout_content = view.findViewById(R.id.bottom_item_dialog_content_ll);
         txt_title = view.findViewById(R.id.tv_bottom_item_dialog_title);
@@ -65,13 +66,18 @@ public class SDBottomItemDialog {
         });
         dialog = new Dialog(context, R.style.ActionGeneralDialog);
         dialog.setContentView(view);
+
         Window dialogWindow = dialog.getWindow();
+        Point outSize = new Point(0, 0);
+        display.getSize(outSize);
+        view.setMinimumWidth(outSize.x);
         if (dialogWindow != null) {
             dialogWindow.setGravity(Gravity.START | Gravity.BOTTOM);
-            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-            lp.x = 0;
-            lp.y = 0;
-            dialogWindow.setAttributes(lp);
+            dialogWindow.setLayout(outSize.x, WindowManager.LayoutParams.WRAP_CONTENT);
+//            WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+//            lp.x = 0;
+//            lp.y = 0;
+//            dialogWindow.setAttributes(lp);
         }
         return this;
     }

@@ -1,8 +1,8 @@
 package com.siberiadante.androidutil.view.dialog;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,10 +41,7 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
     private boolean isKeyDownForbid = false;//是否拦截返回键事件
     private int mPosition = 0; //Dialog 相对页面显示的位置
     private List<View> mViews = new ArrayList<>();//监听的View的集合
-
-    public void setOnDialogItemClickListener(OnCustomDialogItemClickListener listener) {
-        this.listener = listener;
-    }
+    private Display display;
 
     public SDCustomDialog(Context context, int layoutResID) {
         super(context, R.style.CustomDialogStyle);
@@ -97,7 +94,7 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
     /**
      * @param context
      * @param layoutResID       布局Id
-     * @param listenedIds               需要监听的View id集合
+     * @param listenedIds       需要监听的View id集合
      * @param animationResId    动画资源id
      * @param isDismiss         是否默认点击所有View 取消dialog显示
      * @param isDismissTouchOut 是否触摸dialog外部区域消失dialog显示
@@ -124,34 +121,52 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
 
     }
 
+    public void setOnDialogItemClickListener(OnCustomDialogItemClickListener listener) {
+        this.listener = listener;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Window window = getWindow();
-        if (0 == mPosition) {
-            window.setGravity(Gravity.CENTER); // dialog默认显示的位置为居中
-        } else {
-            window.setGravity(mPosition);// 设置自定义的dialog位置
-        }
-        if (mAnimationResId == 0) {
-            window.setWindowAnimations(R.style.BottomAnimation); // 添加默认动画效果
-        } else {
-            window.setWindowAnimations(mAnimationResId);//添加自定义动画
-        }
         setContentView(mLayoutResId);
-
-        WindowManager windowManager = ((Activity) context).getWindowManager();
-        Display display = windowManager.getDefaultDisplay();
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.width = display.getWidth() * 4 / 5; // 设置dialog宽度为屏幕的4/5
-        getWindow().setAttributes(lp);
         setCanceledOnTouchOutside(mIsDismissTouchOut);
-        //遍历控件id,添加点击事件，添加资源到集合
+        //add all view that need get event
         for (int id : mIds) {
             View view = findViewById(id);
             view.setOnClickListener(this);
             mViews.add(view);
         }
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Window window = getWindow();
+        Point point = new Point();
+        if (windowManager != null) {
+            display = windowManager.getDefaultDisplay();
+            display.getSize(point);
+        }
+        if (window != null) {
+            if (0 == mPosition) {
+                window.setGravity(Gravity.CENTER); // dialog default position:center
+            } else {
+                window.setGravity(mPosition);// you defined position
+            }
+            if (mAnimationResId == 0) {
+                window.setWindowAnimations(R.style.BottomAnimation); // default animation
+            } else {
+                window.setWindowAnimations(mAnimationResId);//your defined animation
+            }
+            window.setLayout(point.x * 4 / 5, WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+//        WindowManager windowManager = ((Activity) context).getWindowManager();
+//        Display display = windowManager.getDefaultDisplay();
+//        WindowManager.LayoutParams lp = getWindow().getAttributes();
+//        lp.width = display.getWidth() * 4 / 5; // 设置dialog宽度为屏幕的4/5
+//        getWindow().setAttributes(lp);
+
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
+        return isKeyDownForbid || super.onKeyDown(keyCode, event);
     }
 
     /**
@@ -186,11 +201,6 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
 
     }
 
-    public interface OnCustomDialogItemClickListener {
-        void OnCustomDialogItemClick(SDCustomDialog dialog, View view);
-    }
-
-
     @Override
     public void onClick(View view) {
         //是否默认所有按钮点击后取消dialog显示，false是需要在点击事件后手动调用dismiss。
@@ -200,8 +210,7 @@ public class SDCustomDialog extends Dialog implements View.OnClickListener {
         listener.OnCustomDialogItemClick(this, view);
     }
 
-    @Override
-    public boolean onKeyDown(int keyCode, @NonNull KeyEvent event) {
-        return isKeyDownForbid || super.onKeyDown(keyCode, event);
+    public interface OnCustomDialogItemClickListener {
+        void OnCustomDialogItemClick(SDCustomDialog dialog, View view);
     }
 }

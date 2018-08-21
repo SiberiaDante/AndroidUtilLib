@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import android.widget.EditText;
 import com.jude.swipbackhelper.SwipeBackHelper;
 import com.siberiadante.androidutil.util.SDKeyBoardUtil;
 import com.siberiadante.androidutil.util.SDScreenUtil;
+import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.listener.RequestPermissionCallBack;
 
 import butterknife.ButterKnife;

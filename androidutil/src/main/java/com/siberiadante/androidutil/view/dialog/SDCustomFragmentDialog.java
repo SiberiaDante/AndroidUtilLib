@@ -16,6 +16,7 @@ import android.view.ViewGroup;
  * UpDateTime:
  * Describe:
  */
+@Deprecated
 public class SDCustomFragmentDialog extends DialogFragment {
 
     @Nullable

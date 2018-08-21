@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.jude.swipbackhelper.SwipeBackHelper;
 import com.siberiadante.androidutil.util.SDScreenUtil;
 import com.siberiadante.androidutil.widget.radiobutton.SDNotifyRadioButton;
 import com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton;
@@ -56,6 +57,15 @@ public class HomeMainActivity extends BaseActivity
     NavigationView navigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout drawerLayout;
+
+    @Override
+    public void beforeSetContentView() {
+        super.beforeSetContentView();
+        SwipeBackHelper.getCurrentPage(this)
+                .setSwipeBackEnable(false)
+                .setSwipeRelateEnable(true)
+                .setDisallowInterceptTouchEvent(true);
+    }
 
     @Override
     public int setLayoutId() {

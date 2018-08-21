@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:minHeight="@dimen/sixty"
+        android:minHeight="@dimen/sd_sixty"
         android:text="输入验证码"
         android:textColor="@color/sdColorBlack"
         android:textSize="@dimen/font_18"

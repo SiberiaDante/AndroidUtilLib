@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/md2_encrypt" />
@@ -60,7 +60,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/md5_encrypt" />
@@ -72,7 +72,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/base64_encrypt" />
@@ -84,7 +84,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/base64_decode" />
@@ -96,7 +96,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/des_encrypt" />
@@ -108,7 +108,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/des_decode" />
@@ -120,7 +120,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/des3_encrypt" />
@@ -132,7 +132,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha1_encrypt" />
@@ -145,7 +145,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha1_decode" />
@@ -157,7 +157,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha224_encrypt" />
@@ -169,7 +169,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha224_encrypt" />
@@ -181,7 +181,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha256_encrypt" />
@@ -193,7 +193,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha256_encrypt" />
@@ -205,7 +205,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha384_encrypt" />
@@ -217,7 +217,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha384_encrypt" />
@@ -229,7 +229,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha512_encrypt" />
@@ -241,7 +241,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/sha512_encrypt" />
@@ -253,7 +253,7 @@
                 android:layout_marginTop="@dimen/eight"
                 android:background="@drawable/shape_gray_2"
                 android:gravity="center_vertical"
-                android:minHeight="@dimen/forty"
+                android:minHeight="@dimen/sd_forty"
                 android:paddingEnd="@dimen/fifteen"
                 android:paddingStart="@dimen/fifteen"
                 android:text="@string/aes_encrypt" />

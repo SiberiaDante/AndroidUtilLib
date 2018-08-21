@@ -23,7 +23,7 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
-    <style name="ForbidSwipeBackTheme" parent="AppTheme">
+    <style name="ForbidSwipeBackTheme" parent="AppThemeNoActionBar">
         <item name="android:windowIsTranslucent">false</item>
     </style>
 

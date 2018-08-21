@@ -2,6 +2,7 @@ package com.siberiadante.androidutil.view.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Point;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -25,7 +26,7 @@ import com.siberiadante.androidutil.R;
  */
 
 public class SDEnsureDialog {
-    private final Display display;
+    private  Display display;
     private Context context;
     private TextView mTvTitle;
     private TextView mTvSubTitle;
@@ -40,7 +41,9 @@ public class SDEnsureDialog {
     public SDEnsureDialog(Context context) {
         this.context = context;
         final WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        display = windowManager.getDefaultDisplay();
+        if (windowManager != null) {
+            display = windowManager.getDefaultDisplay();
+        }
         dialog = new Dialog(context, R.style.CustomDialogStyle);
         dialogWindow = dialog.getWindow();
 
@@ -63,7 +66,9 @@ public class SDEnsureDialog {
         mTvOK = ((TextView) view.findViewById(R.id.tv_ok));
         mTvCancel = ((TextView) view.findViewById(R.id.tv_cancel));
         dialog.setContentView(view);
-        mLinearDialog.setLayoutParams(new FrameLayout.LayoutParams(((int) (display.getWidth() * 0.80)), LinearLayout.LayoutParams.WRAP_CONTENT));
+        Point point = new Point();
+        display.getSize(point);
+        mLinearDialog.setLayoutParams(new FrameLayout.LayoutParams(((int) (point.x * 0.80)), LinearLayout.LayoutParams.WRAP_CONTENT));
         dialogWindow.setGravity(Gravity.CENTER);
         return this;
     }
