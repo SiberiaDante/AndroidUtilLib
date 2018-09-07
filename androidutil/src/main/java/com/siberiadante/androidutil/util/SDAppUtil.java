@@ -13,6 +13,7 @@ import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.FileProvider;
 
 
@@ -426,13 +427,25 @@ public class SDAppUtil {
     }
 
     /**
+     * 判断手机通知权限是否打开
+     *
+     * @return
+     */
+    public static boolean isNotificationEnable(Context context) {
+        return NotificationManagerCompat.from(context).areNotificationsEnabled();
+    }
+
+    /**
      * 判断App是否处于前台
      *
      * @return {@code true}: 是<br>{@code false}: 否
      */
     public static boolean isAppInForeground() {
         ActivityManager manager = (ActivityManager) SDAndroidLib.getContext().getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> infos = manager.getRunningAppProcesses();
+        List<ActivityManager.RunningAppProcessInfo> infos = null;
+        if (manager != null) {
+            infos = manager.getRunningAppProcesses();
+        }
         if (infos == null || infos.size() == 0) return false;
         for (ActivityManager.RunningAppProcessInfo info : infos) {
             if (info.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
