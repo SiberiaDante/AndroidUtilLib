@@ -197,17 +197,17 @@ public class SDTitleLayout extends RelativeLayout {
     }
 
     private void initView(View inflate) {
-        mRlLayout = ((RelativeLayout) inflate.findViewById(R.id.rl_title_bar_height));
-        mRlLeft = ((RelativeLayout) inflate.findViewById(R.id.rl_left));
-        mRlRight = ((RelativeLayout) inflate.findViewById(R.id.rl_right));
-        mRlCenter = ((LinearLayout) inflate.findViewById(R.id.ll_center));
-        mIvLeft = ((ImageView) inflate.findViewById(R.id.iv_left));
-        mTvLeft = ((TextView) inflate.findViewById(R.id.tv_left));
-        mTvTitle = ((TextView) inflate.findViewById(R.id.tv_title));
-        mTvSubTitle = ((TextView) inflate.findViewById(R.id.tv_sub_title));
-        mIvRight = ((ImageView) inflate.findViewById(R.id.iv_right));
-        mTvRight = ((TextView) inflate.findViewById(R.id.tv_right));
-        mViewLine = inflate.findViewById(R.id.bottom_item_dialog_view_line);
+        mRlLayout = ((RelativeLayout) inflate.findViewById(R.id.sd_rl_title_bar_height));
+        mRlLeft = ((RelativeLayout) inflate.findViewById(R.id.sd_rl_left));
+        mRlRight = ((RelativeLayout) inflate.findViewById(R.id.sd_rl_right));
+        mRlCenter = ((LinearLayout) inflate.findViewById(R.id.sd_ll_center));
+        mIvLeft = ((ImageView) inflate.findViewById(R.id.sd_iv_left));
+        mTvLeft = ((TextView) inflate.findViewById(R.id.sd_tv_left));
+        mTvTitle = ((TextView) inflate.findViewById(R.id.sd_tv_title));
+        mTvSubTitle = ((TextView) inflate.findViewById(R.id.sd_tv_sub_title));
+        mIvRight = ((ImageView) inflate.findViewById(R.id.sd_iv_right));
+        mTvRight = ((TextView) inflate.findViewById(R.id.sd_tv_right));
+        mViewLine = inflate.findViewById(R.id.sd_bottom_item_dialog_view_line);
     }
 
     private void initData() {

@@ -46,4 +46,11 @@ ext {
     leakcanary_android = '1.5.1'
     swipebackhelper = '3.1.2'
 
+    rxandroid = '2.0.1'
+    rxjava = '2.1.0'
+    retrofit2_rxjava2_adapter = '1.0.0'
+    logging_interceptor = '3.4.1'
+    retrofit = '2.1.0'
+    converter_gson = '2.2.0'
+
 }

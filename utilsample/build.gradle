@@ -38,4 +38,11 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$rootProject.leakcanary_android"
     implementation "com.jude:swipebackhelper:$rootProject.swipebackhelper"
     implementation project(':androidutil')
+
+//    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid"
+//    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava"
+//    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retrofit2_rxjava2_adapter"
+//    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+//    implementation "com.squareup.retrofit2:converter-gson:$rootProject.converter_gson"
+//    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.logging_interceptor"
 }

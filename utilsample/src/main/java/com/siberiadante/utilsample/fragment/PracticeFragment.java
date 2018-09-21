@@ -10,7 +10,6 @@ import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.fragment.base.BaseFragment;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 
 
 /**
@@ -29,7 +28,6 @@ public class PracticeFragment extends BaseFragment {
     SDRotateImageView ivImage;
     @BindView(R.id.ll_circle)
     LinearLayout llCircle;
-    Unbinder unbinder;
 
     public static PracticeFragment getInstance() {
         return new PracticeFragment();
@@ -42,12 +40,11 @@ public class PracticeFragment extends BaseFragment {
 
     @Override
     protected void initViews(View view, @Nullable Bundle savedInstanceState) {
+
     }
 
     @Override
     protected void initData() {
 
     }
-
-
 }

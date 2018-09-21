@@ -34,6 +34,13 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 //    compile 'com.github.jitpack:gradle-simple:1.0.5'
+//    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroid"
+//    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava"
+//    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.retrofit2_rxjava2_adapter"
+//    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+//    implementation "com.squareup.retrofit2:converter-gson:$rootProject.converter_gson"
+//    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.logging_interceptor"
+
 }
 //---------------------------------------------
 
