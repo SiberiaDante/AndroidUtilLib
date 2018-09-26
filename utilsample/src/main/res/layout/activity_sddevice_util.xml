@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     tools:context="com.siberiadante.utilsample.activity.util.SDDeviceUtilActivity">
 
-    <TextView
-        android:id="@+id/tv_result"
-        style="@style/CustomTextView"
-        android:padding="@dimen/page_padding_16"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_result"
+            style="@style/CustomTextView"
+            android:layout_marginTop="10dp"
+            android:padding="@dimen/page_padding_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
 </ScrollView>

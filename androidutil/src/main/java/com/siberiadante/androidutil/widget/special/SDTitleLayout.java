@@ -1,5 +1,6 @@
 package com.siberiadante.androidutil.widget.special;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -22,6 +23,7 @@ import com.siberiadante.androidutil.R;
 import com.siberiadante.androidutil.util.SDStatusBarUtil;
 import com.siberiadante.androidutil.util.SDStringUtil;
 import com.siberiadante.androidutil.util.SDTransitionUtil;
+import com.siberiadante.androidutil.widget.special.sdtitle.OnMultiTouchListener;
 
 
 /**
@@ -162,7 +164,7 @@ public class SDTitleLayout extends RelativeLayout {
         mRightImage = attributes.getResourceId(R.styleable.SDTitleLayout_d_right_image, 0);
         mRightImageWidth = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_width, mRightImageWidth);
         mRightImagePaddingEnd = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_padding_end, mRightImagePaddingEnd);
-        mRightImagePaddingStart= attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_padding_start, mRightImagePaddingStart);
+        mRightImagePaddingStart = attributes.getDimensionPixelSize(R.styleable.SDTitleLayout_d_right_image_padding_start, mRightImagePaddingStart);
 
         /*
         右侧文字、字体大小、字体颜色、字体左边距
@@ -260,7 +262,7 @@ public class SDTitleLayout extends RelativeLayout {
             mIvLeft.setImageResource(mLeftImage);
             //image size
             ViewGroup.LayoutParams mIvLeftLayoutParams = mIvLeft.getLayoutParams();
-            mIvLeftLayoutParams.width = mLeftImageWidth+mLeftImagePaddingStart+mLeftImagePaddingEnd;
+            mIvLeftLayoutParams.width = mLeftImageWidth + mLeftImagePaddingStart + mLeftImagePaddingEnd;
             mIvLeft.setPadding(mLeftImagePaddingStart, 0, mLeftImagePaddingEnd, 0);
             mIvLeft.setLayoutParams(mIvLeftLayoutParams);
 //            mLeftTotalWidth += mLeftImageWidth;
@@ -322,7 +324,7 @@ public class SDTitleLayout extends RelativeLayout {
             mTvRight.setVisibility(GONE);
             mIvRight.setImageResource(mRightImage);
             ViewGroup.LayoutParams mIvRightLayoutParams = mIvRight.getLayoutParams();
-            mIvRightLayoutParams.width = mRightImageWidth+mRightImagePaddingEnd+mRightImagePaddingStart;
+            mIvRightLayoutParams.width = mRightImageWidth + mRightImagePaddingEnd + mRightImagePaddingStart;
             mIvRight.setLayoutParams(mIvRightLayoutParams);
             mIvRight.setPadding(mRightImagePaddingStart, 0, mRightImagePaddingEnd, 0);
         } else {
@@ -378,6 +380,7 @@ public class SDTitleLayout extends RelativeLayout {
 
     /**
      * setting title layout background
+     *
      * @param colorRes
      */
     public void setTitleLayoutBackground(int colorRes) {
@@ -636,6 +639,14 @@ public class SDTitleLayout extends RelativeLayout {
      */
     public void setTitleClickListener(OnClickListener listener) {
         mTvTitle.setOnClickListener(listener);
+    }
+
+    /**
+     * 标题点击事件
+     */
+    @SuppressLint("ClickableViewAccessibility")
+    public void setTitleClickListener(OnMultiTouchListener onMultiTouchListener) {
+        mTvTitle.setOnTouchListener(onMultiTouchListener);
     }
 
     /**

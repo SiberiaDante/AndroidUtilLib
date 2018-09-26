@@ -1,30 +1,36 @@
 package com.siberiadante.utilsample.activity.util;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.View;
 import android.widget.TextView;
 
 import com.siberiadante.androidutil.util.SDDeviceUtil;
 import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
+import com.siberiadante.utilsample.listener.RequestPermissionCallBack;
+import com.tbruyelle.rxpermissions2.RxPermissions;
 
 
 import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
+import io.reactivex.functions.Consumer;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2018/01/01
  * Describe：
  * @github： https://github.com/SiberiaDante
  * @博客园： http://www.cnblogs.com/shen-hua/
  */
-public class SDDeviceUtilActivity extends BaseActivity {
+public class SDDeviceUtilActivity extends BaseActivity  {
 
     private static final int ADD_CONTENT = 0x01;
     @BindView(R.id.tv_result)
@@ -52,6 +58,29 @@ public class SDDeviceUtilActivity extends BaseActivity {
 
     @Override
     public void initView(Bundle savedInstanceState) {
+        checkPermission1();
+    }
+
+    @SuppressLint("CheckResult")
+    private void checkPermission1() {
+        RxPermissions rxPermissions = new RxPermissions(this);
+        rxPermissions.request(Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_CONTACTS,
+                Manifest.permission.READ_CONTACTS)
+                .subscribe(new Consumer<Boolean>() {
+                    @Override
+                    public void accept(Boolean aBoolean) throws Exception {
+                        SDLogUtil.d("--------------" + aBoolean);
+                        if (aBoolean) {
+                            showResult();
+                        }
+                        showResult();
+                    }
+                });
+    }
+
+    private void showResult() {
         builder = new StringBuilder();
         builder.append("SDDeviceUtil获取结果：\n")
                 .append("获取安卓手机系统版本号:").append(SDDeviceUtil.getAndroidSystemVersion()).append("\n")
@@ -95,5 +124,6 @@ public class SDDeviceUtilActivity extends BaseActivity {
 
         tvResult.setText(builder);
     }
+
 
 }

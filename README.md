@@ -140,43 +140,4 @@ setContentView(***)
 ```
 
 
-## [版本更新说明]
-* v1.1.5(未发布)
-    * SDCustomDialog/SDBottomItemDialog/SDEditDialog/SDEnsureDialog：优化过时方法、适配高版本
-    * SDTitleLayout:增加部分属性
-* v1.1.4
-    * 增加屏幕适配方案，几行代码轻松实现屏幕适配
-    * SDLineEditText：增加下划线高度、下划线paddingTop
-    * SDTitleLayout：修复设置左右图片Padding造成的问题
-    * SDBottomItemDialog:支持Item颜色、字体大小设置；支持底部取消按钮隐藏；支持Item超过7条时滚动显示或者全部显示
-* v1.1.3
-    * SDVerificationCodeView：验证码/密码输入框
-    * SDTitleLayout 增加动态设置背景颜色，增加相应子View是否可点击等
-* v1.1.2
-    * SDCashierInputFilter：格式化EditText金额输入规则
-    * SDFlowTagLayout：自适应的标签流式布局，适用于搜索历史、标签等
-* v1.1.1
-    * 增加SDPhotoUtil:拍照、相册操作、裁剪相关工具类
-    * 增加组件SDRoundImageView：支持设置ImageView圆角、圆形
-    * SDNormalDecoration增加支持设置左右间距
-* v1.1.0
-    大版本更新，重构项目结构等
-* 1.0.8
-    * 更新SDActivityUtil
-    * 更新SDDateUtil
-    * 更新SDNumberUtil
-    * 更新SDScreenUtil
-    * 更新SDStringUtil
-    * 增加SDPhoneUtil
-    * 增加SDRegexUtil
-    * 增加SDRegexConstants
-    * 增加SDSkipLoadView
-    * 增加SDShapeChangeView
-    * 增加SDRatingBarView
-    * 增加SDLetterIndexView
-* 1.0.7
-    * 增加SDBitmapUtil
-    * 增加SDCustomDialog
-    * 增加SDLogUtil
-
-
+## [版本更新说明](https://github.com/SiberiaDante/AndroidUtilLib/wiki/About-Version-Update)
