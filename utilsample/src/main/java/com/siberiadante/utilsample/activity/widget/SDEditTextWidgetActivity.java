@@ -23,6 +23,6 @@ public class SDEditTextWidgetActivity extends BaseActivity {
     @Override
     public void initView(Bundle savedInstanceState) {
         actionBar.setTitle("EditText相关");
-        edtCash.setFilters(new InputFilter[]{new SDCashierInputFilter()});
+        edtCash.setFilters(new InputFilter[]{new SDCashierInputFilter(100)});
     }
 }

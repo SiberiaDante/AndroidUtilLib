@@ -11,6 +11,9 @@ package com.siberiadante.androidutil.constant;
  */
 
 public class SDRegexUnit {
+
+    //number and point
+    public  static  final  String REGEX_NUM_POINT="([0-9]|\\.)*";
     /**
      * 正则：手机号（简单）
      */

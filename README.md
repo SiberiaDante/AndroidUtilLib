@@ -7,7 +7,7 @@
 ```
 implementation 'com.github.SiberiaDante:AndroidUtilLib:最新的'
 ```
-初始化
+#### 初始化
 ```
  SDAndroidLib.initLib(context);//初始化
  SDAndroidLib.setDebug(true);//开启Debug模式
@@ -15,7 +15,7 @@ implementation 'com.github.SiberiaDante:AndroidUtilLib:最新的'
 
 ### 文档更新跟不上，具体使用参考 utilsample
 
-SD-Util
+#### SD-Util
 ```
 SDActivityUtil                      Activity相关处理工具类
 SDAppUtil                           获取应用、手机、安卓系统等信息,安装应用等
@@ -52,7 +52,7 @@ SDTimerUtil                         计时相关工具类
 SDToastUtil                         toast吐司工具类
 SDTransitionUtil                    数据、数值转换相关类
 ```
-加解密、校验相关工具类
+#### 加解密、校验相关工具类
 ```
 SD3DesUtil
 SDAESUtil
@@ -68,7 +68,13 @@ SDSHA256Util
 SDSHA384Util
 SDSHA512Util
 ```
-动画相关
+
+#### 金额输入格式化
+```
+SDCashierInputFilter
+使用：edittext.setFilters(new InputFilter[]{new SDCashierInputFilter()});
+```
+#### 动画相关
 ```
 SDZoomImageView         缩放一张图片的动画
 SDSkipLoadView          跳跃动画
@@ -76,7 +82,7 @@ SDRotateLayoutImageView 旋转一张图片的动画
 SDCircleTranslationX    仿百度圆加载动画
 SDCircleMove            仿百度圆加载动画
 ```
-Dialog相关
+#### Dialog相关
 ```
 SDBottomItemDialog          仿IOS底部弹出可拓展多个item的dialog     
 SDCustomDialog              通用可自定义的dialog,可以传入任何自定义的布局
@@ -84,17 +90,17 @@ SDEditDialog                仿IOS弹出可编辑dialog
 SDEnsureDialog              常规提示确认dialog
 ```
 
-自定义View
+#### 自定义View
 ```
 SDStepView          仿QQ运动步数功能
 ```
 
-RecyclerView 分隔线
+#### RecyclerView 分隔线
 ```
 SDDrawableDecoration        RecyclerView 分隔线，可传入一个Drawable对象作为分割线
 SDNormalDecoration          RecyclerView 分隔线,可设置颜色和高度
 ```
-SD-Widget相关类
+#### SD-Widget相关类
 ```
 SDLineEditText              自定义下划线的EditText
 SDCashierInputFilter        格式化EditText只能输入金额格式的数字
@@ -124,11 +130,11 @@ SuperTextView
 SDCenterAlignImageSpan      图文混排对齐的ImageSpan
 ```
 
-标题栏[【详细使用方法和介绍点这里查看】](https://github.com/SiberiaDante/TitleLayout)
+#### 标题栏[【详细使用方法和介绍点这里查看】](https://github.com/SiberiaDante/TitleLayout)
 ```
 SDTitleLayout       常规的能够满足开发需求的标题栏的封装，并支持Java代码设置
 ```
-屏幕适配
+#### 屏幕适配
 ```
 BaseActivity中使用如下代码（setContentView之前）：
 if (SDScreenUtil.isPortrait()) {
