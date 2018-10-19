@@ -31,7 +31,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/SwipeBackTheme">
+        android:theme="@style/SwipeBackTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.siberiadante.utilsample.fileProvider"
@@ -108,7 +109,7 @@
         <activity
             android:name=".activity.widget.SDOverScrollBehaviorActivity"
             android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name=".activity.view.SDDecorationActivity"></activity>
+        <activity android:name=".activity.view.SDDecorationActivity"/>
     </application>
 
 </manifest>

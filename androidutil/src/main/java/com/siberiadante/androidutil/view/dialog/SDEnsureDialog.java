@@ -26,7 +26,7 @@ import com.siberiadante.androidutil.R;
  */
 
 public class SDEnsureDialog {
-    private  Display display;
+    private Display display;
     private Context context;
     private TextView mTvTitle;
     private TextView mTvSubTitle;
@@ -56,15 +56,15 @@ public class SDEnsureDialog {
      */
     public SDEnsureDialog builder() {
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_ensure_layout, null, false);
-        LinearLayout mLinearDialog = ((LinearLayout) view.findViewById(R.id.linear_dialog));
-        mLinearBottom = ((LinearLayout) view.findViewById(R.id.linear_bottom));
+        LinearLayout mLinearDialog = view.findViewById(R.id.linear_dialog);
+        mLinearBottom = view.findViewById(R.id.linear_bottom);
 
-        mIvIcon = ((ImageView) view.findViewById(R.id.iv_icon));
-        mTvTitle = ((TextView) view.findViewById(R.id.tv_title));
-        mTvSubTitle = ((TextView) view.findViewById(R.id.tv_sub_title));
-        mTvSure = ((TextView) view.findViewById(R.id.tv_sure));
-        mTvOK = ((TextView) view.findViewById(R.id.tv_ok));
-        mTvCancel = ((TextView) view.findViewById(R.id.tv_cancel));
+        mIvIcon = view.findViewById(R.id.iv_icon);
+        mTvTitle = view.findViewById(R.id.tv_title);
+        mTvSubTitle = view.findViewById(R.id.tv_sub_title);
+        mTvSure = (TextView) view.findViewById(R.id.tv_sure);
+        mTvOK = view.findViewById(R.id.tv_ok);
+        mTvCancel = view.findViewById(R.id.tv_cancel);
         dialog.setContentView(view);
         Point point = new Point();
         display.getSize(point);
@@ -313,6 +313,11 @@ public class SDEnsureDialog {
      */
     public SDEnsureDialog setCancelable(boolean cancelable) {
         dialog.setCancelable(cancelable);
+        return this;
+    }
+
+    public SDEnsureDialog setCancelOnTouchOutside(boolean onTouchOutside) {
+        dialog.setCanceledOnTouchOutside(onTouchOutside);
         return this;
     }
 
