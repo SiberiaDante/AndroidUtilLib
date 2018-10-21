@@ -17,6 +17,7 @@ import android.util.TypedValue;
 import android.widget.ImageView;
 
 import com.siberiadante.androidutil.R;
+import com.siberiadante.androidutil.util.SDBitmapUtil;
 
 
 /**
@@ -118,11 +119,11 @@ public class SDRoundImageView extends ImageView {
             }
             canvas.translate(getPaddingLeft(), getPaddingTop());
             if (currMode == MODE_CIRCLE) {//当为圆形模式的时候
-                Bitmap bitmap = drawable2Bitmap(mDrawable);
+                Bitmap bitmap = SDBitmapUtil.drawableToBitmap(mDrawable);
                 mPaint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
                 canvas.drawCircle(getWidth() / 2, getHeight() / 2, getWidth() / 2, mPaint);
             } else if (currMode == MODE_ROUND) {//当为圆角模式的时候
-                Bitmap bitmap = drawable2Bitmap(mDrawable);
+                Bitmap bitmap = SDBitmapUtil.drawableToBitmap(mDrawable);
                 mPaint.setShader(new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
                 canvas.drawRoundRect(new RectF(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom()),
                         currRound, currRound, mPaint);
@@ -139,20 +140,20 @@ public class SDRoundImageView extends ImageView {
     /**
      * drawable转换成bitmap
      */
-    private Bitmap drawable2Bitmap(Drawable drawable) {
-        if (drawable == null) {
-            return null;
-        }
-        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        //根据传递的scaletype获取matrix对象，设置给bitmap
-        Matrix matrix = getImageMatrix();
-        if (matrix != null) {
-            canvas.concat(matrix);
-        }
-        drawable.draw(canvas);
-        return bitmap;
-    }
+//    private Bitmap drawable2Bitmap(Drawable drawable) {
+//        if (drawable == null) {
+//            return null;
+//        }
+//        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+//        Canvas canvas = new Canvas(bitmap);
+//        //根据传递的scaletype获取matrix对象，设置给bitmap
+//        Matrix matrix = getImageMatrix();
+//        if (matrix != null) {
+//            canvas.concat(matrix);
+//        }
+//        drawable.draw(canvas);
+//        return bitmap;
+//    }
 
     private int dp2px(float value) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, getResources().getDisplayMetrics());
