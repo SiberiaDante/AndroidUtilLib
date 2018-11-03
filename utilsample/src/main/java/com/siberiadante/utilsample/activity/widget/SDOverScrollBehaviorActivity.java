@@ -1,8 +1,6 @@
 package com.siberiadante.utilsample.activity.widget;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.FloatRange;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -13,9 +11,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.ButtonBarLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -29,8 +24,7 @@ import com.siberiadante.androidutil.widget.imageview.SDCircleImageView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.SampleUtils;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
-import com.siberiadante.utilsample.adapter.MainActivityAdapter;
-import com.siberiadante.utilsample.fragment.PracticeFragment;
+import com.siberiadante.utilsample.fragment.DocumentFragment;
 import com.siberiadante.utilsample.fragment.SDUtilFragment;
 import com.siberiadante.utilsample.fragment.SDViewFragment;
 import com.siberiadante.utilsample.fragment.SDWidgetFragment;
@@ -39,7 +33,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class SDOverScrollBehaviorActivity extends BaseActivity {
 
@@ -129,7 +122,7 @@ public class SDOverScrollBehaviorActivity extends BaseActivity {
         fragments.add(SDUtilFragment.getInstance());
         fragments.add(SDViewFragment.getInstance());
         fragments.add(SDWidgetFragment.getInstance());
-        fragments.add(PracticeFragment.getInstance());
+        fragments.add(DocumentFragment.getInstance());
         String[] titles = new String[]{"Utils", "Views", "Widgets", "Others"};
 
         viewPager.setAdapter(new BaseTabLayoutAdapter(getSupportFragmentManager(), fragments,titles));

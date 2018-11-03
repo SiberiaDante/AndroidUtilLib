@@ -6,8 +6,8 @@ import android.support.v7.widget.RecyclerView;
 /**
  * create date: 2018/11/2
  */
-public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListener {
-    public static String TAG = EndlessRecyclerOnScrollListener.class.getSimpleName();
+public abstract class SDOnScrollListener extends RecyclerView.OnScrollListener {
+    public static String TAG = SDOnScrollListener.class.getSimpleName();
 
     private int previousTotal = 0; // The total number of items in the dataset after the last load
     private boolean loading = true; // True if we are still waiting for the last set of data to load.
@@ -17,7 +17,7 @@ public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScr
     private int current_page = 1;
     private LinearLayoutManager mLinearLayoutManager;
 
-    public EndlessRecyclerOnScrollListener(LinearLayoutManager linearLayoutManager) {
+    public SDOnScrollListener(LinearLayoutManager linearLayoutManager) {
         this.mLinearLayoutManager = linearLayoutManager;
     }
 

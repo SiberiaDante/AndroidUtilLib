@@ -70,7 +70,7 @@
             android:button="@null"
             android:drawableTop="@drawable/select_home_tab"
             android:gravity="center"
-            android:text="Practice"
+            android:text="Document"
             android:textColor="@drawable/select_rb_tab_color"
             app:sd_notify_color="@color/colorRed"
             app:sd_notify_radius="@dimen/sd_four"

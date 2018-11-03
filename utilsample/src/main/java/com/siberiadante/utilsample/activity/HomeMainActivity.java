@@ -9,7 +9,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +16,6 @@ import android.view.View;
 import android.widget.RadioGroup;
 
 import com.jude.swipbackhelper.SwipeBackHelper;
-import com.siberiadante.androidutil.util.SDScreenUtil;
 import com.siberiadante.androidutil.widget.radiobutton.SDNotifyRadioButton;
 import com.siberiadante.androidutil.widget.radiobutton.SDDrawableRadioButton;
 import com.siberiadante.utilsample.R;
@@ -25,14 +23,13 @@ import com.siberiadante.utilsample.activity.base.BaseActivity;
 import com.siberiadante.utilsample.adapter.MainActivityAdapter;
 import com.siberiadante.utilsample.fragment.SDUtilFragment;
 import com.siberiadante.utilsample.fragment.SDWidgetFragment;
-import com.siberiadante.utilsample.fragment.PracticeFragment;
+import com.siberiadante.utilsample.fragment.DocumentFragment;
 import com.siberiadante.utilsample.fragment.SDViewFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class HomeMainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
@@ -97,7 +94,7 @@ public class HomeMainActivity extends BaseActivity
 //        fragments.add(SDUtilFragment.getInstance());
 //        fragments.add(SDViewFragment.getInstance());
 //        fragments.add(SDWidgetFragment.getInstance());
-//        fragments.add(PracticeFragment.getInstance());
+//        fragments.add(DocumentFragment.getInstance());
 //        viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager(), fragments));
 //        viewPager.setCurrentItem(0);
 //        viewPager.setOffscreenPageLimit(4);
@@ -114,7 +111,7 @@ public class HomeMainActivity extends BaseActivity
         fragments.add(SDUtilFragment.getInstance());
         fragments.add(SDViewFragment.getInstance());
         fragments.add(SDWidgetFragment.getInstance());
-        fragments.add(PracticeFragment.getInstance());
+        fragments.add(DocumentFragment.getInstance());
         viewPager.setAdapter(new MainActivityAdapter(getSupportFragmentManager(), fragments));
         viewPager.setCurrentItem(0);
         viewPager.setOffscreenPageLimit(4);
