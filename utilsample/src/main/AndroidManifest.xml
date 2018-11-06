@@ -109,7 +109,8 @@
         <activity
             android:name=".activity.widget.SDOverScrollBehaviorActivity"
             android:theme="@style/AppThemeNoActionBar" />
-        <activity android:name=".activity.view.SDDecorationActivity"/>
+        <activity android:name=".activity.view.SDDecorationActivity" />
+        <activity android:name=".activity.adapter.SDRecyclerViewAdapterActivity"></activity>
     </application>
 
 </manifest>

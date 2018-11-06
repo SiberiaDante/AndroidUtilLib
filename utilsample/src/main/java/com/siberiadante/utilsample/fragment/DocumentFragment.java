@@ -57,6 +57,14 @@ public class DocumentFragment extends BaseFragment {
             }
         });
 
+
+
+//        recyclerView.setOnScrollListener(new SDOnScrollListener(layoutManager) {
+//            @Override
+//            public void onLoadMore(int current_page) {
+//                adapter.addAll(DocumentDataUtils.getDocumentData(++page, 10));
+//            }
+//        });
     }
 
     @Override

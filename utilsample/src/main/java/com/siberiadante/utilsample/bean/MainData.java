@@ -1,5 +1,6 @@
 package com.siberiadante.utilsample.bean;
 
+import com.siberiadante.utilsample.activity.adapter.SDRecyclerViewAdapterActivity;
 import com.siberiadante.utilsample.activity.util.SDActivityUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDBitmapUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDCacheUtilActivity;
@@ -110,6 +111,7 @@ public class MainData {
         data.add(new DataBean("测试SDFlowTabLayout组件", SDFlowTagLayoutActivity.class));
         data.add(new DataBean("测试SDTitleLayout相关组件", SDTitleLayoutWidgetActivity.class));
         data.add(new DataBean("测试验证码输入框组件", VerificationCodeViewActivity.class));
+        data.add(new DataBean("测试SDRecyclerViewAdapter", SDRecyclerViewAdapterActivity.class));
         data.add(new DataBean("测试越界回弹Behavior", SDOverScrollBehaviorActivity.class));
         return data;
     }
