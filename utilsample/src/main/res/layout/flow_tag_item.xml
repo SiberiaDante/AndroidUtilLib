@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tv_tag"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/flow_tag_bg"
+    android:includeFontPadding="false"
+    android:paddingLeft="11dp"
+    android:paddingTop="8dp"
+    android:paddingRight="11dp"
+    android:paddingBottom="8dp"
+    android:textColor="@drawable/flow_tag_text_color"
+    android:textSize="14sp"
+    app:horizontalSpacing="10dp" />

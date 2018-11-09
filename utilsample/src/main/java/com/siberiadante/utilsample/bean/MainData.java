@@ -108,7 +108,7 @@ public class MainData {
         data.add(new DataBean("测试评分组件", SDRankingActivity.class));
         data.add(new DataBean("测试特殊组件", SDSpecialWidgetActivity.class));
         data.add(new DataBean("测试TextView相关组件", SDTextViewActivity.class));
-        data.add(new DataBean("测试SDFlowTabLayout组件", SDFlowTagLayoutActivity.class));
+        data.add(new DataBean("测试SDFlowTagLayout组件", SDFlowTagLayoutActivity.class));
         data.add(new DataBean("测试SDTitleLayout相关组件", SDTitleLayoutWidgetActivity.class));
         data.add(new DataBean("测试验证码输入框组件", VerificationCodeViewActivity.class));
         data.add(new DataBean("测试SDRecyclerViewAdapter", SDRecyclerViewAdapterActivity.class));

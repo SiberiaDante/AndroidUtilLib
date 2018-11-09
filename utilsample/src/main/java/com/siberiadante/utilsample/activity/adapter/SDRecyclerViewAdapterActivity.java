@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.siberiadante.androidutil.adapter.SDRecyclerViewAdapter;
+import com.siberiadante.androidutil.adapter.recycleradapter.SDRecyclerViewAdapter;
 import com.siberiadante.androidutil.util.SDToastUtil;
 import com.siberiadante.androidutil.view.decoration.SDNormalDecoration;
 import com.siberiadante.utilsample.R;

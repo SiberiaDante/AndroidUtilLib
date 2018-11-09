@@ -286,4 +286,19 @@
         <!--psd circle radius-->
         <attr name="sd_vcv_et_pwd_radius" format="dimension|reference" />
     </declare-styleable>
+
+    <declare-styleable name="SDBaseFlowLayout">
+        <!--居左、居中或者居右-->
+        <attr name="android:gravity" />
+        <!--最多显示行数-->
+        <attr name="android:maxLines" />
+        <!--最多显示数量-->
+        <attr name="maxNum" format="dimension" />
+        <!--水平方向间距-->
+        <attr name="horizontalSpacing" format="dimension" />
+        <!--垂直方向间距-->
+        <attr name="verticalSpacing" format="dimension" />
+        <!--默认0没有选中事件,-1不限制选中数量，1为单选，大于1为多选-->
+        <attr name="multiSelectNum" format="integer" />
+    </declare-styleable>
 </resources>

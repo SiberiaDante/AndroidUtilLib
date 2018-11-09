@@ -1,18 +1,13 @@
 package com.siberiadante.utilsample.adapter.widget;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.siberiadante.androidutil.adapter.SDBaseViewHolder;
-import com.siberiadante.androidutil.adapter.SDRecyclerViewAdapter;
+import com.siberiadante.androidutil.adapter.recycleradapter.SDBaseViewHolder;
+import com.siberiadante.androidutil.adapter.recycleradapter.SDRecyclerViewAdapter;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.bean.document.DocumentList;
-
-import java.util.List;
 
 /**
  * create date: 2018/11/3

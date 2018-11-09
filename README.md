@@ -105,6 +105,7 @@ SDNormalDecoration          RecyclerView 分隔线,可设置颜色和高度
 SDLineEditText              自定义下划线的EditText
 SDCashierInputFilter        格式化EditText只能输入金额格式的数字
 SDFlowTagLayout             自适应的标签流式布局，适用于搜索历史、标签等
+SDFlowLayout                自适应的标签流式布局，支持单选、多选等
 SDShapeFrameLayout          简化FrameLayout shape 画背景
 SDAvatarListLayout          头像列表叠加组件
 SDCircleImageView           圆形ImageView，可设置描边相关等
@@ -145,5 +146,12 @@ if (SDScreenUtil.isPortrait()) {
 setContentView(***)
 ```
 
+#### adapter
+```
+SDCustomFragmentAdapter:支持ViewPager+Fragment+TabLayout的adapter
+SDRecyclerViewAdapter：RecyclerView的adapter的封装,支持头布局、脚布局、简化代码量
 
-## [版本更新说明](https://github.com/SiberiaDante/AndroidUtilLib/wiki/About-Version-Update)
+```
+
+
+## [版本更新说明](/Documents/about-version-update)

@@ -1,11 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.siberiadante.androidutil.widget.flowLayout.SDFlowTagLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sd_flow_tab_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="@dimen/sixteen"
     tools:context=".activity.widget.SDFlowTagLayoutActivity">
 
-</com.siberiadante.androidutil.widget.flowLayout.SDFlowTagLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/sixteen">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sdColorGrayLine"
+            android:text="SDFlowTagLayout" />
+
+        <com.siberiadante.androidutil.widget.flowLayout.SDFlowTagLayout
+            android:id="@+id/sd_flow_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            tools:context=".activity.widget.SDFlowTagLayoutActivity" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sdColorGrayLine"
+            android:text="SDFlowLayout" />
+
+        <com.siberiadante.androidutil.widget.flowLayout.SDFlowLayout
+            android:id="@+id/sd_flow_default"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:horizontalSpacing="10dp"
+            app:multiSelectNum="1"
+            app:verticalSpacing="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sdColorGrayLine"
+            android:text="SDFlowLayout单选" />
+
+        <com.siberiadante.androidutil.widget.flowLayout.SDFlowLayout
+            android:id="@+id/sd_flow_single_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:horizontalSpacing="10dp"
+            app:multiSelectNum="1"
+            app:verticalSpacing="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/sdColorGrayLine"
+            android:text="SDFlowLayout多选" />
+
+        <com.siberiadante.androidutil.widget.flowLayout.SDFlowLayout
+            android:id="@+id/sd_flow_mul_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:horizontalSpacing="10dp"
+            app:multiSelectNum="3"
+            app:verticalSpacing="10dp" />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

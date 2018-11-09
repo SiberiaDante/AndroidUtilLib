@@ -12,6 +12,7 @@ import java.util.List;
  * UpDateTime:
  * Describe: TabLayout+ViewPager+Fragment联动Adapter
  */
+@Deprecated
 public class BaseTabLayoutAdapter extends FragmentStatePagerAdapter {
 
     //Fragment

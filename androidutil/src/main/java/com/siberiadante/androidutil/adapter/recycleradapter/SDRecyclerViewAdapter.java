@@ -1,4 +1,4 @@
-package com.siberiadante.androidutil.adapter;
+package com.siberiadante.androidutil.adapter.recycleradapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
