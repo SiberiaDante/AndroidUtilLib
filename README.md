@@ -154,4 +154,4 @@ SDRecyclerViewAdapter：RecyclerView的adapter的封装,支持头布局、脚布
 ```
 
 
-## [版本更新说明](/Documents/about-version-update)
+## [版本更新说明](https://github.com/SiberiaDante/AndroidUtilLib/blob/master/Documents/about-version-update)
