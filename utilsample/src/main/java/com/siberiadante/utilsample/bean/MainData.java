@@ -1,6 +1,7 @@
 package com.siberiadante.utilsample.bean;
 
 import com.siberiadante.utilsample.activity.adapter.SDRecyclerViewAdapterActivity;
+import com.siberiadante.utilsample.activity.practice.MVPTestActivity;
 import com.siberiadante.utilsample.activity.util.SDActivityUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDBitmapUtilActivity;
 import com.siberiadante.utilsample.activity.util.SDCacheUtilActivity;
@@ -93,26 +94,30 @@ public class MainData {
 
     public static List<DataBean> getViewData() {
         List<DataBean> data = new ArrayList<>();
-        data.add(new DataBean("测试Dialog", SDDialogViewActivity.class));
-        data.add(new DataBean("测试加载动画", SDLoadingViewActivity.class));
-        data.add(new DataBean("测试计步器", SDStepViewActivity.class));
+        data.add(new DataBean("ImageView", SDImageViewActivity.class));
+        data.add(new DataBean("EditText", SDEditTextWidgetActivity.class));
+        data.add(new DataBean("TextView", SDTextViewActivity.class));
+        data.add(new DataBean("SDFlowLayout", SDFlowTagLayoutActivity.class));
+        data.add(new DataBean("SDTitleLayout", SDTitleLayoutWidgetActivity.class));
+        data.add(new DataBean("SDRecyclerViewAdapter", SDRecyclerViewAdapterActivity.class));
+        data.add(new DataBean("简化shape组件", SDShapeWidgetActivity.class));
+        data.add(new DataBean("头像叠加列表组件", SDAvatarListLayoutActivity.class));
+        data.add(new DataBean("评分组件", SDRankingActivity.class));
+        data.add(new DataBean("特殊组件", SDSpecialWidgetActivity.class));
+        data.add(new DataBean("验证码输入框组件", VerificationCodeViewActivity.class));
+        data.add(new DataBean("测试越界回弹Behavior", SDOverScrollBehaviorActivity.class));
+
+
+        data.add(new DataBean("Dialog", SDDialogViewActivity.class));
+        data.add(new DataBean("加载动画", SDLoadingViewActivity.class));
+        data.add(new DataBean("QQ计步器", SDStepViewActivity.class));
+
         return data;
     }
 
     public static List<DataBean> getWidgetData() {
         List<DataBean> data = new ArrayList<>();
-        data.add(new DataBean("测试简化shape组件", SDShapeWidgetActivity.class));
-        data.add(new DataBean("测试ImageView组件", SDImageViewActivity.class));
-        data.add(new DataBean("测试头像叠加列表组件", SDAvatarListLayoutActivity.class));
-        data.add(new DataBean("测试EditText组件", SDEditTextWidgetActivity.class));
-        data.add(new DataBean("测试评分组件", SDRankingActivity.class));
-        data.add(new DataBean("测试特殊组件", SDSpecialWidgetActivity.class));
-        data.add(new DataBean("测试TextView相关组件", SDTextViewActivity.class));
-        data.add(new DataBean("测试SDFlowTagLayout组件", SDFlowTagLayoutActivity.class));
-        data.add(new DataBean("测试SDTitleLayout相关组件", SDTitleLayoutWidgetActivity.class));
-        data.add(new DataBean("测试验证码输入框组件", VerificationCodeViewActivity.class));
-        data.add(new DataBean("测试SDRecyclerViewAdapter", SDRecyclerViewAdapterActivity.class));
-        data.add(new DataBean("测试越界回弹Behavior", SDOverScrollBehaviorActivity.class));
+        data.add(new DataBean("Test MVP", MVPTestActivity.class));
         return data;
     }
 }

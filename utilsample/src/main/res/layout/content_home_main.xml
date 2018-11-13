@@ -57,7 +57,7 @@
             android:button="@null"
             android:clickable="true"
             android:gravity="center"
-            android:text="SDWidget"
+            android:text="Practice"
             android:textColor="@drawable/select_rb_tab_color"
             app:sd_drawableSize="25dp"
             app:sd_drawableTop="@drawable/select_home_tab" />

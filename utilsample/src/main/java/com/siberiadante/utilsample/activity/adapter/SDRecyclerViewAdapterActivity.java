@@ -14,7 +14,7 @@ import com.siberiadante.androidutil.view.decoration.SDNormalDecoration;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.activity.base.BaseActivity;
 import com.siberiadante.utilsample.adapter.widget.SDRVAdapter;
-import com.siberiadante.utilsample.utils.DocumentDataUtils;
+import com.siberiadante.utilsample.bean.document.DocumentData;
 
 import butterknife.BindView;
 
@@ -59,7 +59,7 @@ public class SDRecyclerViewAdapterActivity extends BaseActivity {
             }
         });
         recyclerView.setAdapter(adapter);
-        adapter.addAll(DocumentDataUtils.getDocumentData(0, 10));
+        adapter.addAll(DocumentData.getDocumentData(0, 10));
 
         adapter.setOnItemClickListener(new SDRecyclerViewAdapter.OnItemClickListener() {
             @Override

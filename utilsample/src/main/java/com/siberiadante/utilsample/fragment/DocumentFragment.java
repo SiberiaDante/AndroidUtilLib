@@ -11,8 +11,8 @@ import com.siberiadante.androidutil.widget.recyclerview.SDOnScrollListener;
 import com.siberiadante.androidutil.widget.recyclerview.SDRecyclerView;
 import com.siberiadante.utilsample.R;
 import com.siberiadante.utilsample.adapter.DocumentAdapter;
+import com.siberiadante.utilsample.bean.document.DocumentData;
 import com.siberiadante.utilsample.fragment.base.BaseFragment;
-import com.siberiadante.utilsample.utils.DocumentDataUtils;
 
 import butterknife.BindView;
 
@@ -49,11 +49,11 @@ public class DocumentFragment extends BaseFragment {
         recyclerView.addItemDecoration(new SDNormalDecoration(ContextCompat.getColor(mActivity, R.color.colorGray), 1));
         final DocumentAdapter adapter = new DocumentAdapter();
         recyclerView.setAdapter(adapter);
-        adapter.setDocumentLists(DocumentDataUtils.getDocumentData(0, 10));
+        adapter.setDocumentLists(DocumentData.getDocumentData(0, 10));
         recyclerView.setOnScrollListener(new SDOnScrollListener(layoutManager) {
             @Override
             public void onLoadMore(int current_page) {
-                adapter.addDocumentLists(DocumentDataUtils.getDocumentData(++page, 10));
+                adapter.addDocumentLists(DocumentData.getDocumentData(++page, 10));
             }
         });
 
@@ -62,7 +62,7 @@ public class DocumentFragment extends BaseFragment {
 //        recyclerView.setOnScrollListener(new SDOnScrollListener(layoutManager) {
 //            @Override
 //            public void onLoadMore(int current_page) {
-//                adapter.addAll(DocumentDataUtils.getDocumentData(++page, 10));
+//                adapter.addAll(DocumentData.getDocumentData(++page, 10));
 //            }
 //        });
     }

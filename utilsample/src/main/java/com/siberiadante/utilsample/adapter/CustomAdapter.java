@@ -4,7 +4,7 @@
 //import android.content.Intent;
 //import android.support.v7.widget.RecyclerView;
 //import android.view.LayoutInflater;
-//import android.view.View;
+//import android.view.BaseView;
 //import android.view.ViewGroup;
 //import android.widget.TextView;
 //
@@ -35,7 +35,7 @@
 //
 //    @Override
 //    public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        View view = inflater.inflate(R.layout.item_custom, parent, false);
+//        BaseView view = inflater.inflate(R.layout.item_custom, parent, false);
 //        return new CustomViewHolder(view);
 //    }
 //
@@ -43,9 +43,9 @@
 //    public void onBindViewHolder(CustomViewHolder holder, final int position) {
 //        holder.textView.setText(mData.get(position).getTitle());
 //
-//        holder.textView.setOnClickListener(new View.OnClickListener() {
+//        holder.textView.setOnClickListener(new BaseView.OnClickListener() {
 //            @Override
-//            public void onClick(View v) {
+//            public void onClick(BaseView v) {
 //                mContext.startActivity(new Intent(mContext, mData.get(position).getCls()));
 //            }
 //        });
@@ -61,7 +61,7 @@
 //
 //        TextView textView;
 //
-//        public CustomViewHolder(View itemView) {
+//        public CustomViewHolder(BaseView itemView) {
 //            super(itemView);
 //            textView = itemView.findViewById(R.id.tv_item);
 //        }

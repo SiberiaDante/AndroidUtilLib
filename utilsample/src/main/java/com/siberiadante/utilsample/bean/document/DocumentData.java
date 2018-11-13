@@ -1,4 +1,4 @@
-package com.siberiadante.utilsample.utils;
+package com.siberiadante.utilsample.bean.document;
 
 import com.siberiadante.androidutil.util.SDLogUtil;
 import com.siberiadante.utilsample.bean.document.DocumentList;
@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * create date: 2018/11/3
  */
-public class DocumentDataUtils {
+public class DocumentData {
     private static List<DocumentList> documentLists = new ArrayList<>();
 
     static {
@@ -26,8 +26,6 @@ public class DocumentDataUtils {
 
     public static List<DocumentList> getDocumentData(int page, int count) {
         List<DocumentList> mDocList = new ArrayList<>();
-        //0-10    10-20
-        //0-10  1-10
         for (int i = page * count; i < (page + 1) * count && i < 100; i++) {
             mDocList.add(documentLists.get(i));
         }

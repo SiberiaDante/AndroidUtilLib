@@ -15,9 +15,9 @@ public class SDTitleLayoutWidgetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sdtitle_layout_widget);
         SDStatusBarUtil.setStatusTranslucent(this);
 //        TitleBarLayout titleBarLayout = (TitleBarLayout) findViewById(R.id.title_layout_one);
-//        titleBarLayout.setTitleClickListener(new View.OnClickListener() {
+//        titleBarLayout.setTitleClickListener(new BaseView.OnClickListener() {
 //            @Override
-//            public void onClick(View view) {
+//            public void onClick(BaseView view) {
 //                Log.d("MainActivity","title 被点击了");
 //            }
 //        });
@@ -25,9 +25,9 @@ public class SDTitleLayoutWidgetActivity extends AppCompatActivity {
 //        titleBarLayout.setTitleSize(30);
 //        //一键设置标题样式
 //        titleBarLayout.setTitleStyle("我是标题", 18, ContextCompat.getColor(this, R.color.colorAccent));
-//        titleBarLayout.setRightImageClickListener(new View.OnClickListener() {
+//        titleBarLayout.setRightImageClickListener(new BaseView.OnClickListener() {
 //            @Override
-//            public void onClick(View view) {
+//            public void onClick(BaseView view) {
 //                Log.d("MainActivity","右边图片被点击了");
 //            }
 //        });
