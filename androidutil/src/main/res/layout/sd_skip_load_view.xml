@@ -7,20 +7,20 @@
 
     <com.siberiadante.androidutil.view.loading.base.SDShapeChangeView
         android:id="@+id/shapeChangeView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="90dp" />
+        android:layout_width="@dimen/sd_thirty"
+        android:layout_height="@dimen/sd_thirty"
+        android:layout_marginBottom="@dimen/sd_ninety" />
 
     <View
         android:id="@+id/shadowView"
-        android:layout_width="33dp"
-        android:layout_height="6dp"
+        android:layout_width="@dimen/sd_thirty_three"
+        android:layout_height="@dimen/sd_six"
         android:background="@drawable/shape_skip_load" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/sd_five"
         android:text="加载中" />
 
 </LinearLayout>

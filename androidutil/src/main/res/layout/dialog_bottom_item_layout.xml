@@ -17,9 +17,9 @@
             android:layout_height="wrap_content"
             android:background="@color/sdColorWhite"
             android:gravity="center"
-            android:minHeight="@dimen/forty_five"
-            android:paddingBottom="@dimen/ten"
-            android:paddingTop="@dimen/ten"
+            android:minHeight="@dimen/sd_forty_five"
+            android:paddingBottom="@dimen/sd_ten"
+            android:paddingTop="@dimen/sd_ten"
             android:textColor="@color/sdColorBlack"
             android:textSize="@dimen/sd_font_13"
             android:visibility="gone" />
@@ -49,7 +49,7 @@
     <TextView
         android:id="@+id/tv_bottom_item_dialog_cancel"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/forty_five"
+        android:layout_height="@dimen/sd_forty_five"
         android:gravity="center"
         android:text="@string/cancel"
         android:textColor="@color/sdColorBlack"

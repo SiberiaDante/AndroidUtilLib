@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="BaseEditText">
         <item name="android:background">@null</item>
         <item name="android:textCursorDrawable">@drawable/edit_cursor_line</item>
@@ -12,14 +13,15 @@
         <item name="android:windowContentOverlay">@null</item>
         <!--是否浮在界面上-->
         <item name="android:windowIsFloating">true</item>
+        <!-- 边框 -->
         <item name="android:windowFrame">@null</item>
-        <!-- 是否允许背景变暗 --> <!--背景是否模糊显示-->
+        <!-- 是否允许背景变暗 -->
         <item name="android:backgroundDimEnabled">true</item>
         <!--是否有标题-->
         <item name="android:windowNoTitle">true</item>
         <!--是否半透明-->
         <item name="android:windowIsTranslucent">true</item>
     </style>
-
-
+    <!-- Dialog进入及退出动画 -->
+    <!--<item name="android:windowAnimationStyle">@style/BottomAnimation</item>-->
 </resources>

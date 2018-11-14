@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sd_rl_title_bar_height"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:ignore="RtlSymmetry">
 
     <!--<RelativeLayout-->
     <!--android:id="@+id/rl_title_bar_height"-->
@@ -26,7 +27,7 @@
             android:maxLines="1"
             android:text="标题"
             android:textColor="@color/sdColorBlack"
-            android:textSize="18sp"
+            android:textSize="@dimen/sd_font_18"
             android:visibility="visible" />
 
         <TextView
@@ -35,10 +36,10 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:paddingBottom="2dp"
+            android:paddingBottom="@dimen/sd_two"
             android:text="副标题"
             android:textColor="@color/sdColorGray"
-            android:textSize="12sp" />
+            android:textSize="@dimen/sd_font_12" />
     </LinearLayout>
 
     <RelativeLayout
@@ -50,7 +51,7 @@
             android:id="@+id/sd_iv_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:paddingLeft="10dp"
+            android:paddingStart="@dimen/sd_ten"
             android:src="@drawable/ic_back_black"
             android:visibility="visible" />
 
@@ -58,9 +59,9 @@
             android:id="@+id/sd_tv_left"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_toRightOf="@id/sd_iv_left"
+            android:layout_toEndOf="@id/sd_iv_left"
             android:gravity="center"
-            android:paddingLeft="10dp"
+            android:paddingStart="@dimen/sd_ten"
             android:text="返回"
             android:visibility="visible" />
     </RelativeLayout>
@@ -76,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:paddingEnd="10dp"
+            android:paddingEnd="@dimen/sd_ten"
             android:visibility="gone" />
 
         <TextView
@@ -84,17 +85,16 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:paddingEnd="10dp"
+            android:paddingEnd="@dimen/sd_ten"
             android:text="搜索"
             android:visibility="visible" />
     </RelativeLayout>
 
 
-
     <View
         android:id="@+id/sd_bottom_item_dialog_view_line"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
+        android:layout_height="@dimen/sd_one_point_five"
         android:layout_alignParentBottom="true"
         android:background="@color/sdColorBlack" />
     <!--</RelativeLayout>-->

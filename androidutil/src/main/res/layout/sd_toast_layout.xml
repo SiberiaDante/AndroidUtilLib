@@ -8,12 +8,11 @@
 
     <ImageView
         android:id="@+id/toast_icon"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp" />
+        android:layout_width="@dimen/sd_twenty_four"
+        android:layout_height="@dimen/sd_twenty_four"
+        android:layout_marginEnd="@dimen/sd_twenty_four" />
 
-    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    <TextView
         android:id="@+id/toast_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

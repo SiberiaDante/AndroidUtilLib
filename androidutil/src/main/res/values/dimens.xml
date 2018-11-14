@@ -240,6 +240,16 @@
     <dimen name="sd_one_hundred_ninety_eight">198dp</dimen>
     <dimen name="sd_one_hundred_ninety_nine">199dp</dimen>
 
+    <dimen name="sd_two_hundred">200dp</dimen>
+    <dimen name="sd_two_hundred_one">201dp</dimen>
+    <dimen name="sd_two_hundred_two">202dp</dimen>
+    <dimen name="sd_two_hundred_three">203dp</dimen>
+    <dimen name="sd_two_hundred_four">204dp</dimen>
+    <dimen name="sd_two_hundred_five">205dp</dimen>
+    <dimen name="sd_two_hundred_six">206dp</dimen>
+    <dimen name="sd_two_hundred_seven">207dp</dimen>
+    <dimen name="sd_two_hundred_eight">208dp</dimen>
+    <dimen name="sd_two_hundred_nine">209dp</dimen>
 
     <dimen name="one_five_zero">150dp</dimen>
 

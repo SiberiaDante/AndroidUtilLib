@@ -51,8 +51,6 @@ public class SDEnsureDialog {
 
     /**
      * 构建
-     *
-     * @return
      */
     public SDEnsureDialog builder() {
         final View view = LayoutInflater.from(context).inflate(R.layout.dialog_ensure_layout, null, false);
@@ -62,7 +60,7 @@ public class SDEnsureDialog {
         mIvIcon = view.findViewById(R.id.iv_icon);
         mTvTitle = view.findViewById(R.id.tv_title);
         mTvSubTitle = view.findViewById(R.id.tv_sub_title);
-        mTvSure = (TextView) view.findViewById(R.id.tv_sure);
+        mTvSure =  view.findViewById(R.id.tv_sure);
         mTvOK = view.findViewById(R.id.tv_ok);
         mTvCancel = view.findViewById(R.id.tv_cancel);
         dialog.setContentView(view);
@@ -76,8 +74,6 @@ public class SDEnsureDialog {
     /**
      * setting dialog position
      *
-     * @param gravity
-     * @return
      */
     public SDEnsureDialog setGravity(int gravity) {
         dialogWindow.setGravity(gravity);
@@ -87,10 +83,9 @@ public class SDEnsureDialog {
     /**
      * setting dialog icon
      *
-     * @param drawable
      * @return
      */
-    public SDEnsureDialog setIncon(int drawable) {
+    public SDEnsureDialog setIcon(int drawable) {
         mIvIcon.setVisibility(View.VISIBLE);
         mIvIcon.setImageResource(drawable);
         return this;

@@ -143,7 +143,7 @@ public class SDDialogViewActivity extends BaseActivity {
         ensureDialog = new SDEnsureDialog(this).builder()
                 .setGravity(Gravity.CENTER)//默认居中，可以不设置
                 .setTitle("这里是一个标题", getResources().getColor(R.color.sdColorBlack))//可以不设置标题颜色，默认系统颜色
-                .setIncon(R.drawable.icon_tips)//不设置图标，默认没有图标
+                .setIcon(R.drawable.icon_tips)//不设置图标，默认没有图标
                 .setCancelable(false)
                 .setNegativeButton("取消", new View.OnClickListener() {//可以选择设置颜色和不设置颜色两个方法
                     @Override

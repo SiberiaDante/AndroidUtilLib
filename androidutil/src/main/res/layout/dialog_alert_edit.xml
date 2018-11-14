@@ -10,9 +10,9 @@
         android:id="@+id/tv_alert_dialog_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/fifteen"
-        android:layout_marginRight="@dimen/fifteen"
-        android:layout_marginTop="@dimen/fifteen"
+        android:layout_marginLeft="@dimen/sd_fifteen"
+        android:layout_marginRight="@dimen/sd_fifteen"
+        android:layout_marginTop="@dimen/sd_fifteen"
         android:gravity="center"
         android:textColor="@color/sdColorBlack"
         android:textSize="@dimen/sd_font_18"
@@ -22,18 +22,18 @@
         android:id="@+id/edt_alert_dialog_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/fifteen"
-        android:layout_marginRight="@dimen/fifteen"
-        android:layout_marginTop="@dimen/fifteen"
+        android:layout_marginLeft="@dimen/sd_fifteen"
+        android:layout_marginRight="@dimen/sd_fifteen"
+        android:layout_marginTop="@dimen/sd_fifteen"
         android:background="@drawable/shape_alert_dialog_edit"
         android:maxLines="1"
-        android:textColor="#000000"
-        android:textSize="18sp" />
+        android:textColor="@color/sdColorBlack"
+        android:textSize="@dimen/sd_font_18" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/sd_ten"
         android:background="@color/sdColorGrayLine" />
 
     <LinearLayout
@@ -44,24 +44,24 @@
         <Button
             android:id="@+id/btn_alert_dialog_cancel"
             android:layout_width="wrap_content"
-            android:layout_height="43dp"
+            android:layout_height="@dimen/sd_forty_three"
             android:layout_weight="1"
             android:background="@drawable/dialog_alert_edit_cancel_normal"
             android:gravity="center"
             android:textColor="@color/sdColorBlack"
-            android:textSize="16sp"
+            android:textSize="@dimen/sd_font_16"
             android:textStyle="normal" />
 
         <ImageView
             android:id="@+id/img_alert_dialog_line"
-            android:layout_width="0.5dp"
-            android:layout_height="43dp"
+            android:layout_width="@dimen/sd_one_point_five"
+            android:layout_height="@dimen/sd_forty_three"
             android:background="@color/sdColorGrayLine" />
 
         <Button
             android:id="@+id/btn_alert_dialog_sure"
             android:layout_width="wrap_content"
-            android:layout_height="43dp"
+            android:layout_height="@dimen/sd_forty_three"
             android:layout_weight="1"
             android:background="@drawable/dialog_alert_edit_sure_normal"
             android:gravity="center"
