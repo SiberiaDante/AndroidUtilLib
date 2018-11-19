@@ -26,7 +26,7 @@ public class SDLineEditText extends AppCompatEditText {
     private Paint mPaint;
     private int mLineColor = Color.BLACK;
     private int mLineHeight = 1;
-    private int mLinePaddingTop = 1;
+//    private int mLinePaddingTop = 1;
 
     public SDLineEditText(Context context) {
         super(context);
@@ -42,7 +42,7 @@ public class SDLineEditText extends AppCompatEditText {
         mPaint = new Paint();
         mLineColor = attrArrays.getColor(R.styleable.SDLineEditText_sd_line_color, mLineColor);
         mLineHeight = attrArrays.getDimensionPixelSize(R.styleable.SDLineEditText_sd_line_height, mLineHeight);
-        mLinePaddingTop = attrArrays.getDimensionPixelSize(R.styleable.SDLineEditText_sd_line_paddingTop, mLinePaddingTop);
+//        mLinePaddingTop = attrArrays.getDimensionPixelSize(R.styleable.SDLineEditText_sd_line_paddingTop, mLinePaddingTop);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(mLineColor);
         mPaint.setStrokeWidth(mLineHeight);
@@ -57,6 +57,7 @@ public class SDLineEditText extends AppCompatEditText {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawLine(0, getHeight() - mLinePaddingTop, getWidth(), getHeight() - mLinePaddingTop, mPaint);
+//        canvas.drawLine(0, getHeight() - mLinePaddingTop, getWidth(), getHeight() - mLinePaddingTop, mPaint);
+        canvas.drawLine(0, getHeight(), getWidth(), getHeight(), mPaint);
     }
 }

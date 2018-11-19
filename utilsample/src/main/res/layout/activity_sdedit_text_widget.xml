@@ -12,16 +12,30 @@
         android:orientation="vertical"
         android:padding="@dimen/page_padding_16">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SDLineEditText:支持修改下划线高度、颜色" />
+
         <com.siberiadante.androidutil.widget.edittext.SDLineEditText
             android:id="@+id/edt_line"
             style="@style/BaseEditText"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/sd_eighty"
+            android:layout_height="@dimen/sd_fifty"
+            android:background="@color/colorGrayF1"
             android:gravity="center_vertical"
-            android:hint="自定义EditText下划线(下划线高度、颜色、padding)：SDLineEditText"
+            android:hint="请输入内容"
             android:textSize="@dimen/sd_font_12"
+            android:paddingStart="@dimen/five"
             dante:sd_line_color="@color/colorRed"
-            dante:sd_line_height="@dimen/five" />
+            dante:sd_line_height="@dimen/two"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/eighteen"
+            android:gravity="center_vertical"
+            android:text="只能输入金额格式的内容并保留两位小数,还可以设置输入金额的最大上限，如下，不能超过100：" />
 
         <EditText
             android:id="@+id/edt_cash"
@@ -29,11 +43,9 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/fifty"
             android:background="@color/colorGrayF1"
-            android:paddingStart="@dimen/five"
-            android:layout_marginTop="@dimen/eighteen"
-            android:hint="只能输入金额格式的内容并保留两位小数"
+            android:hint="输入充值金额"
             android:inputType="numberDecimal"
+            android:paddingStart="@dimen/five"
             android:textSize="@dimen/sd_font_12" />
-
     </LinearLayout>
 </ScrollView>
