@@ -26,7 +26,7 @@ import com.siberiadante.androidutil.util.SDTransitionUtil;
  */
 
 public class SDLetterIndexView extends View {
-
+    public static final String TAG = SDLetterIndexView.class.getSimpleName();
     private Paint mDefaultPaint, mSelectPaint;
     private int mDefaultTextColor = Color.BLACK;
     private int mSelectTextColor = Color.RED;
@@ -81,7 +81,7 @@ public class SDLetterIndexView extends View {
                 if (index > letters.length - 1) {
                     index = letters.length - 1;
                 }
-                Log.d("m1Ku", "index = " + index);
+                SDLogUtil.d(TAG, "index = " + index);
 
                 if (index == mTouchIndex) {
                     return true;
@@ -89,7 +89,7 @@ public class SDLetterIndexView extends View {
                 mTouchIndex = index;
                 if (onLetterTouchListener != null)
                     onLetterTouchListener.onTouchIndex(letters[mTouchIndex], true);
-                Log.e("m1Ku", "mTouchIndex = " + mTouchIndex);
+                Log.e(TAG, "mTouchIndex = " + mTouchIndex);
                 invalidate();
 
                 break;

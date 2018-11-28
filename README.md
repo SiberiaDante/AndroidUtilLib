@@ -101,35 +101,41 @@ SDDrawableDecoration        RecyclerView 分隔线，可传入一个Drawable对�
 SDNormalDecoration          RecyclerView 分隔线,可设置颜色和高度
 ```
 #### SD-Widget相关类
-```
-SDLineEditText              自定义下划线的EditText
-SDCashierInputFilter        格式化EditText只能输入金额格式的数字
-SDFlowTagLayout             自适应的标签流式布局，适用于搜索历史、标签等
-SDFlowLayout                自适应的标签流式布局，支持单选、多选等
-SDShapeFrameLayout          简化FrameLayout shape 画背景
-SDAvatarListLayout          头像列表叠加组件
-SDCircleImageView           圆形ImageView，可设置描边相关等
-SDNotifyImageView           带通知圆点的ImageView
-SDRoundImageView            可以设置ImageView 圆角、圆等
-SDFullyGridLayoutManager    解决ScrollView嵌套RecyclerView的问题
-SDFullyLinearLayoutManager  解决ScrollView嵌套RecyclerView的问题
-SDFullyStaggeredGridLayoutManager   解决ScrollView嵌套RecyclerView的问题
-SDShapeLinearLayout         简化LinearLayout shape 画背景
-SDDrawableRadioButton       可设置图片大小的RadioButton
-SDNotifyRadioButton         带通知圆点的RadioButton
-SDShapeRelativeLayout       简化RelativeLayout shape 画背景
-SDHexagonView               正六边形TextView
-SDLetterIndexView           字母索引组件
-SDRatingBarView             评分组件
-SDTitleLayout               通用的标题栏，支持动态修改、沉浸式等
-SDVerificationCodeView      验证码/密码方框格式输入控件
-SDAdaptiveTextView          解决TextView的内容中包含中英文导致自动换行bug
-SDFoldTextView
-SDShapeTextView             简化TextView shape 画背景
-SDLetterSpaceTextView
-SuperTextView
-SDCenterAlignImageSpan      图文混排对齐的ImageSpan
-```
+
+    SDLineEditText              自定义下划线的EditText
+    SDCashierInputFilter        格式化EditText只能输入金额格式的数字
+    SDVerificationCodeView      验证码/密码方框格式输入控件
+
+    SDFlowTagLayout             自适应的标签流式布局，适用于搜索历史、标签等
+    SDFlowLayout                自适应的标签流式布局，支持单选、多选等
+    
+    SDAvatarListLayout          头像列表叠加组件
+    SDCircleImageView           圆形ImageView，可设置描边相关等
+    SDNotifyImageView           带通知圆点的ImageView
+    SDRoundImageView            可以设置ImageView 圆角、圆等
+    
+    SDFullyGridLayoutManager    解决ScrollView嵌套RecyclerView的问题
+    SDFullyLinearLayoutManager  解决ScrollView嵌套RecyclerView的问题
+    SDFullyStaggeredGridLayoutManager   解决ScrollView嵌套RecyclerView的问题
+    
+    SDShapeFrameLayout          简化FrameLayout shape 画背景
+    SDShapeLinearLayout         简化LinearLayout shape 画背景
+    SDShapeRelativeLayout       简化RelativeLayout shape 画背景
+    SDShapeTextView             简化TextView shape 画背景
+    
+    SDDrawableRadioButton       可设置图片大小的RadioButton
+    SDNotifyRadioButton         带通知圆点的RadioButton
+    
+    SDAdaptiveTextView          解决TextView的内容中包含中英文导致自动换行bug
+    SDFoldTextView
+    SuperTextView
+    SDCenterAlignImageSpan      图文混排对齐的ImageSpan
+    SDLetterSpaceTextView
+    
+    SDHexagonView               正六边形TextView
+    SDLetterIndexView           字母索引组件
+    SDRatingBarView             评分组件
+    SDTitleLayout               通用的标题栏，支持动态修改、沉浸式等
 
 #### 标题栏[【详细使用方法和介绍点这里查看】](https://github.com/SiberiaDante/TitleLayout)
 ```

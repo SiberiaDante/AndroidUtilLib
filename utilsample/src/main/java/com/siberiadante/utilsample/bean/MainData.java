@@ -38,6 +38,7 @@ import com.siberiadante.utilsample.activity.widget.SDAvatarListLayoutActivity;
 import com.siberiadante.utilsample.activity.widget.SDEditTextWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDFlowTagLayoutActivity;
 import com.siberiadante.utilsample.activity.widget.SDImageViewActivity;
+import com.siberiadante.utilsample.activity.widget.SDLetterIndexActivity;
 import com.siberiadante.utilsample.activity.widget.SDOverScrollBehaviorActivity;
 import com.siberiadante.utilsample.activity.widget.SDShapeWidgetActivity;
 import com.siberiadante.utilsample.activity.widget.SDSpecialWidgetActivity;
@@ -105,6 +106,7 @@ public class MainData {
         data.add(new DataBean("评分组件", SDRankingActivity.class));
         data.add(new DataBean("特殊组件", SDSpecialWidgetActivity.class));
         data.add(new DataBean("验证码输入框组件", VerificationCodeViewActivity.class));
+        data.add(new DataBean("字母索引组件", SDLetterIndexActivity.class));
         data.add(new DataBean("测试越界回弹Behavior", SDOverScrollBehaviorActivity.class));
 
 

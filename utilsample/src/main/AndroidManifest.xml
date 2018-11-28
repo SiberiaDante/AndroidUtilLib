@@ -111,7 +111,8 @@
             android:theme="@style/AppThemeNoActionBar" />
         <activity android:name=".activity.view.SDDecorationActivity" />
         <activity android:name=".activity.adapter.SDRecyclerViewAdapterActivity" />
-        <activity android:name=".activity.practice.MVPTestActivity"></activity>
+        <activity android:name=".activity.practice.MVPTestActivity" />
+        <activity android:name=".activity.widget.SDLetterIndexActivity"></activity>
     </application>
 
 </manifest>
