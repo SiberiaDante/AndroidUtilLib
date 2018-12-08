@@ -153,24 +153,40 @@ public class SDJumpUtil {
      * @param phoneNumber 电话号码
      */
     public static void openCall(final String phoneNumber) {
-        SDAndroidLib.getContext().startActivity(SDIntentUtil.getCallIntent(phoneNumber));
+        openCall(SDAndroidLib.getContext(), phoneNumber, true);
+    }
+
+    /**
+     * 拨打电话
+     * <p>需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}</p>
+     *
+     * @param phoneNumber    电话号码
+     * @param isRedirectCall 是否直接拨打
+     */
+    public static void openCall(final String phoneNumber, boolean isRedirectCall) {
+        openCall(SDAndroidLib.getContext(), phoneNumber, true);
     }
 
     /**
      * 拨打电话
      * 需添加权限 {@code <uses-permission android:name="android.permission.CALL_PHONE"/>}
      *
-     * @param context     上下文
-     * @param phoneNumber 电话号码
+     * @param context        上下文
+     * @param phoneNumber    电话号码
+     * @param isRedirectCall 是否直接拨打
      */
     @SuppressLint("MissingPermission")
-    public static void openCall(final Context context, String phoneNumber) {
+    public static void openCall(final Context context, String phoneNumber, boolean isRedirectCall) {
         if (!SDStringUtil.isEmpty(phoneNumber)) {
             final String phoneNumber1 = phoneNumber.trim();// 删除字符串首部和尾部的空格
             // 调用系统的拨号服务实现电话拨打功能
             // 封装一个拨打电话的intent，并且将电话号码包装成一个Uri对象传入
-
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber1));
+            Intent intent;
+            if (isRedirectCall) {
+                intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber1));
+            } else {
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phoneNumber1));
+            }
             if (ActivityCompat.checkSelfPermission(context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                 return;
             }

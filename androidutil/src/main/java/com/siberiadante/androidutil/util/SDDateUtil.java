@@ -297,7 +297,7 @@ public class SDDateUtil {
      * @return date or time
      */
     @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
-    public static String getSDFTime(String format) {
+    public static String getCurrentSDFTime(String format) {
         if (format == null || format.isEmpty()) {
             format = "yyyy-MM-dd HH:mm:ss";
         }
