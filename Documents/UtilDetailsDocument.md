@@ -98,7 +98,6 @@ closeIO(Closeable... closeables)
 
 ```
 
-
 ### SDDataUtil
 ```
 intsGetSum(int[] ints) 
