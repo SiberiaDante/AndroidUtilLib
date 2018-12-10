@@ -95,7 +95,6 @@ closeIO(Closeable... closeables)
 
 ### SDCrashHandler
 ```
-
 ```
 
 ### SDDataUtil
