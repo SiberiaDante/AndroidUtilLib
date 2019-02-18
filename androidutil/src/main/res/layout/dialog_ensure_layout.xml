@@ -20,7 +20,11 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingStart="@dimen/sd_twenty_five"
+            android:paddingTop="@dimen/sd_ten"
+            android:paddingEnd="@dimen/sd_twenty_five"
+            android:paddingBottom="@dimen/sd_five">
 
             <ImageView
                 android:id="@+id/iv_icon"
