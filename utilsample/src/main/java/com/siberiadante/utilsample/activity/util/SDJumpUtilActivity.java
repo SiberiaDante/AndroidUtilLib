@@ -15,6 +15,7 @@ import butterknife.OnClick;
 
 /**
  * Created:： SiberiaDante
+ *
  * @Date： 2018/01/01
  * Describe：
  * @github： https://github.com/SiberiaDante
@@ -71,7 +72,8 @@ public class SDJumpUtilActivity extends BaseActivity {
             R.id.btn_open_email, R.id.btn_send_email,
             R.id.btn_open_location_setting,
             R.id.btn_open_language_setting,
-            R.id.btn_open_call, R.id.btn_open_send_sms, R.id.btn_open_send_sms_client
+            R.id.btn_open_call, R.id.btn_open_send_sms, R.id.btn_open_send_sms_client,
+            R.id.btn_jump_to_market
     })
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -127,6 +129,9 @@ public class SDJumpUtilActivity extends BaseActivity {
                 break;
             case R.id.btn_open_send_sms_client:
                 SDJumpUtil.openSendSmsSilent("10086", "余额");
+                break;
+            case R.id.btn_jump_to_market:
+                SDJumpUtil.jumpToMarket();
                 break;
         }
     }

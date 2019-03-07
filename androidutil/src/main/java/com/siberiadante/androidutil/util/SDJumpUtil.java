@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +34,8 @@ import java.util.List;
  */
 
 public class SDJumpUtil {
+
+    private static final String TAG = SDJumpUtil.class.getSimpleName();
 
     /**
      * 打开设置首页
@@ -202,6 +205,42 @@ public class SDJumpUtil {
      */
     public static void openSendSms(final String phoneNumber, final String content) {
         SDAndroidLib.getContext().startActivity(SDIntentUtil.getSendSmsIntent(phoneNumber, content));
+    }
+
+    /**
+     * 跳转到手机应用商店对应的应用详情页
+     */
+    public static void jumpToMarket() {
+        jumpToMarket(null);
+    }
+
+    /**
+     * 跳转到指定包名的应用市场
+     *
+     * @param packageName 包名：Google Play:{@code com.android.vending}
+     */
+    public static void jumpToMarket(String packageName) {
+        try {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("market://details?id=" + SDAndroidLib.getContext().getPackageName()));
+            if (null != packageName) {
+                intent.setPackage(packageName);
+            }
+            if (intent.resolveActivity(SDAndroidLib.getContext().getPackageManager()) != null) {
+                SDAndroidLib.getContext().startActivity(intent);
+            } else {//没有应用市场，通过浏览器跳转到Google Play
+                Intent intent2 = new Intent(Intent.ACTION_VIEW);
+                intent2.setData(Uri.parse("https://play.google.com/store/apps/details?id=" + SDAndroidLib.getContext().getPackageName()));
+                if (intent2.resolveActivity(SDAndroidLib.getContext().getPackageManager()) != null) {
+                    SDAndroidLib.getContext().startActivity(intent2);
+                } else {
+                    //没有应用市场 也没有浏览器
+                    SDLogUtil.e(TAG, "----------this device no market and browse");
+                }
+            }
+        } catch (ActivityNotFoundException activityNotFoundException1) {
+            SDLogUtil.e(TAG, "GoogleMarket Intent not found");
+        }
     }
 
     /**

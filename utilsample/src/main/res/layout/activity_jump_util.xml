@@ -53,11 +53,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="打开无线设置页面" />
+
         <Button
             android:id="@+id/btn_open_network_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="打开无线和网络设置页面" />
+
         <Button
             android:id="@+id/btn_open_browser"
             android:layout_width="match_parent"
@@ -93,16 +95,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="打开拨打电话页面" />
+
         <Button
             android:id="@+id/btn_open_send_sms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="打开发送短信页面" />
+
         <Button
             android:id="@+id/btn_open_send_sms_client"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="打开发送短信页面静默" />
+
+        <Button
+            android:id="@+id/btn_jump_to_market"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="跳转到应用市场" />
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
