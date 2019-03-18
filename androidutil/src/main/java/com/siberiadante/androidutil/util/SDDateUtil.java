@@ -307,6 +307,22 @@ public class SDDateUtil {
     }
 
     /**
+     * support the output of various formats of the current date and time
+     *
+     * @param format time format of your definition
+     * @return date or time
+     */
+    @RequiresApi(api = Build.VERSION_CODES.GINGERBREAD)
+    public static String getSDFTime(String format) {
+        if (format == null || format.isEmpty()) {
+            format = "yyyy-MM-dd HH:mm:ss";
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.CHINA);
+        Long strLong = Long.valueOf(getTimeStamp());
+        return sdf.format(new Date(strLong * 1000));
+    }
+
+    /**
      * get the time based on timestamp and time format
      *
      * @param timestamp timestamp
